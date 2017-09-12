@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSPaatientLeave" targetNamespace="http://tempuri.org/DSPaatientLeave.xsd" xmlns:mstns="http://tempuri.org/DSPaatientLeave.xsd" xmlns="http://tempuri.org/DSPaatientLeave.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoDBConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoDBConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TakeoHospitalInventory.My.MySettings.GlobalReference.Default.TakeoDBConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoDBConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TakeoHospitalInventory.My.MySettings.GlobalReference.Default.TakeoDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VNewInLeavewWithTreatmentTableAdapter" GeneratorDataComponentClassName="VNewInLeavewWithTreatmentTableAdapter" Name="VNewInLeavewWithTreatment" UserDataComponentName="VNewInLeavewWithTreatmentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.VNewInLeavewWithTreatment" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        NewInPatientNo, PatientNo, NameKhmer, NameEng, Age, Sex, Address, Eye, Diagnosis, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, CreateDate, 
+                         Waiting, DeleteOption, TypeDiagnosis, Treatment, DR_NAME
+FROM            VNewInLeavewWithTreatment</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NewInPatientNo" DataSetColumn="NewInPatientNo" />
+              <Mapping SourceColumn="PatientNo" DataSetColumn="PatientNo" />
+              <Mapping SourceColumn="NameKhmer" DataSetColumn="NameKhmer" />
+              <Mapping SourceColumn="NameEng" DataSetColumn="NameEng" />
+              <Mapping SourceColumn="Age" DataSetColumn="Age" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Eye" DataSetColumn="Eye" />
+              <Mapping SourceColumn="Diagnosis" DataSetColumn="Diagnosis" />
+              <Mapping SourceColumn="VA_RE" DataSetColumn="VA_RE" />
+              <Mapping SourceColumn="VA_LE" DataSetColumn="VA_LE" />
+              <Mapping SourceColumn="DateDischarge" DataSetColumn="DateDischarge" />
+              <Mapping SourceColumn="DateFollowUp" DataSetColumn="DateFollowUp" />
+              <Mapping SourceColumn="Signature" DataSetColumn="Signature" />
+              <Mapping SourceColumn="Leave" DataSetColumn="Leave" />
+              <Mapping SourceColumn="CreateDate" DataSetColumn="CreateDate" />
+              <Mapping SourceColumn="Waiting" DataSetColumn="Waiting" />
+              <Mapping SourceColumn="DeleteOption" DataSetColumn="DeleteOption" />
+              <Mapping SourceColumn="TypeDiagnosis" DataSetColumn="TypeDiagnosis" />
+              <Mapping SourceColumn="Treatment" DataSetColumn="Treatment" />
+              <Mapping SourceColumn="DR_NAME" DataSetColumn="DR_NAME" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.VNewInLeavewWithTreatment" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectPatientLeaveDateToDate" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="SelectPatientLeaveDateToDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectPatientLeaveDateToDate" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Address, Age, CreateDate, DR_NAME, DateDischarge, DateFollowUp, DeleteOption, Diagnosis, Eye, Leave, NameEng, NameKhmer, NewInPatientNo, PatientNo, Sex, Signature, Treatment, TypeDiagnosis, VA_LE, VA_RE, Waiting FROM VNewInLeavewWithTreatment WHERE (CAST(CONVERT (VARCHAR(10), DateDischarge, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime)) ORDER BY DateDischarge</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="DFrom" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@DFrom" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="DateTo" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@DateTo" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.VNewInLeavewWithTreatment" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectPatientFollowupWard" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="SelectPatientFollowupWard" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectPatientFollowupWard" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Address, Age, CreateDate, DR_NAME, DateDischarge, DateFollowUp, DeleteOption, Diagnosis, Eye, Leave, NameEng, NameKhmer, NewInPatientNo, PatientNo, Sex, Signature, Treatment, TypeDiagnosis, VA_LE, VA_RE, Waiting FROM VNewInLeavewWithTreatment WHERE (CAST(CONVERT (VARCHAR(10), DateFollowUp, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime)) ORDER BY DateFollowUp</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="DFrom" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@DFrom" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="DateTo" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@DateTo" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.VNewInLeavewWithTreatment" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectFollowUpInWardDoctor" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="SelectFollowUpInWardDoctor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectFollowUpInWardDoctor" UserSourceName="FillBy2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Address, Age, CreateDate, DR_NAME, DateDischarge, DateFollowUp, DeleteOption, Diagnosis, Eye, Leave, NameEng, NameKhmer, NewInPatientNo, PatientNo, Sex, Signature, Treatment, TypeDiagnosis, VA_LE, VA_RE, Waiting FROM VNewInLeavewWithTreatment WHERE (CAST(CONVERT (VARCHAR(10), DateFollowUp, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime)) 
+AND DR_NAME=@DR_NAME
+ORDER BY DateFollowUp</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="DFrom" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@DFrom" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="DateTo" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@DateTo" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="DR_NAME" ColumnName="DR_NAME" DataSourceName="TakeoDB.dbo.VNewInLeavewWithTreatment" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@DR_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="DR_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblNewInPatientTableAdapter" GeneratorDataComponentClassName="TblNewInPatientTableAdapter" Name="TblNewInPatient" UserDataComponentName="TblNewInPatientTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.TblNewInPatient" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [TblNewInPatient] WHERE (([NewInPatientNo] = @Original_NewInPatientNo) AND ((@IsNull_PatientNo = 1 AND [PatientNo] IS NULL) OR ([PatientNo] = @Original_PatientNo)) AND ((@IsNull_Eye = 1 AND [Eye] IS NULL) OR ([Eye] = @Original_Eye)) AND ((@IsNull_Diagnosis = 1 AND [Diagnosis] IS NULL) OR ([Diagnosis] = @Original_Diagnosis)) AND ((@IsNull_DiagnosisTem = 1 AND [DiagnosisTem] IS NULL) OR ([DiagnosisTem] = @Original_DiagnosisTem)) AND ((@IsNull_VA_RE = 1 AND [VA_RE] IS NULL) OR ([VA_RE] = @Original_VA_RE)) AND ((@IsNull_VA_LE = 1 AND [VA_LE] IS NULL) OR ([VA_LE] = @Original_VA_LE)) AND ((@IsNull_DateDischarge = 1 AND [DateDischarge] IS NULL) OR ([DateDischarge] = @Original_DateDischarge)) AND ((@IsNull_DateFollowUp = 1 AND [DateFollowUp] IS NULL) OR ([DateFollowUp] = @Original_DateFollowUp)) AND ((@IsNull_Signature = 1 AND [Signature] IS NULL) OR ([Signature] = @Original_Signature)) AND ((@IsNull_Leave = 1 AND [Leave] IS NULL) OR ([Leave] = @Original_Leave)) AND ((@IsNull_CreateDate = 1 AND [CreateDate] IS NULL) OR ([CreateDate] = @Original_CreateDate)) AND ((@IsNull_Waiting = 1 AND [Waiting] IS NULL) OR ([Waiting] = @Original_Waiting)) AND ((@IsNull_TypeDiagnosis = 1 AND [TypeDiagnosis] IS NULL) OR ([TypeDiagnosis] = @Original_TypeDiagnosis)) AND ((@IsNull_DeleteOption = 1 AND [DeleteOption] IS NULL) OR ([DeleteOption] = @Original_DeleteOption)) AND ((@IsNull_HistoryOT = 1 AND [HistoryOT] IS NULL) OR ([HistoryOT] = @Original_HistoryOT)) AND ((@IsNull_HistDatePrepar = 1 AND [HistDatePrepar] IS NULL) OR ([HistDatePrepar] = @Original_HistDatePrepar)) AND ((@IsNull_DR_NAME = 1 AND [DR_NAME] IS NULL) OR ([DR_NAME] = @Original_DR_NAME)) AND ((@IsNull_IS_CALL = 1 AND [IS_CALL] IS NULL) OR ([IS_CALL] = @Original_IS_CALL)) AND ((@IsNull_CALL_DATE = 1 AND [CALL_DATE] IS NULL) OR ([CALL_DATE] = @Original_CALL_DATE)) AND ((@IsNull_CALL_NOTED = 1 AND [CALL_NOTED] IS NULL) OR ([CALL_NOTED] = @Original_CALL_NOTED)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_NewInPatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="NewInPatientNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PatientNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PatientNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PatientNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Eye" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Eye" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Eye" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Eye" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Diagnosis" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Diagnosis" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Diagnosis" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Diagnosis" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DiagnosisTem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DiagnosisTem" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DiagnosisTem" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DiagnosisTem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VA_RE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VA_RE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_VA_RE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_RE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VA_LE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VA_LE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_VA_LE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_LE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DateDischarge" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DateDischarge" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DateDischarge" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateDischarge" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DateFollowUp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DateFollowUp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DateFollowUp" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateFollowUp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Signature" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Signature" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Leave" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Leave" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_Leave" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Leave" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Waiting" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Waiting" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Waiting" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Waiting" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TypeDiagnosis" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TypeDiagnosis" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_TypeDiagnosis" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TypeDiagnosis" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DeleteOption" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DeleteOption" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_DeleteOption" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="DeleteOption" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HistoryOT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HistoryOT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_HistoryOT" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="HistoryOT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HistDatePrepar" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HistDatePrepar" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_HistDatePrepar" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="HistDatePrepar" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DR_NAME" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DR_NAME" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DR_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IS_CALL" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IS_CALL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IS_CALL" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IS_CALL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CALL_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CALL_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CALL_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CALL_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CALL_NOTED" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CALL_NOTED" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CALL_NOTED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CALL_NOTED" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [TblNewInPatient] ([PatientNo], [Eye], [Diagnosis], [DiagnosisTem], [VA_RE], [VA_LE], [DateDischarge], [DateFollowUp], [Signature], [Leave], [CreateDate], [Waiting], [TypeDiagnosis], [DeleteOption], [HistoryOT], [HistDatePrepar], [DR_NAME], [IS_CALL], [CALL_DATE], [CALL_NOTED]) VALUES (@PatientNo, @Eye, @Diagnosis, @DiagnosisTem, @VA_RE, @VA_LE, @DateDischarge, @DateFollowUp, @Signature, @Leave, @CreateDate, @Waiting, @TypeDiagnosis, @DeleteOption, @HistoryOT, @HistDatePrepar, @DR_NAME, @IS_CALL, @CALL_DATE, @CALL_NOTED);
+SELECT NewInPatientNo, PatientNo, Eye, Diagnosis, DiagnosisTem, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, CreateDate, Waiting, TypeDiagnosis, DeleteOption, HistoryOT, HistDatePrepar, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTED FROM TblNewInPatient WHERE (NewInPatientNo = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PatientNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Eye" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Eye" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Diagnosis" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Diagnosis" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DiagnosisTem" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DiagnosisTem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@VA_RE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_RE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@VA_LE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_LE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DateDischarge" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateDischarge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DateFollowUp" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateFollowUp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Signature" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Leave" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Leave" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Waiting" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Waiting" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@TypeDiagnosis" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TypeDiagnosis" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@DeleteOption" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="DeleteOption" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@HistoryOT" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="HistoryOT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@HistDatePrepar" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="HistDatePrepar" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DR_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IS_CALL" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IS_CALL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CALL_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CALL_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CALL_NOTED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CALL_NOTED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        NewInPatientNo, PatientNo, Eye, Diagnosis, DiagnosisTem, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, CreateDate, Waiting, TypeDiagnosis, 
+                         DeleteOption, HistoryOT, HistDatePrepar, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTED
+FROM            TblNewInPatient</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [TblNewInPatient] SET [PatientNo] = @PatientNo, [Eye] = @Eye, [Diagnosis] = @Diagnosis, [DiagnosisTem] = @DiagnosisTem, [VA_RE] = @VA_RE, [VA_LE] = @VA_LE, [DateDischarge] = @DateDischarge, [DateFollowUp] = @DateFollowUp, [Signature] = @Signature, [Leave] = @Leave, [CreateDate] = @CreateDate, [Waiting] = @Waiting, [TypeDiagnosis] = @TypeDiagnosis, [DeleteOption] = @DeleteOption, [HistoryOT] = @HistoryOT, [HistDatePrepar] = @HistDatePrepar, [DR_NAME] = @DR_NAME, [IS_CALL] = @IS_CALL, [CALL_DATE] = @CALL_DATE, [CALL_NOTED] = @CALL_NOTED WHERE (([NewInPatientNo] = @Original_NewInPatientNo) AND ((@IsNull_PatientNo = 1 AND [PatientNo] IS NULL) OR ([PatientNo] = @Original_PatientNo)) AND ((@IsNull_Eye = 1 AND [Eye] IS NULL) OR ([Eye] = @Original_Eye)) AND ((@IsNull_Diagnosis = 1 AND [Diagnosis] IS NULL) OR ([Diagnosis] = @Original_Diagnosis)) AND ((@IsNull_DiagnosisTem = 1 AND [DiagnosisTem] IS NULL) OR ([DiagnosisTem] = @Original_DiagnosisTem)) AND ((@IsNull_VA_RE = 1 AND [VA_RE] IS NULL) OR ([VA_RE] = @Original_VA_RE)) AND ((@IsNull_VA_LE = 1 AND [VA_LE] IS NULL) OR ([VA_LE] = @Original_VA_LE)) AND ((@IsNull_DateDischarge = 1 AND [DateDischarge] IS NULL) OR ([DateDischarge] = @Original_DateDischarge)) AND ((@IsNull_DateFollowUp = 1 AND [DateFollowUp] IS NULL) OR ([DateFollowUp] = @Original_DateFollowUp)) AND ((@IsNull_Signature = 1 AND [Signature] IS NULL) OR ([Signature] = @Original_Signature)) AND ((@IsNull_Leave = 1 AND [Leave] IS NULL) OR ([Leave] = @Original_Leave)) AND ((@IsNull_CreateDate = 1 AND [CreateDate] IS NULL) OR ([CreateDate] = @Original_CreateDate)) AND ((@IsNull_Waiting = 1 AND [Waiting] IS NULL) OR ([Waiting] = @Original_Waiting)) AND ((@IsNull_TypeDiagnosis = 1 AND [TypeDiagnosis] IS NULL) OR ([TypeDiagnosis] = @Original_TypeDiagnosis)) AND ((@IsNull_DeleteOption = 1 AND [DeleteOption] IS NULL) OR ([DeleteOption] = @Original_DeleteOption)) AND ((@IsNull_HistoryOT = 1 AND [HistoryOT] IS NULL) OR ([HistoryOT] = @Original_HistoryOT)) AND ((@IsNull_HistDatePrepar = 1 AND [HistDatePrepar] IS NULL) OR ([HistDatePrepar] = @Original_HistDatePrepar)) AND ((@IsNull_DR_NAME = 1 AND [DR_NAME] IS NULL) OR ([DR_NAME] = @Original_DR_NAME)) AND ((@IsNull_IS_CALL = 1 AND [IS_CALL] IS NULL) OR ([IS_CALL] = @Original_IS_CALL)) AND ((@IsNull_CALL_DATE = 1 AND [CALL_DATE] IS NULL) OR ([CALL_DATE] = @Original_CALL_DATE)) AND ((@IsNull_CALL_NOTED = 1 AND [CALL_NOTED] IS NULL) OR ([CALL_NOTED] = @Original_CALL_NOTED)));
+SELECT NewInPatientNo, PatientNo, Eye, Diagnosis, DiagnosisTem, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, CreateDate, Waiting, TypeDiagnosis, DeleteOption, HistoryOT, HistDatePrepar, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTED FROM TblNewInPatient WHERE (NewInPatientNo = @NewInPatientNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PatientNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Eye" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Eye" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Diagnosis" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Diagnosis" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DiagnosisTem" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DiagnosisTem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@VA_RE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_RE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@VA_LE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_LE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DateDischarge" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateDischarge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DateFollowUp" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateFollowUp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Signature" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Leave" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Leave" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CreateDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Waiting" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Waiting" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@TypeDiagnosis" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TypeDiagnosis" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@DeleteOption" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="DeleteOption" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@HistoryOT" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="HistoryOT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@HistDatePrepar" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="HistDatePrepar" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DR_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IS_CALL" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IS_CALL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CALL_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CALL_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CALL_NOTED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CALL_NOTED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_NewInPatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="NewInPatientNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PatientNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PatientNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PatientNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Eye" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Eye" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Eye" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Eye" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Diagnosis" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Diagnosis" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Diagnosis" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Diagnosis" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DiagnosisTem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DiagnosisTem" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DiagnosisTem" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DiagnosisTem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VA_RE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VA_RE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_VA_RE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_RE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VA_LE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VA_LE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_VA_LE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VA_LE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DateDischarge" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DateDischarge" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DateDischarge" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateDischarge" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DateFollowUp" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DateFollowUp" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DateFollowUp" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DateFollowUp" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Signature" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_Signature" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Leave" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Leave" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_Leave" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="Leave" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreateDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreateDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CreateDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CreateDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Waiting" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Waiting" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Waiting" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Waiting" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TypeDiagnosis" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TypeDiagnosis" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_TypeDiagnosis" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="TypeDiagnosis" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DeleteOption" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DeleteOption" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_DeleteOption" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="DeleteOption" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HistoryOT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HistoryOT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_HistoryOT" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="HistoryOT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HistDatePrepar" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HistDatePrepar" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_HistDatePrepar" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="HistDatePrepar" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DR_NAME" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DR_NAME" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DR_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IS_CALL" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IS_CALL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IS_CALL" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IS_CALL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CALL_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CALL_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CALL_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CALL_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CALL_NOTED" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CALL_NOTED" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CALL_NOTED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CALL_NOTED" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NewInPatientNo" ColumnName="NewInPatientNo" DataSourceName="TakeoDB.dbo.TblNewInPatient" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@NewInPatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="NewInPatientNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NewInPatientNo" DataSetColumn="NewInPatientNo" />
+              <Mapping SourceColumn="PatientNo" DataSetColumn="PatientNo" />
+              <Mapping SourceColumn="Eye" DataSetColumn="Eye" />
+              <Mapping SourceColumn="Diagnosis" DataSetColumn="Diagnosis" />
+              <Mapping SourceColumn="DiagnosisTem" DataSetColumn="DiagnosisTem" />
+              <Mapping SourceColumn="VA_RE" DataSetColumn="VA_RE" />
+              <Mapping SourceColumn="VA_LE" DataSetColumn="VA_LE" />
+              <Mapping SourceColumn="DateDischarge" DataSetColumn="DateDischarge" />
+              <Mapping SourceColumn="DateFollowUp" DataSetColumn="DateFollowUp" />
+              <Mapping SourceColumn="Signature" DataSetColumn="Signature" />
+              <Mapping SourceColumn="Leave" DataSetColumn="Leave" />
+              <Mapping SourceColumn="CreateDate" DataSetColumn="CreateDate" />
+              <Mapping SourceColumn="Waiting" DataSetColumn="Waiting" />
+              <Mapping SourceColumn="TypeDiagnosis" DataSetColumn="TypeDiagnosis" />
+              <Mapping SourceColumn="DeleteOption" DataSetColumn="DeleteOption" />
+              <Mapping SourceColumn="HistoryOT" DataSetColumn="HistoryOT" />
+              <Mapping SourceColumn="HistDatePrepar" DataSetColumn="HistDatePrepar" />
+              <Mapping SourceColumn="DR_NAME" DataSetColumn="DR_NAME" />
+              <Mapping SourceColumn="IS_CALL" DataSetColumn="IS_CALL" />
+              <Mapping SourceColumn="CALL_DATE" DataSetColumn="CALL_DATE" />
+              <Mapping SourceColumn="CALL_NOTED" DataSetColumn="CALL_NOTED" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="UpdateIsCalled" Modifier="Public" Name="UpdateIsCalled" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateIsCalled">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       TblNewInPatient
+SET                IS_CALL = @IS_CALL, CALL_DATE = @CALL_DATE, CALL_NOTED = @CALL_NOTED
+WHERE        (NewInPatientNo = @Original_NewInPatientNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="IS_CALL" ColumnName="IS_CALL" DataSourceName="TakeoDB.dbo.TblNewInPatient" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@IS_CALL" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="IS_CALL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CALL_DATE" ColumnName="CALL_DATE" DataSourceName="TakeoDB.dbo.TblNewInPatient" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CALL_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CALL_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CALL_NOTED" ColumnName="CALL_NOTED" DataSourceName="TakeoDB.dbo.TblNewInPatient" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CALL_NOTED" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CALL_NOTED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_NewInPatientNo" ColumnName="NewInPatientNo" DataSourceName="TakeoDB.dbo.TblNewInPatient" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@Original_NewInPatientNo" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="NewInPatientNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSPaatientLeave" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSPaatientLeave" msprop:Generator_DataSetName="DSPaatientLeave" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VNewInLeavewWithTreatment" msprop:Generator_UserTableName="VNewInLeavewWithTreatment" msprop:Generator_RowDeletedName="VNewInLeavewWithTreatmentRowDeleted" msprop:Generator_RowChangedName="VNewInLeavewWithTreatmentRowChanged" msprop:Generator_RowClassName="VNewInLeavewWithTreatmentRow" msprop:Generator_RowChangingName="VNewInLeavewWithTreatmentRowChanging" msprop:Generator_RowEvArgName="VNewInLeavewWithTreatmentRowChangeEvent" msprop:Generator_RowEvHandlerName="VNewInLeavewWithTreatmentRowChangeEventHandler" msprop:Generator_TableClassName="VNewInLeavewWithTreatmentDataTable" msprop:Generator_TableVarName="tableVNewInLeavewWithTreatment" msprop:Generator_RowDeletingName="VNewInLeavewWithTreatmentRowDeleting" msprop:Generator_TablePropName="VNewInLeavewWithTreatment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NewInPatientNo" msprop:Generator_UserColumnName="NewInPatientNo" msprop:Generator_ColumnPropNameInRow="NewInPatientNo" msprop:Generator_ColumnVarNameInTable="columnNewInPatientNo" msprop:Generator_ColumnPropNameInTable="NewInPatientNoColumn" type="xs:decimal" />
+              <xs:element name="PatientNo" msprop:Generator_UserColumnName="PatientNo" msprop:Generator_ColumnPropNameInRow="PatientNo" msprop:Generator_ColumnVarNameInTable="columnPatientNo" msprop:Generator_ColumnPropNameInTable="PatientNoColumn" type="xs:decimal" />
+              <xs:element name="NameKhmer" msprop:Generator_UserColumnName="NameKhmer" msprop:Generator_ColumnPropNameInRow="NameKhmer" msprop:Generator_ColumnVarNameInTable="columnNameKhmer" msprop:Generator_ColumnPropNameInTable="NameKhmerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameEng" msprop:Generator_UserColumnName="NameEng" msprop:Generator_ColumnPropNameInRow="NameEng" msprop:Generator_ColumnVarNameInTable="columnNameEng" msprop:Generator_ColumnPropNameInTable="NameEngColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Age" msprop:Generator_UserColumnName="Age" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInTable="AgeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Sex" msprop:Generator_UserColumnName="Sex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_ColumnPropNameInTable="SexColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_UserColumnName="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInTable="AddressColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Eye" msprop:Generator_UserColumnName="Eye" msprop:Generator_ColumnPropNameInRow="Eye" msprop:Generator_ColumnVarNameInTable="columnEye" msprop:Generator_ColumnPropNameInTable="EyeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Diagnosis" msprop:Generator_UserColumnName="Diagnosis" msprop:Generator_ColumnPropNameInRow="Diagnosis" msprop:Generator_ColumnVarNameInTable="columnDiagnosis" msprop:Generator_ColumnPropNameInTable="DiagnosisColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VA_RE" msprop:Generator_UserColumnName="VA_RE" msprop:Generator_ColumnPropNameInRow="VA_RE" msprop:Generator_ColumnVarNameInTable="columnVA_RE" msprop:Generator_ColumnPropNameInTable="VA_REColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VA_LE" msprop:Generator_UserColumnName="VA_LE" msprop:Generator_ColumnPropNameInRow="VA_LE" msprop:Generator_ColumnVarNameInTable="columnVA_LE" msprop:Generator_ColumnPropNameInTable="VA_LEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateDischarge" msprop:Generator_UserColumnName="DateDischarge" msprop:Generator_ColumnPropNameInRow="DateDischarge" msprop:Generator_ColumnVarNameInTable="columnDateDischarge" msprop:Generator_ColumnPropNameInTable="DateDischargeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DateFollowUp" msprop:Generator_UserColumnName="DateFollowUp" msprop:Generator_ColumnPropNameInRow="DateFollowUp" msprop:Generator_ColumnVarNameInTable="columnDateFollowUp" msprop:Generator_ColumnPropNameInTable="DateFollowUpColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Signature" msprop:Generator_UserColumnName="Signature" msprop:Generator_ColumnPropNameInRow="Signature" msprop:Generator_ColumnVarNameInTable="columnSignature" msprop:Generator_ColumnPropNameInTable="SignatureColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Leave" msprop:Generator_UserColumnName="Leave" msprop:Generator_ColumnPropNameInRow="Leave" msprop:Generator_ColumnVarNameInTable="columnLeave" msprop:Generator_ColumnPropNameInTable="LeaveColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreateDate" msprop:Generator_UserColumnName="CreateDate" msprop:Generator_ColumnPropNameInRow="CreateDate" msprop:Generator_ColumnVarNameInTable="columnCreateDate" msprop:Generator_ColumnPropNameInTable="CreateDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Waiting" msprop:Generator_UserColumnName="Waiting" msprop:Generator_ColumnPropNameInRow="Waiting" msprop:Generator_ColumnVarNameInTable="columnWaiting" msprop:Generator_ColumnPropNameInTable="WaitingColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DeleteOption" msprop:Generator_UserColumnName="DeleteOption" msprop:Generator_ColumnPropNameInRow="DeleteOption" msprop:Generator_ColumnVarNameInTable="columnDeleteOption" msprop:Generator_ColumnPropNameInTable="DeleteOptionColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TypeDiagnosis" msprop:Generator_UserColumnName="TypeDiagnosis" msprop:Generator_ColumnPropNameInRow="TypeDiagnosis" msprop:Generator_ColumnVarNameInTable="columnTypeDiagnosis" msprop:Generator_ColumnPropNameInTable="TypeDiagnosisColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Treatment" msprop:Generator_UserColumnName="Treatment" msprop:Generator_ColumnPropNameInRow="Treatment" msprop:Generator_ColumnVarNameInTable="columnTreatment" msprop:Generator_ColumnPropNameInTable="TreatmentColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DR_NAME" msprop:Generator_UserColumnName="DR_NAME" msprop:Generator_ColumnVarNameInTable="columnDR_NAME" msprop:Generator_ColumnPropNameInRow="DR_NAME" msprop:Generator_ColumnPropNameInTable="DR_NAMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblNewInPatient" msprop:Generator_UserTableName="TblNewInPatient" msprop:Generator_RowDeletedName="TblNewInPatientRowDeleted" msprop:Generator_TableClassName="TblNewInPatientDataTable" msprop:Generator_RowChangedName="TblNewInPatientRowChanged" msprop:Generator_RowClassName="TblNewInPatientRow" msprop:Generator_RowChangingName="TblNewInPatientRowChanging" msprop:Generator_RowEvArgName="TblNewInPatientRowChangeEvent" msprop:Generator_RowEvHandlerName="TblNewInPatientRowChangeEventHandler" msprop:Generator_TablePropName="TblNewInPatient" msprop:Generator_TableVarName="tableTblNewInPatient" msprop:Generator_RowDeletingName="TblNewInPatientRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NewInPatientNo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="NewInPatientNo" msprop:Generator_ColumnPropNameInRow="NewInPatientNo" msprop:Generator_ColumnVarNameInTable="columnNewInPatientNo" msprop:Generator_ColumnPropNameInTable="NewInPatientNoColumn" type="xs:decimal" />
+              <xs:element name="PatientNo" msprop:Generator_UserColumnName="PatientNo" msprop:Generator_ColumnPropNameInRow="PatientNo" msprop:Generator_ColumnVarNameInTable="columnPatientNo" msprop:Generator_ColumnPropNameInTable="PatientNoColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Eye" msprop:Generator_UserColumnName="Eye" msprop:Generator_ColumnPropNameInRow="Eye" msprop:Generator_ColumnVarNameInTable="columnEye" msprop:Generator_ColumnPropNameInTable="EyeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Diagnosis" msprop:Generator_UserColumnName="Diagnosis" msprop:Generator_ColumnPropNameInRow="Diagnosis" msprop:Generator_ColumnVarNameInTable="columnDiagnosis" msprop:Generator_ColumnPropNameInTable="DiagnosisColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DiagnosisTem" msprop:Generator_UserColumnName="DiagnosisTem" msprop:Generator_ColumnPropNameInRow="DiagnosisTem" msprop:Generator_ColumnVarNameInTable="columnDiagnosisTem" msprop:Generator_ColumnPropNameInTable="DiagnosisTemColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VA_RE" msprop:Generator_UserColumnName="VA_RE" msprop:Generator_ColumnPropNameInRow="VA_RE" msprop:Generator_ColumnVarNameInTable="columnVA_RE" msprop:Generator_ColumnPropNameInTable="VA_REColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VA_LE" msprop:Generator_UserColumnName="VA_LE" msprop:Generator_ColumnPropNameInRow="VA_LE" msprop:Generator_ColumnVarNameInTable="columnVA_LE" msprop:Generator_ColumnPropNameInTable="VA_LEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateDischarge" msprop:Generator_UserColumnName="DateDischarge" msprop:Generator_ColumnPropNameInRow="DateDischarge" msprop:Generator_ColumnVarNameInTable="columnDateDischarge" msprop:Generator_ColumnPropNameInTable="DateDischargeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DateFollowUp" msprop:Generator_UserColumnName="DateFollowUp" msprop:Generator_ColumnPropNameInRow="DateFollowUp" msprop:Generator_ColumnVarNameInTable="columnDateFollowUp" msprop:Generator_ColumnPropNameInTable="DateFollowUpColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Signature" msprop:Generator_UserColumnName="Signature" msprop:Generator_ColumnPropNameInRow="Signature" msprop:Generator_ColumnVarNameInTable="columnSignature" msprop:Generator_ColumnPropNameInTable="SignatureColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Leave" msprop:Generator_UserColumnName="Leave" msprop:Generator_ColumnPropNameInRow="Leave" msprop:Generator_ColumnVarNameInTable="columnLeave" msprop:Generator_ColumnPropNameInTable="LeaveColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreateDate" msprop:Generator_UserColumnName="CreateDate" msprop:Generator_ColumnPropNameInRow="CreateDate" msprop:Generator_ColumnVarNameInTable="columnCreateDate" msprop:Generator_ColumnPropNameInTable="CreateDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Waiting" msprop:Generator_UserColumnName="Waiting" msprop:Generator_ColumnPropNameInRow="Waiting" msprop:Generator_ColumnVarNameInTable="columnWaiting" msprop:Generator_ColumnPropNameInTable="WaitingColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TypeDiagnosis" msprop:Generator_UserColumnName="TypeDiagnosis" msprop:Generator_ColumnPropNameInRow="TypeDiagnosis" msprop:Generator_ColumnVarNameInTable="columnTypeDiagnosis" msprop:Generator_ColumnPropNameInTable="TypeDiagnosisColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DeleteOption" msprop:Generator_UserColumnName="DeleteOption" msprop:Generator_ColumnPropNameInRow="DeleteOption" msprop:Generator_ColumnVarNameInTable="columnDeleteOption" msprop:Generator_ColumnPropNameInTable="DeleteOptionColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="HistoryOT" msprop:Generator_UserColumnName="HistoryOT" msprop:Generator_ColumnPropNameInRow="HistoryOT" msprop:Generator_ColumnVarNameInTable="columnHistoryOT" msprop:Generator_ColumnPropNameInTable="HistoryOTColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HistDatePrepar" msprop:Generator_UserColumnName="HistDatePrepar" msprop:Generator_ColumnPropNameInRow="HistDatePrepar" msprop:Generator_ColumnVarNameInTable="columnHistDatePrepar" msprop:Generator_ColumnPropNameInTable="HistDatePreparColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DR_NAME" msprop:Generator_UserColumnName="DR_NAME" msprop:Generator_ColumnPropNameInRow="DR_NAME" msprop:Generator_ColumnVarNameInTable="columnDR_NAME" msprop:Generator_ColumnPropNameInTable="DR_NAMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_CALL" msprop:Generator_UserColumnName="IS_CALL" msprop:Generator_ColumnPropNameInRow="IS_CALL" msprop:Generator_ColumnVarNameInTable="columnIS_CALL" msprop:Generator_ColumnPropNameInTable="IS_CALLColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CALL_DATE" msprop:Generator_UserColumnName="CALL_DATE" msprop:Generator_ColumnPropNameInRow="CALL_DATE" msprop:Generator_ColumnVarNameInTable="columnCALL_DATE" msprop:Generator_ColumnPropNameInTable="CALL_DATEColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CALL_NOTED" msprop:Generator_UserColumnName="CALL_NOTED" msprop:Generator_ColumnPropNameInRow="CALL_NOTED" msprop:Generator_ColumnVarNameInTable="columnCALL_NOTED" msprop:Generator_ColumnPropNameInTable="CALL_NOTEDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TblNewInPatient" />
+      <xs:field xpath="mstns:NewInPatientNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
