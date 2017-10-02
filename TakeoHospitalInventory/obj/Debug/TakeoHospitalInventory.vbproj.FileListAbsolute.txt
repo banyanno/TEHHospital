@@ -843,3 +843,9 @@ G:\YannoSoft\Projects\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospital
 G:\YannoSoft\Projects\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.exe
 G:\YannoSoft\Projects\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.xml
 G:\YannoSoft\Projects\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.pdb
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\TakeoHospitalInventory.exe.config
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\Interop.AcroPDFLib.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\AxInterop.AcroPDFLib.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.vbproj.ResolveComReference.cache
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.xml
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.pdb
