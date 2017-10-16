@@ -682,6 +682,12 @@ Public Class MainTakeoInventory
                 'bed.Dock = DockStyle.Fill
                 'SplitSubForm.Panel2.Controls.Add(bed)
                 'Me.Cursor = Cursors.Default
+            Case "Print P-Staying"
+                Dim FWardPreview As New FRMWardPreview
+                FWardPreview.IS_PRINT_STAYING = True
+                FWardPreview.ShowDialog()
+                FWardPreview.Close()
+                FWardPreview.Dispose()
             Case "NewInPatient"
                 CreateNewInPatient()
                 'Operation

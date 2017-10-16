@@ -79,6 +79,14 @@ Partial Class frmPrescription
         Me.BtnAddMedicine = New System.Windows.Forms.Button
         Me.TxtTempPatientNo = New System.Windows.Forms.TextBox
         Me.GridMedicine = New System.Windows.Forms.DataGridView
+        Me.cItemID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cItemName = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cItemUnitID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cRemark = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cIsOutsideMedicine = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ContainerID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.LabourFacID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
         Me.TxtPrescriptionNote = New System.Windows.Forms.TextBox
         Me.CboEye = New System.Windows.Forms.ComboBox
@@ -102,14 +110,6 @@ Partial Class frmPrescription
         Me.BgLoadPatient = New System.ComponentModel.BackgroundWorker
         Me.PictLoading = New System.Windows.Forms.PictureBox
         Me.LblLoading = New System.Windows.Forms.Label
-        Me.cItemID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cItemName = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cItemUnitID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cRemark = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cIsOutsideMedicine = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ContainerID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.LabourFacID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupMedicineInfo.SuspendLayout()
@@ -776,6 +776,63 @@ Partial Class frmPrescription
         Me.GridMedicine.Size = New System.Drawing.Size(469, 403)
         Me.GridMedicine.TabIndex = 9
         '
+        'cItemID
+        '
+        Me.cItemID.HeaderText = "ItemID"
+        Me.cItemID.Name = "cItemID"
+        Me.cItemID.ReadOnly = True
+        Me.cItemID.Visible = False
+        Me.cItemID.Width = 50
+        '
+        'cItemName
+        '
+        Me.cItemName.HeaderText = "Medicine"
+        Me.cItemName.Name = "cItemName"
+        Me.cItemName.ReadOnly = True
+        Me.cItemName.Width = 200
+        '
+        'cQuantity
+        '
+        Me.cQuantity.HeaderText = "Quantity"
+        Me.cQuantity.Name = "cQuantity"
+        Me.cQuantity.ReadOnly = True
+        '
+        'cItemUnitID
+        '
+        Me.cItemUnitID.HeaderText = "Unit of Measuring"
+        Me.cItemUnitID.Name = "cItemUnitID"
+        Me.cItemUnitID.ReadOnly = True
+        Me.cItemUnitID.Visible = False
+        '
+        'cRemark
+        '
+        Me.cRemark.HeaderText = "Remark"
+        Me.cRemark.Name = "cRemark"
+        Me.cRemark.ReadOnly = True
+        Me.cRemark.Width = 200
+        '
+        'cIsOutsideMedicine
+        '
+        Me.cIsOutsideMedicine.HeaderText = "Medicine In Hospital"
+        Me.cIsOutsideMedicine.Name = "cIsOutsideMedicine"
+        Me.cIsOutsideMedicine.ReadOnly = True
+        Me.cIsOutsideMedicine.Visible = False
+        Me.cIsOutsideMedicine.Width = 200
+        '
+        'ContainerID
+        '
+        Me.ContainerID.HeaderText = "Containing"
+        Me.ContainerID.Name = "ContainerID"
+        Me.ContainerID.ReadOnly = True
+        Me.ContainerID.Visible = False
+        '
+        'LabourFacID
+        '
+        Me.LabourFacID.HeaderText = "Labouratory"
+        Me.LabourFacID.Name = "LabourFacID"
+        Me.LabourFacID.ReadOnly = True
+        Me.LabourFacID.Visible = False
+        '
         'GroupBox4
         '
         Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -1031,63 +1088,6 @@ Partial Class frmPrescription
         Me.LblLoading.Text = "Loading"
         Me.LblLoading.Visible = False
         '
-        'cItemID
-        '
-        Me.cItemID.HeaderText = "ItemID"
-        Me.cItemID.Name = "cItemID"
-        Me.cItemID.ReadOnly = True
-        Me.cItemID.Visible = False
-        Me.cItemID.Width = 50
-        '
-        'cItemName
-        '
-        Me.cItemName.HeaderText = "Medicine"
-        Me.cItemName.Name = "cItemName"
-        Me.cItemName.ReadOnly = True
-        Me.cItemName.Width = 200
-        '
-        'cQuantity
-        '
-        Me.cQuantity.HeaderText = "Quantity"
-        Me.cQuantity.Name = "cQuantity"
-        Me.cQuantity.ReadOnly = True
-        '
-        'cItemUnitID
-        '
-        Me.cItemUnitID.HeaderText = "Unit of Measuring"
-        Me.cItemUnitID.Name = "cItemUnitID"
-        Me.cItemUnitID.ReadOnly = True
-        Me.cItemUnitID.Visible = False
-        '
-        'cRemark
-        '
-        Me.cRemark.HeaderText = "Remark"
-        Me.cRemark.Name = "cRemark"
-        Me.cRemark.ReadOnly = True
-        Me.cRemark.Width = 200
-        '
-        'cIsOutsideMedicine
-        '
-        Me.cIsOutsideMedicine.HeaderText = "Medicine In Hospital"
-        Me.cIsOutsideMedicine.Name = "cIsOutsideMedicine"
-        Me.cIsOutsideMedicine.ReadOnly = True
-        Me.cIsOutsideMedicine.Visible = False
-        Me.cIsOutsideMedicine.Width = 200
-        '
-        'ContainerID
-        '
-        Me.ContainerID.HeaderText = "Containing"
-        Me.ContainerID.Name = "ContainerID"
-        Me.ContainerID.ReadOnly = True
-        Me.ContainerID.Visible = False
-        '
-        'LabourFacID
-        '
-        Me.LabourFacID.HeaderText = "Labouratory"
-        Me.LabourFacID.Name = "LabourFacID"
-        Me.LabourFacID.ReadOnly = True
-        Me.LabourFacID.Visible = False
-        '
         'frmPrescription
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1100,6 +1100,7 @@ Partial Class frmPrescription
         Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Name = "frmPrescription"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

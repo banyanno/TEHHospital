@@ -214,7 +214,7 @@ Partial Class MainConsuling
         Me.BtnStatistic.Image = Global.TakeoHospitalInventory.My.Resources.Resources.instock
         Me.BtnStatistic.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnStatistic.Name = "BtnStatistic"
-        Me.BtnStatistic.Size = New System.Drawing.Size(179, 29)
+        Me.BtnStatistic.Size = New System.Drawing.Size(178, 29)
         Me.BtnStatistic.Text = "Statistic Counselling"
         '
         'SplitContainer1

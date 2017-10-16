@@ -38,6 +38,7 @@ Partial Class OrgGive
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnNewOffer = New System.Windows.Forms.ToolStripMenuItem
         Me.ErrOffer = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BtnDelete = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.GridOffer, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +48,7 @@ Partial Class OrgGive
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnDelete)
         Me.GroupBox1.Controls.Add(Me.BtnClose)
         Me.GroupBox1.Controls.Add(Me.LblSaveOption)
         Me.GroupBox1.Controls.Add(Me.BtnSave)
@@ -61,7 +63,7 @@ Partial Class OrgGive
         'BtnClose
         '
         Me.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnClose.Location = New System.Drawing.Point(479, 19)
+        Me.BtnClose.Location = New System.Drawing.Point(479, 22)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(76, 25)
         Me.BtnClose.TabIndex = 4
@@ -82,7 +84,7 @@ Partial Class OrgGive
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.Location = New System.Drawing.Point(395, 19)
+        Me.BtnSave.Location = New System.Drawing.Point(317, 21)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(78, 26)
         Me.BtnSave.TabIndex = 2
@@ -92,15 +94,15 @@ Partial Class OrgGive
         'TxtOffer
         '
         Me.TxtOffer.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtOffer.Location = New System.Drawing.Point(55, 20)
+        Me.TxtOffer.Location = New System.Drawing.Point(55, 21)
         Me.TxtOffer.Name = "TxtOffer"
-        Me.TxtOffer.Size = New System.Drawing.Size(334, 26)
+        Me.TxtOffer.Size = New System.Drawing.Size(252, 26)
         Me.TxtOffer.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 27)
+        Me.Label1.Location = New System.Drawing.Point(16, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(33, 13)
         Me.Label1.TabIndex = 0
@@ -122,6 +124,7 @@ Partial Class OrgGive
         GridOffer_DesignTimeLayout.LayoutString = resources.GetString("GridOffer_DesignTimeLayout.LayoutString")
         Me.GridOffer.DesignTimeLayout = GridOffer_DesignTimeLayout
         Me.GridOffer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridOffer.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
         Me.GridOffer.GroupByBoxVisible = False
         Me.GridOffer.HeaderFormatStyle.FontSize = 12.0!
         Me.GridOffer.HeaderFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -134,33 +137,45 @@ Partial Class OrgGive
         Me.GridOffer.SelectedInactiveFormatStyle.ForeColor = System.Drawing.Color.White
         Me.GridOffer.Size = New System.Drawing.Size(556, 212)
         Me.GridOffer.TabIndex = 0
+        Me.GridOffer.VisualStyle = Janus.Windows.GridEX.VisualStyle.VS2005
         '
         'MenuOffer
         '
         Me.MenuOffer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnDeleteOffer, Me.ToolStripSeparator1, Me.BtnNewOffer})
         Me.MenuOffer.Name = "MenuOffer"
-        Me.MenuOffer.Size = New System.Drawing.Size(135, 54)
+        Me.MenuOffer.Size = New System.Drawing.Size(138, 54)
         '
         'BtnDeleteOffer
         '
         Me.BtnDeleteOffer.Name = "BtnDeleteOffer"
-        Me.BtnDeleteOffer.Size = New System.Drawing.Size(134, 22)
+        Me.BtnDeleteOffer.Size = New System.Drawing.Size(137, 22)
         Me.BtnDeleteOffer.Text = "Delete Offer"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(131, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(134, 6)
         '
         'BtnNewOffer
         '
         Me.BtnNewOffer.Name = "BtnNewOffer"
-        Me.BtnNewOffer.Size = New System.Drawing.Size(134, 22)
+        Me.BtnNewOffer.Size = New System.Drawing.Size(137, 22)
         Me.BtnNewOffer.Text = "New Offer"
         '
         'ErrOffer
         '
         Me.ErrOffer.ContainerControl = Me
+        '
+        'BtnDelete
+        '
+        Me.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelete.Location = New System.Drawing.Point(398, 21)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(78, 26)
+        Me.BtnDelete.TabIndex = 5
+        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.UseVisualStyleBackColor = True
         '
         'OrgGive
         '
@@ -201,4 +216,5 @@ Partial Class OrgGive
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BtnNewOffer As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BtnClose As System.Windows.Forms.Button
+    Friend WithEvents BtnDelete As System.Windows.Forms.Button
 End Class

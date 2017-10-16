@@ -33,14 +33,7 @@
         TxtOffer.Text = GridOffer.GetRow.Cells("OFFER").Value
     End Sub
 
-    Private Sub BtnDeleteOffer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDeleteOffer.Click
-        If GridOffer.SelectedItems.Count = 0 Then Exit Sub
-        If MessageBox.Show("Do you want delete this offer?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-            If DA_Offer.DeleteOffer(GridOffer.GetRow.Cells("OFFER_ID").Value) = 1 Then
-                RefreshOffer()
-            End If
-        End If
-    End Sub
+   
 
     Private Sub BtnNewOffer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewOffer.Click
         LblSaveOption.Text = "0"
@@ -49,5 +42,14 @@
 
     Private Sub BtnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnClose.Click
         Me.DialogResult = Windows.Forms.DialogResult.OK
+    End Sub
+
+    Private Sub BtnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDelete.Click
+        If GridOffer.SelectedItems.Count = 0 Then Exit Sub
+        If MessageBox.Show("Do you want delete this offer?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            If DA_Offer.DeleteOffer(GridOffer.GetRow.Cells("OFFER_ID").Value) = 1 Then
+                RefreshOffer()
+            End If
+        End If
     End Sub
 End Class

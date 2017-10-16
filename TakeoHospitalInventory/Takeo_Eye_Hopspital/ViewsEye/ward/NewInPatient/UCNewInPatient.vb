@@ -979,11 +979,21 @@ Public Class UCNewInPatient
         
     End Sub
 
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPreStaying.Click
         Dim FWardPreview As New FRMWardPreview
         FWardPreview.IS_PRINT_STAYING = True
         FWardPreview.ShowDialog()
         FWardPreview.Close()
         FWardPreview.Dispose()
+    End Sub
+
+    Private Sub UCNewInPatient_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim tblPermistion As DataTable = ModUser.GetMenuPermission(USER_NAME)
+        For indexMenu As Integer = 0 To tblPermistion.Rows.Count - 1
+
+            If btnPreStaying.Tag = tblPermistion.Rows(indexMenu).Item(0) Then
+                btnPreStaying.Enabled = True
+            End If
+        Next
     End Sub
 End Class

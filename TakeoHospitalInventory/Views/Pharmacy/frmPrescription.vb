@@ -359,6 +359,8 @@ Public Class frmPrescription
 
             RbDrugInHos.Focus()
             CleanMedicine()
+            CboItemName.SelectAll()
+            CboItemName.Select()
         End If
 
     End Sub
@@ -382,6 +384,11 @@ Public Class frmPrescription
        
     End Sub
 
+    Private Sub CboItemName_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboItemName.Leave
+        TxtQuantity.SelectAll()
+        TxtQuantity.Select()
+    End Sub
+
     Private Sub CboItemName_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboItemName.SelectedValueChanged
         Dim TotalItem As Integer = 0
         Dim CurrentStock As Integer = 0
@@ -397,6 +404,7 @@ Public Class frmPrescription
         Catch ex As Exception
         End Try
         TxtUnitsInStock.Text = CurrentStock - TotalItem
+       
     End Sub
     Sub AddMedicineDetail(ByVal ItemID As Integer, ByVal ItemName As String, ByVal ItemUnit As Integer, _
                            ByVal Qty As Integer, ByVal IsOutsideMedicine As Integer, _
@@ -772,9 +780,7 @@ Public Class frmPrescription
         End If
     End Sub
 
-    Private Sub CboItemName_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboItemName.SelectedIndexChanged
-
-    End Sub
+   
 
     Private Sub TxtQuantity_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtQuantity.KeyDown
         'MsgBox(e.KeyCode)
@@ -786,4 +792,14 @@ Public Class frmPrescription
             TxtQuantity.Text = ""
         End If
     End Sub
+
+   
+
+    Private Sub frmPrescription_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            AddItem()
+        End If
+    End Sub
+
+   
 End Class
