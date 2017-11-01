@@ -205,7 +205,7 @@ Partial Class frmOldOutPatientReceipt
         '
         'txtHN
         '
-        Me.txtHN.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.txtHN.BackColor = System.Drawing.SystemColors.Control
         Me.txtHN.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtHN.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtHN.Location = New System.Drawing.Point(157, 91)
@@ -632,7 +632,7 @@ Partial Class frmOldOutPatientReceipt
         Me.cmdSearchReceipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdSearchReceipt.Image = Global.TakeoHospitalInventory.My.Resources.Resources.search
         Me.cmdSearchReceipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdSearchReceipt.Location = New System.Drawing.Point(686, 52)
+        Me.cmdSearchReceipt.Location = New System.Drawing.Point(686, 48)
         Me.cmdSearchReceipt.Name = "cmdSearchReceipt"
         Me.cmdSearchReceipt.Size = New System.Drawing.Size(31, 32)
         Me.cmdSearchReceipt.TabIndex = 1

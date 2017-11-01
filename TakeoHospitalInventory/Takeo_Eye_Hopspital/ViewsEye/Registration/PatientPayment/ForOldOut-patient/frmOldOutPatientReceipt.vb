@@ -502,9 +502,10 @@ Public Class frmOldOutPatientReceipt
     End Function
 
     Private Sub cmdSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSave.Click
-        dtpDateIn.Checked = True
-        dtpDateIn.Value = CheckMarkEOD()
+        
         If Me.lblID.Text = 0 Then
+            dtpDateIn.Checked = True
+            dtpDateIn.Value = CheckMarkEOD()
             If ModOld_Outpatient.CheckDuplicatePatientOneDay(EmptyString(txtHN.Text), dtpDateIn.Value, 1) > 0 Then
                 MessageBox.Show("Can not registration patient for Old patient book on the same day. Could you check old patient book agian.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -531,7 +532,7 @@ Public Class frmOldOutPatientReceipt
             Else
                 ChListReferral.BackColor = Color.White
             End If
-            
+
             Dim DialogBox As DialogResult = MessageBox.Show("Do you really want to save these information?", "Save confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
             If DialogBox = Windows.Forms.DialogResult.Yes Then
                 If MCashReceipt.CheckDuplicateReceiptNo(Me.txtReceiptNumber.Text, "tblPatientReceipt") = True Then
@@ -578,7 +579,7 @@ Public Class frmOldOutPatientReceipt
                 IIf(Me.chkSocialFee.Checked = True And Me.lblRielDolar.Text = "erol", Me.txtTotal.Text, 0), IIf(Me.chkSocialFee.Checked = True And Me.lblRielDolar.Text = "duløa", Me.txtTotal.Text, 0), _
                 IIf(Me.chkSocialFee.Checked = False And Me.lblRielDolar.Text = "erol", Me.txtTotal.Text, 0), IIf(Me.chkSocialFee.Checked = False And Me.lblRielDolar.Text = "duløa", Me.txtTotal.Text, 0), _
                 Me.txtRate.Text, Me.txtAmountWord.Text, IIf(Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True, "1", "0"), IIf(Me.chkSocialFee.Checked = True, 1, 0), _
-                IIf(Me.chkSocialFee.Checked = False, 1, 0), "OR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value, Format(Date.Now(), "MM/dd/yyyy"))
+                IIf(Me.chkSocialFee.Checked = False, 1, 0), "OR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value.Date, Format(Date.Now(), "MM/dd/yyyy"))
                 If Me.lblHistoryNo.Text > 0 Then
                     Call MOldOutpatientReceipt.UpdateReferalOutpatient(Me.lblHistoryNo.Text, Me.ChHearing.Checked, Me.ChUnderstand.Checked, Me.ChSeeing.Checked, _
                     Me.ChPhysical.Checked, Me.ChCDMDP.Checked, Me.ChEyeScreenig.Checked, Me.ChScreeningKV.Checked, Me.ChSelf.Checked, _

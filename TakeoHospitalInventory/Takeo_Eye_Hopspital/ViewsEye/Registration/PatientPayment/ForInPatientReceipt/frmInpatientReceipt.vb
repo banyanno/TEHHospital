@@ -1060,7 +1060,7 @@ Public Class frmInpatientReceipt
                     IIf(Me.chkSocialFee.Checked = False And Me.lblRielDolar.Text = "erol", Me.txtTotal.Text, 0), IIf(Me.chkSocialFee.Checked = False And Me.lblRielDolar.Text = "duløa", Me.txtTotal.Text, 0), _
                     Me.txtRate.Text, Me.txtAmountWord.Text, IIf(Me.rdOperationR.Checked = True Or Me.rdOperationD.Checked = True, "1", "0"), IIf(Me.rdArtificialEyeR.Checked = True Or Me.rdArtificialEyeD.Checked = True, "1", "0"), _
                     IIf(Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True, "1", "0"), IIf(Me.chkSocialFee.Checked = True, 1, 0), _
-                    IIf(Me.chkSocialFee.Checked = False, 1, 0), "IR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value, Format(Date.Now(), "MM/dd/yyyy"), _
+                    IIf(Me.chkSocialFee.Checked = False, 1, 0), "IR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value.Date, Format(Date.Now(), "MM/dd/yyyy"), _
                     Me.txtOperation.Text, ChDonation.Checked, CboDonation.SelectedValue, CboDonation.Text, EmptyString(TxtDonationPay.Text), TxtDonateNote.Text, EmptyString(TxtHospitalFee.Text), CashTotalDolar)
                 'Me.cmdPrint.Enabled = True
             End If
