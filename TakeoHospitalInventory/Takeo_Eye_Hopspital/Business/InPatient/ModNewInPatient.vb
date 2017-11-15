@@ -31,6 +31,10 @@ Module ModNewInPatient
         Dim sql As String = "UPDATE TblNewInpatient SET Waiting=" & Waiting & " WHERE NewInPatientNo=" & NewInPatientNo
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
+    Function UpdateDeletePostonce(ByVal NewInPatientNo As String, ByVal IS_POSTPONE_DELETE As Boolean) As Integer
+        Dim sql As String = "UPDATE TblNewInpatient SET IS_POSTPONE_DELETE='" & IS_POSTPONE_DELETE & "' WHERE NewInPatientNo=" & NewInPatientNo
+        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
+    End Function
     Function UpdateOTCancel(ByVal NewInPatientNo As String, ByVal OTCANCEL As String, ByVal OTCANCEL_DATE As DateTime, ByVal OTCANCEL_NOTE As String, ByVal OT_ISCANCEL As Boolean, ByVal DONATE_NAME As String, ByVal SURGERY_NAME As String, ByVal RECEIPT_NOM As String) As Integer
         Dim sql As String = "UPDATE TblNewInpatient SET OTCANCEL='" & OTCANCEL & "',OTCANCEL_DATE='" & OTCANCEL_DATE & "',OTCANCEL_NOTE='" & OTCANCEL_NOTE & "',OT_ISCANCEL ='" & OT_ISCANCEL & "',DONATE_NAME='" & DONATE_NAME & "', SURGERY_NAME='" & SURGERY_NAME & "',RECEIPT_NOM='" & RECEIPT_NOM & "',IS_CALL=0  WHERE NewInPatientNo=" & NewInPatientNo
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)

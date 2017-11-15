@@ -21,6 +21,8 @@ Partial Class FRMOTRegistration
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.TxtReferall = New System.Windows.Forms.TextBox
+        Me.Label9 = New System.Windows.Forms.Label
         Me.ChPrepareOT = New System.Windows.Forms.CheckBox
         Me.TxtOther = New System.Windows.Forms.TextBox
         Me.Label15 = New System.Windows.Forms.Label
@@ -66,8 +68,6 @@ Partial Class FRMOTRegistration
         Me.ErrOT = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Label12 = New System.Windows.Forms.Label
         Me.DateOT = New System.Windows.Forms.DateTimePicker
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.TxtReferall = New System.Windows.Forms.TextBox
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.ErrOT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,6 +98,27 @@ Partial Class FRMOTRegistration
         Me.GroupBox4.TabIndex = 1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "In-patient info"
+        '
+        'TxtReferall
+        '
+        Me.TxtReferall.BackColor = System.Drawing.Color.White
+        Me.TxtReferall.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtReferall.Location = New System.Drawing.Point(469, 110)
+        Me.TxtReferall.Multiline = True
+        Me.TxtReferall.Name = "TxtReferall"
+        Me.TxtReferall.ReadOnly = True
+        Me.TxtReferall.Size = New System.Drawing.Size(182, 36)
+        Me.TxtReferall.TabIndex = 27
+        Me.TxtReferall.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(524, 78)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(62, 13)
+        Me.Label9.TabIndex = 26
+        Me.Label9.Text = "Referral By:"
         '
         'ChPrepareOT
         '
@@ -537,7 +558,7 @@ Partial Class FRMOTRegistration
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSave.Location = New System.Drawing.Point(484, 547)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(80, 41)
+        Me.BtnSave.Size = New System.Drawing.Size(80, 31)
         Me.BtnSave.TabIndex = 3
         Me.BtnSave.Text = "&Save"
         Me.BtnSave.UseVisualStyleBackColor = True
@@ -547,7 +568,7 @@ Partial Class FRMOTRegistration
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.Location = New System.Drawing.Point(575, 547)
         Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(87, 41)
+        Me.BtnCancel.Size = New System.Drawing.Size(87, 31)
         Me.BtnCancel.TabIndex = 4
         Me.BtnCancel.Text = "&Cancel"
         Me.BtnCancel.UseVisualStyleBackColor = True
@@ -579,33 +600,12 @@ Partial Class FRMOTRegistration
         Me.DateOT.Size = New System.Drawing.Size(128, 26)
         Me.DateOT.TabIndex = 0
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(524, 78)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(62, 13)
-        Me.Label9.TabIndex = 26
-        Me.Label9.Text = "Referral By:"
-        '
-        'TxtReferall
-        '
-        Me.TxtReferall.BackColor = System.Drawing.Color.White
-        Me.TxtReferall.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtReferall.Location = New System.Drawing.Point(469, 110)
-        Me.TxtReferall.Multiline = True
-        Me.TxtReferall.Name = "TxtReferall"
-        Me.TxtReferall.ReadOnly = True
-        Me.TxtReferall.Size = New System.Drawing.Size(182, 36)
-        Me.TxtReferall.TabIndex = 27
-        Me.TxtReferall.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'FRMOTRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(674, 597)
+        Me.ClientSize = New System.Drawing.Size(674, 584)
         Me.Controls.Add(Me.DateOT)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.GroupBox4)

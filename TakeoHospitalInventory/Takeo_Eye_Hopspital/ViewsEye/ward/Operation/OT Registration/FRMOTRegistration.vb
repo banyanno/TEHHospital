@@ -134,19 +134,19 @@ Public Class FRMOTRegistration
                 If ModOTRegistration.SaveNewOTRegist(TxtInpatientNo.Text, _
                 TxtPatientNo.Text, _
                 OTTime, _
-                TxtAnesthesia.Text, _
-                CboAnesthetist.Text, _
+                TxtAnesthesia.Text.Replace("'", ""), _
+                CboAnesthetist.Text.Replace("'", ""), _
                 CboEye.Text, _
-                CboOperationType.Text, _
-                OTSurgeryOther, CInt(CboIOLItem.SelectedValue), CInt(CboIOLItem.SelectedValue), CboIOLItem.Text, _
-                CboSurgeon.Text, _
-                CboAssistant.Text, _
-                TxtCirculation.Text, _
-                TxtCompli.Text, _
+                CboOperationType.Text.Replace("'", ""), _
+                OTSurgeryOther, CInt(CboIOLItem.SelectedValue), CInt(CboIOLItem.SelectedValue), CboIOLItem.Text.Replace("'", ""), _
+                CboSurgeon.Text.Replace("'", ""), _
+                CboAssistant.Text.Replace("'", ""), _
+                TxtCirculation.Text.Replace("'", ""), _
+                TxtCompli.Text.Replace("'", ""), _
                 ChOT.Checked, _
                 DateOT.Value, _
                 DOperated, _
-                TxtOther.Text, TxtReferall.Text) = 1 Then
+                TxtOther.Text.Replace("'", ""), TxtReferall.Text.Replace("'", "")) = 1 Then
                     If ModNewInPatient.UpdateOTWating(TxtInpatientNo.Text, WaitingOT) = 1 Then
                         ModNewInPatient.UpdateOTHistory(TxtInpatientNo.Text, WaitingOT, Now.Date)
                         MsgBox("Save Registration in OT successfully.", MsgBoxStyle.Information, "Save")
@@ -169,20 +169,20 @@ Public Class FRMOTRegistration
                 TxtInpatientNo.Text, _
                 TxtPatientNo.Text, _
                 OTTime, _
-                TxtAnesthesia.Text, _
-                CboAnesthetist.Text, _
+                TxtAnesthesia.Text.Replace("'", ""), _
+                CboAnesthetist.Text.Replace("'", ""), _
                 CboEye.Text, _
-                CboOperationType.Text, _
-                OTSurgeryOther, _
+                CboOperationType.Text.Replace("'", ""), _
+                OTSurgeryOther.Replace("'", ""), _
                 CboIOLItem.SelectedValue, lblIOLIDOLD.Text, _
-                CboIOLItem.Text, _
-                CboSurgeon.Text, _
-                CboAssistant.Text, _
-                TxtCirculation.Text, _
+                CboIOLItem.Text.Replace("'", ""), _
+                CboSurgeon.Text.Replace("'", ""), _
+                CboAssistant.Text.Replace("'", ""), _
+                TxtCirculation.Text.Replace("'", ""), _
                 ChOT.Checked, _
-                TxtCompli.Text, _
+                TxtCompli.Text.Replace("'", ""), _
                 DOperated, _
-                TxtOther.Text, "Edited by " & USER_NAME & " at " & Now) = 1 Then
+                TxtOther.Text.Replace("'", ""), "Edited by " & USER_NAME & " at " & Now) = 1 Then
                     MsgBox("Update registration in OT successfully.", MsgBoxStyle.Information, "Update")
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                     isCloseOT = True

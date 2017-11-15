@@ -27,7 +27,7 @@ Public Class UCOT_AND_IOLList
             Dim Index As Integer = ModCommon.GetRowIndexDataGrid(GridOTRegistration)
             Dim OTNo As String = GridOTRegistration.Rows(Index).Cells("OTNo").Value
             Dim PatientNo As String = GridOTRegistration.Rows(Index).Cells("PatientNo").Value
-            Dim PatientName As String = GridOTRegistration.Rows(Index).Cells("NameKhmer1").Value
+            Dim PatientName As String = GridOTRegistration.Rows(Index).Cells("NameKhmer1").Value.ToString.Replace("'", "")
             Dim Age As String = GridOTRegistration.Rows(Index).Cells("Age").Value
             Dim Sex As String = GridOTRegistration.Rows(Index).Cells("Sex").Value
 
@@ -42,11 +42,11 @@ Public Class UCOT_AND_IOLList
             Dim FIOL As New FRMIOLRegistration
             FIOL.LblOTNo.Text = OTNo
             FIOL.txtPatientNo.Text = PatientNo
-            FIOL.TxtName.Text = PatientName
+            FIOL.TxtName.Text = PatientName.Replace("'", "")
             FIOL.TxtSex.Text = Sex
             FIOL.TxtAge.Text = Age
             'FIOL.LblDateCreateIOL.Text = DateOP
-            FIOL.CboIOLItem.Text = GridOTRegistration.Rows(Index).Cells("IOL").Value
+            FIOL.CboIOLItem.Text = GridOTRegistration.Rows(Index).Cells("IOL").Value.ToString.Replace("'", "")
             FIOL.ShowDialog()
             If FIOL.isClose = True Then
                 GridIOL.DataSource = ModIOLRegistration.SelectIOL(FIOL.LblOTNo.Text)
@@ -419,7 +419,7 @@ Public Class UCOT_AND_IOLList
         End If
 
         Catch ex As Exception
-            MessageBox.Show("Please select patient to set to operation already.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Please select patient to set to operation already. " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
 
             'ContextMenuNewInPatient.Enabled = True

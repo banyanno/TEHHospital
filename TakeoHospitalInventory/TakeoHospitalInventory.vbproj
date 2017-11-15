@@ -4534,6 +4534,7 @@
     <None Include="Resources\1342235152_navigation-down-button_basic_blue.png" />
     <None Include="Resources\alarm-hareketli.gif" />
     <None Include="Resources\1410160314_PLayer_back.png" />
+    <None Include="Resources\1-512.png" />
     <Content Include="Resources\Barcode.png" />
     <None Include="Resources\Bg1.PNG" />
     <None Include="Resources\button1.jpg" />
@@ -4561,6 +4562,7 @@
     <None Include="Resources\column_chart32.png" />
     <None Include="Resources\delete_appointment.png" />
     <None Include="Resources\Certificate1.png" />
+    <None Include="Resources\Delete_Icon.png" />
     <Content Include="Resources\department.ico" />
     <None Include="Resources\edit-trash.ico" />
     <None Include="Resources\document-print.png" />

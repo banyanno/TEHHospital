@@ -53,7 +53,7 @@ Public Class FRMIOLRegistration
                     MsgBox("IOL registration have already.", MsgBoxStyle.Critical, "Error")
                     Exit Sub
                 End If
-                If ModIOLRegistration.SaveNewIOL(LblOTNo.Text, txtPatientNo.Text, CboSurgeon.Text, CboEye.Text, CboIOLItem.Text, DateIOL.Value) = 1 Then
+                If ModIOLRegistration.SaveNewIOL(LblOTNo.Text, txtPatientNo.Text, CboSurgeon.Text.Replace("'", ""), CboEye.Text, CboIOLItem.Text.Replace("'", ""), DateIOL.Value) = 1 Then
                     MsgBox("IOL registration successfully.", MsgBoxStyle.Information, "Save")
                     isClose = True
                     Me.Close()

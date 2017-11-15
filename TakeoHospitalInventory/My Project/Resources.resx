@@ -160,6 +160,9 @@
   <data name="db_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\db_add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Delete_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="configuration_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\configuration_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -448,6 +451,9 @@
   <data name="order_history" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\order-history.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1410160314_PLayer_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1410160314_PLayer_back.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="blue_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blue_new.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -466,7 +472,7 @@
   <data name="check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1410160314_PLayer_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1410160314_PLayer_back.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1-512.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
