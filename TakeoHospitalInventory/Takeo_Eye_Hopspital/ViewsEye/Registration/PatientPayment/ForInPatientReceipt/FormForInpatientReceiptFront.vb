@@ -167,7 +167,7 @@ Public Class FormForInpatientReceiptFront
                 IIf(Me.chkSocialFee.Checked = False, 1, 0), "IR", Me.lblCashier.Text, "", 1, _
                 Me.dtpDateIn.Value, Format(Date.Now(), "MM/dd/yyyy"), ModGlobleVariable.GeteDateServer.Year, _
                 Me.txtOperation.Text, ChDonation.Checked, CboDonation.SelectedValue, _
-                CboDonation.Text, EmptyString(TxtDonationPay.Text), TxtDonateNote.Text, EmptyString(TxtHosFee.Text))
+                CboDonation.Text, EmptyString(TxtDonationPay.Text), TxtDonateNote.Text, EmptyString(TxtHosFee.Text), Format(GetDateServer, "hh:mm:ss tt").ToString, "")
                 sqlComm.ExecuteNonQuery()
                 '==============================End Save receipt inpatient======================
                 '================= Save Inpatient book ======================================
@@ -203,7 +203,7 @@ Public Class FormForInpatientReceiptFront
                                         CalDolarSosial, _
                                         CalDolarFull, _
                                         "", _
-                                        dtpDateIn.Value, ChDonation.Checked, CboDonation.SelectedValue, CboDonation.Text, EmptyString(TxtDonationPay.Text), CashTotal)
+                                        dtpDateIn.Value, ChDonation.Checked, CboDonation.SelectedValue, CboDonation.Text, EmptyString(TxtDonationPay.Text), CashTotal, Format(GetDateServer, "hh:mm:ss tt").ToString)
                 sqlComm.ExecuteNonQuery()
                 '====================== end save in patient book================
                 Transaction.Commit()
@@ -728,14 +728,14 @@ Public Class FormForInpatientReceiptFront
         ByVal DateNow As Date, ByVal Years As Integer, _
         ByVal Operation As String, ByVal IsDonation As Boolean, _
         ByVal DonationID As Double, ByVal DonationName As String, _
-        ByVal DonationPay As Double, ByVal DonateNote As String, ByVal HosFee As Double) As String
+        ByVal DonationPay As Double, ByVal DonateNote As String, ByVal HosFee As Double, ByVal TIME_CREATE As String, ByVal TIME_ISSUE As String) As String
         Dim SQL As String = "INSERT INTO tblPatientReceipt " _
                             & " (ReceiptNo, HN, PatientName, CashRiel, CashUSD, TotalRiel, TotalUSD," _
                             & " OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel," _
                             & " OtherFeeUSD, SocialFeeRiel," _
                             & " SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, ConSocialFee, ConFullFee," _
                             & " ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, DateNow,Years, Operation,IsDonation,DonationID," _
-                            & " DonationName,DonationPay,DonateNote,HosFee)" _
+                            & " DonationName,DonationPay,DonateNote,HosFee,TIME_CREATE,TIME_ISSUE)" _
                             & " VALUES(" & ReceiptNo & "," & HN & ",'" & PatientName & "'," _
                             & CashRiel & "," & CashUSD & "," & TotalRiel & "," & TotalUSD & "," _
                             & OperationFeeRiel & "," & OperationFeeUSD & "," & ArtificialEyeFeeRiel & "," & ArtificialEyeUSD & "," _
@@ -746,7 +746,7 @@ Public Class FormForInpatientReceiptFront
                             & ConFullFee & "','" & ConGeneral & "','" _
                             & CashierIn & "','" & CashierUpdate & "'," & PrintCount & ",'" & DateIn _
                             & "','" & DateNow & "'," & Years & ",'" & Operation & "','" & IsDonation & "'," _
-                            & DonationID & ",'" & DonationName & "'," & DonationPay & ",'" & DonateNote & "'," & HosFee & ")"
+                            & DonationID & ",'" & DonationName & "'," & DonationPay & ",'" & DonateNote & "'," & HosFee & ",'" & TIME_CREATE & "','" & TIME_ISSUE & "')"
         Return SQL
     End Function
     Function DoSaveDonationDetail(ByVal ReceiptNo As Double, ByVal HN As Double, ByVal NameEng As String, _
@@ -778,9 +778,9 @@ Public Class FormForInpatientReceiptFront
     ByVal DonationID As Integer, _
     ByVal DonationName As String, _
     ByVal DonationPay As Double, _
-    ByVal CashTotal As Double) As String
+    ByVal CashTotal As Double, ByVal TIME_CREATE As String) As String
         Dim sql As String = "INSERT INTO TblInpatient (ReceiptNo,PatientNo,Diagnosis,TypeOfOperation," & _
-       "HosFee,SosialFee,FullFee,DolarSosial,DolarFull,CalDolarSosial,CalDolarFull,Other,CreateDate,IsDonate,DonationID,DonationName,DonationPay,CashTotal) " & _
+       "HosFee,SosialFee,FullFee,DolarSosial,DolarFull,CalDolarSosial,CalDolarFull,Other,CreateDate,IsDonate,DonationID,DonationName,DonationPay,CashTotal,TIME_CREATE) " & _
        "VALUES(" & ReceiptNo & "," & _
        PatientNo & ",'" & _
        Diagnosis & "','" & _
@@ -793,7 +793,7 @@ Public Class FormForInpatientReceiptFront
        CalDolarSosial & "," & _
        CalDolarFull & ",'" & _
        Other & "','" & _
-       CreateDate & "','" & IsDonate & "'," & DonationID & ",'" & DonationName & "'," & DonationPay & "," & CashTotal & ")"
+       CreateDate & "','" & IsDonate & "'," & DonationID & ",'" & DonationName & "'," & DonationPay & "," & CashTotal & ",'" & TIME_CREATE & "')"
         Return sql
     End Function
     Function CheckTheSameDay(ByVal PatientNo As String, ByVal CreateDate As Date) As Integer

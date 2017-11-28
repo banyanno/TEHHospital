@@ -170,7 +170,7 @@ Public Class UCPatientPayment
         ",PatientNo, CreateDate,Province" & _
         ",District,Commune,NameEng" & _
         ",NameKhmer,Age,Sex" & _
-        ",Address,Occupation,Telephone" & _
+        ",Address,Occupation,Telephone,TIME_CREATE" & _
         " FROM TblPatients  WHERE PatientNo IS NOT NULL  "
         If DFrom <> "" And DTo <> "" Then
             sql = sql & _

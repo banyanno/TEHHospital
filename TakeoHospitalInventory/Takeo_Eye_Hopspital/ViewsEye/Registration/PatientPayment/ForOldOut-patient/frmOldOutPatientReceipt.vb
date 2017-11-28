@@ -641,7 +641,7 @@ Public Class frmOldOutPatientReceipt
             Dolar = EmptyString(txtFollowUp.Text)
             Riel = 0
         End If
-        Return SQLSaveOldPatientBook(txtReceiptNumber.Text, txtHN.Text, "", "", Riel, Dolar, False, False, False, False, False, False, "", dtpDateIn.Value, False, GetTextReferralV1())
+        Return SQLSaveOldPatientBook(txtReceiptNumber.Text, txtHN.Text, "", "", Riel, Dolar, False, False, False, False, False, False, "", dtpDateIn.Value, False, GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString)
     End Function
     Function SQLSaveOldPatientBook( _
     ByVal ReceiptNo As String, _
@@ -658,7 +658,7 @@ Public Class frmOldOutPatientReceipt
     ByVal Physical As Boolean, _
     ByVal Other As String, _
     ByVal CreateDate As String, _
-    ByVal TypeDiagnosis As Boolean, ByVal ConbindReferal As String) As String
+    ByVal TypeDiagnosis As Boolean, ByVal ConbindReferal As String, ByVal TIME_CREATE As String) As String
         Dim sql As String = "INSERT INTO TblNew_Old_OutPatient " & _
                "(ReceiptNo," & _
                "PatientNo," & _
@@ -676,7 +676,7 @@ Public Class frmOldOutPatientReceipt
                "CreateDate," & _
                "Status," & _
                "TypeDiagnosis," & _
-               "ComBindRefferal) " & _
+               "ComBindRefferal,TIME_CREATE) " & _
                " VALUES(" & _
                ReceiptNo & "," & _
                PatientNo & ",'" & _
@@ -693,7 +693,7 @@ Public Class frmOldOutPatientReceipt
                Other & "','" & _
                CreateDate & _
                "','True','" & _
-               TypeDiagnosis & "','" & ConbindReferal & "')"
+               TypeDiagnosis & "','" & ConbindReferal & "','" & TIME_CREATE & "')"
         Return sql
     End Function
 
@@ -755,7 +755,7 @@ Public Class frmOldOutPatientReceipt
                         Me.txtRate.Text, Me.txtAmountWord.Text, IIf(Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True, "1", "0"), _
                         IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                         IIf(Me.chkSocialFee.Checked = False, 1, 0), "OR", Me.lblCashier.Text, "", 1, _
-                        Me.dtpDateIn.Value, ModGlobleVariable.GeteDateServer.Year)
+                        Me.dtpDateIn.Value, ModGlobleVariable.GeteDateServer.Year, Format(GetDateServer, "hh:mm:ss tt").ToString, "")
     End Function
 
     Function SaveOldOutpatientReceipt( _
@@ -768,21 +768,21 @@ Public Class frmOldOutPatientReceipt
        ByVal AmountWord As String, ByVal ConFOL As String, ByVal ConSocialFee As String, _
        ByVal ConFullFee As String, ByVal ConGeneral As String, _
        ByVal CashierIn As String, ByVal CashierUpdate As String, _
-       ByVal PrintCount As Integer, ByVal DateIn As Date, ByVal Years As Integer) As String
+       ByVal PrintCount As Integer, ByVal DateIn As Date, ByVal Years As Integer, ByVal TIME_CREATE As String, ByVal TIME_ISSUE As String) As String
         'Try
         '-----tblPatientReceipt--------------------------------------------
         Dim sql As String = " INSERT INTO tblPatientReceipt " _
                 & " (ReceiptNo, HN, PatientName, CashRiel, CashUSD, TotalRiel, TotalUSD," _
                 & " FollowUpFeeRiel, FollowUpFeeUSD, SocialFeeRiel," _
                 & " SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConFOL, ConSocialFee, ConFullFee," _
-                & " ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, Years)" _
+                & " ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, Years,TIME_CREATE,TIME_ISSUE)" _
                 & " VALUES(" & ReceiptNo & "," & HN & ",'" & PatientName & "'," _
                 & CashRiel & "," & CashUSD & "," & TotalRiel & "," & TotalUSD & "," _
                 & FollowUpFeeRiel & "," & FollowUpFeeUSD & "," _
                 & SocialFeeRiel & "," & SocialFeeUSD & "," _
                 & FullFeeRiel & "," & FullFeeUSD & "," & Rates & ",'" _
                 & AmountWord & "','" & ConFOL & "','" & ConSocialFee & "','" & ConFullFee & "','" & ConGeneral & "','" _
-                & CashierIn & "','" & CashierUpdate & "'," & PrintCount & ",'" & DateIn & "'," & Years & ")"
+                & CashierIn & "','" & CashierUpdate & "'," & PrintCount & ",'" & DateIn & "'," & Years & ",'" & TIME_CREATE & "','" & TIME_ISSUE & "')"
         Return sql
         'Catch ex As Exception
         '    MsgBox(ex.Message, MsgBoxStyle.OkCancel)
