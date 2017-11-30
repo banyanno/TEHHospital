@@ -61,6 +61,7 @@ Public Class FormPayment
             ObjReceip.PaidDollar = EmptyString(TxtAmountDolar.Text)
             ObjReceip.PaidR = EmptyString(TxtAmounInReal.Text)
 
+
             ''' <summary>
             ''' >>>>>>>>Income Type<<<<<<<<<<<<<
             ''' Sun Glasses=2
@@ -143,6 +144,7 @@ Public Class FormPayment
             End If
             '---------------- Update TblPatientReceipt to pay ----------------------
             ObjTblPatientReceipt.ConPay = "1"
+            ObjTblPatientReceipt.TIME_ISSUE = Format(GetDateServer, "hh:mm:ss tt").ToString
             ObjTblPatientReceipt.AmoutWord = TxtAmountInWord.Text
             ObjReceip.IsPaid = 1
             If ReceiptDataContext.UpdateReceiptPay = True And LblIsPaidStatus.Text <> "1" Then

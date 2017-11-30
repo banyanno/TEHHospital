@@ -10,9 +10,9 @@ Module ModNewInPatient
     ByVal DateFollowUp As String, _
     ByVal Signature As Boolean, _
     ByVal TypeDiagnosis As Boolean, _
-    ByVal Waiting As Integer) As Integer
+    ByVal Waiting As Integer, ByVal TIME_CREATE As String) As Integer
         Dim sql As String = "INSERT INTO TblNewInPatient " & _
-                            "(PatientNo,Eye,Diagnosis,DiagnosisTem,VA_RE,VA_LE,DateDischarge,DateFollowUp,Signature,TypeDiagnosis,Waiting) " & _
+                            "(PatientNo,Eye,Diagnosis,DiagnosisTem,VA_RE,VA_LE,DateDischarge,DateFollowUp,Signature,TypeDiagnosis,Waiting,TIME_CREATE) " & _
                             "VALUES (" & _
                             PatientNo & _
                             ",'" & Eye & _
@@ -24,7 +24,7 @@ Module ModNewInPatient
                             "," & DateFollowUp & _
                             ",'" & Signature & _
                             "','" & TypeDiagnosis & _
-                            "'," & Waiting & ")"
+                            "'," & Waiting & ",'" & TIME_CREATE & "')"
         Return ModGlobleVariable.GENERAL_DAO.InsertDAO(sql)
     End Function
     Function UpdateOTWating(ByVal NewInPatientNo As String, ByVal Waiting As Integer) As Integer

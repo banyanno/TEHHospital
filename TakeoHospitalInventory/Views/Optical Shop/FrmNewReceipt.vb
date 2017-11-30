@@ -697,6 +697,7 @@ Public Class FrmNewReceipt
                     ObjReceipt.ReceiptNo = TxtReceiptNo.Text
                     ObjReceipt.ReceiptDate = DateCreateReceipt.Value
                     ObjReceipt.TotalSocial = TotalSocial
+                    ObjReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
                     '--- In Case user select Customer
                     ObjReceipt.CustomerNo = EmptyString(TxtCustomerNo.Text)
                     ObjReceipt.CustID = EmptyString(TxtCustomerID.Text)
@@ -775,20 +776,7 @@ Public Class FrmNewReceipt
 
 
 
-                    'If ChDonation.Checked = True Then
-                    '    ObjReceipt.IsDonation = True
-                    '    ObjReceipt.DonationID = CboDonation.SelectedValue
-                    '    If RadNil.Checked = True Then
-                    '        ModDonation.SaveNewDonatPay(0, TxtCustomerNo.Text, TxtCusNameEng.Text, "", TxtAge.Text, TxtSex.Text, txtAddress.Text, PaymentTypeLabel, TxtDonateAmount.Text, FormatDateTime(DateCreateReceipt.Value, DateFormat.ShortDate), CboDonation.SelectedValue, CboDonation.Text, PaymentTypeLabel, "", TxtTotalAsReal.Text, TotalSocial, "OP", PaymentForGlasessOrMedicine, LblCombindReferal.Text)
-                    '    Else
-                    '        ModDonation.SaveNewDonatPay(TxtReceiptNo.Text, TxtCustomerNo.Text, TxtCusNameEng.Text, "", TxtAge.Text, TxtSex.Text, txtAddress.Text, "", TxtDonateAmount.Text, FormatDateTime(DateCreateReceipt.Value, DateFormat.ShortDate), CboDonation.SelectedValue, CboDonation.Text, PaymentTypeLabel, "", TxtTotalAsReal.Text, TotalSocial, "OP", PaymentForGlasessOrMedicine, LblCombindReferal.Text)
-                    '    End If
-                    'Else
-                    '    ObjReceipt.IsDonation = False
-                    '    ObjReceipt.PayBySelf = 0
-                    '    ObjReceipt.PayByDonation = 0
-                    'End If
-
+                  
 
 
                     '------------- Save New Donation for Donation-------------- 
@@ -883,6 +871,8 @@ Public Class FrmNewReceipt
                         ObjTblPatientReceipt.SocialFeeUSD = 0
                         ObjTblPatientReceipt.FullFeeRiel = 0
                         ObjTblPatientReceipt.FullFeeUSD = 0
+                        ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
+                        ObjTblPatientReceipt.TIME_ISSUE = ""
                         If RadKHR.Checked = True Then
                             If RadFull.Checked = True Then
                                 ObjTblPatientReceipt.CashRiel = EmptyString(TxtFullAmount.Text)

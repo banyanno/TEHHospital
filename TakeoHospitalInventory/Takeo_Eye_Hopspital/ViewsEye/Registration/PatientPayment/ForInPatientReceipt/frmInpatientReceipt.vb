@@ -981,7 +981,7 @@ Public Class frmInpatientReceipt
             IIf((Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
             IIf((Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True) And Me.chkDollar.Checked = True, Me.txtAmountFigureD.Text, 0), _
             Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", _
-            EmptyString(TxtHospitalFee.Text), CashTotalDolar)
+            EmptyString(TxtHospitalFee.Text), CashTotalDolar, Format(GetDateServer, "hh:mm:ss tt").ToString)
             AccRolesCashier = True
             isTrueFalse = False
             Me.Close()

@@ -129,7 +129,7 @@ Module MOldOutpatientReceipt
         ByVal CashRiel As Double, ByVal CashUSD As Double, _
         ByVal FollowUpFeeRiel As Double, ByVal FollowUpFeeUSD As Double, _
         ByVal Rates As Double, ByVal AmountWord As String, ByVal DateIn As Date, ByVal CashierUpdate As String, _
-        ByVal DateUpdate As Date, ByVal Pay As String)
+        ByVal DateUpdate As Date, ByVal Pay As String, ByVal TIME_ISSUE As String)
         Try
             '-----tblPatientReceipt--------------------------------------------
             ModGlobleVariable.GENERAL_DAO.UpdateDAO("UPDATE tblPatientReceipt SET " _
@@ -139,7 +139,7 @@ Module MOldOutpatientReceipt
                     & " DateIn='" & DateIn & "'," _
                     & " CashierUpdate='" & CashierUpdate & "', " _
                     & " DateUpdate='" & DateUpdate & "'," _
-                    & " ConPay='" & Pay & "'  Where ID=" & ID & "")
+                    & " ConPay='" & Pay & "',TIME_ISSUE='" & TIME_ISSUE & "'  Where ID=" & ID & "")
             MsgBox("Update old-out patient receipt successfully", MsgBoxStyle.OkOnly, "Update Old-Out Patient")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.OkCancel)

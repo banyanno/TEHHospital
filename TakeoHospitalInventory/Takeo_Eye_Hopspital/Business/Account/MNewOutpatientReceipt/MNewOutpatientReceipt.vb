@@ -116,7 +116,7 @@ Module MNewOutpatientReceipt
         ByVal ConsultationFeeRiel As Double, ByVal ConsultationFeeUSD As Double, _
         ByVal Rates As Double, ByVal AmountWord As String, _
     ByVal DateIn As DateTime, _
-        ByVal CashierUpdate As String, ByVal DateUpdate As Date, ByVal Pay As String)
+        ByVal CashierUpdate As String, ByVal DateUpdate As Date, ByVal Pay As String, ByVal TIME_ISSUE As String)
 
         Try
             '-----tblPatientReceipt--------------------------------------------------------------------
@@ -128,7 +128,7 @@ Module MNewOutpatientReceipt
                     & " DateIn='" & DateIn & "'," _
                     & " CashierUpdate='" & CashierUpdate & "', " _
                     & " DateUpdate='" & DateUpdate & "'," _
-                    & " ConPay='" & Pay & "' Where ID=" & ID & "")
+                    & " ConPay='" & Pay & "',TIME_ISSUE='" & TIME_ISSUE & "' Where ID=" & ID & "")
             MsgBox("Update new-out patient receipt successfully", MsgBoxStyle.OkOnly, "Update new-out patient receipt")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.OkCancel)

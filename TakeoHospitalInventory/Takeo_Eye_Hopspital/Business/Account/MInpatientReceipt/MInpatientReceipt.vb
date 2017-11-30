@@ -137,7 +137,7 @@ Module MInpatientReceipt
         ByVal DateUpdate As Date, _
         ByVal Pay As String, _
         ByVal HosFee As Double, _
-        ByVal CashFee As Double)
+        ByVal CashFee As Double, ByVal TIME_ISSUE As String)
 
         'Try
         '-----tblPatientReceipt--------------------------------------------
@@ -155,7 +155,8 @@ Module MInpatientReceipt
                  & " DateUpdate='" & DateUpdate & "'," _
                  & " ConPay='" & Pay & "'," _
                  & " HosFee=" & HosFee & "," _
-                 & " CashTotal=" & CashFee _
+                 & " CashTotal=" & CashFee & "," _
+                 & " TIME_ISSUE=' " & TIME_ISSUE & "'" _
                  & " WHERE ID=" & ID & ""
         If generalDAO.UpdateDAO(SQlUpdateReceipt) = 1 Then
             MsgBox("Update inpatient receipt successfully", MsgBoxStyle.OkOnly, "Update Inpatient Receipt")
