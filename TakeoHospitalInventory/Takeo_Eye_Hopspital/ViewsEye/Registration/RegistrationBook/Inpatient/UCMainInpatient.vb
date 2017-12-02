@@ -650,4 +650,6 @@ Public Class UCMainInpatient
         FViewReport.TDate = DateInTo.Value.Date
         FViewReport.ShowDialog()
     End Sub
+
+    
 End Class

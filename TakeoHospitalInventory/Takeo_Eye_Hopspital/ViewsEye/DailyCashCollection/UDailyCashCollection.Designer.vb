@@ -71,10 +71,11 @@ Partial Class UCashCollection
         Me.txtOPRiel = New System.Windows.Forms.TextBox
         Me.txtOPUSD = New System.Windows.Forms.TextBox
         Me.GRCashCount = New System.Windows.Forms.GroupBox
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.GRButtonSave = New System.Windows.Forms.GroupBox
         Me.cmdNew = New System.Windows.Forms.Button
-        Me.cmdPrint = New System.Windows.Forms.Button
+        Me.Button1 = New System.Windows.Forms.Button
         Me.cmdSave = New System.Windows.Forms.Button
+        Me.cmdPrint = New System.Windows.Forms.Button
         Me.GroupBox8 = New System.Windows.Forms.GroupBox
         Me.Label43 = New System.Windows.Forms.Label
         Me.Label40 = New System.Windows.Forms.Label
@@ -149,7 +150,6 @@ Partial Class UCashCollection
         Me.txt5USD = New System.Windows.Forms.TextBox
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
         Me.dgvRemarks = New Janus.Windows.GridEX.GridEX
-        Me.GRButtonSave = New System.Windows.Forms.GroupBox
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -166,11 +166,11 @@ Partial Class UCashCollection
         CType(Me.GridAccountPayable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GRCashCount.SuspendLayout()
+        Me.GRButtonSave.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GRButtonSave.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImgCashCollection
@@ -705,14 +705,17 @@ Partial Class UCashCollection
         Me.GRCashCount.TabStop = False
         Me.GRCashCount.Text = "Details of Cash Count"
         '
-        'Button1
+        'GRButtonSave
         '
-        Me.Button1.Location = New System.Drawing.Point(279, 13)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(76, 69)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "&Print Old"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.GRButtonSave.Controls.Add(Me.cmdNew)
+        Me.GRButtonSave.Controls.Add(Me.Button1)
+        Me.GRButtonSave.Controls.Add(Me.cmdSave)
+        Me.GRButtonSave.Controls.Add(Me.cmdPrint)
+        Me.GRButtonSave.Location = New System.Drawing.Point(9, 302)
+        Me.GRButtonSave.Name = "GRButtonSave"
+        Me.GRButtonSave.Size = New System.Drawing.Size(361, 89)
+        Me.GRButtonSave.TabIndex = 13
+        Me.GRButtonSave.TabStop = False
         '
         'cmdNew
         '
@@ -725,14 +728,14 @@ Partial Class UCashCollection
         Me.cmdNew.Text = "New"
         Me.cmdNew.UseVisualStyleBackColor = True
         '
-        'cmdPrint
+        'Button1
         '
-        Me.cmdPrint.Location = New System.Drawing.Point(201, 13)
-        Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(76, 69)
-        Me.cmdPrint.TabIndex = 2
-        Me.cmdPrint.Text = "&Print"
-        Me.cmdPrint.UseVisualStyleBackColor = True
+        Me.Button1.Location = New System.Drawing.Point(279, 13)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(76, 69)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "&Print Old"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'cmdSave
         '
@@ -744,6 +747,15 @@ Partial Class UCashCollection
         Me.cmdSave.Tag = "Save Cash Count"
         Me.cmdSave.Text = "Save Cash Count"
         Me.cmdSave.UseVisualStyleBackColor = True
+        '
+        'cmdPrint
+        '
+        Me.cmdPrint.Location = New System.Drawing.Point(201, 13)
+        Me.cmdPrint.Name = "cmdPrint"
+        Me.cmdPrint.Size = New System.Drawing.Size(76, 69)
+        Me.cmdPrint.TabIndex = 2
+        Me.cmdPrint.Text = "&Print"
+        Me.cmdPrint.UseVisualStyleBackColor = True
         '
         'GroupBox8
         '
@@ -1523,18 +1535,6 @@ Partial Class UCashCollection
         Me.dgvRemarks.Size = New System.Drawing.Size(424, 145)
         Me.dgvRemarks.TabIndex = 0
         '
-        'GRButtonSave
-        '
-        Me.GRButtonSave.Controls.Add(Me.cmdNew)
-        Me.GRButtonSave.Controls.Add(Me.Button1)
-        Me.GRButtonSave.Controls.Add(Me.cmdSave)
-        Me.GRButtonSave.Controls.Add(Me.cmdPrint)
-        Me.GRButtonSave.Location = New System.Drawing.Point(9, 302)
-        Me.GRButtonSave.Name = "GRButtonSave"
-        Me.GRButtonSave.Size = New System.Drawing.Size(361, 89)
-        Me.GRButtonSave.TabIndex = 13
-        Me.GRButtonSave.TabStop = False
-        '
         'UCashCollection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1564,13 +1564,13 @@ Partial Class UCashCollection
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GRCashCount.ResumeLayout(False)
+        Me.GRButtonSave.ResumeLayout(False)
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GRButtonSave.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

@@ -740,6 +740,7 @@ Public Class FrmNewReceipt
                     ObjReceipt.TotalReal = TxtTotalAsReal.Text
                     ObjReceipt.TotalDolar = TxtTotalAsDolar.Text
                     ObjReceipt.IncomType = IncomeTypeCondition.ToString
+                    ObjReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
 
 
                     If ChDonation.Checked = True Then ObjReceipt.DonateAmount = Val(EmptyString(TxtDonateAmount.Text))
@@ -1087,6 +1088,7 @@ Public Class FrmNewReceipt
                         ObjTblPatientReceipt.HN = TxtCustomerNo.Text
                         ObjTblPatientReceipt.PatientName = TxtCustomerName.Text
                         ObjTblPatientReceipt.CashTotal = TxtTotalAsDolar.Text
+                        ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "dd:mm:hh tt").ToString
                         '======== Set valud Cashe
                         ObjTblPatientReceipt.CashUSD = 0
                         ObjTblPatientReceipt.CashRiel = 0
@@ -1275,6 +1277,7 @@ Public Class FrmNewReceipt
                         ObjReceipt.CustomerNo = EmptyString(TxtCustomerNo.Text)
                         ObjReceipt.CustID = EmptyString(TxtCustomerID.Text)
                         ObjReceipt.TotalSocial = TotalSocial
+                        ObjReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
                         'Case Patient not yet add to table Receipt_Customer
                         If IsPatient = True Then
                             Dim Re_Customer As New RECEIPT_CUSTOMER

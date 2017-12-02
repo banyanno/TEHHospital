@@ -59,7 +59,7 @@ Partial Class UCDashboardWaitingPayment
         Me.ToolStrip1.Location = New System.Drawing.Point(156, 31)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.ToolStrip1.Size = New System.Drawing.Size(976, 37)
+        Me.ToolStrip1.Size = New System.Drawing.Size(699, 37)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -68,7 +68,7 @@ Partial Class UCDashboardWaitingPayment
         Me.BtnPayment.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1316415362_cashbox
         Me.BtnPayment.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnPayment.Name = "BtnPayment"
-        Me.BtnPayment.Size = New System.Drawing.Size(121, 34)
+        Me.BtnPayment.Size = New System.Drawing.Size(129, 34)
         Me.BtnPayment.Text = "Payment Invoice"
         '
         'ToolStripSeparator1
@@ -81,7 +81,7 @@ Partial Class UCDashboardWaitingPayment
         Me.BtnWaitingReceipt.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1316401141_Schedule_File
         Me.BtnWaitingReceipt.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnWaitingReceipt.Name = "BtnWaitingReceipt"
-        Me.BtnWaitingReceipt.Size = New System.Drawing.Size(141, 34)
+        Me.BtnWaitingReceipt.Size = New System.Drawing.Size(152, 34)
         Me.BtnWaitingReceipt.Text = "Load Waiting Invoice"
         '
         'ToolStripSeparator5
@@ -94,7 +94,7 @@ Partial Class UCDashboardWaitingPayment
         Me.BtnCancelReceipt.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Remove
         Me.BtnCancelReceipt.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnCancelReceipt.Name = "BtnCancelReceipt"
-        Me.BtnCancelReceipt.Size = New System.Drawing.Size(111, 34)
+        Me.BtnCancelReceipt.Size = New System.Drawing.Size(118, 34)
         Me.BtnCancelReceipt.Text = "Cancel Invoice"
         '
         'ToolStripSeparator3
@@ -108,13 +108,13 @@ Partial Class UCDashboardWaitingPayment
         Me.BtnViewReceipt.Image = Global.TakeoHospitalInventory.My.Resources.Resources.RightLeft2Red
         Me.BtnViewReceipt.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnViewReceipt.Name = "BtnViewReceipt"
-        Me.BtnViewReceipt.Size = New System.Drawing.Size(157, 34)
+        Me.BtnViewReceipt.Size = New System.Drawing.Size(168, 34)
         Me.BtnViewReceipt.Text = "View Invioce Canceled"
         '
         'BtnUndoReceipt
         '
         Me.BtnUndoReceipt.Name = "BtnUndoReceipt"
-        Me.BtnUndoReceipt.Size = New System.Drawing.Size(138, 22)
+        Me.BtnUndoReceipt.Size = New System.Drawing.Size(145, 22)
         Me.BtnUndoReceipt.Text = "Undo Receipt"
         '
         'ToolStripSeparator4
@@ -127,7 +127,7 @@ Partial Class UCDashboardWaitingPayment
         Me.BtnFindReceiptForUpdate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.prescription
         Me.BtnFindReceiptForUpdate.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnFindReceiptForUpdate.Name = "BtnFindReceiptForUpdate"
-        Me.BtnFindReceiptForUpdate.Size = New System.Drawing.Size(99, 34)
+        Me.BtnFindReceiptForUpdate.Size = New System.Drawing.Size(105, 34)
         Me.BtnFindReceiptForUpdate.Text = "Find Invioce"
         '
         'BtnWaitingNilInvoice
@@ -135,7 +135,7 @@ Partial Class UCDashboardWaitingPayment
         Me.BtnWaitingNilInvoice.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1316401141_Schedule_File
         Me.BtnWaitingNilInvoice.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnWaitingNilInvoice.Name = "BtnWaitingNilInvoice"
-        Me.BtnWaitingNilInvoice.Size = New System.Drawing.Size(155, 34)
+        Me.BtnWaitingNilInvoice.Size = New System.Drawing.Size(170, 34)
         Me.BtnWaitingNilInvoice.Text = "Load Waiting Nil Invoice"
         Me.BtnWaitingNilInvoice.Visible = False
         '
@@ -144,7 +144,7 @@ Partial Class UCDashboardWaitingPayment
         Me.BtnApproveNilInvoice.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Checked
         Me.BtnApproveNilInvoice.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnApproveNilInvoice.Name = "BtnApproveNilInvoice"
-        Me.BtnApproveNilInvoice.Size = New System.Drawing.Size(134, 34)
+        Me.BtnApproveNilInvoice.Size = New System.Drawing.Size(145, 34)
         Me.BtnApproveNilInvoice.Text = "Approve Nil Invoice"
         Me.BtnApproveNilInvoice.Visible = False
         '

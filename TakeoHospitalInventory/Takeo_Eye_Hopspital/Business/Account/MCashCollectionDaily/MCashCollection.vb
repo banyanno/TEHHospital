@@ -6,7 +6,7 @@ Module MCashCollection
         Dim sql As String = "SELECT HN, ReceiptNo, CashUSD, CashRiel, ConsultationFeeUSD," _
             & " ConsultationFeeRiel, FollowUpFeeUSD, FollowUpFeeRiel, OperationFeeUSD," _
             & " OperationFeeRiel, ArtificialEyeFeeUSD, ArtificialEyeFeeRiel, OtherFeeUSD, OtherFeeRiel," _
-            & " MedicineFeeUSD, MedicineFeeRiel, GlassFeeUSD,GlassFeeRiel,DonationPay,CashTotal,Rates,(case when ((IsDonation=1 and ConPay='1') and (DonationPay>0))  then (case when DonationPay=(CashUSD+(CashRiel/Rates)) then DonationPay else (DonationPay-(CashUSD+(CashRiel/Rates))) end)  else 0 end) as DonatSupported FROM tblPatientReceipt " _
+            & " MedicineFeeUSD, MedicineFeeRiel, GlassFeeUSD,GlassFeeRiel,DonationPay,CashTotal,Rates,(case when ((IsDonation=1 and ConPay='1') and (DonationPay>0))  then (case when DonationPay=(CashUSD+(CashRiel/Rates)) then DonationPay else (DonationPay-(CashUSD+(CashRiel/Rates))) end)  else 0 end) as DonatSupported,TIME_CREATE,TIME_ISSUE FROM tblPatientReceipt " _
             & " Where IsPatientNill=0 AND CAST(CONVERT(VARCHAR(10), DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) and ConPay='1' and ConDelete='0'"
         Return generalDAO.SelectDAOAsDataTatable(sql)
     End Function

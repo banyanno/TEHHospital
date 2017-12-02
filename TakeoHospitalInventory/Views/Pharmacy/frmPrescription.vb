@@ -489,6 +489,7 @@ Public Class frmPrescription
                     TPrescripInventory.DiagnosisID = CbDiagnosis.SelectedValue
                     TPrescripInventory.Status = 0 'Indicate that prescription not yet give medicine to patient .
                     TPrescripInventory.PrescriptionNote = TxtPrescriptionNote.Text
+                    TPrescripInventory.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
                     THIDataContext.getTHIDataContext.PRESCIP_INVENTORies.InsertOnSubmit(TPrescripInventory)
                     THIDataContext.getTHIDataContext.SubmitChanges()
 

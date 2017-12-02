@@ -411,6 +411,8 @@ Partial Public Class DSWardWithOT
         
         Private columnWaiting As Global.System.Data.DataColumn
         
+        Private columnTIME_CREATE As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -562,6 +564,13 @@ Partial Public Class DSWardWithOT
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property TIME_CREATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTIME_CREATE
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -608,9 +617,10 @@ Partial Public Class DSWardWithOT
                     ByVal CreateDate As Date,  _
                     ByVal NameKhmer As String,  _
                     ByVal TypeDiagnosis As Boolean,  _
-                    ByVal Waiting As Decimal) As V_NewInpatientDetialRow
+                    ByVal Waiting As Decimal,  _
+                    ByVal TIME_CREATE As String) As V_NewInpatientDetialRow
             Dim rowV_NewInpatientDetialRow As V_NewInpatientDetialRow = CType(Me.NewRow,V_NewInpatientDetialRow)
-            Dim columnValuesArray() As Object = New Object() {NewInPatientNo, PatientNo, Age, Sex, Address, Eye, Diagnosis, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, CreateDate, NameKhmer, TypeDiagnosis, Waiting}
+            Dim columnValuesArray() As Object = New Object() {NewInPatientNo, PatientNo, Age, Sex, Address, Eye, Diagnosis, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, CreateDate, NameKhmer, TypeDiagnosis, Waiting, TIME_CREATE}
             rowV_NewInpatientDetialRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowV_NewInpatientDetialRow)
             Return rowV_NewInpatientDetialRow
@@ -647,6 +657,7 @@ Partial Public Class DSWardWithOT
             Me.columnNameKhmer = MyBase.Columns("NameKhmer")
             Me.columnTypeDiagnosis = MyBase.Columns("TypeDiagnosis")
             Me.columnWaiting = MyBase.Columns("Waiting")
+            Me.columnTIME_CREATE = MyBase.Columns("TIME_CREATE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -685,6 +696,8 @@ Partial Public Class DSWardWithOT
             MyBase.Columns.Add(Me.columnTypeDiagnosis)
             Me.columnWaiting = New Global.System.Data.DataColumn("Waiting", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnWaiting)
+            Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTIME_CREATE)
             Me.columnNewInPatientNo.AllowDBNull = false
             Me.columnPatientNo.AllowDBNull = false
             Me.columnSex.MaxLength = 1
@@ -695,6 +708,7 @@ Partial Public Class DSWardWithOT
             Me.columnVA_LE.MaxLength = 50
             Me.columnLeave.MaxLength = 1
             Me.columnNameKhmer.MaxLength = 50
+            Me.columnTIME_CREATE.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -867,6 +881,8 @@ Partial Public Class DSWardWithOT
         Private columnOthers As Global.System.Data.DataColumn
         
         Private columnDR_NAME As Global.System.Data.DataColumn
+        
+        Private columnTIME_CREATE As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -1054,6 +1070,13 @@ Partial Public Class DSWardWithOT
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property TIME_CREATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTIME_CREATE
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1105,15 +1128,21 @@ Partial Public Class DSWardWithOT
                     ByVal IOL As String,  _
                     ByVal DateOperated As Date,  _
                     ByVal Others As String,  _
-                    ByVal DR_NAME As String) As View_OTRegistrationRow
+                    ByVal DR_NAME As String,  _
+                    ByVal TIME_CREATE As String) As View_OTRegistrationRow
             Dim rowView_OTRegistrationRow As View_OTRegistrationRow = CType(Me.NewRow,View_OTRegistrationRow)
-            Dim columnValuesArray() As Object = New Object() {OTNo, Nothing, PatientNo, Age, Sex, Address, OperationTime, Anesthesia, Eye, OperationType, Surgeon, Assistant, Circulation, Compli, CreateDate, Status, NameKhmer, Anesthetist, IOL, DateOperated, Others, DR_NAME}
+            Dim columnValuesArray() As Object = New Object() {OTNo, Nothing, PatientNo, Age, Sex, Address, OperationTime, Anesthesia, Eye, OperationType, Surgeon, Assistant, Circulation, Compli, CreateDate, Status, NameKhmer, Anesthetist, IOL, DateOperated, Others, DR_NAME, TIME_CREATE}
             If (Not (parentV_NewInpatientDetialRowByV_NewInpatientDetial_View_OTRegistration) Is Nothing) Then
                 columnValuesArray(1) = parentV_NewInpatientDetialRowByV_NewInpatientDetial_View_OTRegistration(0)
             End If
             rowView_OTRegistrationRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowView_OTRegistrationRow)
             Return rowView_OTRegistrationRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByOTNoNewInPatientNoPatientNo(ByVal OTNo As Decimal, ByVal NewInPatientNo As Decimal, ByVal PatientNo As Decimal) As View_OTRegistrationRow
+            Return CType(Me.Rows.Find(New Object() {OTNo, NewInPatientNo, PatientNo}),View_OTRegistrationRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1152,6 +1181,7 @@ Partial Public Class DSWardWithOT
             Me.columnDateOperated = MyBase.Columns("DateOperated")
             Me.columnOthers = MyBase.Columns("Others")
             Me.columnDR_NAME = MyBase.Columns("DR_NAME")
+            Me.columnTIME_CREATE = MyBase.Columns("TIME_CREATE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1200,6 +1230,9 @@ Partial Public Class DSWardWithOT
             MyBase.Columns.Add(Me.columnOthers)
             Me.columnDR_NAME = New Global.System.Data.DataColumn("DR_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDR_NAME)
+            Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTIME_CREATE)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnOTNo, Me.columnNewInPatientNo, Me.columnPatientNo}, true))
             Me.columnOTNo.AllowDBNull = false
             Me.columnNewInPatientNo.AllowDBNull = false
             Me.columnPatientNo.AllowDBNull = false
@@ -1218,6 +1251,7 @@ Partial Public Class DSWardWithOT
             Me.columnIOL.MaxLength = 50
             Me.columnOthers.MaxLength = 200
             Me.columnDR_NAME.MaxLength = 50
+            Me.columnTIME_CREATE.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2600,6 +2634,20 @@ Partial Public Class DSWardWithOT
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property TIME_CREATE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableV_NewInpatientDetial.TIME_CREATEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIME_CREATE' in table 'V_NewInpatientDetial' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableV_NewInpatientDetial.TIME_CREATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsAgeNull() As Boolean
             Return Me.IsNull(Me.tableV_NewInpatientDetial.AgeColumn)
         End Function
@@ -2747,6 +2795,16 @@ Partial Public Class DSWardWithOT
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetWaitingNull()
             Me(Me.tableV_NewInpatientDetial.WaitingColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsTIME_CREATENull() As Boolean
+            Return Me.IsNull(Me.tableV_NewInpatientDetial.TIME_CREATEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetTIME_CREATENull()
+            Me(Me.tableV_NewInpatientDetial.TIME_CREATEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3071,6 +3129,20 @@ Partial Public Class DSWardWithOT
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property TIME_CREATE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableView_OTRegistration.TIME_CREATEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIME_CREATE' in table 'View_OTRegistration' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableView_OTRegistration.TIME_CREATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property V_NewInpatientDetialRow() As V_NewInpatientDetialRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("V_NewInpatientDetial_View_OTRegistration")),V_NewInpatientDetialRow)
@@ -3278,6 +3350,16 @@ Partial Public Class DSWardWithOT
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetDR_NAMENull()
             Me(Me.tableView_OTRegistration.DR_NAMEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsTIME_CREATENull() As Boolean
+            Return Me.IsNull(Me.tableView_OTRegistration.TIME_CREATEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetTIME_CREATENull()
+            Me(Me.tableView_OTRegistration.TIME_CREATEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4575,6 +4657,7 @@ Namespace DSWardWithOTTableAdapters
             tableMapping.ColumnMappings.Add("NameKhmer", "NameKhmer")
             tableMapping.ColumnMappings.Add("TypeDiagnosis", "TypeDiagnosis")
             tableMapping.ColumnMappings.Add("Waiting", "Waiting")
+            tableMapping.ColumnMappings.Add("TIME_CREATE", "TIME_CREATE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -4589,16 +4672,16 @@ Namespace DSWardWithOTTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, Eye, Diagnosi"& _ 
-                "s, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "        CreateDate, Waiting, TypeDiagnosis"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         V_NewInpatientDetial"
+            Me._commandCollection(0).CommandText = "SELECT        NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, Eye, Diagn"& _ 
+                "osis, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, CreateDate, W"& _ 
+                "aiting, TypeDiagnosis, TIME_CREATE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_NewInpatientDetial"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT     NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, Eye, Diagnosi"& _ 
-                "s, VA_RE, VA_LE, DateDischarge, DateFollowUp, Signature, Leave, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "        CreateDate, Waiting, TypeDiagnosis"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         V_NewInpatientDetial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"w"& _ 
-                "here Waiting!=2 AND DeleteOption='False'"
+            Me._commandCollection(1).CommandText = "SELECT Address, Age, CreateDate, DateDischarge, DateFollowUp, Diagnosis, Eye, Lea"& _ 
+                "ve, NameKhmer, NewInPatientNo, PatientNo, Sex, Signature, TIME_CREATE, TypeDiagn"& _ 
+                "osis, VA_LE, VA_RE, Waiting FROM V_NewInpatientDetial WHERE (Waiting <> 2) AND ("& _ 
+                "DeleteOption = 'False')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4761,6 +4844,7 @@ Namespace DSWardWithOTTableAdapters
             tableMapping.ColumnMappings.Add("DateOperated", "DateOperated")
             tableMapping.ColumnMappings.Add("Others", "Others")
             tableMapping.ColumnMappings.Add("DR_NAME", "DR_NAME")
+            tableMapping.ColumnMappings.Add("TIME_CREATE", "TIME_CREATE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -4777,8 +4861,8 @@ Namespace DSWardWithOTTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        OTNo, NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, Oper"& _ 
                 "ationTime, Anesthesia, Eye, OperationType, Surgeon, Assistant, Circulation, Comp"& _ 
-                "li, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CreateDate, Status, Anesthetist, IOL, DateOperate"& _ 
-                "d, Others, DR_NAME"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            View_OTRegistration"
+                "li, CreateDate, Status, Anesthetist, IOL, DateOperated, Others, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "           DR_NAME, TIME_CREATE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            View_OTRegistration"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

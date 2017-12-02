@@ -221,7 +221,7 @@ Module MInpatientReceipt
             Dim SqlCom As New SqlClient.SqlCommand
             Sql = "SELECT  HN, PatientName, ReceiptNo, CashUSD, CashRiel, TotalUSD, TotalRiel, DateIn," _
                     & " CashierIn, AmoutWord, OperationFeeRiel, OperationFeeUSD, " _
-                    & " ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConOP, ConAE, ConOT, Operation,IsDonation,DonationID,DonationName,DonationPay " _
+                    & " ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConOP, ConAE, ConOT, Operation,IsDonation,DonationID,DonationName,DonationPay,TIME_CREATE " _
                     & " FROM tblPatientReceipt Where ReceiptNo=" & ReceiptID & ""
             SqlCom.CommandText = Sql
             SqlCom.Connection = Con

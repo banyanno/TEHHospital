@@ -224,7 +224,7 @@ Module MNewOutpatientReceipt
             'End If
             Dim SqlCom As New SqlClient.SqlCommand
             Sql = "SELECT  HN, PatientName, ReceiptNo, CashUSD, CashRiel, TotalUSD, TotalRiel, DateIn," _
-                    & " CashierIn, AmoutWord, ConsultationFeeRiel, ConsultationFeeUSD, ConCON " _
+                    & " CashierIn, AmoutWord, ConsultationFeeRiel, ConsultationFeeUSD, ConCON,TIME_CREATE " _
                     & " FROM tblPatientReceipt Where ReceiptNo=" & ReceiptID & ""
             SqlCom.CommandText = Sql
             SqlCom.Connection = Con

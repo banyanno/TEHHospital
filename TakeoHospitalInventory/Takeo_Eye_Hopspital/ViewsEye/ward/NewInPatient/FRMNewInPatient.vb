@@ -111,7 +111,7 @@ Public Class FRMNewInPatient
                 DFollowup, _
                 ChSignature.Checked, _
                 ChTypeOther.Checked, _
-                0, TIME_CREATE) = 1 Then
+                0, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
                     MsgBox("Save new in-patient successfully.", MsgBoxStyle.Information, "Save")
                     newInpatientForm.FindAction("", "", "")
                     newInpatientForm.CountDailyInpatient()

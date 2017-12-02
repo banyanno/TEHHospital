@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="TakeoDB" Class="TakeoHospitalInventoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=yannoban;Failover Partner=192.168.111.252\sql2;Initial Catalog=TakeoDB;Persist Security Info=True;User ID=sa;Max Pool Size=4000;Asynchronous Processing=True;Connect Timeout=5000;Packet Size=2768" SettingsObjectName="TakeoHospitalInventory.My.MySettings" SettingsPropertyName="TakeoDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NBC120\sql2008;Failover Partner=192.168.111.252\sql2;Initial Catalog=TakeoDB;Persist Security Info=True;User ID=sa;Max Pool Size=4000;Asynchronous Processing=True;Connect Timeout=5000;Packet Size=2768" SettingsObjectName="TakeoHospitalInventory.My.MySettings" SettingsPropertyName="TakeoDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblCabinet" Member="tblCabinets">
     <Type Name="tblCabinet">
       <Column Name="CabinetID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -349,6 +349,7 @@
       <Column Name="Female" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="Male" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="PrescriptionNote" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TIME_CREATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblVendorItemSupplyStatus" Member="tblVendorItemSupplyStatus">

@@ -238,7 +238,7 @@ Module MOldOutpatientReceipt
             Dim Sql As String = ""
             Dim SqlCom As New SqlClient.SqlCommand
             Sql = "SELECT  HN, PatientName, ReceiptNo, CashUSD, CashRiel, TotalUSD, TotalRiel, DateIn," _
-                    & " CashierIn, AmoutWord, FollowUpFeeRiel, FollowUpFeeUSD, ConFOL " _
+                    & " CashierIn, AmoutWord, FollowUpFeeRiel, FollowUpFeeUSD, ConFOL,TIME_CREATE " _
                     & " FROM tblPatientReceipt Where ReceiptNo=" & ReceiptID & ""
             SqlCom.CommandText = Sql
             SqlCom.Connection = Con

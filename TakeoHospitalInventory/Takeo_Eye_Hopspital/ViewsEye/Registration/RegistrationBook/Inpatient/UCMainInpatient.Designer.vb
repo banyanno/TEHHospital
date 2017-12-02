@@ -37,6 +37,7 @@ Partial Class UCMainInpatient
         Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.GroupBox13 = New System.Windows.Forms.GroupBox
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.BtnCancel = New System.Windows.Forms.Button
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
         Me.Label19 = New System.Windows.Forms.Label
         Me.TxtTotalFee = New System.Windows.Forms.Label
@@ -129,9 +130,9 @@ Partial Class UCMainInpatient
         Me.BgLoadReport = New System.ComponentModel.BackgroundWorker
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.BtnCancel = New System.Windows.Forms.Button
         Me.InNo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.CreateDate = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.TIME_CREATE = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.PatientNo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.ReceiptNo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.NameKhmer1 = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -212,6 +213,16 @@ Partial Class UCMainInpatient
         Me.GroupBox1.Size = New System.Drawing.Size(1974, 120)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'BtnCancel
+        '
+        Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCancel.Location = New System.Drawing.Point(175, 88)
+        Me.BtnCancel.Name = "BtnCancel"
+        Me.BtnCancel.Size = New System.Drawing.Size(112, 26)
+        Me.BtnCancel.TabIndex = 29
+        Me.BtnCancel.Text = "Report Cancel"
+        Me.BtnCancel.UseVisualStyleBackColor = True
         '
         'GroupBox5
         '
@@ -1023,7 +1034,7 @@ Partial Class UCMainInpatient
         Me.GridInpatient.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.GridInpatient.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.GridInpatient.ColumnHeadersHeight = 30
-        Me.GridInpatient.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.InNo, Me.CreateDate, Me.PatientNo, Me.ReceiptNo, Me.NameKhmer1, Me.Age, Me.Sex, Me.Address, Me.Diagnosis, Me.TypeOfOperation, Me.HosFee, Me.SocialFee, Me.DolarSosial, Me.FullFee, Me.DolarFull, Me.Other, Me.DeleteOption, Me.CalDolarSosial, Me.CalDolarFull, Me.DeleteNote})
+        Me.GridInpatient.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.InNo, Me.CreateDate, Me.TIME_CREATE, Me.PatientNo, Me.ReceiptNo, Me.NameKhmer1, Me.Age, Me.Sex, Me.Address, Me.Diagnosis, Me.TypeOfOperation, Me.HosFee, Me.SocialFee, Me.DolarSosial, Me.FullFee, Me.DolarFull, Me.Other, Me.DeleteOption, Me.CalDolarSosial, Me.CalDolarFull, Me.DeleteNote})
         Me.GridInpatient.ContextMenuStrip = Me.ContextMenuInPatient
         Me.GridInpatient.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GridInpatient.Location = New System.Drawing.Point(0, 0)
@@ -1038,7 +1049,7 @@ Partial Class UCMainInpatient
         '
         Me.ContextMenuInPatient.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CreateInpatientToolStripMenuItem, Me.ToolStripMenuItem1, Me.DeleteToolStripMenuItem, Me.ToolStripMenuItem3, Me.ShowDetailFeesToolStripMenuItem})
         Me.ContextMenuInPatient.Name = "ContextMenuInPatient"
-        Me.ContextMenuInPatient.Size = New System.Drawing.Size(177, 82)
+        Me.ContextMenuInPatient.Size = New System.Drawing.Size(177, 104)
         '
         'CreateInpatientToolStripMenuItem
         '
@@ -1063,18 +1074,18 @@ Partial Class UCMainInpatient
         'MCancel
         '
         Me.MCancel.Name = "MCancel"
-        Me.MCancel.Size = New System.Drawing.Size(152, 22)
+        Me.MCancel.Size = New System.Drawing.Size(142, 22)
         Me.MCancel.Text = "Cancel"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(139, 6)
         '
         'MUndo
         '
         Me.MUndo.Name = "MUndo"
-        Me.MUndo.Size = New System.Drawing.Size(152, 22)
+        Me.MUndo.Size = New System.Drawing.Size(142, 22)
         Me.MUndo.Text = "Undo Cancel"
         '
         'ToolStripMenuItem3
@@ -1141,16 +1152,6 @@ Partial Class UCMainInpatient
         Me.Panel2.Size = New System.Drawing.Size(1284, 600)
         Me.Panel2.TabIndex = 5
         '
-        'BtnCancel
-        '
-        Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.Location = New System.Drawing.Point(175, 88)
-        Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(112, 26)
-        Me.BtnCancel.TabIndex = 29
-        Me.BtnCancel.Text = "Report Cancel"
-        Me.BtnCancel.UseVisualStyleBackColor = True
-        '
         'InNo
         '
         Me.InNo.DataPropertyName = "InNo"
@@ -1168,6 +1169,13 @@ Partial Class UCMainInpatient
         Me.CreateDate.HeaderText = "Date"
         Me.CreateDate.Name = "CreateDate"
         Me.CreateDate.ReadOnly = True
+        '
+        'TIME_CREATE
+        '
+        Me.TIME_CREATE.DataPropertyName = "TIME_CREATE"
+        Me.TIME_CREATE.HeaderText = "Time"
+        Me.TIME_CREATE.Name = "TIME_CREATE"
+        Me.TIME_CREATE.ReadOnly = True
         '
         'PatientNo
         '
@@ -1479,6 +1487,7 @@ Partial Class UCMainInpatient
     Friend WithEvents BtnCancel As System.Windows.Forms.Button
     Friend WithEvents InNo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CreateDate As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TIME_CREATE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PatientNo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ReceiptNo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NameKhmer1 As System.Windows.Forms.DataGridViewTextBoxColumn
