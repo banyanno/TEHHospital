@@ -7,6 +7,7 @@ Public Class MainMedicalCertificate
     Dim DA_MecicalCertificate As New DSMedicalCertificateTableAdapters.V_MEDICAL_CERTIFICATETableAdapter
     Dim MainInventory As MainTakeoInventory
     Dim ValReport As Integer = 0
+    Dim DA_Medical As New DSMedicalCertificateTableAdapters.MEDICAL_CERTIFICATETableAdapter
     Sub New(ByVal MainInventory As MainTakeoInventory)
 
         ' This call is required by the Windows Form Designer.
@@ -142,4 +143,12 @@ Public Class MainMedicalCertificate
     End Sub
 
   
+    Private Sub BtnDeleted_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDeleted.Click
+        If GridMedicalCertificate.SelectedItems.Count = 0 Then Exit Sub
+        If MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If DA_Medical.IsDeleted(1, CInt(GridMedicalCertificate.GetRow.Cells("MEDICAL_CID").Value)) = 1 Then
+                BtnView_Click(sender, e)
+            End If
+        End If
+    End Sub
 End Class

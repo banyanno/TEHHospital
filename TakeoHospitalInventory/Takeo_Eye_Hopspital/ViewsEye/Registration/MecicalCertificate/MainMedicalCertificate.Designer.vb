@@ -41,6 +41,8 @@ Partial Class MainMedicalCertificate
         Me.Label3 = New System.Windows.Forms.Label
         Me.TxtPatientNo = New System.Windows.Forms.TextBox
         Me.BGLoadingData = New System.ComponentModel.BackgroundWorker
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleted = New System.Windows.Forms.ToolStripButton
         Me.ToolStrip1.SuspendLayout()
         CType(Me.GridMedicalCertificate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -48,7 +50,7 @@ Partial Class MainMedicalCertificate
         'ToolStrip1
         '
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnNewMedicalCertificate, Me.ToolStripSeparator1, Me.BtnDr, Me.ToolStripSeparator2, Me.BtnMedicalCertificate, Me.ToolStripSeparator3, Me.BtnRefesh})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnNewMedicalCertificate, Me.ToolStripSeparator1, Me.BtnDr, Me.ToolStripSeparator2, Me.BtnMedicalCertificate, Me.ToolStripSeparator3, Me.BtnRefesh, Me.ToolStripSeparator4, Me.BtnDeleted})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1066, 31)
@@ -60,7 +62,7 @@ Partial Class MainMedicalCertificate
         Me.BtnNewMedicalCertificate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Certificate1
         Me.BtnNewMedicalCertificate.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewMedicalCertificate.Name = "BtnNewMedicalCertificate"
-        Me.BtnNewMedicalCertificate.Size = New System.Drawing.Size(147, 28)
+        Me.BtnNewMedicalCertificate.Size = New System.Drawing.Size(161, 28)
         Me.BtnNewMedicalCertificate.Text = "New Medical Certificate"
         '
         'ToolStripSeparator1
@@ -73,7 +75,7 @@ Partial Class MainMedicalCertificate
         Me.BtnDr.Image = Global.TakeoHospitalInventory.My.Resources.Resources.dokter
         Me.BtnDr.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnDr.Name = "BtnDr"
-        Me.BtnDr.Size = New System.Drawing.Size(105, 28)
+        Me.BtnDr.Size = New System.Drawing.Size(113, 28)
         Me.BtnDr.Text = "Dr Prescription"
         '
         'ToolStripSeparator2
@@ -86,7 +88,7 @@ Partial Class MainMedicalCertificate
         Me.BtnMedicalCertificate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.MedicalCertificate
         Me.BtnMedicalCertificate.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnMedicalCertificate.Name = "BtnMedicalCertificate"
-        Me.BtnMedicalCertificate.Size = New System.Drawing.Size(147, 28)
+        Me.BtnMedicalCertificate.Size = New System.Drawing.Size(160, 28)
         Me.BtnMedicalCertificate.Text = "Give Medical Certificate"
         '
         'ToolStripSeparator3
@@ -99,7 +101,7 @@ Partial Class MainMedicalCertificate
         Me.BtnRefesh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.view_refresh
         Me.BtnRefesh.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRefesh.Name = "BtnRefesh"
-        Me.BtnRefesh.Size = New System.Drawing.Size(73, 28)
+        Me.BtnRefesh.Size = New System.Drawing.Size(74, 28)
         Me.BtnRefesh.Text = "Refresh"
         '
         'GridMedicalCertificate
@@ -110,7 +112,7 @@ Partial Class MainMedicalCertificate
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         GridMedicalCertificate_DesignTimeLayout.LayoutString = resources.GetString("GridMedicalCertificate_DesignTimeLayout.LayoutString")
         Me.GridMedicalCertificate.DesignTimeLayout = GridMedicalCertificate_DesignTimeLayout
-        Me.GridMedicalCertificate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridMedicalCertificate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.GridMedicalCertificate.GroupByBoxVisible = False
         Me.GridMedicalCertificate.HeaderFormatStyle.FontSize = 12.0!
         Me.GridMedicalCertificate.HeaderFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -191,6 +193,19 @@ Partial Class MainMedicalCertificate
         'BGLoadingData
         '
         '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 31)
+        '
+        'BtnDeleted
+        '
+        Me.BtnDeleted.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleted.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleted.Name = "BtnDeleted"
+        Me.BtnDeleted.Size = New System.Drawing.Size(93, 28)
+        Me.BtnDeleted.Text = "Delete Cert"
+        '
         'MainMedicalCertificate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -230,5 +245,7 @@ Partial Class MainMedicalCertificate
     Friend WithEvents BGLoadingData As System.ComponentModel.BackgroundWorker
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BtnRefesh As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnDeleted As System.Windows.Forms.ToolStripButton
 
 End Class
