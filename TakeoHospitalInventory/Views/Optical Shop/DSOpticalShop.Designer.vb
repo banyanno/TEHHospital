@@ -930,11 +930,6 @@ Partial Public Class DSOpticalShop
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByItemID(ByVal ItemID As Integer) As VItemPriceOpticalShopRow
-            Return CType(Me.Rows.Find(New Object() {ItemID}),VItemPriceOpticalShopRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As VItemPriceOpticalShopDataTable = CType(MyBase.Clone,VItemPriceOpticalShopDataTable)
             cln.InitVars
@@ -976,9 +971,7 @@ Partial Public Class DSOpticalShop
             MyBase.Columns.Add(Me.columnIsCurPrice)
             Me.columnPicture = New Global.System.Data.DataColumn("Picture", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPicture)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnItemID}, true))
             Me.columnItemID.AllowDBNull = false
-            Me.columnItemID.Unique = true
             Me.columnBarcode.MaxLength = 50
             Me.columnItemName.MaxLength = 150
         End Sub
@@ -1777,11 +1770,6 @@ Partial Public Class DSOpticalShop
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByReceiptDID(ByVal ReceiptDID As Decimal) As VReceiptDetailRow
-            Return CType(Me.Rows.Find(New Object() {ReceiptDID}),VReceiptDetailRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As VReceiptDetailDataTable = CType(MyBase.Clone,VReceiptDetailDataTable)
             cln.InitVars
@@ -1832,9 +1820,7 @@ Partial Public Class DSOpticalShop
             MyBase.Columns.Add(Me.columnItemPrice)
             Me.columnReceiptNo = New Global.System.Data.DataColumn("ReceiptNo", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnReceiptNo)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnReceiptDID}, true))
             Me.columnReceiptDID.AllowDBNull = false
-            Me.columnReceiptDID.Unique = true
             Me.columnItemID.MaxLength = 50
             Me.columnItemName.MaxLength = 150
             Me.columnBarcode.MaxLength = 50
@@ -2893,11 +2879,6 @@ Partial Public Class DSOpticalShop
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByReceiptID(ByVal ReceiptID As Decimal) As VMainReceiptDetailRow
-            Return CType(Me.Rows.Find(New Object() {ReceiptID}),VMainReceiptDetailRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As VMainReceiptDetailDataTable = CType(MyBase.Clone,VMainReceiptDetailDataTable)
             cln.InitVars
@@ -3092,9 +3073,7 @@ Partial Public Class DSOpticalShop
             MyBase.Columns.Add(Me.columnSubReceiptType)
             Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTIME_CREATE)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnReceiptID}, true))
             Me.columnReceiptID.AllowDBNull = false
-            Me.columnReceiptID.Unique = true
             Me.columnAmountInWords.MaxLength = 200
             Me.columnReceiptNote.MaxLength = 250
             Me.columnUserName.MaxLength = 50
@@ -4124,11 +4103,6 @@ Partial Public Class DSOpticalShop
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCustID(ByVal CustID As Decimal) As RECEIPT_CUSTOMERRow
-            Return CType(Me.Rows.Find(New Object() {CustID}),RECEIPT_CUSTOMERRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As RECEIPT_CUSTOMERDataTable = CType(MyBase.Clone,RECEIPT_CUSTOMERDataTable)
             cln.InitVars
@@ -4194,13 +4168,11 @@ Partial Public Class DSOpticalShop
             MyBase.Columns.Add(Me.columnIsPatient)
             Me.columnCusNameEng = New Global.System.Data.DataColumn("CusNameEng", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCusNameEng)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCustID}, true))
             Me.columnCustID.AutoIncrement = true
             Me.columnCustID.AutoIncrementSeed = -1
             Me.columnCustID.AutoIncrementStep = -1
             Me.columnCustID.AllowDBNull = false
             Me.columnCustID.ReadOnly = true
-            Me.columnCustID.Unique = true
             Me.columnCusName.MaxLength = 50
             Me.columnFemale.MaxLength = 1
             Me.columnMale.MaxLength = 1
@@ -4480,6 +4452,10 @@ Partial Public Class DSOpticalShop
         Private columnReceiptNo As Global.System.Data.DataColumn
         
         Private columnTotalSocial As Global.System.Data.DataColumn
+        
+        Private columnTotalSocial1 As Global.System.Data.DataColumn
+        
+        Private columnTIME_CREATE As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -5017,6 +4993,20 @@ Partial Public Class DSOpticalShop
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property TotalSocial1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTotalSocial1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property TIME_CREATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTIME_CREATE
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5118,9 +5108,11 @@ Partial Public Class DSOpticalShop
                     ByVal DonationName As String,  _
                     ByVal Expr1 As Decimal,  _
                     ByVal ReceiptNo As String,  _
-                    ByVal TotalSocial As Double) As V_Receipt_InvoiceRow
+                    ByVal TotalSocial As Double,  _
+                    ByVal TotalSocial1 As Decimal,  _
+                    ByVal TIME_CREATE As String) As V_Receipt_InvoiceRow
             Dim rowV_Receipt_InvoiceRow As V_Receipt_InvoiceRow = CType(Me.NewRow,V_Receipt_InvoiceRow)
-            Dim columnValuesArray() As Object = New Object() {ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, ReturnDolar, IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, DonateAmount, SupportedAmtDolar, SupportedAmtR, ReceiptType, PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur, Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalSocial}
+            Dim columnValuesArray() As Object = New Object() {ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, ReturnDolar, IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, DonateAmount, SupportedAmtDolar, SupportedAmtR, ReceiptType, PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur, Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalSocial, TotalSocial1, TIME_CREATE}
             rowV_Receipt_InvoiceRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowV_Receipt_InvoiceRow)
             Return rowV_Receipt_InvoiceRow
@@ -5212,6 +5204,8 @@ Partial Public Class DSOpticalShop
             Me.columnExpr1 = MyBase.Columns("Expr1")
             Me.columnReceiptNo = MyBase.Columns("ReceiptNo")
             Me.columnTotalSocial = MyBase.Columns("TotalSocial")
+            Me.columnTotalSocial1 = MyBase.Columns("TotalSocial1")
+            Me.columnTIME_CREATE = MyBase.Columns("TIME_CREATE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -5360,6 +5354,10 @@ Partial Public Class DSOpticalShop
             MyBase.Columns.Add(Me.columnReceiptNo)
             Me.columnTotalSocial = New Global.System.Data.DataColumn("TotalSocial", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotalSocial)
+            Me.columnTotalSocial1 = New Global.System.Data.DataColumn("TotalSocial1", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTotalSocial1)
+            Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTIME_CREATE)
             Me.columnReceiptID.AllowDBNull = false
             Me.columnAmountInWords.MaxLength = 200
             Me.columnReceiptNote.MaxLength = 250
@@ -5380,6 +5378,8 @@ Partial Public Class DSOpticalShop
             Me.columnCusNameEng.MaxLength = 100
             Me.columnDonationName.MaxLength = 50
             Me.columnReceiptNo.MaxLength = 50
+            Me.columnTotalSocial1.Caption = "TotalSocial"
+            Me.columnTIME_CREATE.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -11919,6 +11919,34 @@ Partial Public Class DSOpticalShop
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property TotalSocial1() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableV_Receipt_Invoice.TotalSocial1Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TotalSocial1' in table 'V_Receipt_Invoice' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableV_Receipt_Invoice.TotalSocial1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property TIME_CREATE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableV_Receipt_Invoice.TIME_CREATEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIME_CREATE' in table 'V_Receipt_Invoice' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableV_Receipt_Invoice.TIME_CREATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsReceiptDateNull() As Boolean
             Return Me.IsNull(Me.tableV_Receipt_Invoice.ReceiptDateColumn)
         End Function
@@ -12626,6 +12654,26 @@ Partial Public Class DSOpticalShop
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetTotalSocialNull()
             Me(Me.tableV_Receipt_Invoice.TotalSocialColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsTotalSocial1Null() As Boolean
+            Return Me.IsNull(Me.tableV_Receipt_Invoice.TotalSocial1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetTotalSocial1Null()
+            Me(Me.tableV_Receipt_Invoice.TotalSocial1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsTIME_CREATENull() As Boolean
+            Return Me.IsNull(Me.tableV_Receipt_Invoice.TIME_CREATEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetTIME_CREATENull()
+            Me(Me.tableV_Receipt_Invoice.TIME_CREATEColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -18503,44 +18551,6 @@ Namespace DSOpticalShopTableAdapters
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal CustomerNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal CusName As String,  _
-                    ByVal Female As String,  _
-                    ByVal Male As String,  _
-                    ByVal Sex As String,  _
-                    ByVal Age As Global.System.Nullable(Of Decimal),  _
-                    ByVal Occupation As String,  _
-                    ByVal OccNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Province As Global.System.Nullable(Of Decimal),  _
-                    ByVal District As Global.System.Nullable(Of Decimal),  _
-                    ByVal Commune As Global.System.Nullable(Of Decimal),  _
-                    ByVal Village As Global.System.Nullable(Of Decimal),  _
-                    ByVal Address As String,  _
-                    ByVal IsPatient As Global.System.Nullable(Of Boolean),  _
-                    ByVal CusNameEng As String,  _
-                    ByVal Original_CustID As Decimal,  _
-                    ByVal Original_CustomerNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_CusName As String,  _
-                    ByVal Original_Female As String,  _
-                    ByVal Original_Male As String,  _
-                    ByVal Original_Sex As String,  _
-                    ByVal Original_Age As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Occupation As String,  _
-                    ByVal Original_OccNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Province As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_District As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Commune As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Village As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Address As String,  _
-                    ByVal Original_IsPatient As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CusNameEng As String) As Integer
-            Return Me.Update(CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, Original_CustID, Original_CustomerNo, Original_CusName, Original_Female, Original_Male, Original_Sex, Original_Age, Original_Occupation, Original_OccNo, Original_Province, Original_District, Original_Commune, Original_Village, Original_Address, Original_IsPatient, Original_CusNameEng, Original_CustID)
-        End Function
     End Class
     
     '''<summary>
@@ -18735,7 +18745,8 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("DonationName", "DonationName")
             tableMapping.ColumnMappings.Add("Expr1", "Expr1")
             tableMapping.ColumnMappings.Add("ReceiptNo", "ReceiptNo")
-            tableMapping.ColumnMappings.Add("TotalSocial", "TotalSocial")
+            tableMapping.ColumnMappings.Add("TotalSocial", "TotalSocial1")
+            tableMapping.ColumnMappings.Add("TIME_CREATE", "TIME_CREATE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -18750,19 +18761,19 @@ Namespace DSOpticalShopTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesR"& _ 
-                "eal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
-                "                    FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalRea"& _ 
-                "l, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, R"& _ 
-                "eturnDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      IsCurrency, IsDonation, DonationID, PayBySel"& _ 
-                "f, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, Don"& _ 
-                "ateAmount, SupportedAmtDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SupportedAmtR, ReceiptType"& _ 
-                ", PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmo"& _ 
-                "unt, PaymentCur, Comment, ItemID, ItemPrice, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      ItemQTY, Su"& _ 
-                "bTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, S"& _ 
-                "ex, Age, Occupation, OccNo, Province, District, Commune, Village, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "          Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalS"& _ 
-                "ocial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         V_Receipt_Invoice"
+            Me._commandCollection(0).CommandText = "SELECT        ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlass"& _ 
+                "esReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, F"& _ 
+                "undRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnR"& _ 
+                "eal, ReturnDolar, IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, "& _ 
+                "IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      DonateAmount, SupportedAmtDolar, SupportedAmtR, ReceiptType, PaidR, PaidDo"& _ 
+                "llar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur"& _ 
+                ", Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occ"& _ 
+                "upation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNam"& _ 
+                "eEng, DonationName, Expr1, ReceiptNo, TotalSocial, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TI"& _ 
+                "ME_CREATE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_Receipt_Invoice"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
@@ -18775,9 +18786,9 @@ Namespace DSOpticalShopTableAdapters
                 "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re"& _ 
                 "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT"& _ 
                 "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub"& _ 
-                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalRea"& _ 
-                "l, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptN"& _ 
-                "o = @ReceiptNo)"
+                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE, TotalDo"& _ 
+                "lar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WH"& _ 
+                "ERE (ReceiptNo = @ReceiptNo)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
@@ -18791,9 +18802,9 @@ Namespace DSOpticalShopTableAdapters
                 "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re"& _ 
                 "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT"& _ 
                 "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub"& _ 
-                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalRea"& _ 
-                "l, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptI"& _ 
-                "D = @ReceiptID)"
+                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE, TotalDo"& _ 
+                "lar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WH"& _ 
+                "ERE (ReceiptID = @ReceiptID)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ReceiptID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

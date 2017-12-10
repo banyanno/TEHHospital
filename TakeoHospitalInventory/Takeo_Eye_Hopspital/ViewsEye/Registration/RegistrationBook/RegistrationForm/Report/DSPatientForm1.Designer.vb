@@ -720,11 +720,6 @@ Partial Public Class DSPatientForm
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByPatientNo(ByVal PatientNo As Decimal) As TblPatientReferalRow
-            Return CType(Me.Rows.Find(New Object() {PatientNo}),TblPatientReferalRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As TblPatientReferalDataTable = CType(MyBase.Clone,TblPatientReferalDataTable)
             cln.InitVars
@@ -838,9 +833,7 @@ Partial Public Class DSPatientForm
             MyBase.Columns.Add(Me.columnMoPoCho)
             Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTIME_CREATE)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnPatientNo}, true))
             Me.columnPatientNo.AllowDBNull = false
-            Me.columnPatientNo.Unique = true
             Me.columnProvince.MaxLength = 50
             Me.columnDistrict.MaxLength = 50
             Me.columnCommune.MaxLength = 50
@@ -1078,11 +1071,6 @@ Partial Public Class DSPatientForm
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByREFE_DETAIL_ID(ByVal REFE_DETAIL_ID As Decimal) As REFFERAL_PATIENT_DETAILRow
-            Return CType(Me.Rows.Find(New Object() {REFE_DETAIL_ID}),REFFERAL_PATIENT_DETAILRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As REFFERAL_PATIENT_DETAILDataTable = CType(MyBase.Clone,REFFERAL_PATIENT_DETAILDataTable)
             cln.InitVars
@@ -1109,13 +1097,11 @@ Partial Public Class DSPatientForm
             MyBase.Columns.Add(Me.columnPATIENT_NO)
             Me.columnREFERRAL_FROM = New Global.System.Data.DataColumn("REFERRAL_FROM", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREFERRAL_FROM)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnREFE_DETAIL_ID}, true))
             Me.columnREFE_DETAIL_ID.AutoIncrement = true
             Me.columnREFE_DETAIL_ID.AutoIncrementSeed = -1
             Me.columnREFE_DETAIL_ID.AutoIncrementStep = -1
             Me.columnREFE_DETAIL_ID.AllowDBNull = false
             Me.columnREFE_DETAIL_ID.ReadOnly = true
-            Me.columnREFE_DETAIL_ID.Unique = true
             Me.columnREFERRAL_FROM.MaxLength = 100
         End Sub
         
@@ -3773,13 +3759,6 @@ Namespace DSPatientFormTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), ByVal REFERRAL_FROM As String, ByVal Original_REFE_DETAIL_ID As Decimal, ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), ByVal Original_REFERRAL_FROM As String) As Integer
-            Return Me.Update(PATIENT_NO, REFERRAL_FROM, Original_REFE_DETAIL_ID, Original_PATIENT_NO, Original_REFERRAL_FROM, Original_REFE_DETAIL_ID)
         End Function
     End Class
     

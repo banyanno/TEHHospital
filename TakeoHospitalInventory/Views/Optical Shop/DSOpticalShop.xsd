@@ -735,13 +735,12 @@ CustID=@CustID</CommandText>
               <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.V_Receipt_Invoice" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, 
-                      FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, ReturnDolar, 
-                      IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, DonateAmount, SupportedAmtDolar, 
-                      SupportedAmtR, ReceiptType, PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur, Comment, ItemID, ItemPrice, 
-                      ItemQTY, SubTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, 
-                      Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalSocial
-FROM         V_Receipt_Invoice</CommandText>
+                    <CommandText>SELECT        ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, 
+                         TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, ReturnDolar, IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, 
+                         DonateAmount, SupportedAmtDolar, SupportedAmtR, ReceiptType, PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur, Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, 
+                         SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalSocial, 
+                         TIME_CREATE
+FROM            V_Receipt_Invoice</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -819,13 +818,14 @@ FROM         V_Receipt_Invoice</CommandText>
               <Mapping SourceColumn="DonationName" DataSetColumn="DonationName" />
               <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
               <Mapping SourceColumn="ReceiptNo" DataSetColumn="ReceiptNo" />
-              <Mapping SourceColumn="TotalSocial" DataSetColumn="TotalSocial" />
+              <Mapping SourceColumn="TotalSocial" DataSetColumn="TotalSocial1" />
+              <Mapping SourceColumn="TIME_CREATE" DataSetColumn="TIME_CREATE" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.V_Receipt_Invoice" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReceiptNo" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataByReceiptNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReceiptNo" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode, Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, DonationID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount, FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDonation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, Male, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, ReadyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, SubTotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptNo = @ReceiptNo)</CommandText>
+                    <CommandText>SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode, Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, DonationID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount, FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDonation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, Male, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, ReadyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, SubTotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE, TotalDolar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptNo = @ReceiptNo)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="ReceiptNo" ColumnName="ReceiptNo" DataSourceName="TakeoDB.dbo.V_Receipt_Invoice" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@ReceiptNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="ReceiptNo" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -835,7 +835,7 @@ FROM         V_Receipt_Invoice</CommandText>
               <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.V_Receipt_Invoice" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByReceiptID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReceiptID" GeneratorSourceName="FillByReceiptID" GetMethodModifier="Public" GetMethodName="GetDataByReceiptID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReceiptID" UserSourceName="FillByReceiptID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode, Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, DonationID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount, FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDonation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, Male, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, ReadyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, SubTotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptID = @ReceiptID)</CommandText>
+                    <CommandText>SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode, Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, DonationID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount, FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDonation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, Male, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, ReadyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, SubTotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE, TotalDolar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptID = @ReceiptID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="ReceiptID" ColumnName="ReceiptID" DataSourceName="TakeoDB.dbo.V_Receipt_Invoice" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ReceiptID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="ReceiptID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -1661,6 +1661,14 @@ WHERE
                 </xs:simpleType>
               </xs:element>
               <xs:element name="TotalSocial" msprop:Generator_UserColumnName="TotalSocial" msprop:Generator_ColumnPropNameInRow="TotalSocial" msprop:Generator_ColumnVarNameInTable="columnTotalSocial" msprop:Generator_ColumnPropNameInTable="TotalSocialColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalSocial1" msdata:Caption="TotalSocial" msprop:Generator_UserColumnName="TotalSocial1" msprop:Generator_ColumnVarNameInTable="columnTotalSocial1" msprop:Generator_ColumnPropNameInRow="TotalSocial1" msprop:Generator_ColumnPropNameInTable="TotalSocial1Column" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TIME_CREATE" msprop:Generator_UserColumnName="TIME_CREATE" msprop:Generator_ColumnVarNameInTable="columnTIME_CREATE" msprop:Generator_ColumnPropNameInRow="TIME_CREATE" msprop:Generator_ColumnPropNameInTable="TIME_CREATEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1921,10 +1929,6 @@ WHERE
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:VItemPriceOpticalShop" />
-      <xs:field xpath="mstns:ItemID" />
-    </xs:unique>
-    <xs:unique name="INCOME_TYPE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:INCOME_TYPE" />
       <xs:field xpath="mstns:ICID" />
     </xs:unique>
@@ -1932,21 +1936,9 @@ WHERE
       <xs:selector xpath=".//mstns:TemItemDetial" />
       <xs:field xpath="mstns:ColumnItemID" />
     </xs:unique>
-    <xs:unique name="VReceiptDetail_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:VReceiptDetail" />
-      <xs:field xpath="mstns:ReceiptDID" />
-    </xs:unique>
     <xs:unique name="DONATION_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DONATION" />
       <xs:field xpath="mstns:DonationID" />
-    </xs:unique>
-    <xs:unique name="VMainReceiptDetail_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:VMainReceiptDetail" />
-      <xs:field xpath="mstns:ReceiptID" />
-    </xs:unique>
-    <xs:unique name="RECEIPT_CUSTOMER_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:RECEIPT_CUSTOMER" />
-      <xs:field xpath="mstns:CustID" />
     </xs:unique>
     <xs:unique name="ItemID">
       <xs:selector xpath=".//mstns:NILTemItemDetail" />

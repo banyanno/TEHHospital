@@ -481,14 +481,15 @@ Public Class UCRegistrationForm
         Try
             'Dim rowIndex As Int16 = GridPatientFollowUp.SelectedCells(0).RowIndex
 
-            GLOBLE_PATIENT_NO = GridPatientFollowUp.SelectedRows(0).Cells(1).Value    ' Rows(rowIndex).Cells(1).Value
-            frmReportForm.LoadRegistrationForm()
+            GLOBLE_PATIENT_NO = GridPatientFollowUp.Rows(0).Cells("PatientNo").Value  ' GridPatientFollowUp.SelectedRows(0).Cells("PatientNo").Value    ' Rows(rowIndex).Cells(1).Value
+            frmReportForm.LoadRegistrationFormV2()
             frmReportForm.ShowDialog()
             SplitRegistrationForm.Panel2Collapsed = True
             ClearPatientRegistration()
             frmMain.CreatePaymentForm()
         Catch ex As Exception
-            MsgBox("Please select follow up.", MsgBoxStyle.Critical)
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+            'MsgBox("Please select follow up.", MsgBoxStyle.Critical)
         End Try
     End Sub
 

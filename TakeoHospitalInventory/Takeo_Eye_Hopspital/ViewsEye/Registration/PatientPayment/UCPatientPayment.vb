@@ -1377,7 +1377,7 @@ Public Class UCPatientPayment
             If GridPatientInformation.SelectedItems(0).Table.Key = "PatientInfo" Then
                 Dim frmReportForm As New ReportForm
                 'Dim rowIndex As Int16 = GridPatientInformation.GetRow.Cells("").Value
-                GLOBLE_PATIENT_NO = GridPatientInformation.GetRow.Cells(1).Value 'GridPatientFollowUp.Rows(rowIndex).Cells(1).Value
+                GLOBLE_PATIENT_NO = GridPatientInformation.GetRow.Cells("PatientNo").Value 'GridPatientFollowUp.Rows(rowIndex).Cells(1).Value
                 frmReportForm.LoadRegistrationForm()
                 frmReportForm.ShowDialog()
                 frmReportForm.Close()
@@ -1414,7 +1414,7 @@ Public Class UCPatientPayment
             If GridPatientInformation.SelectedItems(0).Table.Key = "PatientInfo" Then
                 Dim frmReportForm As New ReportForm
                 'Dim rowIndex As Int16 = GridPatientInformation.GetRow.Cells("").Value
-                GLOBLE_PATIENT_NO = GridPatientInformation.GetRow.Cells(1).Value 'GridPatientFollowUp.Rows(rowIndex).Cells(1).Value
+                GLOBLE_PATIENT_NO = GridPatientInformation.GetRow.Cells("PatientNo").Value 'GridPatientFollowUp.Rows(rowIndex).Cells(1).Value
                 frmReportForm.LoadRegistrationFormV2()
                 frmReportForm.ShowDialog()
                 frmReportForm.Close()

@@ -826,7 +826,7 @@ Public Class frmOldOutPatientReceipt
                ChPreyScreening.Checked, _
                ChSchoolScreening.Checked, _
                ChMoPoCho.Checked, _
-               GetTextReferralV1())
+               GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString)
     End Function
    
     Function UpdatePatientHistory(ByVal PatientNo As String, _
@@ -893,7 +893,7 @@ Public Class frmOldOutPatientReceipt
                   , ByVal PreyScreening As Boolean _
                   , ByVal SchoolScreening As Boolean _
                   , ByVal MoPoCho As Boolean _
-                  , ByVal CombinRefferal As String) As String
+                  , ByVal CombinRefferal As String, ByVal TIME_CREATE As String) As String
         Dim sql As String = "INSERT INTO TblFollowUp " & _
                     "(PatientNo" & _
                     ",CreateDate" & _
@@ -910,7 +910,7 @@ Public Class frmOldOutPatientReceipt
                     ",OtherNGO" & _
                     ",Church" & _
                     ",HealthWorker" & _
-                    ",OtherReferal,PreyKabasVC,PreyScreening,SchoolScreening,MoPoCho,ComBindRefferal,FollowUpStatus)" & _
+                    ",OtherReferal,PreyKabasVC,PreyScreening,SchoolScreening,MoPoCho,ComBindRefferal,FollowUpStatus,TIME_CREATE)" & _
                     " VALUES " & _
                     "(" & PatientNo & _
                     ",'" & CreateDate & _
@@ -933,7 +933,7 @@ Public Class frmOldOutPatientReceipt
                     "','" & SchoolScreening & _
                     "','" & MoPoCho & _
                     "','" & CombinRefferal & _
-                    "',1)"
+                    "',1,'" & TIME_CREATE & "')"
         Return sql
     End Function
 
