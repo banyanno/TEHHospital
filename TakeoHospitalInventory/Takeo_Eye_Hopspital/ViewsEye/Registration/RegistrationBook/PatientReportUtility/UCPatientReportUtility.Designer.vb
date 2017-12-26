@@ -40,6 +40,11 @@ Partial Class UCPatientReportUtility
         Me.DateFromOcc = New System.Windows.Forms.DateTimePicker
         Me.Label6 = New System.Windows.Forms.Label
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.RadCombinDisability = New System.Windows.Forms.RadioButton
+        Me.GDisability = New System.Windows.Forms.GroupBox
+        Me.RadByOld = New System.Windows.Forms.RadioButton
+        Me.RadByNew = New System.Windows.Forms.RadioButton
+        Me.RadAll = New System.Windows.Forms.RadioButton
         Me.rdDisByAge = New System.Windows.Forms.RadioButton
         Me.btnPrintDisability = New System.Windows.Forms.Button
         Me.rdDisByDaily = New System.Windows.Forms.RadioButton
@@ -94,15 +99,12 @@ Partial Class UCPatientReportUtility
         Me.TblCombindRefferalTableAdapter = New TakeoHospitalInventory.DsReferalTableAdapters.TblCombindRefferalTableAdapter
         Me.V_ReferalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.V_ReferalTableAdapter = New TakeoHospitalInventory.DsReferalTableAdapters.V_ReferalTableAdapter
-        Me.GDisability = New System.Windows.Forms.GroupBox
-        Me.RadAll = New System.Windows.Forms.RadioButton
-        Me.RadByNew = New System.Windows.Forms.RadioButton
-        Me.RadByOld = New System.Windows.Forms.RadioButton
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GDisability.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DSDashboardPatient, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicLoadReport, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +113,6 @@ Partial Class UCPatientReportUtility
         CType(Me.DsReferal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblCombindRefferalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.V_ReferalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GDisability.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -322,6 +323,7 @@ Partial Class UCPatientReportUtility
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.RadCombinDisability)
         Me.GroupBox4.Controls.Add(Me.GDisability)
         Me.GroupBox4.Controls.Add(Me.rdDisByAge)
         Me.GroupBox4.Controls.Add(Me.btnPrintDisability)
@@ -337,10 +339,64 @@ Partial Class UCPatientReportUtility
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Report Disability"
         '
+        'RadCombinDisability
+        '
+        Me.RadCombinDisability.AutoSize = True
+        Me.RadCombinDisability.Location = New System.Drawing.Point(7, 98)
+        Me.RadCombinDisability.Name = "RadCombinDisability"
+        Me.RadCombinDisability.Size = New System.Drawing.Size(151, 17)
+        Me.RadCombinDisability.TabIndex = 7
+        Me.RadCombinDisability.Text = "View By Combine Disability"
+        Me.RadCombinDisability.UseVisualStyleBackColor = True
+        '
+        'GDisability
+        '
+        Me.GDisability.Controls.Add(Me.RadByOld)
+        Me.GDisability.Controls.Add(Me.RadByNew)
+        Me.GDisability.Controls.Add(Me.RadAll)
+        Me.GDisability.Enabled = False
+        Me.GDisability.Location = New System.Drawing.Point(177, 49)
+        Me.GDisability.Name = "GDisability"
+        Me.GDisability.Size = New System.Drawing.Size(200, 69)
+        Me.GDisability.TabIndex = 8
+        Me.GDisability.TabStop = False
+        '
+        'RadByOld
+        '
+        Me.RadByOld.AutoSize = True
+        Me.RadByOld.Location = New System.Drawing.Point(109, 13)
+        Me.RadByOld.Name = "RadByOld"
+        Me.RadByOld.Size = New System.Drawing.Size(82, 17)
+        Me.RadByOld.TabIndex = 6
+        Me.RadByOld.Text = "View By Old"
+        Me.RadByOld.UseVisualStyleBackColor = True
+        '
+        'RadByNew
+        '
+        Me.RadByNew.AutoSize = True
+        Me.RadByNew.Location = New System.Drawing.Point(15, 42)
+        Me.RadByNew.Name = "RadByNew"
+        Me.RadByNew.Size = New System.Drawing.Size(88, 17)
+        Me.RadByNew.TabIndex = 5
+        Me.RadByNew.Text = "View By New"
+        Me.RadByNew.UseVisualStyleBackColor = True
+        '
+        'RadAll
+        '
+        Me.RadAll.AutoSize = True
+        Me.RadAll.Checked = True
+        Me.RadAll.Location = New System.Drawing.Point(15, 14)
+        Me.RadAll.Name = "RadAll"
+        Me.RadAll.Size = New System.Drawing.Size(77, 17)
+        Me.RadAll.TabIndex = 4
+        Me.RadAll.TabStop = True
+        Me.RadAll.Text = "View By All"
+        Me.RadAll.UseVisualStyleBackColor = True
+        '
         'rdDisByAge
         '
         Me.rdDisByAge.AutoSize = True
-        Me.rdDisByAge.Location = New System.Drawing.Point(94, 92)
+        Me.rdDisByAge.Location = New System.Drawing.Point(94, 77)
         Me.rdDisByAge.Name = "rdDisByAge"
         Me.rdDisByAge.Size = New System.Drawing.Size(85, 17)
         Me.rdDisByAge.TabIndex = 3
@@ -362,7 +418,7 @@ Partial Class UCPatientReportUtility
         '
         Me.rdDisByDaily.AutoSize = True
         Me.rdDisByDaily.Checked = True
-        Me.rdDisByDaily.Location = New System.Drawing.Point(7, 92)
+        Me.rdDisByDaily.Location = New System.Drawing.Point(7, 77)
         Me.rdDisByDaily.Name = "rdDisByDaily"
         Me.rdDisByDaily.Size = New System.Drawing.Size(89, 17)
         Me.rdDisByDaily.TabIndex = 3
@@ -384,7 +440,7 @@ Partial Class UCPatientReportUtility
         Me.DateToDis.CustomFormat = "dd/MM/yyyy"
         Me.DateToDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateToDis.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateToDis.Location = New System.Drawing.Point(58, 56)
+        Me.DateToDis.Location = New System.Drawing.Point(58, 49)
         Me.DateToDis.Name = "DateToDis"
         Me.DateToDis.Size = New System.Drawing.Size(112, 26)
         Me.DateToDis.TabIndex = 6
@@ -402,7 +458,7 @@ Partial Class UCPatientReportUtility
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 64)
+        Me.Label4.Location = New System.Drawing.Point(7, 57)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(23, 13)
         Me.Label4.TabIndex = 4
@@ -683,50 +739,6 @@ Partial Class UCPatientReportUtility
         '
         Me.V_ReferalTableAdapter.ClearBeforeFill = True
         '
-        'GDisability
-        '
-        Me.GDisability.Controls.Add(Me.RadByOld)
-        Me.GDisability.Controls.Add(Me.RadByNew)
-        Me.GDisability.Controls.Add(Me.RadAll)
-        Me.GDisability.Enabled = False
-        Me.GDisability.Location = New System.Drawing.Point(177, 49)
-        Me.GDisability.Name = "GDisability"
-        Me.GDisability.Size = New System.Drawing.Size(200, 69)
-        Me.GDisability.TabIndex = 8
-        Me.GDisability.TabStop = False
-        '
-        'RadAll
-        '
-        Me.RadAll.AutoSize = True
-        Me.RadAll.Checked = True
-        Me.RadAll.Location = New System.Drawing.Point(15, 14)
-        Me.RadAll.Name = "RadAll"
-        Me.RadAll.Size = New System.Drawing.Size(77, 17)
-        Me.RadAll.TabIndex = 4
-        Me.RadAll.TabStop = True
-        Me.RadAll.Text = "View By All"
-        Me.RadAll.UseVisualStyleBackColor = True
-        '
-        'RadByNew
-        '
-        Me.RadByNew.AutoSize = True
-        Me.RadByNew.Location = New System.Drawing.Point(15, 42)
-        Me.RadByNew.Name = "RadByNew"
-        Me.RadByNew.Size = New System.Drawing.Size(88, 17)
-        Me.RadByNew.TabIndex = 5
-        Me.RadByNew.Text = "View By New"
-        Me.RadByNew.UseVisualStyleBackColor = True
-        '
-        'RadByOld
-        '
-        Me.RadByOld.AutoSize = True
-        Me.RadByOld.Location = New System.Drawing.Point(109, 13)
-        Me.RadByOld.Name = "RadByOld"
-        Me.RadByOld.Size = New System.Drawing.Size(82, 17)
-        Me.RadByOld.TabIndex = 6
-        Me.RadByOld.Text = "View By Old"
-        Me.RadByOld.UseVisualStyleBackColor = True
-        '
         'UCPatientReportUtility
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -745,6 +757,8 @@ Partial Class UCPatientReportUtility
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.GDisability.ResumeLayout(False)
+        Me.GDisability.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.DSDashboardPatient, System.ComponentModel.ISupportInitialize).EndInit()
@@ -754,8 +768,6 @@ Partial Class UCPatientReportUtility
         CType(Me.DsReferal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblCombindRefferalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.V_ReferalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GDisability.ResumeLayout(False)
-        Me.GDisability.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -837,5 +849,6 @@ Partial Class UCPatientReportUtility
     Friend WithEvents RadByOld As System.Windows.Forms.RadioButton
     Friend WithEvents RadByNew As System.Windows.Forms.RadioButton
     Friend WithEvents RadAll As System.Windows.Forms.RadioButton
+    Friend WithEvents RadCombinDisability As System.Windows.Forms.RadioButton
 
 End Class

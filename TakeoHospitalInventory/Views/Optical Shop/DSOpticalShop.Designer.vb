@@ -4453,8 +4453,6 @@ Partial Public Class DSOpticalShop
         
         Private columnTotalSocial As Global.System.Data.DataColumn
         
-        Private columnTotalSocial1 As Global.System.Data.DataColumn
-        
         Private columnTIME_CREATE As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4994,13 +4992,6 @@ Partial Public Class DSOpticalShop
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property TotalSocial1Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTotalSocial1
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property TIME_CREATEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnTIME_CREATE
@@ -5109,10 +5100,9 @@ Partial Public Class DSOpticalShop
                     ByVal Expr1 As Decimal,  _
                     ByVal ReceiptNo As String,  _
                     ByVal TotalSocial As Double,  _
-                    ByVal TotalSocial1 As Decimal,  _
                     ByVal TIME_CREATE As String) As V_Receipt_InvoiceRow
             Dim rowV_Receipt_InvoiceRow As V_Receipt_InvoiceRow = CType(Me.NewRow,V_Receipt_InvoiceRow)
-            Dim columnValuesArray() As Object = New Object() {ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, ReturnDolar, IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, DonateAmount, SupportedAmtDolar, SupportedAmtR, ReceiptType, PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur, Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalSocial, TotalSocial1, TIME_CREATE}
+            Dim columnValuesArray() As Object = New Object() {ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, ReturnDolar, IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, DonateAmount, SupportedAmtDolar, SupportedAmtR, ReceiptType, PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur, Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalSocial, TIME_CREATE}
             rowV_Receipt_InvoiceRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowV_Receipt_InvoiceRow)
             Return rowV_Receipt_InvoiceRow
@@ -5204,7 +5194,6 @@ Partial Public Class DSOpticalShop
             Me.columnExpr1 = MyBase.Columns("Expr1")
             Me.columnReceiptNo = MyBase.Columns("ReceiptNo")
             Me.columnTotalSocial = MyBase.Columns("TotalSocial")
-            Me.columnTotalSocial1 = MyBase.Columns("TotalSocial1")
             Me.columnTIME_CREATE = MyBase.Columns("TIME_CREATE")
         End Sub
         
@@ -5354,8 +5343,6 @@ Partial Public Class DSOpticalShop
             MyBase.Columns.Add(Me.columnReceiptNo)
             Me.columnTotalSocial = New Global.System.Data.DataColumn("TotalSocial", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotalSocial)
-            Me.columnTotalSocial1 = New Global.System.Data.DataColumn("TotalSocial1", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTotalSocial1)
             Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTIME_CREATE)
             Me.columnReceiptID.AllowDBNull = false
@@ -5378,7 +5365,6 @@ Partial Public Class DSOpticalShop
             Me.columnCusNameEng.MaxLength = 100
             Me.columnDonationName.MaxLength = 50
             Me.columnReceiptNo.MaxLength = 50
-            Me.columnTotalSocial1.Caption = "TotalSocial"
             Me.columnTIME_CREATE.MaxLength = 50
         End Sub
         
@@ -11919,20 +11905,6 @@ Partial Public Class DSOpticalShop
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property TotalSocial1() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableV_Receipt_Invoice.TotalSocial1Column),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TotalSocial1' in table 'V_Receipt_Invoice' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableV_Receipt_Invoice.TotalSocial1Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property TIME_CREATE() As String
             Get
                 Try 
@@ -12654,16 +12626,6 @@ Partial Public Class DSOpticalShop
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetTotalSocialNull()
             Me(Me.tableV_Receipt_Invoice.TotalSocialColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTotalSocial1Null() As Boolean
-            Return Me.IsNull(Me.tableV_Receipt_Invoice.TotalSocial1Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTotalSocial1Null()
-            Me(Me.tableV_Receipt_Invoice.TotalSocial1Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -18745,7 +18707,6 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("DonationName", "DonationName")
             tableMapping.ColumnMappings.Add("Expr1", "Expr1")
             tableMapping.ColumnMappings.Add("ReceiptNo", "ReceiptNo")
-            tableMapping.ColumnMappings.Add("TotalSocial", "TotalSocial1")
             tableMapping.ColumnMappings.Add("TIME_CREATE", "TIME_CREATE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
@@ -18761,50 +18722,52 @@ Namespace DSOpticalShopTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlass"& _ 
-                "esReal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, F"& _ 
-                "undRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnR"& _ 
-                "eal, ReturnDolar, IsCurrency, IsDonation, DonationID, PayBySelf, PayByDonation, "& _ 
-                "IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      DonateAmount, SupportedAmtDolar, SupportedAmtR, ReceiptType, PaidR, PaidDo"& _ 
-                "llar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmount, PaymentCur"& _ 
-                ", Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
-                "SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occ"& _ 
-                "upation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNam"& _ 
-                "eEng, DonationName, Expr1, ReceiptNo, TotalSocial, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TI"& _ 
-                "ME_CREATE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_Receipt_Invoice"
+            Me._commandCollection(0).CommandText = "SELECT ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesReal,"& _ 
+                " EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, FundRais"& _ 
+                "ingDolar, FundRaisingR, OtherDolar, OtherR, TotalReal, TotalDolar, AmountInWords"& _ 
+                ", AmountFigureReal, AmountFigureDolar, ReturnReal, ReturnDolar, IsCurrency, IsDo"& _ 
+                "nation, DonationID, PayBySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserN"& _ 
+                "ame, IncomType, Glasses, DonateAmount, SupportedAmtDolar, SupportedAmtR, Receipt"& _ 
+                "Type, PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, Socia"& _ 
+                "lAmount, PaymentCur, Comment, ItemID, ItemPrice, ItemQTY, SubTotalReal, SubTotal"& _ 
+                "Dolar, IncomeID, ItemName, Barcode, CusName, Female, Male, Sex, Age, Occupation,"& _ 
+                " OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, Do"& _ 
+                "nationName, Expr1, ReceiptNo, TIME_CREATE FROM V_Receipt_Invoice"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode,"& _ 
-                " Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, Dona"& _ 
-                "tionID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount"& _ 
-                ", FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDo"& _ 
-                "nation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, M"& _ 
-                "ale, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, Pa"& _ 
-                "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re"& _ 
-                "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT"& _ 
-                "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub"& _ 
-                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE, TotalDo"& _ 
-                "lar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WH"& _ 
-                "ERE (ReceiptNo = @ReceiptNo)"
+            Me._commandCollection(1).CommandText = "SELECT        Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, B"& _ 
+                "arcode, Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmoun"& _ 
+                "t, DonationID, DonationName, Expr1, EyeGlassesDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "EyeGlassesReal, Female, FullAmount, FundRaisingDolar, FundRaisingR, Glasses, Inc"& _ 
+                "omType, IncomeID, IsCurrency, IsDonation, IsOldPatient, IsPaid, IsPatient, ItemI"& _ 
+                "D, ItemName, ItemPrice, ItemQTY, Male, MedicDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Me"& _ 
+                "dicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pa"& _ 
+                "yByDonation, PayBySelf, PaymentCur, PaymentType, Province, ReadyModDolar, ReadyM"& _ 
+                "odR, ReceiptDate, ReceiptID, ReceiptNo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ReceiptNote, "& _ 
+                "ReceiptType, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, Spectac"& _ 
+                "leR, SubTotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE,"& _ 
+                " TotalDolar, TotalReal, UserID, UserName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Village, To"& _ 
+                "talSocial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_Receipt_Invoice"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ReceiptNo = @Receipt"& _ 
+                "No)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode,"& _ 
-                " Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, Dona"& _ 
-                "tionID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount"& _ 
-                ", FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDo"& _ 
-                "nation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, M"& _ 
-                "ale, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, Pa"& _ 
-                "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re"& _ 
-                "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT"& _ 
-                "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub"& _ 
-                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE, TotalDo"& _ 
-                "lar, TotalReal, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WH"& _ 
-                "ERE (ReceiptID = @ReceiptID)"
+            Me._commandCollection(2).CommandText = "SELECT        Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, B"& _ 
+                "arcode, Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmoun"& _ 
+                "t, DonationID, DonationName, Expr1, EyeGlassesDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "EyeGlassesReal, Female, FullAmount, FundRaisingDolar, FundRaisingR, Glasses, Inc"& _ 
+                "omType, IncomeID, IsCurrency, IsDonation, IsOldPatient, IsPaid, IsPatient, ItemI"& _ 
+                "D, ItemName, ItemPrice, ItemQTY, Male, MedicDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Me"& _ 
+                "dicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pa"& _ 
+                "yByDonation, PayBySelf, PaymentCur, PaymentType, Province, ReadyModDolar, ReadyM"& _ 
+                "odR, ReceiptDate, ReceiptID, ReceiptNo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ReceiptNote, "& _ 
+                "ReceiptType, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, Spectac"& _ 
+                "leR, SubTotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TIME_CREATE,"& _ 
+                " TotalDolar, TotalReal, UserID, UserName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Village, To"& _ 
+                "talSocial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_Receipt_Invoice"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ReceiptID = @Receipt"& _ 
+                "ID)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ReceiptID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

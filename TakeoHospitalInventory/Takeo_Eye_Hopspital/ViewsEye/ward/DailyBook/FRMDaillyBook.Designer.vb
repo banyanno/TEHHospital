@@ -152,7 +152,7 @@ Partial Class FRMDaillyBook
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(346, 264)
+        Me.ClientSize = New System.Drawing.Size(346, 258)
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSave)

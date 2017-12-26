@@ -16,5 +16,10 @@ Module ModOccupation
         Dim sql As String = "SELECT OccNo,Occupation FROM TblOccupation ORDER BY Occupation ASC"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
+    Function checkOccupation(ByVal Occupation As String) As Integer
+        Dim sql As String = "select count(OccNo) from TblOccupation where Occupation='" & Occupation & "'"
+        Return ModGlobleVariable.GENERAL_DAO.SelectAsScalar(sql)
+    End Function
 
+    
 End Module

@@ -7,6 +7,7 @@ Public Class UCPatientReportUtility
     Dim CRReferalByAge As New CryPatientReferalByAge
     Dim CRCombindRefferal As New CRPCombindPateintRefferal
     Dim CRDisabilityByAge As New CRPatientDisabilityByAge
+    Dim CRPatientCombindDisability As New CRPCombindPateintDisability
     Dim DFromReferal, DToReferal, DFromDisability, DToDisability, DFromOcc, DToOcc, DFromRefer, DToRefer As Date
     Dim TblPatientReferal, TblPatientReferalByAgeTakeo, TblReferalByKV, tblReferalBySelf, tblReferalByPatient, tblReferalByFriend, _
             tblReferalByCDMDS, tblReferalByChurch, tblReferalByNGO, tblReferalByWorker, tblReferalByOther, tblReferalPreyKabasVC, tblReferalPKScreening, TblSchoolScreening, TblMoPoCho As DataTable
@@ -17,6 +18,8 @@ Public Class UCPatientReportUtility
     Dim DA_ReferalV1 As New DataReportUtilityTableAdapters.V_Referal_V1TableAdapter
     Dim DA_ReferalByAdult As New DataReportUtilityTableAdapters.V_Referal_VByAgeTableAdapter
     Dim Tbl_ReferalV1 As DataTable
+    Dim TblPatientCombindDisAbility As DataTable
+    Dim DA_PatientCombindDisability As New DSReferal_New_OldTableAdapters.ViewCombindPatientsDisabilityTableAdapter
     Private Sub BtnPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPreview.Click
 
         DFromReferal = DateFrom.Value
@@ -94,10 +97,15 @@ Public Class UCPatientReportUtility
                     tblDisabilityUnderstand = Me.DisabilityUnderstandTableAdapter.GetDataByUnderstadingFollowup(DFromDisability, DToDisability, True)
                     tblDisabilitySeeing = Me.DisabilitySeeingTableAdapter.GetDataBySeeingFollowup(DFromDisability, DToDisability, True)
                     tblDisabilityPhysical = Me.DisabilityPhysicalTableAdapter.GetDataByPhysicalFollowup(DFromDisability, DToDisability, True)
+
+
                 End If
-                
+            End If
+            If Me.RadCombinDisability.Checked = True Then
+                TblPatientCombindDisAbility = DA_PatientCombindDisability.GetData(DateFromDis.Value.Date, DateToDis.Value.Date)
             End If
         End If
+
     End Sub
    
 
@@ -184,6 +192,16 @@ Public Class UCPatientReportUtility
             End If
             
             CRVPatientUtility.ReportSource = CRDisabilityByAge
+
+
+            CRVPatientUtility.Refresh()
+            btnPrintDisability.Enabled = True
+            PicLoadReport.Visible = False
+        End If
+        If Me.RadCombinDisability.Checked = True Then
+            CRPatientCombindDisability.SetDataSource(TblPatientCombindDisAbility)
+            CRVPatientUtility.ReportSource = CRPatientCombindDisability
+            CRPatientCombindDisability.SetParameterValue("Title", "Combine Disability patient date from: " & Format(Me.DateFromDis.Value, "dd/MM/yyyy") & " To: " & Format(Me.DateToDis.Value, "dd/MM/yyyy"))
             CRVPatientUtility.Refresh()
             btnPrintDisability.Enabled = True
             PicLoadReport.Visible = False

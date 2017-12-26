@@ -222,6 +222,7 @@ Partial Class FRMNewInPatient
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Date FollowUp"
+        Me.GroupBox1.Visible = False
         '
         'ChSignature
         '

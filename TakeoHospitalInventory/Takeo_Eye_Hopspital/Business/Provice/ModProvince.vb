@@ -59,6 +59,7 @@ Module ModProvince
         Return ModGlobleVariable.GENERAL_DAO.SelectAsScalar(sql)
 
     End Function
+    
     Function SelectSelectionByProvince(ByVal ProvinceNo As Integer) As DataTable
         Dim sql As String = "SELECT IDProvCode,SrokCode,KhumCode,Commune FROM tblCommunes WHERE IDProvCode=" & ProvinceNo
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)

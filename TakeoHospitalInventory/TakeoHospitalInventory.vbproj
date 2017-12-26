@@ -1129,6 +1129,12 @@
       <DependentUpon>ReportPatientNoDiagnosis.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CRPCombindPateintDisability.vb">
+      <DependentUpon>CRPCombindPateintDisability.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CRReferalV2_OLD.vb">
       <DependentUpon>CRReferalV2_OLD.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1412,12 +1418,6 @@
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\OutPatienReport\UCOutPatientReport.vb">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\Copy of CRPCombindPateintRefferal.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Copy of CRPCombindPateintRefferal.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CRPatientDisability.vb">
       <AutoGen>True</AutoGen>
@@ -3480,9 +3480,9 @@
       <DependentUpon>UCOutPatientReport.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\Copy of CRPCombindPateintRefferal.rpt">
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CRPCombindPateintDisability.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Copy of CRPCombindPateintRefferal.vb</LastGenOutput>
+      <LastGenOutput>CRPCombindPateintDisability.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CRReferalV2_OLD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

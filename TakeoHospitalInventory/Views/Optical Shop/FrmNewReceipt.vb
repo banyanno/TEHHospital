@@ -872,7 +872,7 @@ Public Class FrmNewReceipt
                         ObjTblPatientReceipt.SocialFeeUSD = 0
                         ObjTblPatientReceipt.FullFeeRiel = 0
                         ObjTblPatientReceipt.FullFeeUSD = 0
-                        ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
+                        ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString 'Format(GetDateServer, "hh:mm:ss tt").ToString
                         ObjTblPatientReceipt.TIME_ISSUE = ""
                         If RadKHR.Checked = True Then
                             If RadFull.Checked = True Then
@@ -1088,7 +1088,7 @@ Public Class FrmNewReceipt
                         ObjTblPatientReceipt.HN = TxtCustomerNo.Text
                         ObjTblPatientReceipt.PatientName = TxtCustomerName.Text
                         ObjTblPatientReceipt.CashTotal = TxtTotalAsDolar.Text
-                        ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "dd:mm:hh tt").ToString
+                        ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString 'Format(GetDateServ, "hh:mm:ss tt").ToString
                         '======== Set valud Cashe
                         ObjTblPatientReceipt.CashUSD = 0
                         ObjTblPatientReceipt.CashRiel = 0
@@ -1278,6 +1278,7 @@ Public Class FrmNewReceipt
                         ObjReceipt.CustID = EmptyString(TxtCustomerID.Text)
                         ObjReceipt.TotalSocial = TotalSocial
                         ObjReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
+
                         'Case Patient not yet add to table Receipt_Customer
                         If IsPatient = True Then
                             Dim Re_Customer As New RECEIPT_CUSTOMER

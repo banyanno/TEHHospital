@@ -1362,6 +1362,14 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.ViewCombindDisabilityDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.ViewCombindPatientsDisabilityDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.V_Referal_New_OldRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -1370,11 +1378,27 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.ViewCombindDisabilityRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.ViewCombindPatientsDisabilityRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.V_Referal_New_OldRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.V_DISABILITY_DETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.ViewCombindDisabilityRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_Old.ViewCombindPatientsDisabilityRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -1387,6 +1411,14 @@ Represents a strongly typed in-memory cache of data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSReferal_New_OldTableAdapters.V_DISABILITY_DETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_OldTableAdapters.ViewCombindDisabilityTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSReferal_New_OldTableAdapters.ViewCombindPatientsDisabilityTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

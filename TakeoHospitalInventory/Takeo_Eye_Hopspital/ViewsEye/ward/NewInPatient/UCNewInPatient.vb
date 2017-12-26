@@ -109,11 +109,11 @@ Public Class UCNewInPatient
    
     Private Sub GridDaillyBook_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridDiallyBook.CellDoubleClick
         Try
-            Dim DiallyNo As String = GridDiallyBook.Rows(e.RowIndex).Cells(0).Value
-            Dim NewInpatientNo As String = GridDiallyBook.Rows(e.RowIndex).Cells(1).Value
-            Dim PatientNo As String = GridDiallyBook.Rows(e.RowIndex).Cells(2).Value
-            Dim Eye As String = GridDiallyBook.Rows(e.RowIndex).Cells(3).Value
-            Dim Treatment As String = GridDiallyBook.Rows(e.RowIndex).Cells(4).Value
+            Dim DiallyNo As String = GridDiallyBook.Rows(e.RowIndex).Cells("DaillyBookNo").Value 'Cells(0).Value
+            Dim NewInpatientNo As String = GridDiallyBook.Rows(e.RowIndex).Cells("NewInpatientNo1").Value 'Cells(1).Value
+            Dim PatientNo As String = GridDiallyBook.Rows(e.RowIndex).Cells("PatientNo1").Value 'Cells(2).Value
+            Dim Eye As String = GridDiallyBook.Rows(e.RowIndex).Cells("Eye1").Value 'Cells(3).Value
+            Dim Treatment As String = GridDiallyBook.Rows(e.RowIndex).Cells("Treatment").Value 'Cells(4).Value
             Dim FDiallyBook As New FRMDaillyBook
             FDiallyBook.LblSaveOption.Text = DiallyNo
             FDiallyBook.LblNewInpatientNo.Text = NewInpatientNo
@@ -350,31 +350,31 @@ Public Class UCNewInPatient
         Try
             If GridNewInPatient.SelectedItems(0).Table.Key = "PatientInfo" Then
                 Dim FNewInPatient As New FRMNewInPatient(Me)
-                Dim NewInNo As Integer = GridNewInPatient.SelectedItems(0).GetRow.Cells(0).Value
-                Dim PatientNo As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(1).Value
-                Dim PatienName As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(2).Value
-                Dim Age As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(3).Value
-                Dim Sex As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(4).Value
-                Dim address As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(5).Value
-                Dim Eye As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(6).Value
-                Dim Diagnosis As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(7).Value
-                Dim VA_RE As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(8).Value
-                Dim VA_LE As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(9).Value
+                Dim NewInNo As Integer = GridNewInPatient.GetRow.Cells("NewInPatientNo").Value  '.SelectedItems(0).GetRow.Cells(0).Value
+                Dim PatientNo As String = GridNewInPatient.GetRow.Cells("PatientNo").Value 'SelectedItems(0).GetRow.Cells(1).Value
+                Dim PatienName As String = GridNewInPatient.GetRow.Cells("NameKhmer").Value 'SelectedItems(0).GetRow.Cells(2).Value
+                Dim Age As String = GridNewInPatient.GetRow.Cells("Age").Value 'SelectedItems(0).GetRow.Cells(3).Value
+                Dim Sex As String = GridNewInPatient.GetRow.Cells("Sex").Value 'SelectedItems(0).GetRow.Cells(4).Value
+                Dim address As String = GridNewInPatient.GetRow.Cells("Address").Value 'SelectedItems(0).GetRow.Cells(5).Value
+                Dim Eye As String = GridNewInPatient.GetRow.Cells("Eye").Value 'SelectedItems(0).GetRow.Cells(6).Value
+                Dim Diagnosis As String = GridNewInPatient.GetRow.Cells("Diagnosis").Value 'SelectedItems(0).GetRow.Cells(7).Value
+                Dim VA_RE As String = GridNewInPatient.GetRow.Cells("VA_RE").Value 'SelectedItems(0).GetRow.Cells(8).Value
+                Dim VA_LE As String = GridNewInPatient.GetRow.Cells("VA_LE").Value 'SelectedItems(0).GetRow.Cells(9).Value
                 Try
                     FNewInPatient.DateDischarge.Checked = True
-                    FNewInPatient.DateDischarge.Value = GridNewInPatient.SelectedItems(0).GetRow.Cells(10).Value
+                    FNewInPatient.DateDischarge.Value = GridNewInPatient.GetRow.Cells("DateDischarge").Value 'SelectedItems(0).GetRow.Cells(10).Value
                 Catch ex As Exception
                     FNewInPatient.DateDischarge.Checked = False
                 End Try
                 Try
                     FNewInPatient.DateFollowUp.Checked = True
-                    FNewInPatient.DateFollowUp.Value = GridNewInPatient.SelectedItems(0).GetRow.Cells(11).Value
+                    FNewInPatient.DateFollowUp.Value = GridNewInPatient.GetRow.Cells("DateFollowUp").Value 'SelectedItems(0).GetRow.Cells(11).Value
                 Catch ex As Exception
                     FNewInPatient.DateFollowUp.Checked = False
                 End Try
-                Dim Signature As Boolean = GridNewInPatient.SelectedItems(0).GetRow.Cells(12).Value
-                Dim TypeDiagnosis As Boolean = GridNewInPatient.SelectedItems(0).GetRow.Cells(16).Value
-                Dim Waiting As Boolean = GridNewInPatient.SelectedItems(0).GetRow.Cells(14).Value
+                Dim Signature As Boolean = GridNewInPatient.GetRow.Cells("Signature").Value 'SelectedItems(0).GetRow.Cells(12).Value
+                Dim TypeDiagnosis As Boolean = GridNewInPatient.GetRow.Cells("TypeDiagnosis").Value 'SelectedItems(0).GetRow.Cells(16).Value
+                Dim Waiting As Boolean = GridNewInPatient.GetRow.Cells("Waiting").Value 'SelectedItems(0).GetRow.Cells(14).Value
                 FNewInPatient.LblSaveOption.Text = NewInNo
                 FNewInPatient.TxtPatientNo.Text = PatientNo
                 FNewInPatient.TxtPatientName.Text = PatienName

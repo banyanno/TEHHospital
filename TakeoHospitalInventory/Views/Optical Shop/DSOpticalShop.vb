@@ -16,3 +16,9 @@ Namespace DSOpticalShopTableAdapters
     Partial Public Class VMainReceiptDetailTableAdapter
     End Class
 End Namespace
+
+Namespace DSOpticalShopTableAdapters
+    
+    Partial Public Class V_Receipt_InvoiceTableAdapter
+    End Class
+End Namespace
