@@ -120,8 +120,8 @@
       <Column Name="HosFee" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="CashTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="IsPatientNill" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TIME_CREATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="TIME_ISSUE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TIME_CREATE" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="TIME_ISSUE" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.RECEIPT_DETAIL" Member="RECEIPT_DETAILs">

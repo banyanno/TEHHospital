@@ -17,7 +17,7 @@ Public Class UCDashbordCashReceipt
         frmOOPR.IS_UPDATE = True
         frmOOPR.GReferralFrom.Visible = False
         frmOOPR.GroupBox2.Visible = False
-        frmOOPR.GDifficulty.Visible = False
+        frmOOPR.GroupDisability.Visible = False
         frmOOPR.ShowDialog()
     End Sub
 

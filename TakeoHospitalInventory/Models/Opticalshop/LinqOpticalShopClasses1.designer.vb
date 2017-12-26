@@ -2488,7 +2488,7 @@ Partial Public Class tblPatientReceipt
 		End Set
 	End Property
 	
-	<Column(Storage:="_TIME_CREATE", DbType:="NVarChar(50)")>  _
+	<Column(Storage:="_TIME_CREATE", DbType:="nvarchar(50)")>  _
 	Public Property TIME_CREATE() As String
 		Get
 			Return Me._TIME_CREATE
@@ -2504,7 +2504,7 @@ Partial Public Class tblPatientReceipt
 		End Set
 	End Property
 	
-	<Column(Storage:="_TIME_ISSUE", DbType:="NVarChar(50)")>  _
+	<Column(Storage:="_TIME_ISSUE", DbType:="nvarchar(50)")>  _
 	Public Property TIME_ISSUE() As String
 		Get
 			Return Me._TIME_ISSUE

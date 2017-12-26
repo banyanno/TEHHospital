@@ -249,7 +249,7 @@ Public Class frmOldOutPatientReceipt
                     Me.cmdCashierSave.Enabled = True
                     Me.cmdSave.Enabled = False
                     Me.Width = 830
-                    GDifficulty.Visible = False
+                    GroupDisability.Visible = False
                     GReferralFrom.Visible = False
                     ChPrintPreveiw.Visible = False
                     ' Me.cmdPrint.Enabled = False
@@ -803,7 +803,20 @@ Public Class frmOldOutPatientReceipt
         End Try
 
     End Function
-
+    Function GetCombinePatientDisability() As String
+        Try
+            Dim str As String = ""
+            For i As Int16 = 0 To GroupDisability.Controls.Count - 1
+                Dim ch As CheckBox = CType(GroupDisability.Controls(i), CheckBox)
+                If ch.Checked = True Then
+                    str = CType(IIf(str = "", str & ch.Text, str & " + " & ch.Text), String)  ' str & " + " & ch.Text
+                End If
+            Next
+            Return str
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
     Function SqlSaveOrUpdateRegistrationFormForReferal() As String
         Return Me.StringSaveReferal( _
                txtHN.Text, _
@@ -826,7 +839,7 @@ Public Class frmOldOutPatientReceipt
                ChPreyScreening.Checked, _
                ChSchoolScreening.Checked, _
                ChMoPoCho.Checked, _
-               GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString)
+               GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString, GetCombinePatientDisability)
     End Function
    
     Function UpdatePatientHistory(ByVal PatientNo As String, _
@@ -893,7 +906,7 @@ Public Class frmOldOutPatientReceipt
                   , ByVal PreyScreening As Boolean _
                   , ByVal SchoolScreening As Boolean _
                   , ByVal MoPoCho As Boolean _
-                  , ByVal CombinRefferal As String, ByVal TIME_CREATE As String) As String
+                  , ByVal CombinRefferal As String, ByVal TIME_CREATE As String, ByVal ComBindDisability As String) As String
         Dim sql As String = "INSERT INTO TblFollowUp " & _
                     "(PatientNo" & _
                     ",CreateDate" & _
@@ -910,7 +923,7 @@ Public Class frmOldOutPatientReceipt
                     ",OtherNGO" & _
                     ",Church" & _
                     ",HealthWorker" & _
-                    ",OtherReferal,PreyKabasVC,PreyScreening,SchoolScreening,MoPoCho,ComBindRefferal,FollowUpStatus,TIME_CREATE)" & _
+                    ",OtherReferal,PreyKabasVC,PreyScreening,SchoolScreening,MoPoCho,ComBindRefferal,FollowUpStatus,TIME_CREATE,ComBindDisability)" & _
                     " VALUES " & _
                     "(" & PatientNo & _
                     ",'" & CreateDate & _
@@ -933,7 +946,8 @@ Public Class frmOldOutPatientReceipt
                     "','" & SchoolScreening & _
                     "','" & MoPoCho & _
                     "','" & CombinRefferal & _
-                    "',1,'" & TIME_CREATE & "')"
+                    "',1,'" & TIME_CREATE & _
+                    "','" & ComBindDisability & "')"
         Return sql
     End Function
 

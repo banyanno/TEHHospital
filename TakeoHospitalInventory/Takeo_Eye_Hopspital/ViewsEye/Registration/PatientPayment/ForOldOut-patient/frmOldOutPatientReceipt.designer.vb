@@ -68,7 +68,7 @@ Partial Class frmOldOutPatientReceipt
         Me.ChPrintPreveiw = New System.Windows.Forms.CheckBox
         Me.cmdFindHN = New System.Windows.Forms.Button
         Me.lblID = New System.Windows.Forms.Label
-        Me.GDifficulty = New System.Windows.Forms.GroupBox
+        Me.GroupDisability = New System.Windows.Forms.GroupBox
         Me.ChHearing = New System.Windows.Forms.CheckBox
         Me.ChPhysical = New System.Windows.Forms.CheckBox
         Me.ChUnderstand = New System.Windows.Forms.CheckBox
@@ -109,7 +109,7 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.GDifficulty.SuspendLayout()
+        Me.GroupDisability.SuspendLayout()
         Me.GrpReferal.SuspendLayout()
         CType(Me.PictLoading, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GReferralFrom.SuspendLayout()
@@ -696,18 +696,18 @@ Partial Class frmOldOutPatientReceipt
         Me.lblID.Text = "0"
         Me.lblID.Visible = False
         '
-        'GDifficulty
+        'GroupDisability
         '
-        Me.GDifficulty.BackColor = System.Drawing.Color.Transparent
-        Me.GDifficulty.Controls.Add(Me.ChHearing)
-        Me.GDifficulty.Controls.Add(Me.ChPhysical)
-        Me.GDifficulty.Controls.Add(Me.ChUnderstand)
-        Me.GDifficulty.Location = New System.Drawing.Point(750, 42)
-        Me.GDifficulty.Name = "GDifficulty"
-        Me.GDifficulty.Size = New System.Drawing.Size(388, 46)
-        Me.GDifficulty.TabIndex = 158
-        Me.GDifficulty.TabStop = False
-        Me.GDifficulty.Text = "Difficulty"
+        Me.GroupDisability.BackColor = System.Drawing.Color.Transparent
+        Me.GroupDisability.Controls.Add(Me.ChHearing)
+        Me.GroupDisability.Controls.Add(Me.ChPhysical)
+        Me.GroupDisability.Controls.Add(Me.ChUnderstand)
+        Me.GroupDisability.Location = New System.Drawing.Point(750, 42)
+        Me.GroupDisability.Name = "GroupDisability"
+        Me.GroupDisability.Size = New System.Drawing.Size(388, 46)
+        Me.GroupDisability.TabIndex = 158
+        Me.GroupDisability.TabStop = False
+        Me.GroupDisability.Text = "Difficulty"
         '
         'ChHearing
         '
@@ -1154,7 +1154,7 @@ Partial Class frmOldOutPatientReceipt
         Me.Controls.Add(Me.PictLoading)
         Me.Controls.Add(Me.GrpReferal)
         Me.Controls.Add(Me.lblHistoryNo)
-        Me.Controls.Add(Me.GDifficulty)
+        Me.Controls.Add(Me.GroupDisability)
         Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.ChPrintPreveiw)
         Me.Controls.Add(Me.lblCashierLogin)
@@ -1175,8 +1175,8 @@ Partial Class frmOldOutPatientReceipt
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        Me.GDifficulty.ResumeLayout(False)
-        Me.GDifficulty.PerformLayout()
+        Me.GroupDisability.ResumeLayout(False)
+        Me.GroupDisability.PerformLayout()
         Me.GrpReferal.ResumeLayout(False)
         Me.GrpReferal.PerformLayout()
         CType(Me.PictLoading, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1239,7 +1239,7 @@ Partial Class frmOldOutPatientReceipt
     Friend WithEvents ChPrintPreveiw As System.Windows.Forms.CheckBox
     Friend WithEvents cmdFindHN As System.Windows.Forms.Button
     Friend WithEvents lblID As System.Windows.Forms.Label
-    Friend WithEvents GDifficulty As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupDisability As System.Windows.Forms.GroupBox
     Friend WithEvents ChHearing As System.Windows.Forms.CheckBox
     Friend WithEvents ChPhysical As System.Windows.Forms.CheckBox
     Friend WithEvents ChUnderstand As System.Windows.Forms.CheckBox
