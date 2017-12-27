@@ -102,7 +102,14 @@ Public Class UCPatientReportUtility
                 End If
             End If
             If Me.RadCombinDisability.Checked = True Then
-                TblPatientCombindDisAbility = DA_PatientCombindDisability.GetData(DateFromDis.Value.Date, DateToDis.Value.Date)
+                If RadAll.Checked = True Then
+                    TblPatientCombindDisAbility = DA_PatientCombindDisability.GetData(DateFromDis.Value.Date, DateToDis.Value.Date)
+                ElseIf RadByNew.Checked = True Then
+                    TblPatientCombindDisAbility = DA_PatientCombindDisability.GetDataByPatientNewOrOld(DateFromDis.Value.Date, DateToDis.Value.Date, False)
+                ElseIf RadByOld.Checked = True Then
+                    TblPatientCombindDisAbility = DA_PatientCombindDisability.GetDataByPatientNewOrOld(DateFromDis.Value.Date, DateToDis.Value.Date, True)
+                End If
+
             End If
         End If
 
@@ -199,9 +206,17 @@ Public Class UCPatientReportUtility
             PicLoadReport.Visible = False
         End If
         If Me.RadCombinDisability.Checked = True Then
+
             CRPatientCombindDisability.SetDataSource(TblPatientCombindDisAbility)
             CRVPatientUtility.ReportSource = CRPatientCombindDisability
-            CRPatientCombindDisability.SetParameterValue("Title", "Combine Disability patient date from: " & Format(Me.DateFromDis.Value, "dd/MM/yyyy") & " To: " & Format(Me.DateToDis.Value, "dd/MM/yyyy"))
+            If RadAll.Checked = True Then
+                CRPatientCombindDisability.SetParameterValue("Title", "Combine Disability patient date from: " & Format(Me.DateFromDis.Value, "dd/MM/yyyy") & " To: " & Format(Me.DateToDis.Value, "dd/MM/yyyy"))
+            ElseIf RadByNew.Checked = True Then
+                CRPatientCombindDisability.SetParameterValue("Title", "Combine Disability for new patient date from: " & Format(Me.DateFromDis.Value, "dd/MM/yyyy") & " To: " & Format(Me.DateToDis.Value, "dd/MM/yyyy"))
+            ElseIf RadByOld.Checked = True Then
+                CRPatientCombindDisability.SetParameterValue("Title", "Combine Disability for all patient date from: " & Format(Me.DateFromDis.Value, "dd/MM/yyyy") & " To: " & Format(Me.DateToDis.Value, "dd/MM/yyyy"))
+            End If
+
             CRVPatientUtility.Refresh()
             btnPrintDisability.Enabled = True
             PicLoadReport.Visible = False
@@ -304,5 +319,9 @@ Public Class UCPatientReportUtility
 
     Private Sub rdDisByAge_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rdDisByAge.CheckedChanged
         GDisability.Enabled = rdDisByAge.Checked
+    End Sub
+
+    Private Sub RadCombinDisability_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadCombinDisability.CheckedChanged
+        GDisability.Enabled = RadCombinDisability.Checked
     End Sub
 End Class

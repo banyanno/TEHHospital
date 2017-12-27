@@ -2863,7 +2863,7 @@ Namespace DSReferal_New_OldTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        ComBindDisability, COUNT(Male) AS M, COUNT(Female) AS F, '0-4' AS A"& _ 
@@ -2871,26 +2871,59 @@ Namespace DSReferal_New_OldTableAdapters
                 "ND 4) AND (CAST(CONVERT(VARCHAR(10), CreateDate, 1) AS DateTime) BETWEEN CAST(CO"& _ 
                 "NVERT(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT"& _ 
                 "(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateTO AS DATETIME), 1) AS Dateti"& _ 
-                "me))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        ComBindDisability, COUNT("& _ 
-                "Male) AS M, COUNT(Female) AS F, '5-14' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ViewCombindPatien"& _ 
-                "tsDisability "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10)"& _ 
+                "me))  and ComBindDisability<>''"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT      "& _ 
+                "  ComBindDisability, COUNT(Male) AS M, COUNT(Female) AS F, '5-14' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          ViewCombindPatientsDisability "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age BETWEEN 5 AND 14) AN"& _ 
+                "D (CAST(CONVERT(VARCHAR(10), CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VA"& _ 
+                "RCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR"& _ 
+                "(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateTO AS DATETIME), 1) AS Datetime))  an"& _ 
+                "d ComBindDisability<>''"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        ComBin"& _ 
+                "dDisability, COUNT(Male) AS M, COUNT(Female) AS F, '15-49' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         "& _ 
+                "  ViewCombindPatientsDisability "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age BETWEEN 15 AND 49) AND (CAST"& _ 
+                "(CONVERT(VARCHAR(10), CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(1"& _ 
+                "0), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateTO AS DATETIME), 1) AS Datetime))  and ComBi"& _ 
+                "ndDisability<>''"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        ComBindDisabi"& _ 
+                "lity, COUNT(Male) AS M, COUNT(Female) AS F, '>=50' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ViewC"& _ 
+                "ombindPatientsDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age >= 50) AND (CAST(CONVERT(VARCHAR(10)"& _ 
                 ", CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), CAST(@DateFrom A"& _ 
                 "S DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      CAST(@DateTO AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"U"& _ 
-                "NION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        ComBindDisability, COUNT(Male) AS M, COUNT(Female) AS F, '15"& _ 
-                "-49' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           ViewCombindPatientsDisability "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age BE"& _ 
-                "TWEEN 15 AND 49) AND (CAST(CONVERT(VARCHAR(10), CreateDate, 1) AS DateTime) BETW"& _ 
-                "EEN CAST(CONVERT(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND C"& _ 
-                "AST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateTO AS DATETIME), 1"& _ 
-                ") AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        ComBindDisabil"& _ 
-                "ity, COUNT(Male) AS M, COUNT(Female) AS F, '>=50' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ViewCo"& _ 
-                "mbindPatientsDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age >= 50) AND (CAST(CONVERT(VARCHAR(10),"& _ 
-                " CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), CAST(@DateFrom AS"& _ 
-                " DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     CAST(@DateTO AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"
+                "      CAST(@DateTO AS DATETIME), 1) AS Datetime)) and ComBindDisability<>''"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GRO"& _ 
+                "UP BY ComBindDisability"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        ComBindDisability, COUNT(Male) AS M, COUNT(Female) AS F, '0-4' AS A"& _ 
+                "ge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ViewCombindPatientsDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age BETWEEN 0 A"& _ 
+                "ND 4) AND (CAST(CONVERT(VARCHAR(10), CreateDate, 1) AS DateTime) BETWEEN CAST(CO"& _ 
+                "NVERT(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT"& _ 
+                "(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateTO AS DATETIME), 1) AS Dateti"& _ 
+                "me))  and ComBindDisability<>'' and FollowUpStatus=@FollowUpStatus"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Com"& _ 
+                "BindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        ComBindDisability, COUNT(Male) AS M, COUNT("& _ 
+                "Female) AS F, '5-14' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ViewCombindPatientsDisability "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
+                "RE        (Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), CreateDate, 1) A"& _ 
+                "S DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS"& _ 
+                " Datetime) AND CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateTO"& _ 
+                " AS DATETIME), 1) AS Datetime))  and ComBindDisability<>'' and FollowUpStatus=@F"& _ 
+                "ollowUpStatus"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        ComBindDisabilit"& _ 
+                "y, COUNT(Male) AS M, COUNT(Female) AS F, '15-49' AS Age"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           ViewComb"& _ 
+                "indPatientsDisability "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age BETWEEN 15 AND 49) AND (CAST(CONVERT(V"& _ 
+                "ARCHAR(10), CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), CAST(@"& _ 
+                "DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                CAST(@DateTO AS DATETIME), 1) AS Datetime))  and ComBindDisabili"& _ 
+                "ty<>'' and FollowUpStatus=@FollowUpStatus"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SE"& _ 
+                "LECT        ComBindDisability, COUNT(Male) AS M, COUNT(Female) AS F, '>=50' AS A"& _ 
+                "ge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ViewCombindPatientsDisability"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Age >= 50) AND "& _ 
+                "(CAST(CONVERT(VARCHAR(10), CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARC"& _ 
+                "HAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(1"& _ 
+                "0), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateTO AS DATETIME), 1) AS Datetime)) and C"& _ 
+                "omBindDisability<>'' and FollowUpStatus=@FollowUpStatus"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY ComBindDisabil"& _ 
+                "ity"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FollowUpStatus", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2914,6 +2947,42 @@ Namespace DSReferal_New_OldTableAdapters
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Dim dataTable As DSReferal_New_Old.ViewCombindPatientsDisabilityDataTable = New DSReferal_New_Old.ViewCombindPatientsDisabilityDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSReferal_New_Old.ViewCombindPatientsDisabilityDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal FollowUpStatus As Global.System.Nullable(Of Boolean)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            If (FollowUpStatus.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(FollowUpStatus.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByPatientNewOrOld(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal FollowUpStatus As Global.System.Nullable(Of Boolean)) As DSReferal_New_Old.ViewCombindPatientsDisabilityDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            If (FollowUpStatus.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(FollowUpStatus.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             Dim dataTable As DSReferal_New_Old.ViewCombindPatientsDisabilityDataTable = New DSReferal_New_Old.ViewCombindPatientsDisabilityDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
