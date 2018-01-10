@@ -702,9 +702,10 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupDisability.Controls.Add(Me.ChHearing)
         Me.GroupDisability.Controls.Add(Me.ChPhysical)
         Me.GroupDisability.Controls.Add(Me.ChUnderstand)
+        Me.GroupDisability.Controls.Add(Me.ChSeeing)
         Me.GroupDisability.Location = New System.Drawing.Point(750, 42)
         Me.GroupDisability.Name = "GroupDisability"
-        Me.GroupDisability.Size = New System.Drawing.Size(388, 46)
+        Me.GroupDisability.Size = New System.Drawing.Size(494, 46)
         Me.GroupDisability.TabIndex = 158
         Me.GroupDisability.TabStop = False
         Me.GroupDisability.Text = "Difficulty"
@@ -742,13 +743,12 @@ Partial Class frmOldOutPatientReceipt
         'ChSeeing
         '
         Me.ChSeeing.AutoSize = True
-        Me.ChSeeing.Location = New System.Drawing.Point(920, 12)
+        Me.ChSeeing.Location = New System.Drawing.Point(391, 15)
         Me.ChSeeing.Name = "ChSeeing"
         Me.ChSeeing.Size = New System.Drawing.Size(59, 17)
         Me.ChSeeing.TabIndex = 2
         Me.ChSeeing.Text = "Seeing"
         Me.ChSeeing.UseVisualStyleBackColor = True
-        Me.ChSeeing.Visible = False
         '
         'lblHistoryNo
         '
@@ -1149,7 +1149,6 @@ Partial Class frmOldOutPatientReceipt
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
-        Me.Controls.Add(Me.ChSeeing)
         Me.Controls.Add(Me.GReferralFrom)
         Me.Controls.Add(Me.PictLoading)
         Me.Controls.Add(Me.GrpReferal)

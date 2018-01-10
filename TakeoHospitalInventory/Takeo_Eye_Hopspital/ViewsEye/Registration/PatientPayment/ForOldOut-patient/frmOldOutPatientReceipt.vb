@@ -755,7 +755,7 @@ Public Class frmOldOutPatientReceipt
                         Me.txtRate.Text, Me.txtAmountWord.Text, IIf(Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True, "1", "0"), _
                         IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                         IIf(Me.chkSocialFee.Checked = False, 1, 0), "OR", Me.lblCashier.Text, "", 1, _
-                        Me.dtpDateIn.Value, ModGlobleVariable.GeteDateServer.Year, Format(GetDateServer, "hh:mm:ss tt").ToString, "")
+                        ModGlobleVariable.CheckMarkEOD.Date, ModGlobleVariable.CheckMarkEOD.Year, Format(GetDateServer, "hh:mm:ss tt").ToString, "")
     End Function
 
     Function SaveOldOutpatientReceipt( _

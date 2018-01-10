@@ -555,6 +555,9 @@ Public Class FrmNewReceipt
     End Sub
 
     Private Sub BtnSaveReceipt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSaveReceipt.Click
+        DateCreateReceipt.Checked = True
+        DateCreateReceipt.Value = CheckMarkEOD()
+        DateCreateReceipt.Enabled = False
         BgSaveAndPrinting.RunWorkerAsync()
     End Sub
 
@@ -1243,7 +1246,7 @@ Public Class FrmNewReceipt
                         ObjTblPatientReceipt.ConGeneral = "OP"
                         ObjTblPatientReceipt.CashierIn = USER_NAME
                         ObjTblPatientReceipt.PrintCount = 1
-                        ObjTblPatientReceipt.Years = ModGlobleVariable.GeteDateServer.Year
+                        ObjTblPatientReceipt.Years = DateCreateReceipt.Value.Year  'ModGlobleVariable.GeteDateServer.Year
                         ObjTblPatientReceipt.DateNow = Now
                         If ChDonation.Checked = True Then
                             ObjTblPatientReceipt.IsDonation = ChDonation.Checked

@@ -30,8 +30,8 @@ Public Class UCOT_AND_IOLList
             Dim PatientName As String = GridOTRegistration.Rows(Index).Cells("NameKhmer1").Value.ToString.Replace("'", "")
             Dim Age As String = GridOTRegistration.Rows(Index).Cells("Age").Value
             Dim Sex As String = GridOTRegistration.Rows(Index).Cells("Sex").Value
-
-            
+            Dim Eye As String = GridOTRegistration.Rows(Index).Cells("Eye").Value
+            Dim Surgeon As String = GridOTRegistration.Rows(Index).Cells("Surgeon").Value
             Dim IOL As String = GridOTRegistration.Rows(index).Cells("IOL").Value
             If IOL.Equals("") Then
                 MessageBox.Show("You can not create IOL. Please contact administrator to create IOL.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -45,6 +45,8 @@ Public Class UCOT_AND_IOLList
             FIOL.TxtName.Text = PatientName.Replace("'", "")
             FIOL.TxtSex.Text = Sex
             FIOL.TxtAge.Text = Age
+            FIOL.CboEye.Text = Eye
+            FIOL.CboSurgeon.Text = Surgeon
             'FIOL.LblDateCreateIOL.Text = DateOP
             FIOL.CboIOLItem.Text = GridOTRegistration.Rows(Index).Cells("IOL").Value.ToString.Replace("'", "")
             FIOL.ShowDialog()

@@ -165,7 +165,7 @@ Public Class FormForInpatientReceiptFront
                 IIf(Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True, "1", "0"), _
                 IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                 IIf(Me.chkSocialFee.Checked = False, 1, 0), "IR", Me.lblCashier.Text, "", 1, _
-                Me.dtpDateIn.Value, Format(Date.Now(), "MM/dd/yyyy"), ModGlobleVariable.GeteDateServer.Year, _
+                CheckMarkEOD().Date, Format(Date.Now(), "MM/dd/yyyy"), CheckMarkEOD().Year, _
                 Me.txtOperation.Text, ChDonation.Checked, CboDonation.SelectedValue, _
                 CboDonation.Text, EmptyString(TxtDonationPay.Text), TxtDonateNote.Text, EmptyString(TxtHosFee.Text), Format(GetDateServer, "hh:mm:ss tt").ToString, "")
                 sqlComm.ExecuteNonQuery()

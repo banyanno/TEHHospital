@@ -519,12 +519,14 @@ Public Class UCNewInPatient
                 Dim Age As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(3).Text
                 Dim Sex As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(4).Text
                 Dim Address As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(5).Text
+                Dim Eye As String = GridNewInPatient.SelectedItems(0).GetRow.Cells("Eye").Text
                 Dim FOTRegistration As New FRMOTRegistration
                 FOTRegistration.TxtPatientNo.Text = PatientNo
                 FOTRegistration.TxtInpatientNo.Text = NewInNo
                 FOTRegistration.TxtPatientName.Text = PatientName
                 FOTRegistration.TxtAge.Text = Age
                 FOTRegistration.TxtSex.Text = Sex
+                FOTRegistration.CboEye.Text = Eye
                 FOTRegistration.TxtAddress.Text = Address
                 FOTRegistration.ShowDialog()
                 If FOTRegistration.isCloseOT = True Then

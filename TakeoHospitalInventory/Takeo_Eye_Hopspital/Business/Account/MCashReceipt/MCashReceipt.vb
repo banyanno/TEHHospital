@@ -137,7 +137,7 @@ Module MCashReceipt
     End Function
 
     Public Function getMaxID() As Double
-        Dim DateServer As Date = ModGlobleVariable.GeteDateServer
+        Dim DateServer As Date = ModGlobleVariable.CheckMarkEOD 'ModGlobleVariable.GeteDateServer
         Dim years As Double = DateServer.Year
         Dim month As String = DateServer.Month.ToString
         If month.Length = 1 Then
