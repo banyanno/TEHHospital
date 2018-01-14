@@ -25,6 +25,7 @@ Partial Class NewAppointment
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewAppointment))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.BtnSetNewApp = New System.Windows.Forms.Button
         Me.TxtTel = New System.Windows.Forms.TextBox
         Me.LblSave = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
@@ -53,6 +54,7 @@ Partial Class NewAppointment
         Me.BtnSave = New System.Windows.Forms.Button
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrAppointment = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.AutocompleteMenu1 = New AutocompleteMenuNS.AutocompleteMenu
         Me.GroupBox1.SuspendLayout()
         Me.GroupDiagnosis.SuspendLayout()
         CType(Me.ErrAppointment, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,6 +62,7 @@ Partial Class NewAppointment
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnSetNewApp)
         Me.GroupBox1.Controls.Add(Me.TxtTel)
         Me.GroupBox1.Controls.Add(Me.LblSave)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -81,8 +84,19 @@ Partial Class NewAppointment
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
+        'BtnSetNewApp
+        '
+        Me.BtnSetNewApp.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSetNewApp.Location = New System.Drawing.Point(467, 367)
+        Me.BtnSetNewApp.Name = "BtnSetNewApp"
+        Me.BtnSetNewApp.Size = New System.Drawing.Size(79, 34)
+        Me.BtnSetNewApp.TabIndex = 17
+        Me.BtnSetNewApp.Text = "Set Parameter"
+        Me.BtnSetNewApp.UseVisualStyleBackColor = True
+        '
         'TxtTel
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtTel, Nothing)
         Me.TxtTel.Enabled = False
         Me.TxtTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtTel.Location = New System.Drawing.Point(87, 95)
@@ -124,7 +138,7 @@ Partial Class NewAppointment
         Me.GroupDiagnosis.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupDiagnosis.Location = New System.Drawing.Point(10, 123)
         Me.GroupDiagnosis.Name = "GroupDiagnosis"
-        Me.GroupDiagnosis.Size = New System.Drawing.Size(531, 178)
+        Me.GroupDiagnosis.Size = New System.Drawing.Size(535, 178)
         Me.GroupDiagnosis.TabIndex = 15
         Me.GroupDiagnosis.TabStop = False
         '
@@ -245,6 +259,9 @@ Partial Class NewAppointment
         '
         'TxtNote
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtNote, Me.AutocompleteMenu1)
+        Me.TxtNote.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.TxtNote.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList
         Me.TxtNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNote.Location = New System.Drawing.Point(11, 307)
         Me.TxtNote.Multiline = True
@@ -254,6 +271,7 @@ Partial Class NewAppointment
         '
         'TxtAge
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtAge, Nothing)
         Me.TxtAge.Enabled = False
         Me.TxtAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtAge.Location = New System.Drawing.Point(421, 55)
@@ -264,6 +282,7 @@ Partial Class NewAppointment
         '
         'TxtPatientSex
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtPatientSex, Nothing)
         Me.TxtPatientSex.Enabled = False
         Me.TxtPatientSex.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPatientSex.Location = New System.Drawing.Point(329, 55)
@@ -274,6 +293,7 @@ Partial Class NewAppointment
         '
         'TxtPatientName
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtPatientName, Nothing)
         Me.TxtPatientName.Enabled = False
         Me.TxtPatientName.Font = New System.Drawing.Font("Wat Phnom T3", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPatientName.Location = New System.Drawing.Point(87, 50)
@@ -283,6 +303,7 @@ Partial Class NewAppointment
         '
         'TxtPatientNo
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtPatientNo, Nothing)
         Me.TxtPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPatientNo.Location = New System.Drawing.Point(86, 14)
         Me.TxtPatientNo.Name = "TxtPatientNo"
@@ -358,6 +379,18 @@ Partial Class NewAppointment
         '
         Me.ErrAppointment.ContainerControl = Me
         '
+        'AutocompleteMenu1
+        '
+        Me.AutocompleteMenu1.AppearInterval = 100
+        Me.AutocompleteMenu1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.AutocompleteMenu1.ImageList = Nothing
+        Me.AutocompleteMenu1.Items = New String(-1) {}
+        Me.AutocompleteMenu1.LeftPadding = 10
+        Me.AutocompleteMenu1.MaximumSize = New System.Drawing.Size(250, 300)
+        Me.AutocompleteMenu1.MinFragmentLength = 1
+        Me.AutocompleteMenu1.TargetControlWrapper = Nothing
+        Me.AutocompleteMenu1.ToolTipDuration = 3000
+        '
         'NewAppointment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -410,4 +443,6 @@ Partial Class NewAppointment
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents CboDoctor As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents BtnSetNewApp As System.Windows.Forms.Button
+    Friend WithEvents AutocompleteMenu1 As AutocompleteMenuNS.AutocompleteMenu
 End Class

@@ -25,6 +25,7 @@ Partial Class FormUpdateCalled
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUpdateCalled))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.BtnSetPara = New System.Windows.Forms.Button
         Me.TxtCallNoted = New System.Windows.Forms.TextBox
         Me.DateCalled = New System.Windows.Forms.DateTimePicker
         Me.Label4 = New System.Windows.Forms.Label
@@ -37,12 +38,14 @@ Partial Class FormUpdateCalled
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.LblIsUpdate = New System.Windows.Forms.Label
+        Me.AutocompleteMenu1 = New AutocompleteMenuNS.AutocompleteMenu
         Me.GroupBox1.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BtnSetPara)
         Me.GroupBox1.Controls.Add(Me.TxtCallNoted)
         Me.GroupBox1.Controls.Add(Me.DateCalled)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -53,26 +56,39 @@ Partial Class FormUpdateCalled
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(475, 174)
+        Me.GroupBox1.Size = New System.Drawing.Size(475, 202)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Patient Info"
         '
+        'BtnSetPara
+        '
+        Me.BtnSetPara.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnSetPara.Location = New System.Drawing.Point(403, 158)
+        Me.BtnSetPara.Name = "BtnSetPara"
+        Me.BtnSetPara.Size = New System.Drawing.Size(70, 38)
+        Me.BtnSetPara.TabIndex = 8
+        Me.BtnSetPara.Text = "Set Parameter"
+        Me.BtnSetPara.UseVisualStyleBackColor = True
+        '
         'TxtCallNoted
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtCallNoted, Me.AutocompleteMenu1)
+        Me.TxtCallNoted.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.TxtCallNoted.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList
         Me.TxtCallNoted.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtCallNoted.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCallNoted.Location = New System.Drawing.Point(65, 90)
+        Me.TxtCallNoted.Location = New System.Drawing.Point(84, 121)
         Me.TxtCallNoted.Multiline = True
         Me.TxtCallNoted.Name = "TxtCallNoted"
-        Me.TxtCallNoted.Size = New System.Drawing.Size(404, 75)
+        Me.TxtCallNoted.Size = New System.Drawing.Size(316, 75)
         Me.TxtCallNoted.TabIndex = 7
         '
         'DateCalled
         '
         Me.DateCalled.CustomFormat = "dd/MM/yyyy"
         Me.DateCalled.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateCalled.Location = New System.Drawing.Point(65, 60)
+        Me.DateCalled.Location = New System.Drawing.Point(84, 91)
         Me.DateCalled.Name = "DateCalled"
         Me.DateCalled.Size = New System.Drawing.Size(160, 20)
         Me.DateCalled.TabIndex = 6
@@ -80,7 +96,7 @@ Partial Class FormUpdateCalled
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 112)
+        Me.Label4.Location = New System.Drawing.Point(6, 143)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(59, 13)
         Me.Label4.TabIndex = 5
@@ -89,7 +105,7 @@ Partial Class FormUpdateCalled
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 66)
+        Me.Label3.Location = New System.Drawing.Point(6, 97)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 4
@@ -97,26 +113,28 @@ Partial Class FormUpdateCalled
         '
         'TxtPatientName
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtPatientName, Nothing)
         Me.TxtPatientName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtPatientName.Font = New System.Drawing.Font("Wat Phnom T3", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientName.Location = New System.Drawing.Point(309, 19)
+        Me.TxtPatientName.Location = New System.Drawing.Point(84, 51)
         Me.TxtPatientName.Name = "TxtPatientName"
-        Me.TxtPatientName.Size = New System.Drawing.Size(160, 31)
+        Me.TxtPatientName.Size = New System.Drawing.Size(316, 31)
         Me.TxtPatientName.TabIndex = 3
         '
         'TxtPatientNo
         '
+        Me.AutocompleteMenu1.SetAutocompleteMenu(Me.TxtPatientNo, Nothing)
         Me.TxtPatientNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientNo.Location = New System.Drawing.Point(65, 19)
+        Me.TxtPatientNo.Location = New System.Drawing.Point(84, 19)
         Me.TxtPatientNo.Name = "TxtPatientNo"
-        Me.TxtPatientNo.Size = New System.Drawing.Size(160, 26)
+        Me.TxtPatientNo.Size = New System.Drawing.Size(316, 26)
         Me.TxtPatientNo.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(229, 32)
+        Me.Label2.Location = New System.Drawing.Point(6, 69)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(74, 13)
         Me.Label2.TabIndex = 1
@@ -134,7 +152,7 @@ Partial Class FormUpdateCalled
         'BtnSave
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSave.Location = New System.Drawing.Point(326, 186)
+        Me.BtnSave.Location = New System.Drawing.Point(328, 208)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(75, 27)
         Me.BtnSave.TabIndex = 1
@@ -144,7 +162,7 @@ Partial Class FormUpdateCalled
         'BtnCancel
         '
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.Location = New System.Drawing.Point(407, 186)
+        Me.BtnCancel.Location = New System.Drawing.Point(409, 208)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(75, 27)
         Me.BtnCancel.TabIndex = 2
@@ -165,11 +183,21 @@ Partial Class FormUpdateCalled
         Me.LblIsUpdate.Text = "0"
         Me.LblIsUpdate.Visible = False
         '
+        'AutocompleteMenu1
+        '
+        Me.AutocompleteMenu1.AppearInterval = 300
+        Me.AutocompleteMenu1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.AutocompleteMenu1.ImageList = Nothing
+        Me.AutocompleteMenu1.Items = New String(-1) {}
+        Me.AutocompleteMenu1.MinFragmentLength = 1
+        Me.AutocompleteMenu1.TargetControlWrapper = Nothing
+        Me.AutocompleteMenu1.ToolTipDuration = 3000
+        '
         'FormUpdateCalled
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(494, 217)
+        Me.ClientSize = New System.Drawing.Size(487, 237)
         Me.Controls.Add(Me.LblIsUpdate)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSave)
@@ -202,4 +230,6 @@ Partial Class FormUpdateCalled
     Friend WithEvents BtnCancel As System.Windows.Forms.Button
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
     Friend WithEvents LblIsUpdate As System.Windows.Forms.Label
+    Friend WithEvents BtnSetPara As System.Windows.Forms.Button
+    Friend WithEvents AutocompleteMenu1 As AutocompleteMenuNS.AutocompleteMenu
 End Class

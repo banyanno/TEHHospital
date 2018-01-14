@@ -1130,6 +1130,14 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.APPOINT_PARADataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.CALL_PARAMETERDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSConsult.TblSurgeryRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -1170,6 +1178,14 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.APPOINT_PARARow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.CALL_PARAMETERRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSConsult.TblSurgeryRowChangeEvent">
 	<summary>
 Row event argument class
@@ -1207,6 +1223,14 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSConsult.CONSULING_APPOINTMENTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.APPOINT_PARARowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.CALL_PARAMETERRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -1251,6 +1275,14 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultTableAdapters.APPOINT_PARATableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultTableAdapters.CALL_PARAMETERTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

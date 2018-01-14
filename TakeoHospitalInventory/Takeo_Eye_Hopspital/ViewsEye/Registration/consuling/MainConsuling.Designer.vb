@@ -98,9 +98,7 @@ Partial Class MainConsuling
         Me.SplitContainer6 = New System.Windows.Forms.SplitContainer
         Me.GridAppointment = New Janus.Windows.GridEX.GridEX
         Me.CMCallPatient = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnCallPatient = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator
         Me.CrystalApp = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip
         Me.BtnNewAppoint = New System.Windows.Forms.ToolStripButton
@@ -161,6 +159,7 @@ Partial Class MainConsuling
         Me.ToolMenuConsuling.Size = New System.Drawing.Size(1390, 32)
         Me.ToolMenuConsuling.TabIndex = 0
         Me.ToolMenuConsuling.Text = "ToolStrip1"
+        Me.ToolMenuConsuling.Visible = False
         '
         'BtnNewConsulting
         '
@@ -221,7 +220,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(3, 35)
+        Me.SplitContainer1.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -239,8 +238,8 @@ Partial Class MainConsuling
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1390, 536)
-        Me.SplitContainer1.SplitterDistance = 52
+        Me.SplitContainer1.Size = New System.Drawing.Size(1390, 568)
+        Me.SplitContainer1.SplitterDistance = 55
         Me.SplitContainer1.TabIndex = 1
         '
         'GroupBox3
@@ -401,7 +400,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox2)
         Me.SplitContainer2.Panel2Collapsed = True
-        Me.SplitContainer2.Size = New System.Drawing.Size(1390, 480)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1390, 509)
         Me.SplitContainer2.SplitterDistance = 707
         Me.SplitContainer2.TabIndex = 0
         '
@@ -413,7 +412,7 @@ Partial Class MainConsuling
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1388, 478)
+        Me.GroupBox1.Size = New System.Drawing.Size(1388, 507)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consuling Information"
@@ -433,7 +432,7 @@ Partial Class MainConsuling
         Me.GridConsulting.RecordNavigator = True
         Me.GridConsulting.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowPosition
         Me.GridConsulting.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridConsulting.Size = New System.Drawing.Size(1382, 430)
+        Me.GridConsulting.Size = New System.Drawing.Size(1382, 459)
         Me.GridConsulting.TabIndex = 0
         '
         'MenuConsulting
@@ -482,7 +481,7 @@ Partial Class MainConsuling
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(3, 450)
+        Me.Label4.Location = New System.Drawing.Point(3, 479)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(309, 25)
         Me.Label4.TabIndex = 8
@@ -927,25 +926,15 @@ Partial Class MainConsuling
         '
         'CMCallPatient
         '
-        Me.CMCallPatient.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator10, Me.BtnCallPatient, Me.ToolStripSeparator9})
+        Me.CMCallPatient.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnCallPatient})
         Me.CMCallPatient.Name = "MenuConsulting"
-        Me.CMCallPatient.Size = New System.Drawing.Size(169, 38)
-        '
-        'ToolStripSeparator10
-        '
-        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(165, 6)
+        Me.CMCallPatient.Size = New System.Drawing.Size(169, 48)
         '
         'BtnCallPatient
         '
         Me.BtnCallPatient.Name = "BtnCallPatient"
         Me.BtnCallPatient.Size = New System.Drawing.Size(168, 22)
         Me.BtnCallPatient.Text = "Upate Call Patient"
-        '
-        'ToolStripSeparator9
-        '
-        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(165, 6)
         '
         'CrystalApp
         '
@@ -1183,8 +1172,6 @@ Partial Class MainConsuling
     Friend WithEvents ErrCounselling As System.Windows.Forms.ErrorProvider
     Friend WithEvents CMCallPatient As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents BtnCallPatient As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator10 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RadByDateApp As System.Windows.Forms.RadioButton
     Friend WithEvents RadByDateCreate As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox

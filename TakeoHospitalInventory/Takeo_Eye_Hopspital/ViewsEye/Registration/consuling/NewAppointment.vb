@@ -2,6 +2,7 @@
     Dim DA_ConApp As New DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter
     Dim DA_Daignosis As New DSConsultTableAdapters.TblSurgeryTableAdapter
     Dim DA_Surgery As New DSConsultTableAdapters.tblDiagSurgeriesTableAdapter
+    Dim DA_AppPara As New DSConsultTableAdapters.APPOINT_PARATableAdapter
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -25,8 +26,16 @@
             .SelectedIndex = -1
         End With
         ' Add any initialization after the InitializeComponent() call.
-
+        LoadingAppPara()
     End Sub
+    Private Sub LoadingAppPara()
+        With AutocompleteMenu1
+            For Each row As DataRow In DA_AppPara.GetData
+                .AddItem(row("APP_PARAVALUE"))
+            Next
+        End With
+    End Sub
+
     Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
         If ValidateTextField(TxtPatientNo, "", ErrAppointment) = False Then Exit Sub
         If ValidateTextField(TxtPatientName, "", ErrAppointment) = False Then Exit Sub
@@ -90,4 +99,13 @@
     End Sub
 
    
+    Private Sub BtnSetNewApp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSetNewApp.Click
+        Dim FAppointmentPara As New AppointmentParameter
+        FAppointmentPara.ShowDialog()
+        LoadingAppPara()
+    End Sub
+
+    Private Sub NewAppointment_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
