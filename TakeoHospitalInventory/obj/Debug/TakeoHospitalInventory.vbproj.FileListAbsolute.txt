@@ -1104,14 +1104,6 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\TakeoHospit
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\TakeoHospitalInventory.xml
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\ca-ES\TakeoHospitalInventory.resources.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\ca\TakeoHospitalInventory.resources.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Data.v3.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.ButtonBar.v3.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.Common.v3.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.FilterEditor.v3.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.GridEX.v3.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.Ribbon.v3.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.Schedule.v3.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.UI.v3.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.CalendarCombo.v3.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.Ribbon.v3.xml
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\Debug\Janus.Windows.Schedule.v3.xml

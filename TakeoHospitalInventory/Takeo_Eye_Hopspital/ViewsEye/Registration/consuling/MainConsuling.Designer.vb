@@ -159,7 +159,6 @@ Partial Class MainConsuling
         Me.ToolMenuConsuling.Size = New System.Drawing.Size(1390, 32)
         Me.ToolMenuConsuling.TabIndex = 0
         Me.ToolMenuConsuling.Text = "ToolStrip1"
-        Me.ToolMenuConsuling.Visible = False
         '
         'BtnNewConsulting
         '
@@ -220,7 +219,8 @@ Partial Class MainConsuling
         '
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainer1.Location = New System.Drawing.Point(3, 35)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -238,8 +238,7 @@ Partial Class MainConsuling
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1390, 568)
-        Me.SplitContainer1.SplitterDistance = 55
+        Me.SplitContainer1.Size = New System.Drawing.Size(1390, 536)
         Me.SplitContainer1.TabIndex = 1
         '
         'GroupBox3
@@ -400,7 +399,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox2)
         Me.SplitContainer2.Panel2Collapsed = True
-        Me.SplitContainer2.Size = New System.Drawing.Size(1390, 509)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1390, 482)
         Me.SplitContainer2.SplitterDistance = 707
         Me.SplitContainer2.TabIndex = 0
         '
@@ -412,7 +411,7 @@ Partial Class MainConsuling
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1388, 507)
+        Me.GroupBox1.Size = New System.Drawing.Size(1388, 480)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consuling Information"
@@ -432,7 +431,7 @@ Partial Class MainConsuling
         Me.GridConsulting.RecordNavigator = True
         Me.GridConsulting.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowPosition
         Me.GridConsulting.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridConsulting.Size = New System.Drawing.Size(1382, 459)
+        Me.GridConsulting.Size = New System.Drawing.Size(1382, 432)
         Me.GridConsulting.TabIndex = 0
         '
         'MenuConsulting
@@ -481,7 +480,7 @@ Partial Class MainConsuling
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(3, 479)
+        Me.Label4.Location = New System.Drawing.Point(3, 452)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(309, 25)
         Me.Label4.TabIndex = 8
@@ -928,7 +927,7 @@ Partial Class MainConsuling
         '
         Me.CMCallPatient.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnCallPatient})
         Me.CMCallPatient.Name = "MenuConsulting"
-        Me.CMCallPatient.Size = New System.Drawing.Size(169, 48)
+        Me.CMCallPatient.Size = New System.Drawing.Size(169, 26)
         '
         'BtnCallPatient
         '

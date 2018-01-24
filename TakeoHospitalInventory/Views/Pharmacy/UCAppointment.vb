@@ -65,7 +65,7 @@
     Private Sub BtnReportApp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReportApp.Click
         SplitContainer6.Panel2Collapsed = False
         SplitContainer6.Panel1Collapsed = True
-        Dim CAppoint As New CryAppointment
+        Dim CAppoint As New CRAppointment
         Dim TblApp As DataTable
      
 
