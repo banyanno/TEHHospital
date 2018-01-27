@@ -541,8 +541,10 @@ Public Class frmPrescription
                     THIDataContext.getTHIDataContext.Connection.Close()
                 Finally
                     trans = Nothing
+                    UPrescripList.CheckStatusGive(0)
                     MessageBox.Show("Save new prescription successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Me.DialogResult = Windows.Forms.DialogResult.OK
+                    clearForm()
+                    'Me.DialogResult = Windows.Forms.DialogResult.OK
                 End Try
             End If
 
@@ -632,13 +634,45 @@ Public Class frmPrescription
                     THIDataContext.getTHIDataContext.Connection.Close()
                 Finally
                     trans = Nothing
+
+                    'clearForm()
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End Try
             End If
         End If
 
-        
-
+    End Sub
+    Private Sub clearForm()
+        RadPatientNo.Checked = True
+        LblSaveStatus.Text = "0"
+        CboPatient.Text = ""
+        CboPatient.Select()
+        CboPatient.Focus()
+        CboPatient.SelectAll()
+        TxtTempPatientNo.Text = ""
+        TxtPatientNoReal.Text = ""
+        CboSecondSurgery.Text = ""
+        TxtNameKh.Text = ""
+        TxtPatientName.Text = ""
+        TxtPatOccupation.Text = ""
+        TxtPatSex.Text = ""
+        TxtPatAge.Text = ""
+        txtAddress.Text = ""
+        TxtTel.Text = ""
+        CboDoctor.SelectedIndex = -1
+        CbDiagnosis.SelectedIndex = -1
+        GridMedicine.DataSource = Nothing
+        DateApp.Checked = False
+        CboEye.Text = ""
+        TxtPrescriptionNote.Text = ""
+        LblItemUnitID.Text = "0"
+        LblItemID.Text = "0"
+        RbDrugInHos.Checked = True
+        GridPatientInformation.DataSource = Nothing
+        GridMedicine.DataSource = Nothing
+        GridMedicine.Rows.Clear()
+        GridMedicine.Refresh()
+        CleanMedicine()
     End Sub
 
     Private Sub BgLoadPatient_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BgLoadPatient.DoWork
