@@ -6,6 +6,7 @@ Public Class frmOldOutPatientReceipt
     Dim DS_Consult As New DSConsultTableAdapters.CONSULINGTableAdapter
     Dim DA_Appoint As New DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter
     Public IS_UPDATE As Boolean = False
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -556,7 +557,7 @@ Public Class frmOldOutPatientReceipt
                     Else
                         DS_Consult.UpdateStatus(1, LblConsultID.Text)
                     End If
-
+                    DA_PTrackingTime.InsertPatientTracking(txtHN.Text, 0, "", "", CheckMarkEOD().Date, Format(Now, "hh:mm:ss tt"), "", "", "", "", "", "", "", "")
                 End If
             End If
         Else
@@ -1279,6 +1280,7 @@ Public Class frmOldOutPatientReceipt
             IIf((Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
             IIf((Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True) And Me.chkDollar.Checked = True, Me.txtAmountFigureD.Text, 0), _
             Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", Format(GetDateServer, "hh:mm:ss tt").ToString)
+            DA_PTrackingTime.UpateReceipt(Format(Now, "hh:mm:ss tt").ToString, txtHN.Text, CheckMarkEOD().Date)
             AccRolesCashier = True
             isTrueFalse = False
             Me.Close()

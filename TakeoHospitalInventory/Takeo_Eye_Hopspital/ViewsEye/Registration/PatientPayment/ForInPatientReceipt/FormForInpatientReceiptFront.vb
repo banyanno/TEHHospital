@@ -2,6 +2,7 @@ Imports System.Math
 Public Class FormForInpatientReceiptFront
     Dim DA_Consult_Detail As New DSConsultTableAdapters.V_CONSULTINGTableAdapter
     Dim DS_Consult As New DSConsultTableAdapters.CONSULINGTableAdapter
+    Dim DA_PTimeTracking As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Public IS_UPDATE As Boolean = False
     Sub New()
 
@@ -56,6 +57,7 @@ Public Class FormForInpatientReceiptFront
         End If
         If Me.lblID.Text = 0 Then
             If SaveInPatientReceipt() = True Then
+                DA_PTimeTracking.UpdateINP(Format(Now, "hh:mm:ss tt").ToString, txtHN.Text, CheckMarkEOD().Date)
                 'Me.lblReceiptToPrintID.Text = Me.txtReceiptNumber.Text
                 Me.lblID.Text = 0
                 AccRolesCashier = True

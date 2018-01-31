@@ -275,6 +275,410 @@ group by ComBindRefferal,Diagnosis</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewPatientTimeFlowTableAdapter" GeneratorDataComponentClassName="ViewPatientTimeFlowTableAdapter" Name="ViewPatientTimeFlow" UserDataComponentName="ViewPatientTimeFlowTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.ViewPatientTimeFlow" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PatientNo, NameEng, Age, Sex, OPDTIME, RECEIPTIME, CONSELLTIME, OPTTIME
+FROM            ViewPatientTimeFlow</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PatientNo" DataSetColumn="PatientNo" />
+              <Mapping SourceColumn="NameEng" DataSetColumn="NameEng" />
+              <Mapping SourceColumn="Age" DataSetColumn="Age" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="OPDTIME" DataSetColumn="OPDTIME" />
+              <Mapping SourceColumn="RECEIPTIME" DataSetColumn="RECEIPTIME" />
+              <Mapping SourceColumn="CONSELLTIME" DataSetColumn="CONSELLTIME" />
+              <Mapping SourceColumn="OPTTIME" DataSetColumn="OPTTIME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PATIENT_TIMETRACKINGTableAdapter" GeneratorDataComponentClassName="PATIENT_TIMETRACKINGTableAdapter" Name="PATIENT_TIMETRACKING" UserDataComponentName="PATIENT_TIMETRACKINGTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.PATIENT_TIMETRACKING" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [PATIENT_TIMETRACKING] WHERE (([TRACK_ID] = @Original_TRACK_ID) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_PATIENT_NAME = 1 AND [PATIENT_NAME] IS NULL) OR ([PATIENT_NAME] = @Original_PATIENT_NAME)) AND ((@IsNull_SEX = 1 AND [SEX] IS NULL) OR ([SEX] = @Original_SEX)) AND ((@IsNull_AGE = 1 AND [AGE] IS NULL) OR ([AGE] = @Original_AGE)) AND ((@IsNull_CREATE_DATE = 1 AND [CREATE_DATE] IS NULL) OR ([CREATE_DATE] = @Original_CREATE_DATE)) AND ((@IsNull_TIME_OPD = 1 AND [TIME_OPD] IS NULL) OR ([TIME_OPD] = @Original_TIME_OPD)) AND ((@IsNull_TIME_RECEIPT = 1 AND [TIME_RECEIPT] IS NULL) OR ([TIME_RECEIPT] = @Original_TIME_RECEIPT)) AND ((@IsNull_TIME_PHARMACY = 1 AND [TIME_PHARMACY] IS NULL) OR ([TIME_PHARMACY] = @Original_TIME_PHARMACY)) AND ((@IsNull_TIME_OPT = 1 AND [TIME_OPT] IS NULL) OR ([TIME_OPT] = @Original_TIME_OPT)) AND ((@IsNull_TIME_CONSEL = 1 AND [TIME_CONSEL] IS NULL) OR ([TIME_CONSEL] = @Original_TIME_CONSEL)) AND ((@IsNull_TIME_INP = 1 AND [TIME_INP] IS NULL) OR ([TIME_INP] = @Original_TIME_INP)) AND ((@IsNull_TIME_INPWARD = 1 AND [TIME_INPWARD] IS NULL) OR ([TIME_INPWARD] = @Original_TIME_INPWARD)) AND ((@IsNull_TIME_OT = 1 AND [TIME_OT] IS NULL) OR ([TIME_OT] = @Original_TIME_OT)) AND ((@IsNull_TIME_DISCHARGE = 1 AND [TIME_DISCHARGE] IS NULL) OR ([TIME_DISCHARGE] = @Original_TIME_DISCHARGE)) AND ((@IsNull_TIME_RECEIPT_IN = 1 AND [TIME_RECEIPT_IN] IS NULL) OR ([TIME_RECEIPT_IN] = @Original_TIME_RECEIPT_IN)) AND ((@IsNull_TIME_RECEIPT_OPT = 1 AND [TIME_RECEIPT_OPT] IS NULL) OR ([TIME_RECEIPT_OPT] = @Original_TIME_RECEIPT_OPT)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_TRACK_ID" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="TRACK_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PATIENT_NO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PATIENT_NO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PATIENT_NAME" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PATIENT_NAME" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PATIENT_NAME" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SEX" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEX" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_SEX" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="SEX" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AGE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AGE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CREATE_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CREATE_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_OPD" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_OPD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_OPD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_RECEIPT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_RECEIPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_PHARMACY" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_PHARMACY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_OPT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_OPT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_CONSEL" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_CONSEL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_INP" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_INP" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_INP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_INPWARD" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_INPWARD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_OT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_OT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_OT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_DISCHARGE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_DISCHARGE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_RECEIPT_IN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_IN" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_RECEIPT_IN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_IN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_RECEIPT_OPT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_OPT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_RECEIPT_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_OPT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [PATIENT_TIMETRACKING] ([PATIENT_NO], [PATIENT_NAME], [SEX], [AGE], [CREATE_DATE], [TIME_OPD], [TIME_RECEIPT], [TIME_PHARMACY], [TIME_OPT], [TIME_CONSEL], [TIME_INP], [TIME_INPWARD], [TIME_OT], [TIME_DISCHARGE], [TIME_RECEIPT_IN], [TIME_RECEIPT_OPT]) VALUES (@PATIENT_NO, @PATIENT_NAME, @SEX, @AGE, @CREATE_DATE, @TIME_OPD, @TIME_RECEIPT, @TIME_PHARMACY, @TIME_OPT, @TIME_CONSEL, @TIME_INP, @TIME_INPWARD, @TIME_OT, @TIME_DISCHARGE, @TIME_RECEIPT_IN, @TIME_RECEIPT_OPT);
+SELECT TRACK_ID, PATIENT_NO, PATIENT_NAME, SEX, AGE, CREATE_DATE, TIME_OPD, TIME_RECEIPT, TIME_PHARMACY, TIME_OPT, TIME_CONSEL, TIME_INP, TIME_INPWARD, TIME_OT, TIME_DISCHARGE, TIME_RECEIPT_IN, TIME_RECEIPT_OPT FROM PATIENT_TIMETRACKING WHERE (TRACK_ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NAME" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@SEX" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="SEX" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AGE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_OPD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_PHARMACY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_CONSEL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_INP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_INPWARD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_OT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_DISCHARGE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT_IN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_IN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TRACK_ID, PATIENT_NO, PATIENT_NAME, SEX, AGE, CREATE_DATE, TIME_OPD, TIME_RECEIPT, TIME_PHARMACY, TIME_OPT, TIME_CONSEL, TIME_INP, TIME_INPWARD, TIME_OT, TIME_DISCHARGE, TIME_RECEIPT_IN, 
+                         TIME_RECEIPT_OPT
+FROM            PATIENT_TIMETRACKING</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET [PATIENT_NO] = @PATIENT_NO, [PATIENT_NAME] = @PATIENT_NAME, [SEX] = @SEX, [AGE] = @AGE, [CREATE_DATE] = @CREATE_DATE, [TIME_OPD] = @TIME_OPD, [TIME_RECEIPT] = @TIME_RECEIPT, [TIME_PHARMACY] = @TIME_PHARMACY, [TIME_OPT] = @TIME_OPT, [TIME_CONSEL] = @TIME_CONSEL, [TIME_INP] = @TIME_INP, [TIME_INPWARD] = @TIME_INPWARD, [TIME_OT] = @TIME_OT, [TIME_DISCHARGE] = @TIME_DISCHARGE, [TIME_RECEIPT_IN] = @TIME_RECEIPT_IN, [TIME_RECEIPT_OPT] = @TIME_RECEIPT_OPT WHERE (([TRACK_ID] = @Original_TRACK_ID) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_PATIENT_NAME = 1 AND [PATIENT_NAME] IS NULL) OR ([PATIENT_NAME] = @Original_PATIENT_NAME)) AND ((@IsNull_SEX = 1 AND [SEX] IS NULL) OR ([SEX] = @Original_SEX)) AND ((@IsNull_AGE = 1 AND [AGE] IS NULL) OR ([AGE] = @Original_AGE)) AND ((@IsNull_CREATE_DATE = 1 AND [CREATE_DATE] IS NULL) OR ([CREATE_DATE] = @Original_CREATE_DATE)) AND ((@IsNull_TIME_OPD = 1 AND [TIME_OPD] IS NULL) OR ([TIME_OPD] = @Original_TIME_OPD)) AND ((@IsNull_TIME_RECEIPT = 1 AND [TIME_RECEIPT] IS NULL) OR ([TIME_RECEIPT] = @Original_TIME_RECEIPT)) AND ((@IsNull_TIME_PHARMACY = 1 AND [TIME_PHARMACY] IS NULL) OR ([TIME_PHARMACY] = @Original_TIME_PHARMACY)) AND ((@IsNull_TIME_OPT = 1 AND [TIME_OPT] IS NULL) OR ([TIME_OPT] = @Original_TIME_OPT)) AND ((@IsNull_TIME_CONSEL = 1 AND [TIME_CONSEL] IS NULL) OR ([TIME_CONSEL] = @Original_TIME_CONSEL)) AND ((@IsNull_TIME_INP = 1 AND [TIME_INP] IS NULL) OR ([TIME_INP] = @Original_TIME_INP)) AND ((@IsNull_TIME_INPWARD = 1 AND [TIME_INPWARD] IS NULL) OR ([TIME_INPWARD] = @Original_TIME_INPWARD)) AND ((@IsNull_TIME_OT = 1 AND [TIME_OT] IS NULL) OR ([TIME_OT] = @Original_TIME_OT)) AND ((@IsNull_TIME_DISCHARGE = 1 AND [TIME_DISCHARGE] IS NULL) OR ([TIME_DISCHARGE] = @Original_TIME_DISCHARGE)) AND ((@IsNull_TIME_RECEIPT_IN = 1 AND [TIME_RECEIPT_IN] IS NULL) OR ([TIME_RECEIPT_IN] = @Original_TIME_RECEIPT_IN)) AND ((@IsNull_TIME_RECEIPT_OPT = 1 AND [TIME_RECEIPT_OPT] IS NULL) OR ([TIME_RECEIPT_OPT] = @Original_TIME_RECEIPT_OPT)));
+SELECT TRACK_ID, PATIENT_NO, PATIENT_NAME, SEX, AGE, CREATE_DATE, TIME_OPD, TIME_RECEIPT, TIME_PHARMACY, TIME_OPT, TIME_CONSEL, TIME_INP, TIME_INPWARD, TIME_OT, TIME_DISCHARGE, TIME_RECEIPT_IN, TIME_RECEIPT_OPT FROM PATIENT_TIMETRACKING WHERE (TRACK_ID = @TRACK_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NAME" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@SEX" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="SEX" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AGE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_OPD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_PHARMACY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_CONSEL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_INP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_INPWARD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_OT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_DISCHARGE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT_IN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_IN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_TRACK_ID" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="TRACK_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PATIENT_NO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PATIENT_NO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PATIENT_NAME" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PATIENT_NAME" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PATIENT_NAME" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PATIENT_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SEX" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SEX" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_SEX" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="SEX" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AGE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AGE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CREATE_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CREATE_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_OPD" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_OPD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_OPD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_RECEIPT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_RECEIPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_PHARMACY" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_PHARMACY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_OPT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_OPT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OPT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_CONSEL" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_CONSEL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_INP" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_INP" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_INP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_INPWARD" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_INPWARD" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_OT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_OT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_OT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_OT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_DISCHARGE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_DISCHARGE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_RECEIPT_IN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_IN" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_RECEIPT_IN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_IN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TIME_RECEIPT_OPT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_OPT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TIME_RECEIPT_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TIME_RECEIPT_OPT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="TRACK_ID" ColumnName="TRACK_ID" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@TRACK_ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="TRACK_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TRACK_ID" DataSetColumn="TRACK_ID" />
+              <Mapping SourceColumn="PATIENT_NO" DataSetColumn="PATIENT_NO" />
+              <Mapping SourceColumn="PATIENT_NAME" DataSetColumn="PATIENT_NAME" />
+              <Mapping SourceColumn="SEX" DataSetColumn="SEX" />
+              <Mapping SourceColumn="AGE" DataSetColumn="AGE" />
+              <Mapping SourceColumn="CREATE_DATE" DataSetColumn="CREATE_DATE" />
+              <Mapping SourceColumn="TIME_OPD" DataSetColumn="TIME_OPD" />
+              <Mapping SourceColumn="TIME_RECEIPT" DataSetColumn="TIME_RECEIPT" />
+              <Mapping SourceColumn="TIME_PHARMACY" DataSetColumn="TIME_PHARMACY" />
+              <Mapping SourceColumn="TIME_OPT" DataSetColumn="TIME_OPT" />
+              <Mapping SourceColumn="TIME_CONSEL" DataSetColumn="TIME_CONSEL" />
+              <Mapping SourceColumn="TIME_INP" DataSetColumn="TIME_INP" />
+              <Mapping SourceColumn="TIME_INPWARD" DataSetColumn="TIME_INPWARD" />
+              <Mapping SourceColumn="TIME_OT" DataSetColumn="TIME_OT" />
+              <Mapping SourceColumn="TIME_DISCHARGE" DataSetColumn="TIME_DISCHARGE" />
+              <Mapping SourceColumn="TIME_RECEIPT_IN" DataSetColumn="TIME_RECEIPT_IN" />
+              <Mapping SourceColumn="TIME_RECEIPT_OPT" DataSetColumn="TIME_RECEIPT_OPT" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckExistingTracking" Modifier="Public" Name="CheckExistingTracking" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CheckExistingTracking">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(*) FROM PATIENT_TIMETRACKING
+where PATIENT_NO =@PATIENT_NO and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="InsertPatientTracking" Modifier="Public" Name="InsertPatientTracking" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertPatientTracking">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [PATIENT_TIMETRACKING] ([PATIENT_NO], [PATIENT_NAME], [SEX], [AGE], [CREATE_DATE], [TIME_OPD], [TIME_RECEIPT], [TIME_PHARMACY], [TIME_OPT], [TIME_CONSEL], [TIME_INP], [TIME_INPWARD], [TIME_OT], [TIME_DISCHARGE]) VALUES (@PATIENT_NO, @PATIENT_NAME, @SEX, @AGE, @CREATE_DATE, @TIME_OPD, @TIME_RECEIPT, @TIME_PHARMACY, @TIME_OPT, @TIME_CONSEL, @TIME_INP, @TIME_INPWARD, @TIME_OT, @TIME_DISCHARGE);</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NAME" ColumnName="PATIENT_NAME" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NAME" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="SEX" ColumnName="SEX" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="char(10)" DbType="AnsiString" Direction="Input" ParameterName="@SEX" Precision="0" ProviderType="Char" Scale="0" Size="10" SourceColumn="SEX" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="AGE" ColumnName="AGE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@AGE" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_OPD" ColumnName="TIME_OPD" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_OPD" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_OPD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_RECEIPT" ColumnName="TIME_RECEIPT" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_PHARMACY" ColumnName="TIME_PHARMACY" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_PHARMACY" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_OPT" ColumnName="TIME_OPT" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_CONSEL" ColumnName="TIME_CONSEL" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_CONSEL" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_INP" ColumnName="TIME_INP" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_INP" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_INP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_INPWARD" ColumnName="TIME_INPWARD" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_INPWARD" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_OT" ColumnName="TIME_OT" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_OT" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_OT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_DISCHARGE" ColumnName="TIME_DISCHARGE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_DISCHARGE" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="UpateReceipt" Modifier="Public" Name="UpateReceipt" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpateReceipt">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET 
+TIME_RECEIPT=@TIME_RECEIPT
+where PATIENT_NO=@PATIENT_NO and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_RECEIPT" ColumnName="TIME_RECEIPT" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_RECEIPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCONSEL" Modifier="Public" Name="UpdateCONSEL" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateCONSEL">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_CONSEL=@TIME_CONSEL
+where PATIENT_NO=@PATIENT_NO and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_CONSEL" ColumnName="TIME_CONSEL" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_CONSEL" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_CONSEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDISCHARGE" Modifier="Public" Name="UpdateDISCHARGE" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="UpdateDISCHARGE">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_DISCHARGE=@TIME_DISCHARGE
+where 
+PATIENT_NO=@PATIENT_NO and
+CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_DISCHARGE" ColumnName="TIME_DISCHARGE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_DISCHARGE" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateINP" Modifier="Public" Name="UpdateINP" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="UpdateINP">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_INP=@TIME_INP
+where 
+PATIENT_NO=@PATIENT_NO
+and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_INP" ColumnName="TIME_INP" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_INP" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_INP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateINPWARD" Modifier="Public" Name="UpdateINPWARD" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="UpdateINPWARD">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_INPWARD=@TIME_INPWARD
+where PATIENT_NO=@PATIENT_NO
+AND CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_INPWARD" ColumnName="TIME_INPWARD" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_INPWARD" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_INPWARD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy4" GeneratorSourceName="UpdateOPT" Modifier="Public" Name="UpdateOPT" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="UpdateOPT">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_OPT=@TIME_OPT
+where PATIENT_NO=@PATIENT_NO and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_OPT" ColumnName="TIME_OPT" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy8" GeneratorSourceName="UpdateOT" Modifier="Public" Name="UpdateOT" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="UpdateOT">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_OT=@TIME_OT
+where PATIENT_NO=@PATIENT_NO
+and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_OT" ColumnName="TIME_OT" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_OT" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_OT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdatePharmacy" Modifier="Public" Name="UpdatePharmacy" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="UpdatePharmacy">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET 
+TIME_PHARMACY=@TIME_PHARMACY
+where PATIENT_NO=@PATIENT_NO and CREATE_DATE=@CREATE_DATE
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_PHARMACY" ColumnName="TIME_PHARMACY" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_PHARMACY" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_PHARMACY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRECEIPT_IN" Modifier="Public" Name="UpdateRECEIPT_IN" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="UpdateRECEIPT_IN">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_RECEIPT_IN=@TIME_RECEIPT_IN
+where PATIENT_NO=@PATIENT_NO and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_RECEIPT_IN" ColumnName="TIME_RECEIPT_IN" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT_IN" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_RECEIPT_IN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRECEIPT_OPT" Modifier="Public" Name="UpdateRECEIPT_OPT" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="UpdateRECEIPT_OPT">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [PATIENT_TIMETRACKING] SET TIME_RECEIPT_OPT=@TIME_RECEIPT_OPT
+where PATIENT_NO=@PATIENT_NO and CREATE_DATE=@CREATE_DATE</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TIME_RECEIPT_OPT" ColumnName="TIME_RECEIPT_OPT" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@TIME_RECEIPT_OPT" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="TIME_RECEIPT_OPT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PATIENT_NO" ColumnName="PATIENT_NO" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@PATIENT_NO" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="PATIENT_NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CREATE_DATE" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.PATIENT_TIMETRACKING" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@CREATE_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewTrackingTimeTableAdapter" GeneratorDataComponentClassName="ViewTrackingTimeTableAdapter" Name="ViewTrackingTime" UserDataComponentName="ViewTrackingTimeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.ViewTrackingTime" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PATIENT_NO, NameEng, Age, Sex, CREATE_DATE, TIME_OPD, TIME_RECEIPT, TIME_RECEIPT_IN, TIME_RECEIPT_OPT, TIME_PHARMACY, TIME_OPT, TIME_CONSEL, TIME_INP, TIME_INPWARD, TIME_OT, 
+                         TIME_DISCHARGE
+FROM            ViewTrackingTime</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PATIENT_NO" DataSetColumn="PATIENT_NO" />
+              <Mapping SourceColumn="NameEng" DataSetColumn="NameEng" />
+              <Mapping SourceColumn="Age" DataSetColumn="Age" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="CREATE_DATE" DataSetColumn="CREATE_DATE" />
+              <Mapping SourceColumn="TIME_OPD" DataSetColumn="TIME_OPD" />
+              <Mapping SourceColumn="TIME_RECEIPT" DataSetColumn="TIME_RECEIPT" />
+              <Mapping SourceColumn="TIME_RECEIPT_IN" DataSetColumn="TIME_RECEIPT_IN" />
+              <Mapping SourceColumn="TIME_RECEIPT_OPT" DataSetColumn="TIME_RECEIPT_OPT" />
+              <Mapping SourceColumn="TIME_PHARMACY" DataSetColumn="TIME_PHARMACY" />
+              <Mapping SourceColumn="TIME_OPT" DataSetColumn="TIME_OPT" />
+              <Mapping SourceColumn="TIME_CONSEL" DataSetColumn="TIME_CONSEL" />
+              <Mapping SourceColumn="TIME_INP" DataSetColumn="TIME_INP" />
+              <Mapping SourceColumn="TIME_INPWARD" DataSetColumn="TIME_INPWARD" />
+              <Mapping SourceColumn="TIME_OT" DataSetColumn="TIME_OT" />
+              <Mapping SourceColumn="TIME_DISCHARGE" DataSetColumn="TIME_DISCHARGE" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.ViewTrackingTime" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectTimeTrackingDToD" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="SelectTimeTrackingDToD" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectTimeTrackingDToD" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PATIENT_NO, NameEng, Age, Sex, CREATE_DATE, TIME_OPD, TIME_RECEIPT, TIME_RECEIPT_IN, TIME_RECEIPT_OPT, TIME_PHARMACY, TIME_OPT, TIME_CONSEL, TIME_INP, TIME_INPWARD, TIME_OT, 
+                         TIME_DISCHARGE
+FROM            ViewTrackingTime
+WHERE
+CREATE_DATE between @DFrom and @DTo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="DFrom" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.ViewTrackingTime" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DFrom" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="DTo" ColumnName="CREATE_DATE" DataSourceName="TakeoDB.dbo.ViewTrackingTime" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DTo" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CREATE_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -446,7 +850,7 @@ group by ComBindRefferal,Diagnosis</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="V_Referal_VByAge" msprop:Generator_UserTableName="V_Referal_VByAge" msprop:Generator_RowDeletedName="V_Referal_VByAgeRowDeleted" msprop:Generator_TableClassName="V_Referal_VByAgeDataTable" msprop:Generator_RowChangedName="V_Referal_VByAgeRowChanged" msprop:Generator_RowClassName="V_Referal_VByAgeRow" msprop:Generator_RowChangingName="V_Referal_VByAgeRowChanging" msprop:Generator_RowEvArgName="V_Referal_VByAgeRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Referal_VByAgeRowChangeEventHandler" msprop:Generator_TablePropName="V_Referal_VByAge" msprop:Generator_TableVarName="tableV_Referal_VByAge" msprop:Generator_RowDeletingName="V_Referal_VByAgeRowDeleting">
+        <xs:element name="V_Referal_VByAge" msprop:Generator_UserTableName="V_Referal_VByAge" msprop:Generator_RowDeletedName="V_Referal_VByAgeRowDeleted" msprop:Generator_RowChangedName="V_Referal_VByAgeRowChanged" msprop:Generator_RowClassName="V_Referal_VByAgeRow" msprop:Generator_RowChangingName="V_Referal_VByAgeRowChanging" msprop:Generator_RowEvArgName="V_Referal_VByAgeRowChangeEvent" msprop:Generator_RowEvHandlerName="V_Referal_VByAgeRowChangeEventHandler" msprop:Generator_TableClassName="V_Referal_VByAgeDataTable" msprop:Generator_TableVarName="tableV_Referal_VByAge" msprop:Generator_RowDeletingName="V_Referal_VByAgeRowDeleting" msprop:Generator_TablePropName="V_Referal_VByAge">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ComBindRefferal" msprop:Generator_UserColumnName="ComBindRefferal" msprop:Generator_ColumnPropNameInRow="ComBindRefferal" msprop:Generator_ColumnVarNameInTable="columnComBindRefferal" msprop:Generator_ColumnPropNameInTable="ComBindRefferalColumn" minOccurs="0">
@@ -475,7 +879,260 @@ group by ComBindRefferal,Diagnosis</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ViewPatientTimeFlow" msprop:Generator_UserTableName="ViewPatientTimeFlow" msprop:Generator_RowDeletedName="ViewPatientTimeFlowRowDeleted" msprop:Generator_RowChangedName="ViewPatientTimeFlowRowChanged" msprop:Generator_RowClassName="ViewPatientTimeFlowRow" msprop:Generator_RowChangingName="ViewPatientTimeFlowRowChanging" msprop:Generator_RowEvArgName="ViewPatientTimeFlowRowChangeEvent" msprop:Generator_RowEvHandlerName="ViewPatientTimeFlowRowChangeEventHandler" msprop:Generator_TableClassName="ViewPatientTimeFlowDataTable" msprop:Generator_TableVarName="tableViewPatientTimeFlow" msprop:Generator_RowDeletingName="ViewPatientTimeFlowRowDeleting" msprop:Generator_TablePropName="ViewPatientTimeFlow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PatientNo" msprop:Generator_UserColumnName="PatientNo" msprop:Generator_ColumnVarNameInTable="columnPatientNo" msprop:Generator_ColumnPropNameInRow="PatientNo" msprop:Generator_ColumnPropNameInTable="PatientNoColumn" type="xs:decimal" />
+              <xs:element name="NameEng" msprop:Generator_UserColumnName="NameEng" msprop:Generator_ColumnVarNameInTable="columnNameEng" msprop:Generator_ColumnPropNameInRow="NameEng" msprop:Generator_ColumnPropNameInTable="NameEngColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Age" msprop:Generator_UserColumnName="Age" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Sex" msprop:Generator_UserColumnName="Sex" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnPropNameInTable="SexColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OPDTIME" msprop:Generator_UserColumnName="OPDTIME" msprop:Generator_ColumnVarNameInTable="columnOPDTIME" msprop:Generator_ColumnPropNameInRow="OPDTIME" msprop:Generator_ColumnPropNameInTable="OPDTIMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RECEIPTIME" msprop:Generator_UserColumnName="RECEIPTIME" msprop:Generator_ColumnVarNameInTable="columnRECEIPTIME" msprop:Generator_ColumnPropNameInRow="RECEIPTIME" msprop:Generator_ColumnPropNameInTable="RECEIPTIMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONSELLTIME" msprop:Generator_UserColumnName="CONSELLTIME" msprop:Generator_ColumnVarNameInTable="columnCONSELLTIME" msprop:Generator_ColumnPropNameInRow="CONSELLTIME" msprop:Generator_ColumnPropNameInTable="CONSELLTIMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OPTTIME" msprop:Generator_UserColumnName="OPTTIME" msprop:Generator_ColumnVarNameInTable="columnOPTTIME" msprop:Generator_ColumnPropNameInRow="OPTTIME" msprop:Generator_ColumnPropNameInTable="OPTTIMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PATIENT_TIMETRACKING" msprop:Generator_UserTableName="PATIENT_TIMETRACKING" msprop:Generator_RowDeletedName="PATIENT_TIMETRACKINGRowDeleted" msprop:Generator_RowChangedName="PATIENT_TIMETRACKINGRowChanged" msprop:Generator_RowClassName="PATIENT_TIMETRACKINGRow" msprop:Generator_RowChangingName="PATIENT_TIMETRACKINGRowChanging" msprop:Generator_RowEvArgName="PATIENT_TIMETRACKINGRowChangeEvent" msprop:Generator_RowEvHandlerName="PATIENT_TIMETRACKINGRowChangeEventHandler" msprop:Generator_TableClassName="PATIENT_TIMETRACKINGDataTable" msprop:Generator_TableVarName="tablePATIENT_TIMETRACKING" msprop:Generator_RowDeletingName="PATIENT_TIMETRACKINGRowDeleting" msprop:Generator_TablePropName="PATIENT_TIMETRACKING">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TRACK_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="TRACK_ID" msprop:Generator_ColumnVarNameInTable="columnTRACK_ID" msprop:Generator_ColumnPropNameInRow="TRACK_ID" msprop:Generator_ColumnPropNameInTable="TRACK_IDColumn" type="xs:decimal" />
+              <xs:element name="PATIENT_NO" msprop:Generator_UserColumnName="PATIENT_NO" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NO" msprop:Generator_ColumnPropNameInRow="PATIENT_NO" msprop:Generator_ColumnPropNameInTable="PATIENT_NOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PATIENT_NAME" msprop:Generator_UserColumnName="PATIENT_NAME" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NAME" msprop:Generator_ColumnPropNameInRow="PATIENT_NAME" msprop:Generator_ColumnPropNameInTable="PATIENT_NAMEColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SEX" msprop:Generator_UserColumnName="SEX" msprop:Generator_ColumnVarNameInTable="columnSEX" msprop:Generator_ColumnPropNameInRow="SEX" msprop:Generator_ColumnPropNameInTable="SEXColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGE" msprop:Generator_UserColumnName="AGE" msprop:Generator_ColumnVarNameInTable="columnAGE" msprop:Generator_ColumnPropNameInRow="AGE" msprop:Generator_ColumnPropNameInTable="AGEColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CREATE_DATE" msprop:Generator_UserColumnName="CREATE_DATE" msprop:Generator_ColumnVarNameInTable="columnCREATE_DATE" msprop:Generator_ColumnPropNameInRow="CREATE_DATE" msprop:Generator_ColumnPropNameInTable="CREATE_DATEColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TIME_OPD" msprop:Generator_UserColumnName="TIME_OPD" msprop:Generator_ColumnVarNameInTable="columnTIME_OPD" msprop:Generator_ColumnPropNameInRow="TIME_OPD" msprop:Generator_ColumnPropNameInTable="TIME_OPDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_RECEIPT" msprop:Generator_UserColumnName="TIME_RECEIPT" msprop:Generator_ColumnVarNameInTable="columnTIME_RECEIPT" msprop:Generator_ColumnPropNameInRow="TIME_RECEIPT" msprop:Generator_ColumnPropNameInTable="TIME_RECEIPTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_PHARMACY" msprop:Generator_UserColumnName="TIME_PHARMACY" msprop:Generator_ColumnVarNameInTable="columnTIME_PHARMACY" msprop:Generator_ColumnPropNameInRow="TIME_PHARMACY" msprop:Generator_ColumnPropNameInTable="TIME_PHARMACYColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_OPT" msprop:Generator_UserColumnName="TIME_OPT" msprop:Generator_ColumnVarNameInTable="columnTIME_OPT" msprop:Generator_ColumnPropNameInRow="TIME_OPT" msprop:Generator_ColumnPropNameInTable="TIME_OPTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_CONSEL" msprop:Generator_UserColumnName="TIME_CONSEL" msprop:Generator_ColumnVarNameInTable="columnTIME_CONSEL" msprop:Generator_ColumnPropNameInRow="TIME_CONSEL" msprop:Generator_ColumnPropNameInTable="TIME_CONSELColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_INP" msprop:Generator_UserColumnName="TIME_INP" msprop:Generator_ColumnVarNameInTable="columnTIME_INP" msprop:Generator_ColumnPropNameInRow="TIME_INP" msprop:Generator_ColumnPropNameInTable="TIME_INPColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_INPWARD" msprop:Generator_UserColumnName="TIME_INPWARD" msprop:Generator_ColumnVarNameInTable="columnTIME_INPWARD" msprop:Generator_ColumnPropNameInRow="TIME_INPWARD" msprop:Generator_ColumnPropNameInTable="TIME_INPWARDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_OT" msprop:Generator_UserColumnName="TIME_OT" msprop:Generator_ColumnVarNameInTable="columnTIME_OT" msprop:Generator_ColumnPropNameInRow="TIME_OT" msprop:Generator_ColumnPropNameInTable="TIME_OTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_DISCHARGE" msprop:Generator_UserColumnName="TIME_DISCHARGE" msprop:Generator_ColumnVarNameInTable="columnTIME_DISCHARGE" msprop:Generator_ColumnPropNameInRow="TIME_DISCHARGE" msprop:Generator_ColumnPropNameInTable="TIME_DISCHARGEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_RECEIPT_IN" msprop:Generator_UserColumnName="TIME_RECEIPT_IN" msprop:Generator_ColumnPropNameInRow="TIME_RECEIPT_IN" msprop:Generator_ColumnVarNameInTable="columnTIME_RECEIPT_IN" msprop:Generator_ColumnPropNameInTable="TIME_RECEIPT_INColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_RECEIPT_OPT" msprop:Generator_UserColumnName="TIME_RECEIPT_OPT" msprop:Generator_ColumnPropNameInRow="TIME_RECEIPT_OPT" msprop:Generator_ColumnVarNameInTable="columnTIME_RECEIPT_OPT" msprop:Generator_ColumnPropNameInTable="TIME_RECEIPT_OPTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewTrackingTime" msprop:Generator_UserTableName="ViewTrackingTime" msprop:Generator_RowDeletedName="ViewTrackingTimeRowDeleted" msprop:Generator_TableClassName="ViewTrackingTimeDataTable" msprop:Generator_RowChangedName="ViewTrackingTimeRowChanged" msprop:Generator_RowClassName="ViewTrackingTimeRow" msprop:Generator_RowChangingName="ViewTrackingTimeRowChanging" msprop:Generator_RowEvArgName="ViewTrackingTimeRowChangeEvent" msprop:Generator_RowEvHandlerName="ViewTrackingTimeRowChangeEventHandler" msprop:Generator_TablePropName="ViewTrackingTime" msprop:Generator_TableVarName="tableViewTrackingTime" msprop:Generator_RowDeletingName="ViewTrackingTimeRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PATIENT_NO" msprop:Generator_UserColumnName="PATIENT_NO" msprop:Generator_ColumnPropNameInRow="PATIENT_NO" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NO" msprop:Generator_ColumnPropNameInTable="PATIENT_NOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NameEng" msprop:Generator_UserColumnName="NameEng" msprop:Generator_ColumnPropNameInRow="NameEng" msprop:Generator_ColumnVarNameInTable="columnNameEng" msprop:Generator_ColumnPropNameInTable="NameEngColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Age" msprop:Generator_UserColumnName="Age" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInTable="AgeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Sex" msprop:Generator_UserColumnName="Sex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_ColumnPropNameInTable="SexColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CREATE_DATE" msprop:Generator_UserColumnName="CREATE_DATE" msprop:Generator_ColumnPropNameInRow="CREATE_DATE" msprop:Generator_ColumnVarNameInTable="columnCREATE_DATE" msprop:Generator_ColumnPropNameInTable="CREATE_DATEColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TIME_OPD" msprop:Generator_UserColumnName="TIME_OPD" msprop:Generator_ColumnPropNameInRow="TIME_OPD" msprop:Generator_ColumnVarNameInTable="columnTIME_OPD" msprop:Generator_ColumnPropNameInTable="TIME_OPDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_RECEIPT" msprop:Generator_UserColumnName="TIME_RECEIPT" msprop:Generator_ColumnPropNameInRow="TIME_RECEIPT" msprop:Generator_ColumnVarNameInTable="columnTIME_RECEIPT" msprop:Generator_ColumnPropNameInTable="TIME_RECEIPTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_RECEIPT_IN" msprop:Generator_UserColumnName="TIME_RECEIPT_IN" msprop:Generator_ColumnPropNameInRow="TIME_RECEIPT_IN" msprop:Generator_ColumnVarNameInTable="columnTIME_RECEIPT_IN" msprop:Generator_ColumnPropNameInTable="TIME_RECEIPT_INColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_RECEIPT_OPT" msprop:Generator_UserColumnName="TIME_RECEIPT_OPT" msprop:Generator_ColumnPropNameInRow="TIME_RECEIPT_OPT" msprop:Generator_ColumnVarNameInTable="columnTIME_RECEIPT_OPT" msprop:Generator_ColumnPropNameInTable="TIME_RECEIPT_OPTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_PHARMACY" msprop:Generator_UserColumnName="TIME_PHARMACY" msprop:Generator_ColumnPropNameInRow="TIME_PHARMACY" msprop:Generator_ColumnVarNameInTable="columnTIME_PHARMACY" msprop:Generator_ColumnPropNameInTable="TIME_PHARMACYColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_OPT" msprop:Generator_UserColumnName="TIME_OPT" msprop:Generator_ColumnPropNameInRow="TIME_OPT" msprop:Generator_ColumnVarNameInTable="columnTIME_OPT" msprop:Generator_ColumnPropNameInTable="TIME_OPTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_CONSEL" msprop:Generator_UserColumnName="TIME_CONSEL" msprop:Generator_ColumnPropNameInRow="TIME_CONSEL" msprop:Generator_ColumnVarNameInTable="columnTIME_CONSEL" msprop:Generator_ColumnPropNameInTable="TIME_CONSELColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_INP" msprop:Generator_UserColumnName="TIME_INP" msprop:Generator_ColumnPropNameInRow="TIME_INP" msprop:Generator_ColumnVarNameInTable="columnTIME_INP" msprop:Generator_ColumnPropNameInTable="TIME_INPColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_INPWARD" msprop:Generator_UserColumnName="TIME_INPWARD" msprop:Generator_ColumnPropNameInRow="TIME_INPWARD" msprop:Generator_ColumnVarNameInTable="columnTIME_INPWARD" msprop:Generator_ColumnPropNameInTable="TIME_INPWARDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_OT" msprop:Generator_UserColumnName="TIME_OT" msprop:Generator_ColumnPropNameInRow="TIME_OT" msprop:Generator_ColumnVarNameInTable="columnTIME_OT" msprop:Generator_ColumnPropNameInTable="TIME_OTColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TIME_DISCHARGE" msprop:Generator_UserColumnName="TIME_DISCHARGE" msprop:Generator_ColumnPropNameInRow="TIME_DISCHARGE" msprop:Generator_ColumnVarNameInTable="columnTIME_DISCHARGE" msprop:Generator_ColumnPropNameInTable="TIME_DISCHARGEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ViewPatientTimeFlow" />
+      <xs:field xpath="mstns:PatientNo" />
+    </xs:unique>
+    <xs:unique name="PATIENT_TIMETRACKING_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PATIENT_TIMETRACKING" />
+      <xs:field xpath="mstns:TRACK_ID" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

@@ -35,6 +35,7 @@ Partial Class UCOutPatientReport
         Me.DSOutPatientReport = New TakeoHospitalInventory.DSOutPatientReport
         Me.DataTable1TableAdapter = New TakeoHospitalInventory.DSOutPatientReportTableAdapters.DataTable1TableAdapter
         Me.BgLoadReport = New System.ComponentModel.BackgroundWorker
+        Me.BtnReporttim = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -71,6 +72,7 @@ Partial Class UCOutPatientReport
         Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.BtnReporttim)
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Controls.Add(Me.BtnNewOutStatistic)
         Me.GroupBox3.Controls.Add(Me.BtnOldOutStatistic)
@@ -199,6 +201,17 @@ Partial Class UCOutPatientReport
         'BgLoadReport
         '
         '
+        'BtnReporttim
+        '
+        Me.BtnReporttim.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnReporttim.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReporttim.Location = New System.Drawing.Point(420, 33)
+        Me.BtnReporttim.Name = "BtnReporttim"
+        Me.BtnReporttim.Size = New System.Drawing.Size(154, 89)
+        Me.BtnReporttim.TabIndex = 7
+        Me.BtnReporttim.Text = "Report Time"
+        Me.BtnReporttim.UseVisualStyleBackColor = True
+        '
         'UCOutPatientReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -233,5 +246,6 @@ Partial Class UCOutPatientReport
     Friend WithEvents BgLoadReport As System.ComponentModel.BackgroundWorker
     Friend WithEvents BtnNewOutStatistic As System.Windows.Forms.Button
     Friend WithEvents BtnOldOutStatistic As System.Windows.Forms.Button
+    Friend WithEvents BtnReporttim As System.Windows.Forms.Button
 
 End Class

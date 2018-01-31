@@ -959,10 +959,7 @@ Public Class frmInpatientReceipt
         Call SearchReceiptPatientByHN()
     End Sub
 
-    Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
-
-    End Sub
-
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Private Sub CashierSave1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CashierSave1.Click
         If CheckSave() = False Then
             Exit Sub
@@ -982,6 +979,7 @@ Public Class frmInpatientReceipt
             IIf((Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True) And Me.chkDollar.Checked = True, Me.txtAmountFigureD.Text, 0), _
             Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", _
             EmptyString(TxtHospitalFee.Text), CashTotalDolar, Format(GetDateServer, "hh:mm:ss tt").ToString)
+            DA_PTrackingTime.UpdateRECEIPT_IN(Format(Now, "hh:mm:ss tt").ToString, txtHN.Text, CheckMarkEOD().Date)
             AccRolesCashier = True
             isTrueFalse = False
             Me.Close()

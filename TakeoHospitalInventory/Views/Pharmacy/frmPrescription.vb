@@ -29,7 +29,7 @@ Public Class frmPrescription
     Dim ContainerDataAdapter As DSContainerTableAdapters.tblContainerTableAdapter
     Dim LabourDataAdapter As DSLabourFacTableAdapters.tblLabourFactoryTableAdapter
     Dim DACheckItemStock As New DSPharmacyTableAdapters.VPRESCRIP_CHECK_STOCKTableAdapter
-
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Public Sub New(ByVal pMainPrescrip As UCPrescriptionList)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
@@ -540,6 +540,7 @@ Public Class frmPrescription
                     MsgBox(ex.Message)
                     THIDataContext.getTHIDataContext.Connection.Close()
                 Finally
+                    DA_PTrackingTime.UpdatePharmacy(Format(Now, "hh:mm:ss tt").ToString, TxtPatientNoReal.Text, CheckMarkEOD().Date)
                     trans = Nothing
                     UPrescripList.CheckStatusGive(0)
                     MessageBox.Show("Save new prescription successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)

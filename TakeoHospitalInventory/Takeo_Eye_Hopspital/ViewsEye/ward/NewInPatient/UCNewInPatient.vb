@@ -190,6 +190,7 @@ Public Class UCNewInPatient
         Try
             If GridNewInPatient.SelectedItems(0).Table.Key = "PatientInfo" Then
                 Dim NewInNo As Integer = GridNewInPatient.SelectedItems(0).GetRow.Cells(0).Text
+                Dim PatientNo As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(1).Text
                 If GridNewInPatient.SelectedItems(0).GetRow.Cells("Waiting").Value = 1 Then
                     MsgBox("This patient is waiting for operation. If patient wants to leave then must set to normal In-patient.", MsgBoxStyle.Critical, "Error")
                     Exit Sub
@@ -200,6 +201,7 @@ Public Class UCNewInPatient
 
                         Dim FDateFollowUp As New FrmDateFollowUP
                         FDateFollowUp.LblSaveOption.Text = NewInNo
+                        FDateFollowUp.lblPatientNo.Text = PatientNo
                         FDateFollowUp.ShowDialog()
                         If FDateFollowUp.isClose = True Then
                             MsgBox("This patient set to leave the hospital.", MsgBoxStyle.Information, "Leave")
@@ -224,6 +226,7 @@ Public Class UCNewInPatient
         Try
             If GridNewInPatient.SelectedItems(0).Table.Key = "PatientInfo" Then
                 Dim NewInNo As Integer = GridNewInPatient.SelectedItems(0).GetRow.Cells(0).Text
+                Dim PatientNo As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(1).Text
                 If GridNewInPatient.SelectedItems(0).GetRow.Cells("Waiting").Value = 1 Then
                     MsgBox("This patient is waiting operation. If patient want leave must set to normal In-patient.", MsgBoxStyle.Critical, "Error")
                     Exit Sub
@@ -234,6 +237,7 @@ Public Class UCNewInPatient
 
                         Dim FDateFollowUp As New FrmDateFollowUP
                         FDateFollowUp.LblSaveOption.Text = NewInNo
+                        FDateFollowUp.lblPatientNo.Text = PatientNo
                         FDateFollowUp.ShowDialog()
                         FDateFollowUp.Close()
                         FDateFollowUp.Dispose()
@@ -254,6 +258,7 @@ Public Class UCNewInPatient
         Try
             If GridNewInPatient.SelectedItems(0).Table.Key = "PatientInfo" Then
                 Dim NewInNo As Integer = GridNewInPatient.SelectedItems(0).GetRow.Cells(0).Text
+                Dim PatientNo As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(0).Text
                 If GridNewInPatient.SelectedItems(0).GetRow.Cells("Waiting").Value = 1 Then
                     MsgBox("This patient is waiting operation. If patient want leave must set to normal In-patient.", MsgBoxStyle.Critical, "Error")
                     Exit Sub
@@ -263,6 +268,7 @@ Public Class UCNewInPatient
                     If ModNewInPatient.UpdateLeave(NewInNo, "3") = 1 Then     ' ------------for Referal (Leave)-----------------
                         Dim FDateFollowUp As New FrmDateFollowUP
                         FDateFollowUp.LblSaveOption.Text = NewInNo
+                        FDateFollowUp.lblPatientNo.Text = PatientNo
                         FDateFollowUp.ShowDialog()
                         FDateFollowUp.Close()
                         FDateFollowUp.Dispose()

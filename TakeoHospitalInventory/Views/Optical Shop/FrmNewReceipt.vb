@@ -601,7 +601,7 @@ Public Class FrmNewReceipt
     Private Sub BtnCleanCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCleanCustomer.Click
         ClearCustomer()
     End Sub
-
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Sub SaveReceipt()
         If Me.InvokeRequired Then
             Me.Invoke(New MethodInvoker(AddressOf SaveReceipt))
@@ -701,6 +701,7 @@ Public Class FrmNewReceipt
                     ObjReceipt.ReceiptDate = DateCreateReceipt.Value
                     ObjReceipt.TotalSocial = TotalSocial
                     ObjReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString
+
                     '--- In Case user select Customer
                     ObjReceipt.CustomerNo = EmptyString(TxtCustomerNo.Text)
                     ObjReceipt.CustID = EmptyString(TxtCustomerID.Text)
@@ -1092,6 +1093,9 @@ Public Class FrmNewReceipt
                         ObjTblPatientReceipt.PatientName = TxtCustomerName.Text
                         ObjTblPatientReceipt.CashTotal = TxtTotalAsDolar.Text
                         ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString 'Format(GetDateServ, "hh:mm:ss tt").ToString
+                        ' Save traking time
+                        DA_PTrackingTime.UpdateOPT(Format(Now, "hh:mm:ss tt"), TxtCustomerNo.Text, CheckMarkEOD().Date)
+
                         '======== Set valud Cashe
                         ObjTblPatientReceipt.CashUSD = 0
                         ObjTblPatientReceipt.CashRiel = 0
@@ -1531,6 +1535,8 @@ Public Class FrmNewReceipt
                         End If
                     Catch ex As Exception
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Me.Close()
+                        Me.Dispose()
                     End Try
                 End If
             End If
@@ -1868,6 +1874,7 @@ Public Class FrmNewReceipt
     End Sub
 
     Private Sub BgSaveAndPrinting_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BgSaveAndPrinting.RunWorkerCompleted
+
         Me.MTakeoInventory.StatusLoading(False)
         Application.DoEvents()
         'Me.DialogResult = Windows.Forms.DialogResult.OK

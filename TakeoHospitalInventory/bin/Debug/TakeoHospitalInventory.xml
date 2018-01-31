@@ -3039,6 +3039,18 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.ViewPatientTimeFlowDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.PATIENT_TIMETRACKINGDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.ViewTrackingTimeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DataReportUtility.DataTableDisabilityRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -3063,6 +3075,18 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.ViewPatientTimeFlowRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.PATIENT_TIMETRACKINGRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.ViewTrackingTimeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DataReportUtility.DataTableDisabilityRowChangeEvent">
 	<summary>
 Row event argument class
@@ -3084,6 +3108,18 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DataReportUtility.V_Referal_VByAgeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.ViewPatientTimeFlowRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.PATIENT_TIMETRACKINGRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtility.ViewTrackingTimeRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -3112,6 +3148,18 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DataReportUtilityTableAdapters.V_Referal_VByAgeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtilityTableAdapters.ViewPatientTimeFlowTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataReportUtilityTableAdapters.ViewTrackingTimeTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

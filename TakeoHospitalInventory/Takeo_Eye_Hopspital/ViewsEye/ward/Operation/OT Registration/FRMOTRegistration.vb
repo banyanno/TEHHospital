@@ -2,7 +2,7 @@ Imports System.Data.Common
 Public Class FRMOTRegistration
     Public isCloseOT As Boolean = False
     Dim ItemListInDepartDataAdapter As New DSCategoriesAndItemsTableAdapters.VItemListInDepartTableAdapter
-
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -147,6 +147,7 @@ Public Class FRMOTRegistration
                 DateOT.Value, _
                 DOperated, _
                 TxtOther.Text.Replace("'", ""), TxtReferall.Text.Replace("'", "")) = 1 Then
+                    DA_PTrackingTime.UpdateOT(Format(Now, "hh:mm:ss tt"), TxtPatientNo.Text, CheckMarkEOD().Date)
                     If ModNewInPatient.UpdateOTWating(TxtInpatientNo.Text, WaitingOT) = 1 Then
                         ModNewInPatient.UpdateOTHistory(TxtInpatientNo.Text, WaitingOT, Now.Date)
                         MsgBox("Save Registration in OT successfully.", MsgBoxStyle.Information, "Save")

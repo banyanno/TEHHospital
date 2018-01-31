@@ -748,7 +748,7 @@ Public Class frmNewOutpatientReceipt
         frmRates.ShowDialog()
         Call GetRates()
     End Sub
-
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Private Sub cmdCashierSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCashierSave.Click
         If CheckSave() = False Then
             Exit Sub
@@ -757,9 +757,11 @@ Public Class frmNewOutpatientReceipt
         DialogBox = MessageBox.Show("Do you really want to update the amount in figure [Riel, US $]?" & Chr(13) & "Please make sure that you enter the right amount before saving." & Chr(13) & "Click Yes to update and click No to cancel update.", "Cashier: Receipt ID existed", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
         If DialogBox = Windows.Forms.DialogResult.Yes Then
             Call MNewOutpatientReceipt.UpdateNewOutpatientReceiptCashier(Me.lblID.Text, Me.txtAmountFigureR.Text, Me.txtAmountFigureD.Text, _
-            IIf((Me.rdConsultationR.Checked = True Or Me.rdConsultationD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
+ IIf((Me.rdConsultationR.Checked = True Or Me.rdConsultationD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
             IIf((Me.rdConsultationD.Checked = True Or Me.rdConsultationR.Checked = True) And Me.chkDollar.Checked = True, Me.txtAmountFigureD.Text, 0), _
             Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", Format(GetDateServer, "hh:mm:ss tt"))
+
+            DA_PTrackingTime.UpateReceipt(Format(Now, "hh:mm:ss tt").ToString, CDbl(txtHN.Text), CheckMarkEOD().Date)
             AccRolesCashier = True
             isTrueFalse = False
             Me.Close()

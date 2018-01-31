@@ -1,7 +1,7 @@
 Public Class FrmDateFollowUP
 
     Public isClose As Boolean = False
-
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
 
     Private Sub BtnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         isClose = False
@@ -25,6 +25,7 @@ Public Class FrmDateFollowUP
         Dim dialogResult As DialogResult = MessageBox.Show(MSG_SAVE, "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If dialogResult = Windows.Forms.DialogResult.Yes Then
             If ModNewInPatient.UpdateFollowUp(LblSaveOption.Text, LblDateLeave.Text, DaFollowup, DrName) = 1 Then
+                DA_PTrackingTime.UpdateDISCHARGE(Format(Now, "hh:mm:ss tt").ToString, lblPatientNo.Text, CheckMarkEOD().Date)
                 MsgBox(MSG_SAVE_SUCCESS, MsgBoxStyle.Information, "Save")
                 isClose = True
                 Me.Close()

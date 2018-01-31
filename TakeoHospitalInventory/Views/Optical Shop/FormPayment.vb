@@ -23,7 +23,7 @@ Public Class FormPayment
         SetDisableKeyString(e)
     End Sub
 
-
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Private Sub BtnSavePayingReceip_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSavePayingReceip.Click
 
         If ChDolar.Checked = False And ChReal.Checked = False Then
@@ -145,6 +145,7 @@ Public Class FormPayment
             '---------------- Update TblPatientReceipt to pay ----------------------
             ObjTblPatientReceipt.ConPay = "1"
             ObjTblPatientReceipt.TIME_ISSUE = Format(GetDateServer, "hh:mm:ss tt").ToString
+            DA_PTrackingTime.UpdateRECEIPT_OPT(Format(Now, "hh:mm:ss tt").ToString, TxtCustomerNo.Text, CheckMarkEOD().Date)
             ObjTblPatientReceipt.AmoutWord = TxtAmountInWord.Text
             ObjReceip.IsPaid = 1
             If ReceiptDataContext.UpdateReceiptPay = True And LblIsPaidStatus.Text <> "1" Then

@@ -1174,6 +1174,12 @@
       <DependentUpon>CrvDisabilityDetail.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CRVPatientTimeFlow.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRVPatientTimeFlow.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\UCPatientReportUtility.Designer.vb">
       <DependentUpon>UCPatientReportUtility.vb</DependentUpon>
     </Compile>
@@ -3548,6 +3554,10 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CrvDisabilityDetail.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrvDisabilityDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CRVPatientTimeFlow.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRVPatientTimeFlow.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\PatientReportUtility\CryPatientReferalByAge.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

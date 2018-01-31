@@ -12,7 +12,7 @@
     Dim DA_PatientReceipt As New DSRefundTableAdapters.tblPatientReceiptTableAdapter
     Dim DA_Appoint As New DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter
     Public IS_UPDATE As Boolean = False
-  
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -616,6 +616,8 @@
                                                       CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, _
                                                       EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, _
                                                       TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
+
+                      
                         If DateApp.Checked = True Then
 
                             DA_Appoint.InsertNewApp(TxtPatientNo.Text, TxtPatientName.Text, "", TxtSex.Text, TxtAge.Text, DateConsult.Value.Date, DateApp.Value.Date, False, TxtConsultNote.Text, TxtPatientOccupation.Text, False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, txtPatientPhone.Text, "Consuling", CboDoctor.SelectedValue, CboDoctor.Text)
@@ -655,6 +657,7 @@
                     ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldID.Text, CboSecondDiagnosis.Text)
                 End If
             End If
+            DA_PTrackingTime.UpdateCONSEL(Format(Now, "hh:mm:ss tt").ToString, TxtPatientNo.Text, CheckMarkEOD().Date)
 
         Else
             If MessageBox.Show("Do you want update consulting?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then

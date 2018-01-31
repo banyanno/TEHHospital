@@ -5,6 +5,7 @@ Public Class UCOutPatientReport
     Private DTo As Date
     Private Cr As New CROutPatientReport
     Dim MainInventory As MainTakeoInventory
+    Dim DA_ReportTime As New DataReportUtilityTableAdapters.ViewTrackingTimeTableAdapter
     Sub New(ByVal MainInventory As MainTakeoInventory)
 
         ' This call is required by the Windows Form Designer.
@@ -54,5 +55,13 @@ Public Class UCOutPatientReport
         ''FStatisticNewOut.ShowDialog()
         ''FStatisticNewOut.Close()
         ''FStatisticNewOut.Dispose()
+    End Sub
+
+    Private Sub BtnReporttim_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReporttim.Click
+        Dim crvReportTime As New CRVPatientTimeFlow
+        Dim tblReportTime As DataTable = DA_ReportTime.SelectTimeTrackingDToD(DateFrom.Value.Date, DateTo.Value.Date)
+        crvReportTime.SetDataSource(tblReportTime)
+        CROutPatientView.ReportSource = crvReportTime
+        crvReportTime.SetParameterValue("Title", "From: " & Format(DateFrom.Value.Date, "dd/MM/yyyy").ToString & " TO: " & Format(DateTo.Value.Date, "dd/MM/yyyy").ToString)
     End Sub
 End Class

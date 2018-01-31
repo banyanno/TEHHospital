@@ -1,6 +1,7 @@
 Public Class FRMNewInPatient
     Public isCloseNewInPatient As Boolean = False
     Dim newInpatientForm As UCNewInPatient
+    Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
     Sub New(ByVal wardInPatient As UCNewInPatient)
 
         ' This call is required by the Windows Form Designer.
@@ -113,6 +114,7 @@ Public Class FRMNewInPatient
                 ChTypeOther.Checked, _
                 0, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
                     MsgBox("Save new in-patient successfully.", MsgBoxStyle.Information, "Save")
+                    DA_PTrackingTime.UpdateINPWARD(Format(Now, "hh:mm:ss tt"), TxtPatientNo.Text, CheckMarkEOD().Date)
                     newInpatientForm.FindAction("", "", "")
                     newInpatientForm.CountDailyInpatient()
                     ClearForm()

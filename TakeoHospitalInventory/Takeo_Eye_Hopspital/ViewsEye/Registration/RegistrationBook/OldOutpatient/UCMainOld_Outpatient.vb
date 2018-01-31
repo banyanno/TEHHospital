@@ -688,4 +688,8 @@ Public Class UCMainOld_Outpatient
             MUndo.Enabled = False
         End If
     End Sub
+
+    Private Sub BtnOldStatistic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnOldStatistic.Click
+
+    End Sub
 End Class
