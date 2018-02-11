@@ -1960,6 +1960,12 @@
     <Compile Include="Views\Cabinet\UCCabinet.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\Category\CrCategoryItemDailyTransactionReportV1ForOPT.vb">
+      <DependentUpon>CrCategoryItemDailyTransactionReportV1ForOPT.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Views\Category\CrCategoryItemDailyTransactionReportV2.vb">
       <DependentUpon>CrCategoryItemDailyTransactionReportV2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -3826,6 +3832,10 @@
     <EmbeddedResource Include="Views\Cabinet\UCCabinet.resx">
       <DependentUpon>UCCabinet.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Category\CrCategoryItemDailyTransactionReportV1ForOPT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrCategoryItemDailyTransactionReportV1ForOPT.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Category\CrCategoryItemDailyTransactionReportV2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

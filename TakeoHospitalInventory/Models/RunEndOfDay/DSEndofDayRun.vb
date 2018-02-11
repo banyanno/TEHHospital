@@ -10,3 +10,9 @@ Partial Public Class DSEndofDayRun
     End Class
 
 End Class
+
+Namespace DSEndofDayRunTableAdapters
+    
+    Partial Public Class VRunEndofDayResultV1OPTTableAdapter
+    End Class
+End Namespace

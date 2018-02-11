@@ -9,6 +9,7 @@ Public Class UCReportItemTransaction
     Dim ItemDataAdapter As DSCategoriesAndItemsTableAdapters.VItemListTableAdapter
     Dim DepartDataAdapter As DSDepartmentTableAdapters.tblDepartmentTableAdapter
     Dim VRunEndofDayResultDataAdapter As DSEndofDayRunTableAdapters.VRunEndofDayResultTableAdapter
+    Dim VRunEndofDayResultOpticalShop As New DSEndofDayRunTableAdapters.VRunEndofDayResultOpticalShopTableAdapter 
     Dim VRunEndofMonthDataAdapter As DSEndofDayRunTableAdapters.VRunEndOfPeriodMonthTableAdapter
     Dim VRunEndOfMonthResultDataAdapter As DSEndofDayRunTableAdapters.tblEndofMonthRunTableAdapter
     Dim ItemInDepartDataAdapter As DSCategoriesAndItemsTableAdapters.VItemListInDepartTableAdapter
@@ -21,6 +22,7 @@ Public Class UCReportItemTransaction
     Private IsMonthlyReport As Boolean
     Private Cr As New CrCategoryItemDailyTransactionReport
     Private Cr1 As New CrCategoryItemDailyTransactionReportV1
+    Private Cr1v2 As New CrCategoryItemDailyTransactionReportV1ForOPT
     Private CrCateItemMonthlyTransRpt As New CrCategoryItemMonthlyTransactionReport
     Private THIDataContext As New BaseDataContext
     Private CrStockAdjustmentRpt As New CrStockAdjustmentReport
@@ -459,13 +461,42 @@ Public Class UCReportItemTransaction
                 '--- Update 09/12/2011 (Use dataset instead of sql command)
                 Dim departTranDataByDepartID As New DataTable
                 If DEPART_ID = 28 Then
-                    departTranDataByDepartID = VRunEndofDayResultDataAdapter.GetDepartTranDataByDepartID(Val(cbDepart.SelectedValue), DFrom, DTo)
+                    If cbDepart.SelectedValue = 26 Then
+                        If ChSoldOptical.Checked = True Then
+                            departTranDataByDepartID = VRunEndofDayResultOpticalShop.GetData(Val(cbDepart.SelectedValue), DFrom, DTo)  ' GetDepartTranDataByDepartID(Val(cbDepart.SelectedValue), DFrom, DTo)
+                            Cr1v2.SetDataSource(departTranDataByDepartID)
+                            Cr1v2.SetParameterValue("fromDate", Format(DFrom, "dd/MMM/yyyy"))
+                            Cr1v2.SetParameterValue("toDate", Format(DTo, "dd/MMM/yyyy"))
+                            Cr1v2.SetParameterValue("category", "") 'cbCate.Text)
+                            Cr1v2.SetParameterValue("depart", cbDepart.Text)
+                            CRVItemTransaction.ReportSource = Cr1v2
+                            CRVItemTransaction.Refresh()
+                        Else
+                            departTranDataByDepartID = VRunEndofDayResultDataAdapter.GetDepartTranDataByDepartID(Val(cbDepart.SelectedValue), DFrom, DTo)
+                            Cr1.SetDataSource(departTranDataByDepartID)
+                            Cr1.SetParameterValue("fromDate", Format(DFrom, "dd/MMM/yyyy"))
+                            Cr1.SetParameterValue("toDate", Format(DTo, "dd/MMM/yyyy"))
+                            Cr1.SetParameterValue("category", "") 'cbCate.Text)
+                            Cr1.SetParameterValue("depart", cbDepart.Text)
+                            CRVItemTransaction.ReportSource = Cr1
+                            CRVItemTransaction.Refresh()
+                        End If
+                        
+                    Else
+                        departTranDataByDepartID = VRunEndofDayResultDataAdapter.GetDepartTranDataByDepartID(Val(cbDepart.SelectedValue), DFrom, DTo)
+                        Cr1.SetDataSource(departTranDataByDepartID)
+                        Cr1.SetParameterValue("fromDate", Format(DFrom, "dd/MMM/yyyy"))
+                        Cr1.SetParameterValue("toDate", Format(DTo, "dd/MMM/yyyy"))
+                        Cr1.SetParameterValue("category", "") 'cbCate.Text)
+                        Cr1.SetParameterValue("depart", cbDepart.Text)
+                        CRVItemTransaction.ReportSource = Cr1
+                        CRVItemTransaction.Refresh()
+                    End If
 
-                    Cr1.SetDataSource(departTranDataByDepartID)
-                    Cr1.SetParameterValue("fromDate", Format(DFrom, "dd/MMM/yyyy"))
-                    Cr1.SetParameterValue("toDate", Format(DTo, "dd/MMM/yyyy"))
-                    Cr1.SetParameterValue("category", "") 'cbCate.Text)
-                    Cr1.SetParameterValue("depart", cbDepart.Text)
+
+                   
+                  
+                    
                 Else
                     departTranDataByDepartID = VRunEndofDayResultDataAdapter.GetDepartTranDataByDepartID(Val(DEPART_ID), DFrom, DTo)
 
@@ -474,9 +505,11 @@ Public Class UCReportItemTransaction
                     Cr1.SetParameterValue("toDate", Format(DTo, "dd/MMM/yyyy"))
                     Cr1.SetParameterValue("category", "") 'cbCate.Text)
                     Cr1.SetParameterValue("depart", DEPART_NAME)
+                    CRVItemTransaction.ReportSource = Cr1
+
+                    CRVItemTransaction.Refresh()
                 End If
-                CRVItemTransaction.ReportSource = Cr1
-                CRVItemTransaction.Refresh()
+                
             End If
             If rbDaily.Checked = True Then
                 '--- Update 09/12/2011 (Use dataset instead of sql command)
@@ -613,6 +646,7 @@ Public Class UCReportItemTransaction
             BgLoadingReport.CancelAsync()
         Else
             ReportOption = 3
+
             BgLoadingReport.RunWorkerAsync()
         End If
 
@@ -708,4 +742,7 @@ Public Class UCReportItemTransaction
     End Sub
 
    
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
 End Class

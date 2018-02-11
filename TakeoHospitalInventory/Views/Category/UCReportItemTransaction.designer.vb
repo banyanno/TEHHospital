@@ -51,6 +51,7 @@ Partial Class UCReportItemTransaction
         Me.BgLoadingReport = New System.ComponentModel.BackgroundWorker
         Me.ContainerLoading = New Janus.Windows.Ribbon.ContainerControlCommand
         Me.ErrReport = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ChSoldOptical = New System.Windows.Forms.CheckBox
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -87,7 +88,7 @@ Partial Class UCReportItemTransaction
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(637, 87)
+        Me.Label1.Location = New System.Drawing.Point(668, 87)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(346, 18)
         Me.Label1.TabIndex = 10
@@ -97,7 +98,7 @@ Partial Class UCReportItemTransaction
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Label3.ForeColor = System.Drawing.Color.Blue
-        Me.Label3.Location = New System.Drawing.Point(635, 9)
+        Me.Label3.Location = New System.Drawing.Point(666, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(314, 62)
         Me.Label3.TabIndex = 9
@@ -197,6 +198,7 @@ Partial Class UCReportItemTransaction
         '
         'gbDepart
         '
+        Me.gbDepart.Controls.Add(Me.ChSoldOptical)
         Me.gbDepart.Controls.Add(Me.RadItem)
         Me.gbDepart.Controls.Add(Me.btnPreviewByCate)
         Me.gbDepart.Controls.Add(Me.RadCate)
@@ -209,7 +211,7 @@ Partial Class UCReportItemTransaction
         Me.gbDepart.Controls.Add(Me.cbDepart)
         Me.gbDepart.Location = New System.Drawing.Point(185, 14)
         Me.gbDepart.Name = "gbDepart"
-        Me.gbDepart.Size = New System.Drawing.Size(446, 175)
+        Me.gbDepart.Size = New System.Drawing.Size(477, 175)
         Me.gbDepart.TabIndex = 7
         Me.gbDepart.TabStop = False
         Me.gbDepart.Text = "Department Item Transaction Report"
@@ -230,9 +232,9 @@ Partial Class UCReportItemTransaction
         Me.btnPreviewByCate.Enabled = False
         Me.btnPreviewByCate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.preview
         Me.btnPreviewByCate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPreviewByCate.Location = New System.Drawing.Point(348, 51)
+        Me.btnPreviewByCate.Location = New System.Drawing.Point(348, 54)
         Me.btnPreviewByCate.Name = "btnPreviewByCate"
-        Me.btnPreviewByCate.Size = New System.Drawing.Size(93, 33)
+        Me.btnPreviewByCate.Size = New System.Drawing.Size(93, 30)
         Me.btnPreviewByCate.TabIndex = 21
         Me.btnPreviewByCate.Text = "Preview"
         Me.btnPreviewByCate.UseVisualStyleBackColor = True
@@ -253,9 +255,9 @@ Partial Class UCReportItemTransaction
         Me.btnPreviewByItem.Enabled = False
         Me.btnPreviewByItem.Image = Global.TakeoHospitalInventory.My.Resources.Resources.preview
         Me.btnPreviewByItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPreviewByItem.Location = New System.Drawing.Point(348, 89)
+        Me.btnPreviewByItem.Location = New System.Drawing.Point(348, 91)
         Me.btnPreviewByItem.Name = "btnPreviewByItem"
-        Me.btnPreviewByItem.Size = New System.Drawing.Size(93, 33)
+        Me.btnPreviewByItem.Size = New System.Drawing.Size(93, 31)
         Me.btnPreviewByItem.TabIndex = 21
         Me.btnPreviewByItem.Text = "Preview"
         Me.btnPreviewByItem.UseVisualStyleBackColor = True
@@ -265,7 +267,7 @@ Partial Class UCReportItemTransaction
         Me.btnStockAdjustment.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnStockAdjustment.Image = Global.TakeoHospitalInventory.My.Resources.Resources.preview
         Me.btnStockAdjustment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnStockAdjustment.Location = New System.Drawing.Point(23, 135)
+        Me.btnStockAdjustment.Location = New System.Drawing.Point(6, 135)
         Me.btnStockAdjustment.Name = "btnStockAdjustment"
         Me.btnStockAdjustment.Size = New System.Drawing.Size(237, 34)
         Me.btnStockAdjustment.TabIndex = 22
@@ -287,9 +289,9 @@ Partial Class UCReportItemTransaction
         Me.btnPreviewByDepart.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnPreviewByDepart.Image = Global.TakeoHospitalInventory.My.Resources.Resources.preview
         Me.btnPreviewByDepart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPreviewByDepart.Location = New System.Drawing.Point(348, 12)
+        Me.btnPreviewByDepart.Location = New System.Drawing.Point(348, 18)
         Me.btnPreviewByDepart.Name = "btnPreviewByDepart"
-        Me.btnPreviewByDepart.Size = New System.Drawing.Size(93, 33)
+        Me.btnPreviewByDepart.Size = New System.Drawing.Size(93, 31)
         Me.btnPreviewByDepart.TabIndex = 21
         Me.btnPreviewByDepart.Text = "Preview"
         Me.btnPreviewByDepart.UseVisualStyleBackColor = True
@@ -378,6 +380,16 @@ Partial Class UCReportItemTransaction
         '
         Me.ErrReport.ContainerControl = Me
         '
+        'ChSoldOptical
+        '
+        Me.ChSoldOptical.AutoSize = True
+        Me.ChSoldOptical.Location = New System.Drawing.Point(262, 145)
+        Me.ChSoldOptical.Name = "ChSoldOptical"
+        Me.ChSoldOptical.Size = New System.Drawing.Size(101, 17)
+        Me.ChSoldOptical.TabIndex = 23
+        Me.ChSoldOptical.Text = "Item Sold in Opt"
+        Me.ChSoldOptical.UseVisualStyleBackColor = True
+        '
         'UCReportItemTransaction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -428,5 +440,6 @@ Partial Class UCReportItemTransaction
     Friend WithEvents ErrReport As System.Windows.Forms.ErrorProvider
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RadDateToDate As System.Windows.Forms.RadioButton
+    Friend WithEvents ChSoldOptical As System.Windows.Forms.CheckBox
 
 End Class

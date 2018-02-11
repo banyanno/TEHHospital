@@ -2807,6 +2807,14 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultV1OPTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultOpticalShopDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -2823,6 +2831,14 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultV1OPTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultOpticalShopRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultRowChangeEvent">
 	<summary>
 Row event argument class
@@ -2836,6 +2852,14 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSEndofDayRun.tblEndofMonthRunRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultV1OPTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRun.VRunEndofDayResultOpticalShopRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -2856,6 +2880,14 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSEndofDayRunTableAdapters.tblEndofMonthRunTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRunTableAdapters.VRunEndofDayResultV1OPTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSEndofDayRunTableAdapters.VRunEndofDayResultOpticalShopTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

@@ -279,7 +279,6 @@ Partial Class MainOpticalShop
         Me.FilterReceipt.ScrollStep = 15
         Me.FilterReceipt.Size = New System.Drawing.Size(1006, 48)
         Me.FilterReceipt.SourceControl = Me.GridReceipt
-        Me.FilterReceipt.Visible = False
         '
         'Splitter1
         '
