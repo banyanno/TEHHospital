@@ -1033,7 +1033,7 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupBox2.Controls.Add(Me.Label18)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox2.Location = New System.Drawing.Point(1038, 141)
+        Me.GroupBox2.Location = New System.Drawing.Point(1038, 116)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(212, 136)
         Me.GroupBox2.TabIndex = 207
@@ -1145,7 +1145,7 @@ Partial Class frmOldOutPatientReceipt
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1264, 619)
+        Me.ClientSize = New System.Drawing.Size(1264, 665)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)

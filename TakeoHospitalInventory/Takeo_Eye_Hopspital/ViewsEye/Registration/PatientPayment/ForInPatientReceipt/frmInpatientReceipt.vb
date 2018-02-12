@@ -350,12 +350,13 @@ Public Class frmInpatientReceipt
         AccRolesCashier = False
         For i As Integer = 0 To TBLACCESS_ROLE.Rows.Count - 1
             With TBLACCESS_ROLE.Rows(i)
-                If .Item(0) = "Cashier" Then
-                    AccRolesCashier = True
-                    Me.UpdateReceipt1.Visible = True
-                    Me.UpdateReceipt1.Enabled = False
-                    ' Me.PrintReceiptAgain.Enabled = False
-                ElseIf .Item(0) = "New Registration" Then
+                'If .Item(0) = "Cashier" Then
+                '    AccRolesCashier = True
+                '    Me.UpdateReceipt1.Visible = True
+                '    Me.UpdateReceipt1.Enabled = False
+                '    ' Me.PrintReceiptAgain.Enabled = False
+                'Else
+                If .Item(0) = "New Registration" Then
                     Me.chkDollar.Enabled = False
                     Me.chkRiel.Enabled = False
                     'Me.PrintReceiptAgain.Enabled = True
@@ -374,6 +375,12 @@ Public Class frmInpatientReceipt
                     Me.CashierSave1.Visible = True
                     UpdateReceipt1.Enabled = True
                     'Me.PrintReceiptAgain.Enabled = True
+                Else
+                    ' In case Cashire
+                    AccRolesCashier = True
+                    Me.UpdateReceipt1.Visible = True
+                    Me.UpdateReceipt1.Enabled = False
+                    ' Me.PrintReceiptAgain.Enabled = False
                 End If
             End With
         Next

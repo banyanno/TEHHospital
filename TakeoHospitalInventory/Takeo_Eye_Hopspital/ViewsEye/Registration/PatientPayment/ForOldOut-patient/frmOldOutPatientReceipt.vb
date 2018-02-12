@@ -245,16 +245,10 @@ Public Class frmOldOutPatientReceipt
         AccRolesCashier = False
         For i As Integer = 0 To TBLACCESS_ROLE.Rows.Count - 1
             With TBLACCESS_ROLE.Rows(i)
-                If .Item(0) = "Cashier" Then
-                    AccRolesCashier = True
-                    Me.cmdCashierSave.Enabled = True
-                    Me.cmdSave.Enabled = False
-                    Me.Width = 830
-                    GroupDisability.Visible = False
-                    GReferralFrom.Visible = False
-                    ChPrintPreveiw.Visible = False
-                    ' Me.cmdPrint.Enabled = False
-                ElseIf .Item(0) = "New Registration" Then
+                'If .Item(0) = "Cashier" Then
+
+                ' Me.cmdPrint.Enabled = False
+                If .Item(0) = "New Registration" Then
                     Me.chkDollar.Enabled = False
                     Me.chkRiel.Enabled = False
                     ' Me.cmdPrint.Enabled = True
@@ -274,6 +268,16 @@ Public Class frmOldOutPatientReceipt
                     Me.cmdCashierSave.Visible = True
                     Me.cmdSave.Enabled = True
                     'Me.cmdPrint.Enabled = True
+                Else
+                    ' In case Cashier
+                    AccRolesCashier = True
+                    Me.cmdCashierSave.Enabled = True
+                    Me.cmdSave.Enabled = False
+                    Me.Width = 830
+                    GroupDisability.Visible = False
+                    GReferralFrom.Visible = False
+                    ChPrintPreveiw.Visible = False
+                    GroupBox2.Visible = False
                 End If
             End With
         Next

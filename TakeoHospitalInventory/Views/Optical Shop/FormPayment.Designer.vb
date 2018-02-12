@@ -37,6 +37,7 @@ Partial Class FormPayment
         Me.RadNil = New System.Windows.Forms.RadioButton
         Me.RadFull = New System.Windows.Forms.RadioButton
         Me.GPIncomeType = New System.Windows.Forms.GroupBox
+        Me.RadLV = New System.Windows.Forms.RadioButton
         Me.Label7 = New System.Windows.Forms.Label
         Me.RadOther = New System.Windows.Forms.RadioButton
         Me.RadReadMod = New System.Windows.Forms.RadioButton
@@ -97,7 +98,6 @@ Partial Class FormPayment
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrPayment = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.LblIsPaidStatus = New System.Windows.Forms.Label
-        Me.RadLV = New System.Windows.Forms.RadioButton
         Me.GroupBox1.SuspendLayout()
         Me.GBPaymentType.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -264,6 +264,17 @@ Partial Class FormPayment
         Me.GPIncomeType.TabIndex = 3
         Me.GPIncomeType.TabStop = False
         Me.GPIncomeType.Text = "Select In payment for"
+        '
+        'RadLV
+        '
+        Me.RadLV.AutoSize = True
+        Me.RadLV.Location = New System.Drawing.Point(101, 67)
+        Me.RadLV.Name = "RadLV"
+        Me.RadLV.Size = New System.Drawing.Size(75, 17)
+        Me.RadLV.TabIndex = 2
+        Me.RadLV.TabStop = True
+        Me.RadLV.Text = "LV Device"
+        Me.RadLV.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -498,7 +509,7 @@ Partial Class FormPayment
         '
         Me.TxtCustomerName.BackColor = System.Drawing.Color.White
         Me.TxtCustomerName.Font = New System.Drawing.Font("Limon S1", 22.0!)
-        Me.TxtCustomerName.Location = New System.Drawing.Point(311, 35)
+        Me.TxtCustomerName.Location = New System.Drawing.Point(311, 40)
         Me.TxtCustomerName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtCustomerName.Name = "TxtCustomerName"
         Me.TxtCustomerName.ReadOnly = True
@@ -939,17 +950,6 @@ Partial Class FormPayment
         Me.LblIsPaidStatus.TabIndex = 3
         Me.LblIsPaidStatus.Text = "Label19"
         Me.LblIsPaidStatus.Visible = False
-        '
-        'RadLV
-        '
-        Me.RadLV.AutoSize = True
-        Me.RadLV.Location = New System.Drawing.Point(101, 67)
-        Me.RadLV.Name = "RadLV"
-        Me.RadLV.Size = New System.Drawing.Size(75, 17)
-        Me.RadLV.TabIndex = 2
-        Me.RadLV.TabStop = True
-        Me.RadLV.Text = "LV Device"
-        Me.RadLV.UseVisualStyleBackColor = True
         '
         'FormPayment
         '

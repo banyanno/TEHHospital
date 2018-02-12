@@ -44,19 +44,24 @@ Public Class DashbordReceiveReceipt
                 StrAdd = StrAdd & "  ConGeneral='OP' OR"
             End If
         Next
-        'MsgBox(StrAdd.ToString)
-        Dim Cnn As SqlConnection = ModGlobleVariable.GENERAL_DAO.getConnection
-        Try
-            SqlComman.CommandText = GetReceiptByDepartment(StrAdd) 'SearchPatient(patientNoSearh, OldPatientNo, DateFrom, DateTo, patientEngName, patientKhName, patientAge, patientSex, patientProvince, patientDistrict, patientCommune)
-            SqlComman.Connection = Cnn
-            SQlDataAdapter.SelectCommand = SqlComman
-            SQlDataAdapter.Fill(DSWaitingPayment.tblPatientReceipt)  'DSPatient.TblPatients)
-            'GridPatientInformation.DataSource = DSPatient.Tables(1)
-            GridJanusWaitingPayment.DataSource = DSWaitingPayment.tblPatientReceipt
-            Cnn.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
+        If StrAdd = "" Then
+            GridJanusWaitingPayment.DataSource = Nothing
+        Else
+            Dim Cnn As SqlConnection = ModGlobleVariable.GENERAL_DAO.getConnection
+            Try
+                SqlComman.CommandText = GetReceiptByDepartment(StrAdd) 'SearchPatient(patientNoSearh, OldPatientNo, DateFrom, DateTo, patientEngName, patientKhName, patientAge, patientSex, patientProvince, patientDistrict, patientCommune)
+                SqlComman.Connection = Cnn
+                SQlDataAdapter.SelectCommand = SqlComman
+                SQlDataAdapter.Fill(DSWaitingPayment.tblPatientReceipt)  'DSPatient.TblPatients)
+                'GridPatientInformation.DataSource = DSPatient.Tables(1)
+                GridJanusWaitingPayment.DataSource = DSWaitingPayment.tblPatientReceipt
+                Cnn.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+
+        
     End Sub
 
     Private Function GetReceiptByDepartment(ByVal StrPara As String) As String

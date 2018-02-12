@@ -20,12 +20,12 @@ Partial Class UWeeklyCashCollection
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim GridAccountPayable_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UWeeklyCashCollection))
         Dim dgvCashTotalAll_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim dgvTotalCash_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim dgvRemarks_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim dgvCashCount_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim dgvCash_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UWeeklyCashCollection))
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
         Me.Panel1 = New System.Windows.Forms.Panel
@@ -46,6 +46,7 @@ Partial Class UWeeklyCashCollection
         Me.PicLoad = New System.Windows.Forms.PictureBox
         Me.dgvCash = New Janus.Windows.GridEX.GridEX
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.Button1 = New System.Windows.Forms.Button
         Me.cmdPrint = New System.Windows.Forms.Button
         Me.cmdView = New System.Windows.Forms.Button
         Me.Label1 = New System.Windows.Forms.Label
@@ -53,7 +54,6 @@ Partial Class UWeeklyCashCollection
         Me.dtpDateTo = New System.Windows.Forms.DateTimePicker
         Me.dtpDateFrom = New System.Windows.Forms.DateTimePicker
         Me.BgWeekly = New System.ComponentModel.BackgroundWorker
-        Me.Button1 = New System.Windows.Forms.Button
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -329,6 +329,15 @@ Partial Class UWeeklyCashCollection
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Select Date to view"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(698, 26)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(85, 40)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "&Print Old"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'cmdPrint
         '
         Me.cmdPrint.Location = New System.Drawing.Point(607, 25)
@@ -386,15 +395,6 @@ Partial Class UWeeklyCashCollection
         '
         'BgWeekly
         '
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(698, 26)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(85, 40)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "&Print Old"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'UWeeklyCashCollection
         '
