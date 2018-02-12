@@ -55,7 +55,6 @@ Partial Class frmCashReceipt
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.lblCashier = New System.Windows.Forms.Label
@@ -74,6 +73,7 @@ Partial Class frmCashReceipt
         Me.ChPrintPreveiw = New System.Windows.Forms.CheckBox
         Me.cmdFindHN = New System.Windows.Forms.Button
         Me.lblID = New System.Windows.Forms.Label
+        Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -499,18 +499,6 @@ Partial Class frmCashReceipt
         Me.Label2.TabIndex = 105
         Me.Label2.Text = "elxvikáybRt"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(398, 9)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(195, 36)
-        Me.Label1.TabIndex = 102
-        Me.Label1.Text = "Cash Receipt"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -539,8 +527,9 @@ Partial Class frmCashReceipt
         Me.lblCashier.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCashier.Location = New System.Drawing.Point(155, 79)
         Me.lblCashier.Name = "lblCashier"
-        Me.lblCashier.Size = New System.Drawing.Size(0, 20)
+        Me.lblCashier.Size = New System.Drawing.Size(19, 20)
         Me.lblCashier.TabIndex = 142
+        Me.lblCashier.Text = "0"
         '
         'Label15
         '
@@ -629,7 +618,7 @@ Partial Class frmCashReceipt
         Me.cmdSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdSearch.Location = New System.Drawing.Point(657, 71)
         Me.cmdSearch.Name = "cmdSearch"
-        Me.cmdSearch.Size = New System.Drawing.Size(71, 32)
+        Me.cmdSearch.Size = New System.Drawing.Size(76, 32)
         Me.cmdSearch.TabIndex = 1
         Me.cmdSearch.Text = "&Find"
         Me.cmdSearch.UseVisualStyleBackColor = True
@@ -669,7 +658,7 @@ Partial Class frmCashReceipt
         Me.cmdCashierSave.Image = Global.TakeoHospitalInventory.My.Resources.Resources.welcome_bg
         Me.cmdCashierSave.Location = New System.Drawing.Point(233, 482)
         Me.cmdCashierSave.Name = "cmdCashierSave"
-        Me.cmdCashierSave.Size = New System.Drawing.Size(170, 79)
+        Me.cmdCashierSave.Size = New System.Drawing.Size(170, 69)
         Me.cmdCashierSave.TabIndex = 147
         Me.cmdCashierSave.Text = "&Cashier Save"
         Me.cmdCashierSave.UseVisualStyleBackColor = True
@@ -717,6 +706,18 @@ Partial Class frmCashReceipt
         Me.lblID.TabIndex = 156
         Me.lblID.Text = "0"
         Me.lblID.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(398, 9)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(195, 36)
+        Me.Label1.TabIndex = 102
+        Me.Label1.Text = "Cash Receipt"
         '
         'frmCashReceipt
         '
@@ -829,7 +830,6 @@ Partial Class frmCashReceipt
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents lblCashier As System.Windows.Forms.Label
@@ -845,4 +845,5 @@ Partial Class frmCashReceipt
     Friend WithEvents ChPrintPreveiw As System.Windows.Forms.CheckBox
     Friend WithEvents cmdFindHN As System.Windows.Forms.Button
     Friend WithEvents lblID As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

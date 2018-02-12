@@ -58,8 +58,8 @@ Partial Class DashbordReceiveReceipt
         Me.BtnRefresh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
         Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRefresh.Name = "BtnRefresh"
-        Me.BtnRefresh.Size = New System.Drawing.Size(66, 22)
-        Me.BtnRefresh.Text = "Refresh"
+        Me.BtnRefresh.Size = New System.Drawing.Size(108, 22)
+        Me.BtnRefresh.Text = "Refresh Receipt"
         '
         'ToolStripSeparator1
         '

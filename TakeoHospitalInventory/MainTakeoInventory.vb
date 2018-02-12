@@ -36,6 +36,7 @@ Public Class MainTakeoInventory
     Dim UItemExpiredDate As UCItemExpiredDate
 
     'User Control for Takeo Eye hospital
+    Public ReceivePayemtn As DashbordReceiveReceipt
     Public PatientPayment As UCPatientPayment
     Public examinationForm As UCRegistrationForm
     Public bed As UCBed
@@ -81,6 +82,9 @@ Public Class MainTakeoInventory
         ' Add any initialization after the InitializeComponent() call.
     End Sub
     Sub InitUserControle()
+        Login.UpdateLabelStatus("Checking Permission", True)
+        Application.DoEvents()
+        ReceivePayemtn = New DashbordReceiveReceipt(Me)
         Login.UpdateLabelStatus("Creating user interface 1.", True)
         Application.DoEvents()
         PatientPayment = New UCPatientPayment(Me)
@@ -619,6 +623,8 @@ Public Class MainTakeoInventory
 
     Private Sub BottonBarMain_ItemClick(ByVal sender As System.Object, ByVal e As Janus.Windows.ButtonBar.ItemEventArgs) Handles BottonBarMain.ItemClick
         Select Case e.Item.Key
+            Case "Receive Payment"
+                CreateReceivePayment()
             Case "PatientPayment"
                 CreatePaymentForm()
             Case "PaymentOldPatien"
@@ -786,9 +792,13 @@ Public Class MainTakeoInventory
         GeneralAddControl(uiPanelMainContainer, PostponeOT, "Takeo Eye Hospital...")
     End Sub
 
+    Sub CreateReceivePayment()
+        GeneralAddControl(uiPanelMainContainer, ReceivePayemtn, "Takeo Eye Hospital...")
+    End Sub
     Sub CreatePaymentForm()
         GeneralAddControl(uiPanelMainContainer, PatientPayment, "Takeo Eye Hospital...")
     End Sub
+
 
     Sub CreatePaymentOldPatien()
         Dim FOldPatientReceipt As New frmOldOutPatientReceipt
