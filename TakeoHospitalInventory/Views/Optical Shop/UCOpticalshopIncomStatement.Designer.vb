@@ -212,6 +212,7 @@ Partial Class UCOpticalshopIncomStatement
         Me.GridReceipt.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.GridReceipt.Size = New System.Drawing.Size(874, 532)
         Me.GridReceipt.TabIndex = 4
+        Me.GridReceipt.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.GridReceipt.VisualStyle = Janus.Windows.GridEX.VisualStyle.VS2005
         '
         'CryViewOpticalshopIncome
