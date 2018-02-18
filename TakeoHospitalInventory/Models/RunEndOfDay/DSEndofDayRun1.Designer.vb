@@ -2297,6 +2297,8 @@ Partial Public Class DSEndofDayRun
         
         Private columnpricesell As Global.System.Data.DataColumn
         
+        Private columnused1 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -2434,6 +2436,13 @@ Partial Public Class DSEndofDayRun
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property used1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnused1
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2463,9 +2472,25 @@ Partial Public Class DSEndofDayRun
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddVRunEndofDayResultOpticalShopRow(ByVal begining As Decimal, ByVal ending As Decimal, ByVal ItemName As String, ByVal ItemID As Integer, ByVal DepartName As String, ByVal BARCODE As String, ByVal DepartID As Integer, ByVal CateID As Integer, ByVal CateName As String, ByVal ItemUnitName As String, ByVal ContainerName As String, ByVal UnitPrice As Decimal, ByVal used As Decimal, ByVal sell As Decimal, ByVal pricesell As Double) As VRunEndofDayResultOpticalShopRow
+        Public Overloads Function AddVRunEndofDayResultOpticalShopRow( _
+                    ByVal begining As Decimal,  _
+                    ByVal ending As Decimal,  _
+                    ByVal ItemName As String,  _
+                    ByVal ItemID As Integer,  _
+                    ByVal DepartName As String,  _
+                    ByVal BARCODE As String,  _
+                    ByVal DepartID As Integer,  _
+                    ByVal CateID As Integer,  _
+                    ByVal CateName As String,  _
+                    ByVal ItemUnitName As String,  _
+                    ByVal ContainerName As String,  _
+                    ByVal UnitPrice As Decimal,  _
+                    ByVal used As Decimal,  _
+                    ByVal sell As Decimal,  _
+                    ByVal pricesell As Double,  _
+                    ByVal used1 As Decimal) As VRunEndofDayResultOpticalShopRow
             Dim rowVRunEndofDayResultOpticalShopRow As VRunEndofDayResultOpticalShopRow = CType(Me.NewRow,VRunEndofDayResultOpticalShopRow)
-            Dim columnValuesArray() As Object = New Object() {begining, ending, ItemName, ItemID, DepartName, BARCODE, DepartID, CateID, CateName, ItemUnitName, ContainerName, UnitPrice, used, sell, pricesell}
+            Dim columnValuesArray() As Object = New Object() {begining, ending, ItemName, ItemID, DepartName, BARCODE, DepartID, CateID, CateName, ItemUnitName, ContainerName, UnitPrice, used, sell, pricesell, used1}
             rowVRunEndofDayResultOpticalShopRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVRunEndofDayResultOpticalShopRow)
             Return rowVRunEndofDayResultOpticalShopRow
@@ -2500,6 +2525,7 @@ Partial Public Class DSEndofDayRun
             Me.columnused = MyBase.Columns("used")
             Me.columnsell = MyBase.Columns("sell")
             Me.columnpricesell = MyBase.Columns("pricesell")
+            Me.columnused1 = MyBase.Columns("used1")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2534,6 +2560,8 @@ Partial Public Class DSEndofDayRun
             MyBase.Columns.Add(Me.columnsell)
             Me.columnpricesell = New Global.System.Data.DataColumn("pricesell", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpricesell)
+            Me.columnused1 = New Global.System.Data.DataColumn("used1", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnused1)
             Me.columnbegining.ReadOnly = true
             Me.columnending.ReadOnly = true
             Me.columnItemName.MaxLength = 150
@@ -2546,6 +2574,7 @@ Partial Public Class DSEndofDayRun
             Me.columnused.ReadOnly = true
             Me.columnsell.ReadOnly = true
             Me.columnpricesell.ReadOnly = true
+            Me.columnused1.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4298,6 +4327,20 @@ Partial Public Class DSEndofDayRun
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property used1() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableVRunEndofDayResultOpticalShop.used1Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'used1' in table 'VRunEndofDayResultOpticalShop' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVRunEndofDayResultOpticalShop.used1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsbeginingNull() As Boolean
             Return Me.IsNull(Me.tableVRunEndofDayResultOpticalShop.beginingColumn)
         End Function
@@ -4435,6 +4478,16 @@ Partial Public Class DSEndofDayRun
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetpricesellNull()
             Me(Me.tableVRunEndofDayResultOpticalShop.pricesellColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isused1Null() As Boolean
+            Return Me.IsNull(Me.tableVRunEndofDayResultOpticalShop.used1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setused1Null()
+            Me(Me.tableVRunEndofDayResultOpticalShop.used1Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -6414,6 +6467,7 @@ Namespace DSEndofDayRunTableAdapters
             tableMapping.ColumnMappings.Add("used", "used")
             tableMapping.ColumnMappings.Add("sell", "sell")
             tableMapping.ColumnMappings.Add("pricesell", "pricesell")
+            tableMapping.ColumnMappings.Add("used1", "used1")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -6431,21 +6485,21 @@ Namespace DSEndofDayRunTableAdapters
             Me._commandCollection(0).CommandText = "select "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(select top 1 b.BeginBalance from VRunEndofDayResult b where b.RunEndOfD"& _ 
                 "ayDate between @DFrom and @DTo and b.ItemID=R.ItemID  )  as begining,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(select t"& _ 
                 "op 1 b.EndBalance from VRunEndofDayResult b where b.RunEndOfDayDate between @DFr"& _ 
-                "om and @DTo and b.ItemID=R.ItemID order by b.RunEndOfDayDate DESC )  as ending"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                ", ItemName,r.ItemID,DepartName,BARCODE,DepartID,CateID,CateName,ItemUnitName,Con"& _ 
-                "tainerName,UnitPrice,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SUM(UseQty) as used,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(select SUM(itemqty) from RECEIPT_D"& _ 
-                "ETAIL cr ,RECEIPT rev where cr.ReceiptNo=rev.ReceiptID and rev.IsPaid<>2 and cr."& _ 
-                "ReceiptDate between @DFrom and @DTo and cr.ItemID=R.ItemID ) as sell,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(select d"& _ 
-                "istinct cr.ItemPrice from RECEIPT_DETAIL cr,RECEIPT rev where cr.ReceiptNo=rev.R"& _ 
-                "eceiptID and rev.IsPaid<>2 and cr.ReceiptDate between @DFrom and @DTo and cr.Ite"& _ 
-                "mID=R.ItemID  ) as pricesell"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from VRunEndofDayResult R"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where r.DepartID=@DepID"& _ 
-                " and RunEndOfDayDate between @DFrom and @DTo "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"group by ItemName,r.ItemID,Depart"& _ 
-                "Name,BARCODE,DepartID,CateID,CateName,ItemUnitName,ContainerName,UnitPrice"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"orde"& _ 
-                "r by itemName;"
+                "om and @DTo and b.ItemID=R.ItemID order by b.RunEndOfDayDate DESC )  as ending,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ItemName,r.ItemID,DepartName,BARCODE,DepartID,CateID,CateName,ItemUnitName,Cont"& _ 
+                "ainerName,UnitPrice,SUM(UseQty) as used1,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(select sum(UseQty) from VRunEndofDay"& _ 
+                "Result b where b.RunEndOfDayDate between @DFrom and @DTo and b.ItemID=R.ItemID a"& _ 
+                "nd  r.DepartID=@DepID) as used,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(select SUM(itemqty) from RECEIPT_DETAIL cr ,RE"& _ 
+                "CEIPT rev where cr.ReceiptNo=rev.ReceiptID and rev.IsPaid<>2 and cr.ReceiptDate "& _ 
+                "between @DFrom and @DTo and cr.ItemID=R.ItemID ) as sell,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(select distinct cr.I"& _ 
+                "temPrice from RECEIPT_DETAIL cr,RECEIPT rev where cr.ReceiptNo=rev.ReceiptID and"& _ 
+                " rev.IsPaid<>2 and cr.ReceiptDate between @DFrom and @DTo and cr.ItemID=R.ItemID"& _ 
+                "  ) as pricesell"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from VRunEndofDayResult R,RECEIPT_DETAIL CD"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where r.DepartID="& _ 
+                "@DepID and cd.ReceiptDate between @DFrom and @DTo "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"group by ItemName,r.ItemID,D"& _ 
+                "epartName,BARCODE,DepartID,CateID,CateName,ItemUnitName,ContainerName,UnitPrice"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by itemName;"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RunEndOfDayDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RunEndOfDayDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

@@ -51,7 +51,7 @@ Partial Class DashbordReceiveReceipt
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRefresh, Me.ToolStripSeparator1, Me.BtnNewCashCount})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1107, 28)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1107, 32)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -60,21 +60,21 @@ Partial Class DashbordReceiveReceipt
         Me.BtnRefresh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
         Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRefresh.Name = "BtnRefresh"
-        Me.BtnRefresh.Size = New System.Drawing.Size(138, 25)
-        Me.BtnRefresh.Text = "Refresh Receipt"
+        Me.BtnRefresh.Size = New System.Drawing.Size(268, 29)
+        Me.BtnRefresh.Text = "Refresh Receipt Waiting Payment"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 28)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 32)
         '
         'BtnNewCashCount
         '
         Me.BtnNewCashCount.Image = Global.TakeoHospitalInventory.My.Resources.Resources.CashReceipt
         Me.BtnNewCashCount.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewCashCount.Name = "BtnNewCashCount"
-        Me.BtnNewCashCount.Size = New System.Drawing.Size(146, 25)
-        Me.BtnNewCashCount.Text = "New Cash Count"
+        Me.BtnNewCashCount.Size = New System.Drawing.Size(270, 29)
+        Me.BtnNewCashCount.Text = "Dially Cash Count By Department"
         '
         'GridJanusWaitingPayment
         '
@@ -84,12 +84,12 @@ Partial Class DashbordReceiveReceipt
         Me.GridJanusWaitingPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.GridJanusWaitingPayment.GroupByBoxVisible = False
         Me.GridJanusWaitingPayment.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive
-        Me.GridJanusWaitingPayment.Location = New System.Drawing.Point(0, 28)
+        Me.GridJanusWaitingPayment.Location = New System.Drawing.Point(0, 32)
         Me.GridJanusWaitingPayment.Name = "GridJanusWaitingPayment"
         Me.GridJanusWaitingPayment.RecordNavigator = True
         Me.GridJanusWaitingPayment.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowPosition
         Me.GridJanusWaitingPayment.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridJanusWaitingPayment.Size = New System.Drawing.Size(1107, 514)
+        Me.GridJanusWaitingPayment.Size = New System.Drawing.Size(1107, 510)
         Me.GridJanusWaitingPayment.TabIndex = 9
         Me.GridJanusWaitingPayment.WatermarkImage.Image = CType(resources.GetObject("GridJanusWaitingPayment.WatermarkImage.Image"), System.Drawing.Image)
         Me.GridJanusWaitingPayment.WatermarkImage.ImageAlign = System.Drawing.ContentAlignment.BottomLeft

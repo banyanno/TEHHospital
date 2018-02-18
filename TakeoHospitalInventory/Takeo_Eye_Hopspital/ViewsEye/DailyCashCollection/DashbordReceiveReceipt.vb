@@ -49,9 +49,14 @@ Public Class DashbordReceiveReceipt
         Else
             Dim Cnn As SqlConnection = ModGlobleVariable.GENERAL_DAO.getConnection
             Try
+                If Cnn.State = ConnectionState.Closed Then
+                    Cnn.Open()
+                End If
                 SqlComman.CommandText = GetReceiptByDepartment(StrAdd) 'SearchPatient(patientNoSearh, OldPatientNo, DateFrom, DateTo, patientEngName, patientKhName, patientAge, patientSex, patientProvince, patientDistrict, patientCommune)
+
                 SqlComman.Connection = Cnn
                 SQlDataAdapter.SelectCommand = SqlComman
+                DSWaitingPayment.tblPatientReceipt.Clear()
                 SQlDataAdapter.Fill(DSWaitingPayment.tblPatientReceipt)  'DSPatient.TblPatients)
                 'GridPatientInformation.DataSource = DSPatient.Tables(1)
                 GridJanusWaitingPayment.DataSource = DSWaitingPayment.tblPatientReceipt
@@ -88,6 +93,7 @@ Public Class DashbordReceiveReceipt
                 frmInpatientR.lblReceiptToPrintID.Text = GridJanusWaitingPayment.GetRow.Cells("ID").Value
                 frmInpatientR.ShowDialog()
                 GenerateReceipt()
+
                 '--------Refresh data------------------
                 'GridJanusWaitingPayment.DataSource = DAPaymentWaiting.GetDataByGetPaymentList(DateReceipt.Value)
                 'Me.dgvPaymentList.DataSource = MPaymentList.GetPaymentListToday(Format(DateReceipt.Value, "MM/dd/yyyy"))
@@ -303,5 +309,10 @@ Public Class DashbordReceiveReceipt
             End If
         End If
 
+    End Sub
+
+    Private Sub BtnNewCashCount_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewCashCount.Click
+        Dim CashCountByDep As New CashReceivedByDepartment
+        CashCountByDep.ShowDialog()
     End Sub
 End Class

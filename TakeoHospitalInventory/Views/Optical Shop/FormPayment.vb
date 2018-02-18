@@ -144,6 +144,7 @@ Public Class FormPayment
             End If
             '---------------- Update TblPatientReceipt to pay ----------------------
             ObjTblPatientReceipt.ConPay = "1"
+            ObjTblPatientReceipt.ISSUE_BY_DEPART = DEPART_ID
             ObjTblPatientReceipt.TIME_ISSUE = Format(GetDateServer, "hh:mm:ss tt").ToString
             DA_PTrackingTime.UpdateRECEIPT_OPT(Format(Now, "hh:mm:ss tt").ToString, TxtCustomerNo.Text, CheckMarkEOD().Date)
             ObjTblPatientReceipt.AmoutWord = TxtAmountInWord.Text

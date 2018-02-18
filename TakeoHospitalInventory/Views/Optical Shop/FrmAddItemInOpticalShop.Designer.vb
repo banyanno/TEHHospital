@@ -23,7 +23,10 @@ Partial Class FrmAddItemInOpticalShop
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAddItemInOpticalShop))
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.TxtUnitInstock = New System.Windows.Forms.TextBox
+        Me.Label2 = New System.Windows.Forms.Label
         Me.TxtBarcode = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.LblItemID = New System.Windows.Forms.Label
@@ -36,8 +39,7 @@ Partial Class FrmAddItemInOpticalShop
         Me.Label14 = New System.Windows.Forms.Label
         Me.Label13 = New System.Windows.Forms.Label
         Me.ErrReceipt = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.TxtUnitInstock = New System.Windows.Forms.TextBox
+        Me.lblCost = New System.Windows.Forms.Label
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrReceipt, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +47,7 @@ Partial Class FrmAddItemInOpticalShop
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.lblCost)
         Me.GroupBox4.Controls.Add(Me.TxtUnitInstock)
         Me.GroupBox4.Controls.Add(Me.Label2)
         Me.GroupBox4.Controls.Add(Me.TxtBarcode)
@@ -66,6 +69,27 @@ Partial Class FrmAddItemInOpticalShop
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Item Information"
+        '
+        'TxtUnitInstock
+        '
+        Me.TxtUnitInstock.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TxtUnitInstock.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUnitInstock.Location = New System.Drawing.Point(84, 143)
+        Me.TxtUnitInstock.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtUnitInstock.Name = "TxtUnitInstock"
+        Me.TxtUnitInstock.ReadOnly = True
+        Me.TxtUnitInstock.Size = New System.Drawing.Size(274, 26)
+        Me.TxtUnitInstock.TabIndex = 17
+        Me.TxtUnitInstock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(4, 148)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(72, 13)
+        Me.Label2.TabIndex = 16
+        Me.Label2.Text = "Unit In Stock:"
         '
         'TxtBarcode
         '
@@ -189,26 +213,16 @@ Partial Class FrmAddItemInOpticalShop
         '
         Me.ErrReceipt.ContainerControl = Me
         '
-        'Label2
+        'lblCost
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(4, 148)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(72, 13)
-        Me.Label2.TabIndex = 16
-        Me.Label2.Text = "Unit In Stock:"
-        '
-        'TxtUnitInstock
-        '
-        Me.TxtUnitInstock.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TxtUnitInstock.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtUnitInstock.Location = New System.Drawing.Point(84, 143)
-        Me.TxtUnitInstock.Margin = New System.Windows.Forms.Padding(2)
-        Me.TxtUnitInstock.Name = "TxtUnitInstock"
-        Me.TxtUnitInstock.ReadOnly = True
-        Me.TxtUnitInstock.Size = New System.Drawing.Size(274, 26)
-        Me.TxtUnitInstock.TabIndex = 17
-        Me.TxtUnitInstock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.lblCost.AutoSize = True
+        Me.lblCost.Location = New System.Drawing.Point(16, 189)
+        Me.lblCost.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblCost.Name = "lblCost"
+        Me.lblCost.Size = New System.Drawing.Size(13, 13)
+        Me.lblCost.TabIndex = 18
+        Me.lblCost.Text = "0"
+        Me.lblCost.Visible = False
         '
         'FrmAddItemInOpticalShop
         '
@@ -217,6 +231,7 @@ Partial Class FrmAddItemInOpticalShop
         Me.ClientSize = New System.Drawing.Size(394, 271)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox4)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
@@ -247,4 +262,5 @@ Partial Class FrmAddItemInOpticalShop
     Friend WithEvents TxtBarcode As System.Windows.Forms.TextBox
     Friend WithEvents TxtUnitInstock As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lblCost As System.Windows.Forms.Label
 End Class

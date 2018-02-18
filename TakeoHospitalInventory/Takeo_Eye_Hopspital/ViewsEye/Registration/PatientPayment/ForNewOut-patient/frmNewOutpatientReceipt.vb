@@ -765,7 +765,7 @@ Public Class frmNewOutpatientReceipt
             Call MNewOutpatientReceipt.UpdateNewOutpatientReceiptCashier(Me.lblID.Text, Me.txtAmountFigureR.Text, Me.txtAmountFigureD.Text, _
  IIf((Me.rdConsultationR.Checked = True Or Me.rdConsultationD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
             IIf((Me.rdConsultationD.Checked = True Or Me.rdConsultationR.Checked = True) And Me.chkDollar.Checked = True, Me.txtAmountFigureD.Text, 0), _
-            Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", Format(GetDateServer, "hh:mm:ss tt"))
+            Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", Format(GetDateServer, "hh:mm:ss tt"), DEPART_ID)
 
             DA_PTrackingTime.UpateReceipt(Format(Now, "hh:mm:ss tt").ToString, CDbl(txtHN.Text), CheckMarkEOD().Date)
             AccRolesCashier = True

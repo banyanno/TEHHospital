@@ -876,6 +876,8 @@ Public Class UCashCollection
                                     IIf(Me.txt100R.Text > 0, "100 x", ""), Me.txt100R.Text, Me.txt100Rs.Text, _
                                     IIf(Me.txt50R.Text > 0, "50 x", ""), Me.txt50R.Text, Me.txt50Rs.Text, Me.txtTotalRielCount.Text, _
                                     Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"), USER_NAME)
+
+
                 If LblRemarkNoteID.Text <> "0" Then
                     MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
                 Else

@@ -462,7 +462,6 @@ Partial Class frmPrescription
         'GroupBox2
         '
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.LblNew_OldID)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.BtnBrowseDoctor)
         Me.GroupBox2.Controls.Add(Me.TxtTel)
@@ -491,12 +490,11 @@ Partial Class frmPrescription
         'LblNew_OldID
         '
         Me.LblNew_OldID.AutoSize = True
-        Me.LblNew_OldID.Location = New System.Drawing.Point(30, 203)
+        Me.LblNew_OldID.Location = New System.Drawing.Point(623, 69)
         Me.LblNew_OldID.Name = "LblNew_OldID"
         Me.LblNew_OldID.Size = New System.Drawing.Size(13, 13)
         Me.LblNew_OldID.TabIndex = 22
         Me.LblNew_OldID.Text = "0"
-        Me.LblNew_OldID.Visible = False
         '
         'Label9
         '
@@ -837,6 +835,7 @@ Partial Class frmPrescription
         '
         Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.LblNew_OldID)
         Me.GroupBox4.Controls.Add(Me.TxtPrescriptionNote)
         Me.GroupBox4.Controls.Add(Me.CboEye)
         Me.GroupBox4.Controls.Add(Me.DateApp)

@@ -24,6 +24,7 @@ Public Class FrmNewReceipt
     Dim FReceiptPrintPreview As New FrmReceiptPrintPreview
     Dim ObjReceiptCry As New CryReceipt
     Dim ObjReceiptCry_V1 As New CryReceipt_V1
+    Dim ObjReceiptCry_V1_NoPrice As New CryReceipt_V1_NoPrice
     Dim P_Customer As New OpticalshopImp
     Private PARAMETKHMER As String = ""
     Private PARAMETENG As String = ""
@@ -56,7 +57,7 @@ Public Class FrmNewReceipt
     End Sub
     Sub AddItemDetial(ByVal ItemID As Integer, ByVal ItemBarcode As String, ByVal ItemName As String, _
                       ByVal ItemPrice As Double, ByVal ItemQTY As Integer, _
-                      ByVal Pic() As Byte, ByVal SubTotalR As Double, ByVal SubTotalD As Double)
+                      ByVal Pic() As Byte, ByVal SubTotalR As Double, ByVal SubTotalD As Double, ByVal Cost As Double)
         Try
             Dim NewDR As DataRow = Me.DTblItemDetial.NewRow
             NewDR("ColumnItemID") = ItemID
@@ -67,6 +68,8 @@ Public Class FrmNewReceipt
             NewDR("SubTotalReal") = SubTotalR
             NewDR("SubTotalDolar") = SubTotalD
             NewDR("Picture") = Pic
+            NewDR("ItemCost") = Cost
+            NewDR("EXCHANGE_RATE") = txtRate.Text
             DTblItemDetial.Rows.Add(NewDR)
             GridItemDetail.DataSource = DTblItemDetial
 
@@ -841,6 +844,8 @@ Public Class FrmNewReceipt
                                 ObjReceiptDetail.ItemQTY = Val(row("ColumnQTY"))
                                 ObjReceiptDetail.SubTotalReal = Val(row("SubTotalReal"))
                                 ObjReceiptDetail.SubTotalDolar = Val(row("SubTotalDolar"))
+                                ObjReceiptDetail.ItemCost = Val(row("ItemCost"))
+                                ObjReceiptDetail.EXCHANGE_RATE = Val(row("EXCHANGE_RATE"))
                                 ObjReceiptDetail.ReceiptDate = DateCreateReceipt.Value
                                 OpticalDataControl.SaveReceiptDetail(ObjReceiptDetail)
                             Next
@@ -1094,7 +1099,7 @@ Public Class FrmNewReceipt
                         ObjTblPatientReceipt.CashTotal = TxtTotalAsDolar.Text
                         ObjTblPatientReceipt.TIME_CREATE = Format(GetDateServer, "hh:mm:ss tt").ToString 'Format(GetDateServ, "hh:mm:ss tt").ToString
                         ' Save traking time
-                        DA_PTrackingTime.UpdateOPT(Format(Now, "hh:mm:ss tt"), TxtCustomerNo.Text, CheckMarkEOD().Date)
+                        DA_PTrackingTime.UpdateOPT(Format(GetDateServer, "hh:mm:ss tt").ToString, TxtCustomerNo.Text, CheckMarkEOD().Date)
 
                         '======== Set valud Cashe
                         ObjTblPatientReceipt.CashUSD = 0
@@ -1415,6 +1420,8 @@ Public Class FrmNewReceipt
                                     ObjReceiptDetail.ItemQTY = Val(row("ColumnQTY"))
                                     ObjReceiptDetail.SubTotalReal = Val(row("SubTotalReal"))
                                     ObjReceiptDetail.SubTotalDolar = Val(row("SubTotalDolar"))
+                                    ObjReceiptDetail.ItemCost = Val(row("ItemCost"))
+                                    ObjReceiptDetail.EXCHANGE_RATE = Val(row("EXCHANGE_RATE"))
                                     ObjReceiptDetail.ReceiptDate = DateCreateReceipt.Value
                                     OpticalDataControl.SaveReceiptDetail(ObjReceiptDetail)
                                 Next
@@ -1511,6 +1518,8 @@ Public Class FrmNewReceipt
                                         ObjReceiptDetail.ItemQTY = Val(row("ColumnQTY"))
                                         ObjReceiptDetail.SubTotalReal = Val(row("SubTotalReal"))
                                         ObjReceiptDetail.SubTotalDolar = Val(row("SubTotalDolar"))
+                                        ObjReceiptDetail.ItemCost = Val(row("ItemCost"))
+                                        ObjReceiptDetail.EXCHANGE_RATE = Val(row("EXCHANGE_RATE"))
                                         ObjReceiptDetail.ReceiptDate = DateCreateReceipt.Value
                                         OpticalDataControl.SaveReceiptDetail(ObjReceiptDetail)
                                     Next
@@ -1566,22 +1575,45 @@ Public Class FrmNewReceipt
         'End If
         CreateParameterCrystal()
         ObjReceiptCry_V1.SetDataSource(CType(DaReceiptPrint.GetDataByReceiptNo(ReceipNo), DataTable))
+        ObjReceiptCry_V1_NoPrice.SetDataSource(CType(DaReceiptPrint.GetDataByReceiptNo(ReceipNo), DataTable))
         If ChPrintPreview.Checked = True Then
-            FReceiptPrintPreview.CryPrintPreview.ReportSource = ObjReceiptCry_V1
-            ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
-            ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
-            FReceiptPrintPreview.ShowDialog()
-            FReceiptPrintPreview.Close()
-            FReceiptPrintPreview.Dispose()
-            ObjReceiptCry_V1.Dispose()
-            ObjReceiptCry_V1.Close()
+            If ChIsPrintFull.Checked = True Then
+                FReceiptPrintPreview.CryPrintPreview.ReportSource = ObjReceiptCry_V1
+                ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
+                ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
+                FReceiptPrintPreview.ShowDialog()
+                FReceiptPrintPreview.Close()
+                FReceiptPrintPreview.Dispose()
+                ObjReceiptCry_V1.Dispose()
+                ObjReceiptCry_V1.Close()
+            Else
+                FReceiptPrintPreview.CryPrintPreview.ReportSource = ObjReceiptCry_V1_NoPrice
+                ObjReceiptCry_V1_NoPrice.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
+                ObjReceiptCry_V1_NoPrice.SetParameterValue("ParameterEng", PARAMETENG)
+                FReceiptPrintPreview.ShowDialog()
+                FReceiptPrintPreview.Close()
+                FReceiptPrintPreview.Dispose()
+                ObjReceiptCry_V1_NoPrice.Dispose()
+                ObjReceiptCry_V1_NoPrice.Close()
+            End If
+            
         Else
-            ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
-            ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
-            ObjReceiptCry_V1.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
-            ObjReceiptCry_V1.PrintToPrinter(1, True, 1, 1)
-            ObjReceiptCry_V1.Close()
-            ObjReceiptCry_V1.Dispose()
+            If ChIsPrintFull.Checked = True Then
+                ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
+                ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
+                ObjReceiptCry_V1.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
+                ObjReceiptCry_V1.PrintToPrinter(1, True, 1, 1)
+                ObjReceiptCry_V1.Close()
+                ObjReceiptCry_V1.Dispose()
+            Else
+                ObjReceiptCry_V1_NoPrice.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
+                ObjReceiptCry_V1_NoPrice.SetParameterValue("ParameterEng", PARAMETENG)
+                ObjReceiptCry_V1_NoPrice.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
+                ObjReceiptCry_V1_NoPrice.PrintToPrinter(1, True, 1, 1)
+                ObjReceiptCry_V1_NoPrice.Close()
+                ObjReceiptCry_V1_NoPrice.Dispose()
+            End If
+          
         End If
     End Sub
     Sub CleanReceiptInfomation()

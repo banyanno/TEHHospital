@@ -2611,6 +2611,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSPatientReceipt.tblCashCountForDepartmentDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSPatientReceipt.tblPatientReceiptRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -2631,6 +2635,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSPatientReceipt.tblCashCountForDepartmentRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSPatientReceipt.tblPatientReceiptRowChangeEvent">
 	<summary>
 Row event argument class
@@ -2648,6 +2656,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSPatientReceipt.BusinessesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSPatientReceipt.tblCashCountForDepartmentRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -2672,6 +2684,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSPatientReceiptTableAdapters.BusinessesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSPatientReceiptTableAdapters.tblCashCountForDepartmentTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

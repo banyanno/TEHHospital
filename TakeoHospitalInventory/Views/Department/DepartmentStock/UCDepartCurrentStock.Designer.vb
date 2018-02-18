@@ -93,7 +93,6 @@ Partial Class UCDepartCurrentStock
         Me.SplitContainer1.Panel2.Controls.Add(Me.gridItemUsed)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Search)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ToolStrip2)
-        Me.SplitContainer1.Panel2Collapsed = True
         Me.SplitContainer1.Size = New System.Drawing.Size(951, 495)
         Me.SplitContainer1.SplitterDistance = 692
         Me.SplitContainer1.TabIndex = 0
@@ -107,7 +106,7 @@ Partial Class UCDepartCurrentStock
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(951, 495)
+        Me.GroupBox1.Size = New System.Drawing.Size(692, 495)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search"
@@ -125,7 +124,7 @@ Partial Class UCDepartCurrentStock
         Me.gridDepartItems.Name = "gridDepartItems"
         Me.gridDepartItems.RecordNavigator = True
         Me.gridDepartItems.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowPosition
-        Me.gridDepartItems.Size = New System.Drawing.Size(945, 393)
+        Me.gridDepartItems.Size = New System.Drawing.Size(686, 393)
         Me.gridDepartItems.TabIndex = 13
         Me.gridDepartItems.VisualStyle = Janus.Windows.GridEX.VisualStyle.VS2005
         '
@@ -134,7 +133,7 @@ Partial Class UCDepartCurrentStock
         Me.PictItem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictItem.Location = New System.Drawing.Point(836, 232)
+        Me.PictItem.Location = New System.Drawing.Point(577, 232)
         Me.PictItem.Name = "PictItem"
         Me.PictItem.Size = New System.Drawing.Size(109, 220)
         Me.PictItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -151,7 +150,7 @@ Partial Class UCDepartCurrentStock
         Me.lbLocaInCabi.ForeColor = System.Drawing.Color.White
         Me.lbLocaInCabi.Location = New System.Drawing.Point(3, 70)
         Me.lbLocaInCabi.Name = "lbLocaInCabi"
-        Me.lbLocaInCabi.Size = New System.Drawing.Size(945, 29)
+        Me.lbLocaInCabi.Size = New System.Drawing.Size(686, 29)
         Me.lbLocaInCabi.TabIndex = 12
         Me.lbLocaInCabi.Text = "Item Dashboard"
         Me.lbLocaInCabi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -169,7 +168,7 @@ Partial Class UCDepartCurrentStock
         Me.FilterEditor1.Office2007ColorScheme = Janus.Windows.Common.Office2007ColorScheme.[Default]
         Me.FilterEditor1.ScrollMode = Janus.Windows.UI.Dock.ScrollMode.Both
         Me.FilterEditor1.ScrollStep = 15
-        Me.FilterEditor1.Size = New System.Drawing.Size(945, 54)
+        Me.FilterEditor1.Size = New System.Drawing.Size(686, 54)
         Me.FilterEditor1.SourceControl = Me.gridDepartItems
         '
         'gridItemUsed
@@ -185,8 +184,9 @@ Partial Class UCDepartCurrentStock
         Me.gridItemUsed.RecordNavigator = True
         Me.gridItemUsed.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowPosition
         Me.gridItemUsed.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.gridItemUsed.Size = New System.Drawing.Size(72, 9)
+        Me.gridItemUsed.Size = New System.Drawing.Size(255, 423)
         Me.gridItemUsed.TabIndex = 14
+        Me.gridItemUsed.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.gridItemUsed.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
         'Search
@@ -200,7 +200,7 @@ Partial Class UCDepartCurrentStock
         Me.Search.Dock = System.Windows.Forms.DockStyle.Top
         Me.Search.Location = New System.Drawing.Point(0, 0)
         Me.Search.Name = "Search"
-        Me.Search.Size = New System.Drawing.Size(72, 72)
+        Me.Search.Size = New System.Drawing.Size(255, 72)
         Me.Search.TabIndex = 13
         Me.Search.TabStop = False
         Me.Search.Text = "Print"
@@ -233,7 +233,7 @@ Partial Class UCDepartCurrentStock
         Me.dptToDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dptToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dptToDate.Location = New System.Drawing.Point(170, 32)
-        Me.dptToDate.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dptToDate.Margin = New System.Windows.Forms.Padding(2)
         Me.dptToDate.Name = "dptToDate"
         Me.dptToDate.Size = New System.Drawing.Size(151, 26)
         Me.dptToDate.TabIndex = 8
@@ -255,7 +255,7 @@ Partial Class UCDepartCurrentStock
         Me.dptFromDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dptFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dptFromDate.Location = New System.Drawing.Point(9, 33)
-        Me.dptFromDate.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dptFromDate.Margin = New System.Windows.Forms.Padding(2)
         Me.dptFromDate.Name = "dptFromDate"
         Me.dptFromDate.Size = New System.Drawing.Size(151, 26)
         Me.dptFromDate.TabIndex = 6
@@ -287,7 +287,7 @@ Partial Class UCDepartCurrentStock
         Me.BtnNewInhouseUsed.Image = Global.TakeoHospitalInventory.My.Resources.Resources.download
         Me.BtnNewInhouseUsed.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewInhouseUsed.Name = "BtnNewInhouseUsed"
-        Me.BtnNewInhouseUsed.Size = New System.Drawing.Size(125, 28)
+        Me.BtnNewInhouseUsed.Size = New System.Drawing.Size(133, 28)
         Me.BtnNewInhouseUsed.Text = "New Inhouse Used"
         '
         'ToolStripSeparator7
@@ -300,7 +300,7 @@ Partial Class UCDepartCurrentStock
         Me.ToolStripButton1.Image = Global.TakeoHospitalInventory.My.Resources.Resources.view_refresh
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(99, 28)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(103, 28)
         Me.ToolStripButton1.Text = "Preview Data"
         '
         'ToolStripSeparator8
@@ -313,7 +313,7 @@ Partial Class UCDepartCurrentStock
         Me.ToolStripButton2.Image = Global.TakeoHospitalInventory.My.Resources.Resources.document_print
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(57, 28)
+        Me.ToolStripButton2.Size = New System.Drawing.Size(60, 28)
         Me.ToolStripButton2.Text = "Print"
         '
         'ToolStrip1
@@ -333,7 +333,7 @@ Partial Class UCDepartCurrentStock
         Me.BtnInitialItem.Image = Global.TakeoHospitalInventory.My.Resources.Resources.download
         Me.BtnInitialItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnInitialItem.Name = "BtnInitialItem"
-        Me.BtnInitialItem.Size = New System.Drawing.Size(86, 28)
+        Me.BtnInitialItem.Size = New System.Drawing.Size(91, 28)
         Me.BtnInitialItem.Text = "Initial Item"
         '
         'ToolStripSeparator4
@@ -346,7 +346,7 @@ Partial Class UCDepartCurrentStock
         Me.BtnAdjustStock.Image = Global.TakeoHospitalInventory.My.Resources.Resources.configuration_edit
         Me.BtnAdjustStock.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnAdjustStock.Name = "BtnAdjustStock"
-        Me.BtnAdjustStock.Size = New System.Drawing.Size(95, 28)
+        Me.BtnAdjustStock.Size = New System.Drawing.Size(101, 28)
         Me.BtnAdjustStock.Text = "Adjust Stock"
         '
         'ToolStripSeparator3
@@ -359,7 +359,7 @@ Partial Class UCDepartCurrentStock
         Me.BtnUsedItem.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Mac
         Me.BtnUsedItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnUsedItem.Name = "BtnUsedItem"
-        Me.BtnUsedItem.Size = New System.Drawing.Size(130, 28)
+        Me.BtnUsedItem.Size = New System.Drawing.Size(138, 28)
         Me.BtnUsedItem.Text = "In-house Used Item"
         '
         'ToolStripSeparator1
@@ -372,7 +372,7 @@ Partial Class UCDepartCurrentStock
         Me.BtnRefreshData.Image = Global.TakeoHospitalInventory.My.Resources.Resources.view_refresh
         Me.BtnRefreshData.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRefreshData.Name = "BtnRefreshData"
-        Me.BtnRefreshData.Size = New System.Drawing.Size(99, 28)
+        Me.BtnRefreshData.Size = New System.Drawing.Size(101, 28)
         Me.BtnRefreshData.Text = "Refresh Data"
         '
         'ToolStripSeparator5
@@ -385,7 +385,7 @@ Partial Class UCDepartCurrentStock
         Me.BtnPrint.Image = Global.TakeoHospitalInventory.My.Resources.Resources.document_print
         Me.BtnPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnPrint.Name = "BtnPrint"
-        Me.BtnPrint.Size = New System.Drawing.Size(87, 28)
+        Me.BtnPrint.Size = New System.Drawing.Size(92, 28)
         Me.BtnPrint.Text = "Print Items"
         '
         'ToolStripSeparator2
@@ -398,7 +398,7 @@ Partial Class UCDepartCurrentStock
         Me.BtnUseTemplet.Image = Global.TakeoHospitalInventory.My.Resources.Resources.document_print
         Me.BtnUseTemplet.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnUseTemplet.Name = "BtnUseTemplet"
-        Me.BtnUseTemplet.Size = New System.Drawing.Size(141, 28)
+        Me.BtnUseTemplet.Size = New System.Drawing.Size(155, 28)
         Me.BtnUseTemplet.Text = "Monthly Used Templet"
         '
         'ToolStripSeparator6
@@ -411,14 +411,14 @@ Partial Class UCDepartCurrentStock
         Me.BtnViewHistory.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1316761851_ark2
         Me.BtnViewHistory.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnViewHistory.Name = "BtnViewHistory"
-        Me.BtnViewHistory.Size = New System.Drawing.Size(146, 28)
+        Me.BtnViewHistory.Size = New System.Drawing.Size(157, 28)
         Me.BtnViewHistory.Text = "View History Used Item"
         '
         'SplitContainer2
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 31)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(2)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -442,11 +442,11 @@ Partial Class UCDepartCurrentStock
         Me.CRVItemMonthlyUsed.DisplayGroupTree = False
         Me.CRVItemMonthlyUsed.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CRVItemMonthlyUsed.Location = New System.Drawing.Point(0, 0)
-        Me.CRVItemMonthlyUsed.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CRVItemMonthlyUsed.Margin = New System.Windows.Forms.Padding(2)
         Me.CRVItemMonthlyUsed.Name = "CRVItemMonthlyUsed"
         Me.CRVItemMonthlyUsed.SelectionFormula = ""
         Me.CRVItemMonthlyUsed.ShowGroupTreeButton = False
-        Me.CRVItemMonthlyUsed.Size = New System.Drawing.Size(112, 37)
+        Me.CRVItemMonthlyUsed.Size = New System.Drawing.Size(150, 46)
         Me.CRVItemMonthlyUsed.TabIndex = 0
         Me.CRVItemMonthlyUsed.ViewTimeSelectionFormula = ""
         '

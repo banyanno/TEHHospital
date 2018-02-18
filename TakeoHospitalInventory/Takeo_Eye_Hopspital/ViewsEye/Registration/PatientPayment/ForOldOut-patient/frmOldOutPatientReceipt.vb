@@ -1283,7 +1283,7 @@ Public Class frmOldOutPatientReceipt
             Call MOldOutpatientReceipt.UpdateOldOutpatientReceiptCashier(Me.lblID.Text, Me.txtAmountFigureR.Text, Me.txtAmountFigureD.Text, _
             IIf((Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
             IIf((Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True) And Me.chkDollar.Checked = True, Me.txtAmountFigureD.Text, 0), _
-            Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", Format(GetDateServer, "hh:mm:ss tt").ToString)
+            Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", Format(GetDateServer, "hh:mm:ss tt").ToString, DEPART_ID)
             DA_PTrackingTime.UpateReceipt(Format(Now, "hh:mm:ss tt").ToString, txtHN.Text, CheckMarkEOD().Date)
             AccRolesCashier = True
             isTrueFalse = False

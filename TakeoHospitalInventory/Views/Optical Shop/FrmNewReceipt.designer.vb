@@ -39,17 +39,10 @@ Partial Class FrmNewReceipt
         Me.BtnAddCustomer = New Janus.Windows.EditControls.UIButton
         Me.TxtCustomerID = New System.Windows.Forms.TextBox
         Me.GridItemDetail = New System.Windows.Forms.DataGridView
-        Me.ColumnItemID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ColumnBarcode = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ColumnName = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ColumnPrice = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ColumnQTY = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.SubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.SubTotalDolar = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Picture = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.GPIncomeType = New System.Windows.Forms.GroupBox
         Me.GroupBox10 = New System.Windows.Forms.GroupBox
+        Me.DateConsult = New System.Windows.Forms.DateTimePicker
         Me.LblConsultID = New System.Windows.Forms.Label
         Me.LblSendBy = New System.Windows.Forms.Label
         Me.lblConsultFor = New System.Windows.Forms.Label
@@ -122,8 +115,18 @@ Partial Class FrmNewReceipt
         Me.TxtGetBarcode = New System.Windows.Forms.TextBox
         Me.ErrReceipt = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BgSaveAndPrinting = New System.ComponentModel.BackgroundWorker
-        Me.DateConsult = New System.Windows.Forms.DateTimePicker
         Me.Label14 = New System.Windows.Forms.Label
+        Me.ColumnItemID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColumnBarcode = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColumnName = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColumnPrice = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColumnQTY = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.SubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.SubTotalDolar = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Picture = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ItemCost = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.EXCHANGE_RATE = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChIsPrintFull = New System.Windows.Forms.CheckBox
         Me.GroupBox1.SuspendLayout()
         CType(Me.GridItemDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -385,7 +388,7 @@ Partial Class FrmNewReceipt
         Me.GridItemDetail.BackgroundColor = System.Drawing.SystemColors.Window
         Me.GridItemDetail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.GridItemDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.GridItemDetail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColumnItemID, Me.ColumnBarcode, Me.ColumnName, Me.ColumnPrice, Me.ColumnQTY, Me.SubTotal, Me.SubTotalDolar, Me.Picture})
+        Me.GridItemDetail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColumnItemID, Me.ColumnBarcode, Me.ColumnName, Me.ColumnPrice, Me.ColumnQTY, Me.SubTotal, Me.SubTotalDolar, Me.Picture, Me.ItemCost, Me.EXCHANGE_RATE})
         Me.GridItemDetail.Location = New System.Drawing.Point(11, 217)
         Me.GridItemDetail.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GridItemDetail.Name = "GridItemDetail"
@@ -394,79 +397,6 @@ Partial Class FrmNewReceipt
         Me.GridItemDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.GridItemDetail.Size = New System.Drawing.Size(1101, 221)
         Me.GridItemDetail.TabIndex = 3
-        '
-        'ColumnItemID
-        '
-        Me.ColumnItemID.DataPropertyName = "ColumnItemID"
-        Me.ColumnItemID.HeaderText = "ColumnItemID"
-        Me.ColumnItemID.Name = "ColumnItemID"
-        Me.ColumnItemID.ReadOnly = True
-        Me.ColumnItemID.Visible = False
-        Me.ColumnItemID.Width = 50
-        '
-        'ColumnBarcode
-        '
-        Me.ColumnBarcode.DataPropertyName = "ColumnBarcode"
-        Me.ColumnBarcode.HeaderText = "Barcode"
-        Me.ColumnBarcode.Name = "ColumnBarcode"
-        Me.ColumnBarcode.ReadOnly = True
-        Me.ColumnBarcode.Width = 200
-        '
-        'ColumnName
-        '
-        Me.ColumnName.DataPropertyName = "ColumnName"
-        Me.ColumnName.HeaderText = "Name"
-        Me.ColumnName.Name = "ColumnName"
-        Me.ColumnName.ReadOnly = True
-        Me.ColumnName.Width = 200
-        '
-        'ColumnPrice
-        '
-        Me.ColumnPrice.DataPropertyName = "ColumnPrice"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.ColumnPrice.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ColumnPrice.HeaderText = "Price"
-        Me.ColumnPrice.Name = "ColumnPrice"
-        Me.ColumnPrice.ReadOnly = True
-        '
-        'ColumnQTY
-        '
-        Me.ColumnQTY.DataPropertyName = "ColumnQTY"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.ColumnQTY.DefaultCellStyle = DataGridViewCellStyle2
-        Me.ColumnQTY.HeaderText = "Quality"
-        Me.ColumnQTY.Name = "ColumnQTY"
-        Me.ColumnQTY.ReadOnly = True
-        '
-        'SubTotal
-        '
-        Me.SubTotal.DataPropertyName = "SubTotalReal"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "R"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.SubTotal.DefaultCellStyle = DataGridViewCellStyle3
-        Me.SubTotal.HeaderText = "Sub Total R"
-        Me.SubTotal.Name = "SubTotal"
-        Me.SubTotal.ReadOnly = True
-        Me.SubTotal.Width = 150
-        '
-        'SubTotalDolar
-        '
-        Me.SubTotalDolar.DataPropertyName = "SubTotalDolar"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.SubTotalDolar.DefaultCellStyle = DataGridViewCellStyle4
-        Me.SubTotalDolar.HeaderText = "Sub Total $"
-        Me.SubTotalDolar.Name = "SubTotalDolar"
-        Me.SubTotalDolar.ReadOnly = True
-        Me.SubTotalDolar.Width = 150
-        '
-        'Picture
-        '
-        Me.Picture.DataPropertyName = "Picture"
-        Me.Picture.HeaderText = "Picture"
-        Me.Picture.Name = "Picture"
-        Me.Picture.ReadOnly = True
-        Me.Picture.Visible = False
         '
         'GroupBox3
         '
@@ -531,6 +461,17 @@ Partial Class FrmNewReceipt
         Me.GroupBox10.TabIndex = 211
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Information From Consult"
+        '
+        'DateConsult
+        '
+        Me.DateConsult.CustomFormat = "dd/MM/yyyy"
+        Me.DateConsult.Enabled = False
+        Me.DateConsult.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateConsult.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateConsult.Location = New System.Drawing.Point(197, 47)
+        Me.DateConsult.Name = "DateConsult"
+        Me.DateConsult.Size = New System.Drawing.Size(123, 26)
+        Me.DateConsult.TabIndex = 10
         '
         'LblConsultID
         '
@@ -1085,11 +1026,12 @@ Partial Class FrmNewReceipt
         Me.LblTotalConsult.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.LblTotalConsult.ForeColor = System.Drawing.Color.Red
         Me.LblTotalConsult.Name = "LblTotalConsult"
-        Me.LblTotalConsult.Size = New System.Drawing.Size(128, 24)
+        Me.LblTotalConsult.Size = New System.Drawing.Size(127, 24)
         Me.LblTotalConsult.Text = "Total Consult: 0"
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.ChIsPrintFull)
         Me.GroupBox4.Controls.Add(Me.LblReceiptID)
         Me.GroupBox4.Controls.Add(Me.GBPaymentType)
         Me.GroupBox4.Controls.Add(Me.GroupBox7)
@@ -1132,7 +1074,7 @@ Partial Class FrmNewReceipt
         Me.GBPaymentType.Controls.Add(Me.RadFull)
         Me.GBPaymentType.Location = New System.Drawing.Point(231, 9)
         Me.GBPaymentType.Name = "GBPaymentType"
-        Me.GBPaymentType.Size = New System.Drawing.Size(360, 150)
+        Me.GBPaymentType.Size = New System.Drawing.Size(360, 117)
         Me.GBPaymentType.TabIndex = 4
         Me.GBPaymentType.TabStop = False
         Me.GBPaymentType.Text = "Payment Type"
@@ -1141,7 +1083,7 @@ Partial Class FrmNewReceipt
         '
         Me.GroupPayCorrency.Controls.Add(Me.RadKHR)
         Me.GroupPayCorrency.Controls.Add(Me.RadUSD)
-        Me.GroupPayCorrency.Location = New System.Drawing.Point(265, 28)
+        Me.GroupPayCorrency.Location = New System.Drawing.Point(265, 14)
         Me.GroupPayCorrency.Name = "GroupPayCorrency"
         Me.GroupPayCorrency.Size = New System.Drawing.Size(80, 64)
         Me.GroupPayCorrency.TabIndex = 3
@@ -1173,7 +1115,7 @@ Partial Class FrmNewReceipt
         Me.TxtSocialAmount.BackColor = System.Drawing.Color.White
         Me.TxtSocialAmount.Enabled = False
         Me.TxtSocialAmount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSocialAmount.Location = New System.Drawing.Point(69, 66)
+        Me.TxtSocialAmount.Location = New System.Drawing.Point(69, 52)
         Me.TxtSocialAmount.Name = "TxtSocialAmount"
         Me.TxtSocialAmount.Size = New System.Drawing.Size(174, 26)
         Me.TxtSocialAmount.TabIndex = 1
@@ -1182,7 +1124,7 @@ Partial Class FrmNewReceipt
         'TxtNilAmount
         '
         Me.TxtNilAmount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TxtNilAmount.Location = New System.Drawing.Point(207, 102)
+        Me.TxtNilAmount.Location = New System.Drawing.Point(207, 88)
         Me.TxtNilAmount.Name = "TxtNilAmount"
         Me.TxtNilAmount.Size = New System.Drawing.Size(36, 26)
         Me.TxtNilAmount.TabIndex = 4
@@ -1193,7 +1135,7 @@ Partial Class FrmNewReceipt
         Me.TxtFullAmount.BackColor = System.Drawing.Color.White
         Me.TxtFullAmount.Enabled = False
         Me.TxtFullAmount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TxtFullAmount.Location = New System.Drawing.Point(69, 35)
+        Me.TxtFullAmount.Location = New System.Drawing.Point(69, 21)
         Me.TxtFullAmount.Name = "TxtFullAmount"
         Me.TxtFullAmount.Size = New System.Drawing.Size(174, 26)
         Me.TxtFullAmount.TabIndex = 0
@@ -1205,7 +1147,7 @@ Partial Class FrmNewReceipt
         Me.RadNil.Enabled = False
         Me.RadNil.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadNil.ForeColor = System.Drawing.Color.Blue
-        Me.RadNil.Location = New System.Drawing.Point(17, 102)
+        Me.RadNil.Location = New System.Drawing.Point(17, 88)
         Me.RadNil.Name = "RadNil"
         Me.RadNil.Size = New System.Drawing.Size(114, 24)
         Me.RadNil.TabIndex = 2
@@ -1217,7 +1159,7 @@ Partial Class FrmNewReceipt
         '
         Me.RadSocial.AutoSize = True
         Me.RadSocial.Enabled = False
-        Me.RadSocial.Location = New System.Drawing.Point(17, 75)
+        Me.RadSocial.Location = New System.Drawing.Point(17, 61)
         Me.RadSocial.Name = "RadSocial"
         Me.RadSocial.Size = New System.Drawing.Size(54, 17)
         Me.RadSocial.TabIndex = 2
@@ -1229,7 +1171,7 @@ Partial Class FrmNewReceipt
         '
         Me.RadFull.AutoSize = True
         Me.RadFull.Enabled = False
-        Me.RadFull.Location = New System.Drawing.Point(17, 44)
+        Me.RadFull.Location = New System.Drawing.Point(17, 30)
         Me.RadFull.Name = "RadFull"
         Me.RadFull.Size = New System.Drawing.Size(41, 17)
         Me.RadFull.TabIndex = 0
@@ -1294,7 +1236,7 @@ Partial Class FrmNewReceipt
         Me.ChPrintPreview.AutoSize = True
         Me.ChPrintPreview.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChPrintPreview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ChPrintPreview.Location = New System.Drawing.Point(15, 81)
+        Me.ChPrintPreview.Location = New System.Drawing.Point(253, 136)
         Me.ChPrintPreview.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ChPrintPreview.Name = "ChPrintPreview"
         Me.ChPrintPreview.Size = New System.Drawing.Size(157, 21)
@@ -1316,17 +1258,6 @@ Partial Class FrmNewReceipt
         'BgSaveAndPrinting
         '
         '
-        'DateConsult
-        '
-        Me.DateConsult.CustomFormat = "dd/MM/yyyy"
-        Me.DateConsult.Enabled = False
-        Me.DateConsult.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateConsult.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateConsult.Location = New System.Drawing.Point(197, 47)
-        Me.DateConsult.Name = "DateConsult"
-        Me.DateConsult.Size = New System.Drawing.Size(123, 26)
-        Me.DateConsult.TabIndex = 10
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -1336,6 +1267,110 @@ Partial Class FrmNewReceipt
         Me.Label14.Size = New System.Drawing.Size(71, 13)
         Me.Label14.TabIndex = 9
         Me.Label14.Text = "Date Consult:"
+        '
+        'ColumnItemID
+        '
+        Me.ColumnItemID.DataPropertyName = "ColumnItemID"
+        Me.ColumnItemID.HeaderText = "ColumnItemID"
+        Me.ColumnItemID.Name = "ColumnItemID"
+        Me.ColumnItemID.ReadOnly = True
+        Me.ColumnItemID.Visible = False
+        Me.ColumnItemID.Width = 50
+        '
+        'ColumnBarcode
+        '
+        Me.ColumnBarcode.DataPropertyName = "ColumnBarcode"
+        Me.ColumnBarcode.HeaderText = "Barcode"
+        Me.ColumnBarcode.Name = "ColumnBarcode"
+        Me.ColumnBarcode.ReadOnly = True
+        Me.ColumnBarcode.Width = 200
+        '
+        'ColumnName
+        '
+        Me.ColumnName.DataPropertyName = "ColumnName"
+        Me.ColumnName.HeaderText = "Name"
+        Me.ColumnName.Name = "ColumnName"
+        Me.ColumnName.ReadOnly = True
+        Me.ColumnName.Width = 200
+        '
+        'ColumnPrice
+        '
+        Me.ColumnPrice.DataPropertyName = "ColumnPrice"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColumnPrice.DefaultCellStyle = DataGridViewCellStyle1
+        Me.ColumnPrice.HeaderText = "Price"
+        Me.ColumnPrice.Name = "ColumnPrice"
+        Me.ColumnPrice.ReadOnly = True
+        '
+        'ColumnQTY
+        '
+        Me.ColumnQTY.DataPropertyName = "ColumnQTY"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColumnQTY.DefaultCellStyle = DataGridViewCellStyle2
+        Me.ColumnQTY.HeaderText = "Quality"
+        Me.ColumnQTY.Name = "ColumnQTY"
+        Me.ColumnQTY.ReadOnly = True
+        '
+        'SubTotal
+        '
+        Me.SubTotal.DataPropertyName = "SubTotalReal"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "R"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.SubTotal.DefaultCellStyle = DataGridViewCellStyle3
+        Me.SubTotal.HeaderText = "Sub Total R"
+        Me.SubTotal.Name = "SubTotal"
+        Me.SubTotal.ReadOnly = True
+        Me.SubTotal.Width = 150
+        '
+        'SubTotalDolar
+        '
+        Me.SubTotalDolar.DataPropertyName = "SubTotalDolar"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.SubTotalDolar.DefaultCellStyle = DataGridViewCellStyle4
+        Me.SubTotalDolar.HeaderText = "Sub Total $"
+        Me.SubTotalDolar.Name = "SubTotalDolar"
+        Me.SubTotalDolar.ReadOnly = True
+        Me.SubTotalDolar.Width = 150
+        '
+        'Picture
+        '
+        Me.Picture.DataPropertyName = "Picture"
+        Me.Picture.HeaderText = "Picture"
+        Me.Picture.Name = "Picture"
+        Me.Picture.ReadOnly = True
+        Me.Picture.Visible = False
+        '
+        'ItemCost
+        '
+        Me.ItemCost.DataPropertyName = "ItemCost"
+        Me.ItemCost.HeaderText = "ItemCost"
+        Me.ItemCost.Name = "ItemCost"
+        Me.ItemCost.ReadOnly = True
+        Me.ItemCost.Visible = False
+        '
+        'EXCHANGE_RATE
+        '
+        Me.EXCHANGE_RATE.DataPropertyName = "EXCHANGE_RATE"
+        Me.EXCHANGE_RATE.HeaderText = "EXCHANGE_RATE"
+        Me.EXCHANGE_RATE.Name = "EXCHANGE_RATE"
+        Me.EXCHANGE_RATE.ReadOnly = True
+        Me.EXCHANGE_RATE.Visible = False
+        '
+        'ChIsPrintFull
+        '
+        Me.ChIsPrintFull.AutoSize = True
+        Me.ChIsPrintFull.Checked = True
+        Me.ChIsPrintFull.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.ChIsPrintFull.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChIsPrintFull.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.ChIsPrintFull.Location = New System.Drawing.Point(419, 136)
+        Me.ChIsPrintFull.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ChIsPrintFull.Name = "ChIsPrintFull"
+        Me.ChIsPrintFull.Size = New System.Drawing.Size(125, 21)
+        Me.ChIsPrintFull.TabIndex = 13
+        Me.ChIsPrintFull.Text = "Print full receipt"
+        Me.ChIsPrintFull.UseVisualStyleBackColor = True
         '
         'FrmNewReceipt
         '
@@ -1477,14 +1512,6 @@ Partial Class FrmNewReceipt
     Friend WithEvents RadRedding1 As System.Windows.Forms.RadioButton
     Friend WithEvents CboDonation As System.Windows.Forms.ComboBox
     Friend WithEvents TxtDonateAmount As System.Windows.Forms.TextBox
-    Friend WithEvents ColumnItemID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColumnBarcode As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColumnName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColumnPrice As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColumnQTY As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SubTotal As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SubTotalDolar As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Picture As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
     Friend WithEvents LblConsultID As System.Windows.Forms.Label
     Friend WithEvents LblSendBy As System.Windows.Forms.Label
@@ -1500,4 +1527,15 @@ Partial Class FrmNewReceipt
     Friend WithEvents LblReceiptID As System.Windows.Forms.Label
     Friend WithEvents DateConsult As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents ColumnItemID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColumnBarcode As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColumnName As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColumnPrice As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColumnQTY As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SubTotal As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SubTotalDolar As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Picture As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemCost As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EXCHANGE_RATE As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChIsPrintFull As System.Windows.Forms.CheckBox
 End Class

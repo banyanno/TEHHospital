@@ -47,6 +47,7 @@ Public Class FrmAddItemInOpticalShop
         TxtItemQTY.Text = ""
         TxtUnitInstock.Text = ""
         LblPrice.Text = "Item Price:*"
+        lblCost.Text = "0"
         PictItem.Visible = False
     End Sub
     Sub AddItem()
@@ -70,18 +71,18 @@ Public Class FrmAddItemInOpticalShop
             If IsDolar = True Then
                 SubTotalR = Round((Val(TxtItemPrice.Text) * Val(Rate)) * Val(TxtItemQTY.Text))
                 'Calculate for Dolar
-                SubTotalD = Round(Val(TxtItemPrice.Text) * Val(TxtItemQTY.Text), 2)
+                SubTotalD = Round(Val(TxtItemPrice.Text) * Val(TxtItemQTY.Text), 3)
             Else
                 SubTotalR = Math.Round(Val(TxtItemPrice.Text) * Val(TxtItemQTY.Text))
-                SubTotalD = Round((Val(TxtItemPrice.Text) / Val(Rate)) * Val(TxtItemQTY.Text), 2)
+                SubTotalD = Round((Val(TxtItemPrice.Text) / Val(Rate)) * Val(TxtItemQTY.Text), 3)
             End If
 
             If IsPaymentNil = True Then
                 'SubTotalR = 0
                 'SubTotalD = 0
-                Me.FNewReceipt.AddItemDetial(LblItemID.Text, TxtBarcode.Text, TxtItemName.Text, TxtItemPrice.Text, TxtItemQTY.Text, Nothing, SubTotalR, SubTotalD)
+                Me.FNewReceipt.AddItemDetial(LblItemID.Text, TxtBarcode.Text, TxtItemName.Text, TxtItemPrice.Text, TxtItemQTY.Text, Nothing, SubTotalR, SubTotalD, lblCost.Text)
             Else
-                Me.FNewReceipt.AddItemDetial(LblItemID.Text, TxtBarcode.Text, TxtItemName.Text, TxtItemPrice.Text, TxtItemQTY.Text, Nothing, SubTotalR, SubTotalD)
+                Me.FNewReceipt.AddItemDetial(LblItemID.Text, TxtBarcode.Text, TxtItemName.Text, TxtItemPrice.Text, TxtItemQTY.Text, Nothing, SubTotalR, SubTotalD, lblCost.Text)
             End If
             CleanItem()
             TxtBarcode.Text = ""
@@ -102,6 +103,7 @@ Public Class FrmAddItemInOpticalShop
             For Each row As DataRow In TblTemItem.Rows
                 LblItemID.Text = row("ItemID")
                 TxtItemName.Text = row("ItemName")
+                lblCost.Text = row("UnitPrice")
                 Dim TblDepartStock As New tblDeptStock
                 TblDepartStock = itemDepartStockRepo.GetDepartStockByDepartIDAndItemID(OPTICALSHOP_DEPART_ID, CInt(LblItemID.Text))
                 Dim QTYTem As Integer = 0

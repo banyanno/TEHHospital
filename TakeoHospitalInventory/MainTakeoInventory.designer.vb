@@ -985,8 +985,9 @@ Partial Class MainTakeoInventory
         BottonBarMain_Group_2.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Group_2.Icon = CType(resources.GetObject("BottonBarMain_Group_2.Icon"), System.Drawing.Icon)
         BottonBarMain_Item_2_0.Cursor = System.Windows.Forms.Cursors.Hand
-        BottonBarMain_Item_2_0.Key = "Receive Payment"
-        BottonBarMain_Item_2_0.Text = "Receive Payment"
+        BottonBarMain_Item_2_0.Icon = CType(resources.GetObject("BottonBarMain_Item_2_0.Icon"), System.Drawing.Icon)
+        BottonBarMain_Item_2_0.Key = "Payment Waiting By Dep"
+        BottonBarMain_Item_2_0.Text = "Payment Waiting By Dep"
         BottonBarMain_Item_2_1.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Item_2_1.Enabled = False
         BottonBarMain_Item_2_1.Icon = CType(resources.GetObject("BottonBarMain_Item_2_1.Icon"), System.Drawing.Icon)

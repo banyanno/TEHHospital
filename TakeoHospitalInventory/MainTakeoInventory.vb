@@ -623,7 +623,7 @@ Public Class MainTakeoInventory
 
     Private Sub BottonBarMain_ItemClick(ByVal sender As System.Object, ByVal e As Janus.Windows.ButtonBar.ItemEventArgs) Handles BottonBarMain.ItemClick
         Select Case e.Item.Key
-            Case "Receive Payment"
+            Case "Payment Waiting By Dep"
                 CreateReceivePayment()
             Case "PatientPayment"
                 CreatePaymentForm()

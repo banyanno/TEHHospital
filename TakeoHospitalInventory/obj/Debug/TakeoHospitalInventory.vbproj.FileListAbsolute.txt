@@ -1121,3 +1121,4 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospit
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.AppointmentParameter.resources
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.CallAppParameter.resources
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.DashbordReceiveReceipt.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\Debug\TakeoHospitalInventory.CashReceivedByDepartment.resources
