@@ -29,7 +29,7 @@ Public Class frmAccountReceivable
             If LblReceiveAbleID.Text = "0" Then
                 If MAccountReceivable.CheckIDAccDate(Me.cboAccountName.SelectedValue.ToString, Format(Me.dtpDate.Value, "MM/dd/yyyy")) = True Then
                     If MessageBox.Show("Do you want save new value's account recieveabl?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                        Call MAccountReceivable.SaveAccountAount(Me.cboAccountName.SelectedValue.ToString, IIf(Me.chkDollar.Checked = True, Me.txtAmountUSD.Text, 0), IIf(Me.chkRiel.Checked = True, Me.txtAmountRiel.Text, 0), Format(Me.dtpDate.Value, "MM/dd/yyyy"), USER_NAME)
+                        Call MAccountReceivable.SaveAccountAount(Me.cboAccountName.SelectedValue.ToString, IIf(Me.chkDollar.Checked = True, Me.txtAmountUSD.Text, 0), IIf(Me.chkRiel.Checked = True, Me.txtAmountRiel.Text, 0), Format(Me.dtpDate.Value, "MM/dd/yyyy"), USER_NAME, DEPART_ID, DEPART_NAME)
                     End If
                     Me.dgvAccountReceivable.DataSource = MAccountReceivable.SelectAccountAmountByDate(Format(Me.dtpDate.Value, "MM/dd/yyyy"))
                     Me.cboAccountName.SelectedIndex = -1
@@ -42,7 +42,7 @@ Public Class frmAccountReceivable
                 Dim Dialogbox As DialogResult
                 Dialogbox = MessageBox.Show("Do you want to update this account amount?", "Update account amount", MessageBoxButtons.YesNo)
                 If Dialogbox = Windows.Forms.DialogResult.Yes Then
-                    Call MAccountReceivable.UpdateAccountAount(LblReceiveAbleID.Text, Me.cboAccountName.SelectedValue.ToString, IIf(Me.chkDollar.Checked = True, Me.txtAmountUSD.Text, 0), IIf(Me.chkRiel.Checked = True, Me.txtAmountRiel.Text, 0), Format(Me.dtpDate.Value, "MM/dd/yyyy"), USER_NAME)
+                    Call MAccountReceivable.UpdateAccountAount(LblReceiveAbleID.Text, Me.cboAccountName.SelectedValue.ToString, IIf(Me.chkDollar.Checked = True, Me.txtAmountUSD.Text, 0), IIf(Me.chkRiel.Checked = True, Me.txtAmountRiel.Text, 0), Format(Me.dtpDate.Value, "MM/dd/yyyy"), USER_NAME, DEPART_ID, DEPART_NAME)
                     Me.dgvAccountReceivable.DataSource = MAccountReceivable.SelectAccountAmountByDate(Format(Me.dtpDate.Value, "MM/dd/yyyy"))
                     Call ClearForm()
                 Else

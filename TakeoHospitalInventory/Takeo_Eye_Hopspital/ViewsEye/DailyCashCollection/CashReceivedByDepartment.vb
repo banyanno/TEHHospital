@@ -938,6 +938,7 @@
             Exit Sub
         End If
         Me.GridCashCollection.DataSource = MCashCollection.DailyCashCollectionByDepartment(Me.dtpDateFrom.Value, DEPART_ID)
+        Me.dgvRemarks.DataSource = MCashCollection.DailyRemarksAccReceivedByDep(Me.dtpDateFrom.Value, DEPART_ID)
         Call ClearCashCount()
         Call ShowCashCount()
     End Sub

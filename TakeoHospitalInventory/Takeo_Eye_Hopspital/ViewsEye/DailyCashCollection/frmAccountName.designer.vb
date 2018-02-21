@@ -128,7 +128,7 @@ Partial Class frmAccountName
         '
         Me.dgvAccountName.AllowUserToAddRows = False
         Me.dgvAccountName.AllowUserToDeleteRows = False
-        Me.dgvAccountName.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.dgvAccountName.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvAccountName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dgvAccountName.ColumnHeadersHeight = 30
         Me.dgvAccountName.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.AccountName, Me.DateIn})

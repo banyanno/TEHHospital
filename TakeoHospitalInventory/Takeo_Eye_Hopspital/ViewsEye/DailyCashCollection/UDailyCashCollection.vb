@@ -29,7 +29,7 @@ Public Class UCashCollection
             Next
         End If
         '--------------------Remarks or Account Receivable---------------
-        Me.dgvRemarks.DataSource = MCashCollection.DailyRemarks(Me.dtpDateFrom.Value)
+        Me.dgvRemarks.DataSource = MCashCollection.DailyRemarksAccReceived(Me.dtpDateFrom.Value)
         Me.GridAccountPayable.DataSource = DAAccountPayable.GetDataByCurrentDate(dtpDateFrom.Value)
         Dim tblRemarkNote As DataTable = MCashCollection.SelectRemarksNote(dtpDateFrom.Value.Date)
         If tblRemarkNote.Rows.Count > 0 Then
@@ -60,10 +60,7 @@ Public Class UCashCollection
         Call ShowCashCount()
     End Sub
 
-    Private Sub cmdCreateNew_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCreateNew.Click
-        Dim frmAccRec As New frmAccountName
-        frmAccRec.ShowDialog()
-    End Sub
+   
 
     Private Function USDRielCal(ByVal AmountDR As Integer, ByVal USDRIEL As Double) As Double
         Dim SubTotal As Double
@@ -876,15 +873,6 @@ Public Class UCashCollection
                                     IIf(Me.txt100R.Text > 0, "100 x", ""), Me.txt100R.Text, Me.txt100Rs.Text, _
                                     IIf(Me.txt50R.Text > 0, "50 x", ""), Me.txt50R.Text, Me.txt50Rs.Text, Me.txtTotalRielCount.Text, _
                                     Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"), USER_NAME)
-
-
-                If LblRemarkNoteID.Text <> "0" Then
-                    MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
-                Else
-                    If TxtRemarkNote.Text.Trim <> "" Then
-                        MCashCollection.SaveDiallyRemarkNote(dtpDateFrom.Value.Date, TxtRemarkNote.Text)
-                    End If
-                End If
             End If
         Else
             Dim Dialogbox As DialogResult
@@ -907,13 +895,13 @@ Public Class UCashCollection
                                 IIf(Me.txt100R.Text > 0, "100 x", ""), Me.txt100R.Text, Me.txt100Rs.Text, _
                                 IIf(Me.txt50R.Text > 0, "50 x", ""), Me.txt50R.Text, Me.txt50Rs.Text, Me.txtTotalRielCount.Text, _
                                 Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"), USER_NAME, Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"))
-                If LblRemarkNoteID.Text <> "0" Then
-                    MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
-                Else
-                    If TxtRemarkNote.Text.Trim <> "" Then
-                        MCashCollection.SaveDiallyRemarkNote(dtpDateFrom.Value.Date, TxtRemarkNote.Text)
-                    End If
-                End If
+                'If LblRemarkNoteID.Text <> "0" Then
+                '    MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
+                'Else
+                '    If TxtRemarkNote.Text.Trim <> "" Then
+                '        MCashCollection.SaveDiallyRemarkNote(dtpDateFrom.Value.Date, TxtRemarkNote.Text)
+                '    End If
+                'End If
 
             End If
         End If
@@ -1004,10 +992,7 @@ Public Class UCashCollection
         End Try
     End Sub
 
-    Private Sub cmdViewAR_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdViewAR.Click
-        Dim frmAccRec As New frmAccountReceivable
-        frmAccRec.ShowDialog()
-    End Sub
+    
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Try
@@ -1074,16 +1059,16 @@ Public Class UCashCollection
     Private Sub UCashCollection_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim tblPermistion As DataTable = ModUser.GetMenuPermission(USER_NAME)
 
-        For Each obj As Object In GRAccReceivalbe.Controls
-            If TypeOf obj Is Button Then
-                Dim Btn As Button = CType(obj, Button)
-                For indexMenu = 0 To tblPermistion.Rows.Count - 1
-                    If Btn.Tag = tblPermistion.Rows(indexMenu).Item(0) Then
-                        Btn.Enabled = True
-                    End If
-                Next
-            End If
-        Next
+        'For Each obj As Object In GRAccReceivalbe.Controls
+        '    If TypeOf obj Is Button Then
+        '        Dim Btn As Button = CType(obj, Button)
+        '        For indexMenu = 0 To tblPermistion.Rows.Count - 1
+        '            If Btn.Tag = tblPermistion.Rows(indexMenu).Item(0) Then
+        '                Btn.Enabled = True
+        '            End If
+        '        Next
+        '    End If
+        'Next
         For Each obj As Object In GRButtonSave.Controls
             If TypeOf obj Is Button Then
                 Dim Btn As Button = CType(obj, Button)
@@ -1094,5 +1079,31 @@ Public Class UCashCollection
                 Next
             End If
         Next
+    End Sub
+
+    Private Sub AccNameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AccNameToolStripMenuItem.Click
+        Dim frmAccRec As New frmAccountName
+        frmAccRec.ShowDialog()
+    End Sub
+
+    Private Sub NewAccReceivableToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewAccReceivableToolStripMenuItem.Click
+        Dim frmAccRec As New frmAccountReceivable
+        frmAccRec.ShowDialog()
+    End Sub
+
+   
+    Private Sub BtnSaveNote_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSaveNote.Click
+        If LblRemarkNoteID.Text <> "0" Then
+            MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
+        Else
+            If TxtRemarkNote.Text.Trim <> "" Then
+                MCashCollection.SaveDiallyRemarkNote(dtpDateFrom.Value.Date, TxtRemarkNote.Text)
+            End If
+        End If
+    End Sub
+
+    Private Sub BtnCheckCashInDepart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCheckCashInDepart.Click
+        Dim ChAllCashCount As New CheckAllCashCount
+        ChAllCashCount.ShowDialog()
     End Sub
 End Class

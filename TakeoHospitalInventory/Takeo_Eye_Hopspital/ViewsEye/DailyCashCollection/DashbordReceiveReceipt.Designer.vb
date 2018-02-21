@@ -39,6 +39,8 @@ Partial Class DashbordReceiveReceipt
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripLabel5 = New System.Windows.Forms.ToolStripLabel
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnAccountReceiveable = New System.Windows.Forms.ToolStripButton
         Me.ToolStrip1.SuspendLayout()
         CType(Me.GridJanusWaitingPayment, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip2.SuspendLayout()
@@ -48,7 +50,7 @@ Partial Class DashbordReceiveReceipt
         '
         Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(25, 25)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRefresh, Me.ToolStripSeparator1, Me.BtnNewCashCount})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRefresh, Me.ToolStripSeparator1, Me.BtnNewCashCount, Me.ToolStripSeparator6, Me.BtnAccountReceiveable})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1107, 32)
@@ -57,6 +59,7 @@ Partial Class DashbordReceiveReceipt
         '
         'BtnRefresh
         '
+        Me.BtnRefresh.ForeColor = System.Drawing.Color.Blue
         Me.BtnRefresh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
         Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRefresh.Name = "BtnRefresh"
@@ -70,6 +73,7 @@ Partial Class DashbordReceiveReceipt
         '
         'BtnNewCashCount
         '
+        Me.BtnNewCashCount.ForeColor = System.Drawing.Color.Blue
         Me.BtnNewCashCount.Image = Global.TakeoHospitalInventory.My.Resources.Resources.CashReceipt
         Me.BtnNewCashCount.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewCashCount.Name = "BtnNewCashCount"
@@ -165,6 +169,20 @@ Partial Class DashbordReceiveReceipt
         Me.ToolStripLabel5.Size = New System.Drawing.Size(138, 22)
         Me.ToolStripLabel5.Text = "Receipt's Optical Shops"
         '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 32)
+        '
+        'BtnAccountReceiveable
+        '
+        Me.BtnAccountReceiveable.ForeColor = System.Drawing.Color.Blue
+        Me.BtnAccountReceiveable.Image = Global.TakeoHospitalInventory.My.Resources.Resources.add_to_list
+        Me.BtnAccountReceiveable.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnAccountReceiveable.Name = "BtnAccountReceiveable"
+        Me.BtnAccountReceiveable.Size = New System.Drawing.Size(180, 29)
+        Me.BtnAccountReceiveable.Text = "New Acc. Receivable"
+        '
         'DashbordReceiveReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -198,5 +216,7 @@ Partial Class DashbordReceiveReceipt
     Friend WithEvents ToolStripLabel4 As System.Windows.Forms.ToolStripLabel
     Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripLabel5 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnAccountReceiveable As System.Windows.Forms.ToolStripButton
 
 End Class

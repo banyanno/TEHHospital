@@ -315,4 +315,9 @@ Public Class DashbordReceiveReceipt
         Dim CashCountByDep As New CashReceivedByDepartment
         CashCountByDep.ShowDialog()
     End Sub
+
+    Private Sub BtnAccountReceiveable_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAccountReceiveable.Click
+        Dim frmAccRec As New frmAccountReceivable
+        frmAccRec.ShowDialog()
+    End Sub
 End Class

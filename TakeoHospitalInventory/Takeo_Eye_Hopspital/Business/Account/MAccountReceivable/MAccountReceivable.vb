@@ -22,20 +22,20 @@ Module MAccountReceivable
 
     End Sub
 
-    Public Sub SaveAccountAount(ByVal AID As Long, ByVal AccountAmountUSD As Double, ByVal AccountAmountRiel As Double, ByVal DateIn As Date, ByVal Users As String)
+    Public Sub SaveAccountAount(ByVal AID As Long, ByVal AccountAmountUSD As Double, ByVal AccountAmountRiel As Double, ByVal DateIn As Date, ByVal Users As String, ByVal ISSUE_BY_DEP As Integer, ByVal DEP_NAME As String)
         Try
             '-----tblAccountAccount--------------------------------------------
-            generalDAO.InsertDAO(" INSERT INTO tblAccountAmount (AID, AmountUSD, AmountRiel, DateIn, Users) values(" & AID & "," & AccountAmountUSD & "," & AccountAmountRiel & ",'" & DateIn & "','" & Users & "')")
+            generalDAO.InsertDAO(" INSERT INTO tblAccountAmount (AID, AmountUSD, AmountRiel, DateIn, Users,ISSUE_BY_DEP,DEP_NAME) values(" & AID & "," & AccountAmountUSD & "," & AccountAmountRiel & ",'" & DateIn & "','" & Users & "'," & ISSUE_BY_DEP & ",'" & DEP_NAME & "')")
             MsgBox("Insert new amount successfully", MsgBoxStyle.OkOnly, "New amount name")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.OkCancel)
         End Try
     End Sub
 
-    Public Sub UpdateAccountAount(ByVal ID As String, ByVal AID As Long, ByVal AccountAmountUSD As Double, ByVal AccountAmountRiel As Double, ByVal DateIn As Date, ByVal Users As String)
+    Public Sub UpdateAccountAount(ByVal ID As String, ByVal AID As Long, ByVal AccountAmountUSD As Double, ByVal AccountAmountRiel As Double, ByVal DateIn As Date, ByVal Users As String, ByVal ISSUE_BY_DEP As Integer, ByVal DEP_NAME As String)
         Try
             '-----tblAccountAcount--------------------------------------------
-            generalDAO.UpdateDAO("Update tblAccountAmount set AID=" & AID & " , AmountUSD=" & AccountAmountUSD & ", AmountRiel=" & AccountAmountRiel & ", DateIn='" & DateIn & "', Users='" & Users & "' Where  ID=" & ID)
+            generalDAO.UpdateDAO("Update tblAccountAmount set AID=" & AID & " , AmountUSD=" & AccountAmountUSD & ", AmountRiel=" & AccountAmountRiel & ", DateIn='" & DateIn & "', Users='" & Users & "',ISSUE_BY_DEP=" & ISSUE_BY_DEP & ",DEP_NAME='" & DEP_NAME & "' Where  ID=" & ID)
             MsgBox("Update amount successfully", MsgBoxStyle.OkOnly, "Update amount")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.OkCancel)

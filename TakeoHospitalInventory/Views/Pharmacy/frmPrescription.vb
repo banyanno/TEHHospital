@@ -473,7 +473,7 @@ Public Class frmPrescription
             'If ValidateCombobox(CboSecondSurgery, "", ErrorPrescription) = False Then Exit Sub
             If ValidateCombobox(CboEye, "", ErrorPrescription) = False Then Exit Sub
         End If
-        If LblSaveStatus.Text <> "1" Then '--- Add new prescription
+        If LblSaveStatus.Text = "0" Then '--- Add new prescription
             If MessageBox.Show("Do you want save new Prescription ?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 THIDataContext.getTHIDataContext.Connection.Close()
                 THIDataContext.getTHIDataContext.Connection.Open()
@@ -541,22 +541,25 @@ Public Class frmPrescription
                     THIDataContext.getTHIDataContext.Connection.Close()
                 Finally
                     DA_PTrackingTime.UpdatePharmacy(Format(Now, "hh:mm:ss tt").ToString, TxtPatientNoReal.Text, CheckMarkEOD().Date)
+                    ':::::::::::::::::: Update Diagnosis in New or Old patient Books :::::::::::::::::::::::::::::
+                    If LblNew_OldID.Text <> "0" Then
+                        ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldID.Text, CbDiagnosis.Text)
+                    End If
+                    If DateApp.Checked = True Then
+                        DA_ConApp.InsertNewApp(CDbl(EmptyString(TxtPatientNoReal.Text)), TxtNameKh.Text, "", TxtPatSex.Text, TxtPatAge.Text, Now.Date, DateApp.Value.Date, False, TxtPrescriptionNote.Text, "", False, CbDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, TxtTel.Text, "Pharmacy", CboDoctor.SelectedValue, CboDoctor.Text)
+                    End If
                     trans = Nothing
                     UPrescripList.CheckStatusGive(0)
+
                     MessageBox.Show("Save new prescription successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    clearForm()
+
                     'Me.DialogResult = Windows.Forms.DialogResult.OK
                 End Try
             End If
 
-            ':::::::::::::::::: Update Diagnosis in New or Old patient Books :::::::::::::::::::::::::::::
-            If LblNew_OldID.Text <> "0" Then
-                ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldID.Text, CbDiagnosis.Text)
-            End If
+            clearForm()
 
-            If DateApp.Checked = True Then
-                DA_ConApp.InsertNewApp(CDbl(EmptyString(TxtPatientNoReal.Text)), TxtNameKh.Text, "", TxtPatSex.Text, TxtPatAge.Text, Now.Date, DateApp.Value.Date, False, TxtPrescriptionNote.Text, "", False, CbDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, TxtTel.Text, "Pharmacy", CboDoctor.SelectedValue, CboDoctor.Text)
-            End If
+
 
         Else    '--- Edit Prescription
             If MessageBox.Show("Do you want save Prescription ?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
@@ -673,6 +676,7 @@ Public Class frmPrescription
         GridMedicine.DataSource = Nothing
         GridMedicine.Rows.Clear()
         GridMedicine.Refresh()
+        LblNew_OldID.Text = "0"
         CleanMedicine()
     End Sub
 

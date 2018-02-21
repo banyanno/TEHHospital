@@ -54,7 +54,6 @@ Partial Class frmPrescription
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.GridPatientInformation = New Janus.Windows.GridEX.GridEX
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.LblNew_OldID = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
         Me.BtnBrowseDoctor = New Janus.Windows.EditControls.UIButton
         Me.TxtTel = New System.Windows.Forms.TextBox
@@ -88,6 +87,7 @@ Partial Class frmPrescription
         Me.ContainerID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.LabourFacID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.LblNew_OldID = New System.Windows.Forms.Label
         Me.TxtPrescriptionNote = New System.Windows.Forms.TextBox
         Me.CboEye = New System.Windows.Forms.ComboBox
         Me.DateApp = New System.Windows.Forms.DateTimePicker
@@ -487,15 +487,6 @@ Partial Class frmPrescription
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Patient Info"
         '
-        'LblNew_OldID
-        '
-        Me.LblNew_OldID.AutoSize = True
-        Me.LblNew_OldID.Location = New System.Drawing.Point(623, 69)
-        Me.LblNew_OldID.Name = "LblNew_OldID"
-        Me.LblNew_OldID.Size = New System.Drawing.Size(13, 13)
-        Me.LblNew_OldID.TabIndex = 22
-        Me.LblNew_OldID.Text = "0"
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -860,6 +851,16 @@ Partial Class frmPrescription
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Doctor Info"
         '
+        'LblNew_OldID
+        '
+        Me.LblNew_OldID.AutoSize = True
+        Me.LblNew_OldID.Location = New System.Drawing.Point(623, 69)
+        Me.LblNew_OldID.Name = "LblNew_OldID"
+        Me.LblNew_OldID.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldID.TabIndex = 22
+        Me.LblNew_OldID.Text = "0"
+        Me.LblNew_OldID.Visible = False
+        '
         'TxtPrescriptionNote
         '
         Me.TxtPrescriptionNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1054,10 +1055,9 @@ Partial Class frmPrescription
         Me.LblSaveStatus.AutoSize = True
         Me.LblSaveStatus.Location = New System.Drawing.Point(195, 808)
         Me.LblSaveStatus.Name = "LblSaveStatus"
-        Me.LblSaveStatus.Size = New System.Drawing.Size(76, 13)
+        Me.LblSaveStatus.Size = New System.Drawing.Size(13, 13)
         Me.LblSaveStatus.TabIndex = 20
-        Me.LblSaveStatus.Text = "LblSaveStatus"
-        Me.LblSaveStatus.Visible = False
+        Me.LblSaveStatus.Text = "0"
         '
         'BgLoadPatient
         '

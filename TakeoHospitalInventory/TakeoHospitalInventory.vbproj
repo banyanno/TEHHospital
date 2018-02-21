@@ -80,7 +80,7 @@
   <ItemGroup>
     <Reference Include="AutocompleteMenu, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\Administrator\Downloads\AutocompleteMenuDemo\AutocompleteMenu.dll</HintPath>
+      <HintPath>bin\Debug\AutocompleteMenu.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -668,6 +668,12 @@
       <DependentUpon>FormDeleteWaitingPay.vb</DependentUpon>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\DataProvider\FormDeleteWaitingPay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CheckAllCashCount.Designer.vb">
+      <DependentUpon>CheckAllCashCount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CheckAllCashCount.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\DashbordReceiveReceipt.Designer.vb">
@@ -3114,6 +3120,9 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\DataProvider\FormDeleteWaitingPay.resx">
       <DependentUpon>FormDeleteWaitingPay.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CheckAllCashCount.resx">
+      <DependentUpon>CheckAllCashCount.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\DashbordReceiveReceipt.resx">
       <DependentUpon>DashbordReceiveReceipt.vb</DependentUpon>

@@ -561,7 +561,7 @@ Public Class frmOldOutPatientReceipt
                     Else
                         DS_Consult.UpdateStatus(1, LblConsultID.Text)
                     End If
-                    DA_PTrackingTime.InsertPatientTracking(txtHN.Text, 0, "", "", CheckMarkEOD().Date, Format(Now, "hh:mm:ss tt"), "", "", "", "", "", "", "", "")
+                    DA_PTrackingTime.InsertPatientTracking(txtHN.Text, 0, "", 0, CheckMarkEOD().Date, Format(Now, "hh:mm:ss tt"), "", "", "", "", "", "", "", "")
                 End If
             End If
         Else

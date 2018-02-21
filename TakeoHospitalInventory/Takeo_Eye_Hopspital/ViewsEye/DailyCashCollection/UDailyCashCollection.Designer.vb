@@ -22,8 +22,8 @@ Partial Class UCashCollection
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UCashCollection))
         Dim GridCashCollection_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
-        Dim GridAccountPayable_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim dgvRemarks_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim GridAccountPayable_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Me.ImgCashCollection = New System.Windows.Forms.ImageList(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
@@ -40,15 +40,9 @@ Partial Class UCashCollection
         Me.cmdView = New System.Windows.Forms.Button
         Me.Label2 = New System.Windows.Forms.Label
         Me.dtpDateFrom = New System.Windows.Forms.DateTimePicker
-        Me.GRAccReceivalbe = New System.Windows.Forms.GroupBox
-        Me.cmdViewAR = New System.Windows.Forms.Button
-        Me.cmdCreateNew = New System.Windows.Forms.Button
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.LblRemarkNoteID = New System.Windows.Forms.Label
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox
-        Me.TxtRemarkNote = New System.Windows.Forms.TextBox
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox
-        Me.GridAccountPayable = New Janus.Windows.GridEX.GridEX
+        Me.TabControl2 = New System.Windows.Forms.TabControl
+        Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.Label9 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
@@ -70,6 +64,7 @@ Partial Class UCashCollection
         Me.txtOUSD = New System.Windows.Forms.TextBox
         Me.txtOPRiel = New System.Windows.Forms.TextBox
         Me.txtOPUSD = New System.Windows.Forms.TextBox
+        Me.LblRemarkNoteID = New System.Windows.Forms.Label
         Me.GRCashCount = New System.Windows.Forms.GroupBox
         Me.GRButtonSave = New System.Windows.Forms.GroupBox
         Me.cmdNew = New System.Windows.Forms.Button
@@ -148,8 +143,22 @@ Partial Class UCashCollection
         Me.txt5D = New System.Windows.Forms.TextBox
         Me.txt20USD = New System.Windows.Forms.TextBox
         Me.txt5USD = New System.Windows.Forms.TextBox
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox
+        Me.TxtRemarkNote = New System.Windows.Forms.TextBox
+        Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
         Me.dgvRemarks = New Janus.Windows.GridEX.GridEX
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox
+        Me.GridAccountPayable = New Janus.Windows.GridEX.GridEX
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
+        Me.ToolStripSplitButton1 = New System.Windows.Forms.ToolStripSplitButton
+        Me.AccNameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
+        Me.NewAccReceivableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnCheckCashInDepart = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnSaveNote = New System.Windows.Forms.ToolStripButton
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -159,18 +168,21 @@ Partial Class UCashCollection
         Me.GroupBox11.SuspendLayout()
         CType(Me.GridCashCollection, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.GRAccReceivalbe.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.GroupBox10.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
-        CType(Me.GridAccountPayable, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControl2.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GRCashCount.SuspendLayout()
         Me.GRButtonSave.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox9.SuspendLayout()
+        CType(Me.GridAccountPayable, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImgCashCollection
@@ -185,20 +197,22 @@ Partial Class UCashCollection
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 35)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1500, 1109)
+        Me.TabControl1.Size = New System.Drawing.Size(1500, 1074)
         Me.TabControl1.TabIndex = 5
         '
         'TabPage1
         '
+        Me.TabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TabPage1.Controls.Add(Me.SplitContainer1)
         Me.TabPage1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabPage1.ForeColor = System.Drawing.Color.Black
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1492, 1076)
+        Me.TabPage1.Size = New System.Drawing.Size(1492, 1041)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Daily Report Cash Collection: Income Summary & Cash Count"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -218,8 +232,8 @@ Partial Class UCashCollection
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1486, 1070)
-        Me.SplitContainer1.SplitterDistance = 535
+        Me.SplitContainer1.Size = New System.Drawing.Size(1484, 1033)
+        Me.SplitContainer1.SplitterDistance = 388
         Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 9
         '
@@ -229,11 +243,10 @@ Partial Class UCashCollection
         Me.GroupBox2.Controls.Add(Me.GroupBox11)
         Me.GroupBox2.Controls.Add(Me.GridCashCollection)
         Me.GroupBox2.Controls.Add(Me.GroupBox1)
-        Me.GroupBox2.Controls.Add(Me.GRAccReceivalbe)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1486, 535)
+        Me.GroupBox2.Size = New System.Drawing.Size(1484, 388)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "List cash collection"
@@ -245,9 +258,9 @@ Partial Class UCashCollection
         Me.GroupBox11.Controls.Add(Me.DTo)
         Me.GroupBox11.Controls.Add(Me.Label44)
         Me.GroupBox11.Controls.Add(Me.DFrom)
-        Me.GroupBox11.Location = New System.Drawing.Point(700, 18)
+        Me.GroupBox11.Location = New System.Drawing.Point(346, 18)
         Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(534, 74)
+        Me.GroupBox11.Size = New System.Drawing.Size(534, 75)
         Me.GroupBox11.TabIndex = 6
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Report Daily Date to Date"
@@ -311,7 +324,7 @@ Partial Class UCashCollection
         Me.GridCashCollection.GroupTotals = Janus.Windows.GridEX.GroupTotals.Always
         Me.GridCashCollection.Location = New System.Drawing.Point(3, 100)
         Me.GridCashCollection.Name = "GridCashCollection"
-        Me.GridCashCollection.Size = New System.Drawing.Size(1477, 428)
+        Me.GridCashCollection.Size = New System.Drawing.Size(1475, 281)
         Me.GridCashCollection.TabIndex = 2
         Me.GridCashCollection.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.GridCashCollection.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -360,113 +373,44 @@ Partial Class UCashCollection
         Me.dtpDateFrom.Size = New System.Drawing.Size(129, 26)
         Me.dtpDateFrom.TabIndex = 0
         '
-        'GRAccReceivalbe
-        '
-        Me.GRAccReceivalbe.Controls.Add(Me.cmdViewAR)
-        Me.GRAccReceivalbe.Controls.Add(Me.cmdCreateNew)
-        Me.GRAccReceivalbe.Location = New System.Drawing.Point(351, 16)
-        Me.GRAccReceivalbe.Name = "GRAccReceivalbe"
-        Me.GRAccReceivalbe.Size = New System.Drawing.Size(343, 76)
-        Me.GRAccReceivalbe.TabIndex = 5
-        Me.GRAccReceivalbe.TabStop = False
-        Me.GRAccReceivalbe.Text = "Account Receivable"
-        '
-        'cmdViewAR
-        '
-        Me.cmdViewAR.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmdViewAR.Enabled = False
-        Me.cmdViewAR.Location = New System.Drawing.Point(149, 26)
-        Me.cmdViewAR.Name = "cmdViewAR"
-        Me.cmdViewAR.Size = New System.Drawing.Size(179, 38)
-        Me.cmdViewAR.TabIndex = 1
-        Me.cmdViewAR.Tag = "New Acc. Receivable"
-        Me.cmdViewAR.Text = "New Acc. Receivable"
-        Me.cmdViewAR.UseVisualStyleBackColor = True
-        '
-        'cmdCreateNew
-        '
-        Me.cmdCreateNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmdCreateNew.Enabled = False
-        Me.cmdCreateNew.Location = New System.Drawing.Point(12, 26)
-        Me.cmdCreateNew.Name = "cmdCreateNew"
-        Me.cmdCreateNew.Size = New System.Drawing.Size(118, 39)
-        Me.cmdCreateNew.TabIndex = 0
-        Me.cmdCreateNew.Tag = "Acc. Name"
-        Me.cmdCreateNew.Text = "Acc. Name"
-        Me.cmdCreateNew.UseVisualStyleBackColor = True
-        '
         'Panel1
         '
         Me.Panel1.AutoScroll = True
         Me.Panel1.AutoScrollMinSize = New System.Drawing.Size(1326, 0)
         Me.Panel1.BackColor = System.Drawing.SystemColors.Control
-        Me.Panel1.Controls.Add(Me.LblRemarkNoteID)
-        Me.Panel1.Controls.Add(Me.GroupBox10)
-        Me.Panel1.Controls.Add(Me.GroupBox9)
-        Me.Panel1.Controls.Add(Me.GroupBox3)
-        Me.Panel1.Controls.Add(Me.GRCashCount)
-        Me.Panel1.Controls.Add(Me.GroupBox5)
+        Me.Panel1.Controls.Add(Me.TabControl2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1486, 532)
+        Me.Panel1.Size = New System.Drawing.Size(1484, 642)
         Me.Panel1.TabIndex = 8
         '
-        'LblRemarkNoteID
+        'TabControl2
         '
-        Me.LblRemarkNoteID.AutoSize = True
-        Me.LblRemarkNoteID.Location = New System.Drawing.Point(79, 447)
-        Me.LblRemarkNoteID.Name = "LblRemarkNoteID"
-        Me.LblRemarkNoteID.Size = New System.Drawing.Size(18, 20)
-        Me.LblRemarkNoteID.TabIndex = 10
-        Me.LblRemarkNoteID.Text = "0"
-        Me.LblRemarkNoteID.Visible = False
+        Me.TabControl2.Controls.Add(Me.TabPage2)
+        Me.TabControl2.Controls.Add(Me.TabPage3)
+        Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl2.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl2.Name = "TabControl2"
+        Me.TabControl2.SelectedIndex = 0
+        Me.TabControl2.Size = New System.Drawing.Size(1484, 642)
+        Me.TabControl2.TabIndex = 11
         '
-        'GroupBox10
+        'TabPage2
         '
-        Me.GroupBox10.Controls.Add(Me.TxtRemarkNote)
-        Me.GroupBox10.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox10.Location = New System.Drawing.Point(10, 248)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(375, 167)
-        Me.GroupBox10.TabIndex = 9
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Remark"
-        '
-        'TxtRemarkNote
-        '
-        Me.TxtRemarkNote.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TxtRemarkNote.Location = New System.Drawing.Point(3, 22)
-        Me.TxtRemarkNote.Multiline = True
-        Me.TxtRemarkNote.Name = "TxtRemarkNote"
-        Me.TxtRemarkNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtRemarkNote.Size = New System.Drawing.Size(369, 142)
-        Me.TxtRemarkNote.TabIndex = 0
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.GridAccountPayable)
-        Me.GroupBox9.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox9.Location = New System.Drawing.Point(1203, 201)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(430, 170)
-        Me.GroupBox9.TabIndex = 8
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Remark Account Payable"
-        '
-        'GridAccountPayable
-        '
-        Me.GridAccountPayable.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
-        GridAccountPayable_DesignTimeLayout.LayoutString = resources.GetString("GridAccountPayable_DesignTimeLayout.LayoutString")
-        Me.GridAccountPayable.DesignTimeLayout = GridAccountPayable_DesignTimeLayout
-        Me.GridAccountPayable.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridAccountPayable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GridAccountPayable.GroupByBoxVisible = False
-        Me.GridAccountPayable.Location = New System.Drawing.Point(3, 22)
-        Me.GridAccountPayable.Name = "GridAccountPayable"
-        Me.GridAccountPayable.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridAccountPayable.Size = New System.Drawing.Size(424, 145)
-        Me.GridAccountPayable.TabIndex = 0
+        Me.TabPage2.AutoScroll = True
+        Me.TabPage2.BackColor = System.Drawing.Color.Gainsboro
+        Me.TabPage2.Controls.Add(Me.GroupBox3)
+        Me.TabPage2.Controls.Add(Me.LblRemarkNoteID)
+        Me.TabPage2.Controls.Add(Me.GRCashCount)
+        Me.TabPage2.Controls.Add(Me.GroupBox10)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1476, 609)
+        Me.TabPage2.TabIndex = 0
+        Me.TabPage2.Text = "Total Cash Count"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -490,9 +434,9 @@ Partial Class UCashCollection
         Me.GroupBox3.Controls.Add(Me.txtOUSD)
         Me.GroupBox3.Controls.Add(Me.txtOPRiel)
         Me.GroupBox3.Controls.Add(Me.txtOPUSD)
-        Me.GroupBox3.Location = New System.Drawing.Point(10, 18)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 11)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(375, 221)
+        Me.GroupBox3.Size = New System.Drawing.Size(386, 223)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Income Summary:"
@@ -693,12 +637,22 @@ Partial Class UCashCollection
         Me.txtOPUSD.TabIndex = 0
         Me.txtOPUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'LblRemarkNoteID
+        '
+        Me.LblRemarkNoteID.AutoSize = True
+        Me.LblRemarkNoteID.Location = New System.Drawing.Point(419, 358)
+        Me.LblRemarkNoteID.Name = "LblRemarkNoteID"
+        Me.LblRemarkNoteID.Size = New System.Drawing.Size(18, 20)
+        Me.LblRemarkNoteID.TabIndex = 10
+        Me.LblRemarkNoteID.Text = "0"
+        Me.LblRemarkNoteID.Visible = False
+        '
         'GRCashCount
         '
         Me.GRCashCount.Controls.Add(Me.GRButtonSave)
         Me.GRCashCount.Controls.Add(Me.GroupBox8)
         Me.GRCashCount.Controls.Add(Me.GroupBox7)
-        Me.GRCashCount.Location = New System.Drawing.Point(391, 18)
+        Me.GRCashCount.Location = New System.Drawing.Point(401, 10)
         Me.GRCashCount.Name = "GRCashCount"
         Me.GRCashCount.Size = New System.Drawing.Size(803, 397)
         Me.GRCashCount.TabIndex = 7
@@ -1512,13 +1466,47 @@ Partial Class UCashCollection
         Me.txt5USD.Text = "0"
         Me.txt5USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.TxtRemarkNote)
+        Me.GroupBox10.ForeColor = System.Drawing.Color.Red
+        Me.GroupBox10.Location = New System.Drawing.Point(3, 241)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(389, 167)
+        Me.GroupBox10.TabIndex = 9
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Remark"
+        '
+        'TxtRemarkNote
+        '
+        Me.TxtRemarkNote.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtRemarkNote.Location = New System.Drawing.Point(3, 22)
+        Me.TxtRemarkNote.Multiline = True
+        Me.TxtRemarkNote.Name = "TxtRemarkNote"
+        Me.TxtRemarkNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TxtRemarkNote.Size = New System.Drawing.Size(383, 142)
+        Me.TxtRemarkNote.TabIndex = 0
+        '
+        'TabPage3
+        '
+        Me.TabPage3.BackColor = System.Drawing.Color.Gainsboro
+        Me.TabPage3.Controls.Add(Me.GroupBox5)
+        Me.TabPage3.Controls.Add(Me.GroupBox9)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(1476, 609)
+        Me.TabPage3.TabIndex = 1
+        Me.TabPage3.Text = "Account Note"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.dgvRemarks)
         Me.GroupBox5.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox5.Location = New System.Drawing.Point(1200, 18)
+        Me.GroupBox5.Location = New System.Drawing.Point(9, 6)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(430, 170)
+        Me.GroupBox5.Size = New System.Drawing.Size(607, 170)
         Me.GroupBox5.TabIndex = 6
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Remarks Account Receiveable"
@@ -1532,8 +1520,100 @@ Partial Class UCashCollection
         Me.dgvRemarks.GroupByBoxVisible = False
         Me.dgvRemarks.Location = New System.Drawing.Point(3, 22)
         Me.dgvRemarks.Name = "dgvRemarks"
-        Me.dgvRemarks.Size = New System.Drawing.Size(424, 145)
+        Me.dgvRemarks.Size = New System.Drawing.Size(601, 145)
         Me.dgvRemarks.TabIndex = 0
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.GridAccountPayable)
+        Me.GroupBox9.ForeColor = System.Drawing.Color.Blue
+        Me.GroupBox9.Location = New System.Drawing.Point(9, 189)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(607, 170)
+        Me.GroupBox9.TabIndex = 8
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Remark Account Payable"
+        '
+        'GridAccountPayable
+        '
+        Me.GridAccountPayable.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        GridAccountPayable_DesignTimeLayout.LayoutString = resources.GetString("GridAccountPayable_DesignTimeLayout.LayoutString")
+        Me.GridAccountPayable.DesignTimeLayout = GridAccountPayable_DesignTimeLayout
+        Me.GridAccountPayable.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridAccountPayable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridAccountPayable.GroupByBoxVisible = False
+        Me.GridAccountPayable.Location = New System.Drawing.Point(3, 22)
+        Me.GridAccountPayable.Name = "GridAccountPayable"
+        Me.GridAccountPayable.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.GridAccountPayable.Size = New System.Drawing.Size(601, 145)
+        Me.GridAccountPayable.TabIndex = 0
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 15.0!)
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(25, 25)
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButton1, Me.ToolStripSeparator1, Me.BtnCheckCashInDepart, Me.ToolStripSeparator2, Me.BtnSaveNote})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1500, 35)
+        Me.ToolStrip1.TabIndex = 6
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripSplitButton1
+        '
+        Me.ToolStripSplitButton1.DropDownButtonWidth = 25
+        Me.ToolStripSplitButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccNameToolStripMenuItem, Me.ToolStripMenuItem1, Me.NewAccReceivableToolStripMenuItem})
+        Me.ToolStripSplitButton1.ForeColor = System.Drawing.Color.Blue
+        Me.ToolStripSplitButton1.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Receipt_oop
+        Me.ToolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripSplitButton1.Name = "ToolStripSplitButton1"
+        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(246, 32)
+        Me.ToolStripSplitButton1.Text = "Account Receiveable"
+        '
+        'AccNameToolStripMenuItem
+        '
+        Me.AccNameToolStripMenuItem.Name = "AccNameToolStripMenuItem"
+        Me.AccNameToolStripMenuItem.Size = New System.Drawing.Size(260, 32)
+        Me.AccNameToolStripMenuItem.Text = "Acc. Name"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(257, 6)
+        '
+        'NewAccReceivableToolStripMenuItem
+        '
+        Me.NewAccReceivableToolStripMenuItem.Name = "NewAccReceivableToolStripMenuItem"
+        Me.NewAccReceivableToolStripMenuItem.Size = New System.Drawing.Size(260, 32)
+        Me.NewAccReceivableToolStripMenuItem.Text = "New Acc. Receivable"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 35)
+        '
+        'BtnCheckCashInDepart
+        '
+        Me.BtnCheckCashInDepart.ForeColor = System.Drawing.Color.Blue
+        Me.BtnCheckCashInDepart.Image = Global.TakeoHospitalInventory.My.Resources.Resources.check
+        Me.BtnCheckCashInDepart.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCheckCashInDepart.Name = "BtnCheckCashInDepart"
+        Me.BtnCheckCashInDepart.Size = New System.Drawing.Size(270, 32)
+        Me.BtnCheckCashInDepart.Text = "Check Cash In Department"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 35)
+        '
+        'BtnSaveNote
+        '
+        Me.BtnSaveNote.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSaveNote.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Warning
+        Me.BtnSaveNote.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnSaveNote.Name = "BtnSaveNote"
+        Me.BtnSaveNote.Size = New System.Drawing.Size(219, 32)
+        Me.BtnSaveNote.Text = "Save Summary Note"
         '
         'UCashCollection
         '
@@ -1541,6 +1621,7 @@ Partial Class UCashCollection
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Transparent
         Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "UCashCollection"
         Me.Size = New System.Drawing.Size(1500, 1109)
         Me.TabControl1.ResumeLayout(False)
@@ -1554,13 +1635,10 @@ Partial Class UCashCollection
         CType(Me.GridCashCollection, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GRAccReceivalbe.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        CType(Me.GridAccountPayable, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControl2.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GRCashCount.ResumeLayout(False)
@@ -1569,9 +1647,17 @@ Partial Class UCashCollection
         Me.GroupBox8.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox9.ResumeLayout(False)
+        CType(Me.GridAccountPayable, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents ImgCashCollection As System.Windows.Forms.ImageList
@@ -1655,9 +1741,6 @@ Partial Class UCashCollection
     Friend WithEvents txt5USD As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents dgvRemarks As Janus.Windows.GridEX.GridEX
-    Friend WithEvents GRAccReceivalbe As System.Windows.Forms.GroupBox
-    Friend WithEvents cmdViewAR As System.Windows.Forms.Button
-    Friend WithEvents cmdCreateNew As System.Windows.Forms.Button
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -1700,5 +1783,17 @@ Partial Class UCashCollection
     Friend WithEvents Label44 As System.Windows.Forms.Label
     Friend WithEvents DFrom As System.Windows.Forms.DateTimePicker
     Friend WithEvents GRButtonSave As System.Windows.Forms.GroupBox
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents ToolStripSplitButton1 As System.Windows.Forms.ToolStripSplitButton
+    Friend WithEvents AccNameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents NewAccReceivableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnCheckCashInDepart As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnSaveNote As System.Windows.Forms.ToolStripButton
+    Friend WithEvents TabControl2 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
 
 End Class

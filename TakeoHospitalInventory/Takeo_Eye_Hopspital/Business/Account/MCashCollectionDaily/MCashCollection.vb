@@ -30,10 +30,16 @@ Module MCashCollection
         Return generalDAO.SelectDAOAsDataTatable(Sql)
     End Function
 
-    Function DailyRemarks(ByVal DateIn As Date) As DataTable
-        Dim sql As String = "SELECT tblAccountName.AccountName AS AccountName, tblAccountAmount.AmountUSD AS AmountUSD, tblAccountAmount.AmountRiel AS AmountRiel" _
+    Function DailyRemarksAccReceived(ByVal DateIn As Date) As DataTable
+        Dim sql As String = "SELECT tblAccountName.AccountName AS AccountName, tblAccountAmount.AmountUSD AS AmountUSD, tblAccountAmount.AmountRiel AS AmountRiel,tblAccountAmount.DEP_NAME" _
                             & " FROM tblAccountAmount INNER JOIN tblAccountName ON tblAccountAmount.AID = tblAccountName.AID" _
                             & " Where  CAST(CONVERT(VARCHAR(10), tblAccountAmount.DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) "
+        Return generalDAO.SelectDAOAsDataTatable(sql)
+    End Function
+    Function DailyRemarksAccReceivedByDep(ByVal DateIn As Date,DepID As Integer ) As DataTable
+        Dim sql As String = "SELECT tblAccountName.AccountName AS AccountName, tblAccountAmount.AmountUSD AS AmountUSD, tblAccountAmount.AmountRiel AS AmountRiel,tblAccountAmount.DEP_NAME" _
+                            & " FROM tblAccountAmount INNER JOIN tblAccountName ON tblAccountAmount.AID = tblAccountName.AID" _
+                            & " Where tblAccountAmount.ISSUE_BY_DEP= " & DepID & " AND  CAST(CONVERT(VARCHAR(10), tblAccountAmount.DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) "
         Return generalDAO.SelectDAOAsDataTatable(sql)
     End Function
 
@@ -460,6 +466,10 @@ Module MCashCollection
     End Function
     Function SelectCashCountByDepartment(ByVal DateIn As Date, ByVal CASH_IN_DEPART As Integer) As DataTable
         Dim sql As String = "SELECT * from tblCashCountForDepartment Where CASH_IN_DEPART=" & CASH_IN_DEPART & " AND CAST(CONVERT(VARCHAR(10), DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime)"
+        Return generalDAO.SelectDAOAsDataTatable(sql)
+    End Function
+    Function SelectDepartInCashCount() As DataTable
+        Dim sql As String = "SELECT distinct CASH_IN_DEPART,DEPARTMENT_NAME from tblCashCountForDepartment" ' Where  CAST(CONVERT(VARCHAR(10), DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime)"
         Return generalDAO.SelectDAOAsDataTatable(sql)
     End Function
 End Module

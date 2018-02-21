@@ -24,6 +24,7 @@ Partial Class CashReceivedByDepartment
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim GridCashCollection_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim dgvRemarks_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CashReceivedByDepartment))
         Me.GRCashCount = New System.Windows.Forms.GroupBox
         Me.GroupBox8 = New System.Windows.Forms.GroupBox
@@ -101,22 +102,24 @@ Partial Class CashReceivedByDepartment
         Me.txt5D = New System.Windows.Forms.TextBox
         Me.txt20USD = New System.Windows.Forms.TextBox
         Me.txt5USD = New System.Windows.Forms.TextBox
+        Me.dtpDateFrom = New System.Windows.Forms.DateTimePicker
+        Me.Label2 = New System.Windows.Forms.Label
         Me.GRButtonSave = New System.Windows.Forms.GroupBox
         Me.Button1 = New System.Windows.Forms.Button
         Me.cmdSave = New System.Windows.Forms.Button
         Me.cmdPrint = New System.Windows.Forms.Button
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.dtpDateFrom = New System.Windows.Forms.DateTimePicker
         Me.GridCashCollection = New Janus.Windows.GridEX.GridEX
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
+        Me.BtnView = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnSaveCashCount = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnView = New System.Windows.Forms.ToolStripButton
         Me.btnClose = New System.Windows.Forms.ToolStripButton
         Me.GBPayment = New System.Windows.Forms.GroupBox
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.dgvRemarks = New Janus.Windows.GridEX.GridEX
         Me.GRCashCount.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -128,10 +131,13 @@ Partial Class CashReceivedByDepartment
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
+        CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GRCashCount
         '
+        Me.GRCashCount.Controls.Add(Me.GroupBox5)
         Me.GRCashCount.Controls.Add(Me.GroupBox8)
         Me.GRCashCount.Controls.Add(Me.GroupBox7)
         Me.GRCashCount.Controls.Add(Me.dtpDateFrom)
@@ -194,7 +200,7 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox8.Controls.Add(Me.txt20000R)
         Me.GroupBox8.Controls.Add(Me.txt5000R)
         Me.GroupBox8.Controls.Add(Me.ShapeContainer3)
-        Me.GroupBox8.Location = New System.Drawing.Point(376, 22)
+        Me.GroupBox8.Location = New System.Drawing.Point(376, 31)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(415, 356)
         Me.GroupBox8.TabIndex = 0
@@ -680,7 +686,7 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox7.Controls.Add(Me.txt5D)
         Me.GroupBox7.Controls.Add(Me.txt20USD)
         Me.GroupBox7.Controls.Add(Me.txt5USD)
-        Me.GroupBox7.Location = New System.Drawing.Point(6, 23)
+        Me.GroupBox7.Location = New System.Drawing.Point(6, 32)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(364, 273)
         Me.GroupBox7.TabIndex = 0
@@ -936,6 +942,29 @@ Partial Class CashReceivedByDepartment
         Me.txt5USD.Text = "0"
         Me.txt5USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'dtpDateFrom
+        '
+        Me.dtpDateFrom.Checked = False
+        Me.dtpDateFrom.CustomFormat = "dd/MM/yyyy"
+        Me.dtpDateFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpDateFrom.Location = New System.Drawing.Point(798, 41)
+        Me.dtpDateFrom.Name = "dtpDateFrom"
+        Me.dtpDateFrom.ShowCheckBox = True
+        Me.dtpDateFrom.Size = New System.Drawing.Size(234, 38)
+        Me.dtpDateFrom.TabIndex = 12
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(794, 17)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(178, 20)
+        Me.Label2.TabIndex = 13
+        Me.Label2.Text = "Date Cash Received:"
+        '
         'GRButtonSave
         '
         Me.GRButtonSave.Controls.Add(Me.Button1)
@@ -979,29 +1008,6 @@ Partial Class CashReceivedByDepartment
         Me.cmdPrint.UseVisualStyleBackColor = True
         Me.cmdPrint.Visible = False
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(803, 37)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(178, 20)
-        Me.Label2.TabIndex = 13
-        Me.Label2.Text = "Date Cash Received:"
-        '
-        'dtpDateFrom
-        '
-        Me.dtpDateFrom.Checked = False
-        Me.dtpDateFrom.CustomFormat = "dd/MM/yyyy"
-        Me.dtpDateFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDateFrom.Location = New System.Drawing.Point(807, 61)
-        Me.dtpDateFrom.Name = "dtpDateFrom"
-        Me.dtpDateFrom.ShowCheckBox = True
-        Me.dtpDateFrom.Size = New System.Drawing.Size(201, 38)
-        Me.dtpDateFrom.TabIndex = 12
-        '
         'GridCashCollection
         '
         GridCashCollection_DesignTimeLayout.LayoutString = resources.GetString("GridCashCollection_DesignTimeLayout.LayoutString")
@@ -1033,6 +1039,20 @@ Partial Class CashReceivedByDepartment
         Me.ToolStrip1.TabIndex = 15
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'BtnView
+        '
+        Me.BtnView.ForeColor = System.Drawing.Color.Blue
+        Me.BtnView.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnView.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnView.Name = "BtnView"
+        Me.BtnView.Size = New System.Drawing.Size(111, 29)
+        Me.BtnView.Text = "View Cash"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 32)
+        '
         'BtnSaveCashCount
         '
         Me.BtnSaveCashCount.ForeColor = System.Drawing.Color.Blue
@@ -1046,20 +1066,6 @@ Partial Class CashReceivedByDepartment
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 32)
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 32)
-        '
-        'BtnView
-        '
-        Me.BtnView.ForeColor = System.Drawing.Color.Blue
-        Me.BtnView.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
-        Me.BtnView.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnView.Name = "BtnView"
-        Me.BtnView.Size = New System.Drawing.Size(111, 29)
-        Me.BtnView.Text = "View Cash"
         '
         'btnClose
         '
@@ -1105,6 +1111,29 @@ Partial Class CashReceivedByDepartment
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.dgvRemarks)
+        Me.GroupBox5.ForeColor = System.Drawing.Color.Blue
+        Me.GroupBox5.Location = New System.Drawing.Point(798, 83)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(432, 170)
+        Me.GroupBox5.TabIndex = 14
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Remarks Account Receiveable"
+        '
+        'dgvRemarks
+        '
+        dgvRemarks_DesignTimeLayout.LayoutString = resources.GetString("dgvRemarks_DesignTimeLayout.LayoutString")
+        Me.dgvRemarks.DesignTimeLayout = dgvRemarks_DesignTimeLayout
+        Me.dgvRemarks.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvRemarks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.dgvRemarks.GroupByBoxVisible = False
+        Me.dgvRemarks.Location = New System.Drawing.Point(3, 22)
+        Me.dgvRemarks.Name = "dgvRemarks"
+        Me.dgvRemarks.Size = New System.Drawing.Size(426, 145)
+        Me.dgvRemarks.TabIndex = 0
+        '
         'CashReceivedByDepartment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1133,6 +1162,8 @@ Partial Class CashReceivedByDepartment
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
+        CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1229,4 +1260,6 @@ Partial Class CashReceivedByDepartment
     Friend WithEvents GBPayment As System.Windows.Forms.GroupBox
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
+    Friend WithEvents dgvRemarks As Janus.Windows.GridEX.GridEX
 End Class
