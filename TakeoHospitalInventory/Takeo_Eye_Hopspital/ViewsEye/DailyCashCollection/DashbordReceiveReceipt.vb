@@ -320,4 +320,10 @@ Public Class DashbordReceiveReceipt
         Dim frmAccRec As New frmAccountReceivable
         frmAccRec.ShowDialog()
     End Sub
+
+    Private Sub BtnAccPayable_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAccPayable.Click
+        Dim FPayable As New FormNewAccountPayable
+        FPayable.ShowDialog()
+
+    End Sub
 End Class

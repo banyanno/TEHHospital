@@ -1,5 +1,6 @@
 ﻿Public Class CashReceivedByDepartment
     Dim DA_TOTALCASHCOUNTDEP As New DSPatientReceiptTableAdapters.tblCashCountForDepartmentTableAdapter
+    Dim DAAccountPayable As New DSAccountPayableTableAdapters.V_ACCOUNT_PAYABLE_DETAILTableAdapter
     Private Sub txt100USD_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt100USD.KeyDown
         Select Case e.KeyCode
             Case Keys.Right
@@ -788,6 +789,8 @@
     Private Sub CashReceivedByDepartment_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         GRCashCount.Text = "Cash Count In Department: " & DEPART_NAME
         GBPayment.Text = "List of patient in Department: " & DEPART_NAME
+        RefreshCashCountNote()
+        ViewDailyCollection()
         'LblDepaID.Text = DEPART_ID
         'LblDepName.Text = DEPART_NAME
     End Sub
@@ -884,7 +887,7 @@
                        "2,000 x", rows("R2000"), rows("R2000T"), _
                        "1,000 x", rows("R1000"), rows("R1000T"), _
                        "500 x", rows("R500"), rows("R500T"), _
-                       "100 x", rows("R100"), rows("R100"), _
+                       "100 x", rows("R100"), rows("R100T"), _
                        "50 x", rows("R50"), rows("R50T"), rows("TOTALRIEL"), _
                        Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"), USER_NAME)
             Next
@@ -916,7 +919,7 @@
                            "2,000 x", rows("R2000"), rows("R2000T"), _
                            "1,000 x", rows("R1000"), rows("R1000T"), _
                             "500 x", rows("R500"), rows("R500T"), _
-                            "100 x", rows("R100"), rows("R100"), _
+                            "100 x", rows("R100"), rows("R100T"), _
                           "50 x", rows("R50"), rows("R50T"), rows("TOTALRIEL"), _
                            Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"), USER_NAME, Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"))
             Next
@@ -931,16 +934,34 @@
 
             'End If
         End If
+        'SaveNote()
     End Sub
 
     Private Sub BtnView_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnView.Click
+        ViewDailyCollection()
+    End Sub
+    Private Sub RefreshCashCountNote()
+        Dim tblRemarkNote As DataTable = MCashCollection.SelectRemarksNoteByDepart(dtpDateFrom.Value.Date, DEPART_ID)
+        If tblRemarkNote.Rows.Count > 0 Then
+            For Each row As DataRow In tblRemarkNote.Rows
+                LblRemarkNoteID.Text = row("RemarkID")
+                TxtRemarkNote.Text = row("Remarks")
+            Next
+        Else
+            LblRemarkNoteID.Text = "0"
+            TxtRemarkNote.Text = ""
+        End If
+    End Sub
+    Private Sub ViewDailyCollection()
         If ValidateDateTimePicker(dtpDateFrom, "", ErrorProvider1) = False Then
             Exit Sub
         End If
         Me.GridCashCollection.DataSource = MCashCollection.DailyCashCollectionByDepartment(Me.dtpDateFrom.Value, DEPART_ID)
         Me.dgvRemarks.DataSource = MCashCollection.DailyRemarksAccReceivedByDep(Me.dtpDateFrom.Value, DEPART_ID)
+        Me.GridAccountPayable.DataSource = DAAccountPayable.GetDataCurrentDateByDept(dtpDateFrom.Value, DEPART_ID)
         Call ClearCashCount()
         Call ShowCashCount()
+        ShowCashSummary()
     End Sub
 
     Sub ClearCashCount()
@@ -992,8 +1013,48 @@
             Next
         End If
     End Sub
-
+    Private Sub ShowCashSummary()
+        Dim i, j As Integer
+        'Dim TotalUSD, TotalRIEL As Double
+        Dim tblIncomeSummary As DataTable = MCashCollection.IncomeSummaryByDept(Me.dtpDateFrom.Value, DEPART_ID)
+        Dim RowIS As DataRow
+        If tblIncomeSummary.Rows.Count > 0 Then
+            For i = 0 To tblIncomeSummary.Rows.Count - 1
+                RowIS = tblIncomeSummary.Rows(i)
+                With RowIS
+                    Me.txtOPUSD.Text = .Item(0).ToString
+                    Me.txtOPRiel.Text = .Item(1).ToString
+                    Me.txtIPUSD.Text = .Item(2).ToString
+                    Me.txtIPRiel.Text = .Item(3).ToString
+                    Me.txtEGUSD.Text = .Item(4).ToString
+                    Me.txtEGRiel.Text = .Item(5).ToString
+                    Me.txtMUSD.Text = .Item(6).ToString
+                    Me.txtMRiel.Text = .Item(7).ToString
+                    Me.txtOUSD.Text = .Item(8).ToString
+                    Me.txtORiel.Text = .Item(9).ToString
+                    Me.txtTotalUSD.Text = .Item(10).ToString
+                    Me.txtTotalRiel.Text = .Item(11).ToString
+                End With
+            Next
+        End If
+    End Sub
     Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub BtnSaveNote_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSaveNote.Click
+        SaveNote()
+    End Sub
+
+    Private Sub SaveNote()
+        If MessageBox.Show("Do you want to save note ", "Note", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If LblRemarkNoteID.Text <> "0" Then
+                MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
+            Else
+                If TxtRemarkNote.Text.Trim <> "" Then
+                    MCashCollection.SaveDiallyRemarkNoteVyDept(dtpDateFrom.Value.Date, "Note:" & DEPART_NAME.ToUpper & " " & TxtRemarkNote.Text, DEPART_ID, DEPART_NAME)
+                End If
+            End If
+        End If
     End Sub
 End Class

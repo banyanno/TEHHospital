@@ -348,9 +348,9 @@ Partial Class UCashCollection
         '
         'cmdView
         '
-        Me.cmdView.Location = New System.Drawing.Point(223, 25)
+        Me.cmdView.Location = New System.Drawing.Point(215, 27)
         Me.cmdView.Name = "cmdView"
-        Me.cmdView.Size = New System.Drawing.Size(85, 33)
+        Me.cmdView.Size = New System.Drawing.Size(116, 33)
         Me.cmdView.TabIndex = 1
         Me.cmdView.Text = "&View"
         Me.cmdView.UseVisualStyleBackColor = True
@@ -640,7 +640,7 @@ Partial Class UCashCollection
         'LblRemarkNoteID
         '
         Me.LblRemarkNoteID.AutoSize = True
-        Me.LblRemarkNoteID.Location = New System.Drawing.Point(419, 358)
+        Me.LblRemarkNoteID.Location = New System.Drawing.Point(419, 291)
         Me.LblRemarkNoteID.Name = "LblRemarkNoteID"
         Me.LblRemarkNoteID.Size = New System.Drawing.Size(18, 20)
         Me.LblRemarkNoteID.TabIndex = 10

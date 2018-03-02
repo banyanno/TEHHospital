@@ -32,10 +32,10 @@
         <elementListCompartment Id="ead087b0-444c-4467-baf0-ed265bbe26d4" absoluteBounds="0.515, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="18c8d7c4-72ff-43d7-ba81-666646ab40fb" absoluteBounds="8.75, 1.875, 2, 2.5401025390624996">
+    <classShape Id="18c8d7c4-72ff-43d7-ba81-666646ab40fb" absoluteBounds="8.75, 1.875, 2, 2.9247054036458326">
       <DataClassMoniker Name="/LinqOpticalShopClassesDataContext/ACCOUNT_PAYABLE_DETAIL" />
       <nestedChildShapes>
-        <elementListCompartment Id="abf96f69-a9d8-4a34-b4c4-d2f67a52777d" absoluteBounds="8.765, 2.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="abf96f69-a9d8-4a34-b4c4-d2f67a52777d" absoluteBounds="8.765, 2.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="116dc88e-06c9-48ba-9f9c-4d460a3d13bd" absoluteBounds="5.5, 4.125, 2, 12.347475585937502">

@@ -985,6 +985,10 @@ Partial Public Class ACCOUNT_PAYABLE_DETAIL
 	
 	Private _IS_DELETE As System.Nullable(Of Boolean)
 	
+	Private _DEPART_ID As System.Nullable(Of Decimal)
+	
+	Private _DEPART_NAME As String
+	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
     End Sub
@@ -1027,6 +1031,14 @@ Partial Public Class ACCOUNT_PAYABLE_DETAIL
     Partial Private Sub OnIS_DELETEChanging(value As System.Nullable(Of Boolean))
     End Sub
     Partial Private Sub OnIS_DELETEChanged()
+    End Sub
+    Partial Private Sub OnDEPART_IDChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnDEPART_IDChanged()
+    End Sub
+    Partial Private Sub OnDEPART_NAMEChanging(value As String)
+    End Sub
+    Partial Private Sub OnDEPART_NAMEChanged()
     End Sub
     #End Region
 	
@@ -1176,6 +1188,38 @@ Partial Public Class ACCOUNT_PAYABLE_DETAIL
 				Me._IS_DELETE = value
 				Me.SendPropertyChanged("IS_DELETE")
 				Me.OnIS_DELETEChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DEPART_ID", DbType:="numeric(18, 0)")>  _
+	Public Property DEPART_ID() As System.Nullable(Of Decimal)
+		Get
+			Return Me._DEPART_ID
+		End Get
+		Set
+			If (Me._DEPART_ID.Equals(value) = false) Then
+				Me.OnDEPART_IDChanging(value)
+				Me.SendPropertyChanging
+				Me._DEPART_ID = value
+				Me.SendPropertyChanged("DEPART_ID")
+				Me.OnDEPART_IDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DEPART_NAME", DbType:="nvarchar(50)")>  _
+	Public Property DEPART_NAME() As String
+		Get
+			Return Me._DEPART_NAME
+		End Get
+		Set
+			If (String.Equals(Me._DEPART_NAME, value) = false) Then
+				Me.OnDEPART_NAMEChanging(value)
+				Me.SendPropertyChanging
+				Me._DEPART_NAME = value
+				Me.SendPropertyChanged("DEPART_NAME")
+				Me.OnDEPART_NAMEChanged
 			End If
 		End Set
 	End Property
@@ -2792,7 +2836,7 @@ Partial Public Class RECEIPT_DETAIL
 		End Set
 	End Property
 	
-	<Column(Storage:="_ItemCost", DbType:="Float")>  _
+	<Column(Storage:="_ItemCost", DbType:="numeric(18, 3)")>  _
 	Public Property ItemCost() As System.Nullable(Of Double)
 		Get
 			Return Me._ItemCost
@@ -2808,7 +2852,7 @@ Partial Public Class RECEIPT_DETAIL
 		End Set
 	End Property
 	
-	<Column(Storage:="_EXCHANGE_RATE", DbType:="Float")>  _
+	<Column(Storage:="_EXCHANGE_RATE", DbType:="numeric(18, 0)")>  _
 	Public Property EXCHANGE_RATE() As System.Nullable(Of Double)
 		Get
 			Return Me._EXCHANGE_RATE

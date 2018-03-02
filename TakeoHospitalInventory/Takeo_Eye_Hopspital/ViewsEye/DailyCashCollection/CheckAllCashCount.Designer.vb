@@ -26,6 +26,7 @@ Partial Class CheckAllCashCount
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CheckAllCashCount))
         Dim GridCashCollection_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim dgvRemarks_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim GridAccountPayable_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Me.GRCashCount = New System.Windows.Forms.GroupBox
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.Label2 = New System.Windows.Forms.Label
@@ -35,6 +36,8 @@ Partial Class CheckAllCashCount
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
         Me.GBPayment = New System.Windows.Forms.GroupBox
         Me.GridCashCollection = New Janus.Windows.GridEX.GridEX
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox
+        Me.TxtRemarkNote = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
         Me.txtTotalUSDCount = New System.Windows.Forms.TextBox
@@ -108,8 +111,35 @@ Partial Class CheckAllCashCount
         Me.txt5000R = New System.Windows.Forms.TextBox
         Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer
         Me.LineShape3 = New Microsoft.VisualBasic.PowerPacks.LineShape
+        Me.TabControl1 = New System.Windows.Forms.TabControl
+        Me.TabPage1 = New System.Windows.Forms.TabPage
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.Label44 = New System.Windows.Forms.Label
+        Me.txtTotalRiel = New System.Windows.Forms.TextBox
+        Me.txtTotalUSD = New System.Windows.Forms.TextBox
+        Me.txtMRiel = New System.Windows.Forms.TextBox
+        Me.txtMUSD = New System.Windows.Forms.TextBox
+        Me.txtIPRiel = New System.Windows.Forms.TextBox
+        Me.txtEGRiel = New System.Windows.Forms.TextBox
+        Me.txtIPUSD = New System.Windows.Forms.TextBox
+        Me.txtORiel = New System.Windows.Forms.TextBox
+        Me.txtEGUSD = New System.Windows.Forms.TextBox
+        Me.txtOUSD = New System.Windows.Forms.TextBox
+        Me.txtOPRiel = New System.Windows.Forms.TextBox
+        Me.txtOPUSD = New System.Windows.Forms.TextBox
+        Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
         Me.dgvRemarks = New Janus.Windows.GridEX.GridEX
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox
+        Me.GridAccountPayable = New Janus.Windows.GridEX.GridEX
+        Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
         Me.GRCashCount.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -121,10 +151,20 @@ Partial Class CheckAllCashCount
         Me.SplitContainer2.SuspendLayout()
         Me.GBPayment.SuspendLayout()
         CType(Me.GridCashCollection, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox10.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox9.SuspendLayout()
+        CType(Me.GridAccountPayable, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer3.Panel1.SuspendLayout()
+        Me.SplitContainer3.Panel2.SuspendLayout()
+        Me.SplitContainer3.SuspendLayout()
         Me.SuspendLayout()
         '
         'GRCashCount
@@ -135,7 +175,7 @@ Partial Class CheckAllCashCount
         Me.GRCashCount.ForeColor = System.Drawing.Color.Red
         Me.GRCashCount.Location = New System.Drawing.Point(0, 0)
         Me.GRCashCount.Name = "GRCashCount"
-        Me.GRCashCount.Size = New System.Drawing.Size(1304, 535)
+        Me.GRCashCount.Size = New System.Drawing.Size(1304, 758)
         Me.GRCashCount.TabIndex = 9
         Me.GRCashCount.TabStop = False
         Me.GRCashCount.Text = "Details of Cash Count"
@@ -157,7 +197,7 @@ Partial Class CheckAllCashCount
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1298, 510)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1298, 733)
         Me.SplitContainer1.SplitterDistance = 277
         Me.SplitContainer1.TabIndex = 15
         '
@@ -166,7 +206,7 @@ Partial Class CheckAllCashCount
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(3, 19)
+        Me.Label2.Location = New System.Drawing.Point(3, 15)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(178, 20)
         Me.Label2.TabIndex = 13
@@ -174,8 +214,10 @@ Partial Class CheckAllCashCount
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.GridDepartment)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 84)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 81)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(262, 295)
         Me.GroupBox1.TabIndex = 14
@@ -187,6 +229,7 @@ Partial Class CheckAllCashCount
         GridDepartment_DesignTimeLayout.LayoutString = resources.GetString("GridDepartment_DesignTimeLayout.LayoutString")
         Me.GridDepartment.DesignTimeLayout = GridDepartment_DesignTimeLayout
         Me.GridDepartment.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridDepartment.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
         Me.GridDepartment.GroupByBoxVisible = False
         Me.GridDepartment.Location = New System.Drawing.Point(3, 22)
@@ -197,11 +240,13 @@ Partial Class CheckAllCashCount
         '
         'dtpDateFrom
         '
+        Me.dtpDateFrom.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpDateFrom.Checked = False
         Me.dtpDateFrom.CustomFormat = "dd/MM/yyyy"
         Me.dtpDateFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDateFrom.Location = New System.Drawing.Point(3, 43)
+        Me.dtpDateFrom.Location = New System.Drawing.Point(3, 39)
         Me.dtpDateFrom.Name = "dtpDateFrom"
         Me.dtpDateFrom.Size = New System.Drawing.Size(262, 38)
         Me.dtpDateFrom.TabIndex = 12
@@ -223,11 +268,12 @@ Partial Class CheckAllCashCount
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.AutoScroll = True
-        Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox5)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.TabControl1)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox10)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox7)
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox8)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1017, 510)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1017, 733)
         Me.SplitContainer2.SplitterDistance = 295
         Me.SplitContainer2.TabIndex = 0
         '
@@ -264,12 +310,33 @@ Partial Class CheckAllCashCount
         Me.GridCashCollection.TotalRowFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.GridCashCollection.TotalRowFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
         '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.TxtRemarkNote)
+        Me.GroupBox10.ForeColor = System.Drawing.Color.Red
+        Me.GroupBox10.Location = New System.Drawing.Point(5, 291)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(365, 107)
+        Me.GroupBox10.TabIndex = 13
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Remark"
+        '
+        'TxtRemarkNote
+        '
+        Me.TxtRemarkNote.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtRemarkNote.Location = New System.Drawing.Point(3, 22)
+        Me.TxtRemarkNote.Multiline = True
+        Me.TxtRemarkNote.Name = "TxtRemarkNote"
+        Me.TxtRemarkNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TxtRemarkNote.Size = New System.Drawing.Size(359, 82)
+        Me.TxtRemarkNote.TabIndex = 0
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(8, 18)
+        Me.Label1.Location = New System.Drawing.Point(8, 6)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 20)
         Me.Label1.TabIndex = 14
@@ -303,9 +370,9 @@ Partial Class CheckAllCashCount
         Me.GroupBox7.Controls.Add(Me.txt5D)
         Me.GroupBox7.Controls.Add(Me.txt20USD)
         Me.GroupBox7.Controls.Add(Me.txt5USD)
-        Me.GroupBox7.Location = New System.Drawing.Point(5, 44)
+        Me.GroupBox7.Location = New System.Drawing.Point(5, 27)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(364, 362)
+        Me.GroupBox7.Size = New System.Drawing.Size(364, 264)
         Me.GroupBox7.TabIndex = 0
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "US DOLLARS"
@@ -604,7 +671,7 @@ Partial Class CheckAllCashCount
         Me.GroupBox8.Controls.Add(Me.txt20000R)
         Me.GroupBox8.Controls.Add(Me.txt5000R)
         Me.GroupBox8.Controls.Add(Me.ShapeContainer3)
-        Me.GroupBox8.Location = New System.Drawing.Point(373, 44)
+        Me.GroupBox8.Location = New System.Drawing.Point(373, 27)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(415, 363)
         Me.GroupBox8.TabIndex = 0
@@ -1030,14 +1097,273 @@ Partial Class CheckAllCashCount
         Me.LineShape3.Y1 = 288
         Me.LineShape3.Y2 = 288
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(794, 32)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(638, 345)
+        Me.TabControl1.TabIndex = 18
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.GroupBox3)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(630, 312)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Income Summary:"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label9)
+        Me.GroupBox3.Controls.Add(Me.Label8)
+        Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Controls.Add(Me.Label44)
+        Me.GroupBox3.Controls.Add(Me.txtTotalRiel)
+        Me.GroupBox3.Controls.Add(Me.txtTotalUSD)
+        Me.GroupBox3.Controls.Add(Me.txtMRiel)
+        Me.GroupBox3.Controls.Add(Me.txtMUSD)
+        Me.GroupBox3.Controls.Add(Me.txtIPRiel)
+        Me.GroupBox3.Controls.Add(Me.txtEGRiel)
+        Me.GroupBox3.Controls.Add(Me.txtIPUSD)
+        Me.GroupBox3.Controls.Add(Me.txtORiel)
+        Me.GroupBox3.Controls.Add(Me.txtEGUSD)
+        Me.GroupBox3.Controls.Add(Me.txtOUSD)
+        Me.GroupBox3.Controls.Add(Me.txtOPRiel)
+        Me.GroupBox3.Controls.Add(Me.txtOPUSD)
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(624, 306)
+        Me.GroupBox3.TabIndex = 17
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Income Summary:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(6, 186)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(59, 20)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "TOTAL"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 145)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(57, 20)
+        Me.Label8.TabIndex = 3
+        Me.Label8.Text = "Others"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 119)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(72, 20)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Medicine"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 93)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(98, 20)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Eye Glasses"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(6, 67)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 20)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Inpatient"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 44)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(84, 20)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Outpatient"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(268, 15)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(50, 20)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "RIEL"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(140, 15)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(49, 20)
+        Me.Label44.TabIndex = 1
+        Me.Label44.Text = "US $"
+        '
+        'txtTotalRiel
+        '
+        Me.txtTotalRiel.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtTotalRiel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalRiel.Location = New System.Drawing.Point(225, 183)
+        Me.txtTotalRiel.Name = "txtTotalRiel"
+        Me.txtTotalRiel.ReadOnly = True
+        Me.txtTotalRiel.Size = New System.Drawing.Size(139, 26)
+        Me.txtTotalRiel.TabIndex = 11
+        Me.txtTotalRiel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtTotalUSD
+        '
+        Me.txtTotalUSD.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtTotalUSD.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalUSD.Location = New System.Drawing.Point(105, 183)
+        Me.txtTotalUSD.Name = "txtTotalUSD"
+        Me.txtTotalUSD.ReadOnly = True
+        Me.txtTotalUSD.Size = New System.Drawing.Size(120, 26)
+        Me.txtTotalUSD.TabIndex = 10
+        Me.txtTotalUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtMRiel
+        '
+        Me.txtMRiel.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtMRiel.Location = New System.Drawing.Point(225, 116)
+        Me.txtMRiel.Name = "txtMRiel"
+        Me.txtMRiel.ReadOnly = True
+        Me.txtMRiel.Size = New System.Drawing.Size(139, 26)
+        Me.txtMRiel.TabIndex = 7
+        Me.txtMRiel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtMUSD
+        '
+        Me.txtMUSD.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtMUSD.Location = New System.Drawing.Point(105, 116)
+        Me.txtMUSD.Name = "txtMUSD"
+        Me.txtMUSD.ReadOnly = True
+        Me.txtMUSD.Size = New System.Drawing.Size(120, 26)
+        Me.txtMUSD.TabIndex = 6
+        Me.txtMUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtIPRiel
+        '
+        Me.txtIPRiel.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtIPRiel.Location = New System.Drawing.Point(225, 64)
+        Me.txtIPRiel.Name = "txtIPRiel"
+        Me.txtIPRiel.ReadOnly = True
+        Me.txtIPRiel.Size = New System.Drawing.Size(139, 26)
+        Me.txtIPRiel.TabIndex = 3
+        Me.txtIPRiel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtEGRiel
+        '
+        Me.txtEGRiel.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtEGRiel.Location = New System.Drawing.Point(225, 90)
+        Me.txtEGRiel.Name = "txtEGRiel"
+        Me.txtEGRiel.ReadOnly = True
+        Me.txtEGRiel.Size = New System.Drawing.Size(139, 26)
+        Me.txtEGRiel.TabIndex = 5
+        Me.txtEGRiel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtIPUSD
+        '
+        Me.txtIPUSD.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtIPUSD.Location = New System.Drawing.Point(105, 64)
+        Me.txtIPUSD.Name = "txtIPUSD"
+        Me.txtIPUSD.ReadOnly = True
+        Me.txtIPUSD.Size = New System.Drawing.Size(120, 26)
+        Me.txtIPUSD.TabIndex = 2
+        Me.txtIPUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtORiel
+        '
+        Me.txtORiel.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtORiel.Location = New System.Drawing.Point(225, 142)
+        Me.txtORiel.Name = "txtORiel"
+        Me.txtORiel.ReadOnly = True
+        Me.txtORiel.Size = New System.Drawing.Size(139, 26)
+        Me.txtORiel.TabIndex = 9
+        Me.txtORiel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtEGUSD
+        '
+        Me.txtEGUSD.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtEGUSD.Location = New System.Drawing.Point(105, 90)
+        Me.txtEGUSD.Name = "txtEGUSD"
+        Me.txtEGUSD.ReadOnly = True
+        Me.txtEGUSD.Size = New System.Drawing.Size(120, 26)
+        Me.txtEGUSD.TabIndex = 4
+        Me.txtEGUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtOUSD
+        '
+        Me.txtOUSD.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtOUSD.Location = New System.Drawing.Point(105, 142)
+        Me.txtOUSD.Name = "txtOUSD"
+        Me.txtOUSD.ReadOnly = True
+        Me.txtOUSD.Size = New System.Drawing.Size(120, 26)
+        Me.txtOUSD.TabIndex = 8
+        Me.txtOUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtOPRiel
+        '
+        Me.txtOPRiel.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtOPRiel.Location = New System.Drawing.Point(225, 38)
+        Me.txtOPRiel.Name = "txtOPRiel"
+        Me.txtOPRiel.ReadOnly = True
+        Me.txtOPRiel.Size = New System.Drawing.Size(139, 26)
+        Me.txtOPRiel.TabIndex = 1
+        Me.txtOPRiel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtOPUSD
+        '
+        Me.txtOPUSD.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.txtOPUSD.Location = New System.Drawing.Point(105, 38)
+        Me.txtOPUSD.Name = "txtOPUSD"
+        Me.txtOPUSD.ReadOnly = True
+        Me.txtOPUSD.Size = New System.Drawing.Size(120, 26)
+        Me.txtOPUSD.TabIndex = 0
+        Me.txtOPUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.SplitContainer3)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(630, 312)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "          Account          "
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.dgvRemarks)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox5.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox5.Location = New System.Drawing.Point(794, 44)
+        Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(432, 170)
-        Me.GroupBox5.TabIndex = 15
+        Me.GroupBox5.Size = New System.Drawing.Size(624, 153)
+        Me.GroupBox5.TabIndex = 14
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Remarks Account Receiveable"
         '
@@ -1050,14 +1376,58 @@ Partial Class CheckAllCashCount
         Me.dgvRemarks.GroupByBoxVisible = False
         Me.dgvRemarks.Location = New System.Drawing.Point(3, 22)
         Me.dgvRemarks.Name = "dgvRemarks"
-        Me.dgvRemarks.Size = New System.Drawing.Size(426, 145)
+        Me.dgvRemarks.Size = New System.Drawing.Size(618, 128)
         Me.dgvRemarks.TabIndex = 0
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.GridAccountPayable)
+        Me.GroupBox9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox9.ForeColor = System.Drawing.Color.Blue
+        Me.GroupBox9.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(624, 149)
+        Me.GroupBox9.TabIndex = 15
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Remark Account Payable"
+        '
+        'GridAccountPayable
+        '
+        Me.GridAccountPayable.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        GridAccountPayable_DesignTimeLayout.LayoutString = resources.GetString("GridAccountPayable_DesignTimeLayout.LayoutString")
+        Me.GridAccountPayable.DesignTimeLayout = GridAccountPayable_DesignTimeLayout
+        Me.GridAccountPayable.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridAccountPayable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridAccountPayable.GroupByBoxVisible = False
+        Me.GridAccountPayable.Location = New System.Drawing.Point(3, 22)
+        Me.GridAccountPayable.Name = "GridAccountPayable"
+        Me.GridAccountPayable.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.GridAccountPayable.Size = New System.Drawing.Size(618, 124)
+        Me.GridAccountPayable.TabIndex = 0
+        '
+        'SplitContainer3
+        '
+        Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer3.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer3.Name = "SplitContainer3"
+        Me.SplitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer3.Panel1
+        '
+        Me.SplitContainer3.Panel1.Controls.Add(Me.GroupBox5)
+        '
+        'SplitContainer3.Panel2
+        '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.GroupBox9)
+        Me.SplitContainer3.Size = New System.Drawing.Size(624, 306)
+        Me.SplitContainer3.SplitterDistance = 153
+        Me.SplitContainer3.TabIndex = 16
         '
         'CheckAllCashCount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1304, 535)
+        Me.ClientSize = New System.Drawing.Size(1304, 758)
         Me.Controls.Add(Me.GRCashCount)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CheckAllCashCount"
@@ -1076,12 +1446,24 @@ Partial Class CheckAllCashCount
         Me.SplitContainer2.ResumeLayout(False)
         Me.GBPayment.ResumeLayout(False)
         CType(Me.GridCashCollection, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.dgvRemarks, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox9.ResumeLayout(False)
+        CType(Me.GridAccountPayable, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer3.Panel1.ResumeLayout(False)
+        Me.SplitContainer3.Panel2.ResumeLayout(False)
+        Me.SplitContainer3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1167,6 +1549,35 @@ Partial Class CheckAllCashCount
     Friend WithEvents GBPayment As System.Windows.Forms.GroupBox
     Friend WithEvents GridCashCollection As Janus.Windows.GridEX.GridEX
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
+    Friend WithEvents TxtRemarkNote As System.Windows.Forms.TextBox
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents txtTotalRiel As System.Windows.Forms.TextBox
+    Friend WithEvents txtTotalUSD As System.Windows.Forms.TextBox
+    Friend WithEvents txtMRiel As System.Windows.Forms.TextBox
+    Friend WithEvents txtMUSD As System.Windows.Forms.TextBox
+    Friend WithEvents txtIPRiel As System.Windows.Forms.TextBox
+    Friend WithEvents txtEGRiel As System.Windows.Forms.TextBox
+    Friend WithEvents txtIPUSD As System.Windows.Forms.TextBox
+    Friend WithEvents txtORiel As System.Windows.Forms.TextBox
+    Friend WithEvents txtEGUSD As System.Windows.Forms.TextBox
+    Friend WithEvents txtOUSD As System.Windows.Forms.TextBox
+    Friend WithEvents txtOPRiel As System.Windows.Forms.TextBox
+    Friend WithEvents txtOPUSD As System.Windows.Forms.TextBox
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents dgvRemarks As Janus.Windows.GridEX.GridEX
+    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Friend WithEvents GridAccountPayable As Janus.Windows.GridEX.GridEX
 End Class

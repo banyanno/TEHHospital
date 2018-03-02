@@ -344,6 +344,7 @@ Public Class FRMOTRegistration
 
    
     Private Sub FRMOTRegistration_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         TxtReferall.Text = Get_CombindReferalInPatient(TxtPatientNo.Text)
     End Sub
 End Class

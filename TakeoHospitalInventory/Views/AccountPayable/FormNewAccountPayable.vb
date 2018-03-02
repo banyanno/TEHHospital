@@ -34,6 +34,8 @@
                 ObjAccountPaid.ACCOUNTID = CInt(CboAccountName.SelectedValue)
                 ObjAccountPaid.DATE_PAID = DatePaidAble.Value
                 ObjAccountPaid.DESCRIPTION = TxtDescription.Text
+                ObjAccountPaid.DEPART_ID = DEPART_ID
+                ObjAccountPaid.DEPART_NAME = DEPART_NAME
                 ObjAccountPaid.IS_DELETE = False
                 If ChDolar.Checked = True Then
                     ObjAccountPaid.AMOUNT_DOLAR = TxtAmountDolar.Text

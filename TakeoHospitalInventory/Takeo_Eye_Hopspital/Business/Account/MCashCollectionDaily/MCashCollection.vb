@@ -29,7 +29,15 @@ Module MCashCollection
                       & " + SUM(OperationFeeRiel) + SUM(ArtificialEyeFeeRiel) + SUM(OtherFeeRiel) + SUM(GlassFeeRiel) + SUM(MedicineFeeRiel) AS TotalRiel FROM tblPatientReceipt Where IsPatientNill=0 AND CAST(CONVERT(VARCHAR(10), DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) and ConPay='1' and ConDelete='0'"
         Return generalDAO.SelectDAOAsDataTatable(Sql)
     End Function
-
+    Function IncomeSummaryByDept(ByVal DateIn As Date, ByVal DeptID As Integer) As DataTable
+        Dim Sql As String = "SELECT     SUM(ConsultationFeeUSD) + SUM(FollowUpFeeUSD) AS OutPatientUSD, SUM(ConsultationFeeRiel) + SUM(FollowUpFeeRiel) AS OutpatientRiel, " _
+                      & " SUM(OperationFeeUSD) + SUM(ArtificialEyeFeeUSD) AS InpatientUSD, SUM(OperationFeeRiel) + SUM(ArtificialEyeFeeRiel) AS InpatientRiel, " _
+                      & " SUM(GlassFeeUSD) AS GlassUSD, SUM(GlassFeeRiel) AS GlassRiel, SUM(MedicineFeeUSD) AS MedicineUSD, " _
+                      & " SUM(MedicineFeeRiel) AS MedicineRiel,SUM(OtherFeeUSD) AS FeeUSD,SUM(OtherFeeRiel) AS FeeRIEL, SUM(ConsultationFeeUSD) + SUM(FollowUpFeeUSD) + SUM(OperationFeeUSD) + SUM(ArtificialEyeFeeUSD) " _
+                      & " + SUM(OtherFeeUSD) + SUM(GlassFeeUSD) + SUM(MedicineFeeUSD) AS TotalUSD, SUM(ConsultationFeeRiel) + SUM(FollowUpFeeRiel) " _
+                      & " + SUM(OperationFeeRiel) + SUM(ArtificialEyeFeeRiel) + SUM(OtherFeeRiel) + SUM(GlassFeeRiel) + SUM(MedicineFeeRiel) AS TotalRiel FROM tblPatientReceipt Where ISSUE_BY_DEPART =" & DeptID & " AND IsPatientNill=0 AND CAST(CONVERT(VARCHAR(10), DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) and ConPay='1' and ConDelete='0'"
+        Return generalDAO.SelectDAOAsDataTatable(Sql)
+    End Function
     Function DailyRemarksAccReceived(ByVal DateIn As Date) As DataTable
         Dim sql As String = "SELECT tblAccountName.AccountName AS AccountName, tblAccountAmount.AmountUSD AS AmountUSD, tblAccountAmount.AmountRiel AS AmountRiel,tblAccountAmount.DEP_NAME" _
                             & " FROM tblAccountAmount INNER JOIN tblAccountName ON tblAccountAmount.AID = tblAccountName.AID" _
@@ -147,19 +155,31 @@ Module MCashCollection
     Sub SaveDiallyRemarkNote(ByVal DateRemark As Date, ByVal Remarks As String)
         generalDAO.InsertDAO("INSERT INTO CASH_REMARK_COLLECTION (RemarkDate,Remarks) VALUES('" & DateRemark & "','" & Remarks.Replace("'", "") & "')")
     End Sub
-
+    Sub SaveDiallyRemarkNoteVyDept(ByVal DateRemark As Date, ByVal Remarks As String, ByVal DeptID As Integer, ByVal Dept_Name As String)
+        generalDAO.InsertDAO("INSERT INTO CASH_REMARK_COLLECTION (RemarkDate,Remarks,DEPART_ID,DEPART_NAME) VALUES('" & DateRemark & "','" & Remarks.Replace("'", "") & "'," & DeptID & ",'" & Dept_Name & "')")
+    End Sub
     Sub UpdateDaillyRemarkNote(ByVal RemarkID As Integer, ByVal Remarks As String)
         generalDAO.UpdateDAO("UPDATE CASH_REMARK_COLLECTION SET Remarks='" & Remarks.Replace("'", "") & "' WHERE RemarkID=" & RemarkID)
     End Sub
+    Sub UpdateDaillyRemarkNoteByDept(ByVal RemarkID As Integer, ByVal Remarks As String, ByVal DeptID As Integer)
+        generalDAO.UpdateDAO("UPDATE CASH_REMARK_COLLECTION SET Remarks='" & Remarks.Replace("'", "") & "' WHERE  DEPART_ID=" & DeptID & " and RemarkID=" & RemarkID)
+    End Sub
     Function SelectRemarksNote(ByVal DateIn As Date) As DataTable
-        Dim sql As String = "SELECT RemarkID,RemarkDate, Remarks FROM CASH_REMARK_COLLECTION WHERE RemarkDate ='" & DateIn & "'"
+        Dim sql As String = "SELECT RemarkID,RemarkDate,DEPART_ID,DEPART_NAME, Remarks FROM CASH_REMARK_COLLECTION WHERE RemarkDate ='" & DateIn & "'"
 
         '"SELECT tblAccountName.AccountName AS AccountName, tblAccountAmount.AmountUSD AS AmountUSD, tblAccountAmount.AmountRiel AS AmountRiel" _
         '                            & " FROM tblAccountAmount INNER JOIN tblAccountName ON tblAccountAmount.AID = tblAccountName.AID" _
         '                            & " Where  CAST(CONVERT(VARCHAR(10), tblAccountAmount.DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) "
         Return generalDAO.SelectDAOAsDataTatable(sql)
     End Function
+    Function SelectRemarksNoteByDepart(ByVal DateIn As Date, ByVal DepartID As Integer) As DataTable
+        Dim sql As String = "SELECT RemarkID,RemarkDate,DEPART_ID,DEPART_NAME, Remarks FROM CASH_REMARK_COLLECTION WHERE DEPART_ID=" & DepartID & "  AND RemarkDate ='" & DateIn & "'"
 
+        '"SELECT tblAccountName.AccountName AS AccountName, tblAccountAmount.AmountUSD AS AmountUSD, tblAccountAmount.AmountRiel AS AmountRiel" _
+        '                            & " FROM tblAccountAmount INNER JOIN tblAccountName ON tblAccountAmount.AID = tblAccountName.AID" _
+        '                            & " Where  CAST(CONVERT(VARCHAR(10), tblAccountAmount.DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) "
+        Return generalDAO.SelectDAOAsDataTatable(sql)
+    End Function
     Function SelectRemarksNoteDtoD(ByVal DateFrom As Date, ByVal DateTo As Date) As DataTable
         Dim sql As String = "SELECT RemarkID,RemarkDate, Remarks FROM CASH_REMARK_COLLECTION WHERE RemarkDate between '" & DateFrom & "' and '" & DateTo & "'"
 
@@ -195,7 +215,7 @@ Module MCashCollection
 
     End Function
 
-    Public Sub UpdateCashCount(ByVal US100X As String, ByVal US100 As Integer, ByVal US100T As Long, _
+    Public Function UpdateCashCount(ByVal US100X As String, ByVal US100 As Integer, ByVal US100T As Long, _
                             ByVal US50X As String, ByVal US50 As Integer, ByVal US50T As Long, _
                             ByVal US20X As String, ByVal US20 As Integer, ByVal US20T As Long, _
                             ByVal US10X As String, ByVal US10 As Integer, ByVal US10T As Long, _
@@ -211,9 +231,9 @@ Module MCashCollection
                             ByVal R500X As String, ByVal R500 As Integer, ByVal R500T As Long, _
                             ByVal R100X As String, ByVal R100 As Integer, ByVal R100T As Long, _
                             ByVal R50X As String, ByVal R50 As Integer, ByVal R50T As Long, ByVal TotalRIEL As Long, _
-                            ByVal DateIn As Date, ByVal Users As String, ByVal DateUpdate As Date)
+                            ByVal DateIn As Date, ByVal Users As String, ByVal DateUpdate As Date) As Integer
         Try
-            generalDAO.UpdateDAO("Update tblCashCount set US100X='" & US100X & "', US100=" & US100 & ", US100T=" & US100T & "," _
+            Return generalDAO.UpdateDAO("Update tblCashCount set US100X='" & US100X & "', US100=" & US100 & ", US100T=" & US100T & "," _
                                 & " US50X='" & US50X & "', US50=" & US50 & ", US50T=" & US50T & "," _
                                 & " US20X='" & US20X & "', US20=" & US20 & ", US20T=" & US20T & "," _
                                 & " US10X='" & US10X & "', US10=" & US10 & ", US10T=" & US10T & "," _
@@ -230,11 +250,12 @@ Module MCashCollection
                                 & " R100X='" & R100X & "', R100=" & R100 & ", R100T=" & R100T & "," _
                                 & " R50X='" & R50X & "', R50=" & R50 & ", R50T=" & R50T & ", TotalRIEL=" & TotalRIEL & "," _
                                 & " DateIn='" & DateIn & "', Users='" & Users & "', DateUpdate='" & DateUpdate & "' Where DateIn='" & DateIn & "'")
-            MsgBox("Update cash count successfully", MsgBoxStyle.OkOnly, "Cash Count")
+
         Catch ex As Exception
+            Return 4
             MsgBox(ex.Message, MsgBoxStyle.OkCancel)
         End Try
-    End Sub
+    End Function
 
     Public Sub UpdateCashCountByDepartment(ByVal US100X As String, ByVal US100 As Integer, ByVal US100T As Long, _
                             ByVal US50X As String, ByVal US50 As Integer, ByVal US50T As Long, _

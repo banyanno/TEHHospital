@@ -90,13 +90,19 @@
                     If MCashReceipt.CheckDuplicateReceiptNo(Me.txtReceiptNumber.Text, "tblPatientReceipt") = True Then
                         Me.txtReceiptNumber.Text = MCashReceipt.getMaxID()
                     End If
-                    If DA_PatientReceipt.InsertNewPatientReceipt(txtReceiptNumber.Text, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), 4000, USER_NAME, DateReceiptIn.Value.Date, 1, "0", GetDateServer.Year, 0, "OTR", 0, Format(GetDateServer, "hh:mm:ss tt").ToString, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
-                        DA_OtherReceipt.InsertNewReceiptOther(txtReceiptNumber.Text, DateReceiptIn.Value.Date, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, TxtReceivedNote.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CBool(IIf(RadDolar.Checked = True, True, False)), False, TxtPatientKHName.Text, txtAmountWord.Text, Format(GetDateServer, "hh:mm:ss tt").ToString)
-                        Dim ROtherReceipt As New ReportOtherReceipt
-                        Dim TblTemReceipt As DataTable = Da_ReceiptNo.SelectByReceiptNo(txtReceiptNumber.Text)
-                        ROtherReceipt.SetDataSource(TblTemReceipt)
-                        ROtherReceipt.PrintToPrinter(1, False, 1, 1)
-                        Me.DialogResult = Windows.Forms.DialogResult.OK
+                    If DA_PatientReceipt.InsertNewPatientReceipt(txtReceiptNumber.Text, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), 4000, USER_NAME, DateReceiptIn.Value.Date, 1, "0", GetDateServer.Year, 0, "OTR", 0, Format(GetDateServer, "hh:mm:ss tt").ToString, Format(GetDateServer, "hh:mm:ss tt").ToString, DEPART_ID) = 1 Then
+                        Try
+                            DA_OtherReceipt.InsertNewReceiptOther(txtReceiptNumber.Text, DateReceiptIn.Value.Date, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, TxtReceivedNote.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CBool(IIf(RadDolar.Checked = True, True, False)), False, TxtPatientKHName.Text, txtAmountWord.Text, Format(GetDateServer, "hh:mm:ss tt").ToString)
+                            Dim ROtherReceipt As New ReportOtherReceipt
+                            Dim TblTemReceipt As DataTable = Da_ReceiptNo.SelectByReceiptNo(txtReceiptNumber.Text)
+                            ROtherReceipt.SetDataSource(TblTemReceipt)
+                            ROtherReceipt.PrintToPrinter(1, False, 1, 1)
+                            Me.DialogResult = Windows.Forms.DialogResult.OK
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Me.DialogResult = Windows.Forms.DialogResult.OK
+                        End Try
+
                     End If
                 End If
             Else
@@ -126,14 +132,18 @@
                     End If
                     Application.DoEvents()
                     If DA_OtherReceipt.UpdateReceiptOther(DateReceiptIn.Value.Date, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, TxtReceivedNote.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CBool(IIf(RadDolar.Checked = True, True, False)), TxtPatientKHName.Text, txtAmountWord.Text, lblSaveOption.Text) = 1 Then
-
-                        'DA_PatientReceipt.InsertNewPatientReceipt(txtReceiptNumber.Text, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), 4000, USER_NAME, DateReceiptIn.Value.Date, 1, "0", GetDateServer.Year, 0, "OTR", 0)
-                        DA_PatientReceipt.UpdateOtherReceipt(CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), 4000, USER_NAME, USER_NAME, 1, DateReceiptIn.Value.Date, Now, Now, TxtCashReceived.Text, TxtCashReceived.Text, txtReceiptNumber.Text)
-                        Dim ROtherReceipt As New ReportOtherReceipt
-                        Dim TblTemReceipt As DataTable = Da_ReceiptNo.SelectByReceiptNo(txtReceiptNumber.Text)
-                        ROtherReceipt.SetDataSource(TblTemReceipt)
-                        ROtherReceipt.PrintToPrinter(1, False, 1, 1)
-                        Me.DialogResult = Windows.Forms.DialogResult.OK
+                        Try
+                            'DA_PatientReceipt.InsertNewPatientReceipt(txtReceiptNumber.Text, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), 4000, USER_NAME, DateReceiptIn.Value.Date, 1, "0", GetDateServer.Year, 0, "OTR", 0)
+                            DA_PatientReceipt.UpdateOtherReceipt(CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), 4000, USER_NAME, USER_NAME, 1, DateReceiptIn.Value.Date, Now, Now, TxtCashReceived.Text, TxtCashReceived.Text, txtReceiptNumber.Text)
+                            Dim ROtherReceipt As New ReportOtherReceipt
+                            Dim TblTemReceipt As DataTable = Da_ReceiptNo.SelectByReceiptNo(txtReceiptNumber.Text)
+                            ROtherReceipt.SetDataSource(TblTemReceipt)
+                            ROtherReceipt.PrintToPrinter(1, False, 1, 1)
+                            Me.DialogResult = Windows.Forms.DialogResult.OK
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "Print", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End Try
+                        
                     End If
                 End If
             End If

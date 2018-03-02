@@ -32,7 +32,7 @@ Partial Class FrmDateOperated
         Me.Label1.Location = New System.Drawing.Point(4, 37)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(106, 17)
+        Me.Label1.Size = New System.Drawing.Size(80, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Date Operated:"
         '
@@ -43,16 +43,16 @@ Partial Class FrmDateOperated
         Me.DateOperated.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateOperated.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateOperated.Location = New System.Drawing.Point(111, 27)
-        Me.DateOperated.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DateOperated.Margin = New System.Windows.Forms.Padding(4)
         Me.DateOperated.Name = "DateOperated"
         Me.DateOperated.ShowCheckBox = True
-        Me.DateOperated.Size = New System.Drawing.Size(180, 30)
+        Me.DateOperated.Size = New System.Drawing.Size(180, 26)
         Me.DateOperated.TabIndex = 1
         '
         'BtnSave
         '
         Me.BtnSave.Location = New System.Drawing.Point(196, 65)
-        Me.BtnSave.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BtnSave.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(95, 34)
         Me.BtnSave.TabIndex = 2
@@ -65,7 +65,7 @@ Partial Class FrmDateOperated
         Me.LblSaveOption.Location = New System.Drawing.Point(8, 69)
         Me.LblSaveOption.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LblSaveOption.Name = "LblSaveOption"
-        Me.LblSaveOption.Size = New System.Drawing.Size(16, 17)
+        Me.LblSaveOption.Size = New System.Drawing.Size(13, 13)
         Me.LblSaveOption.TabIndex = 3
         Me.LblSaveOption.Text = "0"
         Me.LblSaveOption.Visible = False
@@ -80,7 +80,7 @@ Partial Class FrmDateOperated
         Me.Controls.Add(Me.DateOperated)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmDateOperated"

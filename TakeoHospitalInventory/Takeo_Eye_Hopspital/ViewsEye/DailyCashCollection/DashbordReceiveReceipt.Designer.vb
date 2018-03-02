@@ -25,9 +25,8 @@ Partial Class DashbordReceiveReceipt
         Dim GridJanusWaitingPayment_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashbordReceiveReceipt))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
-        Me.BtnRefresh = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnNewCashCount = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
         Me.GridJanusWaitingPayment = New Janus.Windows.GridEX.GridEX
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel
@@ -39,8 +38,11 @@ Partial Class DashbordReceiveReceipt
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripLabel5 = New System.Windows.Forms.ToolStripLabel
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnRefresh = New System.Windows.Forms.ToolStripButton
+        Me.BtnNewCashCount = New System.Windows.Forms.ToolStripButton
         Me.BtnAccountReceiveable = New System.Windows.Forms.ToolStripButton
+        Me.BtnAccPayable = New System.Windows.Forms.ToolStripButton
         Me.ToolStrip1.SuspendLayout()
         CType(Me.GridJanusWaitingPayment, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip2.SuspendLayout()
@@ -50,35 +52,22 @@ Partial Class DashbordReceiveReceipt
         '
         Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(25, 25)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRefresh, Me.ToolStripSeparator1, Me.BtnNewCashCount, Me.ToolStripSeparator6, Me.BtnAccountReceiveable})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnRefresh, Me.ToolStripSeparator1, Me.BtnNewCashCount, Me.ToolStripSeparator6, Me.BtnAccountReceiveable, Me.ToolStripSeparator7, Me.BtnAccPayable})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1107, 32)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'BtnRefresh
-        '
-        Me.BtnRefresh.ForeColor = System.Drawing.Color.Blue
-        Me.BtnRefresh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
-        Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnRefresh.Name = "BtnRefresh"
-        Me.BtnRefresh.Size = New System.Drawing.Size(268, 29)
-        Me.BtnRefresh.Text = "Refresh Receipt Waiting Payment"
-        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 32)
         '
-        'BtnNewCashCount
+        'ToolStripSeparator6
         '
-        Me.BtnNewCashCount.ForeColor = System.Drawing.Color.Blue
-        Me.BtnNewCashCount.Image = Global.TakeoHospitalInventory.My.Resources.Resources.CashReceipt
-        Me.BtnNewCashCount.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnNewCashCount.Name = "BtnNewCashCount"
-        Me.BtnNewCashCount.Size = New System.Drawing.Size(270, 29)
-        Me.BtnNewCashCount.Text = "Dially Cash Count By Department"
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 32)
         '
         'GridJanusWaitingPayment
         '
@@ -169,10 +158,28 @@ Partial Class DashbordReceiveReceipt
         Me.ToolStripLabel5.Size = New System.Drawing.Size(138, 22)
         Me.ToolStripLabel5.Text = "Receipt's Optical Shops"
         '
-        'ToolStripSeparator6
+        'ToolStripSeparator7
         '
-        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 32)
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 32)
+        '
+        'BtnRefresh
+        '
+        Me.BtnRefresh.ForeColor = System.Drawing.Color.Blue
+        Me.BtnRefresh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnRefresh.Name = "BtnRefresh"
+        Me.BtnRefresh.Size = New System.Drawing.Size(268, 29)
+        Me.BtnRefresh.Text = "Refresh Receipt Waiting Payment"
+        '
+        'BtnNewCashCount
+        '
+        Me.BtnNewCashCount.ForeColor = System.Drawing.Color.Blue
+        Me.BtnNewCashCount.Image = Global.TakeoHospitalInventory.My.Resources.Resources.CashReceipt
+        Me.BtnNewCashCount.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNewCashCount.Name = "BtnNewCashCount"
+        Me.BtnNewCashCount.Size = New System.Drawing.Size(270, 29)
+        Me.BtnNewCashCount.Text = "Dially Cash Count By Department"
         '
         'BtnAccountReceiveable
         '
@@ -182,6 +189,15 @@ Partial Class DashbordReceiveReceipt
         Me.BtnAccountReceiveable.Name = "BtnAccountReceiveable"
         Me.BtnAccountReceiveable.Size = New System.Drawing.Size(180, 29)
         Me.BtnAccountReceiveable.Text = "New Acc. Receivable"
+        '
+        'BtnAccPayable
+        '
+        Me.BtnAccPayable.ForeColor = System.Drawing.Color.Blue
+        Me.BtnAccPayable.Image = Global.TakeoHospitalInventory.My.Resources.Resources.followup_icon
+        Me.BtnAccPayable.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnAccPayable.Name = "BtnAccPayable"
+        Me.BtnAccPayable.Size = New System.Drawing.Size(158, 29)
+        Me.BtnAccPayable.Text = "New Acc-Payable"
         '
         'DashbordReceiveReceipt
         '
@@ -218,5 +234,7 @@ Partial Class DashbordReceiveReceipt
     Friend WithEvents ToolStripLabel5 As System.Windows.Forms.ToolStripLabel
     Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BtnAccountReceiveable As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnAccPayable As System.Windows.Forms.ToolStripButton
 
 End Class

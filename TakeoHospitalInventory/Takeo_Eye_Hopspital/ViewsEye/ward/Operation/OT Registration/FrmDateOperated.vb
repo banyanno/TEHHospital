@@ -10,4 +10,9 @@ Public Class FrmDateOperated
             End If
         End If
     End Sub
+
+    Private Sub FrmDateOperated_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        DateOperated.Checked = True
+        DateOperated.Value = GetDateServer()
+    End Sub
 End Class

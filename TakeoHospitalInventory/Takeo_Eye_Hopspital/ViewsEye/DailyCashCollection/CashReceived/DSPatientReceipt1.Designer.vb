@@ -540,6 +540,14 @@ Partial Public Class DSPatientReceipt
         
         Private columnIsPatientNill As Global.System.Data.DataColumn
         
+        Private columnReceiptNote As Global.System.Data.DataColumn
+        
+        Private columnTIME_CREATE As Global.System.Data.DataColumn
+        
+        Private columnTIME_ISSUE As Global.System.Data.DataColumn
+        
+        Private columnISSUE_BY_DEPART As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -971,6 +979,34 @@ Partial Public Class DSPatientReceipt
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ReceiptNoteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnReceiptNote
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property TIME_CREATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTIME_CREATE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property TIME_ISSUEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTIME_ISSUE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ISSUE_BY_DEPARTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnISSUE_BY_DEPART
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1056,9 +1092,13 @@ Partial Public Class DSPatientReceipt
                     ByVal DonateNote As String,  _
                     ByVal HosFee As Double,  _
                     ByVal CashTotal As Double,  _
-                    ByVal IsPatientNill As Boolean) As tblPatientReceiptRow
+                    ByVal IsPatientNill As Boolean,  _
+                    ByVal ReceiptNote As String,  _
+                    ByVal TIME_CREATE As String,  _
+                    ByVal TIME_ISSUE As String,  _
+                    ByVal ISSUE_BY_DEPART As Decimal) As tblPatientReceiptRow
             Dim rowtblPatientReceiptRow As tblPatientReceiptRow = CType(Me.NewRow,tblPatientReceiptRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ReceiptNo, IDCashReceipt, HN, PatientName, CashRiel, CashUSD, TotalRiel, TotalUSD, OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, ConsultationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRiel, MedicineFeeUSD, GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA, ConSocialFee, ConFullFee, ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, DateUpdate, DateNow, ConPay, ConDelete, Years, Operation, IsDonation, DonationID, DonationName, DonationPay, DonateNote, HosFee, CashTotal, IsPatientNill}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ReceiptNo, IDCashReceipt, HN, PatientName, CashRiel, CashUSD, TotalRiel, TotalUSD, OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, ConsultationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRiel, MedicineFeeUSD, GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA, ConSocialFee, ConFullFee, ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, DateUpdate, DateNow, ConPay, ConDelete, Years, Operation, IsDonation, DonationID, DonationName, DonationPay, DonateNote, HosFee, CashTotal, IsPatientNill, ReceiptNote, TIME_CREATE, TIME_ISSUE, ISSUE_BY_DEPART}
             rowtblPatientReceiptRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtblPatientReceiptRow)
             Return rowtblPatientReceiptRow
@@ -1140,6 +1180,10 @@ Partial Public Class DSPatientReceipt
             Me.columnHosFee = MyBase.Columns("HosFee")
             Me.columnCashTotal = MyBase.Columns("CashTotal")
             Me.columnIsPatientNill = MyBase.Columns("IsPatientNill")
+            Me.columnReceiptNote = MyBase.Columns("ReceiptNote")
+            Me.columnTIME_CREATE = MyBase.Columns("TIME_CREATE")
+            Me.columnTIME_ISSUE = MyBase.Columns("TIME_ISSUE")
+            Me.columnISSUE_BY_DEPART = MyBase.Columns("ISSUE_BY_DEPART")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1258,6 +1302,14 @@ Partial Public Class DSPatientReceipt
             MyBase.Columns.Add(Me.columnCashTotal)
             Me.columnIsPatientNill = New Global.System.Data.DataColumn("IsPatientNill", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIsPatientNill)
+            Me.columnReceiptNote = New Global.System.Data.DataColumn("ReceiptNote", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnReceiptNote)
+            Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTIME_CREATE)
+            Me.columnTIME_ISSUE = New Global.System.Data.DataColumn("TIME_ISSUE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTIME_ISSUE)
+            Me.columnISSUE_BY_DEPART = New Global.System.Data.DataColumn("ISSUE_BY_DEPART", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnISSUE_BY_DEPART)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -1288,6 +1340,9 @@ Partial Public Class DSPatientReceipt
             Me.columnOperation.MaxLength = 8000
             Me.columnDonationName.MaxLength = 50
             Me.columnDonateNote.MaxLength = 200
+            Me.columnReceiptNote.MaxLength = 250
+            Me.columnTIME_CREATE.MaxLength = 50
+            Me.columnTIME_ISSUE.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4436,6 +4491,62 @@ Partial Public Class DSPatientReceipt
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ReceiptNote() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblPatientReceipt.ReceiptNoteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ReceiptNote' in table 'tblPatientReceipt' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblPatientReceipt.ReceiptNoteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property TIME_CREATE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblPatientReceipt.TIME_CREATEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIME_CREATE' in table 'tblPatientReceipt' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblPatientReceipt.TIME_CREATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property TIME_ISSUE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblPatientReceipt.TIME_ISSUEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIME_ISSUE' in table 'tblPatientReceipt' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblPatientReceipt.TIME_ISSUEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ISSUE_BY_DEPART() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblPatientReceipt.ISSUE_BY_DEPARTColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ISSUE_BY_DEPART' in table 'tblPatientReceipt' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblPatientReceipt.ISSUE_BY_DEPARTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsPatientNameNull() As Boolean
             Return Me.IsNull(Me.tabletblPatientReceipt.PatientNameColumn)
         End Function
@@ -4963,6 +5074,46 @@ Partial Public Class DSPatientReceipt
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetIsPatientNillNull()
             Me(Me.tabletblPatientReceipt.IsPatientNillColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsReceiptNoteNull() As Boolean
+            Return Me.IsNull(Me.tabletblPatientReceipt.ReceiptNoteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetReceiptNoteNull()
+            Me(Me.tabletblPatientReceipt.ReceiptNoteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsTIME_CREATENull() As Boolean
+            Return Me.IsNull(Me.tabletblPatientReceipt.TIME_CREATEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetTIME_CREATENull()
+            Me(Me.tabletblPatientReceipt.TIME_CREATEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsTIME_ISSUENull() As Boolean
+            Return Me.IsNull(Me.tabletblPatientReceipt.TIME_ISSUEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetTIME_ISSUENull()
+            Me(Me.tabletblPatientReceipt.TIME_ISSUEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsISSUE_BY_DEPARTNull() As Boolean
+            Return Me.IsNull(Me.tabletblPatientReceipt.ISSUE_BY_DEPARTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetISSUE_BY_DEPARTNull()
+            Me(Me.tabletblPatientReceipt.ISSUE_BY_DEPARTColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -7323,77 +7474,86 @@ Namespace DSPatientReceiptTableAdapters
             tableMapping.ColumnMappings.Add("HosFee", "HosFee")
             tableMapping.ColumnMappings.Add("CashTotal", "CashTotal")
             tableMapping.ColumnMappings.Add("IsPatientNill", "IsPatientNill")
+            tableMapping.ColumnMappings.Add("ReceiptNote", "ReceiptNote")
+            tableMapping.ColumnMappings.Add("TIME_CREATE", "TIME_CREATE")
+            tableMapping.ColumnMappings.Add("TIME_ISSUE", "TIME_ISSUE")
+            tableMapping.ColumnMappings.Add("ISSUE_BY_DEPART", "ISSUE_BY_DEPART")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblPatientReceipt] WHERE (([ID] = @Original_ID) AND ([ReceiptN"& _ 
-                "o] = @Original_ReceiptNo) AND ([IDCashReceipt] = @Original_IDCashReceipt) AND (["& _ 
-                "HN] = @Original_HN) AND ((@IsNull_PatientName = 1 AND [PatientName] IS NULL) OR "& _ 
-                "([PatientName] = @Original_PatientName)) AND ((@IsNull_CashRiel = 1 AND [CashRie"& _ 
-                "l] IS NULL) OR ([CashRiel] = @Original_CashRiel)) AND ((@IsNull_CashUSD = 1 AND "& _ 
-                "[CashUSD] IS NULL) OR ([CashUSD] = @Original_CashUSD)) AND ((@IsNull_TotalRiel ="& _ 
-                " 1 AND [TotalRiel] IS NULL) OR ([TotalRiel] = @Original_TotalRiel)) AND ((@IsNul"& _ 
-                "l_TotalUSD = 1 AND [TotalUSD] IS NULL) OR ([TotalUSD] = @Original_TotalUSD)) AND"& _ 
-                " ((@IsNull_OperationFeeRiel = 1 AND [OperationFeeRiel] IS NULL) OR ([OperationFe"& _ 
-                "eRiel] = @Original_OperationFeeRiel)) AND ((@IsNull_OperationFeeUSD = 1 AND [Ope"& _ 
-                "rationFeeUSD] IS NULL) OR ([OperationFeeUSD] = @Original_OperationFeeUSD)) AND ("& _ 
-                "(@IsNull_ArtificialEyeFeeRiel = 1 AND [ArtificialEyeFeeRiel] IS NULL) OR ([Artif"& _ 
-                "icialEyeFeeRiel] = @Original_ArtificialEyeFeeRiel)) AND ((@IsNull_ArtificialEyeF"& _ 
-                "eeUSD = 1 AND [ArtificialEyeFeeUSD] IS NULL) OR ([ArtificialEyeFeeUSD] = @Origin"& _ 
-                "al_ArtificialEyeFeeUSD)) AND ((@IsNull_OtherFeeRiel = 1 AND [OtherFeeRiel] IS NU"& _ 
-                "LL) OR ([OtherFeeRiel] = @Original_OtherFeeRiel)) AND ((@IsNull_OtherFeeUSD = 1 "& _ 
-                "AND [OtherFeeUSD] IS NULL) OR ([OtherFeeUSD] = @Original_OtherFeeUSD)) AND ((@Is"& _ 
-                "Null_ConsultationFeeRiel = 1 AND [ConsultationFeeRiel] IS NULL) OR ([Consultatio"& _ 
-                "nFeeRiel] = @Original_ConsultationFeeRiel)) AND ((@IsNull_ConsultationFeeUSD = 1"& _ 
-                " AND [ConsultationFeeUSD] IS NULL) OR ([ConsultationFeeUSD] = @Original_Consulta"& _ 
-                "tionFeeUSD)) AND ((@IsNull_FollowUpFeeRiel = 1 AND [FollowUpFeeRiel] IS NULL) OR"& _ 
-                " ([FollowUpFeeRiel] = @Original_FollowUpFeeRiel)) AND ((@IsNull_FollowUpFeeUSD ="& _ 
-                " 1 AND [FollowUpFeeUSD] IS NULL) OR ([FollowUpFeeUSD] = @Original_FollowUpFeeUSD"& _ 
-                ")) AND ((@IsNull_MedicineFeeRiel = 1 AND [MedicineFeeRiel] IS NULL) OR ([Medicin"& _ 
-                "eFeeRiel] = @Original_MedicineFeeRiel)) AND ((@IsNull_MedicineFeeUSD = 1 AND [Me"& _ 
-                "dicineFeeUSD] IS NULL) OR ([MedicineFeeUSD] = @Original_MedicineFeeUSD)) AND ((@"& _ 
-                "IsNull_GlassFeeRiel = 1 AND [GlassFeeRiel] IS NULL) OR ([GlassFeeRiel] = @Origin"& _ 
-                "al_GlassFeeRiel)) AND ((@IsNull_GlassFeeUSD = 1 AND [GlassFeeUSD] IS NULL) OR (["& _ 
-                "GlassFeeUSD] = @Original_GlassFeeUSD)) AND ((@IsNull_SocialFeeRiel = 1 AND [Soci"& _ 
-                "alFeeRiel] IS NULL) OR ([SocialFeeRiel] = @Original_SocialFeeRiel)) AND ((@IsNul"& _ 
-                "l_SocialFeeUSD = 1 AND [SocialFeeUSD] IS NULL) OR ([SocialFeeUSD] = @Original_So"& _ 
-                "cialFeeUSD)) AND ((@IsNull_FullFeeRiel = 1 AND [FullFeeRiel] IS NULL) OR ([FullF"& _ 
-                "eeRiel] = @Original_FullFeeRiel)) AND ((@IsNull_FullFeeUSD = 1 AND [FullFeeUSD] "& _ 
-                "IS NULL) OR ([FullFeeUSD] = @Original_FullFeeUSD)) AND ((@IsNull_Rates = 1 AND ["& _ 
-                "Rates] IS NULL) OR ([Rates] = @Original_Rates)) AND ((@IsNull_AmoutWord = 1 AND "& _ 
-                "[AmoutWord] IS NULL) OR ([AmoutWord] = @Original_AmoutWord)) AND ((@IsNull_ConOP"& _ 
-                " = 1 AND [ConOP] IS NULL) OR ([ConOP] = @Original_ConOP)) AND ((@IsNull_ConAE = "& _ 
-                "1 AND [ConAE] IS NULL) OR ([ConAE] = @Original_ConAE)) AND ((@IsNull_ConOT = 1 A"& _ 
-                "ND [ConOT] IS NULL) OR ([ConOT] = @Original_ConOT)) AND ((@IsNull_ConCON = 1 AND"& _ 
-                " [ConCON] IS NULL) OR ([ConCON] = @Original_ConCON)) AND ((@IsNull_ConFOL = 1 AN"& _ 
-                "D [ConFOL] IS NULL) OR ([ConFOL] = @Original_ConFOL)) AND ((@IsNull_ConMED = 1 A"& _ 
-                "ND [ConMED] IS NULL) OR ([ConMED] = @Original_ConMED)) AND ((@IsNull_ConGLA = 1 "& _ 
-                "AND [ConGLA] IS NULL) OR ([ConGLA] = @Original_ConGLA)) AND ((@IsNull_ConSocialF"& _ 
-                "ee = 1 AND [ConSocialFee] IS NULL) OR ([ConSocialFee] = @Original_ConSocialFee))"& _ 
-                " AND ((@IsNull_ConFullFee = 1 AND [ConFullFee] IS NULL) OR ([ConFullFee] = @Orig"& _ 
-                "inal_ConFullFee)) AND ((@IsNull_ConGeneral = 1 AND [ConGeneral] IS NULL) OR ([Co"& _ 
-                "nGeneral] = @Original_ConGeneral)) AND ((@IsNull_CashierIn = 1 AND [CashierIn] I"& _ 
-                "S NULL) OR ([CashierIn] = @Original_CashierIn)) AND ((@IsNull_CashierUpdate = 1 "& _ 
-                "AND [CashierUpdate] IS NULL) OR ([CashierUpdate] = @Original_CashierUpdate)) AND"& _ 
-                " ((@IsNull_PrintCount = 1 AND [PrintCount] IS NULL) OR ([PrintCount] = @Original"& _ 
-                "_PrintCount)) AND ((@IsNull_DateIn = 1 AND [DateIn] IS NULL) OR ([DateIn] = @Ori"& _ 
-                "ginal_DateIn)) AND ((@IsNull_DateUpdate = 1 AND [DateUpdate] IS NULL) OR ([DateU"& _ 
-                "pdate] = @Original_DateUpdate)) AND ((@IsNull_DateNow = 1 AND [DateNow] IS NULL)"& _ 
-                " OR ([DateNow] = @Original_DateNow)) AND ((@IsNull_ConPay = 1 AND [ConPay] IS NU"& _ 
-                "LL) OR ([ConPay] = @Original_ConPay)) AND ((@IsNull_ConDelete = 1 AND [ConDelete"& _ 
-                "] IS NULL) OR ([ConDelete] = @Original_ConDelete)) AND ((@IsNull_Years = 1 AND ["& _ 
-                "Years] IS NULL) OR ([Years] = @Original_Years)) AND ((@IsNull_Operation = 1 AND "& _ 
-                "[Operation] IS NULL) OR ([Operation] = @Original_Operation)) AND ((@IsNull_IsDon"& _ 
-                "ation = 1 AND [IsDonation] IS NULL) OR ([IsDonation] = @Original_IsDonation)) AN"& _ 
-                "D ((@IsNull_DonationID = 1 AND [DonationID] IS NULL) OR ([DonationID] = @Origina"& _ 
-                "l_DonationID)) AND ((@IsNull_DonationName = 1 AND [DonationName] IS NULL) OR ([D"& _ 
-                "onationName] = @Original_DonationName)) AND ((@IsNull_DonationPay = 1 AND [Donat"& _ 
-                "ionPay] IS NULL) OR ([DonationPay] = @Original_DonationPay)) AND ((@IsNull_Donat"& _ 
-                "eNote = 1 AND [DonateNote] IS NULL) OR ([DonateNote] = @Original_DonateNote)) AN"& _ 
-                "D ((@IsNull_HosFee = 1 AND [HosFee] IS NULL) OR ([HosFee] = @Original_HosFee)) A"& _ 
-                "ND ((@IsNull_CashTotal = 1 AND [CashTotal] IS NULL) OR ([CashTotal] = @Original_"& _ 
-                "CashTotal)) AND ((@IsNull_IsPatientNill = 1 AND [IsPatientNill] IS NULL) OR ([Is"& _ 
-                "PatientNill] = @Original_IsPatientNill)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [tblPatientReceipt] WHERE (([ID] = @Original_ID) AND ([ReceiptNo] = @"& _ 
+                "Original_ReceiptNo) AND ([IDCashReceipt] = @Original_IDCashReceipt) AND ([HN] = "& _ 
+                "@Original_HN) AND ((@IsNull_PatientName = 1 AND [PatientName] IS NULL) OR ([Pati"& _ 
+                "entName] = @Original_PatientName)) AND ((@IsNull_CashRiel = 1 AND [CashRiel] IS "& _ 
+                "NULL) OR ([CashRiel] = @Original_CashRiel)) AND ((@IsNull_CashUSD = 1 AND [CashU"& _ 
+                "SD] IS NULL) OR ([CashUSD] = @Original_CashUSD)) AND ((@IsNull_TotalRiel = 1 AND"& _ 
+                " [TotalRiel] IS NULL) OR ([TotalRiel] = @Original_TotalRiel)) AND ((@IsNull_Tota"& _ 
+                "lUSD = 1 AND [TotalUSD] IS NULL) OR ([TotalUSD] = @Original_TotalUSD)) AND ((@Is"& _ 
+                "Null_OperationFeeRiel = 1 AND [OperationFeeRiel] IS NULL) OR ([OperationFeeRiel]"& _ 
+                " = @Original_OperationFeeRiel)) AND ((@IsNull_OperationFeeUSD = 1 AND [Operation"& _ 
+                "FeeUSD] IS NULL) OR ([OperationFeeUSD] = @Original_OperationFeeUSD)) AND ((@IsNu"& _ 
+                "ll_ArtificialEyeFeeRiel = 1 AND [ArtificialEyeFeeRiel] IS NULL) OR ([ArtificialE"& _ 
+                "yeFeeRiel] = @Original_ArtificialEyeFeeRiel)) AND ((@IsNull_ArtificialEyeFeeUSD "& _ 
+                "= 1 AND [ArtificialEyeFeeUSD] IS NULL) OR ([ArtificialEyeFeeUSD] = @Original_Art"& _ 
+                "ificialEyeFeeUSD)) AND ((@IsNull_OtherFeeRiel = 1 AND [OtherFeeRiel] IS NULL) OR"& _ 
+                " ([OtherFeeRiel] = @Original_OtherFeeRiel)) AND ((@IsNull_OtherFeeUSD = 1 AND [O"& _ 
+                "therFeeUSD] IS NULL) OR ([OtherFeeUSD] = @Original_OtherFeeUSD)) AND ((@IsNull_C"& _ 
+                "onsultationFeeRiel = 1 AND [ConsultationFeeRiel] IS NULL) OR ([ConsultationFeeRi"& _ 
+                "el] = @Original_ConsultationFeeRiel)) AND ((@IsNull_ConsultationFeeUSD = 1 AND ["& _ 
+                "ConsultationFeeUSD] IS NULL) OR ([ConsultationFeeUSD] = @Original_ConsultationFe"& _ 
+                "eUSD)) AND ((@IsNull_FollowUpFeeRiel = 1 AND [FollowUpFeeRiel] IS NULL) OR ([Fol"& _ 
+                "lowUpFeeRiel] = @Original_FollowUpFeeRiel)) AND ((@IsNull_FollowUpFeeUSD = 1 AND"& _ 
+                " [FollowUpFeeUSD] IS NULL) OR ([FollowUpFeeUSD] = @Original_FollowUpFeeUSD)) AND"& _ 
+                " ((@IsNull_MedicineFeeRiel = 1 AND [MedicineFeeRiel] IS NULL) OR ([MedicineFeeRi"& _ 
+                "el] = @Original_MedicineFeeRiel)) AND ((@IsNull_MedicineFeeUSD = 1 AND [Medicine"& _ 
+                "FeeUSD] IS NULL) OR ([MedicineFeeUSD] = @Original_MedicineFeeUSD)) AND ((@IsNull"& _ 
+                "_GlassFeeRiel = 1 AND [GlassFeeRiel] IS NULL) OR ([GlassFeeRiel] = @Original_Gla"& _ 
+                "ssFeeRiel)) AND ((@IsNull_GlassFeeUSD = 1 AND [GlassFeeUSD] IS NULL) OR ([GlassF"& _ 
+                "eeUSD] = @Original_GlassFeeUSD)) AND ((@IsNull_SocialFeeRiel = 1 AND [SocialFeeR"& _ 
+                "iel] IS NULL) OR ([SocialFeeRiel] = @Original_SocialFeeRiel)) AND ((@IsNull_Soci"& _ 
+                "alFeeUSD = 1 AND [SocialFeeUSD] IS NULL) OR ([SocialFeeUSD] = @Original_SocialFe"& _ 
+                "eUSD)) AND ((@IsNull_FullFeeRiel = 1 AND [FullFeeRiel] IS NULL) OR ([FullFeeRiel"& _ 
+                "] = @Original_FullFeeRiel)) AND ((@IsNull_FullFeeUSD = 1 AND [FullFeeUSD] IS NUL"& _ 
+                "L) OR ([FullFeeUSD] = @Original_FullFeeUSD)) AND ((@IsNull_Rates = 1 AND [Rates]"& _ 
+                " IS NULL) OR ([Rates] = @Original_Rates)) AND ((@IsNull_AmoutWord = 1 AND [Amout"& _ 
+                "Word] IS NULL) OR ([AmoutWord] = @Original_AmoutWord)) AND ((@IsNull_ConOP = 1 A"& _ 
+                "ND [ConOP] IS NULL) OR ([ConOP] = @Original_ConOP)) AND ((@IsNull_ConAE = 1 AND "& _ 
+                "[ConAE] IS NULL) OR ([ConAE] = @Original_ConAE)) AND ((@IsNull_ConOT = 1 AND [Co"& _ 
+                "nOT] IS NULL) OR ([ConOT] = @Original_ConOT)) AND ((@IsNull_ConCON = 1 AND [ConC"& _ 
+                "ON] IS NULL) OR ([ConCON] = @Original_ConCON)) AND ((@IsNull_ConFOL = 1 AND [Con"& _ 
+                "FOL] IS NULL) OR ([ConFOL] = @Original_ConFOL)) AND ((@IsNull_ConMED = 1 AND [Co"& _ 
+                "nMED] IS NULL) OR ([ConMED] = @Original_ConMED)) AND ((@IsNull_ConGLA = 1 AND [C"& _ 
+                "onGLA] IS NULL) OR ([ConGLA] = @Original_ConGLA)) AND ((@IsNull_ConSocialFee = 1"& _ 
+                " AND [ConSocialFee] IS NULL) OR ([ConSocialFee] = @Original_ConSocialFee)) AND ("& _ 
+                "(@IsNull_ConFullFee = 1 AND [ConFullFee] IS NULL) OR ([ConFullFee] = @Original_C"& _ 
+                "onFullFee)) AND ((@IsNull_ConGeneral = 1 AND [ConGeneral] IS NULL) OR ([ConGener"& _ 
+                "al] = @Original_ConGeneral)) AND ((@IsNull_CashierIn = 1 AND [CashierIn] IS NULL"& _ 
+                ") OR ([CashierIn] = @Original_CashierIn)) AND ((@IsNull_CashierUpdate = 1 AND [C"& _ 
+                "ashierUpdate] IS NULL) OR ([CashierUpdate] = @Original_CashierUpdate)) AND ((@Is"& _ 
+                "Null_PrintCount = 1 AND [PrintCount] IS NULL) OR ([PrintCount] = @Original_Print"& _ 
+                "Count)) AND ((@IsNull_DateIn = 1 AND [DateIn] IS NULL) OR ([DateIn] = @Original_"& _ 
+                "DateIn)) AND ((@IsNull_DateUpdate = 1 AND [DateUpdate] IS NULL) OR ([DateUpdate]"& _ 
+                " = @Original_DateUpdate)) AND ((@IsNull_DateNow = 1 AND [DateNow] IS NULL) OR (["& _ 
+                "DateNow] = @Original_DateNow)) AND ((@IsNull_ConPay = 1 AND [ConPay] IS NULL) OR"& _ 
+                " ([ConPay] = @Original_ConPay)) AND ((@IsNull_ConDelete = 1 AND [ConDelete] IS N"& _ 
+                "ULL) OR ([ConDelete] = @Original_ConDelete)) AND ((@IsNull_Years = 1 AND [Years]"& _ 
+                " IS NULL) OR ([Years] = @Original_Years)) AND ((@IsNull_Operation = 1 AND [Opera"& _ 
+                "tion] IS NULL) OR ([Operation] = @Original_Operation)) AND ((@IsNull_IsDonation "& _ 
+                "= 1 AND [IsDonation] IS NULL) OR ([IsDonation] = @Original_IsDonation)) AND ((@I"& _ 
+                "sNull_DonationID = 1 AND [DonationID] IS NULL) OR ([DonationID] = @Original_Dona"& _ 
+                "tionID)) AND ((@IsNull_DonationName = 1 AND [DonationName] IS NULL) OR ([Donatio"& _ 
+                "nName] = @Original_DonationName)) AND ((@IsNull_DonationPay = 1 AND [DonationPay"& _ 
+                "] IS NULL) OR ([DonationPay] = @Original_DonationPay)) AND ((@IsNull_DonateNote "& _ 
+                "= 1 AND [DonateNote] IS NULL) OR ([DonateNote] = @Original_DonateNote)) AND ((@I"& _ 
+                "sNull_HosFee = 1 AND [HosFee] IS NULL) OR ([HosFee] = @Original_HosFee)) AND ((@"& _ 
+                "IsNull_CashTotal = 1 AND [CashTotal] IS NULL) OR ([CashTotal] = @Original_CashTo"& _ 
+                "tal)) AND ((@IsNull_IsPatientNill = 1 AND [IsPatientNill] IS NULL) OR ([IsPatien"& _ 
+                "tNill] = @Original_IsPatientNill)) AND ((@IsNull_ReceiptNote = 1 AND [ReceiptNot"& _ 
+                "e] IS NULL) OR ([ReceiptNote] = @Original_ReceiptNote)) AND ((@IsNull_TIME_CREAT"& _ 
+                "E = 1 AND [TIME_CREATE] IS NULL) OR ([TIME_CREATE] = @Original_TIME_CREATE)) AND"& _ 
+                " ((@IsNull_TIME_ISSUE = 1 AND [TIME_ISSUE] IS NULL) OR ([TIME_ISSUE] = @Original"& _ 
+                "_TIME_ISSUE)) AND ((@IsNull_ISSUE_BY_DEPART = 1 AND [ISSUE_BY_DEPART] IS NULL) O"& _ 
+                "R ([ISSUE_BY_DEPART] = @Original_ISSUE_BY_DEPART)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ReceiptNo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -7505,38 +7665,48 @@ Namespace DSPatientReceiptTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CashTotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CashTotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsPatientNill", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatientNill", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsPatientNill", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatientNill", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ReceiptNote", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNote", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ReceiptNote", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNote", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TIME_CREATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TIME_ISSUE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_ISSUE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TIME_ISSUE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_ISSUE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ISSUE_BY_DEPART", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ISSUE_BY_DEPART", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ISSUE_BY_DEPART", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ISSUE_BY_DEPART", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblPatientReceipt] ([ReceiptNo], [IDCashReceipt], [HN], [Patie"& _ 
-                "ntName], [CashRiel], [CashUSD], [TotalRiel], [TotalUSD], [OperationFeeRiel], [Op"& _ 
-                "erationFeeUSD], [ArtificialEyeFeeRiel], [ArtificialEyeFeeUSD], [OtherFeeRiel], ["& _ 
-                "OtherFeeUSD], [ConsultationFeeRiel], [ConsultationFeeUSD], [FollowUpFeeRiel], [F"& _ 
-                "ollowUpFeeUSD], [MedicineFeeRiel], [MedicineFeeUSD], [GlassFeeRiel], [GlassFeeUS"& _ 
-                "D], [SocialFeeRiel], [SocialFeeUSD], [FullFeeRiel], [FullFeeUSD], [Rates], [Amou"& _ 
-                "tWord], [ConOP], [ConAE], [ConOT], [ConCON], [ConFOL], [ConMED], [ConGLA], [ConS"& _ 
-                "ocialFee], [ConFullFee], [ConGeneral], [CashierIn], [CashierUpdate], [PrintCount"& _ 
-                "], [DateIn], [DateUpdate], [DateNow], [ConPay], [ConDelete], [Years], [Operation"& _ 
-                "], [IsDonation], [DonationID], [DonationName], [DonationPay], [DonateNote], [Hos"& _ 
-                "Fee], [CashTotal], [IsPatientNill]) VALUES (@ReceiptNo, @IDCashReceipt, @HN, @Pa"& _ 
-                "tientName, @CashRiel, @CashUSD, @TotalRiel, @TotalUSD, @OperationFeeRiel, @Opera"& _ 
-                "tionFeeUSD, @ArtificialEyeFeeRiel, @ArtificialEyeFeeUSD, @OtherFeeRiel, @OtherFe"& _ 
-                "eUSD, @ConsultationFeeRiel, @ConsultationFeeUSD, @FollowUpFeeRiel, @FollowUpFeeU"& _ 
-                "SD, @MedicineFeeRiel, @MedicineFeeUSD, @GlassFeeRiel, @GlassFeeUSD, @SocialFeeRi"& _ 
-                "el, @SocialFeeUSD, @FullFeeRiel, @FullFeeUSD, @Rates, @AmoutWord, @ConOP, @ConAE"& _ 
-                ", @ConOT, @ConCON, @ConFOL, @ConMED, @ConGLA, @ConSocialFee, @ConFullFee, @ConGe"& _ 
-                "neral, @CashierIn, @CashierUpdate, @PrintCount, @DateIn, @DateUpdate, @DateNow, "& _ 
-                "@ConPay, @ConDelete, @Years, @Operation, @IsDonation, @DonationID, @DonationName"& _ 
-                ", @DonationPay, @DonateNote, @HosFee, @CashTotal, @IsPatientNill);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, R"& _ 
-                "eceiptNo, IDCashReceipt, HN, PatientName, CashRiel, CashUSD, TotalRiel, TotalUSD"& _ 
-                ", OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, "& _ 
-                "OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, ConsultationFeeUSD, FollowUpFeeR"& _ 
-                "iel, FollowUpFeeUSD, MedicineFeeRiel, MedicineFeeUSD, GlassFeeRiel, GlassFeeUSD,"& _ 
-                " SocialFeeRiel, SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, "& _ 
-                "ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA, ConSocialFee, ConFullFee, ConGener"& _ 
-                "al, CashierIn, CashierUpdate, PrintCount, DateIn, DateUpdate, DateNow, ConPay, C"& _ 
-                "onDelete, Years, Operation, IsDonation, DonationID, DonationName, DonationPay, D"& _ 
-                "onateNote, HosFee, CashTotal, IsPatientNill FROM tblPatientReceipt WHERE (ID = S"& _ 
-                "COPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [tblPatientReceipt] ([ReceiptNo], [IDCashReceipt], [HN], [PatientName"& _ 
+                "], [CashRiel], [CashUSD], [TotalRiel], [TotalUSD], [OperationFeeRiel], [Operatio"& _ 
+                "nFeeUSD], [ArtificialEyeFeeRiel], [ArtificialEyeFeeUSD], [OtherFeeRiel], [OtherF"& _ 
+                "eeUSD], [ConsultationFeeRiel], [ConsultationFeeUSD], [FollowUpFeeRiel], [FollowU"& _ 
+                "pFeeUSD], [MedicineFeeRiel], [MedicineFeeUSD], [GlassFeeRiel], [GlassFeeUSD], [S"& _ 
+                "ocialFeeRiel], [SocialFeeUSD], [FullFeeRiel], [FullFeeUSD], [Rates], [AmoutWord]"& _ 
+                ", [ConOP], [ConAE], [ConOT], [ConCON], [ConFOL], [ConMED], [ConGLA], [ConSocialF"& _ 
+                "ee], [ConFullFee], [ConGeneral], [CashierIn], [CashierUpdate], [PrintCount], [Da"& _ 
+                "teIn], [DateUpdate], [DateNow], [ConPay], [ConDelete], [Years], [Operation], [Is"& _ 
+                "Donation], [DonationID], [DonationName], [DonationPay], [DonateNote], [HosFee], "& _ 
+                "[CashTotal], [IsPatientNill], [ReceiptNote], [TIME_CREATE], [TIME_ISSUE], [ISSUE"& _ 
+                "_BY_DEPART]) VALUES (@ReceiptNo, @IDCashReceipt, @HN, @PatientName, @CashRiel, @"& _ 
+                "CashUSD, @TotalRiel, @TotalUSD, @OperationFeeRiel, @OperationFeeUSD, @Artificial"& _ 
+                "EyeFeeRiel, @ArtificialEyeFeeUSD, @OtherFeeRiel, @OtherFeeUSD, @ConsultationFeeR"& _ 
+                "iel, @ConsultationFeeUSD, @FollowUpFeeRiel, @FollowUpFeeUSD, @MedicineFeeRiel, @"& _ 
+                "MedicineFeeUSD, @GlassFeeRiel, @GlassFeeUSD, @SocialFeeRiel, @SocialFeeUSD, @Ful"& _ 
+                "lFeeRiel, @FullFeeUSD, @Rates, @AmoutWord, @ConOP, @ConAE, @ConOT, @ConCON, @Con"& _ 
+                "FOL, @ConMED, @ConGLA, @ConSocialFee, @ConFullFee, @ConGeneral, @CashierIn, @Cas"& _ 
+                "hierUpdate, @PrintCount, @DateIn, @DateUpdate, @DateNow, @ConPay, @ConDelete, @Y"& _ 
+                "ears, @Operation, @IsDonation, @DonationID, @DonationName, @DonationPay, @Donate"& _ 
+                "Note, @HosFee, @CashTotal, @IsPatientNill, @ReceiptNote, @TIME_CREATE, @TIME_ISS"& _ 
+                "UE, @ISSUE_BY_DEPART);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, ReceiptNo, IDCashReceipt, HN, PatientName, Ca"& _ 
+                "shRiel, CashUSD, TotalRiel, TotalUSD, OperationFeeRiel, OperationFeeUSD, Artific"& _ 
+                "ialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRi"& _ 
+                "el, ConsultationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRiel, Medici"& _ 
+                "neFeeUSD, GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullFeeRiel, F"& _ 
+                "ullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA"& _ 
+                ", ConSocialFee, ConFullFee, ConGeneral, CashierIn, CashierUpdate, PrintCount, Da"& _ 
+                "teIn, DateUpdate, DateNow, ConPay, ConDelete, Years, Operation, IsDonation, Dona"& _ 
+                "tionID, DonationName, DonationPay, DonateNote, HosFee, CashTotal, IsPatientNill,"& _ 
+                " ReceiptNote, TIME_CREATE, TIME_ISSUE, ISSUE_BY_DEPART FROM tblPatientReceipt WH"& _ 
+                "ERE (ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IDCashReceipt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IDCashReceipt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -7594,105 +7764,117 @@ Namespace DSPatientReceiptTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HosFee", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HosFee", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CashTotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CashTotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPatientNill", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatientNill", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNote", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNote", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_ISSUE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_ISSUE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ISSUE_BY_DEPART", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ISSUE_BY_DEPART", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblPatientReceipt] SET [ReceiptNo] = @ReceiptNo, [IDCashReceipt] = "& _ 
-                "@IDCashReceipt, [HN] = @HN, [PatientName] = @PatientName, [CashRiel] = @CashRiel"& _ 
-                ", [CashUSD] = @CashUSD, [TotalRiel] = @TotalRiel, [TotalUSD] = @TotalUSD, [Opera"& _ 
-                "tionFeeRiel] = @OperationFeeRiel, [OperationFeeUSD] = @OperationFeeUSD, [Artific"& _ 
-                "ialEyeFeeRiel] = @ArtificialEyeFeeRiel, [ArtificialEyeFeeUSD] = @ArtificialEyeFe"& _ 
-                "eUSD, [OtherFeeRiel] = @OtherFeeRiel, [OtherFeeUSD] = @OtherFeeUSD, [Consultatio"& _ 
-                "nFeeRiel] = @ConsultationFeeRiel, [ConsultationFeeUSD] = @ConsultationFeeUSD, [F"& _ 
-                "ollowUpFeeRiel] = @FollowUpFeeRiel, [FollowUpFeeUSD] = @FollowUpFeeUSD, [Medicin"& _ 
-                "eFeeRiel] = @MedicineFeeRiel, [MedicineFeeUSD] = @MedicineFeeUSD, [GlassFeeRiel]"& _ 
-                " = @GlassFeeRiel, [GlassFeeUSD] = @GlassFeeUSD, [SocialFeeRiel] = @SocialFeeRiel"& _ 
-                ", [SocialFeeUSD] = @SocialFeeUSD, [FullFeeRiel] = @FullFeeRiel, [FullFeeUSD] = @"& _ 
-                "FullFeeUSD, [Rates] = @Rates, [AmoutWord] = @AmoutWord, [ConOP] = @ConOP, [ConAE"& _ 
-                "] = @ConAE, [ConOT] = @ConOT, [ConCON] = @ConCON, [ConFOL] = @ConFOL, [ConMED] ="& _ 
-                " @ConMED, [ConGLA] = @ConGLA, [ConSocialFee] = @ConSocialFee, [ConFullFee] = @Co"& _ 
-                "nFullFee, [ConGeneral] = @ConGeneral, [CashierIn] = @CashierIn, [CashierUpdate] "& _ 
-                "= @CashierUpdate, [PrintCount] = @PrintCount, [DateIn] = @DateIn, [DateUpdate] ="& _ 
-                " @DateUpdate, [DateNow] = @DateNow, [ConPay] = @ConPay, [ConDelete] = @ConDelete"& _ 
-                ", [Years] = @Years, [Operation] = @Operation, [IsDonation] = @IsDonation, [Donat"& _ 
-                "ionID] = @DonationID, [DonationName] = @DonationName, [DonationPay] = @DonationP"& _ 
-                "ay, [DonateNote] = @DonateNote, [HosFee] = @HosFee, [CashTotal] = @CashTotal, [I"& _ 
-                "sPatientNill] = @IsPatientNill WHERE (([ID] = @Original_ID) AND ([ReceiptNo] = @"& _ 
-                "Original_ReceiptNo) AND ([IDCashReceipt] = @Original_IDCashReceipt) AND ([HN] = "& _ 
-                "@Original_HN) AND ((@IsNull_PatientName = 1 AND [PatientName] IS NULL) OR ([Pati"& _ 
-                "entName] = @Original_PatientName)) AND ((@IsNull_CashRiel = 1 AND [CashRiel] IS "& _ 
-                "NULL) OR ([CashRiel] = @Original_CashRiel)) AND ((@IsNull_CashUSD = 1 AND [CashU"& _ 
-                "SD] IS NULL) OR ([CashUSD] = @Original_CashUSD)) AND ((@IsNull_TotalRiel = 1 AND"& _ 
-                " [TotalRiel] IS NULL) OR ([TotalRiel] = @Original_TotalRiel)) AND ((@IsNull_Tota"& _ 
-                "lUSD = 1 AND [TotalUSD] IS NULL) OR ([TotalUSD] = @Original_TotalUSD)) AND ((@Is"& _ 
-                "Null_OperationFeeRiel = 1 AND [OperationFeeRiel] IS NULL) OR ([OperationFeeRiel]"& _ 
-                " = @Original_OperationFeeRiel)) AND ((@IsNull_OperationFeeUSD = 1 AND [Operation"& _ 
-                "FeeUSD] IS NULL) OR ([OperationFeeUSD] = @Original_OperationFeeUSD)) AND ((@IsNu"& _ 
-                "ll_ArtificialEyeFeeRiel = 1 AND [ArtificialEyeFeeRiel] IS NULL) OR ([ArtificialE"& _ 
-                "yeFeeRiel] = @Original_ArtificialEyeFeeRiel)) AND ((@IsNull_ArtificialEyeFeeUSD "& _ 
-                "= 1 AND [ArtificialEyeFeeUSD] IS NULL) OR ([ArtificialEyeFeeUSD] = @Original_Art"& _ 
-                "ificialEyeFeeUSD)) AND ((@IsNull_OtherFeeRiel = 1 AND [OtherFeeRiel] IS NULL) OR"& _ 
-                " ([OtherFeeRiel] = @Original_OtherFeeRiel)) AND ((@IsNull_OtherFeeUSD = 1 AND [O"& _ 
-                "therFeeUSD] IS NULL) OR ([OtherFeeUSD] = @Original_OtherFeeUSD)) AND ((@IsNull_C"& _ 
-                "onsultationFeeRiel = 1 AND [ConsultationFeeRiel] IS NULL) OR ([ConsultationFeeRi"& _ 
-                "el] = @Original_ConsultationFeeRiel)) AND ((@IsNull_ConsultationFeeUSD = 1 AND ["& _ 
-                "ConsultationFeeUSD] IS NULL) OR ([ConsultationFeeUSD] = @Original_ConsultationFe"& _ 
-                "eUSD)) AND ((@IsNull_FollowUpFeeRiel = 1 AND [FollowUpFeeRiel] IS NULL) OR ([Fol"& _ 
-                "lowUpFeeRiel] = @Original_FollowUpFeeRiel)) AND ((@IsNull_FollowUpFeeUSD = 1 AND"& _ 
-                " [FollowUpFeeUSD] IS NULL) OR ([FollowUpFeeUSD] = @Original_FollowUpFeeUSD)) AND"& _ 
-                " ((@IsNull_MedicineFeeRiel = 1 AND [MedicineFeeRiel] IS NULL) OR ([MedicineFeeRi"& _ 
-                "el] = @Original_MedicineFeeRiel)) AND ((@IsNull_MedicineFeeUSD = 1 AND [Medicine"& _ 
-                "FeeUSD] IS NULL) OR ([MedicineFeeUSD] = @Original_MedicineFeeUSD)) AND ((@IsNull"& _ 
-                "_GlassFeeRiel = 1 AND [GlassFeeRiel] IS NULL) OR ([GlassFeeRiel] = @Original_Gla"& _ 
-                "ssFeeRiel)) AND ((@IsNull_GlassFeeUSD = 1 AND [GlassFeeUSD] IS NULL) OR ([GlassF"& _ 
-                "eeUSD] = @Original_GlassFeeUSD)) AND ((@IsNull_SocialFeeRiel = 1 AND [SocialFeeR"& _ 
-                "iel] IS NULL) OR ([SocialFeeRiel] = @Original_SocialFeeRiel)) AND ((@IsNull_Soci"& _ 
-                "alFeeUSD = 1 AND [SocialFeeUSD] IS NULL) OR ([SocialFeeUSD] = @Original_SocialFe"& _ 
-                "eUSD)) AND ((@IsNull_FullFeeRiel = 1 AND [FullFeeRiel] IS NULL) OR ([FullFeeRiel"& _ 
-                "] = @Original_FullFeeRiel)) AND ((@IsNull_FullFeeUSD = 1 AND [FullFeeUSD] IS NUL"& _ 
-                "L) OR ([FullFeeUSD] = @Original_FullFeeUSD)) AND ((@IsNull_Rates = 1 AND [Rates]"& _ 
-                " IS NULL) OR ([Rates] = @Original_Rates)) AND ((@IsNull_AmoutWord = 1 AND [Amout"& _ 
-                "Word] IS NULL) OR ([AmoutWord] = @Original_AmoutWord)) AND ((@IsNull_ConOP = 1 A"& _ 
-                "ND [ConOP] IS NULL) OR ([ConOP] = @Original_ConOP)) AND ((@IsNull_ConAE = 1 AND "& _ 
-                "[ConAE] IS NULL) OR ([ConAE] = @Original_ConAE)) AND ((@IsNull_ConOT = 1 AND [Co"& _ 
-                "nOT] IS NULL) OR ([ConOT] = @Original_ConOT)) AND ((@IsNull_ConCON = 1 AND [ConC"& _ 
-                "ON] IS NULL) OR ([ConCON] = @Original_ConCON)) AND ((@IsNull_ConFOL = 1 AND [Con"& _ 
-                "FOL] IS NULL) OR ([ConFOL] = @Original_ConFOL)) AND ((@IsNull_ConMED = 1 AND [Co"& _ 
-                "nMED] IS NULL) OR ([ConMED] = @Original_ConMED)) AND ((@IsNull_ConGLA = 1 AND [C"& _ 
-                "onGLA] IS NULL) OR ([ConGLA] = @Original_ConGLA)) AND ((@IsNull_ConSocialFee = 1"& _ 
-                " AND [ConSocialFee] IS NULL) OR ([ConSocialFee] = @Original_ConSocialFee)) AND ("& _ 
-                "(@IsNull_ConFullFee = 1 AND [ConFullFee] IS NULL) OR ([ConFullFee] = @Original_C"& _ 
-                "onFullFee)) AND ((@IsNull_ConGeneral = 1 AND [ConGeneral] IS NULL) OR ([ConGener"& _ 
-                "al] = @Original_ConGeneral)) AND ((@IsNull_CashierIn = 1 AND [CashierIn] IS NULL"& _ 
-                ") OR ([CashierIn] = @Original_CashierIn)) AND ((@IsNull_CashierUpdate = 1 AND [C"& _ 
-                "ashierUpdate] IS NULL) OR ([CashierUpdate] = @Original_CashierUpdate)) AND ((@Is"& _ 
-                "Null_PrintCount = 1 AND [PrintCount] IS NULL) OR ([PrintCount] = @Original_Print"& _ 
-                "Count)) AND ((@IsNull_DateIn = 1 AND [DateIn] IS NULL) OR ([DateIn] = @Original_"& _ 
-                "DateIn)) AND ((@IsNull_DateUpdate = 1 AND [DateUpdate] IS NULL) OR ([DateUpdate]"& _ 
-                " = @Original_DateUpdate)) AND ((@IsNull_DateNow = 1 AND [DateNow] IS NULL) OR (["& _ 
-                "DateNow] = @Original_DateNow)) AND ((@IsNull_ConPay = 1 AND [ConPay] IS NULL) OR"& _ 
-                " ([ConPay] = @Original_ConPay)) AND ((@IsNull_ConDelete = 1 AND [ConDelete] IS N"& _ 
-                "ULL) OR ([ConDelete] = @Original_ConDelete)) AND ((@IsNull_Years = 1 AND [Years]"& _ 
-                " IS NULL) OR ([Years] = @Original_Years)) AND ((@IsNull_Operation = 1 AND [Opera"& _ 
-                "tion] IS NULL) OR ([Operation] = @Original_Operation)) AND ((@IsNull_IsDonation "& _ 
-                "= 1 AND [IsDonation] IS NULL) OR ([IsDonation] = @Original_IsDonation)) AND ((@I"& _ 
-                "sNull_DonationID = 1 AND [DonationID] IS NULL) OR ([DonationID] = @Original_Dona"& _ 
-                "tionID)) AND ((@IsNull_DonationName = 1 AND [DonationName] IS NULL) OR ([Donatio"& _ 
-                "nName] = @Original_DonationName)) AND ((@IsNull_DonationPay = 1 AND [DonationPay"& _ 
-                "] IS NULL) OR ([DonationPay] = @Original_DonationPay)) AND ((@IsNull_DonateNote "& _ 
-                "= 1 AND [DonateNote] IS NULL) OR ([DonateNote] = @Original_DonateNote)) AND ((@I"& _ 
-                "sNull_HosFee = 1 AND [HosFee] IS NULL) OR ([HosFee] = @Original_HosFee)) AND ((@"& _ 
-                "IsNull_CashTotal = 1 AND [CashTotal] IS NULL) OR ([CashTotal] = @Original_CashTo"& _ 
-                "tal)) AND ((@IsNull_IsPatientNill = 1 AND [IsPatientNill] IS NULL) OR ([IsPatien"& _ 
-                "tNill] = @Original_IsPatientNill)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, ReceiptNo, IDCashReceipt, HN, P"& _ 
-                "atientName, CashRiel, CashUSD, TotalRiel, TotalUSD, OperationFeeRiel, OperationF"& _ 
-                "eeUSD, ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, Con"& _ 
-                "sultationFeeRiel, ConsultationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineF"& _ 
-                "eeRiel, MedicineFeeUSD, GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, "& _ 
-                "FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, ConCON, ConFOL, "& _ 
-                "ConMED, ConGLA, ConSocialFee, ConFullFee, ConGeneral, CashierIn, CashierUpdate, "& _ 
-                "PrintCount, DateIn, DateUpdate, DateNow, ConPay, ConDelete, Years, Operation, Is"& _ 
-                "Donation, DonationID, DonationName, DonationPay, DonateNote, HosFee, CashTotal, "& _ 
-                "IsPatientNill FROM tblPatientReceipt WHERE (ID = @ID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [tblPatientReceipt] SET [ReceiptNo] = @ReceiptNo, [IDCashReceipt] = @IDCas"& _ 
+                "hReceipt, [HN] = @HN, [PatientName] = @PatientName, [CashRiel] = @CashRiel, [Cas"& _ 
+                "hUSD] = @CashUSD, [TotalRiel] = @TotalRiel, [TotalUSD] = @TotalUSD, [OperationFe"& _ 
+                "eRiel] = @OperationFeeRiel, [OperationFeeUSD] = @OperationFeeUSD, [ArtificialEye"& _ 
+                "FeeRiel] = @ArtificialEyeFeeRiel, [ArtificialEyeFeeUSD] = @ArtificialEyeFeeUSD, "& _ 
+                "[OtherFeeRiel] = @OtherFeeRiel, [OtherFeeUSD] = @OtherFeeUSD, [ConsultationFeeRi"& _ 
+                "el] = @ConsultationFeeRiel, [ConsultationFeeUSD] = @ConsultationFeeUSD, [FollowU"& _ 
+                "pFeeRiel] = @FollowUpFeeRiel, [FollowUpFeeUSD] = @FollowUpFeeUSD, [MedicineFeeRi"& _ 
+                "el] = @MedicineFeeRiel, [MedicineFeeUSD] = @MedicineFeeUSD, [GlassFeeRiel] = @Gl"& _ 
+                "assFeeRiel, [GlassFeeUSD] = @GlassFeeUSD, [SocialFeeRiel] = @SocialFeeRiel, [Soc"& _ 
+                "ialFeeUSD] = @SocialFeeUSD, [FullFeeRiel] = @FullFeeRiel, [FullFeeUSD] = @FullFe"& _ 
+                "eUSD, [Rates] = @Rates, [AmoutWord] = @AmoutWord, [ConOP] = @ConOP, [ConAE] = @C"& _ 
+                "onAE, [ConOT] = @ConOT, [ConCON] = @ConCON, [ConFOL] = @ConFOL, [ConMED] = @ConM"& _ 
+                "ED, [ConGLA] = @ConGLA, [ConSocialFee] = @ConSocialFee, [ConFullFee] = @ConFullF"& _ 
+                "ee, [ConGeneral] = @ConGeneral, [CashierIn] = @CashierIn, [CashierUpdate] = @Cas"& _ 
+                "hierUpdate, [PrintCount] = @PrintCount, [DateIn] = @DateIn, [DateUpdate] = @Date"& _ 
+                "Update, [DateNow] = @DateNow, [ConPay] = @ConPay, [ConDelete] = @ConDelete, [Yea"& _ 
+                "rs] = @Years, [Operation] = @Operation, [IsDonation] = @IsDonation, [DonationID]"& _ 
+                " = @DonationID, [DonationName] = @DonationName, [DonationPay] = @DonationPay, [D"& _ 
+                "onateNote] = @DonateNote, [HosFee] = @HosFee, [CashTotal] = @CashTotal, [IsPatie"& _ 
+                "ntNill] = @IsPatientNill, [ReceiptNote] = @ReceiptNote, [TIME_CREATE] = @TIME_CR"& _ 
+                "EATE, [TIME_ISSUE] = @TIME_ISSUE, [ISSUE_BY_DEPART] = @ISSUE_BY_DEPART WHERE ((["& _ 
+                "ID] = @Original_ID) AND ([ReceiptNo] = @Original_ReceiptNo) AND ([IDCashReceipt]"& _ 
+                " = @Original_IDCashReceipt) AND ([HN] = @Original_HN) AND ((@IsNull_PatientName "& _ 
+                "= 1 AND [PatientName] IS NULL) OR ([PatientName] = @Original_PatientName)) AND ("& _ 
+                "(@IsNull_CashRiel = 1 AND [CashRiel] IS NULL) OR ([CashRiel] = @Original_CashRie"& _ 
+                "l)) AND ((@IsNull_CashUSD = 1 AND [CashUSD] IS NULL) OR ([CashUSD] = @Original_C"& _ 
+                "ashUSD)) AND ((@IsNull_TotalRiel = 1 AND [TotalRiel] IS NULL) OR ([TotalRiel] = "& _ 
+                "@Original_TotalRiel)) AND ((@IsNull_TotalUSD = 1 AND [TotalUSD] IS NULL) OR ([To"& _ 
+                "talUSD] = @Original_TotalUSD)) AND ((@IsNull_OperationFeeRiel = 1 AND [Operation"& _ 
+                "FeeRiel] IS NULL) OR ([OperationFeeRiel] = @Original_OperationFeeRiel)) AND ((@I"& _ 
+                "sNull_OperationFeeUSD = 1 AND [OperationFeeUSD] IS NULL) OR ([OperationFeeUSD] ="& _ 
+                " @Original_OperationFeeUSD)) AND ((@IsNull_ArtificialEyeFeeRiel = 1 AND [Artific"& _ 
+                "ialEyeFeeRiel] IS NULL) OR ([ArtificialEyeFeeRiel] = @Original_ArtificialEyeFeeR"& _ 
+                "iel)) AND ((@IsNull_ArtificialEyeFeeUSD = 1 AND [ArtificialEyeFeeUSD] IS NULL) O"& _ 
+                "R ([ArtificialEyeFeeUSD] = @Original_ArtificialEyeFeeUSD)) AND ((@IsNull_OtherFe"& _ 
+                "eRiel = 1 AND [OtherFeeRiel] IS NULL) OR ([OtherFeeRiel] = @Original_OtherFeeRie"& _ 
+                "l)) AND ((@IsNull_OtherFeeUSD = 1 AND [OtherFeeUSD] IS NULL) OR ([OtherFeeUSD] ="& _ 
+                " @Original_OtherFeeUSD)) AND ((@IsNull_ConsultationFeeRiel = 1 AND [Consultation"& _ 
+                "FeeRiel] IS NULL) OR ([ConsultationFeeRiel] = @Original_ConsultationFeeRiel)) AN"& _ 
+                "D ((@IsNull_ConsultationFeeUSD = 1 AND [ConsultationFeeUSD] IS NULL) OR ([Consul"& _ 
+                "tationFeeUSD] = @Original_ConsultationFeeUSD)) AND ((@IsNull_FollowUpFeeRiel = 1"& _ 
+                " AND [FollowUpFeeRiel] IS NULL) OR ([FollowUpFeeRiel] = @Original_FollowUpFeeRie"& _ 
+                "l)) AND ((@IsNull_FollowUpFeeUSD = 1 AND [FollowUpFeeUSD] IS NULL) OR ([FollowUp"& _ 
+                "FeeUSD] = @Original_FollowUpFeeUSD)) AND ((@IsNull_MedicineFeeRiel = 1 AND [Medi"& _ 
+                "cineFeeRiel] IS NULL) OR ([MedicineFeeRiel] = @Original_MedicineFeeRiel)) AND (("& _ 
+                "@IsNull_MedicineFeeUSD = 1 AND [MedicineFeeUSD] IS NULL) OR ([MedicineFeeUSD] = "& _ 
+                "@Original_MedicineFeeUSD)) AND ((@IsNull_GlassFeeRiel = 1 AND [GlassFeeRiel] IS "& _ 
+                "NULL) OR ([GlassFeeRiel] = @Original_GlassFeeRiel)) AND ((@IsNull_GlassFeeUSD = "& _ 
+                "1 AND [GlassFeeUSD] IS NULL) OR ([GlassFeeUSD] = @Original_GlassFeeUSD)) AND ((@"& _ 
+                "IsNull_SocialFeeRiel = 1 AND [SocialFeeRiel] IS NULL) OR ([SocialFeeRiel] = @Ori"& _ 
+                "ginal_SocialFeeRiel)) AND ((@IsNull_SocialFeeUSD = 1 AND [SocialFeeUSD] IS NULL)"& _ 
+                " OR ([SocialFeeUSD] = @Original_SocialFeeUSD)) AND ((@IsNull_FullFeeRiel = 1 AND"& _ 
+                " [FullFeeRiel] IS NULL) OR ([FullFeeRiel] = @Original_FullFeeRiel)) AND ((@IsNul"& _ 
+                "l_FullFeeUSD = 1 AND [FullFeeUSD] IS NULL) OR ([FullFeeUSD] = @Original_FullFeeU"& _ 
+                "SD)) AND ((@IsNull_Rates = 1 AND [Rates] IS NULL) OR ([Rates] = @Original_Rates)"& _ 
+                ") AND ((@IsNull_AmoutWord = 1 AND [AmoutWord] IS NULL) OR ([AmoutWord] = @Origin"& _ 
+                "al_AmoutWord)) AND ((@IsNull_ConOP = 1 AND [ConOP] IS NULL) OR ([ConOP] = @Origi"& _ 
+                "nal_ConOP)) AND ((@IsNull_ConAE = 1 AND [ConAE] IS NULL) OR ([ConAE] = @Original"& _ 
+                "_ConAE)) AND ((@IsNull_ConOT = 1 AND [ConOT] IS NULL) OR ([ConOT] = @Original_Co"& _ 
+                "nOT)) AND ((@IsNull_ConCON = 1 AND [ConCON] IS NULL) OR ([ConCON] = @Original_Co"& _ 
+                "nCON)) AND ((@IsNull_ConFOL = 1 AND [ConFOL] IS NULL) OR ([ConFOL] = @Original_C"& _ 
+                "onFOL)) AND ((@IsNull_ConMED = 1 AND [ConMED] IS NULL) OR ([ConMED] = @Original_"& _ 
+                "ConMED)) AND ((@IsNull_ConGLA = 1 AND [ConGLA] IS NULL) OR ([ConGLA] = @Original"& _ 
+                "_ConGLA)) AND ((@IsNull_ConSocialFee = 1 AND [ConSocialFee] IS NULL) OR ([ConSoc"& _ 
+                "ialFee] = @Original_ConSocialFee)) AND ((@IsNull_ConFullFee = 1 AND [ConFullFee]"& _ 
+                " IS NULL) OR ([ConFullFee] = @Original_ConFullFee)) AND ((@IsNull_ConGeneral = 1"& _ 
+                " AND [ConGeneral] IS NULL) OR ([ConGeneral] = @Original_ConGeneral)) AND ((@IsNu"& _ 
+                "ll_CashierIn = 1 AND [CashierIn] IS NULL) OR ([CashierIn] = @Original_CashierIn)"& _ 
+                ") AND ((@IsNull_CashierUpdate = 1 AND [CashierUpdate] IS NULL) OR ([CashierUpdat"& _ 
+                "e] = @Original_CashierUpdate)) AND ((@IsNull_PrintCount = 1 AND [PrintCount] IS "& _ 
+                "NULL) OR ([PrintCount] = @Original_PrintCount)) AND ((@IsNull_DateIn = 1 AND [Da"& _ 
+                "teIn] IS NULL) OR ([DateIn] = @Original_DateIn)) AND ((@IsNull_DateUpdate = 1 AN"& _ 
+                "D [DateUpdate] IS NULL) OR ([DateUpdate] = @Original_DateUpdate)) AND ((@IsNull_"& _ 
+                "DateNow = 1 AND [DateNow] IS NULL) OR ([DateNow] = @Original_DateNow)) AND ((@Is"& _ 
+                "Null_ConPay = 1 AND [ConPay] IS NULL) OR ([ConPay] = @Original_ConPay)) AND ((@I"& _ 
+                "sNull_ConDelete = 1 AND [ConDelete] IS NULL) OR ([ConDelete] = @Original_ConDele"& _ 
+                "te)) AND ((@IsNull_Years = 1 AND [Years] IS NULL) OR ([Years] = @Original_Years)"& _ 
+                ") AND ((@IsNull_Operation = 1 AND [Operation] IS NULL) OR ([Operation] = @Origin"& _ 
+                "al_Operation)) AND ((@IsNull_IsDonation = 1 AND [IsDonation] IS NULL) OR ([IsDon"& _ 
+                "ation] = @Original_IsDonation)) AND ((@IsNull_DonationID = 1 AND [DonationID] IS"& _ 
+                " NULL) OR ([DonationID] = @Original_DonationID)) AND ((@IsNull_DonationName = 1 "& _ 
+                "AND [DonationName] IS NULL) OR ([DonationName] = @Original_DonationName)) AND (("& _ 
+                "@IsNull_DonationPay = 1 AND [DonationPay] IS NULL) OR ([DonationPay] = @Original"& _ 
+                "_DonationPay)) AND ((@IsNull_DonateNote = 1 AND [DonateNote] IS NULL) OR ([Donat"& _ 
+                "eNote] = @Original_DonateNote)) AND ((@IsNull_HosFee = 1 AND [HosFee] IS NULL) O"& _ 
+                "R ([HosFee] = @Original_HosFee)) AND ((@IsNull_CashTotal = 1 AND [CashTotal] IS "& _ 
+                "NULL) OR ([CashTotal] = @Original_CashTotal)) AND ((@IsNull_IsPatientNill = 1 AN"& _ 
+                "D [IsPatientNill] IS NULL) OR ([IsPatientNill] = @Original_IsPatientNill)) AND ("& _ 
+                "(@IsNull_ReceiptNote = 1 AND [ReceiptNote] IS NULL) OR ([ReceiptNote] = @Origina"& _ 
+                "l_ReceiptNote)) AND ((@IsNull_TIME_CREATE = 1 AND [TIME_CREATE] IS NULL) OR ([TI"& _ 
+                "ME_CREATE] = @Original_TIME_CREATE)) AND ((@IsNull_TIME_ISSUE = 1 AND [TIME_ISSU"& _ 
+                "E] IS NULL) OR ([TIME_ISSUE] = @Original_TIME_ISSUE)) AND ((@IsNull_ISSUE_BY_DEP"& _ 
+                "ART = 1 AND [ISSUE_BY_DEPART] IS NULL) OR ([ISSUE_BY_DEPART] = @Original_ISSUE_B"& _ 
+                "Y_DEPART)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, ReceiptNo, IDCashReceipt, HN, PatientName, CashRiel, Ca"& _ 
+                "shUSD, TotalRiel, TotalUSD, OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeR"& _ 
+                "iel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, Consul"& _ 
+                "tationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRiel, MedicineFeeUSD, "& _ 
+                "GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullFeeRiel, FullFeeUSD,"& _ 
+                " Rates, AmoutWord, ConOP, ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA, ConSocia"& _ 
+                "lFee, ConFullFee, ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, Date"& _ 
+                "Update, DateNow, ConPay, ConDelete, Years, Operation, IsDonation, DonationID, Do"& _ 
+                "nationName, DonationPay, DonateNote, HosFee, CashTotal, IsPatientNill, ReceiptNo"& _ 
+                "te, TIME_CREATE, TIME_ISSUE, ISSUE_BY_DEPART FROM tblPatientReceipt WHERE (ID = "& _ 
+                "@ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IDCashReceipt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IDCashReceipt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -7750,6 +7932,10 @@ Namespace DSPatientReceiptTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HosFee", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HosFee", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CashTotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CashTotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPatientNill", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatientNill", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNote", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNote", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_ISSUE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_ISSUE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ISSUE_BY_DEPART", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ISSUE_BY_DEPART", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ReceiptNo", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IDCashReceipt", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IDCashReceipt", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -7860,6 +8046,14 @@ Namespace DSPatientReceiptTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CashTotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CashTotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsPatientNill", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatientNill", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsPatientNill", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatientNill", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ReceiptNote", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNote", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ReceiptNote", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNote", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TIME_CREATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TIME_ISSUE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_ISSUE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TIME_ISSUE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_ISSUE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ISSUE_BY_DEPART", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ISSUE_BY_DEPART", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ISSUE_BY_DEPART", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ISSUE_BY_DEPART", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -7874,16 +8068,17 @@ Namespace DSPatientReceiptTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, ReceiptNo, IDCashReceipt, HN, PatientName, CashRiel, CashUSD, TotalRie"& _ 
-                "l, TotalUSD, OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, Artificial"& _ 
-                "EyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, ConsultationFeeUSD, F"& _ 
-                "ollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRiel, MedicineFeeUSD, GlassFeeRiel, G"& _ 
-                "lassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWo"& _ 
-                "rd, ConOP, ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA, ConSocialFee, ConFullFe"& _ 
-                "e, ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, DateUpdate, DateNow"& _ 
-                ", ConPay, ConDelete, Years, Operation, IsDonation, DonationID, DonationName, Don"& _ 
-                "ationPay, DonateNote, HosFee, CashTotal, IsPatientNill FROM dbo.tblPatientReceip"& _ 
-                "t"
+            Me._commandCollection(0).CommandText = "SELECT        ID, ReceiptNo, IDCashReceipt, HN, PatientName, CashRiel, CashUSD, T"& _ 
+                "otalRiel, TotalUSD, OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, Art"& _ 
+                "ificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             ConsultationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRie"& _ 
+                "l, MedicineFeeUSD, GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullF"& _ 
+                "eeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      ConCON, ConFOL, ConMED, ConGLA, ConSocialFee, ConFullFee, ConGeneral, Cash"& _ 
+                "ierIn, CashierUpdate, PrintCount, DateIn, DateUpdate, DateNow, ConPay, ConDelete"& _ 
+                ", Years, Operation, IsDonation, DonationID, DonationName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     DonationPay, DonateNote, HosFee, CashTotal, IsPatientNill, ReceiptNote, TIM"& _ 
+                "E_CREATE, TIME_ISSUE, ISSUE_BY_DEPART"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tblPatientReceipt"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
@@ -7897,9 +8092,10 @@ Namespace DSPatientReceiptTableAdapters
             Me._commandCollection(2).CommandText = "INSERT INTO tblPatientReceipt"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (ReceiptNo, HN, PatientNa"& _ 
                 "me, CashRiel, CashUSD, TotalRiel, TotalUSD, OtherFeeRiel, OtherFeeUSD, Rates, Ca"& _ 
                 "shierIn, DateIn, ConPay, ConDelete, Years, CashTotal, ConGeneral, HosFee, TIME_C"& _ 
-                "REATE, TIME_ISSUE)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@ReceiptNo,@HN,@PatientName,@CashRiel,@CashUS"& _ 
-                "D,@TotalRiel,@TotalUSD,@OtherFeeRiel,@OtherFeeUSD,@Rates,@CashierIn,@DateIn,@Con"& _ 
-                "Pay,@ConDelete,@Years,@CashTotal,@ConGeneral,@HosFee,@TIME_CREATE,@TIME_ISSUE)"
+                "REATE, TIME_ISSUE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ISSUE_BY_DEPART)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@"& _ 
+                "ReceiptNo,@HN,@PatientName,@CashRiel,@CashUSD,@TotalRiel,@TotalUSD,@OtherFeeRiel"& _ 
+                ",@OtherFeeUSD,@Rates,@CashierIn,@DateIn,@ConPay,@ConDelete,@Years,@CashTotal,@Co"& _ 
+                "nGeneral,@HosFee,@TIME_CREATE,@TIME_ISSUE,@ISSUE_ByDep)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HN", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "HN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -7921,6 +8117,7 @@ Namespace DSPatientReceiptTableAdapters
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HosFee", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "HosFee", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_ISSUE", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_ISSUE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ISSUE_ByDep", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ISSUE_BY_DEPART", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "UPDATE    tblPatientReceipt"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET               HN = @HN, PatientName = @PatientNa"& _ 
@@ -8057,7 +8254,11 @@ Namespace DSPatientReceiptTableAdapters
                     ByVal Original_DonateNote As String,  _
                     ByVal Original_HosFee As Global.System.Nullable(Of Double),  _
                     ByVal Original_CashTotal As Global.System.Nullable(Of Double),  _
-                    ByVal Original_IsPatientNill As Global.System.Nullable(Of Boolean)) As Integer
+                    ByVal Original_IsPatientNill As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_ReceiptNote As String,  _
+                    ByVal Original_TIME_CREATE As String,  _
+                    ByVal Original_TIME_ISSUE As String,  _
+                    ByVal Original_ISSUE_BY_DEPART As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Long)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ReceiptNo,Long)
             If (Original_IDCashReceipt Is Nothing) Then
@@ -8437,6 +8638,34 @@ Namespace DSPatientReceiptTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(108).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(109).Value = Global.System.DBNull.Value
             End If
+            If (Original_ReceiptNote Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(110).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(111).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(110).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(Original_ReceiptNote,String)
+            End If
+            If (Original_TIME_CREATE Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(112).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(113).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(112).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(113).Value = CType(Original_TIME_CREATE,String)
+            End If
+            If (Original_TIME_ISSUE Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(114).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(115).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(114).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(115).Value = CType(Original_TIME_ISSUE,String)
+            End If
+            If (Original_ISSUE_BY_DEPART.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(116).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(117).Value = CType(Original_ISSUE_BY_DEPART.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(116).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(117).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8511,7 +8740,11 @@ Namespace DSPatientReceiptTableAdapters
                     ByVal DonateNote As String,  _
                     ByVal HosFee As Global.System.Nullable(Of Double),  _
                     ByVal CashTotal As Global.System.Nullable(Of Double),  _
-                    ByVal IsPatientNill As Global.System.Nullable(Of Boolean)) As Integer
+                    ByVal IsPatientNill As Global.System.Nullable(Of Boolean),  _
+                    ByVal ReceiptNote As String,  _
+                    ByVal TIME_CREATE As String,  _
+                    ByVal TIME_ISSUE As String,  _
+                    ByVal ISSUE_BY_DEPART As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(ReceiptNo,Long)
             If (IDCashReceipt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("IDCashReceipt")
@@ -8784,6 +9017,26 @@ Namespace DSPatientReceiptTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
             End If
+            If (ReceiptNote Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(56).Value = CType(ReceiptNote,String)
+            End If
+            If (TIME_CREATE Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(57).Value = CType(TIME_CREATE,String)
+            End If
+            If (TIME_ISSUE Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(58).Value = CType(TIME_ISSUE,String)
+            End If
+            If (ISSUE_BY_DEPART.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(59).Value = CType(ISSUE_BY_DEPART.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8859,6 +9112,10 @@ Namespace DSPatientReceiptTableAdapters
                     ByVal HosFee As Global.System.Nullable(Of Double),  _
                     ByVal CashTotal As Global.System.Nullable(Of Double),  _
                     ByVal IsPatientNill As Global.System.Nullable(Of Boolean),  _
+                    ByVal ReceiptNote As String,  _
+                    ByVal TIME_CREATE As String,  _
+                    ByVal TIME_ISSUE As String,  _
+                    ByVal ISSUE_BY_DEPART As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_ID As Long,  _
                     ByVal Original_ReceiptNo As Long,  _
                     ByVal Original_IDCashReceipt As String,  _
@@ -8916,6 +9173,10 @@ Namespace DSPatientReceiptTableAdapters
                     ByVal Original_HosFee As Global.System.Nullable(Of Double),  _
                     ByVal Original_CashTotal As Global.System.Nullable(Of Double),  _
                     ByVal Original_IsPatientNill As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_ReceiptNote As String,  _
+                    ByVal Original_TIME_CREATE As String,  _
+                    ByVal Original_TIME_ISSUE As String,  _
+                    ByVal Original_ISSUE_BY_DEPART As Global.System.Nullable(Of Decimal),  _
                     ByVal ID As Long) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ReceiptNo,Long)
             If (IDCashReceipt Is Nothing) Then
@@ -9189,386 +9450,434 @@ Namespace DSPatientReceiptTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_ID,Long)
-            Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_ReceiptNo,Long)
+            If (ReceiptNote Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(ReceiptNote,String)
+            End If
+            If (TIME_CREATE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(TIME_CREATE,String)
+            End If
+            If (TIME_ISSUE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(TIME_ISSUE,String)
+            End If
+            If (ISSUE_BY_DEPART.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(ISSUE_BY_DEPART.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_ID,Long)
+            Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_ReceiptNo,Long)
             If (Original_IDCashReceipt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_IDCashReceipt")
             Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_IDCashReceipt,String)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_IDCashReceipt,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_HN,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_HN,Decimal)
             If (Original_PatientName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_PatientName,String)
-            End If
-            If (Original_CashRiel.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_CashRiel.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CashUSD.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_CashUSD.Value,Double)
-            Else
                 Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_PatientName,String)
             End If
-            If (Original_TotalRiel.HasValue = true) Then
+            If (Original_CashRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_TotalRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_CashRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
             End If
-            If (Original_TotalUSD.HasValue = true) Then
+            If (Original_CashUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_TotalUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_CashUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
             End If
-            If (Original_OperationFeeRiel.HasValue = true) Then
+            If (Original_TotalRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_OperationFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_TotalRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
             End If
-            If (Original_OperationFeeUSD.HasValue = true) Then
+            If (Original_TotalUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_OperationFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_TotalUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
             End If
-            If (Original_ArtificialEyeFeeRiel.HasValue = true) Then
+            If (Original_OperationFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_ArtificialEyeFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_OperationFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(74).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
             End If
-            If (Original_ArtificialEyeFeeUSD.HasValue = true) Then
+            If (Original_OperationFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(76).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_ArtificialEyeFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_OperationFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(76).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
             End If
-            If (Original_OtherFeeRiel.HasValue = true) Then
+            If (Original_ArtificialEyeFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_OtherFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_ArtificialEyeFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(78).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
             End If
-            If (Original_OtherFeeUSD.HasValue = true) Then
+            If (Original_ArtificialEyeFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(80).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_OtherFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_ArtificialEyeFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(80).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
             End If
-            If (Original_ConsultationFeeRiel.HasValue = true) Then
+            If (Original_OtherFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(82).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_ConsultationFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_OtherFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(82).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
             End If
-            If (Original_ConsultationFeeUSD.HasValue = true) Then
+            If (Original_OtherFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_ConsultationFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_OtherFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(84).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
             End If
-            If (Original_FollowUpFeeRiel.HasValue = true) Then
+            If (Original_ConsultationFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(86).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_FollowUpFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_ConsultationFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(86).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(87).Value = Global.System.DBNull.Value
             End If
-            If (Original_FollowUpFeeUSD.HasValue = true) Then
+            If (Original_ConsultationFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(88).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_FollowUpFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_ConsultationFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(88).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(89).Value = Global.System.DBNull.Value
             End If
-            If (Original_MedicineFeeRiel.HasValue = true) Then
+            If (Original_FollowUpFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(90).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_MedicineFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_FollowUpFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(90).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(91).Value = Global.System.DBNull.Value
             End If
-            If (Original_MedicineFeeUSD.HasValue = true) Then
+            If (Original_FollowUpFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_MedicineFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_FollowUpFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(92).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(93).Value = Global.System.DBNull.Value
             End If
-            If (Original_GlassFeeRiel.HasValue = true) Then
+            If (Original_MedicineFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_GlassFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_MedicineFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(94).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(95).Value = Global.System.DBNull.Value
             End If
-            If (Original_GlassFeeUSD.HasValue = true) Then
+            If (Original_MedicineFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(96).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_GlassFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_MedicineFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(96).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(97).Value = Global.System.DBNull.Value
             End If
-            If (Original_SocialFeeRiel.HasValue = true) Then
+            If (Original_GlassFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(98).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_SocialFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_GlassFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(98).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(99).Value = Global.System.DBNull.Value
             End If
-            If (Original_SocialFeeUSD.HasValue = true) Then
+            If (Original_GlassFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_SocialFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_GlassFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(100).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(101).Value = Global.System.DBNull.Value
             End If
-            If (Original_FullFeeRiel.HasValue = true) Then
+            If (Original_SocialFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(102).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_FullFeeRiel.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_SocialFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(102).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(103).Value = Global.System.DBNull.Value
             End If
-            If (Original_FullFeeUSD.HasValue = true) Then
+            If (Original_SocialFeeUSD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(104).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_FullFeeUSD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_SocialFeeUSD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(104).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(105).Value = Global.System.DBNull.Value
             End If
-            If (Original_Rates.HasValue = true) Then
+            If (Original_FullFeeRiel.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(106).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_Rates.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_FullFeeRiel.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
             End If
-            If (Original_AmoutWord Is Nothing) Then
+            If (Original_FullFeeUSD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_FullFeeUSD.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_AmoutWord,String)
             End If
-            If (Original_ConOP Is Nothing) Then
+            If (Original_Rates.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_Rates.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(110).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(111).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_ConOP,String)
             End If
-            If (Original_ConAE Is Nothing) Then
+            If (Original_AmoutWord Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(112).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(113).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(112).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_ConAE,String)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_AmoutWord,String)
             End If
-            If (Original_ConOT Is Nothing) Then
+            If (Original_ConOP Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(114).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(115).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(114).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_ConOT,String)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_ConOP,String)
             End If
-            If (Original_ConCON Is Nothing) Then
+            If (Original_ConAE Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(116).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(117).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(116).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(Original_ConCON,String)
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(Original_ConAE,String)
             End If
-            If (Original_ConFOL Is Nothing) Then
+            If (Original_ConOT Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(118).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(119).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(118).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(Original_ConFOL,String)
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(Original_ConOT,String)
             End If
-            If (Original_ConMED Is Nothing) Then
+            If (Original_ConCON Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(120).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(121).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(120).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(Original_ConMED,String)
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(Original_ConCON,String)
             End If
-            If (Original_ConGLA Is Nothing) Then
+            If (Original_ConFOL Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(122).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(123).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(122).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(Original_ConGLA,String)
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(Original_ConFOL,String)
             End If
-            If (Original_ConSocialFee Is Nothing) Then
+            If (Original_ConMED Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(124).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(125).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(124).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(Original_ConSocialFee,String)
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(Original_ConMED,String)
             End If
-            If (Original_ConFullFee Is Nothing) Then
+            If (Original_ConGLA Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(126).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(127).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(126).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(Original_ConFullFee,String)
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(Original_ConGLA,String)
             End If
-            If (Original_ConGeneral Is Nothing) Then
+            If (Original_ConSocialFee Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(128).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(129).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(128).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(Original_ConGeneral,String)
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(Original_ConSocialFee,String)
             End If
-            If (Original_CashierIn Is Nothing) Then
+            If (Original_ConFullFee Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(130).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(131).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(130).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(Original_CashierIn,String)
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(Original_ConFullFee,String)
             End If
-            If (Original_CashierUpdate Is Nothing) Then
+            If (Original_ConGeneral Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(132).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(133).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(132).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(Original_CashierUpdate,String)
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(Original_ConGeneral,String)
             End If
-            If (Original_PrintCount.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(Original_PrintCount.Value,Integer)
-            Else
+            If (Original_CashierIn Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(134).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(135).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DateIn.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(Original_DateIn.Value,Date)
             Else
+                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(Original_CashierIn,String)
+            End If
+            If (Original_CashierUpdate Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(136).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(137).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(Original_CashierUpdate,String)
             End If
-            If (Original_DateUpdate.HasValue = true) Then
+            If (Original_PrintCount.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(138).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(Original_DateUpdate.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(Original_PrintCount.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(138).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(139).Value = Global.System.DBNull.Value
             End If
-            If (Original_DateNow.HasValue = true) Then
+            If (Original_DateIn.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(140).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(Original_DateNow.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(Original_DateIn.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(140).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(141).Value = Global.System.DBNull.Value
             End If
-            If (Original_ConPay Is Nothing) Then
+            If (Original_DateUpdate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(Original_DateUpdate.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(142).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(143).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(Original_ConPay,String)
             End If
-            If (Original_ConDelete Is Nothing) Then
+            If (Original_DateNow.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(Original_DateNow.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(144).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(145).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(Original_ConDelete,String)
             End If
-            If (Original_Years.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(Original_Years.Value,Integer)
-            Else
+            If (Original_ConPay Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(146).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(147).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(Original_ConPay,String)
             End If
-            If (Original_Operation Is Nothing) Then
+            If (Original_ConDelete Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(148).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(149).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(148).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(Original_Operation,String)
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(Original_ConDelete,String)
             End If
-            If (Original_IsDonation.HasValue = true) Then
+            If (Original_Years.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(150).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(Original_IsDonation.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(Original_Years.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(150).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(151).Value = Global.System.DBNull.Value
             End If
-            If (Original_DonationID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(Original_DonationID.Value,Decimal)
-            Else
+            If (Original_Operation Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(152).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(153).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(Original_Operation,String)
             End If
-            If (Original_DonationName Is Nothing) Then
+            If (Original_IsDonation.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(Original_IsDonation.Value,Boolean)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(154).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(155).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(Original_DonationName,String)
             End If
-            If (Original_DonationPay.HasValue = true) Then
+            If (Original_DonationID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(156).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(Original_DonationPay.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(Original_DonationID.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(156).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(157).Value = Global.System.DBNull.Value
             End If
-            If (Original_DonateNote Is Nothing) Then
+            If (Original_DonationName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(158).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(159).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(158).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(Original_DonateNote,String)
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(Original_DonationName,String)
             End If
-            If (Original_HosFee.HasValue = true) Then
+            If (Original_DonationPay.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(160).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(Original_HosFee.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(Original_DonationPay.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(160).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(161).Value = Global.System.DBNull.Value
             End If
-            If (Original_CashTotal.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(Original_CashTotal.Value,Double)
-            Else
+            If (Original_DonateNote Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(162).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(163).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(Original_DonateNote,String)
             End If
-            If (Original_IsPatientNill.HasValue = true) Then
+            If (Original_HosFee.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(164).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(Original_IsPatientNill.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(Original_HosFee.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(164).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(165).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(166).Value = CType(ID,Long)
+            If (Original_CashTotal.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(Original_CashTotal.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(167).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IsPatientNill.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(Original_IsPatientNill.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(169).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ReceiptNote Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(171).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(Original_ReceiptNote,String)
+            End If
+            If (Original_TIME_CREATE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(173).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(Original_TIME_CREATE,String)
+            End If
+            If (Original_TIME_ISSUE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(175).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(Original_TIME_ISSUE,String)
+            End If
+            If (Original_ISSUE_BY_DEPART.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(Original_ISSUE_BY_DEPART.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(177).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(178).Value = CType(ID,Long)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -9644,6 +9953,10 @@ Namespace DSPatientReceiptTableAdapters
                     ByVal HosFee As Global.System.Nullable(Of Double),  _
                     ByVal CashTotal As Global.System.Nullable(Of Double),  _
                     ByVal IsPatientNill As Global.System.Nullable(Of Boolean),  _
+                    ByVal ReceiptNote As String,  _
+                    ByVal TIME_CREATE As String,  _
+                    ByVal TIME_ISSUE As String,  _
+                    ByVal ISSUE_BY_DEPART As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_ID As Long,  _
                     ByVal Original_ReceiptNo As Long,  _
                     ByVal Original_IDCashReceipt As String,  _
@@ -9700,8 +10013,12 @@ Namespace DSPatientReceiptTableAdapters
                     ByVal Original_DonateNote As String,  _
                     ByVal Original_HosFee As Global.System.Nullable(Of Double),  _
                     ByVal Original_CashTotal As Global.System.Nullable(Of Double),  _
-                    ByVal Original_IsPatientNill As Global.System.Nullable(Of Boolean)) As Integer
-            Return Me.Update(ReceiptNo, IDCashReceipt, HN, PatientName, CashRiel, CashUSD, TotalRiel, TotalUSD, OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, ConsultationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRiel, MedicineFeeUSD, GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA, ConSocialFee, ConFullFee, ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, DateUpdate, DateNow, ConPay, ConDelete, Years, Operation, IsDonation, DonationID, DonationName, DonationPay, DonateNote, HosFee, CashTotal, IsPatientNill, Original_ID, Original_ReceiptNo, Original_IDCashReceipt, Original_HN, Original_PatientName, Original_CashRiel, Original_CashUSD, Original_TotalRiel, Original_TotalUSD, Original_OperationFeeRiel, Original_OperationFeeUSD, Original_ArtificialEyeFeeRiel, Original_ArtificialEyeFeeUSD, Original_OtherFeeRiel, Original_OtherFeeUSD, Original_ConsultationFeeRiel, Original_ConsultationFeeUSD, Original_FollowUpFeeRiel, Original_FollowUpFeeUSD, Original_MedicineFeeRiel, Original_MedicineFeeUSD, Original_GlassFeeRiel, Original_GlassFeeUSD, Original_SocialFeeRiel, Original_SocialFeeUSD, Original_FullFeeRiel, Original_FullFeeUSD, Original_Rates, Original_AmoutWord, Original_ConOP, Original_ConAE, Original_ConOT, Original_ConCON, Original_ConFOL, Original_ConMED, Original_ConGLA, Original_ConSocialFee, Original_ConFullFee, Original_ConGeneral, Original_CashierIn, Original_CashierUpdate, Original_PrintCount, Original_DateIn, Original_DateUpdate, Original_DateNow, Original_ConPay, Original_ConDelete, Original_Years, Original_Operation, Original_IsDonation, Original_DonationID, Original_DonationName, Original_DonationPay, Original_DonateNote, Original_HosFee, Original_CashTotal, Original_IsPatientNill, Original_ID)
+                    ByVal Original_IsPatientNill As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_ReceiptNote As String,  _
+                    ByVal Original_TIME_CREATE As String,  _
+                    ByVal Original_TIME_ISSUE As String,  _
+                    ByVal Original_ISSUE_BY_DEPART As Global.System.Nullable(Of Decimal)) As Integer
+            Return Me.Update(ReceiptNo, IDCashReceipt, HN, PatientName, CashRiel, CashUSD, TotalRiel, TotalUSD, OperationFeeRiel, OperationFeeUSD, ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConsultationFeeRiel, ConsultationFeeUSD, FollowUpFeeRiel, FollowUpFeeUSD, MedicineFeeRiel, MedicineFeeUSD, GlassFeeRiel, GlassFeeUSD, SocialFeeRiel, SocialFeeUSD, FullFeeRiel, FullFeeUSD, Rates, AmoutWord, ConOP, ConAE, ConOT, ConCON, ConFOL, ConMED, ConGLA, ConSocialFee, ConFullFee, ConGeneral, CashierIn, CashierUpdate, PrintCount, DateIn, DateUpdate, DateNow, ConPay, ConDelete, Years, Operation, IsDonation, DonationID, DonationName, DonationPay, DonateNote, HosFee, CashTotal, IsPatientNill, ReceiptNote, TIME_CREATE, TIME_ISSUE, ISSUE_BY_DEPART, Original_ID, Original_ReceiptNo, Original_IDCashReceipt, Original_HN, Original_PatientName, Original_CashRiel, Original_CashUSD, Original_TotalRiel, Original_TotalUSD, Original_OperationFeeRiel, Original_OperationFeeUSD, Original_ArtificialEyeFeeRiel, Original_ArtificialEyeFeeUSD, Original_OtherFeeRiel, Original_OtherFeeUSD, Original_ConsultationFeeRiel, Original_ConsultationFeeUSD, Original_FollowUpFeeRiel, Original_FollowUpFeeUSD, Original_MedicineFeeRiel, Original_MedicineFeeUSD, Original_GlassFeeRiel, Original_GlassFeeUSD, Original_SocialFeeRiel, Original_SocialFeeUSD, Original_FullFeeRiel, Original_FullFeeUSD, Original_Rates, Original_AmoutWord, Original_ConOP, Original_ConAE, Original_ConOT, Original_ConCON, Original_ConFOL, Original_ConMED, Original_ConGLA, Original_ConSocialFee, Original_ConFullFee, Original_ConGeneral, Original_CashierIn, Original_CashierUpdate, Original_PrintCount, Original_DateIn, Original_DateUpdate, Original_DateNow, Original_ConPay, Original_ConDelete, Original_Years, Original_Operation, Original_IsDonation, Original_DonationID, Original_DonationName, Original_DonationPay, Original_DonateNote, Original_HosFee, Original_CashTotal, Original_IsPatientNill, Original_ReceiptNote, Original_TIME_CREATE, Original_TIME_ISSUE, Original_ISSUE_BY_DEPART, Original_ID)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9754,7 +10071,8 @@ Namespace DSPatientReceiptTableAdapters
                     ByVal ConGeneral As String,  _
                     ByVal HosFee As Global.System.Nullable(Of Double),  _
                     ByVal TIME_CREATE As String,  _
-                    ByVal TIME_ISSUE As String) As Integer
+                    ByVal TIME_ISSUE As String,  _
+                    ByVal ISSUE_ByDep As Global.System.Nullable(Of Decimal)) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
             command.Parameters(0).Value = CType(ReceiptNo,Long)
             command.Parameters(1).Value = CType(HN,Decimal)
@@ -9847,6 +10165,11 @@ Namespace DSPatientReceiptTableAdapters
                 command.Parameters(19).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(19).Value = CType(TIME_ISSUE,String)
+            End If
+            If (ISSUE_ByDep.HasValue = true) Then
+                command.Parameters(20).Value = CType(ISSUE_ByDep.Value,Decimal)
+            Else
+                command.Parameters(20).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -13883,11 +14206,11 @@ Namespace DSPatientReceiptTableAdapters
                 " AS US10T,SUM(US5) AS US5,SUM(US5T) AS US5T,SUM(US1) AS US1,SUM(US1T) AS US1T,SU"& _ 
                 "M(TOTALUSD) AS TOTALUSD,  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SUM(R100000) AS R100000,SUM(R100000T) AS R100000T,SU"& _ 
                 "M(R50000) AS R50000, SUM(R50000T) AS R50000T, SUM(R20000) AS R20000,SUM(R20000T)"& _ 
-                " AS R20000T,SUM(R10000) AS R10000,SUM(R10000T) AS R10000T, SUM(R50000) AS R5000,"& _ 
-                "SUM(R5000T) AS R5000T,SUM(R2000) AS R2000,SUM(R2000T) AS R2000T,SUM(R1000) AS R1"& _ 
-                "000,SUM(R1000T) AS R1000T,SUM(R500) AS R500,SUM(R500T)AS R500T,SUM(R100) AS R100"& _ 
-                ",SUM(R100T) AS R100T,SUM(R50) AS R50,SUM(R50T)AS R50T,SUM(TotalRIEL) AS TOTALRIE"& _ 
-                "L"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from tblCashCountForDepartment "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where DateIn=@DateIn"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"group by DateIn"
+                " AS R20000T,SUM(R10000) AS R10000,SUM(R10000T) AS R10000T, SUM(R5000) AS R5000,S"& _ 
+                "UM(R5000T) AS R5000T,SUM(R2000) AS R2000,SUM(R2000T) AS R2000T,SUM(R1000) AS R10"& _ 
+                "00,SUM(R1000T) AS R1000T,SUM(R500) AS R500,SUM(R500T)AS R500T,SUM(R100) AS R100,"& _ 
+                "SUM(R100T) AS R100T,SUM(R50) AS R50,SUM(R50T)AS R50T,SUM(TotalRIEL) AS TOTALRIEL"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from tblCashCountForDepartment "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where DateIn=@DateIn"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"group by DateIn"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateIn", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateIn", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

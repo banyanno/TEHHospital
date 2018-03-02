@@ -289,10 +289,15 @@ Public Class UCOT_AND_IOLList
             If IsReady = True Then
                 MenuOperationReady.Enabled = False
                 ToolStripMenuItem1.Enabled = False
+                ToolStripMenuItem1.Enabled = False
                 If IsAdmin() = True Then
                     DeleteOTRegistrationToolStripMenuItem.Enabled = True
+                    ToolStripMenuItem1.Enabled = True
+                    MenuOperationReady.Enabled = True
                 Else
                     DeleteOTRegistrationToolStripMenuItem.Enabled = False
+                    ToolStripMenuItem1.Enabled = False
+                    MenuOperationReady.Enabled = False
                 End If
 
                 'Else
@@ -439,7 +444,7 @@ Public Class UCOT_AND_IOLList
         Try
             '=========== tblUsed ==============
             Dim mytblUsed As New tblUsed
-            mytblUsed.UsedDepartID = CInt(DEPART_ID)
+            mytblUsed.UsedDepartID = CInt(13)
             mytblUsed.UsedDescription = "IOL use in OT By user " & USER_NAME & PatientNo
             mytblUsed.UsedUserID = CInt(USER_ID)
             mytblUsed.UsedDate = DateOT ' dptUsedDate.Value.Date
@@ -457,36 +462,39 @@ Public Class UCOT_AND_IOLList
             THIDataContext.getTHIDataContext.SubmitChanges()
 
             '=========== Process cut stock ===========
-            If CInt(DEPART_ID) <> MAIN_STOCK_DEPART_ID Then
+            'If CInt(DEPART_ID) <> MAIN_STOCK_DEPART_ID Then
 
-                Dim TblCurrentItemOT As DataTable = DA_Item_Department.GetDepartmentItemStock(CInt(DEPART_ID), MyIOLItemID)
+            ''Dim TblCurrentItemOT As DataTable = DA_Item_Department.GetDepartmentItemStock(CInt(DEPART_ID), MyIOLItemID)
+            Dim TblCurrentItemOT As DataTable = DA_Item_Department.GetDepartmentItemStock(CInt(13), MyIOLItemID)
+            Dim myDepartStock As New tblDeptStock
+            ' move to particular record to cut balance in department stock
+            'Dim qdepartStock = From departStock In THIDataContext.getTHIDataContext.tblDeptStocks Where departStock.DepartID = CInt(DEPART_ID) And departStock.ItemID = MyIOLItemID  'Val(rRow.Cells("ItemID").Value)
+            'myDepartStock = qdepartStock.Single
+            For Each IOL As DataRow In TblCurrentItemOT.Rows
+                '========================= Management Begin item quantity before perform transaction =========================
+                'Dim q = (From BBT In THIDataContext.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = DateOT And BBT.DepartID = CInt(DEPART_ID) And BBT.ItemID = MyIOLItemID Select BBT.BeginBalanceTraceID).Count
+                Dim q = (From BBT In THIDataContext.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = DateOT And BBT.DepartID = CInt(13) And BBT.ItemID = MyIOLItemID Select BBT.BeginBalanceTraceID).Count
+                If q = 0 Then
+                    '========================= Register Begin Balance of item (myRequestToDepartID) =========================                        
+                    Dim mytblBeginBalanceTrace As New tblBeginBalanceTrace
+                    mytblBeginBalanceTrace.Date = DateOT
+                    'mytblBeginBalanceTrace.DepartID = CInt(DEPART_ID)
+                    mytblBeginBalanceTrace.DepartID = CInt(13)
+                    mytblBeginBalanceTrace.BeginBalanceOfDay = CInt(IOL("UnitsInStock"))  'myDepartStock.UnitsInStock
+                    mytblBeginBalanceTrace.ItemID = MyIOLItemID  'Val(rRow.Cells("ItemID").Value)
+                    THIDataContext.getTHIDataContext.tblBeginBalanceTraces.InsertOnSubmit(mytblBeginBalanceTrace)
+                    THIDataContext.getTHIDataContext.SubmitChanges(Data.Linq.ConflictMode.ContinueOnConflict)
+                End If
 
-                Dim myDepartStock As New tblDeptStock
-                ' move to particular record to cut balance in department stock
-                'Dim qdepartStock = From departStock In THIDataContext.getTHIDataContext.tblDeptStocks Where departStock.DepartID = CInt(DEPART_ID) And departStock.ItemID = MyIOLItemID  'Val(rRow.Cells("ItemID").Value)
-                'myDepartStock = qdepartStock.Single
-                For Each IOL As DataRow In TblCurrentItemOT.Rows
-                    '========================= Management Begin item quantity before perform transaction =========================
-                    Dim q = (From BBT In THIDataContext.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = DateOT And BBT.DepartID = CInt(DEPART_ID) And BBT.ItemID = MyIOLItemID Select BBT.BeginBalanceTraceID).Count
-                    If q = 0 Then
-                        '========================= Register Begin Balance of item (myRequestToDepartID) =========================                        
-                        Dim mytblBeginBalanceTrace As New tblBeginBalanceTrace
-                        mytblBeginBalanceTrace.Date = DateOT
-                        mytblBeginBalanceTrace.DepartID = CInt(DEPART_ID)
-                        mytblBeginBalanceTrace.BeginBalanceOfDay = CInt(IOL("UnitsInStock"))  'myDepartStock.UnitsInStock
-                        mytblBeginBalanceTrace.ItemID = MyIOLItemID  'Val(rRow.Cells("ItemID").Value)
-                        THIDataContext.getTHIDataContext.tblBeginBalanceTraces.InsertOnSubmit(mytblBeginBalanceTrace)
-                        THIDataContext.getTHIDataContext.SubmitChanges(Data.Linq.ConflictMode.ContinueOnConflict)
-                    End If
+                '--- Update balance in department stock
 
-                    '--- Update balance in department stock
+                ' DA_Item_Department.UpdateStockIOL(IOL("UnitsInStock") - 1, DEPART_ID, MyIOLItemID)
+                DA_Item_Department.UpdateStockIOL(IOL("UnitsInStock") - 1, 13, MyIOLItemID)
+            Next
+            'myDepartStock.UnitsInStock = myDepartStock.UnitsInStock - 1 'Val(rRow.Cells("UsedQuantity").Value)
+            'THIDataContext.getTHIDataContext.SubmitChanges(Data.Linq.ConflictMode.ContinueOnConflict)
 
-                    DA_Item_Department.UpdateStockIOL(IOL("UnitsInStock") - 1, DEPART_ID, MyIOLItemID)
-                Next
-                'myDepartStock.UnitsInStock = myDepartStock.UnitsInStock - 1 'Val(rRow.Cells("UsedQuantity").Value)
-                'THIDataContext.getTHIDataContext.SubmitChanges(Data.Linq.ConflictMode.ContinueOnConflict)
-
-            End If
+            ' End If
             ' Next
 
             '*** Finished

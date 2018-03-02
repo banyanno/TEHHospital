@@ -155,75 +155,75 @@ Public Class FormPayment
                 THIDataContext.getTHIDataContext.Connection.Open()
                 Dim trans As DbTransaction = THIDataContext.getTHIDataContext.Connection.BeginTransaction
                 THIDataContext.getTHIDataContext.Transaction = trans
-                Try
-                    '--- Validate department have medicine available for particular prescription 
-                    Dim receiptNo As String = lblReceiptNo.Text
+                'Try
+                '--- Validate department have medicine available for particular prescription 
+                Dim receiptNo As String = lblReceiptNo.Text
 
-                    Dim listReceiptDetail = From receiptDetail In THTOpticalShopContext.getTHIDataContextOpticalShop.RECEIPT_DETAILs Where receiptDetail.ReceiptNo = CDbl(LblReceiptID.Text)
-                    For Each recDetail As RECEIPT_DETAIL In listReceiptDetail.ToList
+                Dim listReceiptDetail = From receiptDetail In THTOpticalShopContext.getTHIDataContextOpticalShop.RECEIPT_DETAILs Where receiptDetail.ReceiptNo = CDbl(LblReceiptID.Text)
+                For Each recDetail As RECEIPT_DETAIL In listReceiptDetail.ToList
 
-                        Dim itemID As Integer = CInt(recDetail.ItemID)
-                        Dim unitsInStock As Integer = 0
+                    Dim itemID As Integer = CInt(recDetail.ItemID)
+                    Dim unitsInStock As Integer = 0
 
-                        '--- Register Begin Balance of item (myRequestToDepartID) 
-                        Dim qDepartStock = From departStock In THIDataContext.getTHIDataContext.tblDeptStocks Where departStock.DepartID = OPTICALSHOP_DEPART_ID And departStock.ItemID = itemID
-                        unitsInStock = qDepartStock.SingleOrDefault.UnitsInStock
+                    '--- Register Begin Balance of item (myRequestToDepartID) 
+                    Dim qDepartStock = From departStock In THIDataContext.getTHIDataContext.tblDeptStocks Where departStock.DepartID = OPTICALSHOP_DEPART_ID And departStock.ItemID = itemID
+                    unitsInStock = qDepartStock.SingleOrDefault.UnitsInStock
 
-                        Dim q = (From BBT In THIDataContext.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = GetDateServer.Date And BBT.DepartID = OPTICALSHOP_DEPART_ID And BBT.ItemID = itemID Select BBT.BeginBalanceTraceID).Count
-                        If q = 0 Then
+                    Dim q = (From BBT In THIDataContext.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = GetDateServer.Date And BBT.DepartID = OPTICALSHOP_DEPART_ID And BBT.ItemID = itemID Select BBT.BeginBalanceTraceID).Count
+                    If q = 0 Then
 
-                            Dim mytblBeginBalanceTrace As New tblBeginBalanceTrace
-                            mytblBeginBalanceTrace.Date = GetDateServer()
-                            mytblBeginBalanceTrace.DepartID = OPTICALSHOP_DEPART_ID
-                            mytblBeginBalanceTrace.BeginBalanceOfDay = unitsInStock
-                            mytblBeginBalanceTrace.ItemID = itemID
+                        Dim mytblBeginBalanceTrace As New tblBeginBalanceTrace
+                        mytblBeginBalanceTrace.Date = GetDateServer()
+                        mytblBeginBalanceTrace.DepartID = OPTICALSHOP_DEPART_ID
+                        mytblBeginBalanceTrace.BeginBalanceOfDay = unitsInStock
+                        mytblBeginBalanceTrace.ItemID = itemID
 
-                            THIDataContext.getTHIDataContext.tblBeginBalanceTraces.InsertOnSubmit(mytblBeginBalanceTrace)
-                            THIDataContext.getTHIDataContext.SubmitChanges()
-                        End If
+                        THIDataContext.getTHIDataContext.tblBeginBalanceTraces.InsertOnSubmit(mytblBeginBalanceTrace)
+                        THIDataContext.getTHIDataContext.SubmitChanges()
+                    End If
 
-                    Next
+                Next
 
-                    '--- Insert tblUsed 
-                    Dim mytblUsed As New tblUsed
+                '--- Insert tblUsed 
+                Dim mytblUsed As New tblUsed
 
-                    mytblUsed.UsedDepartID = OPTICALSHOP_DEPART_ID
-                    mytblUsed.UsedDate = GetDateServer.Date
+                mytblUsed.UsedDepartID = OPTICALSHOP_DEPART_ID
+                mytblUsed.UsedDate = GetDateServer.Date
 
-                    mytblUsed.UsedDescription = "Sold in Optical Shop receipt : " & lblReceiptNo.Text
-                    mytblUsed.UsedUserID = CInt(USER_ID)
+                mytblUsed.UsedDescription = "Sold in Optical Shop receipt : " & lblReceiptNo.Text
+                mytblUsed.UsedUserID = CInt(USER_ID)
 
-                    THIDataContext.getTHIDataContext.tblUseds.InsertOnSubmit(mytblUsed)
+                THIDataContext.getTHIDataContext.tblUseds.InsertOnSubmit(mytblUsed)
+                THIDataContext.getTHIDataContext.SubmitChanges()
+
+                For Each recDetail As RECEIPT_DETAIL In listReceiptDetail.ToList
+
+                    Dim itemID As Integer = CInt(recDetail.ItemID)
+                    '--- Updata Pharmacy stock
+                    Dim qDepartStock = From departStock In THIDataContext.getTHIDataContext.tblDeptStocks Where departStock.DepartID = OPTICALSHOP_DEPART_ID And departStock.ItemID = itemID
+
+                    Dim myDepartStock = qDepartStock.SingleOrDefault
+                    myDepartStock.UnitsInStock = myDepartStock.UnitsInStock - recDetail.ItemQTY
                     THIDataContext.getTHIDataContext.SubmitChanges()
 
-                    For Each recDetail As RECEIPT_DETAIL In listReceiptDetail.ToList
+                    '--- Insert tblUsedDetail
+                    Dim mytblUsedDetail As New tblUsedDetail
+                    mytblUsedDetail.UsedID = mytblUsed.UsedID
+                    mytblUsedDetail.ItemID = itemID
+                    mytblUsedDetail.UsedQuantity = recDetail.ItemQTY
 
-                        Dim itemID As Integer = CInt(recDetail.ItemID)
-                        '--- Updata Pharmacy stock
-                        Dim qDepartStock = From departStock In THIDataContext.getTHIDataContext.tblDeptStocks Where departStock.DepartID = OPTICALSHOP_DEPART_ID And departStock.ItemID = itemID
+                    THIDataContext.getTHIDataContext.tblUsedDetails.InsertOnSubmit(mytblUsedDetail)
+                    THIDataContext.getTHIDataContext.SubmitChanges()
 
-                        Dim myDepartStock = qDepartStock.SingleOrDefault
-                        myDepartStock.UnitsInStock = myDepartStock.UnitsInStock - recDetail.ItemQTY
-                        THIDataContext.getTHIDataContext.SubmitChanges()
+                Next
 
-                        '--- Insert tblUsedDetail
-                        Dim mytblUsedDetail As New tblUsedDetail
-                        mytblUsedDetail.UsedID = mytblUsed.UsedID
-                        mytblUsedDetail.ItemID = itemID
-                        mytblUsedDetail.UsedQuantity = recDetail.ItemQTY
-
-                        THIDataContext.getTHIDataContext.tblUsedDetails.InsertOnSubmit(mytblUsedDetail)
-                        THIDataContext.getTHIDataContext.SubmitChanges()
-
-                    Next
-
-                    trans.Commit()
-                    THIDataContext.getTHIDataContext.Connection.Close()
-                Catch ex As Exception
-                    trans.Rollback()
-                    THIDataContext.getTHIDataContext.Connection.Close()
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
+                trans.Commit()
+                THIDataContext.getTHIDataContext.Connection.Close()
+                'Catch ex As Exception
+                '    trans.Rollback()
+                '    THIDataContext.getTHIDataContext.Connection.Close()
+                '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                'End Try
 
                 MessageBox.Show("The receipt is paid successfully.", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 UCWaitingPayment.IsEditReceipt = False

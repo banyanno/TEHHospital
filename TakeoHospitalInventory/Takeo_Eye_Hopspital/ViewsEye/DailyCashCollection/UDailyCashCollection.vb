@@ -32,15 +32,17 @@ Public Class UCashCollection
         Me.dgvRemarks.DataSource = MCashCollection.DailyRemarksAccReceived(Me.dtpDateFrom.Value)
         Me.GridAccountPayable.DataSource = DAAccountPayable.GetDataByCurrentDate(dtpDateFrom.Value)
         Dim tblRemarkNote As DataTable = MCashCollection.SelectRemarksNote(dtpDateFrom.Value.Date)
+        Dim Remark As String = ""
         If tblRemarkNote.Rows.Count > 0 Then
             For Each row As DataRow In tblRemarkNote.Rows
                 LblRemarkNoteID.Text = row("RemarkID")
-                TxtRemarkNote.Text = row("Remarks")
+                Remark = row("Remarks") & ". " & Remark
             Next
         Else
             LblRemarkNoteID.Text = "0"
-            TxtRemarkNote.Text = ""
+            'TxtRemarkNote.Text = ""
         End If
+        TxtRemarkNote.Text = Remark
         '--------------------Total Remarks and Income Summary------------
         'Dim tblRemarks As DataTable = MCashCollection.TotalDailyRemarks(Format(Me.dtpDateFrom.Value, "MM/dd/yyyy"))
         'Dim RowRem As DataRow
@@ -1093,13 +1095,16 @@ Public Class UCashCollection
 
    
     Private Sub BtnSaveNote_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSaveNote.Click
-        If LblRemarkNoteID.Text <> "0" Then
-            MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
-        Else
-            If TxtRemarkNote.Text.Trim <> "" Then
-                MCashCollection.SaveDiallyRemarkNote(dtpDateFrom.Value.Date, TxtRemarkNote.Text)
+        If MessageBox.Show("Do you want to save note ", "Note", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If LblRemarkNoteID.Text <> "0" Then
+                MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
+            Else
+                If TxtRemarkNote.Text.Trim <> "" Then
+                    MCashCollection.SaveDiallyRemarkNote(dtpDateFrom.Value.Date, TxtRemarkNote.Text)
+                End If
             End If
         End If
+        
     End Sub
 
     Private Sub BtnCheckCashInDepart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCheckCashInDepart.Click

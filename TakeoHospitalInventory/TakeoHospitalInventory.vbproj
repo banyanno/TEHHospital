@@ -4657,6 +4657,7 @@
     <None Include="Resources\expired_date.png" />
     <None Include="Resources\edit1.png" />
     <None Include="Resources\health-clinic.jpg" />
+    <None Include="Resources\followup-icon.png" />
     <Content Include="Resources\ichemical.ico" />
     <Content Include="Resources\icontainer.ico" />
     <Content Include="Resources\idepart.ico" />
