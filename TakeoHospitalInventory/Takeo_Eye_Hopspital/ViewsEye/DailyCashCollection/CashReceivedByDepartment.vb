@@ -961,6 +961,7 @@
         Me.GridAccountPayable.DataSource = DAAccountPayable.GetDataCurrentDateByDept(dtpDateFrom.Value, DEPART_ID)
         Call ClearCashCount()
         Call ShowCashCount()
+        RefreshCashCountNote()
         ShowCashSummary()
     End Sub
 
@@ -1049,12 +1050,53 @@
     Private Sub SaveNote()
         If MessageBox.Show("Do you want to save note ", "Note", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             If LblRemarkNoteID.Text <> "0" Then
-                MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text)
+                If MCashCollection.UpdateDaillyRemarkNote(LblRemarkNoteID.Text, TxtRemarkNote.Text) = 1 Then
+                    MessageBox.Show("Save Successfull!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
             Else
                 If TxtRemarkNote.Text.Trim <> "" Then
-                    MCashCollection.SaveDiallyRemarkNoteVyDept(dtpDateFrom.Value.Date, "Note:" & DEPART_NAME.ToUpper & " " & TxtRemarkNote.Text, DEPART_ID, DEPART_NAME)
+                    If MCashCollection.SaveDiallyRemarkNoteVyDept(dtpDateFrom.Value.Date, "Note:" & DEPART_NAME.ToUpper & " " & TxtRemarkNote.Text, DEPART_ID, DEPART_NAME) = 1 Then
+                        MessageBox.Show("Save Successfull!", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
                 End If
             End If
         End If
     End Sub
+    Dim DACashDialyCon As New DataSetCashCountDailyTableAdapters.tblPatientReceiptTableAdapter
+    Dim DACashCount As New DataSetCashCountNumberTableAdapters.tblCashCountForDepartmentTableAdapter
+    Private Sub BtnPrintReport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintReport.Click
+        Try
+
+            Dim TblCas As DataTable = DACashDialyCon.SelectByDepartment(DEPART_ID, dtpDateFrom.Value)
+
+            Me.cmdPrint.Enabled = False
+            Dim frmReportCCD As New frmReportCashCountDaily
+            '-------------Report Form Active--------------------------------
+            Dim ReportCCD As New ReportCashCountDailyv2ForDept
+            Dim TblAccoutPayAble As DataTable = DAAccountPayable.GetDataCurrentDateByDept(dtpDateFrom.Value.Date, DEPART_ID)
+            Dim TblCashCount As DataTable = DACashCount.GetDataByDept(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy"), CInt(DEPART_ID))
+            ReportCCD.Subreports.Item("ReportCashFlow").SetDataSource(TblCas) 'MCashCollection.ReportCashFlowDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(TblCas) 'MCashCollection.ReportIncomeSummaryDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportRemarksDaily").SetDataSource(MCashCollection.ReportCashRemarksDailyByDept(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy"), DEPART_ID).Tables(1))
+
+            ReportCCD.Subreports.Item("ReportCashCountDaily").SetDataSource(TblCashCount) '(MCashCollection.ReportCashCountDailyByDeptID(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy"), DEPART_ID)) 'ReportCashCountDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("RemarkNote").SetDataSource(MCashCollection.SelectRemarksNoteByDepart(dtpDateFrom.Value.Date, DEPART_ID))
+            ReportCCD.Subreports.Item("AccountPayable").SetDataSource(TblAccoutPayAble)
+
+            frmReportCCD.crvReportCashCountDaily.ReportSource = ReportCCD
+            ReportCCD.SetParameterValue("DeptName", DEPART_NAME)
+            ReportCCD.SetParameterValue("Testing", Format(Me.dtpDateFrom.Value, "dd-MM-yyyy"))
+            'ReportCCD.Refresh()
+            '-------Parameter for Date from to date to-----------------
+            'Dim DateFromTo As ParameterField
+            'DateFromTo = ReportCCW.ParameterFields("txtDateFromTo")
+            'DateFromTo.CurrentValues.AddValue("Date: " & Format(Me.dtpDateFrom.Value, "dd/MM/yyyy") & " to: " & Format(Me.dtpDateTo.Value, "dd/MM/yyyy"))
+            frmReportCCD.ShowDialog()
+            Me.cmdPrint.Enabled = True
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
+        End Try
+    End Sub
+
+   
 End Class

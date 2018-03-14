@@ -827,4 +827,43 @@
         TotalRIEL = Val(Me.txt100000Rs.Text) + Val(Me.txt50000Rs.Text) + Val(Me.txt20000Rs.Text) + Val(Me.txt10000Rs.Text) + Val(Me.txt5000Rs.Text) + Val(Me.txt2000Rs.Text) + Val(Me.txt1000Rs.Text) + Val(Me.txt500Rs.Text) + Val(Me.txt100Rs.Text) + Val(Me.txt50Rs.Text)
         Return TotalRIEL
     End Function
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Try
+            If GridDepartment.SelectedItems.Count = 0 Then Exit Sub
+            Dim DeptID As Integer = GridDepartment.GetRow.Cells("CASH_IN_DEPART").Value
+            Dim DeptName As String = GridDepartment.GetRow.Cells("DEPARTMENT_NAME").Value
+            Dim TblCas As DataTable = DACashDialyCon.SelectByDepartment(DeptID, dtpDateFrom.Value)
+
+
+            Dim frmReportCCD As New frmReportCashCountDaily
+            '-------------Report Form Active--------------------------------
+            Dim ReportCCD As New ReportCashCountDailyv2ForDept
+            Dim TblAccoutPayAble As DataTable = DAAccountPayable.GetDataCurrentDateByDept(dtpDateFrom.Value.Date, DeptID)
+            Dim TblCashCount As DataTable = DACashCount.GetDataByDept(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy"), CInt(DeptID))
+            ReportCCD.Subreports.Item("ReportCashFlow").SetDataSource(TblCas) 'MCashCollection.ReportCashFlowDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(TblCas) 'MCashCollection.ReportIncomeSummaryDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportRemarksDaily").SetDataSource(MCashCollection.ReportCashRemarksDailyByDept(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy"), DEPART_ID).Tables(1))
+
+            ReportCCD.Subreports.Item("ReportCashCountDaily").SetDataSource(TblCashCount) '(MCashCollection.ReportCashCountDailyByDeptID(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy"), DEPART_ID)) 'ReportCashCountDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("RemarkNote").SetDataSource(MCashCollection.SelectRemarksNoteByDepart(dtpDateFrom.Value.Date, DeptID))
+            ReportCCD.Subreports.Item("AccountPayable").SetDataSource(TblAccoutPayAble)
+
+            frmReportCCD.crvReportCashCountDaily.ReportSource = ReportCCD
+            ReportCCD.SetParameterValue("DeptName", DeptName)
+            ReportCCD.SetParameterValue("Testing", Format(Me.dtpDateFrom.Value, "dd-MM-yyyy"))
+            'ReportCCD.Refresh()
+            '-------Parameter for Date from to date to-----------------
+            'Dim DateFromTo As ParameterField
+            'DateFromTo = ReportCCW.ParameterFields("txtDateFromTo")
+            'DateFromTo.CurrentValues.AddValue("Date: " & Format(Me.dtpDateFrom.Value, "dd/MM/yyyy") & " to: " & Format(Me.dtpDateTo.Value, "dd/MM/yyyy"))
+            frmReportCCD.ShowDialog()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
+        End Try
+    End Sub
+    Dim DACashDialyCon As New DataSetCashCountDailyTableAdapters.tblPatientReceiptTableAdapter
+    Dim DACashCount As New DataSetCashCountNumberTableAdapters.tblCashCountForDepartmentTableAdapter
+   
 End Class

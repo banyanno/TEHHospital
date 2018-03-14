@@ -155,12 +155,12 @@ Module MCashCollection
     Sub SaveDiallyRemarkNote(ByVal DateRemark As Date, ByVal Remarks As String)
         generalDAO.InsertDAO("INSERT INTO CASH_REMARK_COLLECTION (RemarkDate,Remarks) VALUES('" & DateRemark & "','" & Remarks.Replace("'", "") & "')")
     End Sub
-    Sub SaveDiallyRemarkNoteVyDept(ByVal DateRemark As Date, ByVal Remarks As String, ByVal DeptID As Integer, ByVal Dept_Name As String)
-        generalDAO.InsertDAO("INSERT INTO CASH_REMARK_COLLECTION (RemarkDate,Remarks,DEPART_ID,DEPART_NAME) VALUES('" & DateRemark & "','" & Remarks.Replace("'", "") & "'," & DeptID & ",'" & Dept_Name & "')")
-    End Sub
-    Sub UpdateDaillyRemarkNote(ByVal RemarkID As Integer, ByVal Remarks As String)
-        generalDAO.UpdateDAO("UPDATE CASH_REMARK_COLLECTION SET Remarks='" & Remarks.Replace("'", "") & "' WHERE RemarkID=" & RemarkID)
-    End Sub
+    Public Function SaveDiallyRemarkNoteVyDept(ByVal DateRemark As Date, ByVal Remarks As String, ByVal DeptID As Integer, ByVal Dept_Name As String) As Integer
+        Return generalDAO.InsertDAO("INSERT INTO CASH_REMARK_COLLECTION (RemarkDate,Remarks,DEPART_ID,DEPART_NAME) VALUES('" & DateRemark & "','" & Remarks.Replace("'", "") & "'," & DeptID & ",'" & Dept_Name & "')")
+    End Function
+    Public Function UpdateDaillyRemarkNote(ByVal RemarkID As Integer, ByVal Remarks As String) As Integer
+        Return generalDAO.UpdateDAO("UPDATE CASH_REMARK_COLLECTION SET Remarks='" & Remarks.Replace("'", "") & "' WHERE RemarkID=" & RemarkID)
+    End Function
     Sub UpdateDaillyRemarkNoteByDept(ByVal RemarkID As Integer, ByVal Remarks As String, ByVal DeptID As Integer)
         generalDAO.UpdateDAO("UPDATE CASH_REMARK_COLLECTION SET Remarks='" & Remarks.Replace("'", "") & "' WHERE  DEPART_ID=" & DeptID & " and RemarkID=" & RemarkID)
     End Sub
@@ -354,6 +354,33 @@ Module MCashCollection
         End Try
 
     End Function
+
+    Public Function ReportCashCountDailyByDeptID(ByVal DateFrom As Date, ByVal DeptID As Integer) As DataSet
+        Try
+            Dim Con As SqlClient.SqlConnection = generalDAO.getConnection
+            Dim SqlAdapter As New SqlClient.SqlDataAdapter
+            Dim DSet As New DataSetCashCountNumber
+            Dim Sql As String = ""
+            If Con.State = ConnectionState.Closed Then
+                Con.Open()
+            End If
+            Dim SqlCom As New SqlClient.SqlCommand
+            Sql = "SELECT CONVERT(VARCHAR(11),DateIn,106) AS DateIn, US100, US100T, US50, US50T," _
+                & " US20, US20T, US10, US10T, US5, US5T, US1, US1T," _
+                & " R100000, R100000T, R50000, R50000T, R20000, R20000T," _
+                & " R10000, R10000T,R5000, R5000T,R2000, R2000T,R1000, R1000T," _
+                & " R500, R500T, R100, R100T, R50, R50T from tblCashCountForDepartment Where CASH_IN_DEPART=" & DeptID & " and CAST(CONVERT(VARCHAR(10), DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateFrom & "' AS DATETIME), 1) AS Datetime) Order by DateIn ASC"
+            SqlCom.CommandText = Sql
+            SqlCom.Connection = Con
+            SqlAdapter.SelectCommand = SqlCom
+            SqlAdapter.Fill(DSet)
+            Con.Close()
+            Return DSet
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
+        End Try
+
+    End Function
     Public Function ReportCashCountDailyDtoD(ByVal DateFrom As Date, ByVal DateTo As Date) As DataSet
         Try
             Dim Con As SqlClient.SqlConnection = generalDAO.getConnection
@@ -407,8 +434,33 @@ Module MCashCollection
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
         End Try
-
     End Function
+
+    Public Function ReportCashRemarksDailyByDept(ByVal DateFrom As Date, ByVal DeptID As Integer) As DataSet
+        Try
+            Dim Con As SqlClient.SqlConnection = generalDAO.getConnection
+            Dim SqlAdapter As New SqlClient.SqlDataAdapter
+            Dim DSet As New DataSetRemarksDaily
+            Dim Sql As String = ""
+            If Con.State = ConnectionState.Closed Then
+                Con.Open()
+            End If
+            Dim SqlCom As New SqlClient.SqlCommand
+            Sql = "SELECT tblAccountName.AccountName AS AccountName," _
+                & " tblAccountAmount.AmountUSD AS AmountUSD, tblAccountAmount.AmountRiel AS AmountRiel FROM " _
+                & " tblAccountAmount INNER JOIN tblAccountName ON tblAccountAmount.AID = tblAccountName.AID" _
+                & " Where ISSUE_BY_DEP=" & DeptID & " AND CAST(CONVERT(VARCHAR(10), tblAccountAmount.DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateFrom & "' AS DATETIME), 1) AS Datetime)"
+            SqlCom.CommandText = Sql
+            SqlCom.Connection = Con
+            SqlAdapter.SelectCommand = SqlCom
+            SqlAdapter.Fill(DSet)
+            Con.Close()
+            Return DSet
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
+        End Try
+    End Function
+
     Public Function ReportCashRemarksDailyDtoD(ByVal DateFrom As Date, ByVal DateTo As Date) As DataSet
         Try
             Dim Con As SqlClient.SqlConnection = generalDAO.getConnection

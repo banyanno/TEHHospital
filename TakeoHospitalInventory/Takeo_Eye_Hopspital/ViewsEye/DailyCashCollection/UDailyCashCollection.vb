@@ -964,10 +964,12 @@ Public Class UCashCollection
         Call ClearCashCount()
     End Sub
     Dim DACashDialyCon As New DataSetCashCountDailyTableAdapters.tblPatientReceiptTableAdapter
+    Dim DACashCountNo As New DataSetCashCountNumberTableAdapters.tblCashCountTableAdapter
     Private Sub cmdPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPrint.Click
         Try
 
             Dim TblCas As DataTable = DACashDialyCon.SelectDialycash(dtpDateFrom.Value)
+            Dim tblCashCount As DataTable = DACashCountNo.CashCountByDateIn(dtpDateFrom.Value.Date)
             Me.cmdPrint.Enabled = False
             Dim frmReportCCD As New frmReportCashCountDaily
             '-------------Report Form Active--------------------------------
@@ -976,7 +978,7 @@ Public Class UCashCollection
             ReportCCD.Subreports.Item("ReportCashFlow").SetDataSource(TblCas) 'MCashCollection.ReportCashFlowDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
             ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(TblCas) 'MCashCollection.ReportIncomeSummaryDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
             ReportCCD.Subreports.Item("ReportRemarksDaily").SetDataSource(MCashCollection.ReportCashRemarksDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
-            ReportCCD.Subreports.Item("ReportCashCountDaily").SetDataSource(MCashCollection.ReportCashCountDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportCashCountDaily").SetDataSource(tblCashCount) 'SetDataSource(MCashCollection.ReportCashCountDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables("tblCashCount"))
             ReportCCD.Subreports.Item("RemarkNote").SetDataSource(MCashCollection.SelectRemarksNote(dtpDateFrom.Value.Date))
             ReportCCD.Subreports.Item("AccountPayable").SetDataSource(TblAccoutPayAble)
 

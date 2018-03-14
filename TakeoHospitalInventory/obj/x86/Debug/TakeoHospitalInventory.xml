@@ -2094,11 +2094,23 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DataSetCashCountNumber.tblCashCountForDepartmentDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DataSetCashCountNumber.tblCashCountRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DataSetCashCountNumber.tblCashCountForDepartmentRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DataSetCashCountNumber.tblCashCountRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataSetCashCountNumber.tblCashCountForDepartmentRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -2107,6 +2119,10 @@ Row event argument class
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DataSetCashCountNumberTableAdapters.tblCashCountTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataSetCashCountNumberTableAdapters.tblCashCountForDepartmentTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

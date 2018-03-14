@@ -324,6 +324,7 @@ Partial Class UCashCollection
         Me.GridCashCollection.GroupTotals = Janus.Windows.GridEX.GroupTotals.Always
         Me.GridCashCollection.Location = New System.Drawing.Point(3, 100)
         Me.GridCashCollection.Name = "GridCashCollection"
+        Me.GridCashCollection.RecordNavigator = True
         Me.GridCashCollection.Size = New System.Drawing.Size(1475, 281)
         Me.GridCashCollection.TabIndex = 2
         Me.GridCashCollection.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
