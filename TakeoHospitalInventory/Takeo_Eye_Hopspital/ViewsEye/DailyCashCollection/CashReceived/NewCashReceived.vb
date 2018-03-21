@@ -19,7 +19,8 @@
     End Sub
 
     Private Sub NewCashReceived_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        DateReceiptIn.Checked = True
+        DateReceiptIn.Value = ModGlobleVariable.CheckMarkEOD()
     End Sub
 
 
@@ -72,7 +73,7 @@
                                 CboReceivedFrom.Text = rows("NameEng")
                                 TxtPatientKHName.Text = rows("NameKhmer")
                             Else
-                                DA_Client.InsertNewClient(rows("NameKhmer"), rows("NameEng"), rows("Sex"), rows("Age"), "Medical Certificate")
+                                DA_Client.InsertNewClient(rows("NameKhmer"), rows("NameEng"), rows("Sex"), rows("Age"), TxtReceivedNote.Text)
                                 With CboReceivedFrom
                                     .DataSource = DA_Client.GetData
                                     .ValueMember = "CUS_RECEIVEDID"
@@ -116,7 +117,7 @@
                                 CboReceivedFrom.Text = rows("NameEng")
                                 TxtPatientKHName.Text = rows("NameKhmer")
                             Else
-                                DA_Client.InsertNewClient(rows("NameKhmer"), rows("NameEng"), rows("Sex"), rows("Age"), "Medical Certificate")
+                                DA_Client.InsertNewClient(rows("NameKhmer"), rows("NameEng"), rows("Sex"), rows("Age"), TxtReceivedNote.Text)
                                 With CboReceivedFrom
                                     .DataSource = DA_Client.GetData
                                     .ValueMember = "CUS_RECEIVEDID"

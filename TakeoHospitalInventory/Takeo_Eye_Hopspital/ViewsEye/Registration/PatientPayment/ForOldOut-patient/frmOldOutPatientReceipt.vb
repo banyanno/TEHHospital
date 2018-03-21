@@ -646,7 +646,7 @@ Public Class frmOldOutPatientReceipt
             Dolar = EmptyString(txtFollowUp.Text)
             Riel = 0
         End If
-        Return SQLSaveOldPatientBook(txtReceiptNumber.Text, txtHN.Text, "", "", Riel, Dolar, False, False, False, False, False, False, "", dtpDateIn.Value, False, GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString)
+        Return SQLSaveOldPatientBook(txtReceiptNumber.Text, txtHN.Text, "", "", Riel, Dolar, False, False, ChHearing.Checked, ChUnderstand.Checked, ChSeeing.Checked, ChPhysical.Checked, "", dtpDateIn.Value, False, GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString)
     End Function
     Function SQLSaveOldPatientBook( _
     ByVal ReceiptNo As String, _

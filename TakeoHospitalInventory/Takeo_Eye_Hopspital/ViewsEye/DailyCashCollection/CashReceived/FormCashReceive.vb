@@ -39,7 +39,17 @@
                     Dim ROtherReceipt As New ReportOtherReceipt
                     Dim TblTemReceipt As DataTable = Da_ReceiptNo.SelectByReceiptNo(GridOtherReceipt.GetRow.Cells("RECEIP_NO").Value)
                     ROtherReceipt.SetDataSource(TblTemReceipt)
-                    ROtherReceipt.PrintToPrinter(1, False, 1, 1)
+                    If MessageBox.Show("Do you want to print preview?", "Print", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                        Dim frmReportOOPR As New frmReportOldOutPatientReceipt
+                        frmReportOOPR.crvReportOldOutPatientReceipt.ReportSource = ROtherReceipt
+
+                        frmReportOOPR.ShowDialog()
+                    Else
+
+                        ROtherReceipt.PrintToPrinter(1, False, 1, 1)
+                    End If
+
+
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, "Other Receipt", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try

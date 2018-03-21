@@ -25,6 +25,8 @@ Partial Class NewCashReceived
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewCashReceived))
         Me.GroupOtherReceipt = New System.Windows.Forms.GroupBox
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.txtAmountWord = New System.Windows.Forms.TextBox
         Me.BtnFindPatient = New System.Windows.Forms.Button
         Me.TxtPatientNo = New System.Windows.Forms.TextBox
         Me.ChPatient = New System.Windows.Forms.CheckBox
@@ -48,8 +50,6 @@ Partial Class NewCashReceived
         Me.Label5 = New System.Windows.Forms.Label
         Me.lblSaveOption = New System.Windows.Forms.Label
         Me.BgSaveNewOtherReceipt = New System.ComponentModel.BackgroundWorker
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.txtAmountWord = New System.Windows.Forms.TextBox
         Me.GroupOtherReceipt.SuspendLayout()
         Me.G1.SuspendLayout()
         CType(Me.ErrCashReceived, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,6 +79,29 @@ Partial Class NewCashReceived
         Me.GroupOtherReceipt.Size = New System.Drawing.Size(708, 439)
         Me.GroupOtherReceipt.TabIndex = 0
         Me.GroupOtherReceipt.TabStop = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Wat Phnom T3", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(9, 241)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(110, 31)
+        Me.Label7.TabIndex = 129
+        Me.Label7.Text = "cMnYnTwkR)ak;"
+        '
+        'txtAmountWord
+        '
+        Me.txtAmountWord.BackColor = System.Drawing.Color.Linen
+        Me.txtAmountWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAmountWord.Location = New System.Drawing.Point(201, 240)
+        Me.txtAmountWord.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.txtAmountWord.Name = "txtAmountWord"
+        Me.txtAmountWord.ReadOnly = True
+        Me.txtAmountWord.Size = New System.Drawing.Size(493, 30)
+        Me.txtAmountWord.TabIndex = 128
         '
         'BtnFindPatient
         '
@@ -158,11 +181,11 @@ Partial Class NewCashReceived
         '
         'TxtReceivedNote
         '
+        Me.TxtReceivedNote.BackColor = System.Drawing.Color.White
         Me.TxtReceivedNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtReceivedNote.Location = New System.Drawing.Point(6, 381)
         Me.TxtReceivedNote.Multiline = True
         Me.TxtReceivedNote.Name = "TxtReceivedNote"
-        Me.TxtReceivedNote.ReadOnly = True
         Me.TxtReceivedNote.Size = New System.Drawing.Size(688, 46)
         Me.TxtReceivedNote.TabIndex = 6
         '
@@ -309,29 +332,6 @@ Partial Class NewCashReceived
         '
         'BgSaveNewOtherReceipt
         '
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Wat Phnom T3", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(9, 241)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(110, 31)
-        Me.Label7.TabIndex = 129
-        Me.Label7.Text = "cMnYnTwkR)ak;"
-        '
-        'txtAmountWord
-        '
-        Me.txtAmountWord.BackColor = System.Drawing.Color.Linen
-        Me.txtAmountWord.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAmountWord.Location = New System.Drawing.Point(201, 240)
-        Me.txtAmountWord.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.txtAmountWord.Name = "txtAmountWord"
-        Me.txtAmountWord.ReadOnly = True
-        Me.txtAmountWord.Size = New System.Drawing.Size(493, 30)
-        Me.txtAmountWord.TabIndex = 128
         '
         'NewCashReceived
         '

@@ -47,6 +47,16 @@ Public Class FormMainDonateReport
     Private Sub FormMainDonateReport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' LoadData()
         'InitDonate()
+        If DEPART_NAME.ToUpper = "OPTICAL SHOP" Then
+            BtnEdit.Enabled = False
+            BtnNew.Enabled = False
+            RadShowAllDonate.Checked = False
+            RadShowAllDonate.Enabled = False
+            RadDonateInPatient.Checked = False
+            RadDonateInPatient.Enabled = False
+            RadDonateInOpticalShop.Checked = True
+
+        End If
     End Sub
     Sub InitDonate()
         With CboDonation

@@ -100,6 +100,7 @@ Public Class UCMainNew_Outpatient
         TotalCanceled = ModNew_Outpatient.CountCanceled("V_NewOutpatientDetail", DFrom, DTo, 0)
         TotalNotFillDiagnosis = ModNew_Outpatient.CountNotFillDiagnosis("V_NewOutpatientDetail", DFrom, DTo, 0)
         Total = TotalM + TotalF
+
     End Sub
     Private Sub BgLoadNewReport_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BgLoadNewReport.DoWork
 
@@ -110,8 +111,8 @@ Public Class UCMainNew_Outpatient
         End If
     End Sub
     Private Sub BGNewOutpatient_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGNewOutpatient.RunWorkerCompleted
-        GridEXNewPatientBook.DataSource = TblNewOutpatientTem
-
+        'GridEXNewPatientBook.DataSource = TblNewOutpatientTem
+        GridEXNewPatientBookV1.DataSource = TblNewOutpatientTem
         LblM.Text = TotalM
 
         LblF.Text = TotalF
@@ -129,27 +130,29 @@ Public Class UCMainNew_Outpatient
         MainForm.StatusLoading(False)
         BtnDisplay.Enabled = True
         IS_FIll = 2
+        'ModCommon.NumberAllRowHeaderDataGrid(GridEXNewPatientBookV1)
+        ShowNoteBG()
     End Sub
-    'Sub ShowNoteBG()
-    '        Dim BlankDiagnosis As String
-    '        Dim DelOption As String
-    '        Dim VA As String
-    '        For Each rows As DataGridViewRow In Me.GridNewOutpatient.Rows
-    '            BlankDiagnosis = rows.Cells.Item("Diagnosis").Value.ToString.Trim
-    '            DelOption = rows.Cells.Item("DeleteOption").Value.ToString.Trim
-    '            VA = rows.Cells.Item("VAStatus").Value.ToString
-    '            If VA = "False" Then
-    '                rows.DefaultCellStyle.BackColor = Color.Bisque
-    '            End If
-    '            If BlankDiagnosis = "" Then
-    '                rows.DefaultCellStyle.BackColor = Color.LightSeaGreen
-    '            End If
-    '            If DelOption = "True" Then
-    '                rows.DefaultCellStyle.BackColor = Color.DarkKhaki
-    '            End If
-    '        Next
-    '        NumberAllRowHeaderDataGrid(GridNewOutpatient)
-    'End Sub
+    Sub ShowNoteBG()
+        Dim BlankDiagnosis As String
+        Dim DelOption As String
+        Dim VA As String
+        For Each rows As DataGridViewRow In Me.GridEXNewPatientBookV1.Rows
+            BlankDiagnosis = rows.Cells.Item("Diagnosis").Value.ToString.Trim
+            DelOption = rows.Cells.Item("DeleteOption").Value.ToString.Trim
+            VA = rows.Cells.Item("VAStatus").Value.ToString
+            If VA = "False" Then
+                rows.DefaultCellStyle.BackColor = Color.Bisque
+            End If
+            If BlankDiagnosis = "" Then
+                rows.DefaultCellStyle.BackColor = Color.LightSeaGreen
+            End If
+            If DelOption = "True" Then
+                rows.DefaultCellStyle.BackColor = Color.DarkKhaki
+            End If
+        Next
+        NumberAllRowHeaderDataGrid(GridEXNewPatientBookV1)
+    End Sub
     Private Sub BtnPrintPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintPreview.Click
         ShowSplitPanel(0)
         CRVDaillyNewOut.DisplayToolbar = True
@@ -257,16 +260,17 @@ Public Class UCMainNew_Outpatient
     Private Sub CreateVAToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MCreateVA.Click
 
         'Try
-
-        Dim PatientNo As String = GridEXNewPatientBook.GetRow.Cells("PatientNo").Value ' GridNewOutpatient.Rows(RowIndex).Cells(1).Value
-        Dim PatientEngName As String = GridEXNewPatientBook.GetRow.Cells("NameEng").Value ' GridNewOutpatient.Rows(RowIndex).Cells(4).Value
-        Dim PatientKh As String = GridEXNewPatientBook.GetRow.Cells("NameKhmer").Value ' GridNewOutpatient.Rows(RowIndex).Cells(5).Value
-        Dim Age As String = GridEXNewPatientBook.GetRow.Cells("age").Value ' GridNewOutpatient.Rows(RowIndex).Cells(6).Value
-        Dim Sex As String = GridEXNewPatientBook.GetRow.Cells("Sex").Value ' GridNewOutpatient.Rows(RowIndex).Cells(7).Value
-        Dim Address As String = GridEXNewPatientBook.GetRow.Cells("Address").Value ' GridNewOutpatient.Rows(RowIndex).Cells(8).Value
+        If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
+        Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
+        Dim PatientNo As String = row.Cells("PatientNo").Value.ToString ' GridEXNewPatientBook.GetRow.Cells("PatientNo").Value ' GridNewOutpatient.Rows(RowIndex).Cells(1).Value
+        Dim PatientEngName As String = row.Cells("NameEng").Value.ToString ' GridEXNewPatientBook.GetRow.Cells("NameEng").Value ' GridNewOutpatient.Rows(RowIndex).Cells(4).Value
+        Dim PatientKh As String = row.Cells("NameKhmer").Value.ToString ' GridEXNewPatientBook.GetRow.Cells("NameKhmer").Value ' GridNewOutpatient.Rows(RowIndex).Cells(5).Value
+        Dim Age As String = row.Cells("age").Value.ToString 'GridEXNewPatientBook.GetRow.Cells("age").Value ' GridNewOutpatient.Rows(RowIndex).Cells(6).Value
+        Dim Sex As String = row.Cells("Sex").Value.ToString 'GridEXNewPatientBook.GetRow.Cells("Sex").Value ' GridNewOutpatient.Rows(RowIndex).Cells(7).Value
+        Dim Address As String = row.Cells("Address").Value.ToString 'GridEXNewPatientBook.GetRow.Cells("Address").Value ' GridNewOutpatient.Rows(RowIndex).Cells(8).Value
         Dim FPatientVA As New FRMPatientVA
-        FPatientVA.LblPatientID.Text = GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
-        FPatientVA.LblSave.Text = GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+        FPatientVA.LblPatientID.Text = row.Cells("NewOutPatientNo").Value ' GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+        FPatientVA.LblSave.Text = row.Cells("NewOutPatientNo").Value ' GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
         FPatientVA.TxtPatientNo.Enabled = False
         FPatientVA.TxtPatientNo.Text = PatientNo
         FPatientVA.TxtEngName.Text = PatientEngName.Trim
@@ -290,8 +294,9 @@ Public Class UCMainNew_Outpatient
 
     Private Sub CancelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MCancel.Click
         Try
-
-            Dim NewOutNo As Integer = GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+            If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
+            Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
+            Dim NewOutNo As Integer = row.Cells("NewOutPatientNo").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
 
             'If MessageBox.Show("Do you want to cancel", "cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             Dim FDeleteNote As New DeleteNoteNew
@@ -306,10 +311,11 @@ Public Class UCMainNew_Outpatient
         End Try
     End Sub
 
-    Private Sub UndoCancelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MUndoCancel.Click
+    Private Sub UndoCancelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MUndo.Click
         Try
-
-            Dim NewOutNo As Integer = GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+            If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
+            Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
+            Dim NewOutNo As Integer = row.Cells("NewOutPatientNo").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
             DIALOG_DELETE = MessageBox.Show("Do you want to undo cancel", "cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If DIALOG_DELETE = DialogResult.Yes Then
                 If ModNew_Outpatient.UpdateToUndo(NewOutNo) = 1 Then
@@ -326,10 +332,12 @@ Public Class UCMainNew_Outpatient
 
     Private Sub EnterDiagnosisToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MEnterDiagnosis.Click
         'Try
-        If GridEXNewPatientBook.SelectedItems.Count = 0 Then Exit Sub
+        'If GridEXNewPatientBook.SelectedItems.Count = 0 Then Exit Sub
+        If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
+        Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
         Dim FEnterDiagnosis As New FrmEnterNewDialognosis
-        FEnterDiagnosis.lblNewPatientNo.Text = GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
-        FEnterDiagnosis.txtPatientNo.Text = GridEXNewPatientBook.GetRow.Cells("PatientNo").Value
+        FEnterDiagnosis.lblNewPatientNo.Text = row.Cells("NewOutPatientNo").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+        FEnterDiagnosis.txtPatientNo.Text = row.Cells("PatientNo").Value.ToString ''GridEXNewPatientBook.GetRow.Cells("PatientNo").Value
         FEnterDiagnosis.ShowDialog()
         If FEnterDiagnosis.saveSucc = True Then
             CallBgNewOut()
@@ -347,7 +355,7 @@ Public Class UCMainNew_Outpatient
         If UserGlobleVariable.DEPART_NAME <> "Administrator" Then
             MRemove.Enabled = False
             MCancel.Enabled = False
-            MUndoCancel.Enabled = False
+            MUndo.Enabled = False
         End If
 
 
@@ -583,8 +591,8 @@ Public Class UCMainNew_Outpatient
     End Sub
 
     Private Sub BtnShowPatientCanceled_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnShowPatientCanceled.Click
-        'GridNewOutpatient.Sort(GridNewOutpatient.Columns("DeleteOption"), ListSortDirection.Descending)
-        'ShowNoteBG()
+        GridEXNewPatientBookV1.Sort(GridEXNewPatientBookV1.Columns("DeleteOption"), ListSortDirection.Descending)
+        ShowNoteBG()
     End Sub
 
     Private Sub BtnDisplaySort_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDisplaySort.Click
@@ -644,11 +652,13 @@ Public Class UCMainNew_Outpatient
     End Sub
 
     Private Sub BtnUpdateReferral_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnUpdateReferral.Click
-        If GridEXNewPatientBook.SelectedItems.Count = 0 Then Exit Sub
+        'If GridEXNewPatientBook.SelectedItems.Count = 0 Then Exit Sub
+        If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
+        Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
         Dim FUpdateReferral As New UpdateReferral
-        FUpdateReferral.LblPatientNo.Text = GridEXNewPatientBook.GetRow.Cells("PatientNo").Value
-        FUpdateReferral.lblBookID.Text = GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
-        FUpdateReferral.LblReferral.Text = GridEXNewPatientBook.GetRow.Cells("ComBindRefferal").Value
+        FUpdateReferral.LblPatientNo.Text = row.Cells("PatientNo").Value.ToString ' GridEXNewPatientBook.GetRow.Cells("PatientNo").Value
+        FUpdateReferral.lblBookID.Text = row.Cells("NewOutPatientNo").Value.ToString ' GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+        FUpdateReferral.LblReferral.Text = row.Cells("ComBindRefferal").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("ComBindRefferal").Value
         If FUpdateReferral.ShowDialog() = DialogResult.OK Then
             Me.TxtPatientNo.Text = FUpdateReferral.LblPatientNo.Text
             BtnDisplay_Click(sender, e)
@@ -761,8 +771,73 @@ Public Class UCMainNew_Outpatient
         If UserGlobleVariable.DEPART_NAME <> "Administrator" Then
             MRemove.Enabled = False
             MCancel.Enabled = False
-            MUndoCancel.Enabled = False
+            MUndo.Enabled = False
         End If
 
+    End Sub
+
+    Private Sub GridEXNewPatientBookV1_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridEXNewPatientBookV1.CellDoubleClick
+        If UserGlobleVariable.DEPART_NAME <> "Administrator" Then
+            Exit Sub
+        End If
+        'If RoleAccess <> "Administrator" Then
+        '    Exit Sub
+        'End If
+        Try
+            'Dim PatientFee As Integer
+            If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
+            Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
+            Dim FNew_outpatient As New FRMNew_Outpatient
+
+            FNew_outpatient.DateFollowUp.Checked = True
+            FNew_outpatient.LblSaveOption.Text = row.Cells("NewOutPatientNo").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value ' .Rows(e.RowIndex).Cells(0).Value
+            FNew_outpatient.TxtPatientNo.Text = row.Cells("PatientNo").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("PatientNo").Value '.Rows(e.RowIndex).Cells(1).Value
+            FNew_outpatient.TxtReceiptNo.Text = row.Cells("ReceiptNo").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("ReceiptNo").Value '.Rows(e.RowIndex).Cells(3).Value
+            FNew_outpatient.TxtPatientName.Text = row.Cells("NameKhmer").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("NameKhmer").Value '.Rows(e.RowIndex).Cells(5).Value
+            FNew_outpatient.TxtAge.Text = row.Cells("Age").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Age").Value '.Rows(e.RowIndex).Cells(6).Value
+            FNew_outpatient.TxtSex.Text = row.Cells("Sex").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Sex").Value '.Rows(e.RowIndex).Cells(7).Value
+            FNew_outpatient.TxtAddress.Text = row.Cells("Address").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Address").Value '.Rows(e.RowIndex).Cells(8).Value
+
+            Dim Riel As String = row.Cells("PatientFee").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("PatientFee").Value
+            If Riel <> "0" Then
+                FNew_outpatient.RadioDolar.Checked = False
+                FNew_outpatient.RadioRiel.Checked = True
+                FNew_outpatient.TxtPatientFee.Text = row.Cells("PatientFee").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("PatientFee").Value
+            Else
+                FNew_outpatient.RadioDolar.Checked = True
+                FNew_outpatient.RadioRiel.Checked = False
+                FNew_outpatient.TxtPatientFee.Text = row.Cells("PatientDolar").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("PatientDolar").Value
+            End If
+            FNew_outpatient.CboDiagnosis.Text = row.Cells("Diagnosis").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Diagnosis").Value '.Rows(e.RowIndex).Cells(11).Value
+            FNew_outpatient.ChPrescribed.Checked = row.Cells("Prescribed").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Prescribed").Value '.Rows(e.RowIndex).Cells(12).Value
+            FNew_outpatient.ChDispensed.Checked = row.Cells("Dispensed").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Dispensed").Value '.Rows(e.RowIndex).Cells(13).Value
+            FNew_outpatient.ChHearing.Checked = row.Cells("Hearing").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Hearing").Value '.Rows(e.RowIndex).Cells(14).Value
+            FNew_outpatient.ChUnderstand.Checked = row.Cells("Hearing").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Understand").Value '.Rows(e.RowIndex).Cells(15).Value
+            FNew_outpatient.ChSeeing.Checked = row.Cells("Seeing").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Seeing").Value '.Rows(e.RowIndex).Cells(16).Value
+            FNew_outpatient.ChPhysical.Checked = row.Cells("Physical").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Physical").Value '.Rows(e.RowIndex).Cells(17).Value
+            FNew_outpatient.TxtOther.Text = row.Cells("Other").Value.ToString  ' GridEXNewPatientBook.GetRow.Cells("Other").Value '.Rows(e.RowIndex).Cells(18).Value
+            FNew_outpatient.DateFollowUp.Value = Format(row.Cells("CreateDate").Value)  'GridEXNewPatientBook.GetRow.Cells("CreateDate").Value, "MM/dd/yyyy")
+            FNew_outpatient.ChTypeOther.Checked = row.Cells("TypeDiagnosis").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("TypeDiagnosis").Value
+            If FNew_outpatient.ShowDialog() = DialogResult.OK Then
+                GridEXNewPatientBook.DataSource = ModNew_Outpatient.SelectNewOutNo(EmptyString(FNew_outpatient.LblSaveOption.Text))
+            End If
+            'If FNew_outpatient.isNewClose = True Then
+
+            '    'NumberAllRowHeaderDataGrid(GridNewOutpatient)
+            'End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub GridEXNewPatientBookV1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridEXNewPatientBookV1.CellClick
+        If UserGlobleVariable.DEPART_NAME <> "Administrator" Then
+            MCancel.Enabled = False
+            MUndo.Enabled = False
+        End If
+    End Sub
+
+    Private Sub GridEXNewPatientBookV1_ColumnHeaderMouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles GridEXNewPatientBookV1.ColumnHeaderMouseClick
+        ShowNoteBG()
     End Sub
 End Class

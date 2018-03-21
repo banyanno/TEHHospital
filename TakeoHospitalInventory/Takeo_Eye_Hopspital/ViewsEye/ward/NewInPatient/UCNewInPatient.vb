@@ -527,6 +527,10 @@ Public Class UCNewInPatient
                 Dim Address As String = GridNewInPatient.SelectedItems(0).GetRow.Cells(5).Text
                 Dim Eye As String = GridNewInPatient.SelectedItems(0).GetRow.Cells("Eye").Text
                 Dim FOTRegistration As New FRMOTRegistration
+                FOTRegistration.DateOT.Checked = True
+                FOTRegistration.DateOT.Value = GetDateServer()
+                FOTRegistration.DateOperated.Checked = True
+                FOTRegistration.DateOperated.Value = GetDateServer()
                 FOTRegistration.TxtPatientNo.Text = PatientNo
                 FOTRegistration.TxtInpatientNo.Text = NewInNo
                 FOTRegistration.TxtPatientName.Text = PatientName

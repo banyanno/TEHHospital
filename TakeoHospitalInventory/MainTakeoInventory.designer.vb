@@ -69,6 +69,7 @@ Partial Class MainTakeoInventory
         Dim BottonBarMain_Item_0_6 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Item_0_7 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Item_0_8 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim BottonBarMain_Item_0_9 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Group_1 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim BottonBarMain_Item_1_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Group_2 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
@@ -945,29 +946,35 @@ Partial Class MainTakeoInventory
         BottonBarMain_Item_0_4.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Item_0_4.Enabled = False
         BottonBarMain_Item_0_4.Icon = CType(resources.GetObject("BottonBarMain_Item_0_4.Icon"), System.Drawing.Icon)
-        BottonBarMain_Item_0_4.Key = "PatientReferal"
-        BottonBarMain_Item_0_4.Text = "Report Utility"
+        BottonBarMain_Item_0_4.Key = "ReferTo"
+        BottonBarMain_Item_0_4.StateStyles.FormatStyle.Font = New System.Drawing.Font("Khmer OS Battambang", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        BottonBarMain_Item_0_4.Text = "បញ្ជូន Patient កន្លែងផ្សេង"
         BottonBarMain_Item_0_5.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Item_0_5.Enabled = False
         BottonBarMain_Item_0_5.Icon = CType(resources.GetObject("BottonBarMain_Item_0_5.Icon"), System.Drawing.Icon)
-        BottonBarMain_Item_0_5.Key = "ConProvince"
-        BottonBarMain_Item_0_5.Text = "Consultation Each Province"
+        BottonBarMain_Item_0_5.Key = "PatientReferal"
+        BottonBarMain_Item_0_5.Text = "Report Utility"
         BottonBarMain_Item_0_6.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Item_0_6.Enabled = False
         BottonBarMain_Item_0_6.Icon = CType(resources.GetObject("BottonBarMain_Item_0_6.Icon"), System.Drawing.Icon)
-        BottonBarMain_Item_0_6.Key = "PatientAchieve"
-        BottonBarMain_Item_0_6.Text = "Patient Archive"
+        BottonBarMain_Item_0_6.Key = "ConProvince"
+        BottonBarMain_Item_0_6.Text = "Consultation Each Province"
         BottonBarMain_Item_0_7.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Item_0_7.Enabled = False
         BottonBarMain_Item_0_7.Icon = CType(resources.GetObject("BottonBarMain_Item_0_7.Icon"), System.Drawing.Icon)
-        BottonBarMain_Item_0_7.Key = "MonthlyOutpatient"
-        BottonBarMain_Item_0_7.Text = "Out Patient Report"
+        BottonBarMain_Item_0_7.Key = "PatientAchieve"
+        BottonBarMain_Item_0_7.Text = "Patient Archive"
         BottonBarMain_Item_0_8.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Item_0_8.Enabled = False
         BottonBarMain_Item_0_8.Icon = CType(resources.GetObject("BottonBarMain_Item_0_8.Icon"), System.Drawing.Icon)
-        BottonBarMain_Item_0_8.Key = "MonthlyInPatient"
-        BottonBarMain_Item_0_8.Text = "In-Patient Report"
-        BottonBarMain_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {BottonBarMain_Item_0_0, BottonBarMain_Item_0_1, BottonBarMain_Item_0_2, BottonBarMain_Item_0_3, BottonBarMain_Item_0_4, BottonBarMain_Item_0_5, BottonBarMain_Item_0_6, BottonBarMain_Item_0_7, BottonBarMain_Item_0_8})
+        BottonBarMain_Item_0_8.Key = "MonthlyOutpatient"
+        BottonBarMain_Item_0_8.Text = "Out Patient Report"
+        BottonBarMain_Item_0_9.Cursor = System.Windows.Forms.Cursors.Hand
+        BottonBarMain_Item_0_9.Enabled = False
+        BottonBarMain_Item_0_9.Icon = CType(resources.GetObject("BottonBarMain_Item_0_9.Icon"), System.Drawing.Icon)
+        BottonBarMain_Item_0_9.Key = "MonthlyInPatient"
+        BottonBarMain_Item_0_9.Text = "In-Patient Report"
+        BottonBarMain_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {BottonBarMain_Item_0_0, BottonBarMain_Item_0_1, BottonBarMain_Item_0_2, BottonBarMain_Item_0_3, BottonBarMain_Item_0_4, BottonBarMain_Item_0_5, BottonBarMain_Item_0_6, BottonBarMain_Item_0_7, BottonBarMain_Item_0_8, BottonBarMain_Item_0_9})
         BottonBarMain_Group_0.Key = "Registration"
         BottonBarMain_Group_0.Text = "Patient Registration  "
         BottonBarMain_Group_0.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
@@ -1045,6 +1052,7 @@ Partial Class MainTakeoInventory
         BottonBarMain_Item_3_1.Enabled = False
         BottonBarMain_Item_3_1.Icon = CType(resources.GetObject("BottonBarMain_Item_3_1.Icon"), System.Drawing.Icon)
         BottonBarMain_Item_3_1.Key = "ReferTo"
+        BottonBarMain_Item_3_1.StateStyles.FormatStyle.Font = New System.Drawing.Font("Khmer OS Battambang", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         BottonBarMain_Item_3_1.Text = "បញ្ជូន Patient កន្លែងផ្សេង"
         BottonBarMain_Group_3.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {BottonBarMain_Item_3_0, BottonBarMain_Item_3_1})
         BottonBarMain_Group_3.ItemsStateStyles.FormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

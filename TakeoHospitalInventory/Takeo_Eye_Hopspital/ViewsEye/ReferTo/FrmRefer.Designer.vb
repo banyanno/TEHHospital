@@ -74,7 +74,7 @@ Partial Class FrmRefer
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(8, 38)
+        Me.Label2.Location = New System.Drawing.Point(4, 38)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(60, 13)
         Me.Label2.TabIndex = 2
@@ -112,7 +112,7 @@ Partial Class FrmRefer
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(8, 68)
+        Me.Label4.Location = New System.Drawing.Point(4, 68)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(29, 13)
         Me.Label4.TabIndex = 6
@@ -150,7 +150,7 @@ Partial Class FrmRefer
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(8, 100)
+        Me.Label6.Location = New System.Drawing.Point(4, 100)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
         Me.Label6.TabIndex = 9

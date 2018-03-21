@@ -295,6 +295,7 @@ Partial Class FormCashReceive
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cash Received"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         CType(Me.GridOtherReceipt, System.ComponentModel.ISupportInitialize).EndInit()

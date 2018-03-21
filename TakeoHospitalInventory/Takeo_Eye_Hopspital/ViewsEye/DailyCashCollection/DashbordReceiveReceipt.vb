@@ -326,4 +326,9 @@ Public Class DashbordReceiveReceipt
         FPayable.ShowDialog()
 
     End Sub
+
+    Private Sub BtnDonate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDonate.Click
+        Dim FMainDonation As New FormMainDonateReport
+        FMainDonation.ShowDialog()
+    End Sub
 End Class

@@ -116,7 +116,7 @@ Module ModOld_Outpatient
         Return ModGlobleVariable.GENERAL_DAO.DeleteDAO(sql)
     End Function
     Function SelectOldReceiptNo(ByVal ReceiptNo As String) As DataTable
-        Dim sql As String = "SELECT * FROM V_Oldoutpatient WHERE ReceiptNo=" & ReceiptNo
+        Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation FROM V_Oldoutpatient WHERE ReceiptNo=" & ReceiptNo
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
     Function CheckExistingReceipt(ByVal ReceiptNo As String) As Boolean
@@ -129,11 +129,11 @@ Module ModOld_Outpatient
         End If
     End Function
     Function SelectOldDetailByReceiptNo(ByVal ReceiptNo As String, ByVal PatientNo As String) As DataTable
-        Dim sql As String = "SELECT * FROM V_OldOutpatientDetail WHERE ReceiptNo=" & ReceiptNo & " AND PatientNo=" & PatientNo
+        Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation FROM V_OldOutpatientDetail WHERE ReceiptNo=" & ReceiptNo & " AND PatientNo=" & PatientNo
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
     Function SelectOldPatientDetailByDate(ByVal PatientNo As String, ByVal DateFrom As String, ByVal DateTo As String) As DataTable
-        Dim sql As String = "SELECT * FROM V_OldOutpatientDetail WHERE " & _
+        Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation FROM V_OldOutpatientDetail WHERE " & _
             " CAST(CONVERT(VARCHAR(10), CreateDate, 1) as DateTime) BETWEEN " & _
             " CAST(CONVERT(VARCHAR(10),CAST('" & DateFrom & "' AS DATETIME), 1) as Datetime)" & _
             " AND CAST(CONVERT(VARCHAR(10),CAST('" & DateTo & "' AS DATETIME), 1) as Datetime) "
@@ -144,7 +144,7 @@ Module ModOld_Outpatient
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
     Function SelectOldPatientDetailByDateNotFillDiagnosis(ByVal PatientNo As String, ByVal DateFrom As String, ByVal DateTo As String, ByVal Diagnosis As String) As DataTable
-        Dim sql As String = "SELECT * FROM V_OldOutpatientDetail WHERE " & _
+        Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation FROM V_OldOutpatientDetail WHERE " & _
            " CAST(CONVERT(VARCHAR(10), CreateDate, 1) as DateTime) BETWEEN " & _
            " CAST(CONVERT(VARCHAR(10),CAST('" & DateFrom & "' AS DATETIME), 1) as Datetime)" & _
            " AND CAST(CONVERT(VARCHAR(10),CAST('" & DateTo & "' AS DATETIME), 1) as Datetime) "
@@ -155,7 +155,7 @@ Module ModOld_Outpatient
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
     Function SelectOldPatienDetailbyDateNotVA(ByVal PatientNo As String, ByVal DateFrom As String, ByVal DateTo As String) As DataTable
-        Dim sql As String = "SELECT * FROM V_OldOutpatientDetail WHERE " & _
+        Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation FROM V_OldOutpatientDetail WHERE " & _
            " CAST(CONVERT(VARCHAR(10), CreateDate, 1) as DateTime) BETWEEN " & _
            " CAST(CONVERT(VARCHAR(10),CAST('" & DateFrom & "' AS DATETIME), 1) as Datetime)" & _
            " AND CAST(CONVERT(VARCHAR(10),CAST('" & DateTo & "' AS DATETIME), 1) as Datetime) "
