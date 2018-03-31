@@ -67,12 +67,6 @@ Partial Public Class LinqOpticalShopClassesDataContext
     End Sub
   Partial Private Sub DeleteACCOUNT_PAYABLE_DETAIL(instance As ACCOUNT_PAYABLE_DETAIL)
     End Sub
-  Partial Private Sub InserttblPatientReceipt(instance As tblPatientReceipt)
-    End Sub
-  Partial Private Sub UpdatetblPatientReceipt(instance As tblPatientReceipt)
-    End Sub
-  Partial Private Sub DeletetblPatientReceipt(instance As tblPatientReceipt)
-    End Sub
   Partial Private Sub InsertRECEIPT_DETAIL(instance As RECEIPT_DETAIL)
     End Sub
   Partial Private Sub UpdateRECEIPT_DETAIL(instance As RECEIPT_DETAIL)
@@ -84,6 +78,12 @@ Partial Public Class LinqOpticalShopClassesDataContext
   Partial Private Sub UpdateRECEIPT(instance As RECEIPT)
     End Sub
   Partial Private Sub DeleteRECEIPT(instance As RECEIPT)
+    End Sub
+  Partial Private Sub InserttblPatientReceipt(instance As tblPatientReceipt)
+    End Sub
+  Partial Private Sub UpdatetblPatientReceipt(instance As tblPatientReceipt)
+    End Sub
+  Partial Private Sub DeletetblPatientReceipt(instance As tblPatientReceipt)
     End Sub
   #End Region
 	
@@ -148,12 +148,6 @@ Partial Public Class LinqOpticalShopClassesDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property tblPatientReceipts() As System.Data.Linq.Table(Of tblPatientReceipt)
-		Get
-			Return Me.GetTable(Of tblPatientReceipt)
-		End Get
-	End Property
-	
 	Public ReadOnly Property RECEIPT_DETAILs() As System.Data.Linq.Table(Of RECEIPT_DETAIL)
 		Get
 			Return Me.GetTable(Of RECEIPT_DETAIL)
@@ -163,6 +157,12 @@ Partial Public Class LinqOpticalShopClassesDataContext
 	Public ReadOnly Property RECEIPTs() As System.Data.Linq.Table(Of RECEIPT)
 		Get
 			Return Me.GetTable(Of RECEIPT)
+		End Get
+	End Property
+	
+	Public ReadOnly Property tblPatientReceipts() As System.Data.Linq.Table(Of tblPatientReceipt)
+		Get
+			Return Me.GetTable(Of tblPatientReceipt)
 		End Get
 	End Property
 End Class
@@ -1220,1368 +1220,6 @@ Partial Public Class ACCOUNT_PAYABLE_DETAIL
 				Me._DEPART_NAME = value
 				Me.SendPropertyChanged("DEPART_NAME")
 				Me.OnDEPART_NAMEChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
-<Table(Name:="dbo.tblPatientReceipt")>  _
-Partial Public Class tblPatientReceipt
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _ID As Long
-	
-	Private _ReceiptNo As Long
-	
-	Private _IDCashReceipt As String
-	
-	Private _HN As Decimal
-	
-	Private _PatientName As String
-	
-	Private _CashRiel As System.Nullable(Of Double)
-	
-	Private _CashUSD As System.Nullable(Of Double)
-	
-	Private _TotalRiel As System.Nullable(Of Double)
-	
-	Private _TotalUSD As System.Nullable(Of Double)
-	
-	Private _OperationFeeRiel As System.Nullable(Of Double)
-	
-	Private _OperationFeeUSD As System.Nullable(Of Double)
-	
-	Private _ArtificialEyeFeeRiel As System.Nullable(Of Double)
-	
-	Private _ArtificialEyeFeeUSD As System.Nullable(Of Double)
-	
-	Private _OtherFeeRiel As System.Nullable(Of Double)
-	
-	Private _OtherFeeUSD As System.Nullable(Of Double)
-	
-	Private _ConsultationFeeRiel As System.Nullable(Of Double)
-	
-	Private _ConsultationFeeUSD As System.Nullable(Of Double)
-	
-	Private _FollowUpFeeRiel As System.Nullable(Of Double)
-	
-	Private _FollowUpFeeUSD As System.Nullable(Of Double)
-	
-	Private _MedicineFeeRiel As System.Nullable(Of Double)
-	
-	Private _MedicineFeeUSD As System.Nullable(Of Double)
-	
-	Private _GlassFeeRiel As System.Nullable(Of Double)
-	
-	Private _GlassFeeUSD As System.Nullable(Of Double)
-	
-	Private _SocialFeeRiel As System.Nullable(Of Double)
-	
-	Private _SocialFeeUSD As System.Nullable(Of Double)
-	
-	Private _FullFeeRiel As System.Nullable(Of Double)
-	
-	Private _FullFeeUSD As System.Nullable(Of Double)
-	
-	Private _Rates As System.Nullable(Of Double)
-	
-	Private _AmoutWord As String
-	
-	Private _ConOP As System.Nullable(Of Char)
-	
-	Private _ConAE As System.Nullable(Of Char)
-	
-	Private _ConOT As System.Nullable(Of Char)
-	
-	Private _ConCON As System.Nullable(Of Char)
-	
-	Private _ConFOL As System.Nullable(Of Char)
-	
-	Private _ConMED As System.Nullable(Of Char)
-	
-	Private _ConGLA As System.Nullable(Of Char)
-	
-	Private _ConSocialFee As System.Nullable(Of Char)
-	
-	Private _ConFullFee As System.Nullable(Of Char)
-	
-	Private _ConGeneral As String
-	
-	Private _CashierIn As String
-	
-	Private _CashierUpdate As String
-	
-	Private _PrintCount As System.Nullable(Of Integer)
-	
-	Private _DateIn As System.Nullable(Of Date)
-	
-	Private _DateUpdate As System.Nullable(Of Date)
-	
-	Private _DateNow As System.Nullable(Of Date)
-	
-	Private _ConPay As System.Nullable(Of Char)
-	
-	Private _ConDelete As System.Nullable(Of Char)
-	
-	Private _Years As System.Nullable(Of Integer)
-	
-	Private _Operation As String
-	
-	Private _IsDonation As System.Nullable(Of Boolean)
-	
-	Private _DonationID As System.Nullable(Of Decimal)
-	
-	Private _DonationName As String
-	
-	Private _DonationPay As System.Nullable(Of Double)
-	
-	Private _DonateNote As String
-	
-	Private _HosFee As System.Nullable(Of Double)
-	
-	Private _CashTotal As System.Nullable(Of Double)
-	
-	Private _IsPatientNill As System.Nullable(Of Boolean)
-	
-	Private _TIME_CREATE As String
-	
-	Private _TIME_ISSUE As String
-	
-	Private _ISSUE_BY_DEPART As System.Nullable(Of Decimal)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnIDChanging(value As Long)
-    End Sub
-    Partial Private Sub OnIDChanged()
-    End Sub
-    Partial Private Sub OnReceiptNoChanging(value As Long)
-    End Sub
-    Partial Private Sub OnReceiptNoChanged()
-    End Sub
-    Partial Private Sub OnIDCashReceiptChanging(value As String)
-    End Sub
-    Partial Private Sub OnIDCashReceiptChanged()
-    End Sub
-    Partial Private Sub OnHNChanging(value As Decimal)
-    End Sub
-    Partial Private Sub OnHNChanged()
-    End Sub
-    Partial Private Sub OnPatientNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnPatientNameChanged()
-    End Sub
-    Partial Private Sub OnCashRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnCashRielChanged()
-    End Sub
-    Partial Private Sub OnCashUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnCashUSDChanged()
-    End Sub
-    Partial Private Sub OnTotalRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnTotalRielChanged()
-    End Sub
-    Partial Private Sub OnTotalUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnTotalUSDChanged()
-    End Sub
-    Partial Private Sub OnOperationFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnOperationFeeRielChanged()
-    End Sub
-    Partial Private Sub OnOperationFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnOperationFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnArtificialEyeFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnArtificialEyeFeeRielChanged()
-    End Sub
-    Partial Private Sub OnArtificialEyeFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnArtificialEyeFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnOtherFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnOtherFeeRielChanged()
-    End Sub
-    Partial Private Sub OnOtherFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnOtherFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnConsultationFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnConsultationFeeRielChanged()
-    End Sub
-    Partial Private Sub OnConsultationFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnConsultationFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnFollowUpFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnFollowUpFeeRielChanged()
-    End Sub
-    Partial Private Sub OnFollowUpFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnFollowUpFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnMedicineFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnMedicineFeeRielChanged()
-    End Sub
-    Partial Private Sub OnMedicineFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnMedicineFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnGlassFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnGlassFeeRielChanged()
-    End Sub
-    Partial Private Sub OnGlassFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnGlassFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnSocialFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnSocialFeeRielChanged()
-    End Sub
-    Partial Private Sub OnSocialFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnSocialFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnFullFeeRielChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnFullFeeRielChanged()
-    End Sub
-    Partial Private Sub OnFullFeeUSDChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnFullFeeUSDChanged()
-    End Sub
-    Partial Private Sub OnRatesChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnRatesChanged()
-    End Sub
-    Partial Private Sub OnAmoutWordChanging(value As String)
-    End Sub
-    Partial Private Sub OnAmoutWordChanged()
-    End Sub
-    Partial Private Sub OnConOPChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConOPChanged()
-    End Sub
-    Partial Private Sub OnConAEChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConAEChanged()
-    End Sub
-    Partial Private Sub OnConOTChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConOTChanged()
-    End Sub
-    Partial Private Sub OnConCONChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConCONChanged()
-    End Sub
-    Partial Private Sub OnConFOLChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConFOLChanged()
-    End Sub
-    Partial Private Sub OnConMEDChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConMEDChanged()
-    End Sub
-    Partial Private Sub OnConGLAChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConGLAChanged()
-    End Sub
-    Partial Private Sub OnConSocialFeeChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConSocialFeeChanged()
-    End Sub
-    Partial Private Sub OnConFullFeeChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConFullFeeChanged()
-    End Sub
-    Partial Private Sub OnConGeneralChanging(value As String)
-    End Sub
-    Partial Private Sub OnConGeneralChanged()
-    End Sub
-    Partial Private Sub OnCashierInChanging(value As String)
-    End Sub
-    Partial Private Sub OnCashierInChanged()
-    End Sub
-    Partial Private Sub OnCashierUpdateChanging(value As String)
-    End Sub
-    Partial Private Sub OnCashierUpdateChanged()
-    End Sub
-    Partial Private Sub OnPrintCountChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnPrintCountChanged()
-    End Sub
-    Partial Private Sub OnDateInChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDateInChanged()
-    End Sub
-    Partial Private Sub OnDateUpdateChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDateUpdateChanged()
-    End Sub
-    Partial Private Sub OnDateNowChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDateNowChanged()
-    End Sub
-    Partial Private Sub OnConPayChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConPayChanged()
-    End Sub
-    Partial Private Sub OnConDeleteChanging(value As System.Nullable(Of Char))
-    End Sub
-    Partial Private Sub OnConDeleteChanged()
-    End Sub
-    Partial Private Sub OnYearsChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnYearsChanged()
-    End Sub
-    Partial Private Sub OnOperationChanging(value As String)
-    End Sub
-    Partial Private Sub OnOperationChanged()
-    End Sub
-    Partial Private Sub OnIsDonationChanging(value As System.Nullable(Of Boolean))
-    End Sub
-    Partial Private Sub OnIsDonationChanged()
-    End Sub
-    Partial Private Sub OnDonationIDChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OnDonationIDChanged()
-    End Sub
-    Partial Private Sub OnDonationNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnDonationNameChanged()
-    End Sub
-    Partial Private Sub OnDonationPayChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnDonationPayChanged()
-    End Sub
-    Partial Private Sub OnDonateNoteChanging(value As String)
-    End Sub
-    Partial Private Sub OnDonateNoteChanged()
-    End Sub
-    Partial Private Sub OnHosFeeChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnHosFeeChanged()
-    End Sub
-    Partial Private Sub OnCashTotalChanging(value As System.Nullable(Of Double))
-    End Sub
-    Partial Private Sub OnCashTotalChanged()
-    End Sub
-    Partial Private Sub OnIsPatientNillChanging(value As System.Nullable(Of Boolean))
-    End Sub
-    Partial Private Sub OnIsPatientNillChanged()
-    End Sub
-    Partial Private Sub OnTIME_CREATEChanging(value As String)
-    End Sub
-    Partial Private Sub OnTIME_CREATEChanged()
-    End Sub
-    Partial Private Sub OnTIME_ISSUEChanging(value As String)
-    End Sub
-    Partial Private Sub OnTIME_ISSUEChanged()
-    End Sub
-    Partial Private Sub OnISSUE_BY_DEPARTChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OnISSUE_BY_DEPARTChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Column(Storage:="_ID", AutoSync:=AutoSync.OnInsert, DbType:="BigInt NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property ID() As Long
-		Get
-			Return Me._ID
-		End Get
-		Set
-			If ((Me._ID = value)  _
-						= false) Then
-				Me.OnIDChanging(value)
-				Me.SendPropertyChanging
-				Me._ID = value
-				Me.SendPropertyChanged("ID")
-				Me.OnIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ReceiptNo", DbType:="BigInt NOT NULL")>  _
-	Public Property ReceiptNo() As Long
-		Get
-			Return Me._ReceiptNo
-		End Get
-		Set
-			If ((Me._ReceiptNo = value)  _
-						= false) Then
-				Me.OnReceiptNoChanging(value)
-				Me.SendPropertyChanging
-				Me._ReceiptNo = value
-				Me.SendPropertyChanged("ReceiptNo")
-				Me.OnReceiptNoChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_IDCashReceipt", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property IDCashReceipt() As String
-		Get
-			Return Me._IDCashReceipt
-		End Get
-		Set
-			If (String.Equals(Me._IDCashReceipt, value) = false) Then
-				Me.OnIDCashReceiptChanging(value)
-				Me.SendPropertyChanging
-				Me._IDCashReceipt = value
-				Me.SendPropertyChanged("IDCashReceipt")
-				Me.OnIDCashReceiptChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_HN", DbType:="Decimal(18,0) NOT NULL")>  _
-	Public Property HN() As Decimal
-		Get
-			Return Me._HN
-		End Get
-		Set
-			If ((Me._HN = value)  _
-						= false) Then
-				Me.OnHNChanging(value)
-				Me.SendPropertyChanging
-				Me._HN = value
-				Me.SendPropertyChanged("HN")
-				Me.OnHNChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_PatientName", DbType:="VarChar(500)")>  _
-	Public Property PatientName() As String
-		Get
-			Return Me._PatientName
-		End Get
-		Set
-			If (String.Equals(Me._PatientName, value) = false) Then
-				Me.OnPatientNameChanging(value)
-				Me.SendPropertyChanging
-				Me._PatientName = value
-				Me.SendPropertyChanged("PatientName")
-				Me.OnPatientNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_CashRiel", DbType:="Float")>  _
-	Public Property CashRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._CashRiel
-		End Get
-		Set
-			If (Me._CashRiel.Equals(value) = false) Then
-				Me.OnCashRielChanging(value)
-				Me.SendPropertyChanging
-				Me._CashRiel = value
-				Me.SendPropertyChanged("CashRiel")
-				Me.OnCashRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_CashUSD", DbType:="Float")>  _
-	Public Property CashUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._CashUSD
-		End Get
-		Set
-			If (Me._CashUSD.Equals(value) = false) Then
-				Me.OnCashUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._CashUSD = value
-				Me.SendPropertyChanged("CashUSD")
-				Me.OnCashUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_TotalRiel", DbType:="Float")>  _
-	Public Property TotalRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._TotalRiel
-		End Get
-		Set
-			If (Me._TotalRiel.Equals(value) = false) Then
-				Me.OnTotalRielChanging(value)
-				Me.SendPropertyChanging
-				Me._TotalRiel = value
-				Me.SendPropertyChanged("TotalRiel")
-				Me.OnTotalRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_TotalUSD", DbType:="Float")>  _
-	Public Property TotalUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._TotalUSD
-		End Get
-		Set
-			If (Me._TotalUSD.Equals(value) = false) Then
-				Me.OnTotalUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._TotalUSD = value
-				Me.SendPropertyChanged("TotalUSD")
-				Me.OnTotalUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_OperationFeeRiel", DbType:="Float")>  _
-	Public Property OperationFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._OperationFeeRiel
-		End Get
-		Set
-			If (Me._OperationFeeRiel.Equals(value) = false) Then
-				Me.OnOperationFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._OperationFeeRiel = value
-				Me.SendPropertyChanged("OperationFeeRiel")
-				Me.OnOperationFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_OperationFeeUSD", DbType:="Float")>  _
-	Public Property OperationFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._OperationFeeUSD
-		End Get
-		Set
-			If (Me._OperationFeeUSD.Equals(value) = false) Then
-				Me.OnOperationFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._OperationFeeUSD = value
-				Me.SendPropertyChanged("OperationFeeUSD")
-				Me.OnOperationFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ArtificialEyeFeeRiel", DbType:="Float")>  _
-	Public Property ArtificialEyeFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._ArtificialEyeFeeRiel
-		End Get
-		Set
-			If (Me._ArtificialEyeFeeRiel.Equals(value) = false) Then
-				Me.OnArtificialEyeFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._ArtificialEyeFeeRiel = value
-				Me.SendPropertyChanged("ArtificialEyeFeeRiel")
-				Me.OnArtificialEyeFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ArtificialEyeFeeUSD", DbType:="Float")>  _
-	Public Property ArtificialEyeFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._ArtificialEyeFeeUSD
-		End Get
-		Set
-			If (Me._ArtificialEyeFeeUSD.Equals(value) = false) Then
-				Me.OnArtificialEyeFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._ArtificialEyeFeeUSD = value
-				Me.SendPropertyChanged("ArtificialEyeFeeUSD")
-				Me.OnArtificialEyeFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_OtherFeeRiel", DbType:="Float")>  _
-	Public Property OtherFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._OtherFeeRiel
-		End Get
-		Set
-			If (Me._OtherFeeRiel.Equals(value) = false) Then
-				Me.OnOtherFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._OtherFeeRiel = value
-				Me.SendPropertyChanged("OtherFeeRiel")
-				Me.OnOtherFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_OtherFeeUSD", DbType:="Float")>  _
-	Public Property OtherFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._OtherFeeUSD
-		End Get
-		Set
-			If (Me._OtherFeeUSD.Equals(value) = false) Then
-				Me.OnOtherFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._OtherFeeUSD = value
-				Me.SendPropertyChanged("OtherFeeUSD")
-				Me.OnOtherFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConsultationFeeRiel", DbType:="Float")>  _
-	Public Property ConsultationFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._ConsultationFeeRiel
-		End Get
-		Set
-			If (Me._ConsultationFeeRiel.Equals(value) = false) Then
-				Me.OnConsultationFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._ConsultationFeeRiel = value
-				Me.SendPropertyChanged("ConsultationFeeRiel")
-				Me.OnConsultationFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConsultationFeeUSD", DbType:="Float")>  _
-	Public Property ConsultationFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._ConsultationFeeUSD
-		End Get
-		Set
-			If (Me._ConsultationFeeUSD.Equals(value) = false) Then
-				Me.OnConsultationFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._ConsultationFeeUSD = value
-				Me.SendPropertyChanged("ConsultationFeeUSD")
-				Me.OnConsultationFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_FollowUpFeeRiel", DbType:="Float")>  _
-	Public Property FollowUpFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._FollowUpFeeRiel
-		End Get
-		Set
-			If (Me._FollowUpFeeRiel.Equals(value) = false) Then
-				Me.OnFollowUpFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._FollowUpFeeRiel = value
-				Me.SendPropertyChanged("FollowUpFeeRiel")
-				Me.OnFollowUpFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_FollowUpFeeUSD", DbType:="Float")>  _
-	Public Property FollowUpFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._FollowUpFeeUSD
-		End Get
-		Set
-			If (Me._FollowUpFeeUSD.Equals(value) = false) Then
-				Me.OnFollowUpFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._FollowUpFeeUSD = value
-				Me.SendPropertyChanged("FollowUpFeeUSD")
-				Me.OnFollowUpFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_MedicineFeeRiel", DbType:="Float")>  _
-	Public Property MedicineFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._MedicineFeeRiel
-		End Get
-		Set
-			If (Me._MedicineFeeRiel.Equals(value) = false) Then
-				Me.OnMedicineFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._MedicineFeeRiel = value
-				Me.SendPropertyChanged("MedicineFeeRiel")
-				Me.OnMedicineFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_MedicineFeeUSD", DbType:="Float")>  _
-	Public Property MedicineFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._MedicineFeeUSD
-		End Get
-		Set
-			If (Me._MedicineFeeUSD.Equals(value) = false) Then
-				Me.OnMedicineFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._MedicineFeeUSD = value
-				Me.SendPropertyChanged("MedicineFeeUSD")
-				Me.OnMedicineFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_GlassFeeRiel", DbType:="Float")>  _
-	Public Property GlassFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._GlassFeeRiel
-		End Get
-		Set
-			If (Me._GlassFeeRiel.Equals(value) = false) Then
-				Me.OnGlassFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._GlassFeeRiel = value
-				Me.SendPropertyChanged("GlassFeeRiel")
-				Me.OnGlassFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_GlassFeeUSD", DbType:="Float")>  _
-	Public Property GlassFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._GlassFeeUSD
-		End Get
-		Set
-			If (Me._GlassFeeUSD.Equals(value) = false) Then
-				Me.OnGlassFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._GlassFeeUSD = value
-				Me.SendPropertyChanged("GlassFeeUSD")
-				Me.OnGlassFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_SocialFeeRiel", DbType:="Float")>  _
-	Public Property SocialFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._SocialFeeRiel
-		End Get
-		Set
-			If (Me._SocialFeeRiel.Equals(value) = false) Then
-				Me.OnSocialFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._SocialFeeRiel = value
-				Me.SendPropertyChanged("SocialFeeRiel")
-				Me.OnSocialFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_SocialFeeUSD", DbType:="Float")>  _
-	Public Property SocialFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._SocialFeeUSD
-		End Get
-		Set
-			If (Me._SocialFeeUSD.Equals(value) = false) Then
-				Me.OnSocialFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._SocialFeeUSD = value
-				Me.SendPropertyChanged("SocialFeeUSD")
-				Me.OnSocialFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_FullFeeRiel", DbType:="Float")>  _
-	Public Property FullFeeRiel() As System.Nullable(Of Double)
-		Get
-			Return Me._FullFeeRiel
-		End Get
-		Set
-			If (Me._FullFeeRiel.Equals(value) = false) Then
-				Me.OnFullFeeRielChanging(value)
-				Me.SendPropertyChanging
-				Me._FullFeeRiel = value
-				Me.SendPropertyChanged("FullFeeRiel")
-				Me.OnFullFeeRielChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_FullFeeUSD", DbType:="Float")>  _
-	Public Property FullFeeUSD() As System.Nullable(Of Double)
-		Get
-			Return Me._FullFeeUSD
-		End Get
-		Set
-			If (Me._FullFeeUSD.Equals(value) = false) Then
-				Me.OnFullFeeUSDChanging(value)
-				Me.SendPropertyChanging
-				Me._FullFeeUSD = value
-				Me.SendPropertyChanged("FullFeeUSD")
-				Me.OnFullFeeUSDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_Rates", DbType:="Float")>  _
-	Public Property Rates() As System.Nullable(Of Double)
-		Get
-			Return Me._Rates
-		End Get
-		Set
-			If (Me._Rates.Equals(value) = false) Then
-				Me.OnRatesChanging(value)
-				Me.SendPropertyChanging
-				Me._Rates = value
-				Me.SendPropertyChanged("Rates")
-				Me.OnRatesChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_AmoutWord", DbType:="VarChar(8000)")>  _
-	Public Property AmoutWord() As String
-		Get
-			Return Me._AmoutWord
-		End Get
-		Set
-			If (String.Equals(Me._AmoutWord, value) = false) Then
-				Me.OnAmoutWordChanging(value)
-				Me.SendPropertyChanging
-				Me._AmoutWord = value
-				Me.SendPropertyChanged("AmoutWord")
-				Me.OnAmoutWordChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConOP", DbType:="Char(1)")>  _
-	Public Property ConOP() As System.Nullable(Of Char)
-		Get
-			Return Me._ConOP
-		End Get
-		Set
-			If (Me._ConOP.Equals(value) = false) Then
-				Me.OnConOPChanging(value)
-				Me.SendPropertyChanging
-				Me._ConOP = value
-				Me.SendPropertyChanged("ConOP")
-				Me.OnConOPChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConAE", DbType:="Char(1)")>  _
-	Public Property ConAE() As System.Nullable(Of Char)
-		Get
-			Return Me._ConAE
-		End Get
-		Set
-			If (Me._ConAE.Equals(value) = false) Then
-				Me.OnConAEChanging(value)
-				Me.SendPropertyChanging
-				Me._ConAE = value
-				Me.SendPropertyChanged("ConAE")
-				Me.OnConAEChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConOT", DbType:="Char(1)")>  _
-	Public Property ConOT() As System.Nullable(Of Char)
-		Get
-			Return Me._ConOT
-		End Get
-		Set
-			If (Me._ConOT.Equals(value) = false) Then
-				Me.OnConOTChanging(value)
-				Me.SendPropertyChanging
-				Me._ConOT = value
-				Me.SendPropertyChanged("ConOT")
-				Me.OnConOTChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConCON", DbType:="Char(1)")>  _
-	Public Property ConCON() As System.Nullable(Of Char)
-		Get
-			Return Me._ConCON
-		End Get
-		Set
-			If (Me._ConCON.Equals(value) = false) Then
-				Me.OnConCONChanging(value)
-				Me.SendPropertyChanging
-				Me._ConCON = value
-				Me.SendPropertyChanged("ConCON")
-				Me.OnConCONChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConFOL", DbType:="Char(1)")>  _
-	Public Property ConFOL() As System.Nullable(Of Char)
-		Get
-			Return Me._ConFOL
-		End Get
-		Set
-			If (Me._ConFOL.Equals(value) = false) Then
-				Me.OnConFOLChanging(value)
-				Me.SendPropertyChanging
-				Me._ConFOL = value
-				Me.SendPropertyChanged("ConFOL")
-				Me.OnConFOLChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConMED", DbType:="Char(1)")>  _
-	Public Property ConMED() As System.Nullable(Of Char)
-		Get
-			Return Me._ConMED
-		End Get
-		Set
-			If (Me._ConMED.Equals(value) = false) Then
-				Me.OnConMEDChanging(value)
-				Me.SendPropertyChanging
-				Me._ConMED = value
-				Me.SendPropertyChanged("ConMED")
-				Me.OnConMEDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConGLA", DbType:="Char(1)")>  _
-	Public Property ConGLA() As System.Nullable(Of Char)
-		Get
-			Return Me._ConGLA
-		End Get
-		Set
-			If (Me._ConGLA.Equals(value) = false) Then
-				Me.OnConGLAChanging(value)
-				Me.SendPropertyChanging
-				Me._ConGLA = value
-				Me.SendPropertyChanged("ConGLA")
-				Me.OnConGLAChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConSocialFee", DbType:="Char(1)")>  _
-	Public Property ConSocialFee() As System.Nullable(Of Char)
-		Get
-			Return Me._ConSocialFee
-		End Get
-		Set
-			If (Me._ConSocialFee.Equals(value) = false) Then
-				Me.OnConSocialFeeChanging(value)
-				Me.SendPropertyChanging
-				Me._ConSocialFee = value
-				Me.SendPropertyChanged("ConSocialFee")
-				Me.OnConSocialFeeChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConFullFee", DbType:="Char(1)")>  _
-	Public Property ConFullFee() As System.Nullable(Of Char)
-		Get
-			Return Me._ConFullFee
-		End Get
-		Set
-			If (Me._ConFullFee.Equals(value) = false) Then
-				Me.OnConFullFeeChanging(value)
-				Me.SendPropertyChanging
-				Me._ConFullFee = value
-				Me.SendPropertyChanged("ConFullFee")
-				Me.OnConFullFeeChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConGeneral", DbType:="Char(2)")>  _
-	Public Property ConGeneral() As String
-		Get
-			Return Me._ConGeneral
-		End Get
-		Set
-			If (String.Equals(Me._ConGeneral, value) = false) Then
-				Me.OnConGeneralChanging(value)
-				Me.SendPropertyChanging
-				Me._ConGeneral = value
-				Me.SendPropertyChanged("ConGeneral")
-				Me.OnConGeneralChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_CashierIn", DbType:="VarChar(200)")>  _
-	Public Property CashierIn() As String
-		Get
-			Return Me._CashierIn
-		End Get
-		Set
-			If (String.Equals(Me._CashierIn, value) = false) Then
-				Me.OnCashierInChanging(value)
-				Me.SendPropertyChanging
-				Me._CashierIn = value
-				Me.SendPropertyChanged("CashierIn")
-				Me.OnCashierInChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_CashierUpdate", DbType:="VarChar(200)")>  _
-	Public Property CashierUpdate() As String
-		Get
-			Return Me._CashierUpdate
-		End Get
-		Set
-			If (String.Equals(Me._CashierUpdate, value) = false) Then
-				Me.OnCashierUpdateChanging(value)
-				Me.SendPropertyChanging
-				Me._CashierUpdate = value
-				Me.SendPropertyChanged("CashierUpdate")
-				Me.OnCashierUpdateChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_PrintCount", DbType:="Int")>  _
-	Public Property PrintCount() As System.Nullable(Of Integer)
-		Get
-			Return Me._PrintCount
-		End Get
-		Set
-			If (Me._PrintCount.Equals(value) = false) Then
-				Me.OnPrintCountChanging(value)
-				Me.SendPropertyChanging
-				Me._PrintCount = value
-				Me.SendPropertyChanged("PrintCount")
-				Me.OnPrintCountChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_DateIn", DbType:="DateTime")>  _
-	Public Property DateIn() As System.Nullable(Of Date)
-		Get
-			Return Me._DateIn
-		End Get
-		Set
-			If (Me._DateIn.Equals(value) = false) Then
-				Me.OnDateInChanging(value)
-				Me.SendPropertyChanging
-				Me._DateIn = value
-				Me.SendPropertyChanged("DateIn")
-				Me.OnDateInChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_DateUpdate", DbType:="DateTime")>  _
-	Public Property DateUpdate() As System.Nullable(Of Date)
-		Get
-			Return Me._DateUpdate
-		End Get
-		Set
-			If (Me._DateUpdate.Equals(value) = false) Then
-				Me.OnDateUpdateChanging(value)
-				Me.SendPropertyChanging
-				Me._DateUpdate = value
-				Me.SendPropertyChanged("DateUpdate")
-				Me.OnDateUpdateChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_DateNow", DbType:="DateTime")>  _
-	Public Property DateNow() As System.Nullable(Of Date)
-		Get
-			Return Me._DateNow
-		End Get
-		Set
-			If (Me._DateNow.Equals(value) = false) Then
-				Me.OnDateNowChanging(value)
-				Me.SendPropertyChanging
-				Me._DateNow = value
-				Me.SendPropertyChanged("DateNow")
-				Me.OnDateNowChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConPay", DbType:="Char(1)")>  _
-	Public Property ConPay() As System.Nullable(Of Char)
-		Get
-			Return Me._ConPay
-		End Get
-		Set
-			If (Me._ConPay.Equals(value) = false) Then
-				Me.OnConPayChanging(value)
-				Me.SendPropertyChanging
-				Me._ConPay = value
-				Me.SendPropertyChanged("ConPay")
-				Me.OnConPayChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ConDelete", DbType:="Char(1)")>  _
-	Public Property ConDelete() As System.Nullable(Of Char)
-		Get
-			Return Me._ConDelete
-		End Get
-		Set
-			If (Me._ConDelete.Equals(value) = false) Then
-				Me.OnConDeleteChanging(value)
-				Me.SendPropertyChanging
-				Me._ConDelete = value
-				Me.SendPropertyChanged("ConDelete")
-				Me.OnConDeleteChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_Years", DbType:="Int")>  _
-	Public Property Years() As System.Nullable(Of Integer)
-		Get
-			Return Me._Years
-		End Get
-		Set
-			If (Me._Years.Equals(value) = false) Then
-				Me.OnYearsChanging(value)
-				Me.SendPropertyChanging
-				Me._Years = value
-				Me.SendPropertyChanged("Years")
-				Me.OnYearsChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_Operation", DbType:="VarChar(8000)")>  _
-	Public Property Operation() As String
-		Get
-			Return Me._Operation
-		End Get
-		Set
-			If (String.Equals(Me._Operation, value) = false) Then
-				Me.OnOperationChanging(value)
-				Me.SendPropertyChanging
-				Me._Operation = value
-				Me.SendPropertyChanged("Operation")
-				Me.OnOperationChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_IsDonation", DbType:="Bit")>  _
-	Public Property IsDonation() As System.Nullable(Of Boolean)
-		Get
-			Return Me._IsDonation
-		End Get
-		Set
-			If (Me._IsDonation.Equals(value) = false) Then
-				Me.OnIsDonationChanging(value)
-				Me.SendPropertyChanging
-				Me._IsDonation = value
-				Me.SendPropertyChanged("IsDonation")
-				Me.OnIsDonationChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_DonationID", DbType:="Decimal(18,0)")>  _
-	Public Property DonationID() As System.Nullable(Of Decimal)
-		Get
-			Return Me._DonationID
-		End Get
-		Set
-			If (Me._DonationID.Equals(value) = false) Then
-				Me.OnDonationIDChanging(value)
-				Me.SendPropertyChanging
-				Me._DonationID = value
-				Me.SendPropertyChanged("DonationID")
-				Me.OnDonationIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_DonationName", DbType:="NVarChar(50)")>  _
-	Public Property DonationName() As String
-		Get
-			Return Me._DonationName
-		End Get
-		Set
-			If (String.Equals(Me._DonationName, value) = false) Then
-				Me.OnDonationNameChanging(value)
-				Me.SendPropertyChanging
-				Me._DonationName = value
-				Me.SendPropertyChanged("DonationName")
-				Me.OnDonationNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_DonationPay", DbType:="Float")>  _
-	Public Property DonationPay() As System.Nullable(Of Double)
-		Get
-			Return Me._DonationPay
-		End Get
-		Set
-			If (Me._DonationPay.Equals(value) = false) Then
-				Me.OnDonationPayChanging(value)
-				Me.SendPropertyChanging
-				Me._DonationPay = value
-				Me.SendPropertyChanged("DonationPay")
-				Me.OnDonationPayChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_DonateNote", DbType:="NVarChar(200)")>  _
-	Public Property DonateNote() As String
-		Get
-			Return Me._DonateNote
-		End Get
-		Set
-			If (String.Equals(Me._DonateNote, value) = false) Then
-				Me.OnDonateNoteChanging(value)
-				Me.SendPropertyChanging
-				Me._DonateNote = value
-				Me.SendPropertyChanged("DonateNote")
-				Me.OnDonateNoteChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_HosFee", DbType:="Float")>  _
-	Public Property HosFee() As System.Nullable(Of Double)
-		Get
-			Return Me._HosFee
-		End Get
-		Set
-			If (Me._HosFee.Equals(value) = false) Then
-				Me.OnHosFeeChanging(value)
-				Me.SendPropertyChanging
-				Me._HosFee = value
-				Me.SendPropertyChanged("HosFee")
-				Me.OnHosFeeChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_CashTotal", DbType:="Float")>  _
-	Public Property CashTotal() As System.Nullable(Of Double)
-		Get
-			Return Me._CashTotal
-		End Get
-		Set
-			If (Me._CashTotal.Equals(value) = false) Then
-				Me.OnCashTotalChanging(value)
-				Me.SendPropertyChanging
-				Me._CashTotal = value
-				Me.SendPropertyChanged("CashTotal")
-				Me.OnCashTotalChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_IsPatientNill", DbType:="Bit")>  _
-	Public Property IsPatientNill() As System.Nullable(Of Boolean)
-		Get
-			Return Me._IsPatientNill
-		End Get
-		Set
-			If (Me._IsPatientNill.Equals(value) = false) Then
-				Me.OnIsPatientNillChanging(value)
-				Me.SendPropertyChanging
-				Me._IsPatientNill = value
-				Me.SendPropertyChanged("IsPatientNill")
-				Me.OnIsPatientNillChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_TIME_CREATE", DbType:="nvarchar(50)")>  _
-	Public Property TIME_CREATE() As String
-		Get
-			Return Me._TIME_CREATE
-		End Get
-		Set
-			If (String.Equals(Me._TIME_CREATE, value) = false) Then
-				Me.OnTIME_CREATEChanging(value)
-				Me.SendPropertyChanging
-				Me._TIME_CREATE = value
-				Me.SendPropertyChanged("TIME_CREATE")
-				Me.OnTIME_CREATEChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_TIME_ISSUE", DbType:="nvarchar(50)")>  _
-	Public Property TIME_ISSUE() As String
-		Get
-			Return Me._TIME_ISSUE
-		End Get
-		Set
-			If (String.Equals(Me._TIME_ISSUE, value) = false) Then
-				Me.OnTIME_ISSUEChanging(value)
-				Me.SendPropertyChanging
-				Me._TIME_ISSUE = value
-				Me.SendPropertyChanged("TIME_ISSUE")
-				Me.OnTIME_ISSUEChanged
-			End If
-		End Set
-	End Property
-	
-	<Column(Storage:="_ISSUE_BY_DEPART", DbType:="float")>  _
-	Public Property ISSUE_BY_DEPART() As System.Nullable(Of Decimal)
-		Get
-			Return Me._ISSUE_BY_DEPART
-		End Get
-		Set
-			If (Me._ISSUE_BY_DEPART.Equals(value) = false) Then
-				Me.OnISSUE_BY_DEPARTChanging(value)
-				Me.SendPropertyChanging
-				Me._ISSUE_BY_DEPART = value
-				Me.SendPropertyChanged("ISSUE_BY_DEPART")
-				Me.OnISSUE_BY_DEPARTChanged
 			End If
 		End Set
 	End Property
@@ -4026,6 +2664,1390 @@ Partial Public Class RECEIPT
 				Me._TIME_CREATE = value
 				Me.SendPropertyChanged("TIME_CREATE")
 				Me.OnTIME_CREATEChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Table(Name:="dbo.tblPatientReceipt")>  _
+Partial Public Class tblPatientReceipt
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _ID As Long
+	
+	Private _ReceiptNo As Long
+	
+	Private _IDCashReceipt As String
+	
+	Private _HN As Decimal
+	
+	Private _PatientName As String
+	
+	Private _CashRiel As System.Nullable(Of Double)
+	
+	Private _CashUSD As System.Nullable(Of Double)
+	
+	Private _TotalRiel As System.Nullable(Of Double)
+	
+	Private _TotalUSD As System.Nullable(Of Double)
+	
+	Private _OperationFeeRiel As System.Nullable(Of Double)
+	
+	Private _OperationFeeUSD As System.Nullable(Of Double)
+	
+	Private _ArtificialEyeFeeRiel As System.Nullable(Of Double)
+	
+	Private _ArtificialEyeFeeUSD As System.Nullable(Of Double)
+	
+	Private _OtherFeeRiel As System.Nullable(Of Double)
+	
+	Private _OtherFeeUSD As System.Nullable(Of Double)
+	
+	Private _ConsultationFeeRiel As System.Nullable(Of Double)
+	
+	Private _ConsultationFeeUSD As System.Nullable(Of Double)
+	
+	Private _FollowUpFeeRiel As System.Nullable(Of Double)
+	
+	Private _FollowUpFeeUSD As System.Nullable(Of Double)
+	
+	Private _MedicineFeeRiel As System.Nullable(Of Double)
+	
+	Private _MedicineFeeUSD As System.Nullable(Of Double)
+	
+	Private _GlassFeeRiel As System.Nullable(Of Double)
+	
+	Private _GlassFeeUSD As System.Nullable(Of Double)
+	
+	Private _SocialFeeRiel As System.Nullable(Of Double)
+	
+	Private _SocialFeeUSD As System.Nullable(Of Double)
+	
+	Private _FullFeeRiel As System.Nullable(Of Double)
+	
+	Private _FullFeeUSD As System.Nullable(Of Double)
+	
+	Private _Rates As System.Nullable(Of Double)
+	
+	Private _AmoutWord As String
+	
+	Private _ConOP As System.Nullable(Of Char)
+	
+	Private _ConAE As System.Nullable(Of Char)
+	
+	Private _ConOT As System.Nullable(Of Char)
+	
+	Private _ConCON As System.Nullable(Of Char)
+	
+	Private _ConFOL As System.Nullable(Of Char)
+	
+	Private _ConMED As System.Nullable(Of Char)
+	
+	Private _ConGLA As System.Nullable(Of Char)
+	
+	Private _ConSocialFee As System.Nullable(Of Char)
+	
+	Private _ConFullFee As System.Nullable(Of Char)
+	
+	Private _ConGeneral As String
+	
+	Private _CashierIn As String
+	
+	Private _CashierUpdate As String
+	
+	Private _PrintCount As System.Nullable(Of Integer)
+	
+	Private _DateIn As System.Nullable(Of Date)
+	
+	Private _DateUpdate As System.Nullable(Of Date)
+	
+	Private _DateNow As System.Nullable(Of Date)
+	
+	Private _ConPay As System.Nullable(Of Char)
+	
+	Private _ConDelete As System.Nullable(Of Char)
+	
+	Private _Years As System.Nullable(Of Integer)
+	
+	Private _Operation As String
+	
+	Private _IsDonation As System.Nullable(Of Boolean)
+	
+	Private _DonationID As System.Nullable(Of Decimal)
+	
+	Private _DonationName As String
+	
+	Private _DonationPay As System.Nullable(Of Double)
+	
+	Private _DonateNote As String
+	
+	Private _HosFee As System.Nullable(Of Double)
+	
+	Private _CashTotal As System.Nullable(Of Double)
+	
+	Private _IsPatientNill As System.Nullable(Of Boolean)
+	
+	Private _ReceiptNote As String
+	
+	Private _TIME_CREATE As String
+	
+	Private _TIME_ISSUE As String
+	
+	Private _ISSUE_BY_DEPART As System.Nullable(Of Decimal)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnIDChanging(value As Long)
+    End Sub
+    Partial Private Sub OnIDChanged()
+    End Sub
+    Partial Private Sub OnReceiptNoChanging(value As Long)
+    End Sub
+    Partial Private Sub OnReceiptNoChanged()
+    End Sub
+    Partial Private Sub OnIDCashReceiptChanging(value As String)
+    End Sub
+    Partial Private Sub OnIDCashReceiptChanged()
+    End Sub
+    Partial Private Sub OnHNChanging(value As Decimal)
+    End Sub
+    Partial Private Sub OnHNChanged()
+    End Sub
+    Partial Private Sub OnPatientNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnPatientNameChanged()
+    End Sub
+    Partial Private Sub OnCashRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnCashRielChanged()
+    End Sub
+    Partial Private Sub OnCashUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnCashUSDChanged()
+    End Sub
+    Partial Private Sub OnTotalRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnTotalRielChanged()
+    End Sub
+    Partial Private Sub OnTotalUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnTotalUSDChanged()
+    End Sub
+    Partial Private Sub OnOperationFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnOperationFeeRielChanged()
+    End Sub
+    Partial Private Sub OnOperationFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnOperationFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnArtificialEyeFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnArtificialEyeFeeRielChanged()
+    End Sub
+    Partial Private Sub OnArtificialEyeFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnArtificialEyeFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnOtherFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnOtherFeeRielChanged()
+    End Sub
+    Partial Private Sub OnOtherFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnOtherFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnConsultationFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnConsultationFeeRielChanged()
+    End Sub
+    Partial Private Sub OnConsultationFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnConsultationFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnFollowUpFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnFollowUpFeeRielChanged()
+    End Sub
+    Partial Private Sub OnFollowUpFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnFollowUpFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnMedicineFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnMedicineFeeRielChanged()
+    End Sub
+    Partial Private Sub OnMedicineFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnMedicineFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnGlassFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnGlassFeeRielChanged()
+    End Sub
+    Partial Private Sub OnGlassFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnGlassFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnSocialFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnSocialFeeRielChanged()
+    End Sub
+    Partial Private Sub OnSocialFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnSocialFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnFullFeeRielChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnFullFeeRielChanged()
+    End Sub
+    Partial Private Sub OnFullFeeUSDChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnFullFeeUSDChanged()
+    End Sub
+    Partial Private Sub OnRatesChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnRatesChanged()
+    End Sub
+    Partial Private Sub OnAmoutWordChanging(value As String)
+    End Sub
+    Partial Private Sub OnAmoutWordChanged()
+    End Sub
+    Partial Private Sub OnConOPChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConOPChanged()
+    End Sub
+    Partial Private Sub OnConAEChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConAEChanged()
+    End Sub
+    Partial Private Sub OnConOTChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConOTChanged()
+    End Sub
+    Partial Private Sub OnConCONChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConCONChanged()
+    End Sub
+    Partial Private Sub OnConFOLChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConFOLChanged()
+    End Sub
+    Partial Private Sub OnConMEDChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConMEDChanged()
+    End Sub
+    Partial Private Sub OnConGLAChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConGLAChanged()
+    End Sub
+    Partial Private Sub OnConSocialFeeChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConSocialFeeChanged()
+    End Sub
+    Partial Private Sub OnConFullFeeChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConFullFeeChanged()
+    End Sub
+    Partial Private Sub OnConGeneralChanging(value As String)
+    End Sub
+    Partial Private Sub OnConGeneralChanged()
+    End Sub
+    Partial Private Sub OnCashierInChanging(value As String)
+    End Sub
+    Partial Private Sub OnCashierInChanged()
+    End Sub
+    Partial Private Sub OnCashierUpdateChanging(value As String)
+    End Sub
+    Partial Private Sub OnCashierUpdateChanged()
+    End Sub
+    Partial Private Sub OnPrintCountChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnPrintCountChanged()
+    End Sub
+    Partial Private Sub OnDateInChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDateInChanged()
+    End Sub
+    Partial Private Sub OnDateUpdateChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDateUpdateChanged()
+    End Sub
+    Partial Private Sub OnDateNowChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDateNowChanged()
+    End Sub
+    Partial Private Sub OnConPayChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConPayChanged()
+    End Sub
+    Partial Private Sub OnConDeleteChanging(value As System.Nullable(Of Char))
+    End Sub
+    Partial Private Sub OnConDeleteChanged()
+    End Sub
+    Partial Private Sub OnYearsChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnYearsChanged()
+    End Sub
+    Partial Private Sub OnOperationChanging(value As String)
+    End Sub
+    Partial Private Sub OnOperationChanged()
+    End Sub
+    Partial Private Sub OnIsDonationChanging(value As System.Nullable(Of Boolean))
+    End Sub
+    Partial Private Sub OnIsDonationChanged()
+    End Sub
+    Partial Private Sub OnDonationIDChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnDonationIDChanged()
+    End Sub
+    Partial Private Sub OnDonationNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnDonationNameChanged()
+    End Sub
+    Partial Private Sub OnDonationPayChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnDonationPayChanged()
+    End Sub
+    Partial Private Sub OnDonateNoteChanging(value As String)
+    End Sub
+    Partial Private Sub OnDonateNoteChanged()
+    End Sub
+    Partial Private Sub OnHosFeeChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnHosFeeChanged()
+    End Sub
+    Partial Private Sub OnCashTotalChanging(value As System.Nullable(Of Double))
+    End Sub
+    Partial Private Sub OnCashTotalChanged()
+    End Sub
+    Partial Private Sub OnIsPatientNillChanging(value As System.Nullable(Of Boolean))
+    End Sub
+    Partial Private Sub OnIsPatientNillChanged()
+    End Sub
+    Partial Private Sub OnReceiptNoteChanging(value As String)
+    End Sub
+    Partial Private Sub OnReceiptNoteChanged()
+    End Sub
+    Partial Private Sub OnTIME_CREATEChanging(value As String)
+    End Sub
+    Partial Private Sub OnTIME_CREATEChanged()
+    End Sub
+    Partial Private Sub OnTIME_ISSUEChanging(value As String)
+    End Sub
+    Partial Private Sub OnTIME_ISSUEChanged()
+    End Sub
+    Partial Private Sub OnISSUE_BY_DEPARTChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnISSUE_BY_DEPARTChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Column(Storage:="_ID", AutoSync:=AutoSync.OnInsert, DbType:="BigInt NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property ID() As Long
+		Get
+			Return Me._ID
+		End Get
+		Set
+			If ((Me._ID = value)  _
+						= false) Then
+				Me.OnIDChanging(value)
+				Me.SendPropertyChanging
+				Me._ID = value
+				Me.SendPropertyChanged("ID")
+				Me.OnIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ReceiptNo", DbType:="BigInt NOT NULL")>  _
+	Public Property ReceiptNo() As Long
+		Get
+			Return Me._ReceiptNo
+		End Get
+		Set
+			If ((Me._ReceiptNo = value)  _
+						= false) Then
+				Me.OnReceiptNoChanging(value)
+				Me.SendPropertyChanging
+				Me._ReceiptNo = value
+				Me.SendPropertyChanged("ReceiptNo")
+				Me.OnReceiptNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_IDCashReceipt", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property IDCashReceipt() As String
+		Get
+			Return Me._IDCashReceipt
+		End Get
+		Set
+			If (String.Equals(Me._IDCashReceipt, value) = false) Then
+				Me.OnIDCashReceiptChanging(value)
+				Me.SendPropertyChanging
+				Me._IDCashReceipt = value
+				Me.SendPropertyChanged("IDCashReceipt")
+				Me.OnIDCashReceiptChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_HN", DbType:="Decimal(18,0) NOT NULL")>  _
+	Public Property HN() As Decimal
+		Get
+			Return Me._HN
+		End Get
+		Set
+			If ((Me._HN = value)  _
+						= false) Then
+				Me.OnHNChanging(value)
+				Me.SendPropertyChanging
+				Me._HN = value
+				Me.SendPropertyChanged("HN")
+				Me.OnHNChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_PatientName", DbType:="VarChar(500)")>  _
+	Public Property PatientName() As String
+		Get
+			Return Me._PatientName
+		End Get
+		Set
+			If (String.Equals(Me._PatientName, value) = false) Then
+				Me.OnPatientNameChanging(value)
+				Me.SendPropertyChanging
+				Me._PatientName = value
+				Me.SendPropertyChanged("PatientName")
+				Me.OnPatientNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_CashRiel", DbType:="Float")>  _
+	Public Property CashRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._CashRiel
+		End Get
+		Set
+			If (Me._CashRiel.Equals(value) = false) Then
+				Me.OnCashRielChanging(value)
+				Me.SendPropertyChanging
+				Me._CashRiel = value
+				Me.SendPropertyChanged("CashRiel")
+				Me.OnCashRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_CashUSD", DbType:="Float")>  _
+	Public Property CashUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._CashUSD
+		End Get
+		Set
+			If (Me._CashUSD.Equals(value) = false) Then
+				Me.OnCashUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._CashUSD = value
+				Me.SendPropertyChanged("CashUSD")
+				Me.OnCashUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_TotalRiel", DbType:="Float")>  _
+	Public Property TotalRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._TotalRiel
+		End Get
+		Set
+			If (Me._TotalRiel.Equals(value) = false) Then
+				Me.OnTotalRielChanging(value)
+				Me.SendPropertyChanging
+				Me._TotalRiel = value
+				Me.SendPropertyChanged("TotalRiel")
+				Me.OnTotalRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_TotalUSD", DbType:="Float")>  _
+	Public Property TotalUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._TotalUSD
+		End Get
+		Set
+			If (Me._TotalUSD.Equals(value) = false) Then
+				Me.OnTotalUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._TotalUSD = value
+				Me.SendPropertyChanged("TotalUSD")
+				Me.OnTotalUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_OperationFeeRiel", DbType:="Float")>  _
+	Public Property OperationFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._OperationFeeRiel
+		End Get
+		Set
+			If (Me._OperationFeeRiel.Equals(value) = false) Then
+				Me.OnOperationFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._OperationFeeRiel = value
+				Me.SendPropertyChanged("OperationFeeRiel")
+				Me.OnOperationFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_OperationFeeUSD", DbType:="Float")>  _
+	Public Property OperationFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._OperationFeeUSD
+		End Get
+		Set
+			If (Me._OperationFeeUSD.Equals(value) = false) Then
+				Me.OnOperationFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._OperationFeeUSD = value
+				Me.SendPropertyChanged("OperationFeeUSD")
+				Me.OnOperationFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ArtificialEyeFeeRiel", DbType:="Float")>  _
+	Public Property ArtificialEyeFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._ArtificialEyeFeeRiel
+		End Get
+		Set
+			If (Me._ArtificialEyeFeeRiel.Equals(value) = false) Then
+				Me.OnArtificialEyeFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._ArtificialEyeFeeRiel = value
+				Me.SendPropertyChanged("ArtificialEyeFeeRiel")
+				Me.OnArtificialEyeFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ArtificialEyeFeeUSD", DbType:="Float")>  _
+	Public Property ArtificialEyeFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._ArtificialEyeFeeUSD
+		End Get
+		Set
+			If (Me._ArtificialEyeFeeUSD.Equals(value) = false) Then
+				Me.OnArtificialEyeFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._ArtificialEyeFeeUSD = value
+				Me.SendPropertyChanged("ArtificialEyeFeeUSD")
+				Me.OnArtificialEyeFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_OtherFeeRiel", DbType:="Float")>  _
+	Public Property OtherFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._OtherFeeRiel
+		End Get
+		Set
+			If (Me._OtherFeeRiel.Equals(value) = false) Then
+				Me.OnOtherFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._OtherFeeRiel = value
+				Me.SendPropertyChanged("OtherFeeRiel")
+				Me.OnOtherFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_OtherFeeUSD", DbType:="Float")>  _
+	Public Property OtherFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._OtherFeeUSD
+		End Get
+		Set
+			If (Me._OtherFeeUSD.Equals(value) = false) Then
+				Me.OnOtherFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._OtherFeeUSD = value
+				Me.SendPropertyChanged("OtherFeeUSD")
+				Me.OnOtherFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConsultationFeeRiel", DbType:="Float")>  _
+	Public Property ConsultationFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._ConsultationFeeRiel
+		End Get
+		Set
+			If (Me._ConsultationFeeRiel.Equals(value) = false) Then
+				Me.OnConsultationFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._ConsultationFeeRiel = value
+				Me.SendPropertyChanged("ConsultationFeeRiel")
+				Me.OnConsultationFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConsultationFeeUSD", DbType:="Float")>  _
+	Public Property ConsultationFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._ConsultationFeeUSD
+		End Get
+		Set
+			If (Me._ConsultationFeeUSD.Equals(value) = false) Then
+				Me.OnConsultationFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._ConsultationFeeUSD = value
+				Me.SendPropertyChanged("ConsultationFeeUSD")
+				Me.OnConsultationFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_FollowUpFeeRiel", DbType:="Float")>  _
+	Public Property FollowUpFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._FollowUpFeeRiel
+		End Get
+		Set
+			If (Me._FollowUpFeeRiel.Equals(value) = false) Then
+				Me.OnFollowUpFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._FollowUpFeeRiel = value
+				Me.SendPropertyChanged("FollowUpFeeRiel")
+				Me.OnFollowUpFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_FollowUpFeeUSD", DbType:="Float")>  _
+	Public Property FollowUpFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._FollowUpFeeUSD
+		End Get
+		Set
+			If (Me._FollowUpFeeUSD.Equals(value) = false) Then
+				Me.OnFollowUpFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._FollowUpFeeUSD = value
+				Me.SendPropertyChanged("FollowUpFeeUSD")
+				Me.OnFollowUpFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_MedicineFeeRiel", DbType:="Float")>  _
+	Public Property MedicineFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._MedicineFeeRiel
+		End Get
+		Set
+			If (Me._MedicineFeeRiel.Equals(value) = false) Then
+				Me.OnMedicineFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._MedicineFeeRiel = value
+				Me.SendPropertyChanged("MedicineFeeRiel")
+				Me.OnMedicineFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_MedicineFeeUSD", DbType:="Float")>  _
+	Public Property MedicineFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._MedicineFeeUSD
+		End Get
+		Set
+			If (Me._MedicineFeeUSD.Equals(value) = false) Then
+				Me.OnMedicineFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._MedicineFeeUSD = value
+				Me.SendPropertyChanged("MedicineFeeUSD")
+				Me.OnMedicineFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_GlassFeeRiel", DbType:="Float")>  _
+	Public Property GlassFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._GlassFeeRiel
+		End Get
+		Set
+			If (Me._GlassFeeRiel.Equals(value) = false) Then
+				Me.OnGlassFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._GlassFeeRiel = value
+				Me.SendPropertyChanged("GlassFeeRiel")
+				Me.OnGlassFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_GlassFeeUSD", DbType:="Float")>  _
+	Public Property GlassFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._GlassFeeUSD
+		End Get
+		Set
+			If (Me._GlassFeeUSD.Equals(value) = false) Then
+				Me.OnGlassFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._GlassFeeUSD = value
+				Me.SendPropertyChanged("GlassFeeUSD")
+				Me.OnGlassFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_SocialFeeRiel", DbType:="Float")>  _
+	Public Property SocialFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._SocialFeeRiel
+		End Get
+		Set
+			If (Me._SocialFeeRiel.Equals(value) = false) Then
+				Me.OnSocialFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._SocialFeeRiel = value
+				Me.SendPropertyChanged("SocialFeeRiel")
+				Me.OnSocialFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_SocialFeeUSD", DbType:="Float")>  _
+	Public Property SocialFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._SocialFeeUSD
+		End Get
+		Set
+			If (Me._SocialFeeUSD.Equals(value) = false) Then
+				Me.OnSocialFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._SocialFeeUSD = value
+				Me.SendPropertyChanged("SocialFeeUSD")
+				Me.OnSocialFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_FullFeeRiel", DbType:="Float")>  _
+	Public Property FullFeeRiel() As System.Nullable(Of Double)
+		Get
+			Return Me._FullFeeRiel
+		End Get
+		Set
+			If (Me._FullFeeRiel.Equals(value) = false) Then
+				Me.OnFullFeeRielChanging(value)
+				Me.SendPropertyChanging
+				Me._FullFeeRiel = value
+				Me.SendPropertyChanged("FullFeeRiel")
+				Me.OnFullFeeRielChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_FullFeeUSD", DbType:="Float")>  _
+	Public Property FullFeeUSD() As System.Nullable(Of Double)
+		Get
+			Return Me._FullFeeUSD
+		End Get
+		Set
+			If (Me._FullFeeUSD.Equals(value) = false) Then
+				Me.OnFullFeeUSDChanging(value)
+				Me.SendPropertyChanging
+				Me._FullFeeUSD = value
+				Me.SendPropertyChanged("FullFeeUSD")
+				Me.OnFullFeeUSDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_Rates", DbType:="Float")>  _
+	Public Property Rates() As System.Nullable(Of Double)
+		Get
+			Return Me._Rates
+		End Get
+		Set
+			If (Me._Rates.Equals(value) = false) Then
+				Me.OnRatesChanging(value)
+				Me.SendPropertyChanging
+				Me._Rates = value
+				Me.SendPropertyChanged("Rates")
+				Me.OnRatesChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_AmoutWord", DbType:="VarChar(8000)")>  _
+	Public Property AmoutWord() As String
+		Get
+			Return Me._AmoutWord
+		End Get
+		Set
+			If (String.Equals(Me._AmoutWord, value) = false) Then
+				Me.OnAmoutWordChanging(value)
+				Me.SendPropertyChanging
+				Me._AmoutWord = value
+				Me.SendPropertyChanged("AmoutWord")
+				Me.OnAmoutWordChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConOP", DbType:="Char(1)")>  _
+	Public Property ConOP() As System.Nullable(Of Char)
+		Get
+			Return Me._ConOP
+		End Get
+		Set
+			If (Me._ConOP.Equals(value) = false) Then
+				Me.OnConOPChanging(value)
+				Me.SendPropertyChanging
+				Me._ConOP = value
+				Me.SendPropertyChanged("ConOP")
+				Me.OnConOPChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConAE", DbType:="Char(1)")>  _
+	Public Property ConAE() As System.Nullable(Of Char)
+		Get
+			Return Me._ConAE
+		End Get
+		Set
+			If (Me._ConAE.Equals(value) = false) Then
+				Me.OnConAEChanging(value)
+				Me.SendPropertyChanging
+				Me._ConAE = value
+				Me.SendPropertyChanged("ConAE")
+				Me.OnConAEChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConOT", DbType:="Char(1)")>  _
+	Public Property ConOT() As System.Nullable(Of Char)
+		Get
+			Return Me._ConOT
+		End Get
+		Set
+			If (Me._ConOT.Equals(value) = false) Then
+				Me.OnConOTChanging(value)
+				Me.SendPropertyChanging
+				Me._ConOT = value
+				Me.SendPropertyChanged("ConOT")
+				Me.OnConOTChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConCON", DbType:="Char(1)")>  _
+	Public Property ConCON() As System.Nullable(Of Char)
+		Get
+			Return Me._ConCON
+		End Get
+		Set
+			If (Me._ConCON.Equals(value) = false) Then
+				Me.OnConCONChanging(value)
+				Me.SendPropertyChanging
+				Me._ConCON = value
+				Me.SendPropertyChanged("ConCON")
+				Me.OnConCONChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConFOL", DbType:="Char(1)")>  _
+	Public Property ConFOL() As System.Nullable(Of Char)
+		Get
+			Return Me._ConFOL
+		End Get
+		Set
+			If (Me._ConFOL.Equals(value) = false) Then
+				Me.OnConFOLChanging(value)
+				Me.SendPropertyChanging
+				Me._ConFOL = value
+				Me.SendPropertyChanged("ConFOL")
+				Me.OnConFOLChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConMED", DbType:="Char(1)")>  _
+	Public Property ConMED() As System.Nullable(Of Char)
+		Get
+			Return Me._ConMED
+		End Get
+		Set
+			If (Me._ConMED.Equals(value) = false) Then
+				Me.OnConMEDChanging(value)
+				Me.SendPropertyChanging
+				Me._ConMED = value
+				Me.SendPropertyChanged("ConMED")
+				Me.OnConMEDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConGLA", DbType:="Char(1)")>  _
+	Public Property ConGLA() As System.Nullable(Of Char)
+		Get
+			Return Me._ConGLA
+		End Get
+		Set
+			If (Me._ConGLA.Equals(value) = false) Then
+				Me.OnConGLAChanging(value)
+				Me.SendPropertyChanging
+				Me._ConGLA = value
+				Me.SendPropertyChanged("ConGLA")
+				Me.OnConGLAChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConSocialFee", DbType:="Char(1)")>  _
+	Public Property ConSocialFee() As System.Nullable(Of Char)
+		Get
+			Return Me._ConSocialFee
+		End Get
+		Set
+			If (Me._ConSocialFee.Equals(value) = false) Then
+				Me.OnConSocialFeeChanging(value)
+				Me.SendPropertyChanging
+				Me._ConSocialFee = value
+				Me.SendPropertyChanged("ConSocialFee")
+				Me.OnConSocialFeeChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConFullFee", DbType:="Char(1)")>  _
+	Public Property ConFullFee() As System.Nullable(Of Char)
+		Get
+			Return Me._ConFullFee
+		End Get
+		Set
+			If (Me._ConFullFee.Equals(value) = false) Then
+				Me.OnConFullFeeChanging(value)
+				Me.SendPropertyChanging
+				Me._ConFullFee = value
+				Me.SendPropertyChanged("ConFullFee")
+				Me.OnConFullFeeChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConGeneral", DbType:="Char(2)")>  _
+	Public Property ConGeneral() As String
+		Get
+			Return Me._ConGeneral
+		End Get
+		Set
+			If (String.Equals(Me._ConGeneral, value) = false) Then
+				Me.OnConGeneralChanging(value)
+				Me.SendPropertyChanging
+				Me._ConGeneral = value
+				Me.SendPropertyChanged("ConGeneral")
+				Me.OnConGeneralChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_CashierIn", DbType:="VarChar(200)")>  _
+	Public Property CashierIn() As String
+		Get
+			Return Me._CashierIn
+		End Get
+		Set
+			If (String.Equals(Me._CashierIn, value) = false) Then
+				Me.OnCashierInChanging(value)
+				Me.SendPropertyChanging
+				Me._CashierIn = value
+				Me.SendPropertyChanged("CashierIn")
+				Me.OnCashierInChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_CashierUpdate", DbType:="VarChar(200)")>  _
+	Public Property CashierUpdate() As String
+		Get
+			Return Me._CashierUpdate
+		End Get
+		Set
+			If (String.Equals(Me._CashierUpdate, value) = false) Then
+				Me.OnCashierUpdateChanging(value)
+				Me.SendPropertyChanging
+				Me._CashierUpdate = value
+				Me.SendPropertyChanged("CashierUpdate")
+				Me.OnCashierUpdateChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_PrintCount", DbType:="Int")>  _
+	Public Property PrintCount() As System.Nullable(Of Integer)
+		Get
+			Return Me._PrintCount
+		End Get
+		Set
+			If (Me._PrintCount.Equals(value) = false) Then
+				Me.OnPrintCountChanging(value)
+				Me.SendPropertyChanging
+				Me._PrintCount = value
+				Me.SendPropertyChanged("PrintCount")
+				Me.OnPrintCountChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DateIn", DbType:="DateTime")>  _
+	Public Property DateIn() As System.Nullable(Of Date)
+		Get
+			Return Me._DateIn
+		End Get
+		Set
+			If (Me._DateIn.Equals(value) = false) Then
+				Me.OnDateInChanging(value)
+				Me.SendPropertyChanging
+				Me._DateIn = value
+				Me.SendPropertyChanged("DateIn")
+				Me.OnDateInChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DateUpdate", DbType:="DateTime")>  _
+	Public Property DateUpdate() As System.Nullable(Of Date)
+		Get
+			Return Me._DateUpdate
+		End Get
+		Set
+			If (Me._DateUpdate.Equals(value) = false) Then
+				Me.OnDateUpdateChanging(value)
+				Me.SendPropertyChanging
+				Me._DateUpdate = value
+				Me.SendPropertyChanged("DateUpdate")
+				Me.OnDateUpdateChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DateNow", DbType:="DateTime")>  _
+	Public Property DateNow() As System.Nullable(Of Date)
+		Get
+			Return Me._DateNow
+		End Get
+		Set
+			If (Me._DateNow.Equals(value) = false) Then
+				Me.OnDateNowChanging(value)
+				Me.SendPropertyChanging
+				Me._DateNow = value
+				Me.SendPropertyChanged("DateNow")
+				Me.OnDateNowChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConPay", DbType:="Char(1)")>  _
+	Public Property ConPay() As System.Nullable(Of Char)
+		Get
+			Return Me._ConPay
+		End Get
+		Set
+			If (Me._ConPay.Equals(value) = false) Then
+				Me.OnConPayChanging(value)
+				Me.SendPropertyChanging
+				Me._ConPay = value
+				Me.SendPropertyChanged("ConPay")
+				Me.OnConPayChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ConDelete", DbType:="Char(1)")>  _
+	Public Property ConDelete() As System.Nullable(Of Char)
+		Get
+			Return Me._ConDelete
+		End Get
+		Set
+			If (Me._ConDelete.Equals(value) = false) Then
+				Me.OnConDeleteChanging(value)
+				Me.SendPropertyChanging
+				Me._ConDelete = value
+				Me.SendPropertyChanged("ConDelete")
+				Me.OnConDeleteChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_Years", DbType:="Int")>  _
+	Public Property Years() As System.Nullable(Of Integer)
+		Get
+			Return Me._Years
+		End Get
+		Set
+			If (Me._Years.Equals(value) = false) Then
+				Me.OnYearsChanging(value)
+				Me.SendPropertyChanging
+				Me._Years = value
+				Me.SendPropertyChanged("Years")
+				Me.OnYearsChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_Operation", DbType:="VarChar(8000)")>  _
+	Public Property Operation() As String
+		Get
+			Return Me._Operation
+		End Get
+		Set
+			If (String.Equals(Me._Operation, value) = false) Then
+				Me.OnOperationChanging(value)
+				Me.SendPropertyChanging
+				Me._Operation = value
+				Me.SendPropertyChanged("Operation")
+				Me.OnOperationChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_IsDonation", DbType:="Bit")>  _
+	Public Property IsDonation() As System.Nullable(Of Boolean)
+		Get
+			Return Me._IsDonation
+		End Get
+		Set
+			If (Me._IsDonation.Equals(value) = false) Then
+				Me.OnIsDonationChanging(value)
+				Me.SendPropertyChanging
+				Me._IsDonation = value
+				Me.SendPropertyChanged("IsDonation")
+				Me.OnIsDonationChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DonationID", DbType:="Decimal(18,0)")>  _
+	Public Property DonationID() As System.Nullable(Of Decimal)
+		Get
+			Return Me._DonationID
+		End Get
+		Set
+			If (Me._DonationID.Equals(value) = false) Then
+				Me.OnDonationIDChanging(value)
+				Me.SendPropertyChanging
+				Me._DonationID = value
+				Me.SendPropertyChanged("DonationID")
+				Me.OnDonationIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DonationName", DbType:="NVarChar(50)")>  _
+	Public Property DonationName() As String
+		Get
+			Return Me._DonationName
+		End Get
+		Set
+			If (String.Equals(Me._DonationName, value) = false) Then
+				Me.OnDonationNameChanging(value)
+				Me.SendPropertyChanging
+				Me._DonationName = value
+				Me.SendPropertyChanged("DonationName")
+				Me.OnDonationNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DonationPay", DbType:="Float")>  _
+	Public Property DonationPay() As System.Nullable(Of Double)
+		Get
+			Return Me._DonationPay
+		End Get
+		Set
+			If (Me._DonationPay.Equals(value) = false) Then
+				Me.OnDonationPayChanging(value)
+				Me.SendPropertyChanging
+				Me._DonationPay = value
+				Me.SendPropertyChanged("DonationPay")
+				Me.OnDonationPayChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_DonateNote", DbType:="NVarChar(200)")>  _
+	Public Property DonateNote() As String
+		Get
+			Return Me._DonateNote
+		End Get
+		Set
+			If (String.Equals(Me._DonateNote, value) = false) Then
+				Me.OnDonateNoteChanging(value)
+				Me.SendPropertyChanging
+				Me._DonateNote = value
+				Me.SendPropertyChanged("DonateNote")
+				Me.OnDonateNoteChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_HosFee", DbType:="Float")>  _
+	Public Property HosFee() As System.Nullable(Of Double)
+		Get
+			Return Me._HosFee
+		End Get
+		Set
+			If (Me._HosFee.Equals(value) = false) Then
+				Me.OnHosFeeChanging(value)
+				Me.SendPropertyChanging
+				Me._HosFee = value
+				Me.SendPropertyChanged("HosFee")
+				Me.OnHosFeeChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_CashTotal", DbType:="Float")>  _
+	Public Property CashTotal() As System.Nullable(Of Double)
+		Get
+			Return Me._CashTotal
+		End Get
+		Set
+			If (Me._CashTotal.Equals(value) = false) Then
+				Me.OnCashTotalChanging(value)
+				Me.SendPropertyChanging
+				Me._CashTotal = value
+				Me.SendPropertyChanged("CashTotal")
+				Me.OnCashTotalChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_IsPatientNill", DbType:="Bit")>  _
+	Public Property IsPatientNill() As System.Nullable(Of Boolean)
+		Get
+			Return Me._IsPatientNill
+		End Get
+		Set
+			If (Me._IsPatientNill.Equals(value) = false) Then
+				Me.OnIsPatientNillChanging(value)
+				Me.SendPropertyChanging
+				Me._IsPatientNill = value
+				Me.SendPropertyChanged("IsPatientNill")
+				Me.OnIsPatientNillChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ReceiptNote", DbType:="NVarChar(250)")>  _
+	Public Property ReceiptNote() As String
+		Get
+			Return Me._ReceiptNote
+		End Get
+		Set
+			If (String.Equals(Me._ReceiptNote, value) = false) Then
+				Me.OnReceiptNoteChanging(value)
+				Me.SendPropertyChanging
+				Me._ReceiptNote = value
+				Me.SendPropertyChanged("ReceiptNote")
+				Me.OnReceiptNoteChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_TIME_CREATE", DbType:="NVarChar(50)")>  _
+	Public Property TIME_CREATE() As String
+		Get
+			Return Me._TIME_CREATE
+		End Get
+		Set
+			If (String.Equals(Me._TIME_CREATE, value) = false) Then
+				Me.OnTIME_CREATEChanging(value)
+				Me.SendPropertyChanging
+				Me._TIME_CREATE = value
+				Me.SendPropertyChanged("TIME_CREATE")
+				Me.OnTIME_CREATEChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_TIME_ISSUE", DbType:="NVarChar(50)")>  _
+	Public Property TIME_ISSUE() As String
+		Get
+			Return Me._TIME_ISSUE
+		End Get
+		Set
+			If (String.Equals(Me._TIME_ISSUE, value) = false) Then
+				Me.OnTIME_ISSUEChanging(value)
+				Me.SendPropertyChanging
+				Me._TIME_ISSUE = value
+				Me.SendPropertyChanged("TIME_ISSUE")
+				Me.OnTIME_ISSUEChanged
+			End If
+		End Set
+	End Property
+	
+	<Column(Storage:="_ISSUE_BY_DEPART", DbType:="Decimal(18,0)")>  _
+	Public Property ISSUE_BY_DEPART() As System.Nullable(Of Decimal)
+		Get
+			Return Me._ISSUE_BY_DEPART
+		End Get
+		Set
+			If (Me._ISSUE_BY_DEPART.Equals(value) = false) Then
+				Me.OnISSUE_BY_DEPARTChanging(value)
+				Me.SendPropertyChanging
+				Me._ISSUE_BY_DEPART = value
+				Me.SendPropertyChanged("ISSUE_BY_DEPART")
+				Me.OnISSUE_BY_DEPARTChanged
 			End If
 		End Set
 	End Property

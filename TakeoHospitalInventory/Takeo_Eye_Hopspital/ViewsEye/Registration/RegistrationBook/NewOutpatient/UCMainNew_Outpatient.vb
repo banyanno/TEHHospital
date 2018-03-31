@@ -137,6 +137,13 @@ Public Class UCMainNew_Outpatient
         Dim BlankDiagnosis As String
         Dim DelOption As String
         Dim VA As String
+
+        If DEPART_ID = 1 Then
+            'row.Cells("Telephone").Visible = True
+            Me.GridEXNewPatientBookV1.Columns("Telephone").Visible = True
+        Else
+            Me.GridEXNewPatientBookV1.Columns("Telephone").Visible = False
+        End If
         For Each rows As DataGridViewRow In Me.GridEXNewPatientBookV1.Rows
             BlankDiagnosis = rows.Cells.Item("Diagnosis").Value.ToString.Trim
             DelOption = rows.Cells.Item("DeleteOption").Value.ToString.Trim

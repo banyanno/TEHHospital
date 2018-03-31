@@ -60,6 +60,12 @@ Public Class FrmAddItemInOpticalShop
         '--- Validate item unit in department stock
         'Dim TblDepartStock As New tblDeptStock
         'TblDepartStock = itemDepartStockRepo.GetDepartStockByDepartIDAndItemID(OPTICALSHOP_DEPART_ID, CInt(LblItemID.Text))
+        If CInt(TxtItemQTY.Text) <= 0 Then
+            MessageBox.Show("The QTY can not =0 or small than 0!", "Save", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TxtItemQTY.Select()
+            TxtItemQTY.SelectAll()
+            Exit Sub
+        End If
         If CInt(TxtUnitInstock.Text) < CInt(TxtItemQTY.Text) Then
             MessageBox.Show("Item sale quantity must not be exceed than item in department's stock", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub

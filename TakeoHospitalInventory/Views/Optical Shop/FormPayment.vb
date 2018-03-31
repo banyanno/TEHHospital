@@ -188,7 +188,7 @@ Public Class FormPayment
                 Dim mytblUsed As New tblUsed
 
                 mytblUsed.UsedDepartID = OPTICALSHOP_DEPART_ID
-                mytblUsed.UsedDate = GetDateServer.Date
+                mytblUsed.UsedDate = CDate(LblReceiptDate.Text).Date  'GetDateServer.Date
 
                 mytblUsed.UsedDescription = "Sold in Optical Shop receipt : " & lblReceiptNo.Text
                 mytblUsed.UsedUserID = CInt(USER_ID)

@@ -291,9 +291,11 @@ Public Class OpticalshopImp
         End Try
     End Function
 
-    Public Function GetTblPatientReceipt(ByVal ReceiptNo As Double) As tblPatientReceipt Implements IOpticalShop.GetTblPatientReceipt
-        Dim ObjReceipt = From tblPatientReceipt In THTOpticalShopContext.getTHIDataContextOpticalShop.tblPatientReceipts Where tblPatientReceipt.ReceiptNo = ReceiptNo
-        Return ObjReceipt.SingleOrDefault
+    Public Function GetTblPatientReceipt(ByVal ReceiptNo As Long) As tblPatientReceipt Implements IOpticalShop.GetTblPatientReceipt
+        Dim ObjReceipt = (From tblPatientReceipt In THTOpticalShopContext.getTHIDataContextOpticalShop.tblPatientReceipts Where tblPatientReceipt.ReceiptNo = CInt(ReceiptNo))
+        'MsgBox(ObjReceipt.Single.ReceiptNo.ToString)
+        Return CType(ObjReceipt.SingleOrDefault, tblPatientReceipt)
+        'Return (From p In THTOpticalShopContext.getTHIDataContextOpticalShop.tblPatientReceipts Where p.ReceiptNo = ReceiptNo).Single()
     End Function
 
     Public Function GetReceiptNo(ByVal ReceiptNo As String) As RECEIPT Implements IOpticalShop.GetReceiptNo

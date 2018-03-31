@@ -376,7 +376,8 @@ Public Class FrmNewReceipt
             lblConsultFor.Text = "No Consult"
             LblSendBy.Text = "No Consult"
             DateConsult.Value = Now
-            DateCreateReceipt.Value = Now
+            DateCreateReceipt.Checked = True
+            DateCreateReceipt.Value = CheckMarkEOD()
             LblTotalConsult.Text = "Total Consult: 0"
             GroupPayCorrency.Enabled = True
             GroupBox5.Enabled = True
@@ -798,7 +799,7 @@ Public Class FrmNewReceipt
                         ObjReceipt.PayByDonation = 0
                     End If
 
-                    ObjReceipt.IsPaid = "0"
+                    ObjReceipt.IsPaid = lblIspaid.Text
                     ObjReceipt.UserID = USER_ID
                     ObjReceipt.UserName = USER_NAME
 
@@ -844,8 +845,17 @@ Public Class FrmNewReceipt
                                 ObjReceiptDetail.ItemQTY = Val(row("ColumnQTY"))
                                 ObjReceiptDetail.SubTotalReal = Val(row("SubTotalReal"))
                                 ObjReceiptDetail.SubTotalDolar = Val(row("SubTotalDolar"))
-                                ObjReceiptDetail.ItemCost = Val(row("ItemCost"))
-                                ObjReceiptDetail.EXCHANGE_RATE = Val(row("EXCHANGE_RATE"))
+                                Try
+                                    ObjReceiptDetail.ItemCost = Val(row("ItemCost"))
+                                Catch ex As Exception
+                                    ObjReceiptDetail.ItemCost = 0
+                                End Try
+                                Try
+                                    ObjReceiptDetail.EXCHANGE_RATE = Val(row("EXCHANGE_RATE"))
+                                Catch ex As Exception
+                                    ObjReceiptDetail.EXCHANGE_RATE = 0
+                                End Try
+
                                 ObjReceiptDetail.ReceiptDate = DateCreateReceipt.Value
                                 OpticalDataControl.SaveReceiptDetail(ObjReceiptDetail)
                             Next
@@ -854,8 +864,8 @@ Public Class FrmNewReceipt
                         '-------- Set Object For Receip TblPatientReceipt----------
                         Dim ObjTblPatientReceipt As tblPatientReceipt
                         Dim ObjPatientReceipt As IOpticalShop = New OpticalshopImp
-                        ObjTblPatientReceipt = ObjPatientReceipt.GetTblPatientReceipt(CDbl(InvoiceNo))
-                        ObjTblPatientReceipt.DateIn = DateCreateReceipt.Value
+                        ObjTblPatientReceipt = CType(ObjPatientReceipt.GetTblPatientReceipt(CLng(InvoiceNo)), tblPatientReceipt)
+                        ObjTblPatientReceipt.DateIn = DateCreateReceipt.Value.Date
                         ObjTblPatientReceipt.DateUpdate = Format(Date.Now(), "MM/dd/yyyy")
                         ObjTblPatientReceipt.ReceiptNo = TxtReceiptNo.Text
                         ObjTblPatientReceipt.IDCashReceipt = 0
@@ -1377,7 +1387,7 @@ Public Class FrmNewReceipt
                             ObjReceipt.PayByDonation = 0
                         End If
 
-                        ObjReceipt.IsPaid = "0"
+                        ObjReceipt.IsPaid = lblIspaid.Text
                         ObjReceipt.UserID = USER_ID
                         ObjReceipt.UserName = USER_NAME
 
@@ -1442,6 +1452,7 @@ Public Class FrmNewReceipt
                                         Dim qDepartStock = From departStock In THIDataContext.getTHIDataContext.tblDeptStocks Where departStock.DepartID = OPTICALSHOP_DEPART_ID And departStock.ItemID = itemID
                                         unitsInStock = qDepartStock.SingleOrDefault.UnitsInStock
                                         Dim q = (From BBT In THIDataContext.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = GetDateServer.Date And BBT.DepartID = OPTICALSHOP_DEPART_ID And BBT.ItemID = itemID Select BBT.BeginBalanceTraceID).Count
+
                                         If q = 0 Then
                                             Dim mytblBeginBalanceTrace As New tblBeginBalanceTrace
                                             mytblBeginBalanceTrace.Date = GetDateServer()
@@ -1598,21 +1609,26 @@ Public Class FrmNewReceipt
             End If
             
         Else
-            If ChIsPrintFull.Checked = True Then
-                ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
-                ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
-                ObjReceiptCry_V1.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
-                ObjReceiptCry_V1.PrintToPrinter(1, True, 1, 1)
-                ObjReceiptCry_V1.Close()
-                ObjReceiptCry_V1.Dispose()
-            Else
-                ObjReceiptCry_V1_NoPrice.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
-                ObjReceiptCry_V1_NoPrice.SetParameterValue("ParameterEng", PARAMETENG)
-                ObjReceiptCry_V1_NoPrice.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
-                ObjReceiptCry_V1_NoPrice.PrintToPrinter(1, True, 1, 1)
-                ObjReceiptCry_V1_NoPrice.Close()
-                ObjReceiptCry_V1_NoPrice.Dispose()
-            End If
+            Try
+                If ChIsPrintFull.Checked = True Then
+                    ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
+                    ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
+                    ObjReceiptCry_V1.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
+                    ObjReceiptCry_V1.PrintToPrinter(1, True, 1, 1)
+                    ObjReceiptCry_V1.Close()
+                    ObjReceiptCry_V1.Dispose()
+                Else
+                    ObjReceiptCry_V1_NoPrice.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
+                    ObjReceiptCry_V1_NoPrice.SetParameterValue("ParameterEng", PARAMETENG)
+                    ObjReceiptCry_V1_NoPrice.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
+                    ObjReceiptCry_V1_NoPrice.PrintToPrinter(1, True, 1, 1)
+                    ObjReceiptCry_V1_NoPrice.Close()
+                    ObjReceiptCry_V1_NoPrice.Dispose()
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error printer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+            
           
         End If
     End Sub

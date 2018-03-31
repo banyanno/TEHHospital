@@ -63,70 +63,6 @@
       <Column Name="DEPART_NAME" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblPatientReceipt" Member="tblPatientReceipts">
-    <Type Name="tblPatientReceipt">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ReceiptNo" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="IDCashReceipt" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HN" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="CashRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CashUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TotalRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TotalUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="OperationFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="OperationFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ArtificialEyeFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ArtificialEyeFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="OtherFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="OtherFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ConsultationFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ConsultationFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FollowUpFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FollowUpFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MedicineFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MedicineFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="GlassFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="GlassFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SocialFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SocialFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FullFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FullFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Rates" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="AmoutWord" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="ConOP" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConAE" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConOT" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConCON" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConFOL" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConMED" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConGLA" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConSocialFee" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConFullFee" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConGeneral" Type="System.String" DbType="Char(2)" CanBeNull="true" />
-      <Column Name="CashierIn" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="CashierUpdate" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="PrintCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DateUpdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DateNow" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ConPay" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="ConDelete" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="Years" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Operation" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="IsDonation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="DonationID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="DonationName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DonationPay" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DonateNote" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="HosFee" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CashTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="IsPatientNill" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TIME_CREATE" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
-      <Column Name="TIME_ISSUE" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
-      <Column Name="ISSUE_BY_DEPART" Type="System.Decimal" DbType="float" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.RECEIPT_DETAIL" Member="RECEIPT_DETAILs">
     <Type Name="RECEIPT_DETAIL">
       <Column Name="ReceiptDID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -195,6 +131,71 @@
       <Column Name="Comment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="TotalSocial" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="TIME_CREATE" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPatientReceipt" Member="tblPatientReceipts">
+    <Type Name="tblPatientReceipt">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReceiptNo" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDCashReceipt" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HN" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CashRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CashUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TotalRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TotalUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OperationFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OperationFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ArtificialEyeFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ArtificialEyeFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OtherFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OtherFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ConsultationFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ConsultationFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FollowUpFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FollowUpFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MedicineFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MedicineFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GlassFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GlassFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SocialFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SocialFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FullFeeRiel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FullFeeUSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Rates" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AmoutWord" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="ConOP" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConAE" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConOT" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConCON" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConFOL" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConMED" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConGLA" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConSocialFee" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConFullFee" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConGeneral" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="CashierIn" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CashierUpdate" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PrintCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateNow" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConPay" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ConDelete" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Years" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Operation" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="IsDonation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DonationID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DonationName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DonationPay" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DonateNote" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="HosFee" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CashTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsPatientNill" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ReceiptNote" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TIME_CREATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TIME_ISSUE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ISSUE_BY_DEPART" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -217,7 +217,7 @@ Public Class UCRunEndOfDay
                         'For Each RowCarRec As DataRow In DA_Req_Carit_Detail
                         '    End If
                         'Next
-            End If
+                    End If
                     Application.DoEvents()
                     Threading.Thread.Sleep(100)
                     '--- Process run end of day item used in current day

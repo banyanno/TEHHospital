@@ -83,6 +83,7 @@
 
     Private Sub BtnNewReceipt1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewReceipt1.Click
         Dim FNewReceipt As New FrmNewReceipt(MTakeoInventory)
+        FNewReceipt.lblIspaid.Text = 0
         If FNewReceipt.ShowDialog() = DialogResult.OK Then
             LoadingReceiptByDateWithWaitAndPaid(DateTo.Value, DateFrom.Value, 2)
         End If
@@ -108,6 +109,7 @@
             End If
             If GridReceipt.GetRow.Cells("IsPaid").Value <> 1 Then
                 Dim FNewReceipt As New FrmNewReceipt(MTakeoInventory)
+                FNewReceipt.lblIspaid.Text = GridReceipt.GetRow.Cells("IsPaid").Value
                 FNewReceipt.IS_UPDATE = True
                 FNewReceipt.LblSaveStatus.Text = GridReceipt.GetRow.Cells("ReceiptID").Value
                 FNewReceipt.InvoiceNo = GridReceipt.SelectedItems(0).GetRow.Cells("ReceiptNo").Value
@@ -124,28 +126,29 @@
                     LoadingReceiptByDateWithWaitAndPaid(DateTo.Value, DateFrom.Value, 2)
                 End If
             ElseIf GridReceipt.GetRow.Cells("IsPaid").Value = 1 Then
-                If DEPART_ID = 1 Then
+                'If DEPART_ID = 1 Then
 
-                    Dim FNewReceipt As New FrmNewReceipt(MTakeoInventory)
-                    FNewReceipt.LblSaveStatus.Text = GridReceipt.GetRow.Cells("ReceiptID").Value
-                    FNewReceipt.InvoiceNo = GridReceipt.SelectedItems(0).GetRow.Cells("ReceiptNo").Value
-                    FNewReceipt.GroupPayCorrency.Enabled = True
-                    FNewReceipt.RadFull.Enabled = True
-                    FNewReceipt.RadSocial.Enabled = True
-                    FNewReceipt.RadNil.Enabled = True
-                    FNewReceipt.RadKHR.Enabled = True
-                    FNewReceipt.RadUSD.Enabled = True
-                    'FNewReceipt.ra()
+                Dim FNewReceipt As New FrmNewReceipt(MTakeoInventory)
+                FNewReceipt.lblIspaid.Text = GridReceipt.GetRow.Cells("IsPaid").Value
+                FNewReceipt.LblSaveStatus.Text = GridReceipt.GetRow.Cells("ReceiptID").Value
+                FNewReceipt.InvoiceNo = GridReceipt.SelectedItems(0).GetRow.Cells("ReceiptNo").Value
+                FNewReceipt.GroupPayCorrency.Enabled = True
+                FNewReceipt.RadFull.Enabled = True
+                FNewReceipt.RadSocial.Enabled = True
+                FNewReceipt.RadNil.Enabled = True
+                FNewReceipt.RadKHR.Enabled = True
+                FNewReceipt.RadUSD.Enabled = True
+                'FNewReceipt.ra()
 
-                    If FNewReceipt.ShowDialog() = DialogResult.OK Then
-                        BtnPrintInvoice_Click(sender, e)
-                        LoadingReceiptByDateWithWaitAndPaid(DateTo.Value, DateFrom.Value, 2)
-                    End If
-                Else
-                    MessageBox.Show("You don't have permission to edit?. Please contact admin system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                If FNewReceipt.ShowDialog() = DialogResult.OK Then
+                    BtnPrintInvoice_Click(sender, e)
+                    LoadingReceiptByDateWithWaitAndPaid(DateTo.Value, DateFrom.Value, 2)
                 End If
+                'Else
+                '    MessageBox.Show("You don't have permission to edit?. Please contact admin system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                'End If
             End If
-            
+
         Catch ex As Exception
 
         End Try
