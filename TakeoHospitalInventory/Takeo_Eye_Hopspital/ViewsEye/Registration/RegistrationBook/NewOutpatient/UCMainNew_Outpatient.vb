@@ -458,7 +458,7 @@ Public Class UCMainNew_Outpatient
 
     Private Sub lblQuickSocial_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lblQuickSocial.LinkClicked
 
-        If GridEXNewPatientBook.SelectedItems.Count = 0 Then Exit Sub
+        If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
         Me.dgvSRiel.DataSource = ModCountMoney.CountMoneyRielDollar(Me.DateFrom.Value, Me.DateTo.Value, "PatientFee", "[Fees Riel]", "CreateDate", "V_NewOutpatientDetail")
         Me.dgvSDolar.DataSource = ModCountMoney.CountMoneyRielDollar(Me.DateFrom.Value, Me.DateTo.Value, "PatientDolar", "[Fees $]", "CreateDate", "V_NewOutpatientDetail")
         ModCommon.NumberAllRowHeaderDataGrid(Me.dgvSRiel)
