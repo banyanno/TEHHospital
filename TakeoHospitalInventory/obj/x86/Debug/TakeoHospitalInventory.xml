@@ -846,6 +846,122 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_DIAGNOSISDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_GLASSESDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_VADataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTIONDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.TblPatientsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_DIAGNOSISRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_GLASSESRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_VARow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTIONRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.TblPatientsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_DIAGNOSISRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_GLASSESRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_VARowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTIONRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.TblPatientsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.REFRACTION_DIAGNOSISTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.REFRACTION_GLASSESTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.REFRACTION_VATableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.REFRACTIONTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.TblPatientsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager.UpdateUpdatedRows(TakeoHospitalInventory.DSRefraction,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager.UpdateInsertedRows(TakeoHospitalInventory.DSRefraction,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager.UpdateDeletedRows(TakeoHospitalInventory.DSRefraction,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager.UpdateAll(TakeoHospitalInventory.DSRefraction)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
 </member><member name="T:TakeoHospitalInventory.DataSetCashCountDaily.tblPatientReceiptDataTable">
 	<summary>
 Represents the strongly named DataTable class.

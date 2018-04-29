@@ -260,6 +260,47 @@
     </Compile>
     <Compile Include="Models\PurchaseOrder\RequestDetailRepository.vb" />
     <Compile Include="Models\PurchaseOrder\RequestOrderRepository.vb" />
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\DSRefraction.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSRefraction.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\MainRefraction.Designer.vb">
+      <DependentUpon>MainRefraction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\MainRefraction.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefDiagnosis.Designer.vb">
+      <DependentUpon>NewRefDiagnosis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefDiagnosis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\NewRefraction.Designer.vb">
+      <DependentUpon>NewRefraction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\NewRefraction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefGlasses.Designer.vb">
+      <DependentUpon>NewRefGlasses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefGlasses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefracVA.Designer.vb">
+      <DependentUpon>NewRefracVA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefracVA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\RefractionParameter.Designer.vb">
+      <DependentUpon>RefractionParameter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\RefractionParameter.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Models\RunEndOfDay\DSEndofDayRun.vb">
       <DependentUpon>DSEndofDayRun.xsd</DependentUpon>
     </Compile>
@@ -2977,6 +3018,24 @@
     <None Include="Models\Opticalshop\LinqOpticalShopClasses.dbml.layout">
       <DependentUpon>LinqOpticalShopClasses.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\MainRefraction.resx">
+      <DependentUpon>MainRefraction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefDiagnosis.resx">
+      <DependentUpon>NewRefDiagnosis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\NewRefraction.resx">
+      <DependentUpon>NewRefraction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefGlasses.resx">
+      <DependentUpon>NewRefGlasses.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefracVA.resx">
+      <DependentUpon>NewRefracVA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\RefractionParameter.resx">
+      <DependentUpon>RefractionParameter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -4565,6 +4624,17 @@
     </None>
     <None Include="Models\PurchaseOrder\PurchaseOrder.xss">
       <DependentUpon>PurchaseOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Takeo_Eye_Hopspital\Refraction\DSRefraction.xsc">
+      <DependentUpon>DSRefraction.xsd</DependentUpon>
+    </None>
+    <None Include="Takeo_Eye_Hopspital\Refraction\DSRefraction.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSRefraction.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Takeo_Eye_Hopspital\Refraction\DSRefraction.xss">
+      <DependentUpon>DSRefraction.xsd</DependentUpon>
     </None>
     <None Include="Models\RunEndOfDay\DSEndofDayRun.xsc">
       <DependentUpon>DSEndofDayRun.xsd</DependentUpon>

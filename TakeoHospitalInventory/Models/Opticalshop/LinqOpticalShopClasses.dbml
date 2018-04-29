@@ -101,35 +101,35 @@
       <Column Name="TotalDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="AmountInWords" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="AmountFigureReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="AmountFigureDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AmountFigureDolar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="ReturnReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ReturnDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ReturnDolar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="IsCurrency" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="IsDonation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="DonationID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="PayBySelf" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PayByDonation" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PayBySelf" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="PayByDonation" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="IsPaid" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="ReceiptNote" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="UserID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IncomType" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="Glasses" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DonateAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SupportedAmtDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SupportedAmtR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DonateAmount" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SupportedAmtDolar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SupportedAmtR" Type="System.Double" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="ReceiptType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="SubReceiptType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PaidR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="PaidDollar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PaidR" Type="System.Double" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="PaidDollar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="IsOldPatient" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FullAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="NilAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SocialAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FullAmount" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="NilAmount" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SocialAmount" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="PaymentCur" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Comment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="TotalSocial" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TotalSocial" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
       <Column Name="TIME_CREATE" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
     </Type>
   </Table>

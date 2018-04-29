@@ -84,6 +84,7 @@ Partial Class MainTakeoInventory
         Dim BottonBarMain_Group_3 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim BottonBarMain_Item_3_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Item_3_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim BottonBarMain_Item_3_2 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Group_4 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim BottonBarMain_Item_4_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Item_4_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
@@ -480,6 +481,7 @@ Partial Class MainTakeoInventory
         Me.ImageList1.Images.SetKeyName(5, "pharmacy.png")
         Me.ImageList1.Images.SetKeyName(6, "country.ico")
         Me.ImageList1.Images.SetKeyName(7, "eye.ico")
+        Me.ImageList1.Images.SetKeyName(8, "icons8-eye-96.png")
         '
         'MenuBarLeft
         '
@@ -1054,7 +1056,11 @@ Partial Class MainTakeoInventory
         BottonBarMain_Item_3_1.Key = "ReferTo"
         BottonBarMain_Item_3_1.StateStyles.FormatStyle.Font = New System.Drawing.Font("Khmer OS Battambang", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         BottonBarMain_Item_3_1.Text = "បញ្ជូន Patient កន្លែងផ្សេង"
-        BottonBarMain_Group_3.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {BottonBarMain_Item_3_0, BottonBarMain_Item_3_1})
+        BottonBarMain_Item_3_2.Cursor = System.Windows.Forms.Cursors.Hand
+        BottonBarMain_Item_3_2.Key = "Refraction"
+        BottonBarMain_Item_3_2.LargeImageIndex = 8
+        BottonBarMain_Item_3_2.Text = "Refraction"
+        BottonBarMain_Group_3.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {BottonBarMain_Item_3_0, BottonBarMain_Item_3_1, BottonBarMain_Item_3_2})
         BottonBarMain_Group_3.ItemsStateStyles.FormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         BottonBarMain_Group_3.Key = "VA_Consultation"
         BottonBarMain_Group_3.Text = "Patient VA and Refer To"

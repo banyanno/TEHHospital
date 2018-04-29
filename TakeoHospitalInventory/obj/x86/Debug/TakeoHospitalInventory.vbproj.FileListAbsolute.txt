@@ -263,7 +263,6 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\TakeoHo
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\TakeoHospitalInventory.xml
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\ca-ES\TakeoHospitalInventory.resources.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\ca\TakeoHospitalInventory.resources.dll
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\AutocompleteMenu.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Data.v3.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.ButtonBar.v3.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.Common.v3.dll
@@ -286,3 +285,9 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\ca\Take
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.exe
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.xml
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.pdb
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.MainRefraction.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewRefraction.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.RefractionParameter.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewRefDiagnosis.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewRefGlasses.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewRefracVA.resources

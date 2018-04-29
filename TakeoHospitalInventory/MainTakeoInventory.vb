@@ -52,6 +52,7 @@ Public Class MainTakeoInventory
     Public patientAchieve As UCAchievePatient
     Public AccountPayAble As UCMainAcountPayable
     Public patientVA As UCMainVA
+    Public patientRefraction As MainRefraction
     Public PatientRefer As CUReferMain
     Public ReportOutPatient As UCOutPatientReport
     Public ReportInpatient As UCInpatientReport
@@ -128,6 +129,9 @@ Public Class MainTakeoInventory
         Application.DoEvents()
         patientVA = New UCMainVA
         Login.UpdateLabelStatus("Creating user interface 15.", True)
+        Application.DoEvents()
+        patientRefraction = New MainRefraction
+        Login.UpdateLabelStatus("Creating user interface refraction.", True)
         Application.DoEvents()
         PatientRefer = New CUReferMain
         Login.UpdateLabelStatus("Creating user interface 16.", True)
@@ -671,6 +675,8 @@ Public Class MainTakeoInventory
                 CreateWeeklySummaryForm()
             Case "VAPatient"
                 CreateVAPatientForm()
+            Case "Refraction"
+                CreateRefractionForm()
             Case "ReferTo"
                 CreatePatientRefer()
                 ' Hospital Report
@@ -760,6 +766,9 @@ Public Class MainTakeoInventory
     Sub CreateVAPatientForm()
         GeneralAddControl(uiPanelMainContainer, patientVA, "Takeo Eye Hospital...")
 
+    End Sub
+    Sub CreateRefractionForm()
+        GeneralAddControl(uiPanelMainContainer, patientRefraction, "Takeo Eye Hospital...")
     End Sub
     Sub CreatePatientRefer()
         GeneralAddControl(uiPanelMainContainer, PatientRefer, "Takeo Eye Hospital...")

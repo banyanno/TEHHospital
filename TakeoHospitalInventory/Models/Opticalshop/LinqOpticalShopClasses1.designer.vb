@@ -1623,7 +1623,7 @@ Partial Public Class RECEIPT
 	
 	Private _NilAmount As System.Nullable(Of Double)
 	
-	Private _SocialAmount As System.Nullable(Of Double)
+	Private _SocialAmount As System.Nullable(Of Decimal)
 	
 	Private _PaymentCur As String
 	
@@ -1824,7 +1824,7 @@ Partial Public Class RECEIPT
     End Sub
     Partial Private Sub OnNilAmountChanged()
     End Sub
-    Partial Private Sub OnSocialAmountChanging(value As System.Nullable(Of Double))
+    Partial Private Sub OnSocialAmountChanging(value As System.Nullable(Of Decimal))
     End Sub
     Partial Private Sub OnSocialAmountChanged()
     End Sub
@@ -2188,7 +2188,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_AmountFigureDolar", DbType:="Float")>  _
+	<Column(Storage:="_AmountFigureDolar", DbType:="Decimal(18,3)")>  _
 	Public Property AmountFigureDolar() As System.Nullable(Of Double)
 		Get
 			Return Me._AmountFigureDolar
@@ -2220,7 +2220,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_ReturnDolar", DbType:="Float")>  _
+	<Column(Storage:="_ReturnDolar", DbType:="Decimal(18,3)")>  _
 	Public Property ReturnDolar() As System.Nullable(Of Double)
 		Get
 			Return Me._ReturnDolar
@@ -2284,7 +2284,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_PayBySelf", DbType:="Float")>  _
+	<Column(Storage:="_PayBySelf", DbType:="Decimal(18,3)")>  _
 	Public Property PayBySelf() As System.Nullable(Of Double)
 		Get
 			Return Me._PayBySelf
@@ -2300,7 +2300,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_PayByDonation", DbType:="Float")>  _
+	<Column(Storage:="_PayByDonation", DbType:="Decimal(18,3)")>  _
 	Public Property PayByDonation() As System.Nullable(Of Double)
 		Get
 			Return Me._PayByDonation
@@ -2412,7 +2412,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_DonateAmount", DbType:="Float")>  _
+	<Column(Storage:="_DonateAmount", DbType:="Decimal(18,3)")>  _
 	Public Property DonateAmount() As System.Nullable(Of Double)
 		Get
 			Return Me._DonateAmount
@@ -2428,7 +2428,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_SupportedAmtDolar", DbType:="Float")>  _
+	<Column(Storage:="_SupportedAmtDolar", DbType:="Decimal(18,3)")>  _
 	Public Property SupportedAmtDolar() As System.Nullable(Of Double)
 		Get
 			Return Me._SupportedAmtDolar
@@ -2444,7 +2444,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_SupportedAmtR", DbType:="Float")>  _
+	<Column(Storage:="_SupportedAmtR", DbType:="Decimal(18,0)")>  _
 	Public Property SupportedAmtR() As System.Nullable(Of Double)
 		Get
 			Return Me._SupportedAmtR
@@ -2492,7 +2492,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_PaidR", DbType:="Float")>  _
+	<Column(Storage:="_PaidR", DbType:="Decimal(18,0)")>  _
 	Public Property PaidR() As System.Nullable(Of Double)
 		Get
 			Return Me._PaidR
@@ -2508,7 +2508,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_PaidDollar", DbType:="Float")>  _
+	<Column(Storage:="_PaidDollar", DbType:="Decimal(18,3)")>  _
 	Public Property PaidDollar() As System.Nullable(Of Double)
 		Get
 			Return Me._PaidDollar
@@ -2556,7 +2556,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_FullAmount", DbType:="Float")>  _
+	<Column(Storage:="_FullAmount", DbType:="Decimal(18,3)")>  _
 	Public Property FullAmount() As System.Nullable(Of Double)
 		Get
 			Return Me._FullAmount
@@ -2572,7 +2572,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_NilAmount", DbType:="Float")>  _
+	<Column(Storage:="_NilAmount", DbType:="Decimal(18,3)")>  _
 	Public Property NilAmount() As System.Nullable(Of Double)
 		Get
 			Return Me._NilAmount
@@ -2588,8 +2588,8 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_SocialAmount", DbType:="Float")>  _
-	Public Property SocialAmount() As System.Nullable(Of Double)
+	<Column(Storage:="_SocialAmount", DbType:="Decimal(18,3)")>  _
+	Public Property SocialAmount() As System.Nullable(Of Decimal)
 		Get
 			Return Me._SocialAmount
 		End Get
@@ -2636,7 +2636,7 @@ Partial Public Class RECEIPT
 		End Set
 	End Property
 	
-	<Column(Storage:="_TotalSocial", DbType:="Decimal(18,2)")>  _
+	<Column(Storage:="_TotalSocial", DbType:="Decimal(18,3)")>  _
 	Public Property TotalSocial() As System.Nullable(Of Decimal)
 		Get
 			Return Me._TotalSocial
