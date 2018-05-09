@@ -124,70 +124,70 @@
   <data name="BtnNewRefraction.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAWtSURBVFhH3VjbbxRVHMYHY3xQ4x+gMfqkxif1xReatnav
+        xZSYkHgJxktiikECUSneilh2d2YXCpVLjaVArQitgiLIrTfavczscukFxG4LpYIUKLBtd7fttjvH37d7
+        tnvpbFztbjV8yZed/c35/b5vzjkzc84suGuhMzme0QuS12CR92orXE/x8AwQM4ryPmKvxiw9zcPzA+3n
+        rgdJ+NpHB66x93deUPKtrZPGDXJzoUV6Trve/jyOEcM5tNFZpauLLB0P8PTcw2CTD76+u29iuyfMwK+k
+        EFu1u1cxWuVxcGWdV0Esdv613d4Jg1U6wNNzC70oLddXnQ1ukadmDMS4lWJgahxtdZtPB3VW1zJeJjsw
+        bnDX6crt/oVCS2ChuSWsMTtZvrVt0nYyMMvE39FKOchFDdRCTdSmqbKLy/0zaIWOJ6hgYLNzklURt3mm
+        VYX/DVELNVG7mDQKTPLjXDZzaCzORa9W9vjUBLLJV6q7fS+aHMVcNnNozK6y0vqLIbWi2SQ0tGbnai6b
+        OYpFd2PZz0OqRbPJ1T8NMaNVauCymYEm8uJCQRqtaPKpFs0moQEtaHL59Cg0O58strnlxdYzgXXHc28u
+        RmhBE9rwwO0kw2CV1xR9IQeX7e8Lb3Nn747NlNBc9mNfGB50olzGbcVRIEq3hTa/avJ8UmgdY/DCbcVh
+        EKUDH37Xr6glzSfhQS/I+7mtODQm10slWztH1JLmk/CAZzC3FYd20+H78iwtgU2OiZnGwK0gY1+fihdw
+        X1XYkJ8ltUnEkT4lEh+dYKz7evQYPOxVIueP9cdjAz6F9d2O/4e2fq3dDy/cVjIMgnQs8dkHhOhHJlOx
+        mJrB9ssKq+8OR/jN6Wj83A0lcnGxdjA7Tc0Rx/9q4sQ0Y60D8drQ1lvlo9xOMjQm52N59AK3tccXAoDn
+        T4VN0eHenmhMzWBir8SIngR2no3+91GPem8p7M54NLfhXDT32654DrTzxNYAvHBbHIzdo7c65VU/eKdj
+        jUHgUK/Cuujqb5CpahpqNYNXRhX2280oa3gPoienySPM76GLw0jgF6gnU/bB5B6OcWWjdxpe4Im7o94T
+        nG+UVNn9qSsWAAYhNkI94PhDUTXYT/PoFPU0GBtiEMYxtB1kZpDmG2LoyeZLCrt4R2GdQ7N7Hh5Kqhx+
+        eOL2sLSSh0xNI7MaAzCI419pkodozmAOZTLEoOuKwoapl3Az4OIQQ/6FYYUFQyxy46TmgOtP+Bg8cXu0
+        MLXJntKagcnUhkDMIIg5FKZhSzV4EjcJDRu440w8v/F8ONIeNwPmHGJHaW6OT7HI8Cf2diLhhRaybm4P
+        72DPQwZRPvPOrs7x7e54QyDRYC1NeFx5qsFEJN7xoJ/aB4ix/zV0ATB9ZUSl90gbHuAFnri9KLDr0luc
+        8tJa79i21MT5IJmDNjyk3QG+bHPcrxflnjUHr6sXySE/PniDQRseuB110Jay6bPDw6pFckloQpvbSA+j
+        zd1dQXeRWpFc8svjd2hl7ezmNtIDXwHE/2DZBU1ocxvpoROkscQFw3wRmjrBNcZtpIfRIrWUmE+PvF17
+        acrUTA/vhMdO1km1obH8+4EQNOnZ18xtpMez1Z57NSZHoVZwVWpF5+V8enm/t2dgXFVgDnxrx/kgakMD
+        WtCENreROQrN7Y9i2BNXOXMlahWK0ihqc5m5QSdK4tK6izNfs+bKd+u7x+miBV5+7sD6rGitFNwiJX+5
+        wspjq5x+B4hzqSsk1ECt2Wu+OYK2pU0rdv2ufHLoZuRzxZLKTp+uvDlUtNETxE4s0QSIGM6hzZLKLh9y
+        PqVc1KBN0QleNnvAhppe4m7jRvkXjcX1gdZiLzCY2h/WmlxvokfKj9yaMYdjxHAu0obaIge5qJF2c54r
+        FJntLxSIrtsr9g2GShsGJ3GMGD/9/0DROvkRepe2gTjm4bsdCxb8BY+2hSFpw9ujAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="BtnParameter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
-        AfKkAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAatSURBVHhe7ZtbbBRVGMfr/fIAGiPR6IMGrzFiFGOMMWkU
+        2jlnERsV0GiUBB+8hxcTIyYQjeiDPkBj9AFjAkgxGDVGAgqEFdqdS1so7RZoG1p622K3szOz3e2DN47n
+        m57SvXzdzu6c6W6D/+QXCJzL9//m3GZ2pup/BSynccX1lqY8bel0g60p2y1d0cd0evacpti2ThkAf4d/
+        g/+bLEM3WCpZCXVFM/NLY5Hae7ixT22VnoiFq/+dMlosUNfUlDZbI5uTzcrdovnKFGtdegW/cq9w0xpm
+        RgoaVS099DL0Jbotv1jn6istja7nV2kADToQavp5st8ueyIcndSaqtKLBxk8pk7POBqtEeHMnQbVVdfY
+        KvkidpiexwKbS8QaU382XH21CC9Y2arykBWp7c4NpNzwadhlR8iDIsxgBMPNjtA0FkCFkLINskyEK1eW
+        QdbG9Op/kE4rCj4t/+IX6nkRthzxracuptO/sQ4rEYgVDlIifH9yDEWBrGIdVTKj4eo/fe8QSYPelXlk
+        nW/8oS+znCayWNgpTqZOFhSz2jsn3mCpkUMsbUZLJmV2MPN0Pdp+yWgkGmt96lphy7v4tvI12iCC01zH
+        JpIjbGJiwhfpdJoNDg4ys3sb2k/JaOQrYcubEmqIoA3NAFx9zFCxQAIGBgZcxnp2on2VTugJYa+wzu8j
+        VyV00oM3guO0v4UaKpbMBADxM9+j/ZWESjs93TskDPo62kABgkoAMNa3F+2zNMirwiYuuPp2Ix3CK89M
+        kAkA4n370X6Lht+xwt2rsJsvnqF1aMVZCDoBQLw/jPZdLHCiFXbz5T59QSrNxlwkABgbOIr2Xwx8fWsV
+        drNlaWQJVsELshIADA0NoeanGB1oQmMohoSh3CdsT4vPj0+wwl6QmQDHcdjw8LB7HpiJuO+RQD4Stqdl
+        67UdeOHZkZkAr9jGSjQWLyR0ekzYntT4UXKjn6c78y0B8BQpaSy7QdjnV98gz2AFvZKZgHQ6xaLRDtbW
+        dlwq0Si/X+CLpIwEAPBbhbAP859+iBXySu4IiMVi7mImk5GRWFYfvhOgk43CPjzwUL7DCnllvk0BF43s
+        Evb58ZcvCmghj+SPgGG+ZfVLBUZVZh/+pwBtFvb5FCjh+JtJ7hrQ3n4Cncd+6Ohol7oGwLFY2HcT4KCF
+        PDIfpwA8LRL2q6r8Pu3NTYBt28w0TanAASmrD58JgAenrnnGqi6RmQCYAs3NBjMMXSotLc1Sp8CFBIBk
+        T4FkMumOAplAm5l9SJ0CMhfBucL3IqjX9Av7crdBGKZdXV2ss7NTKt3dXVKnQPY2yA8FWCGv5I6A/v5+
+        1tvbKxU4C2T24XsEqGSHsA8nQbIRLeSR+TgFLI18IOzzESDxZgiIx+P87D7iCSibWdcr/hOQeTPUVned
+        n60wew1IuVsWtpVhQNnx8fEsc17wkwD3x9PW5QuF/Un5WQiDngJGrJNtPraDvdO0la2P1LPP2naz402l
+        J8DSqSFsT6tSHoll0jJyiin732ULdoTyWMhZ8xNlJxvxmArCb/+F7Wk5au0dpT4VCiIBe/si7KaGZ1Hz
+        mSzeFWKR3/G4MFyPmnKbsJ0tXqAxt4IXZCfg2LkudnPDc6hhjDt3UdYTwWPLQ1OOCLv5slTyElppFmQn
+        YOVv76NGC/HmzyE0tlwSGnlB2M0X27P6slLeAJOZgOjoGdTgbCzaGWIjKh7fBeAHUrbpUmEXl6Mrr6GV
+        CyAzAdtO/oIa9ML+8GyjgKwTNmcWZMh9axttAEdmAj5u3Y6a88I3BwokQKPqrFd/So6+YmkxByOZCYA9
+        HjPnhYZDeHzwkldCpfcLe97EK27NbWhGWlaxdMpGDRXLnp7DqDkvqEfwEcDvdT4XtrwL3qbgcyaCNYiR
+        PLWJpc0Olrb7fDE6dpot+rYONViIextCcMLDYmtk4erLha3iBIejcrwm995eiposxJcH8tsZ1WnC1mtu
+        F3ZKE0/CI7yxVG7jQRLTKHt0D24Uo+6HELw6n9tOyjHow8KGP5XjVVk42VV7SMKqH/P3f6mvyk4J3sK2
+        9eXjmR0FzSgfCVt+pWzJ7nzjMEK2Hwzxk11OvTBN8j+fFGHLlaWRx+FpalaHc0TrUcr2Hab8sENZdIY7
+        QJjziUjoMRFuMDJ1cqutK01YAGWm0VRX3CLCDFbu63Q6rffzSZwsJmMgWwq+/haULL32gXKOBr7vHyz7
+        94TuvYNB1hb7eq0f4Psg9/tBr2f7uZB7Kw3PEwL+cDJh0BehL9FtZeqi/HR2Jl2UH0/PH1VV/QfpyUXz
+        a0aXKwAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="GridRefraction_DesignTimeLayout.LayoutString" xml:space="preserve">
-    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;DataMember /&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="REFRACT_ID"&gt;&lt;Caption&gt;REFRACT_ID&lt;/Caption&gt;&lt;DataMember&gt;REFRACT_ID&lt;/DataMember&gt;&lt;Key&gt;REFRACT_ID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column0&gt;&lt;Column1 ID="PATIENT_NO"&gt;&lt;Caption&gt;Patient No&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_NO&lt;/DataMember&gt;&lt;Key&gt;PATIENT_NO&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;/Column1&gt;&lt;Column2 ID="PATIENT_NAME"&gt;&lt;Caption&gt;Patient Name&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_NAME&lt;/DataMember&gt;&lt;Key&gt;PATIENT_NAME&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;/Column2&gt;&lt;Column3 ID="PATEINT_SEX"&gt;&lt;Caption&gt;Sex&lt;/Caption&gt;&lt;DataMember&gt;PATEINT_SEX&lt;/DataMember&gt;&lt;Key&gt;PATEINT_SEX&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;39&lt;/Width&gt;&lt;/Column3&gt;&lt;Column4 ID="PATIENT_AGE"&gt;&lt;Caption&gt;Age&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_AGE&lt;/DataMember&gt;&lt;Key&gt;PATIENT_AGE&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;42&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="PATIENT_TEL"&gt;&lt;Caption&gt;Tel&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_TEL&lt;/DataMember&gt;&lt;Key&gt;PATIENT_TEL&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;Width&gt;59&lt;/Width&gt;&lt;/Column5&gt;&lt;Column6 ID="PATIENT_ADDRESS"&gt;&lt;Caption&gt;Address&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_ADDRESS&lt;/DataMember&gt;&lt;Key&gt;PATIENT_ADDRESS&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Width&gt;56&lt;/Width&gt;&lt;/Column6&gt;&lt;Column7 ID="REFRATION_DATE"&gt;&lt;Caption&gt;Refraction Date&lt;/Caption&gt;&lt;DataMember&gt;REFRATION_DATE&lt;/DataMember&gt;&lt;Key&gt;REFRATION_DATE&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;/Column7&gt;&lt;Column8 ID="OLD_LVA"&gt;&lt;Caption&gt;Old LVA&lt;/Caption&gt;&lt;DataMember&gt;OLD_LVA&lt;/DataMember&gt;&lt;Key&gt;OLD_LVA&lt;/Key&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;/Column8&gt;&lt;Column9 ID="OLD_RVA"&gt;&lt;Caption&gt;Old RVA&lt;/Caption&gt;&lt;DataMember&gt;OLD_RVA&lt;/DataMember&gt;&lt;Key&gt;OLD_RVA&lt;/Key&gt;&lt;Position&gt;9&lt;/Position&gt;&lt;/Column9&gt;&lt;Column10 ID="DIAGNOSIS"&gt;&lt;Caption&gt;Diagnosis&lt;/Caption&gt;&lt;DataMember&gt;DIAGNOSIS&lt;/DataMember&gt;&lt;Key&gt;DIAGNOSIS&lt;/Key&gt;&lt;Position&gt;10&lt;/Position&gt;&lt;/Column10&gt;&lt;Column11 ID="L_GLASSES"&gt;&lt;Caption&gt;L Glasses&lt;/Caption&gt;&lt;DataMember&gt;L_GLASSES&lt;/DataMember&gt;&lt;Key&gt;L_GLASSES&lt;/Key&gt;&lt;Position&gt;11&lt;/Position&gt;&lt;/Column11&gt;&lt;Column12 ID="R_GLASSES"&gt;&lt;Caption&gt;R Glasses&lt;/Caption&gt;&lt;DataMember&gt;R_GLASSES&lt;/DataMember&gt;&lt;Key&gt;R_GLASSES&lt;/Key&gt;&lt;Position&gt;12&lt;/Position&gt;&lt;/Column12&gt;&lt;Column13 ID="LVA_REFRACTION"&gt;&lt;Caption&gt;LVA Refraction&lt;/Caption&gt;&lt;DataMember&gt;LVA_REFRACTION&lt;/DataMember&gt;&lt;Key&gt;LVA_REFRACTION&lt;/Key&gt;&lt;Position&gt;13&lt;/Position&gt;&lt;/Column13&gt;&lt;Column14 ID="RVA_REFRACTION"&gt;&lt;Caption&gt;RVA Refraction&lt;/Caption&gt;&lt;DataMember&gt;RVA_REFRACTION&lt;/DataMember&gt;&lt;Key&gt;RVA_REFRACTION&lt;/Key&gt;&lt;Position&gt;14&lt;/Position&gt;&lt;/Column14&gt;&lt;Column15 ID="IS_PRESCRIPTION"&gt;&lt;Caption&gt;Prescript&lt;/Caption&gt;&lt;ColumnType&gt;CheckBox&lt;/ColumnType&gt;&lt;DataMember&gt;IS_PRESCRIPTION&lt;/DataMember&gt;&lt;EditType&gt;CheckBox&lt;/EditType&gt;&lt;Key&gt;IS_PRESCRIPTION&lt;/Key&gt;&lt;Position&gt;15&lt;/Position&gt;&lt;/Column15&gt;&lt;Column16 ID="REFRACTION_NOTE"&gt;&lt;Caption&gt;Note&lt;/Caption&gt;&lt;DataMember&gt;REFRACTION_NOTE&lt;/DataMember&gt;&lt;Key&gt;REFRACTION_NOTE&lt;/Key&gt;&lt;Position&gt;16&lt;/Position&gt;&lt;/Column16&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;RowHeaderContent&gt;RowPosition&lt;/RowHeaderContent&gt;&lt;RowHeight&gt;30&lt;/RowHeight&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="REFRACT_ID"&gt;&lt;Caption&gt;REFRACT_ID&lt;/Caption&gt;&lt;DataMember&gt;REFRACT_ID&lt;/DataMember&gt;&lt;Key&gt;REFRACT_ID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column0&gt;&lt;Column1 ID="PATIENT_NO"&gt;&lt;Caption&gt;Patient No&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_NO&lt;/DataMember&gt;&lt;Key&gt;PATIENT_NO&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;/Column1&gt;&lt;Column2 ID="PATIENT_NAME"&gt;&lt;Caption&gt;Patient Name&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_NAME&lt;/DataMember&gt;&lt;Key&gt;PATIENT_NAME&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;/Column2&gt;&lt;Column3 ID="PATEINT_SEX"&gt;&lt;Caption&gt;Sex&lt;/Caption&gt;&lt;DataMember&gt;PATEINT_SEX&lt;/DataMember&gt;&lt;Key&gt;PATEINT_SEX&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;39&lt;/Width&gt;&lt;/Column3&gt;&lt;Column4 ID="PATIENT_AGE"&gt;&lt;Caption&gt;Age&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_AGE&lt;/DataMember&gt;&lt;Key&gt;PATIENT_AGE&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;42&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="PATIENT_TEL"&gt;&lt;Caption&gt;Tel&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_TEL&lt;/DataMember&gt;&lt;Key&gt;PATIENT_TEL&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;Width&gt;59&lt;/Width&gt;&lt;/Column5&gt;&lt;Column6 ID="PATIENT_ADDRESS"&gt;&lt;Caption&gt;Address&lt;/Caption&gt;&lt;DataMember&gt;PATIENT_ADDRESS&lt;/DataMember&gt;&lt;Key&gt;PATIENT_ADDRESS&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Width&gt;56&lt;/Width&gt;&lt;/Column6&gt;&lt;Column7 ID="REFRATION_DATE"&gt;&lt;Caption&gt;Refraction Date&lt;/Caption&gt;&lt;DataMember&gt;REFRATION_DATE&lt;/DataMember&gt;&lt;FormatString&gt;dd/MM/yyyy&lt;/FormatString&gt;&lt;Key&gt;REFRATION_DATE&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;/Column7&gt;&lt;Column8 ID="OLD_LVA"&gt;&lt;Caption&gt;Old LVA&lt;/Caption&gt;&lt;DataMember&gt;OLD_LVA&lt;/DataMember&gt;&lt;Key&gt;OLD_LVA&lt;/Key&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;/Column8&gt;&lt;Column9 ID="OLD_RVA"&gt;&lt;Caption&gt;Old RVA&lt;/Caption&gt;&lt;DataMember&gt;OLD_RVA&lt;/DataMember&gt;&lt;Key&gt;OLD_RVA&lt;/Key&gt;&lt;Position&gt;9&lt;/Position&gt;&lt;/Column9&gt;&lt;Column10 ID="DIAGNOSIS"&gt;&lt;Caption&gt;Diagnosis&lt;/Caption&gt;&lt;DataMember&gt;DIAGNOSIS&lt;/DataMember&gt;&lt;Key&gt;DIAGNOSIS&lt;/Key&gt;&lt;Position&gt;10&lt;/Position&gt;&lt;/Column10&gt;&lt;Column11 ID="L_GLASSES"&gt;&lt;Caption&gt;L Glasses&lt;/Caption&gt;&lt;DataMember&gt;L_GLASSES&lt;/DataMember&gt;&lt;Key&gt;L_GLASSES&lt;/Key&gt;&lt;Position&gt;11&lt;/Position&gt;&lt;/Column11&gt;&lt;Column12 ID="R_GLASSES"&gt;&lt;Caption&gt;R Glasses&lt;/Caption&gt;&lt;DataMember&gt;R_GLASSES&lt;/DataMember&gt;&lt;Key&gt;R_GLASSES&lt;/Key&gt;&lt;Position&gt;12&lt;/Position&gt;&lt;/Column12&gt;&lt;Column13 ID="LVA_REFRACTION"&gt;&lt;Caption&gt;LVA Refraction&lt;/Caption&gt;&lt;DataMember&gt;LVA_REFRACTION&lt;/DataMember&gt;&lt;Key&gt;LVA_REFRACTION&lt;/Key&gt;&lt;Position&gt;13&lt;/Position&gt;&lt;/Column13&gt;&lt;Column14 ID="RVA_REFRACTION"&gt;&lt;Caption&gt;RVA Refraction&lt;/Caption&gt;&lt;DataMember&gt;RVA_REFRACTION&lt;/DataMember&gt;&lt;Key&gt;RVA_REFRACTION&lt;/Key&gt;&lt;Position&gt;14&lt;/Position&gt;&lt;/Column14&gt;&lt;Column15 ID="IS_PRESCRIPTION"&gt;&lt;Caption&gt;Prescript&lt;/Caption&gt;&lt;ColumnType&gt;CheckBox&lt;/ColumnType&gt;&lt;DataMember&gt;IS_PRESCRIPTION&lt;/DataMember&gt;&lt;EditType&gt;CheckBox&lt;/EditType&gt;&lt;Key&gt;IS_PRESCRIPTION&lt;/Key&gt;&lt;Position&gt;15&lt;/Position&gt;&lt;/Column15&gt;&lt;Column16 ID="PRESCRIPT_STATUS"&gt;&lt;Caption&gt;Prescription Status&lt;/Caption&gt;&lt;DataMember&gt;PRESCRIPT_STATUS&lt;/DataMember&gt;&lt;Key&gt;PRESCRIPT_STATUS&lt;/Key&gt;&lt;Position&gt;16&lt;/Position&gt;&lt;/Column16&gt;&lt;Column17 ID="REFRACTION_NOTE"&gt;&lt;Caption&gt;Note&lt;/Caption&gt;&lt;DataMember&gt;REFRACTION_NOTE&lt;/DataMember&gt;&lt;Key&gt;REFRACTION_NOTE&lt;/Key&gt;&lt;Position&gt;17&lt;/Position&gt;&lt;/Column17&gt;&lt;Column18 ID="IS_DELETE"&gt;&lt;Caption&gt;IS_DELETE&lt;/Caption&gt;&lt;DataMember&gt;IS_DELETE&lt;/DataMember&gt;&lt;Key&gt;IS_DELETE&lt;/Key&gt;&lt;Position&gt;18&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column18&gt;&lt;Column19 ID="IS_OLD_OR_NEW"&gt;&lt;Caption&gt;IS_OLD_OR_NEW&lt;/Caption&gt;&lt;DataMember&gt;IS_OLD_OR_NEW&lt;/DataMember&gt;&lt;Key&gt;IS_OLD_OR_NEW&lt;/Key&gt;&lt;Position&gt;19&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column19&gt;&lt;/Columns&gt;&lt;FormatConditions Collection="true" ElementName="Condition"&gt;&lt;Condition0 ID="FormatCondition1"&gt;&lt;ColIndex&gt;18&lt;/ColIndex&gt;&lt;FormatStyle&gt;&lt;ForeColor&gt;Red&lt;/ForeColor&gt;&lt;FontStrikeout&gt;True&lt;/FontStrikeout&gt;&lt;/FormatStyle&gt;&lt;PreviewRowFormatStyle&gt;&lt;ForeColor&gt;Red&lt;/ForeColor&gt;&lt;FontStrikeout&gt;True&lt;/FontStrikeout&gt;&lt;/PreviewRowFormatStyle&gt;&lt;Value1&gt;1&lt;/Value1&gt;&lt;Value2&gt;1&lt;/Value2&gt;&lt;Key&gt;FormatCondition1&lt;/Key&gt;&lt;/Condition0&gt;&lt;Condition1 ID="IsPrescriptionRequest"&gt;&lt;ColIndex&gt;15&lt;/ColIndex&gt;&lt;FormatStyle&gt;&lt;BackColor&gt;224, 224, 224&lt;/BackColor&gt;&lt;ForeColor&gt;192, 64, 0&lt;/ForeColor&gt;&lt;/FormatStyle&gt;&lt;PreviewRowFormatStyle&gt;&lt;BackColor&gt;224, 224, 224&lt;/BackColor&gt;&lt;ForeColor&gt;192, 64, 0&lt;/ForeColor&gt;&lt;/PreviewRowFormatStyle&gt;&lt;Value1&gt;1&lt;/Value1&gt;&lt;Value2&gt;1&lt;/Value2&gt;&lt;Key&gt;IsPrescriptionRequest&lt;/Key&gt;&lt;/Condition1&gt;&lt;Condition2 ID="IsPrescriptionApproved"&gt;&lt;ColIndex&gt;16&lt;/ColIndex&gt;&lt;FormatStyle&gt;&lt;BackColor&gt;224, 224, 224&lt;/BackColor&gt;&lt;ForeColor&gt;192, 64, 0&lt;/ForeColor&gt;&lt;/FormatStyle&gt;&lt;PreviewRowFormatStyle&gt;&lt;BackColor&gt;224, 224, 224&lt;/BackColor&gt;&lt;ForeColor&gt;192, 64, 0&lt;/ForeColor&gt;&lt;/PreviewRowFormatStyle&gt;&lt;Value1&gt;Approved&lt;/Value1&gt;&lt;Value2&gt;Approved&lt;/Value2&gt;&lt;Key&gt;IsPrescriptionApproved&lt;/Key&gt;&lt;/Condition2&gt;&lt;/FormatConditions&gt;&lt;GroupCondition /&gt;&lt;RowHeaderContent&gt;RowPosition&lt;/RowHeaderContent&gt;&lt;RowHeight&gt;30&lt;/RowHeight&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
   <metadata name="ErrorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>126, 5</value>

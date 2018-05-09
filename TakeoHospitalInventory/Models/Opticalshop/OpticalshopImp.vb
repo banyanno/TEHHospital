@@ -118,14 +118,14 @@ Public Class OpticalshopImp
         End Try
     End Function
 
-    Public Function GetReceipt(ByVal receiptId As Double) As RECEIPT Implements IOpticalShop.GetReceipt
-        Dim ObjReceipt = From RECEIPT In THTOpticalShopContext.getTHIDataContextOpticalShop.RECEIPTs Where RECEIPT.ReceiptID = CDec(receiptId)
+    Public Function GetReceipt(ByVal receiptId As String) As RECEIPT Implements IOpticalShop.GetReceipt
+        Dim ObjReceipt = From RECEIPT In THTOpticalShopContext.getTHIDataContextOpticalShop.RECEIPTs Where RECEIPT.ReceiptID = CDbl(receiptId)
         Return ObjReceipt.SingleOrDefault
     End Function
 
     Public Function GetReceiptByReceiptNo(ByVal pReceiptNo As String) As RECEIPT Implements IOpticalShop.GetReceiptByReceiptNo
 
-        Dim ObjReceipt = From RECEIPT In THTOpticalShopContext.getTHIDataContextOpticalShop.RECEIPTs Where RECEIPT.ReceiptID = pReceiptNo
+        Dim ObjReceipt = From RECEIPT In THTOpticalShopContext.getTHIDataContextOpticalShop.RECEIPTs Where RECEIPT.ReceiptNo = pReceiptNo
         Return ObjReceipt.SingleOrDefault
 
     End Function

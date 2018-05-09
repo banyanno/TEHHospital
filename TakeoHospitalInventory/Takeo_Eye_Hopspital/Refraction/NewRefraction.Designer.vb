@@ -25,6 +25,7 @@ Partial Class NewRefraction
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewRefraction))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.lblSaveOption = New System.Windows.Forms.Label
         Me.RefrationDate = New System.Windows.Forms.DateTimePicker
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
@@ -67,7 +68,7 @@ Partial Class NewRefraction
         Me.BtnSave = New System.Windows.Forms.Button
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrRefraction = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.lblSaveOption = New System.Windows.Forms.Label
+        Me.ChPrescription = New System.Windows.Forms.CheckBox
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -100,6 +101,16 @@ Partial Class NewRefraction
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Patient Info"
+        '
+        'lblSaveOption
+        '
+        Me.lblSaveOption.AutoSize = True
+        Me.lblSaveOption.Location = New System.Drawing.Point(431, 27)
+        Me.lblSaveOption.Name = "lblSaveOption"
+        Me.lblSaveOption.Size = New System.Drawing.Size(13, 13)
+        Me.lblSaveOption.TabIndex = 14
+        Me.lblSaveOption.Text = "0"
+        Me.lblSaveOption.Visible = False
         '
         'RefrationDate
         '
@@ -250,6 +261,7 @@ Partial Class NewRefraction
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.ChPrescription)
         Me.TabPage2.Controls.Add(Me.TxtRefractionNote)
         Me.TabPage2.Controls.Add(Me.Label14)
         Me.TabPage2.Controls.Add(Me.BtnNewDiagnosis)
@@ -519,15 +531,15 @@ Partial Class NewRefraction
         '
         Me.ErrRefraction.ContainerControl = Me
         '
-        'lblSaveOption
+        'ChPrescription
         '
-        Me.lblSaveOption.AutoSize = True
-        Me.lblSaveOption.Location = New System.Drawing.Point(431, 27)
-        Me.lblSaveOption.Name = "lblSaveOption"
-        Me.lblSaveOption.Size = New System.Drawing.Size(13, 13)
-        Me.lblSaveOption.TabIndex = 14
-        Me.lblSaveOption.Text = "0"
-        Me.lblSaveOption.Visible = False
+        Me.ChPrescription.AutoSize = True
+        Me.ChPrescription.Location = New System.Drawing.Point(308, 72)
+        Me.ChPrescription.Name = "ChPrescription"
+        Me.ChPrescription.Size = New System.Drawing.Size(81, 17)
+        Me.ChPrescription.TabIndex = 9
+        Me.ChPrescription.Text = "Prescription"
+        Me.ChPrescription.UseVisualStyleBackColor = True
         '
         'NewRefraction
         '
@@ -603,4 +615,5 @@ Partial Class NewRefraction
     Friend WithEvents RefrationDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents ErrRefraction As System.Windows.Forms.ErrorProvider
     Friend WithEvents lblSaveOption As System.Windows.Forms.Label
+    Friend WithEvents ChPrescription As System.Windows.Forms.CheckBox
 End Class

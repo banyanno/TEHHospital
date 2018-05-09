@@ -31,19 +31,45 @@ Partial Class MainRefraction
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnParameter = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripSplitButton1 = New System.Windows.Forms.ToolStripSplitButton
+        Me.BtnReqPrescription = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnAprovPrescription = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteRefraction = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
         Me.UiTab1 = New Janus.Windows.UI.Tab.UITab
         Me.UiTabPage1 = New Janus.Windows.UI.Tab.UITabPage
-        Me.UiTabPage2 = New Janus.Windows.UI.Tab.UITabPage
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.GridRefraction = New Janus.Windows.GridEX.GridEX
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.DateRefractFrom = New System.Windows.Forms.DateTimePicker
-        Me.DateRefractTo = New System.Windows.Forms.DateTimePicker
-        Me.ChWithPatientNo = New System.Windows.Forms.CheckBox
-        Me.TxtFindPatientNo = New System.Windows.Forms.TextBox
         Me.Button1 = New System.Windows.Forms.Button
+        Me.TxtFindPatientNo = New System.Windows.Forms.TextBox
+        Me.ChWithPatientNo = New System.Windows.Forms.CheckBox
+        Me.DateRefractTo = New System.Windows.Forms.DateTimePicker
+        Me.DateRefractFrom = New System.Windows.Forms.DateTimePicker
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.UiTabPage2 = New Janus.Windows.UI.Tab.UITabPage
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.RadRepOld = New System.Windows.Forms.RadioButton
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.RadRepNew = New System.Windows.Forms.RadioButton
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
+        Me.RadReportAll = New System.Windows.Forms.RadioButton
+        Me.Button2 = New System.Windows.Forms.Button
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.DFromReport = New System.Windows.Forms.DateTimePicker
+        Me.DToReport = New System.Windows.Forms.DateTimePicker
+        Me.BtnPrintReport = New System.Windows.Forms.Button
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolStrip1.SuspendLayout()
         CType(Me.UiTab1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +80,13 @@ Partial Class MainRefraction
         Me.SplitContainer1.SuspendLayout()
         CType(Me.GridRefraction, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.UiTabPage2.SuspendLayout()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,7 +94,7 @@ Partial Class MainRefraction
         '
         Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(25, 25)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.BtnNewRefraction, Me.ToolStripSeparator3, Me.BtnParameter, Me.ToolStripSeparator2})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.BtnNewRefraction, Me.ToolStripSeparator3, Me.BtnParameter, Me.ToolStripSeparator2, Me.ToolStripSplitButton1, Me.ToolStripSeparator5, Me.BtnDeleteRefraction, Me.ToolStripSeparator4})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(842, 53)
@@ -75,6 +108,7 @@ Partial Class MainRefraction
         '
         'BtnNewRefraction
         '
+        Me.BtnNewRefraction.ForeColor = System.Drawing.Color.Blue
         Me.BtnNewRefraction.Image = CType(resources.GetObject("BtnNewRefraction.Image"), System.Drawing.Image)
         Me.BtnNewRefraction.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewRefraction.Name = "BtnNewRefraction"
@@ -89,6 +123,7 @@ Partial Class MainRefraction
         '
         'BtnParameter
         '
+        Me.BtnParameter.ForeColor = System.Drawing.Color.Blue
         Me.BtnParameter.Image = CType(resources.GetObject("BtnParameter.Image"), System.Drawing.Image)
         Me.BtnParameter.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnParameter.Name = "BtnParameter"
@@ -100,6 +135,57 @@ Partial Class MainRefraction
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 53)
+        '
+        'ToolStripSplitButton1
+        '
+        Me.ToolStripSplitButton1.DropDownButtonWidth = 25
+        Me.ToolStripSplitButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnReqPrescription, Me.ToolStripMenuItem1, Me.BtnAprovPrescription})
+        Me.ToolStripSplitButton1.ForeColor = System.Drawing.Color.Blue
+        Me.ToolStripSplitButton1.Image = Global.TakeoHospitalInventory.My.Resources.Resources.icons8_doctors_bag_48
+        Me.ToolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripSplitButton1.Name = "ToolStripSplitButton1"
+        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(123, 50)
+        Me.ToolStripSplitButton1.Text = "Prescription"
+        Me.ToolStripSplitButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'BtnReqPrescription
+        '
+        Me.BtnReqPrescription.ForeColor = System.Drawing.Color.Blue
+        Me.BtnReqPrescription.Name = "BtnReqPrescription"
+        Me.BtnReqPrescription.Size = New System.Drawing.Size(226, 26)
+        Me.BtnReqPrescription.Text = "Request Prescription"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(223, 6)
+        '
+        'BtnAprovPrescription
+        '
+        Me.BtnAprovPrescription.ForeColor = System.Drawing.Color.Blue
+        Me.BtnAprovPrescription.Name = "BtnAprovPrescription"
+        Me.BtnAprovPrescription.Size = New System.Drawing.Size(226, 26)
+        Me.BtnAprovPrescription.Text = "Approve Prescription"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 53)
+        '
+        'BtnDeleteRefraction
+        '
+        Me.BtnDeleteRefraction.ForeColor = System.Drawing.Color.Blue
+        Me.BtnDeleteRefraction.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteRefraction.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteRefraction.Name = "BtnDeleteRefraction"
+        Me.BtnDeleteRefraction.Size = New System.Drawing.Size(133, 50)
+        Me.BtnDeleteRefraction.Text = "Delete Refraction"
+        Me.BtnDeleteRefraction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 53)
         '
         'UiTab1
         '
@@ -123,16 +209,6 @@ Partial Class MainRefraction
         Me.UiTabPage1.TabStop = True
         Me.UiTabPage1.Text = "Refraction Information"
         '
-        'UiTabPage2
-        '
-        Me.UiTabPage2.Location = New System.Drawing.Point(28, 1)
-        Me.UiTabPage2.Name = "UiTabPage2"
-        Me.UiTabPage2.Size = New System.Drawing.Size(811, 464)
-        Me.UiTabPage2.StateStyles.FormatStyle.FontSize = 12.0!
-        Me.UiTabPage2.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Blue
-        Me.UiTabPage2.TabStop = True
-        Me.UiTabPage2.Text = "Refraction Report"
-        '
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -148,7 +224,7 @@ Partial Class MainRefraction
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox1)
         Me.SplitContainer1.Size = New System.Drawing.Size(811, 464)
-        Me.SplitContainer1.SplitterDistance = 578
+        Me.SplitContainer1.SplitterDistance = 544
         Me.SplitContainer1.TabIndex = 0
         '
         'GridRefraction
@@ -157,13 +233,14 @@ Partial Class MainRefraction
         GridRefraction_DesignTimeLayout.LayoutString = resources.GetString("GridRefraction_DesignTimeLayout.LayoutString")
         Me.GridRefraction.DesignTimeLayout = GridRefraction_DesignTimeLayout
         Me.GridRefraction.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridRefraction.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridRefraction.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
         Me.GridRefraction.GroupByBoxVisible = False
         Me.GridRefraction.Location = New System.Drawing.Point(0, 0)
         Me.GridRefraction.Name = "GridRefraction"
         Me.GridRefraction.RecordNavigator = True
         Me.GridRefraction.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridRefraction.Size = New System.Drawing.Size(578, 464)
+        Me.GridRefraction.Size = New System.Drawing.Size(544, 464)
         Me.GridRefraction.TabIndex = 0
         '
         'GroupBox1
@@ -179,38 +256,40 @@ Partial Class MainRefraction
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(229, 464)
+        Me.GroupBox1.Size = New System.Drawing.Size(263, 464)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Find Refraction By:"
         '
-        'Label1
+        'Button1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 49)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "From:"
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(17, 166)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(123, 34)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Find"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'Label2
+        'TxtFindPatientNo
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 85)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(31, 20)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "To:"
+        Me.TxtFindPatientNo.Enabled = False
+        Me.TxtFindPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFindPatientNo.Location = New System.Drawing.Point(17, 134)
+        Me.TxtFindPatientNo.Name = "TxtFindPatientNo"
+        Me.TxtFindPatientNo.Size = New System.Drawing.Size(203, 26)
+        Me.TxtFindPatientNo.TabIndex = 5
         '
-        'DateRefractFrom
+        'ChWithPatientNo
         '
-        Me.DateRefractFrom.CustomFormat = "dd/MM/yyyy"
-        Me.DateRefractFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateRefractFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateRefractFrom.Location = New System.Drawing.Point(60, 41)
-        Me.DateRefractFrom.Name = "DateRefractFrom"
-        Me.DateRefractFrom.Size = New System.Drawing.Size(154, 26)
-        Me.DateRefractFrom.TabIndex = 2
+        Me.ChWithPatientNo.AutoSize = True
+        Me.ChWithPatientNo.Location = New System.Drawing.Point(18, 103)
+        Me.ChWithPatientNo.Name = "ChWithPatientNo"
+        Me.ChWithPatientNo.Size = New System.Drawing.Size(173, 24)
+        Me.ChWithPatientNo.TabIndex = 4
+        Me.ChWithPatientNo.Text = "Find with Patient No:"
+        Me.ChWithPatientNo.UseVisualStyleBackColor = True
         '
         'DateRefractTo
         '
@@ -218,40 +297,267 @@ Partial Class MainRefraction
         Me.DateRefractTo.CustomFormat = "dd/MM/yyyy"
         Me.DateRefractTo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateRefractTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateRefractTo.Location = New System.Drawing.Point(59, 75)
+        Me.DateRefractTo.Location = New System.Drawing.Point(67, 70)
         Me.DateRefractTo.Name = "DateRefractTo"
         Me.DateRefractTo.Size = New System.Drawing.Size(154, 26)
         Me.DateRefractTo.TabIndex = 3
         '
-        'ChWithPatientNo
+        'DateRefractFrom
         '
-        Me.ChWithPatientNo.AutoSize = True
-        Me.ChWithPatientNo.Location = New System.Drawing.Point(8, 113)
-        Me.ChWithPatientNo.Name = "ChWithPatientNo"
-        Me.ChWithPatientNo.Size = New System.Drawing.Size(173, 24)
-        Me.ChWithPatientNo.TabIndex = 4
-        Me.ChWithPatientNo.Text = "Find with Patient No:"
-        Me.ChWithPatientNo.UseVisualStyleBackColor = True
+        Me.DateRefractFrom.CustomFormat = "dd/MM/yyyy"
+        Me.DateRefractFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateRefractFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateRefractFrom.Location = New System.Drawing.Point(68, 36)
+        Me.DateRefractFrom.Name = "DateRefractFrom"
+        Me.DateRefractFrom.Size = New System.Drawing.Size(154, 26)
+        Me.DateRefractFrom.TabIndex = 2
         '
-        'TxtFindPatientNo
+        'Label2
         '
-        Me.TxtFindPatientNo.Enabled = False
-        Me.TxtFindPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFindPatientNo.Location = New System.Drawing.Point(9, 139)
-        Me.TxtFindPatientNo.Name = "TxtFindPatientNo"
-        Me.TxtFindPatientNo.Size = New System.Drawing.Size(203, 26)
-        Me.TxtFindPatientNo.TabIndex = 5
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(18, 75)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(31, 20)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "To:"
         '
-        'Button1
+        'Label1
         '
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(9, 171)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(123, 34)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Find"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(18, 39)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(50, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "From:"
+        '
+        'UiTabPage2
+        '
+        Me.UiTabPage2.Controls.Add(Me.SplitContainer2)
+        Me.UiTabPage2.Location = New System.Drawing.Point(28, 1)
+        Me.UiTabPage2.Name = "UiTabPage2"
+        Me.UiTabPage2.Size = New System.Drawing.Size(811, 464)
+        Me.UiTabPage2.StateStyles.FormatStyle.FontSize = 12.0!
+        Me.UiTabPage2.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Blue
+        Me.UiTabPage2.TabStop = True
+        Me.UiTabPage2.Text = "Refraction Report"
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.CrystalReportViewer1)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox2)
+        Me.SplitContainer2.Size = New System.Drawing.Size(811, 464)
+        Me.SplitContainer2.SplitterDistance = 543
+        Me.SplitContainer2.TabIndex = 0
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.AutoScroll = True
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.DisplayGroupTree = False
+        Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.SelectionFormula = ""
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(543, 464)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ViewTimeSelectionFormula = ""
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.GroupBox4)
+        Me.GroupBox2.Controls.Add(Me.GroupBox3)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(264, 464)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.CheckBox1)
+        Me.GroupBox4.Controls.Add(Me.Label5)
+        Me.GroupBox4.Controls.Add(Me.Label6)
+        Me.GroupBox4.Controls.Add(Me.RadRepOld)
+        Me.GroupBox4.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox4.Controls.Add(Me.RadRepNew)
+        Me.GroupBox4.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox4.Controls.Add(Me.RadReportAll)
+        Me.GroupBox4.Controls.Add(Me.Button2)
+        Me.GroupBox4.Location = New System.Drawing.Point(8, 161)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(253, 268)
+        Me.GroupBox4.TabIndex = 11
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Statistic Refraction"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(9, 27)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(107, 24)
+        Me.CheckBox1.TabIndex = 10
+        Me.CheckBox1.Text = "Is Prescript"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(9, 61)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(50, 20)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "From:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(9, 93)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(31, 20)
+        Me.Label6.TabIndex = 1
+        Me.Label6.Text = "To:"
+        '
+        'RadRepOld
+        '
+        Me.RadRepOld.AutoSize = True
+        Me.RadRepOld.Location = New System.Drawing.Point(9, 196)
+        Me.RadRepOld.Name = "RadRepOld"
+        Me.RadRepOld.Size = New System.Drawing.Size(183, 24)
+        Me.RadRepOld.TabIndex = 9
+        Me.RadRepOld.Text = "Patient Old Refraction"
+        Me.RadRepOld.UseVisualStyleBackColor = True
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(59, 56)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(154, 26)
+        Me.DateTimePicker1.TabIndex = 2
+        '
+        'RadRepNew
+        '
+        Me.RadRepNew.AutoSize = True
+        Me.RadRepNew.Location = New System.Drawing.Point(9, 164)
+        Me.RadRepNew.Name = "RadRepNew"
+        Me.RadRepNew.Size = New System.Drawing.Size(190, 24)
+        Me.RadRepNew.TabIndex = 8
+        Me.RadRepNew.Text = "Patient New Refraction"
+        Me.RadRepNew.UseVisualStyleBackColor = True
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.CustomFormat = "dd/MM/yyyy"
+        Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker2.Location = New System.Drawing.Point(58, 90)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(154, 26)
+        Me.DateTimePicker2.TabIndex = 3
+        '
+        'RadReportAll
+        '
+        Me.RadReportAll.AutoSize = True
+        Me.RadReportAll.Checked = True
+        Me.RadReportAll.Location = New System.Drawing.Point(9, 133)
+        Me.RadReportAll.Name = "RadReportAll"
+        Me.RadReportAll.Size = New System.Drawing.Size(174, 24)
+        Me.RadReportAll.TabIndex = 7
+        Me.RadReportAll.TabStop = True
+        Me.RadReportAll.Text = "All Patient New + Old"
+        Me.RadReportAll.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(9, 230)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(123, 34)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Print Preview"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Controls.Add(Me.DFromReport)
+        Me.GroupBox3.Controls.Add(Me.DToReport)
+        Me.GroupBox3.Controls.Add(Me.BtnPrintReport)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 19)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(253, 136)
+        Me.GroupBox3.TabIndex = 10
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "All Refraction"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 31)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(50, 20)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "From:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 63)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(31, 20)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "To:"
+        '
+        'DFromReport
+        '
+        Me.DFromReport.CustomFormat = "dd/MM/yyyy"
+        Me.DFromReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DFromReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DFromReport.Location = New System.Drawing.Point(56, 28)
+        Me.DFromReport.Name = "DFromReport"
+        Me.DFromReport.Size = New System.Drawing.Size(154, 26)
+        Me.DFromReport.TabIndex = 2
+        '
+        'DToReport
+        '
+        Me.DToReport.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DToReport.CustomFormat = "dd/MM/yyyy"
+        Me.DToReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DToReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DToReport.Location = New System.Drawing.Point(55, 62)
+        Me.DToReport.Name = "DToReport"
+        Me.DToReport.Size = New System.Drawing.Size(154, 26)
+        Me.DToReport.TabIndex = 3
+        '
+        'BtnPrintReport
+        '
+        Me.BtnPrintReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPrintReport.Location = New System.Drawing.Point(6, 95)
+        Me.BtnPrintReport.Name = "BtnPrintReport"
+        Me.BtnPrintReport.Size = New System.Drawing.Size(123, 34)
+        Me.BtnPrintReport.TabIndex = 6
+        Me.BtnPrintReport.Text = "Print Preview"
+        Me.BtnPrintReport.UseVisualStyleBackColor = True
         '
         'ErrorProvider1
         '
@@ -276,6 +582,15 @@ Partial Class MainRefraction
         CType(Me.GridRefraction, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.UiTabPage2.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        Me.SplitContainer2.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -301,5 +616,31 @@ Partial Class MainRefraction
     Friend WithEvents TxtFindPatientNo As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
+    Friend WithEvents BtnDeleteRefraction As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSplitButton1 As System.Windows.Forms.ToolStripSplitButton
+    Friend WithEvents BtnReqPrescription As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnAprovPrescription As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents RadRepOld As System.Windows.Forms.RadioButton
+    Friend WithEvents RadRepNew As System.Windows.Forms.RadioButton
+    Friend WithEvents RadReportAll As System.Windows.Forms.RadioButton
+    Friend WithEvents BtnPrintReport As System.Windows.Forms.Button
+    Friend WithEvents DToReport As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DFromReport As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 
 End Class

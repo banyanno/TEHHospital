@@ -63,76 +63,6 @@
       <Column Name="DEPART_NAME" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.RECEIPT_DETAIL" Member="RECEIPT_DETAILs">
-    <Type Name="RECEIPT_DETAIL">
-      <Column Name="ReceiptDID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ReceiptNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ItemID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ItemPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ItemQTY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="SubTotalReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SubTotalDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="IncomeID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="ReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ItemCost" Type="System.Double" DbType="numeric(18, 3)" CanBeNull="true" />
-      <Column Name="EXCHANGE_RATE" Type="System.Double" DbType="numeric(18, 0)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.RECEIPT" Member="RECEIPTs">
-    <Type Name="RECEIPT">
-      <Column Name="ReceiptID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ReceiptNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CustID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CustomerNo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="MedicReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MedicDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="EyeGlassesReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="EyeGlassesDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ReadyModDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ReadyModR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SpectacleDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="SpectacleR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FundRaisingDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FundRaisingR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="OtherDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="OtherR" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TotalReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TotalDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="AmountInWords" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="AmountFigureReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="AmountFigureDolar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="ReturnReal" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ReturnDolar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="IsCurrency" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IsDonation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="DonationID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="PayBySelf" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="PayByDonation" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="IsPaid" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="ReceiptNote" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="UserID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IncomType" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="Glasses" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DonateAmount" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="SupportedAmtDolar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="SupportedAmtR" Type="System.Double" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="ReceiptType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="SubReceiptType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PaidR" Type="System.Double" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="PaidDollar" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="IsOldPatient" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FullAmount" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="NilAmount" Type="System.Double" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="SocialAmount" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="PaymentCur" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="TotalSocial" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
-      <Column Name="TIME_CREATE" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblPatientReceipt" Member="tblPatientReceipts">
     <Type Name="tblPatientReceipt">
       <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -196,6 +126,76 @@
       <Column Name="TIME_CREATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="TIME_ISSUE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ISSUE_BY_DEPART" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RECEIPT" Member="RECEIPTs">
+    <Type Name="RECEIPT">
+      <Column Name="ReceiptID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReceiptNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CustID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CustomerNo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="MedicReal" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="MedicDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="EyeGlassesReal" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="EyeGlassesDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="ReadyModDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="ReadyModR" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SpectacleDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SpectacleR" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="FundRaisingDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="FundRaisingR" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="OtherDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="OtherR" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalReal" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="AmountInWords" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AmountFigureReal" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="AmountFigureDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="ReturnReal" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ReturnDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="IsCurrency" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDonation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DonationID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="PayBySelf" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="PayByDonation" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="IsPaid" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ReceiptNote" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IncomType" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Glasses" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonateAmount" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SupportedAmtDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SupportedAmtR" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="ReceiptType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SubReceiptType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PaidR" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="PaidDollar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="IsOldPatient" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FullAmount" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="NilAmount" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SocialAmount" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="PaymentCur" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TotalSocial" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="TIME_CREATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RECEIPT_DETAIL" Member="RECEIPT_DETAILs">
+    <Type Name="RECEIPT_DETAIL">
+      <Column Name="ReceiptDID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReceiptNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemPrice" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="ItemQTY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SubTotalReal" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SubTotalDolar" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="IncomeID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ItemCost" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="EXCHANGE_RATE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

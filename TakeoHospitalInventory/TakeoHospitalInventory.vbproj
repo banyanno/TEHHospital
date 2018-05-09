@@ -637,6 +637,12 @@
     <Compile Include="Takeo_Eye_Hopspital\DAO\IGeneralDAO.vb" />
     <Compile Include="Takeo_Eye_Hopspital\DataProvider\AbstractConnection.vb" />
     <Compile Include="Takeo_Eye_Hopspital\DataProvider\IDataTransaction.vb" />
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\ReportAllRefraction.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportAllRefraction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Achieve\NewAchieve\FRMAChievNew.Designer.vb">
       <DependentUpon>FRMAChievNew.vb</DependentUpon>
     </Compile>
@@ -3143,6 +3149,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportReceiptIP1.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\ReportAllRefraction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportAllRefraction.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Achieve\NewAchieve\FRMAChievNew.resx">
       <DependentUpon>FRMAChievNew.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -4739,6 +4749,7 @@
     <None Include="Resources\health-clinic.jpg" />
     <None Include="Resources\followup-icon.png" />
     <Content Include="Resources\ichemical.ico" />
+    <None Include="Resources\icons8-doctors-bag-48.png" />
     <Content Include="Resources\icontainer.ico" />
     <Content Include="Resources\idepart.ico" />
     <Content Include="Resources\iItem.ico" />

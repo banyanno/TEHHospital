@@ -55,6 +55,7 @@ Partial Class MainTakeoInventory
         Dim ButtonBarOpticalShop_Item_0_4 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarOpticalShop_Item_0_5 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarOpticalShop_Item_0_6 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonBarOpticalShop_Item_0_7 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPharmacy_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim ButtonBarPharmacy_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPharmacy_Item_0_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
@@ -492,7 +493,7 @@ Partial Class MainTakeoInventory
         Me.MenuBarLeft.Location = New System.Drawing.Point(3, 3)
         Me.MenuBarLeft.Margin = New System.Windows.Forms.Padding(2)
         Me.MenuBarLeft.Name = "MenuBarLeft"
-        Me.MenuBarLeft.SelectedPanel = Me.TakeoEyeHospital
+        Me.MenuBarLeft.SelectedPanel = Me.uiOpticalshop
         Me.MenuBarLeft.Size = New System.Drawing.Size(171, 555)
         Me.MenuBarLeft.SplitterSize = 2
         Me.MenuBarLeft.TabDisplay = Janus.Windows.UI.Dock.TabDisplayMode.ImageAndText
@@ -802,7 +803,11 @@ Partial Class MainTakeoInventory
         ButtonBarOpticalShop_Item_0_6.Key = "DonationReport"
         ButtonBarOpticalShop_Item_0_6.Text = "Donation Report"
         ButtonBarOpticalShop_Item_0_6.Visible = False
-        ButtonBarOpticalShop_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonBarOpticalShop_Item_0_0, ButtonBarOpticalShop_Item_0_1, ButtonBarOpticalShop_Item_0_2, ButtonBarOpticalShop_Item_0_3, ButtonBarOpticalShop_Item_0_4, ButtonBarOpticalShop_Item_0_5, ButtonBarOpticalShop_Item_0_6})
+        ButtonBarOpticalShop_Item_0_7.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonBarOpticalShop_Item_0_7.Key = "Refraction"
+        ButtonBarOpticalShop_Item_0_7.LargeImageIndex = 3
+        ButtonBarOpticalShop_Item_0_7.Text = "Refraction"
+        ButtonBarOpticalShop_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonBarOpticalShop_Item_0_0, ButtonBarOpticalShop_Item_0_1, ButtonBarOpticalShop_Item_0_2, ButtonBarOpticalShop_Item_0_3, ButtonBarOpticalShop_Item_0_4, ButtonBarOpticalShop_Item_0_5, ButtonBarOpticalShop_Item_0_6, ButtonBarOpticalShop_Item_0_7})
         ButtonBarOpticalShop_Group_0.Key = "Group1"
         ButtonBarOpticalShop_Group_0.Text = "Department Inventory"
         Me.ButtonBarOpticalShop.Groups.AddRange(New Janus.Windows.ButtonBar.ButtonBarGroup() {ButtonBarOpticalShop_Group_0})
@@ -823,6 +828,7 @@ Partial Class MainTakeoInventory
         Me.ImageOpticalShop.Images.SetKeyName(0, "1320892236_8.png")
         Me.ImageOpticalShop.Images.SetKeyName(1, "1320892585_11.png")
         Me.ImageOpticalShop.Images.SetKeyName(2, "sales-report.png")
+        Me.ImageOpticalShop.Images.SetKeyName(3, "icons8-eye-96.png")
         '
         'uiPharmacy
         '

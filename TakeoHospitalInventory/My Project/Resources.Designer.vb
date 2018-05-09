@@ -515,6 +515,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property icons8_doctors_bag_48() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icons8-doctors-bag-48", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property inhouse_use() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("inhouse_use", resourceCulture)

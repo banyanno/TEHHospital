@@ -951,7 +951,8 @@ Public Class MainTakeoInventory
                 '    GeneralAddControl(uiPanelMainContainer, UDonationReport, "Donation Report.")
             Case "NilDashBoard"
                 'GeneralAddControl(uiPanelMainContainer, UDasboardNil, "Optical Shop Nil.")
-
+            Case "Refraction"
+                CreateRefractionForm()
         End Select
     End Sub
 

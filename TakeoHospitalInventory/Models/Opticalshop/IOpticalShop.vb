@@ -7,7 +7,7 @@
     Function SaveNewReceiptPatient(ByVal obj As Object) As Boolean
     Function SaveReceiptDetail(ByVal obj As Object) As Boolean
     Function UpdateReceiptPay() As Boolean
-    Function GetReceipt(ByVal receiptId As Double) As RECEIPT
+    Function GetReceipt(ByVal receiptId As String) As RECEIPT
     Function GetReceiptNo(ByVal ReceiptNo As String) As RECEIPT
     Function GetTblPatientReceipt(ByVal ReceiptNo As Long) As tblPatientReceipt
     Function GetReceiptByReceiptNo(ByVal pReceiptNo As String) As RECEIPT
