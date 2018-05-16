@@ -271,6 +271,18 @@
     <Compile Include="Takeo_Eye_Hopspital\Refraction\MainRefraction.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewADDPara.Designer.vb">
+      <DependentUpon>NewADDPara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewADDPara.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewAxisPara.Designer.vb">
+      <DependentUpon>NewAxisPara.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewAxisPara.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefDiagnosis.Designer.vb">
       <DependentUpon>NewRefDiagnosis.vb</DependentUpon>
     </Compile>
@@ -293,6 +305,12 @@
       <DependentUpon>NewRefracVA.vb</DependentUpon>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefracVA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewVAReading.Designer.vb">
+      <DependentUpon>NewVAReading.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewVAReading.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\Refraction\RefractionParameter.Designer.vb">
@@ -3027,6 +3045,12 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\MainRefraction.resx">
       <DependentUpon>MainRefraction.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewADDPara.resx">
+      <DependentUpon>NewADDPara.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewAxisPara.resx">
+      <DependentUpon>NewAxisPara.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefDiagnosis.resx">
       <DependentUpon>NewRefDiagnosis.vb</DependentUpon>
     </EmbeddedResource>
@@ -3038,6 +3062,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewRefracVA.resx">
       <DependentUpon>NewRefracVA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\Prameter\NewVAReading.resx">
+      <DependentUpon>NewVAReading.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\RefractionParameter.resx">
       <DependentUpon>RefractionParameter.vb</DependentUpon>

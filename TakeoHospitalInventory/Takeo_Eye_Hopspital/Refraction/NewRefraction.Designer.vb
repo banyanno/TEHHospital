@@ -43,6 +43,12 @@ Partial Class NewRefraction
         Me.Label1 = New System.Windows.Forms.Label
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage2 = New System.Windows.Forms.TabPage
+        Me.BtnGlassesAxis = New System.Windows.Forms.Button
+        Me.CboLAxis = New System.Windows.Forms.ComboBox
+        Me.Label18 = New System.Windows.Forms.Label
+        Me.CboRAxis = New System.Windows.Forms.ComboBox
+        Me.Label17 = New System.Windows.Forms.Label
+        Me.ChPrescription = New System.Windows.Forms.CheckBox
         Me.TxtRefractionNote = New System.Windows.Forms.TextBox
         Me.Label14 = New System.Windows.Forms.Label
         Me.BtnNewDiagnosis = New System.Windows.Forms.Button
@@ -51,6 +57,11 @@ Partial Class NewRefraction
         Me.CboLGlasses = New System.Windows.Forms.ComboBox
         Me.CboDiagnosis = New System.Windows.Forms.ComboBox
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.CboLVAReading = New System.Windows.Forms.ComboBox
+        Me.Label19 = New System.Windows.Forms.Label
+        Me.BtnVAReading = New System.Windows.Forms.Button
+        Me.CboADD = New System.Windows.Forms.ComboBox
+        Me.Label16 = New System.Windows.Forms.Label
         Me.BtnNewVARefrac = New System.Windows.Forms.Button
         Me.CboRVARefrac = New System.Windows.Forms.ComboBox
         Me.CboLVARefrac = New System.Windows.Forms.ComboBox
@@ -68,7 +79,7 @@ Partial Class NewRefraction
         Me.BtnSave = New System.Windows.Forms.Button
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrRefraction = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.ChPrescription = New System.Windows.Forms.CheckBox
+        Me.Button1 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -256,11 +267,16 @@ Partial Class NewRefraction
         Me.TabControl1.Location = New System.Drawing.Point(6, 188)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(567, 301)
+        Me.TabControl1.Size = New System.Drawing.Size(567, 443)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.BtnGlassesAxis)
+        Me.TabPage2.Controls.Add(Me.CboLAxis)
+        Me.TabPage2.Controls.Add(Me.Label18)
+        Me.TabPage2.Controls.Add(Me.CboRAxis)
+        Me.TabPage2.Controls.Add(Me.Label17)
         Me.TabPage2.Controls.Add(Me.ChPrescription)
         Me.TabPage2.Controls.Add(Me.TxtRefractionNote)
         Me.TabPage2.Controls.Add(Me.Label14)
@@ -277,27 +293,87 @@ Partial Class NewRefraction
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(559, 275)
+        Me.TabPage2.Size = New System.Drawing.Size(559, 417)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Refraction Info"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'BtnGlassesAxis
+        '
+        Me.BtnGlassesAxis.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnGlassesAxis.Location = New System.Drawing.Point(490, 136)
+        Me.BtnGlassesAxis.Name = "BtnGlassesAxis"
+        Me.BtnGlassesAxis.Size = New System.Drawing.Size(43, 27)
+        Me.BtnGlassesAxis.TabIndex = 8
+        Me.BtnGlassesAxis.Text = "..."
+        Me.BtnGlassesAxis.UseVisualStyleBackColor = True
+        '
+        'CboLAxis
+        '
+        Me.CboLAxis.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CboLAxis.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CboLAxis.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboLAxis.FormattingEnabled = True
+        Me.CboLAxis.Location = New System.Drawing.Point(306, 135)
+        Me.CboLAxis.Name = "CboLAxis"
+        Me.CboLAxis.Size = New System.Drawing.Size(167, 28)
+        Me.CboLAxis.TabIndex = 7
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(242, 150)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(38, 13)
+        Me.Label18.TabIndex = 12
+        Me.Label18.Text = "L Axis:"
+        '
+        'CboRAxis
+        '
+        Me.CboRAxis.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CboRAxis.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CboRAxis.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboRAxis.FormattingEnabled = True
+        Me.CboRAxis.Location = New System.Drawing.Point(74, 135)
+        Me.CboRAxis.Name = "CboRAxis"
+        Me.CboRAxis.Size = New System.Drawing.Size(166, 28)
+        Me.CboRAxis.TabIndex = 6
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(10, 150)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(40, 13)
+        Me.Label17.TabIndex = 10
+        Me.Label17.Text = "R Axis:"
+        '
+        'ChPrescription
+        '
+        Me.ChPrescription.AutoSize = True
+        Me.ChPrescription.Location = New System.Drawing.Point(308, 72)
+        Me.ChPrescription.Name = "ChPrescription"
+        Me.ChPrescription.Size = New System.Drawing.Size(81, 17)
+        Me.ChPrescription.TabIndex = 3
+        Me.ChPrescription.Text = "Prescription"
+        Me.ChPrescription.UseVisualStyleBackColor = True
+        '
         'TxtRefractionNote
         '
-        Me.TxtRefractionNote.Location = New System.Drawing.Point(7, 215)
+        Me.TxtRefractionNote.Location = New System.Drawing.Point(7, 343)
         Me.TxtRefractionNote.Multiline = True
         Me.TxtRefractionNote.Name = "TxtRefractionNote"
         Me.TxtRefractionNote.Size = New System.Drawing.Size(546, 54)
-        Me.TxtRefractionNote.TabIndex = 8
+        Me.TxtRefractionNote.TabIndex = 10
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 199)
+        Me.Label14.Location = New System.Drawing.Point(6, 327)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(82, 13)
+        Me.Label14.Size = New System.Drawing.Size(57, 13)
         Me.Label14.TabIndex = 7
-        Me.Label14.Text = "Refraction Note"
+        Me.Label14.Text = "Commend:"
         '
         'BtnNewDiagnosis
         '
@@ -325,7 +401,7 @@ Partial Class NewRefraction
         Me.CboRGlasses.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CboRGlasses.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboRGlasses.FormattingEnabled = True
-        Me.CboRGlasses.Location = New System.Drawing.Point(306, 99)
+        Me.CboRGlasses.Location = New System.Drawing.Point(73, 100)
         Me.CboRGlasses.Name = "CboRGlasses"
         Me.CboRGlasses.Size = New System.Drawing.Size(167, 28)
         Me.CboRGlasses.TabIndex = 4
@@ -336,10 +412,10 @@ Partial Class NewRefraction
         Me.CboLGlasses.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CboLGlasses.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboLGlasses.FormattingEnabled = True
-        Me.CboLGlasses.Location = New System.Drawing.Point(73, 99)
+        Me.CboLGlasses.Location = New System.Drawing.Point(306, 102)
         Me.CboLGlasses.Name = "CboLGlasses"
         Me.CboLGlasses.Size = New System.Drawing.Size(167, 28)
-        Me.CboLGlasses.TabIndex = 3
+        Me.CboLGlasses.TabIndex = 5
         '
         'CboDiagnosis
         '
@@ -354,22 +430,78 @@ Partial Class NewRefraction
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button1)
+        Me.GroupBox3.Controls.Add(Me.CboLVAReading)
+        Me.GroupBox3.Controls.Add(Me.Label19)
+        Me.GroupBox3.Controls.Add(Me.BtnVAReading)
+        Me.GroupBox3.Controls.Add(Me.CboADD)
+        Me.GroupBox3.Controls.Add(Me.Label16)
         Me.GroupBox3.Controls.Add(Me.BtnNewVARefrac)
         Me.GroupBox3.Controls.Add(Me.CboRVARefrac)
         Me.GroupBox3.Controls.Add(Me.CboLVARefrac)
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Controls.Add(Me.Label13)
-        Me.GroupBox3.Location = New System.Drawing.Point(6, 140)
+        Me.GroupBox3.Location = New System.Drawing.Point(7, 180)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(547, 56)
-        Me.GroupBox3.TabIndex = 6
+        Me.GroupBox3.Size = New System.Drawing.Size(547, 144)
+        Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "VA on Refraction:"
+        '
+        'CboLVAReading
+        '
+        Me.CboLVAReading.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CboLVAReading.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CboLVAReading.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboLVAReading.FormattingEnabled = True
+        Me.CboLVAReading.Location = New System.Drawing.Point(296, 99)
+        Me.CboLVAReading.Name = "CboLVAReading"
+        Me.CboLVAReading.Size = New System.Drawing.Size(170, 28)
+        Me.CboLVAReading.TabIndex = 8
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(294, 80)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(73, 13)
+        Me.Label19.TabIndex = 5
+        Me.Label19.Text = "L VA Reading"
+        '
+        'BtnVAReading
+        '
+        Me.BtnVAReading.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnVAReading.Location = New System.Drawing.Point(486, 100)
+        Me.BtnVAReading.Name = "BtnVAReading"
+        Me.BtnVAReading.Size = New System.Drawing.Size(43, 27)
+        Me.BtnVAReading.TabIndex = 9
+        Me.BtnVAReading.Text = "..."
+        Me.BtnVAReading.UseVisualStyleBackColor = True
+        '
+        'CboADD
+        '
+        Me.CboADD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CboADD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CboADD.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboADD.FormattingEnabled = True
+        Me.CboADD.Location = New System.Drawing.Point(64, 99)
+        Me.CboADD.Name = "CboADD"
+        Me.CboADD.Size = New System.Drawing.Size(170, 28)
+        Me.CboADD.TabIndex = 6
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(63, 79)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(30, 13)
+        Me.Label16.TabIndex = 3
+        Me.Label16.Text = "ADD"
         '
         'BtnNewVARefrac
         '
         Me.BtnNewVARefrac.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnNewVARefrac.Location = New System.Drawing.Point(486, 19)
+        Me.BtnNewVARefrac.Location = New System.Drawing.Point(486, 40)
         Me.BtnNewVARefrac.Name = "BtnNewVARefrac"
         Me.BtnNewVARefrac.Size = New System.Drawing.Size(43, 27)
         Me.BtnNewVARefrac.TabIndex = 2
@@ -382,10 +514,10 @@ Partial Class NewRefraction
         Me.CboRVARefrac.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CboRVARefrac.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboRVARefrac.FormattingEnabled = True
-        Me.CboRVARefrac.Location = New System.Drawing.Point(302, 19)
+        Me.CboRVARefrac.Location = New System.Drawing.Point(67, 39)
         Me.CboRVARefrac.Name = "CboRVARefrac"
         Me.CboRVARefrac.Size = New System.Drawing.Size(167, 28)
-        Me.CboRVARefrac.TabIndex = 1
+        Me.CboRVARefrac.TabIndex = 0
         '
         'CboLVARefrac
         '
@@ -393,15 +525,15 @@ Partial Class NewRefraction
         Me.CboLVARefrac.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CboLVARefrac.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboLVARefrac.FormattingEnabled = True
-        Me.CboLVARefrac.Location = New System.Drawing.Point(68, 19)
+        Me.CboLVARefrac.Location = New System.Drawing.Point(299, 40)
         Me.CboLVARefrac.Name = "CboLVARefrac"
         Me.CboLVARefrac.Size = New System.Drawing.Size(167, 28)
-        Me.CboLVARefrac.TabIndex = 0
+        Me.CboLVARefrac.TabIndex = 1
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(259, 34)
+        Me.Label12.Location = New System.Drawing.Point(64, 23)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(35, 13)
         Me.Label12.TabIndex = 1
@@ -410,7 +542,7 @@ Partial Class NewRefraction
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(29, 34)
+        Me.Label13.Location = New System.Drawing.Point(296, 23)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(33, 13)
         Me.Label13.TabIndex = 0
@@ -419,7 +551,7 @@ Partial Class NewRefraction
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(242, 114)
+        Me.Label11.Location = New System.Drawing.Point(9, 115)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(58, 13)
         Me.Label11.TabIndex = 4
@@ -428,7 +560,7 @@ Partial Class NewRefraction
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(11, 114)
+        Me.Label10.Location = New System.Drawing.Point(244, 117)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(56, 13)
         Me.Label10.TabIndex = 3
@@ -473,10 +605,10 @@ Partial Class NewRefraction
         Me.CboRVAOld.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CboRVAOld.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboRVAOld.FormattingEnabled = True
-        Me.CboRVAOld.Location = New System.Drawing.Point(299, 17)
+        Me.CboRVAOld.Location = New System.Drawing.Point(67, 17)
         Me.CboRVAOld.Name = "CboRVAOld"
         Me.CboRVAOld.Size = New System.Drawing.Size(167, 28)
-        Me.CboRVAOld.TabIndex = 1
+        Me.CboRVAOld.TabIndex = 0
         '
         'CboLVAOld
         '
@@ -484,15 +616,15 @@ Partial Class NewRefraction
         Me.CboLVAOld.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CboLVAOld.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboLVAOld.FormattingEnabled = True
-        Me.CboLVAOld.Location = New System.Drawing.Point(67, 17)
+        Me.CboLVAOld.Location = New System.Drawing.Point(302, 17)
         Me.CboLVAOld.Name = "CboLVAOld"
         Me.CboLVAOld.Size = New System.Drawing.Size(167, 28)
-        Me.CboLVAOld.TabIndex = 0
+        Me.CboLVAOld.TabIndex = 1
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(258, 32)
+        Me.Label8.Location = New System.Drawing.Point(26, 32)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(35, 13)
         Me.Label8.TabIndex = 1
@@ -501,7 +633,7 @@ Partial Class NewRefraction
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(28, 32)
+        Me.Label7.Location = New System.Drawing.Point(263, 32)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(33, 13)
         Me.Label7.TabIndex = 0
@@ -510,7 +642,7 @@ Partial Class NewRefraction
         'BtnSave
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSave.Location = New System.Drawing.Point(414, 492)
+        Me.BtnSave.Location = New System.Drawing.Point(413, 637)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(75, 30)
         Me.BtnSave.TabIndex = 2
@@ -520,7 +652,7 @@ Partial Class NewRefraction
         'BtnCancel
         '
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.Location = New System.Drawing.Point(495, 492)
+        Me.BtnCancel.Location = New System.Drawing.Point(494, 637)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(75, 30)
         Me.BtnCancel.TabIndex = 3
@@ -531,21 +663,21 @@ Partial Class NewRefraction
         '
         Me.ErrRefraction.ContainerControl = Me
         '
-        'ChPrescription
+        'Button1
         '
-        Me.ChPrescription.AutoSize = True
-        Me.ChPrescription.Location = New System.Drawing.Point(308, 72)
-        Me.ChPrescription.Name = "ChPrescription"
-        Me.ChPrescription.Size = New System.Drawing.Size(81, 17)
-        Me.ChPrescription.TabIndex = 9
-        Me.ChPrescription.Text = "Prescription"
-        Me.ChPrescription.UseVisualStyleBackColor = True
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(243, 99)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(43, 27)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "..."
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'NewRefraction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(578, 524)
+        Me.ClientSize = New System.Drawing.Size(578, 674)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.TabControl1)
@@ -616,4 +748,15 @@ Partial Class NewRefraction
     Friend WithEvents ErrRefraction As System.Windows.Forms.ErrorProvider
     Friend WithEvents lblSaveOption As System.Windows.Forms.Label
     Friend WithEvents ChPrescription As System.Windows.Forms.CheckBox
+    Friend WithEvents CboADD As System.Windows.Forms.ComboBox
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents CboLAxis As System.Windows.Forms.ComboBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents CboRAxis As System.Windows.Forms.ComboBox
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents BtnGlassesAxis As System.Windows.Forms.Button
+    Friend WithEvents BtnVAReading As System.Windows.Forms.Button
+    Friend WithEvents CboLVAReading As System.Windows.Forms.ComboBox
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

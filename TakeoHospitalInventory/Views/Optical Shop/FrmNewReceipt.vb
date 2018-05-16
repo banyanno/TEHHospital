@@ -2242,4 +2242,6 @@ Public Class FrmNewReceipt
             ChbNewGlasses.Checked = False
         End If
     End Sub
+
+    
 End Class

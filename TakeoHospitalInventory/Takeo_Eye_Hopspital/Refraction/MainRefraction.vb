@@ -7,6 +7,8 @@
 
     Private Sub BtnNewRefraction_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewRefraction.Click
         Dim NewRefraction As New NewRefraction
+        NewRefraction.RefrationDate.Checked = True
+        NewRefraction.RefrationDate.Value = ModGlobleVariable.CheckMarkEOD
         If NewRefraction.ShowDialog() = DialogResult.OK Then
             SelectDateToDatePatientNo(NewRefraction.TxtPatientNo.Text, NewRefraction.RefrationDate.Value.Date, NewRefraction.RefrationDate.Value.Date)
             NewRefraction.Close()
@@ -38,6 +40,7 @@
         NewRefraction.TxtPatientAddress.Text = GridRefraction.GetRow.Cells("PATIENT_ADDRESS").Value
         NewRefraction.RefrationDate.Checked = True
         NewRefraction.RefrationDate.Value = GridRefraction.GetRow.Cells("REFRATION_DATE").Value
+
         NewRefraction.CboLVAOld.Text = GridRefraction.GetRow.Cells("OLD_LVA").Value
         NewRefraction.CboRVAOld.Text = GridRefraction.GetRow.Cells("OLD_RVA").Value
         NewRefraction.CboDiagnosis.Text = GridRefraction.GetRow.Cells("DIAGNOSIS").Value
@@ -47,6 +50,12 @@
         NewRefraction.CboRVARefrac.Text = GridRefraction.GetRow.Cells("RVA_REFRACTION").Value
         NewRefraction.TxtRefractionNote.Text = GridRefraction.GetRow.Cells("REFRACTION_NOTE").Value
         NewRefraction.ChPrescription.Checked = GridRefraction.GetRow.Cells("IS_PRESCRIPTION").Value
+
+        NewRefraction.CboRAxis.Text = GridRefraction.GetRow.Cells("R_AXIS").Value
+        NewRefraction.CboLAxis.Text = GridRefraction.GetRow.Cells("L_AXIS").Value
+
+        NewRefraction.CboLVAReading.Text = GridRefraction.GetRow.Cells("LVA_READING").Value
+        NewRefraction.CboADD.Text = GridRefraction.GetRow.Cells("RVA_READING").Value
 
         If NewRefraction.ShowDialog() = DialogResult.OK Then
             SelectDateToDatePatientNo(NewRefraction.TxtPatientNo.Text, NewRefraction.RefrationDate.Value.Date, NewRefraction.RefrationDate.Value.Date)
@@ -90,7 +99,7 @@
     Private Sub BtnReqPrescription_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReqPrescription.Click
         If GridRefraction.SelectedItems.Count = 0 Then Exit Sub
         If MessageBox.Show("Do you want to request prescription?", "Refraction", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            If DARefraction.UpdateIsPrescription(True, "Request", GridRefraction.GetRow.Cells("REFRACT_ID").Value) = 1 Then
+            If DARefraction.UpdateIsPrescription(True, "Send", GridRefraction.GetRow.Cells("REFRACT_ID").Value) = 1 Then
                 MessageBox.Show("Request is successful!", "Request", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LoadingFinding()
             End If
@@ -108,7 +117,7 @@
     Private Sub BtnAprovPrescription_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAprovPrescription.Click
         If GridRefraction.SelectedItems.Count = 0 Then Exit Sub
         If MessageBox.Show("Do you want to request prescription?", "Refraction", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            If DARefraction.UpdateIsPrescription(True, "Approved", GridRefraction.GetRow.Cells("REFRACT_ID").Value) = 1 Then
+            If DARefraction.UpdateIsPrescription(True, "Received", GridRefraction.GetRow.Cells("REFRACT_ID").Value) = 1 Then
                 MessageBox.Show("Request is successful!", "Request", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LoadingFinding()
             End If

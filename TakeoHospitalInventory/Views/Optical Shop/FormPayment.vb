@@ -54,7 +54,7 @@ Public Class FormPayment
 
         If MessageBox.Show("Do you want to save this payment?", "pay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             ObjTblPatientReceipt = ReceiptDataContext.GetTblPatientReceipt(lblReceiptNo.Text)
-            ObjReceip = ReceiptDataContext.GetReceiptByReceiptNo(lblReceiptNo.Text) 'ReceiptDataContext.GetReceipt(LblReceiptID.Text)
+            ObjReceip = ReceiptDataContext.GetReceipt(LblReceiptID.Text)
             ObjReceip.ReturnDolar = EmptyString(TxtReturnDolar.Text)
             ObjReceip.ReturnReal = EmptyString(TxtReturnReal.Text)
             ObjReceip.AmountInWords = TxtAmountInWord.Text

@@ -493,7 +493,7 @@ Partial Class MainTakeoInventory
         Me.MenuBarLeft.Location = New System.Drawing.Point(3, 3)
         Me.MenuBarLeft.Margin = New System.Windows.Forms.Padding(2)
         Me.MenuBarLeft.Name = "MenuBarLeft"
-        Me.MenuBarLeft.SelectedPanel = Me.uiOpticalshop
+        Me.MenuBarLeft.SelectedPanel = Me.TakeoEyeHospital
         Me.MenuBarLeft.Size = New System.Drawing.Size(171, 555)
         Me.MenuBarLeft.SplitterSize = 2
         Me.MenuBarLeft.TabDisplay = Janus.Windows.UI.Dock.TabDisplayMode.ImageAndText
@@ -984,7 +984,7 @@ Partial Class MainTakeoInventory
         BottonBarMain_Item_0_9.Text = "In-Patient Report"
         BottonBarMain_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {BottonBarMain_Item_0_0, BottonBarMain_Item_0_1, BottonBarMain_Item_0_2, BottonBarMain_Item_0_3, BottonBarMain_Item_0_4, BottonBarMain_Item_0_5, BottonBarMain_Item_0_6, BottonBarMain_Item_0_7, BottonBarMain_Item_0_8, BottonBarMain_Item_0_9})
         BottonBarMain_Group_0.Key = "Registration"
-        BottonBarMain_Group_0.Text = "Patient Registration  "
+        BottonBarMain_Group_0.Text = "Patient Registration"
         BottonBarMain_Group_0.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
         BottonBarMain_Group_1.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Group_1.Icon = CType(resources.GetObject("BottonBarMain_Group_1.Icon"), System.Drawing.Icon)

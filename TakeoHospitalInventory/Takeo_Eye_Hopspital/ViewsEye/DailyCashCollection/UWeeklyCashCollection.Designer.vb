@@ -337,6 +337,7 @@ Partial Class UWeeklyCashCollection
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "&Print Old"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'cmdPrint
         '

@@ -866,6 +866,18 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_AXISDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_VAREADINGDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_ADDDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_DIAGNOSISRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -886,6 +898,18 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_AXISRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_VAREADINGRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_ADDRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_DIAGNOSISRowChangeEvent">
 	<summary>
 Row event argument class
@@ -903,6 +927,18 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSRefraction.TblPatientsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_AXISRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_VAREADINGRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefraction.REFRACTION_ADDRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -927,6 +963,18 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.TblPatientsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.REFRACTION_AXISTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.REFRACTION_VAREADINGTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSRefractionTableAdapters.REFRACTION_ADDTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

@@ -27,33 +27,60 @@ Partial Class RefractionParameter
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RefractionParameter))
         Dim GridGlassesRefraction_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridVARefraction_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim GridAxis_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim GridVAReading_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim GridADD_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.RefractionDiagnosis = New System.Windows.Forms.TabPage
         Me.GridDiagnosisRefraction = New Janus.Windows.GridEX.GridEX
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
         Me.BtnNewDiagnosis = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnRefreshDiagnosis = New System.Windows.Forms.ToolStripButton
         Me.BtnDeleteDiagnosis = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnRefreshDiagnosis = New System.Windows.Forms.ToolStripButton
         Me.RefractionGlasses = New System.Windows.Forms.TabPage
         Me.GridGlassesRefraction = New Janus.Windows.GridEX.GridEX
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip
         Me.BtnNewGlasses = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnDeleteGlasses = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnRefreshGlasses = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteGlasses = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
         Me.VARefraction = New System.Windows.Forms.TabPage
         Me.GridVARefraction = New Janus.Windows.GridEX.GridEX
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip
         Me.BtnNewVA = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnDeleteVA = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnRefreshVA = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteVA = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
+        Me.Axis = New System.Windows.Forms.TabPage
+        Me.GridAxis = New Janus.Windows.GridEX.GridEX
+        Me.ToolStrip4 = New System.Windows.Forms.ToolStrip
+        Me.BtnNewAxis = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnRefreshAxix = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteAxix = New System.Windows.Forms.ToolStripButton
+        Me.VaReading = New System.Windows.Forms.TabPage
+        Me.GridVAReading = New Janus.Windows.GridEX.GridEX
+        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip
+        Me.BtnNewVAReading = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnRefreshVAreading = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteReading = New System.Windows.Forms.ToolStripButton
+        Me.ADD = New System.Windows.Forms.TabPage
+        Me.GridADD = New Janus.Windows.GridEX.GridEX
+        Me.ToolStrip6 = New System.Windows.Forms.ToolStrip
+        Me.BtnNewADD = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnRefreshAdd = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteAdd = New System.Windows.Forms.ToolStripButton
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.RefractionDiagnosis.SuspendLayout()
@@ -65,6 +92,15 @@ Partial Class RefractionParameter
         Me.VARefraction.SuspendLayout()
         CType(Me.GridVARefraction, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip3.SuspendLayout()
+        Me.Axis.SuspendLayout()
+        CType(Me.GridAxis, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip4.SuspendLayout()
+        Me.VaReading.SuspendLayout()
+        CType(Me.GridVAReading, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip5.SuspendLayout()
+        Me.ADD.SuspendLayout()
+        CType(Me.GridADD, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip6.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -72,6 +108,9 @@ Partial Class RefractionParameter
         Me.TabControl1.Controls.Add(Me.RefractionDiagnosis)
         Me.TabControl1.Controls.Add(Me.RefractionGlasses)
         Me.TabControl1.Controls.Add(Me.VARefraction)
+        Me.TabControl1.Controls.Add(Me.Axis)
+        Me.TabControl1.Controls.Add(Me.VaReading)
+        Me.TabControl1.Controls.Add(Me.ADD)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
@@ -129,19 +168,6 @@ Partial Class RefractionParameter
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 28)
         '
-        'BtnDeleteDiagnosis
-        '
-        Me.BtnDeleteDiagnosis.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
-        Me.BtnDeleteDiagnosis.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnDeleteDiagnosis.Name = "BtnDeleteDiagnosis"
-        Me.BtnDeleteDiagnosis.Size = New System.Drawing.Size(146, 25)
-        Me.BtnDeleteDiagnosis.Text = "Delete Diagnosis"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 28)
-        '
         'BtnRefreshDiagnosis
         '
         Me.BtnRefreshDiagnosis.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
@@ -149,6 +175,19 @@ Partial Class RefractionParameter
         Me.BtnRefreshDiagnosis.Name = "BtnRefreshDiagnosis"
         Me.BtnRefreshDiagnosis.Size = New System.Drawing.Size(117, 25)
         Me.BtnRefreshDiagnosis.Text = "     Refesh     "
+        '
+        'BtnDeleteDiagnosis
+        '
+        Me.BtnDeleteDiagnosis.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteDiagnosis.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteDiagnosis.Name = "BtnDeleteDiagnosis"
+        Me.BtnDeleteDiagnosis.Size = New System.Drawing.Size(78, 25)
+        Me.BtnDeleteDiagnosis.Text = "Delete "
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 28)
         '
         'RefractionGlasses
         '
@@ -200,19 +239,6 @@ Partial Class RefractionParameter
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 28)
         '
-        'BtnDeleteGlasses
-        '
-        Me.BtnDeleteGlasses.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
-        Me.BtnDeleteGlasses.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnDeleteGlasses.Name = "BtnDeleteGlasses"
-        Me.BtnDeleteGlasses.Size = New System.Drawing.Size(130, 25)
-        Me.BtnDeleteGlasses.Text = "Delete Glasses"
-        '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 28)
-        '
         'BtnRefreshGlasses
         '
         Me.BtnRefreshGlasses.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
@@ -225,6 +251,19 @@ Partial Class RefractionParameter
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 28)
+        '
+        'BtnDeleteGlasses
+        '
+        Me.BtnDeleteGlasses.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteGlasses.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteGlasses.Name = "BtnDeleteGlasses"
+        Me.BtnDeleteGlasses.Size = New System.Drawing.Size(130, 25)
+        Me.BtnDeleteGlasses.Text = "Delete Glasses"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 28)
         '
         'VARefraction
         '
@@ -275,6 +314,19 @@ Partial Class RefractionParameter
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 28)
         '
+        'BtnRefreshVA
+        '
+        Me.BtnRefreshVA.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnRefreshVA.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnRefreshVA.Name = "BtnRefreshVA"
+        Me.BtnRefreshVA.Size = New System.Drawing.Size(123, 25)
+        Me.BtnRefreshVA.Text = "     Refresh     "
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 28)
+        '
         'BtnDeleteVA
         '
         Me.BtnDeleteVA.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
@@ -288,18 +340,215 @@ Partial Class RefractionParameter
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 28)
         '
-        'BtnRefreshVA
+        'Axis
         '
-        Me.BtnRefreshVA.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
-        Me.BtnRefreshVA.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnRefreshVA.Name = "BtnRefreshVA"
-        Me.BtnRefreshVA.Size = New System.Drawing.Size(123, 25)
-        Me.BtnRefreshVA.Text = "     Refresh     "
+        Me.Axis.Controls.Add(Me.GridAxis)
+        Me.Axis.Controls.Add(Me.ToolStrip4)
+        Me.Axis.Location = New System.Drawing.Point(4, 29)
+        Me.Axis.Name = "Axis"
+        Me.Axis.Padding = New System.Windows.Forms.Padding(3)
+        Me.Axis.Size = New System.Drawing.Size(735, 503)
+        Me.Axis.TabIndex = 3
+        Me.Axis.Text = "Axis"
+        Me.Axis.UseVisualStyleBackColor = True
         '
-        'ToolStripSeparator8
+        'GridAxis
         '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 28)
+        Me.GridAxis.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        GridAxis_DesignTimeLayout.LayoutString = resources.GetString("GridAxis_DesignTimeLayout.LayoutString")
+        Me.GridAxis.DesignTimeLayout = GridAxis_DesignTimeLayout
+        Me.GridAxis.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridAxis.GroupByBoxVisible = False
+        Me.GridAxis.Location = New System.Drawing.Point(3, 31)
+        Me.GridAxis.Name = "GridAxis"
+        Me.GridAxis.RecordNavigator = True
+        Me.GridAxis.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.GridAxis.Size = New System.Drawing.Size(729, 469)
+        Me.GridAxis.TabIndex = 2
+        '
+        'ToolStrip4
+        '
+        Me.ToolStrip4.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnNewAxis, Me.ToolStripSeparator9, Me.BtnRefreshAxix, Me.ToolStripSeparator10, Me.BtnDeleteAxix})
+        Me.ToolStrip4.Location = New System.Drawing.Point(3, 3)
+        Me.ToolStrip4.Name = "ToolStrip4"
+        Me.ToolStrip4.Size = New System.Drawing.Size(729, 28)
+        Me.ToolStrip4.TabIndex = 0
+        Me.ToolStrip4.Text = "ToolStrip4"
+        '
+        'BtnNewAxis
+        '
+        Me.BtnNewAxis.Image = Global.TakeoHospitalInventory.My.Resources.Resources._new
+        Me.BtnNewAxis.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNewAxis.Name = "BtnNewAxis"
+        Me.BtnNewAxis.Size = New System.Drawing.Size(94, 25)
+        Me.BtnNewAxis.Text = "New Axis"
+        '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 28)
+        '
+        'BtnRefreshAxix
+        '
+        Me.BtnRefreshAxix.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnRefreshAxix.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnRefreshAxix.Name = "BtnRefreshAxix"
+        Me.BtnRefreshAxix.Size = New System.Drawing.Size(83, 25)
+        Me.BtnRefreshAxix.Text = "Refresh"
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 28)
+        '
+        'BtnDeleteAxix
+        '
+        Me.BtnDeleteAxix.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteAxix.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteAxix.Name = "BtnDeleteAxix"
+        Me.BtnDeleteAxix.Size = New System.Drawing.Size(74, 25)
+        Me.BtnDeleteAxix.Text = "Delete"
+        '
+        'VaReading
+        '
+        Me.VaReading.Controls.Add(Me.GridVAReading)
+        Me.VaReading.Controls.Add(Me.ToolStrip5)
+        Me.VaReading.Location = New System.Drawing.Point(4, 29)
+        Me.VaReading.Name = "VaReading"
+        Me.VaReading.Padding = New System.Windows.Forms.Padding(3)
+        Me.VaReading.Size = New System.Drawing.Size(735, 503)
+        Me.VaReading.TabIndex = 4
+        Me.VaReading.Text = "VA Reading"
+        Me.VaReading.UseVisualStyleBackColor = True
+        '
+        'GridVAReading
+        '
+        Me.GridVAReading.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        GridVAReading_DesignTimeLayout.LayoutString = resources.GetString("GridVAReading_DesignTimeLayout.LayoutString")
+        Me.GridVAReading.DesignTimeLayout = GridVAReading_DesignTimeLayout
+        Me.GridVAReading.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridVAReading.GroupByBoxVisible = False
+        Me.GridVAReading.Location = New System.Drawing.Point(3, 31)
+        Me.GridVAReading.Name = "GridVAReading"
+        Me.GridVAReading.RecordNavigator = True
+        Me.GridVAReading.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.GridVAReading.Size = New System.Drawing.Size(729, 469)
+        Me.GridVAReading.TabIndex = 2
+        '
+        'ToolStrip5
+        '
+        Me.ToolStrip5.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnNewVAReading, Me.ToolStripSeparator11, Me.BtnRefreshVAreading, Me.ToolStripSeparator12, Me.BtnDeleteReading})
+        Me.ToolStrip5.Location = New System.Drawing.Point(3, 3)
+        Me.ToolStrip5.Name = "ToolStrip5"
+        Me.ToolStrip5.Size = New System.Drawing.Size(729, 28)
+        Me.ToolStrip5.TabIndex = 0
+        Me.ToolStrip5.Text = "ToolStrip5"
+        '
+        'BtnNewVAReading
+        '
+        Me.BtnNewVAReading.Image = Global.TakeoHospitalInventory.My.Resources.Resources._new
+        Me.BtnNewVAReading.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNewVAReading.Name = "BtnNewVAReading"
+        Me.BtnNewVAReading.Size = New System.Drawing.Size(146, 25)
+        Me.BtnNewVAReading.Text = "New VA Reading"
+        '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 28)
+        '
+        'BtnRefreshVAreading
+        '
+        Me.BtnRefreshVAreading.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnRefreshVAreading.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnRefreshVAreading.Name = "BtnRefreshVAreading"
+        Me.BtnRefreshVAreading.Size = New System.Drawing.Size(83, 25)
+        Me.BtnRefreshVAreading.Text = "Refresh"
+        '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(6, 28)
+        '
+        'BtnDeleteReading
+        '
+        Me.BtnDeleteReading.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteReading.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteReading.Name = "BtnDeleteReading"
+        Me.BtnDeleteReading.Size = New System.Drawing.Size(74, 25)
+        Me.BtnDeleteReading.Text = "Delete"
+        '
+        'ADD
+        '
+        Me.ADD.Controls.Add(Me.GridADD)
+        Me.ADD.Controls.Add(Me.ToolStrip6)
+        Me.ADD.Location = New System.Drawing.Point(4, 29)
+        Me.ADD.Name = "ADD"
+        Me.ADD.Padding = New System.Windows.Forms.Padding(3)
+        Me.ADD.Size = New System.Drawing.Size(735, 503)
+        Me.ADD.TabIndex = 5
+        Me.ADD.Text = "   ADD   "
+        Me.ADD.UseVisualStyleBackColor = True
+        '
+        'GridADD
+        '
+        Me.GridADD.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        GridADD_DesignTimeLayout.LayoutString = resources.GetString("GridADD_DesignTimeLayout.LayoutString")
+        Me.GridADD.DesignTimeLayout = GridADD_DesignTimeLayout
+        Me.GridADD.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridADD.GroupByBoxVisible = False
+        Me.GridADD.Location = New System.Drawing.Point(3, 31)
+        Me.GridADD.Name = "GridADD"
+        Me.GridADD.RecordNavigator = True
+        Me.GridADD.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.GridADD.Size = New System.Drawing.Size(729, 469)
+        Me.GridADD.TabIndex = 3
+        '
+        'ToolStrip6
+        '
+        Me.ToolStrip6.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.ToolStrip6.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnNewADD, Me.ToolStripSeparator13, Me.BtnRefreshAdd, Me.ToolStripSeparator14, Me.BtnDeleteAdd})
+        Me.ToolStrip6.Location = New System.Drawing.Point(3, 3)
+        Me.ToolStrip6.Name = "ToolStrip6"
+        Me.ToolStrip6.Size = New System.Drawing.Size(729, 28)
+        Me.ToolStrip6.TabIndex = 1
+        Me.ToolStrip6.Text = "ToolStrip6"
+        '
+        'BtnNewADD
+        '
+        Me.BtnNewADD.Image = Global.TakeoHospitalInventory.My.Resources.Resources._new
+        Me.BtnNewADD.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNewADD.Name = "BtnNewADD"
+        Me.BtnNewADD.Size = New System.Drawing.Size(98, 25)
+        Me.BtnNewADD.Text = "New ADD"
+        '
+        'ToolStripSeparator13
+        '
+        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
+        Me.ToolStripSeparator13.Size = New System.Drawing.Size(6, 28)
+        '
+        'BtnRefreshAdd
+        '
+        Me.BtnRefreshAdd.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnRefreshAdd.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnRefreshAdd.Name = "BtnRefreshAdd"
+        Me.BtnRefreshAdd.Size = New System.Drawing.Size(83, 25)
+        Me.BtnRefreshAdd.Text = "Refresh"
+        '
+        'ToolStripSeparator14
+        '
+        Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
+        Me.ToolStripSeparator14.Size = New System.Drawing.Size(6, 28)
+        '
+        'BtnDeleteAdd
+        '
+        Me.BtnDeleteAdd.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteAdd.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteAdd.Name = "BtnDeleteAdd"
+        Me.BtnDeleteAdd.Size = New System.Drawing.Size(74, 25)
+        Me.BtnDeleteAdd.Text = "Delete"
         '
         'ImageList1
         '
@@ -339,6 +588,21 @@ Partial Class RefractionParameter
         CType(Me.GridVARefraction, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip3.ResumeLayout(False)
         Me.ToolStrip3.PerformLayout()
+        Me.Axis.ResumeLayout(False)
+        Me.Axis.PerformLayout()
+        CType(Me.GridAxis, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip4.ResumeLayout(False)
+        Me.ToolStrip4.PerformLayout()
+        Me.VaReading.ResumeLayout(False)
+        Me.VaReading.PerformLayout()
+        CType(Me.GridVAReading, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip5.ResumeLayout(False)
+        Me.ToolStrip5.PerformLayout()
+        Me.ADD.ResumeLayout(False)
+        Me.ADD.PerformLayout()
+        CType(Me.GridADD, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip6.ResumeLayout(False)
+        Me.ToolStrip6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -370,4 +634,28 @@ Partial Class RefractionParameter
     Friend WithEvents BtnRefreshVA As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents Axis As System.Windows.Forms.TabPage
+    Friend WithEvents VaReading As System.Windows.Forms.TabPage
+    Friend WithEvents ToolStrip4 As System.Windows.Forms.ToolStrip
+    Friend WithEvents BtnNewAxis As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnRefreshAxix As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator10 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnDeleteAxix As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStrip5 As System.Windows.Forms.ToolStrip
+    Friend WithEvents BtnNewVAReading As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator11 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnRefreshVAreading As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator12 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnDeleteReading As System.Windows.Forms.ToolStripButton
+    Friend WithEvents GridAxis As Janus.Windows.GridEX.GridEX
+    Friend WithEvents GridVAReading As Janus.Windows.GridEX.GridEX
+    Friend WithEvents ADD As System.Windows.Forms.TabPage
+    Friend WithEvents ToolStrip6 As System.Windows.Forms.ToolStrip
+    Friend WithEvents BtnNewADD As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator13 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnRefreshAdd As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator14 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnDeleteAdd As System.Windows.Forms.ToolStripButton
+    Friend WithEvents GridADD As Janus.Windows.GridEX.GridEX
 End Class

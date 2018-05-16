@@ -2,6 +2,10 @@
     Dim DARefDiagnosis As New DSRefractionTableAdapters.REFRACTION_DIAGNOSISTableAdapter
     Dim DARefGlasess As New DSRefractionTableAdapters.REFRACTION_GLASSESTableAdapter
     Dim DARefVA As New DSRefractionTableAdapters.REFRACTION_VATableAdapter
+    Dim DARefAxis As New DSRefractionTableAdapters.REFRACTION_AXISTableAdapter
+    Dim DARefVAReading As New DSRefractionTableAdapters.REFRACTION_VAREADINGTableAdapter
+    Dim DAAdd As New DSRefractionTableAdapters.REFRACTION_ADDTableAdapter
+
     Private Sub RefractionParameter_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         RefreshParameter()
     End Sub
@@ -10,6 +14,9 @@
         GridDiagnosisRefraction.DataSource = DARefDiagnosis.GetData
         GridGlassesRefraction.DataSource = DARefGlasess.GetData
         GridVARefraction.DataSource = DARefVA.GetData
+        GridAxis.DataSource = DARefAxis.GetData
+        GridVAReading.DataSource = DARefVAReading.GetData
+        GridADD.DataSource = DAAdd.GetData
     End Sub
     Private Sub RefreshDiagnosis()
         GridDiagnosisRefraction.DataSource = DARefDiagnosis.GetData
@@ -20,6 +27,15 @@
     Private Sub RefreshVA()
         GridVARefraction.DataSource = DARefVA.GetData
     End Sub
+    Private Sub RefreshAxis()
+        GridAxis.DataSource = DARefAxis.GetData
+    End Sub
+    Private Sub RefreshVAReading()
+        GridVAReading.DataSource = DARefVAReading.GetData
+    End Sub
+    Private Sub RefreshAdd()
+        GridADD.DataSource = DAAdd.GetData
+    End Sub
 
     Private Sub BtnNewDiagnosis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewDiagnosis.Click
         Dim NewDiagnosis As New NewRefDiagnosis
@@ -27,7 +43,7 @@
             RefreshDiagnosis()
         End If
     End Sub
-
+    
    
 
     Private Sub BtnDeleteDiagnosis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDeleteDiagnosis.Click
@@ -108,4 +124,94 @@
             RefreshVA()
         End If
     End Sub
+
+    Private Sub BtnNewAxis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewAxis.Click
+        Dim NAxis As New NewAxisPara
+        If NAxis.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshAxis()
+        End If
+    End Sub
+
+    
+    Private Sub BtnRefreshAxix_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnRefreshAxix.Click
+        RefreshAxis()
+    End Sub
+
+    Private Sub BtnDeleteAxix_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDeleteAxix.Click
+        If GridAxis.SelectedItems.Count = 0 Then Exit Sub
+        If MessageBox.Show("Do you want to delete Axis", "Axis", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            If DARefAxis.DeleteAxis(GridAxis.GetRow.Cells("AXIS_ID").Value) = 1 Then
+                RefreshAxis()
+            End If
+        End If
+    End Sub
+
+    Private Sub GridAxis_RowDoubleClick(ByVal sender As System.Object, ByVal e As Janus.Windows.GridEX.RowActionEventArgs) Handles GridAxis.RowDoubleClick
+        If GridAxis.SelectedItems.Count = 0 Then Exit Sub
+        Dim UpdateAxis As New NewAxisPara
+        UpdateAxis.LblSaveOption.Text = GridAxis.GetRow.Cells("AXIS_ID").Value
+        UpdateAxis.TxtAxis.Text = GridAxis.GetRow.Cells("AXIS_NAME").Value
+        If UpdateAxis.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshAxis()
+        End If
+    End Sub
+
+    Private Sub BtnNewVAReading_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewVAReading.Click
+        Dim NVAReading As New NewVAReading
+        If NVAReading.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshVAReading()
+        End If
+    End Sub
+
+    Private Sub BtnRefreshVAreading_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnRefreshVAreading.Click
+        RefreshVAReading()
+    End Sub
+
+    Private Sub BtnDeleteReading_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDeleteReading.Click
+        If GridVAReading.SelectedItems.Count = 0 Then Exit Sub
+        If DARefVAReading.DeleteVAReading(GridVAReading.GetRow.Cells("VAREAD_ID").Value) = 1 Then
+            RefreshVAReading()
+        End If
+    End Sub
+
+    Private Sub GridVAReading_RowDoubleClick(ByVal sender As System.Object, ByVal e As Janus.Windows.GridEX.RowActionEventArgs) Handles GridVAReading.RowDoubleClick
+        If GridVAReading.SelectedItems.Count = 0 Then Exit Sub
+        Dim UpdateVAReading As New NewVAReading
+        UpdateVAReading.LblSaveOption.Text = GridVAReading.GetRow.Cells("VAREAD_ID").Value
+        UpdateVAReading.TxtVAReading.Text = GridVAReading.GetRow.Cells("VAREADING").Value
+        If UpdateVAReading.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshVAReading()
+        End If
+    End Sub
+
+    Private Sub BtnRefreshAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnRefreshAdd.Click
+        RefreshAdd()
+
+    End Sub
+
+    Private Sub BtnNewADD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewADD.Click
+        Dim NAdd As New NewADDPara
+        If NAdd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshAdd()
+        End If
+    End Sub
+
+    Private Sub BtnDeleteAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDeleteAdd.Click
+        If GridADD.SelectedItems.Count = 0 Then Exit Sub
+        If MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            If DAAdd.DeleteADD(GridADD.GetRow.Cells("ADD_ID").Value) = 1 Then
+                RefreshAdd()
+            End If
+        End If
+    End Sub
+
+    Private Sub GridADD_RowDoubleClick(ByVal sender As System.Object, ByVal e As Janus.Windows.GridEX.RowActionEventArgs) Handles GridADD.RowDoubleClick
+        Dim NAdd As New NewADDPara
+        NAdd.LblSaveOption.Text = GridADD.GetRow.Cells("ADD_ID").Value
+        NAdd.TxtADD.Text = GridADD.GetRow.Cells("ADD_REFRACTION").Value
+        If NAdd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshAdd()
+        End If
+    End Sub
+
 End Class

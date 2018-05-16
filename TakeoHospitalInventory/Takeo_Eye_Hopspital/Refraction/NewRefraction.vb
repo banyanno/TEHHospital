@@ -5,6 +5,10 @@
     Dim DAPatient As New DSRefractionTableAdapters.TblPatientsTableAdapter
     Dim DARefraction As New DSRefractionTableAdapters.REFRACTIONTableAdapter
 
+    Dim DARefAxis As New DSRefractionTableAdapters.REFRACTION_AXISTableAdapter
+    Dim DARefVAReading As New DSRefractionTableAdapters.REFRACTION_VAREADINGTableAdapter
+    Dim DAAdd As New DSRefractionTableAdapters.REFRACTION_ADDTableAdapter
+
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -12,15 +16,47 @@
         RefreshVA()
         RefreshGlasess()
         RefreshDiagnosis()
+        RefreshVAReading()
+        RefreshAxis()
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
-
+    Private Sub RefreshVAReading()
+        With CboLVAReading
+            .DataSource = DARefVAReading.GetData
+            .ValueMember = "VAREAD_ID"
+            .DisplayMember = "VAREADING"
+            .SelectedIndex = -1
+        End With
+       
+    End Sub
+    Private Sub RefreshAdd()
+        With CboADD
+            .DataSource = DAAdd.GetData
+            .ValueMember = "ADD_ID"
+            .DisplayMember = "ADD_REFRACTION"
+            .SelectedIndex = -1
+        End With
+    End Sub
+    Private Sub RefreshAxis()
+        With CboRAxis
+            .DataSource = DARefAxis.GetData
+            .ValueMember = "AXIS_ID"
+            .DisplayMember = "AXIS_NAME"
+            .SelectedIndex = -1
+        End With
+        With CboLAxis
+            .DataSource = DARefAxis.GetData
+            .ValueMember = "AXIS_ID"
+            .DisplayMember = "AXIS_NAME"
+            .SelectedIndex = -1
+        End With
+    End Sub
     Private Sub BtnNewVA_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewVA.Click
         Dim NewRefVA As New NewRefracVA
         If NewRefVA.ShowDialog = Windows.Forms.DialogResult.OK Then
             RefreshVA()
-            
+
         End If
     End Sub
     Private Sub RefreshVA()
@@ -49,7 +85,7 @@
             .SelectedIndex = -1
         End With
 
-        
+
     End Sub
 
     Private Sub BtnNewDiagnosis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewDiagnosis.Click
@@ -91,7 +127,7 @@
     End Sub
 
     Private Sub NewRefraction_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-       
+
     End Sub
 
     Private Sub BtnNewVARefrac_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNewVARefrac.Click
@@ -130,14 +166,14 @@
             TxtPatientTel.Text = ""
             TxtPatientAddress.Text = ""
         End If
-        
+
     End Sub
 
     Private Sub TxtPatientNo_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPatientNo.KeyPress
         SetDisableKeyString(e)
     End Sub
 
-   
+
     Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
         If ValidateTextField(TxtPatientName, "", ErrRefraction) = False Then Exit Sub
         If ValidateTextField(TxtPatientSex, "", ErrRefraction) = False Then Exit Sub
@@ -149,18 +185,40 @@
         If ValidateCombobox(CboRVARefrac, "", ErrRefraction) = False Then Exit Sub
         If lblSaveOption.Text = "0" Then
             If MessageBox.Show("Do you want to save new refraction?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DARefraction.InsertNewRefration(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, IIf(ChPrescription.Checked = True, True, False), False, IIf(ChPrescription.Checked = True, "Request", ""), IIf(DARefraction.CheckOldOrNew(TxtPatientNo.Text) = 0, False, True)) = 1 Then
+                If DARefraction.InsertNewRefration(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, IIf(ChPrescription.Checked = True, True, False), False, IIf(ChPrescription.Checked = True, "Send", ""), IIf(DARefraction.CheckOldOrNew(TxtPatientNo.Text) = 0, False, True), CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text) = 1 Then
                     MessageBox.Show("Save new refraction successful!", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
             End If
         Else
             If MessageBox.Show("Do you want to update refraction?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DARefraction.UpdateRefraction(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, lblSaveOption.Text) = 1 Then
+                If DARefraction.UpdateRefraction(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text, ChPrescription.Checked, IIf(ChPrescription.Checked = True, "Send", ""), lblSaveOption.Text) = 1 Then
                     MessageBox.Show("Update refraction successful!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
             End If
+        End If
+
+    End Sub
+
+    Private Sub BtnVAReading_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnVAReading.Click
+        Dim VAReading As New NewVAReading
+        If VAReading.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshVAReading()
+        End If
+    End Sub
+
+    Private Sub BtnGlassesAxis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGlassesAxis.Click
+        Dim Axis As New NewAxisPara
+        If Axis.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshAxis()
+        End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim NAdd As New NewADDPara
+        If NAdd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshAdd()
         End If
 
     End Sub

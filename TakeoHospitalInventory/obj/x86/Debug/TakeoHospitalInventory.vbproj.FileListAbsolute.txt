@@ -291,3 +291,6 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHo
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewRefDiagnosis.resources
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewRefGlasses.resources
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewRefracVA.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewAxisPara.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewVAReading.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.NewADDPara.resources
