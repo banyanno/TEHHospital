@@ -14,7 +14,7 @@
                 CrvPostpone.SetDataSource(tblPostpone)
                 CrvPostpone.SetParameterValue("DateToDate", "Deleted From:" & Format(DateFrom.Value.Date, "dd/MM/yyy") & " To:" & Format(DateTo.Value.Date, "dd/MM/yyyy"))
             Else
-                tblPostpone = DAPostpone.SelectAllWithCancelOrDelete(DateFrom.Value.Date, DateTo.Value.Date, True, False)
+                tblPostpone = DAPostpone.SelectOTPostone(DateFrom.Value.Date, DateTo.Value.Date, True) 'DAPostpone.SelectAllWithCancelOrDelete(DateFrom.Value.Date, DateTo.Value.Date, True, False)
                 CrvPostpone.SetDataSource(tblPostpone)
                 CrvPostpone.SetParameterValue("DateToDate", "From:" & Format(DateFrom.Value.Date, "dd/MM/yyy") & " To:" & Format(DateTo.Value.Date, "dd/MM/yyyy"))
             End If
@@ -26,7 +26,12 @@
             CrystalReportViewer1.Dock = DockStyle.Fill
             GridEXPostpone.Visible = True
             GridEXPostpone.Dock = DockStyle.Fill
-            GridEXPostpone.DataSource = DAPostpone.SelectOTPostone(DateFrom.Value.Date, DateTo.Value.Date, True)
+            If ChDeleteRecord.Checked = True Then
+                GridEXPostpone.DataSource = DAPostpone.SelectAllWithCancelOrDelete(DateFrom.Value.Date, DateTo.Value.Date, True, True)
+            Else
+                GridEXPostpone.DataSource = DAPostpone.SelectOTPostone(DateFrom.Value.Date, DateTo.Value.Date, True)
+            End If
+
 
 
         End If

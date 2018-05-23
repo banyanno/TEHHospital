@@ -698,8 +698,8 @@ Public Class FrmNewReceipt
                     MTakeoInventory.StatusLoading(True)
                     Application.DoEvents()
                     Dim ObjReceipt As New RECEIPT
-                    'ObjReceipt = OpticalDataControl.GetReceiptByReceiptNo(InvoiceNo)
-                    ObjReceipt = OpticalDataControl.GetReceiptByReceiptNo(LblSaveStatus.Text)
+                    ObjReceipt = OpticalDataControl.GetReceiptByReceiptNo(InvoiceNo)
+                    'ObjReceipt = OpticalDataControl.GetReceiptByReceiptNo(LblSaveStatus.Text)
                     ObjReceipt.ReceiptID = LblReceiptID.Text
                     ObjReceipt.ReceiptNo = TxtReceiptNo.Text
                     ObjReceipt.ReceiptDate = DateCreateReceipt.Value
@@ -2089,6 +2089,7 @@ Public Class FrmNewReceipt
             TxtFullAmount.Enabled = Not (RadSocial.Checked)
             TxtNilAmount.Enabled = Not (RadSocial.Checked)
             TxtSocialAmount.Enabled = RadSocial.Checked
+            TxtSocialAmount.ReadOnly = False
             ChDonation.Enabled = True
             TxtFullAmount.Text = ""
             TxtNilAmount.Text = ""
@@ -2126,8 +2127,8 @@ Public Class FrmNewReceipt
             '--- Suppose item price in USD
             With GridItemDetail
                 For Each rRow As DataGridViewRow In .Rows
-                    rRow.Cells("SubTotal").Value = Round(rRow.Cells("ColumnPrice").Value * rRow.Cells("ColumnQTY").Value * Val(txtRate.Text), 2)
-                    rRow.Cells("SubTotalDolar").Value = Round(rRow.Cells("ColumnPrice").Value * rRow.Cells("ColumnQTY").Value, 2)
+                    rRow.Cells("SubTotal").Value = Round(rRow.Cells("ColumnPrice").Value * rRow.Cells("ColumnQTY").Value * Val(txtRate.Text), 3)
+                    rRow.Cells("SubTotalDolar").Value = Round(rRow.Cells("ColumnPrice").Value * rRow.Cells("ColumnQTY").Value, 3)
                 Next
             End With
             '--- ReCalculate Invoice Total

@@ -23,15 +23,25 @@ Partial Class MainRefraction
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim GridRefraction_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainRefraction))
+        Dim GridRefraction_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnNewRefraction = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnParameter = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripSplitButton1 = New System.Windows.Forms.ToolStripSplitButton
+        Me.BtnReqPrescription = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnAprovPrescription = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnRefreshListAprove = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteRefraction = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
         Me.UiTab1 = New Janus.Windows.UI.Tab.UITab
+        Me.UiTabPage1 = New Janus.Windows.UI.Tab.UITabPage
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.GridRefraction = New Janus.Windows.GridEX.GridEX
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
@@ -42,6 +52,7 @@ Partial Class MainRefraction
         Me.DateRefractFrom = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
+        Me.UiTabPage2 = New Janus.Windows.UI.Tab.UITabPage
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
@@ -61,32 +72,23 @@ Partial Class MainRefraction
         Me.DFromReport = New System.Windows.Forms.DateTimePicker
         Me.DToReport = New System.Windows.Forms.DateTimePicker
         Me.BtnPrintReport = New System.Windows.Forms.Button
-        Me.UiTabPage1 = New Janus.Windows.UI.Tab.UITabPage
-        Me.UiTabPage2 = New Janus.Windows.UI.Tab.UITabPage
-        Me.BtnNewRefraction = New System.Windows.Forms.ToolStripButton
-        Me.BtnParameter = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSplitButton1 = New System.Windows.Forms.ToolStripSplitButton
-        Me.BtnReqPrescription = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnAprovPrescription = New System.Windows.Forms.ToolStripMenuItem
-        Me.BtnDeleteRefraction = New System.Windows.Forms.ToolStripButton
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolStrip1.SuspendLayout()
         CType(Me.UiTab1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiTab1.SuspendLayout()
+        Me.UiTabPage1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.GridRefraction, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.UiTabPage2.SuspendLayout()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.UiTabPage1.SuspendLayout()
-        Me.UiTabPage2.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -94,7 +96,7 @@ Partial Class MainRefraction
         '
         Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(25, 25)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.BtnNewRefraction, Me.ToolStripSeparator3, Me.BtnParameter, Me.ToolStripSeparator2, Me.ToolStripSplitButton1, Me.ToolStripSeparator5, Me.BtnDeleteRefraction, Me.ToolStripSeparator4})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.BtnNewRefraction, Me.ToolStripSeparator3, Me.BtnParameter, Me.ToolStripSeparator2, Me.ToolStripSplitButton1, Me.ToolStripSeparator5, Me.BtnRefreshListAprove, Me.ToolStripSeparator6, Me.BtnDeleteRefraction, Me.ToolStripSeparator4})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(842, 53)
@@ -106,20 +108,100 @@ Partial Class MainRefraction
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 53)
         '
+        'BtnNewRefraction
+        '
+        Me.BtnNewRefraction.Enabled = False
+        Me.BtnNewRefraction.ForeColor = System.Drawing.Color.Blue
+        Me.BtnNewRefraction.Image = CType(resources.GetObject("BtnNewRefraction.Image"), System.Drawing.Image)
+        Me.BtnNewRefraction.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNewRefraction.Name = "BtnNewRefraction"
+        Me.BtnNewRefraction.Size = New System.Drawing.Size(121, 50)
+        Me.BtnNewRefraction.Text = "New Refraction"
+        Me.BtnNewRefraction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 53)
+        '
+        'BtnParameter
+        '
+        Me.BtnParameter.Enabled = False
+        Me.BtnParameter.ForeColor = System.Drawing.Color.Blue
+        Me.BtnParameter.Image = CType(resources.GetObject("BtnParameter.Image"), System.Drawing.Image)
+        Me.BtnParameter.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnParameter.Name = "BtnParameter"
+        Me.BtnParameter.Size = New System.Drawing.Size(160, 50)
+        Me.BtnParameter.Text = "Parameter Refraction"
+        Me.BtnParameter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 53)
         '
+        'ToolStripSplitButton1
+        '
+        Me.ToolStripSplitButton1.DropDownButtonWidth = 25
+        Me.ToolStripSplitButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnReqPrescription, Me.ToolStripMenuItem1, Me.BtnAprovPrescription})
+        Me.ToolStripSplitButton1.ForeColor = System.Drawing.Color.Blue
+        Me.ToolStripSplitButton1.Image = Global.TakeoHospitalInventory.My.Resources.Resources.icons8_doctors_bag_48
+        Me.ToolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripSplitButton1.Name = "ToolStripSplitButton1"
+        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(123, 50)
+        Me.ToolStripSplitButton1.Text = "Prescription"
+        Me.ToolStripSplitButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'BtnReqPrescription
+        '
+        Me.BtnReqPrescription.Enabled = False
+        Me.BtnReqPrescription.ForeColor = System.Drawing.Color.Blue
+        Me.BtnReqPrescription.Name = "BtnReqPrescription"
+        Me.BtnReqPrescription.Size = New System.Drawing.Size(229, 26)
+        Me.BtnReqPrescription.Text = "Send Improve"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(226, 6)
+        '
+        'BtnAprovPrescription
+        '
+        Me.BtnAprovPrescription.ForeColor = System.Drawing.Color.Blue
+        Me.BtnAprovPrescription.Name = "BtnAprovPrescription"
+        Me.BtnAprovPrescription.Size = New System.Drawing.Size(229, 26)
+        Me.BtnAprovPrescription.Text = "Received Prescription"
+        '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 53)
+        '
+        'BtnRefreshListAprove
+        '
+        Me.BtnRefreshListAprove.ForeColor = System.Drawing.Color.Blue
+        Me.BtnRefreshListAprove.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnRefreshListAprove.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnRefreshListAprove.Name = "BtnRefreshListAprove"
+        Me.BtnRefreshListAprove.Size = New System.Drawing.Size(134, 50)
+        Me.BtnRefreshListAprove.Text = "Refresh List Send"
+        Me.BtnRefreshListAprove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 53)
+        '
+        'BtnDeleteRefraction
+        '
+        Me.BtnDeleteRefraction.Enabled = False
+        Me.BtnDeleteRefraction.ForeColor = System.Drawing.Color.Blue
+        Me.BtnDeleteRefraction.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteRefraction.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteRefraction.Name = "BtnDeleteRefraction"
+        Me.BtnDeleteRefraction.Size = New System.Drawing.Size(133, 50)
+        Me.BtnDeleteRefraction.Text = "Delete Refraction"
+        Me.BtnDeleteRefraction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripSeparator4
         '
@@ -135,6 +217,18 @@ Partial Class MainRefraction
         Me.UiTab1.TabIndex = 3
         Me.UiTab1.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage1, Me.UiTabPage2})
         Me.UiTab1.TabStripAlignment = Janus.Windows.UI.Tab.TabStripAlignment.Left
+        '
+        'UiTabPage1
+        '
+        Me.UiTabPage1.Controls.Add(Me.SplitContainer1)
+        Me.UiTabPage1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UiTabPage1.Location = New System.Drawing.Point(28, 1)
+        Me.UiTabPage1.Name = "UiTabPage1"
+        Me.UiTabPage1.Size = New System.Drawing.Size(811, 464)
+        Me.UiTabPage1.StateStyles.FormatStyle.FontSize = 12.0!
+        Me.UiTabPage1.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Blue
+        Me.UiTabPage1.TabStop = True
+        Me.UiTabPage1.Text = "Refraction Information"
         '
         'SplitContainer1
         '
@@ -160,7 +254,7 @@ Partial Class MainRefraction
         GridRefraction_DesignTimeLayout.LayoutString = resources.GetString("GridRefraction_DesignTimeLayout.LayoutString")
         Me.GridRefraction.DesignTimeLayout = GridRefraction_DesignTimeLayout
         Me.GridRefraction.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridRefraction.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridRefraction.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.GridRefraction.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
         Me.GridRefraction.GroupByBoxVisible = False
         Me.GridRefraction.Location = New System.Drawing.Point(0, 0)
@@ -256,6 +350,17 @@ Partial Class MainRefraction
         Me.Label1.Size = New System.Drawing.Size(50, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "From:"
+        '
+        'UiTabPage2
+        '
+        Me.UiTabPage2.Controls.Add(Me.SplitContainer2)
+        Me.UiTabPage2.Location = New System.Drawing.Point(28, 1)
+        Me.UiTabPage2.Name = "UiTabPage2"
+        Me.UiTabPage2.Size = New System.Drawing.Size(811, 464)
+        Me.UiTabPage2.StateStyles.FormatStyle.FontSize = 12.0!
+        Me.UiTabPage2.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Blue
+        Me.UiTabPage2.TabStop = True
+        Me.UiTabPage2.Text = "Refraction Report"
         '
         'SplitContainer2
         '
@@ -475,90 +580,6 @@ Partial Class MainRefraction
         Me.BtnPrintReport.Text = "Print Preview"
         Me.BtnPrintReport.UseVisualStyleBackColor = True
         '
-        'UiTabPage1
-        '
-        Me.UiTabPage1.Controls.Add(Me.SplitContainer1)
-        Me.UiTabPage1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UiTabPage1.Location = New System.Drawing.Point(28, 1)
-        Me.UiTabPage1.Name = "UiTabPage1"
-        Me.UiTabPage1.Size = New System.Drawing.Size(811, 464)
-        Me.UiTabPage1.StateStyles.FormatStyle.FontSize = 12.0!
-        Me.UiTabPage1.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Blue
-        Me.UiTabPage1.TabStop = True
-        Me.UiTabPage1.Text = "Refraction Information"
-        '
-        'UiTabPage2
-        '
-        Me.UiTabPage2.Controls.Add(Me.SplitContainer2)
-        Me.UiTabPage2.Location = New System.Drawing.Point(28, 1)
-        Me.UiTabPage2.Name = "UiTabPage2"
-        Me.UiTabPage2.Size = New System.Drawing.Size(811, 464)
-        Me.UiTabPage2.StateStyles.FormatStyle.FontSize = 12.0!
-        Me.UiTabPage2.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Blue
-        Me.UiTabPage2.TabStop = True
-        Me.UiTabPage2.Text = "Refraction Report"
-        '
-        'BtnNewRefraction
-        '
-        Me.BtnNewRefraction.ForeColor = System.Drawing.Color.Blue
-        Me.BtnNewRefraction.Image = CType(resources.GetObject("BtnNewRefraction.Image"), System.Drawing.Image)
-        Me.BtnNewRefraction.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnNewRefraction.Name = "BtnNewRefraction"
-        Me.BtnNewRefraction.Size = New System.Drawing.Size(121, 50)
-        Me.BtnNewRefraction.Text = "New Refraction"
-        Me.BtnNewRefraction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'BtnParameter
-        '
-        Me.BtnParameter.ForeColor = System.Drawing.Color.Blue
-        Me.BtnParameter.Image = CType(resources.GetObject("BtnParameter.Image"), System.Drawing.Image)
-        Me.BtnParameter.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnParameter.Name = "BtnParameter"
-        Me.BtnParameter.Size = New System.Drawing.Size(160, 50)
-        Me.BtnParameter.Text = "Parameter Refraction"
-        Me.BtnParameter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripSplitButton1
-        '
-        Me.ToolStripSplitButton1.DropDownButtonWidth = 25
-        Me.ToolStripSplitButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnReqPrescription, Me.ToolStripMenuItem1, Me.BtnAprovPrescription})
-        Me.ToolStripSplitButton1.ForeColor = System.Drawing.Color.Blue
-        Me.ToolStripSplitButton1.Image = Global.TakeoHospitalInventory.My.Resources.Resources.icons8_doctors_bag_48
-        Me.ToolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripSplitButton1.Name = "ToolStripSplitButton1"
-        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(123, 50)
-        Me.ToolStripSplitButton1.Text = "Prescription"
-        Me.ToolStripSplitButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'BtnReqPrescription
-        '
-        Me.BtnReqPrescription.ForeColor = System.Drawing.Color.Blue
-        Me.BtnReqPrescription.Name = "BtnReqPrescription"
-        Me.BtnReqPrescription.Size = New System.Drawing.Size(229, 26)
-        Me.BtnReqPrescription.Text = "Send Prescription"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(226, 6)
-        '
-        'BtnAprovPrescription
-        '
-        Me.BtnAprovPrescription.ForeColor = System.Drawing.Color.Blue
-        Me.BtnAprovPrescription.Name = "BtnAprovPrescription"
-        Me.BtnAprovPrescription.Size = New System.Drawing.Size(229, 26)
-        Me.BtnAprovPrescription.Text = "Received Prescription"
-        '
-        'BtnDeleteRefraction
-        '
-        Me.BtnDeleteRefraction.ForeColor = System.Drawing.Color.Blue
-        Me.BtnDeleteRefraction.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
-        Me.BtnDeleteRefraction.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnDeleteRefraction.Name = "BtnDeleteRefraction"
-        Me.BtnDeleteRefraction.Size = New System.Drawing.Size(133, 50)
-        Me.BtnDeleteRefraction.Text = "Delete Refraction"
-        Me.BtnDeleteRefraction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
@@ -575,12 +596,14 @@ Partial Class MainRefraction
         Me.ToolStrip1.PerformLayout()
         CType(Me.UiTab1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UiTab1.ResumeLayout(False)
+        Me.UiTabPage1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.GridRefraction, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.UiTabPage2.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         Me.SplitContainer2.ResumeLayout(False)
@@ -589,8 +612,6 @@ Partial Class MainRefraction
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.UiTabPage1.ResumeLayout(False)
-        Me.UiTabPage2.ResumeLayout(False)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -642,5 +663,7 @@ Partial Class MainRefraction
     Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents BtnRefreshListAprove As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
 
 End Class

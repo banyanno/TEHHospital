@@ -18,6 +18,7 @@
         RefreshDiagnosis()
         RefreshVAReading()
         RefreshAxis()
+        RefreshAdd()
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
@@ -184,15 +185,19 @@
         If ValidateCombobox(CboLVARefrac, "", ErrRefraction) = False Then Exit Sub
         If ValidateCombobox(CboRVARefrac, "", ErrRefraction) = False Then Exit Sub
         If lblSaveOption.Text = "0" Then
+            If DARefraction.CheckExistingPatient(TxtPatientNo.Text, RefrationDate.Value) > 0 Then
+                MessageBox.Show("Today patient already register in Refraction.Please check patient again!", "Refraction", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
             If MessageBox.Show("Do you want to save new refraction?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DARefraction.InsertNewRefration(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, IIf(ChPrescription.Checked = True, True, False), False, IIf(ChPrescription.Checked = True, "Send", ""), IIf(DARefraction.CheckOldOrNew(TxtPatientNo.Text) = 0, False, True), CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text) = 1 Then
+                If DARefraction.InsertNewRefration(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, IIf(ChPrescription.Checked = True, True, False), False, "", ChIsOld.Checked, CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text) = 1 Then
                     MessageBox.Show("Save new refraction successful!", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
             End If
         Else
             If MessageBox.Show("Do you want to update refraction?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DARefraction.UpdateRefraction(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text, ChPrescription.Checked, IIf(ChPrescription.Checked = True, "Send", ""), lblSaveOption.Text) = 1 Then
+                If DARefraction.UpdateRefraction(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text, ChPrescription.Checked, ChIsOld.Checked, lblSaveOption.Text) = 1 Then
                     MessageBox.Show("Update refraction successful!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If

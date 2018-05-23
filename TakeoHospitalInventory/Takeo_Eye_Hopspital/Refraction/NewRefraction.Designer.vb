@@ -43,6 +43,7 @@ Partial Class NewRefraction
         Me.Label1 = New System.Windows.Forms.Label
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage2 = New System.Windows.Forms.TabPage
+        Me.ChIsOld = New System.Windows.Forms.CheckBox
         Me.BtnGlassesAxis = New System.Windows.Forms.Button
         Me.CboLAxis = New System.Windows.Forms.ComboBox
         Me.Label18 = New System.Windows.Forms.Label
@@ -57,6 +58,7 @@ Partial Class NewRefraction
         Me.CboLGlasses = New System.Windows.Forms.ComboBox
         Me.CboDiagnosis = New System.Windows.Forms.ComboBox
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.Button1 = New System.Windows.Forms.Button
         Me.CboLVAReading = New System.Windows.Forms.ComboBox
         Me.Label19 = New System.Windows.Forms.Label
         Me.BtnVAReading = New System.Windows.Forms.Button
@@ -79,7 +81,6 @@ Partial Class NewRefraction
         Me.BtnSave = New System.Windows.Forms.Button
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrRefraction = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -108,7 +109,7 @@ Partial Class NewRefraction
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(6, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(567, 175)
+        Me.GroupBox1.Size = New System.Drawing.Size(567, 147)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Patient Info"
@@ -129,7 +130,7 @@ Partial Class NewRefraction
         Me.RefrationDate.CustomFormat = "dd/MM/yyyy"
         Me.RefrationDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RefrationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.RefrationDate.Location = New System.Drawing.Point(335, 142)
+        Me.RefrationDate.Location = New System.Drawing.Point(333, 111)
         Me.RefrationDate.Name = "RefrationDate"
         Me.RefrationDate.ShowCheckBox = True
         Me.RefrationDate.Size = New System.Drawing.Size(190, 26)
@@ -138,7 +139,7 @@ Partial Class NewRefraction
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(333, 124)
+        Me.Label15.Location = New System.Drawing.Point(333, 91)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(85, 13)
         Me.Label15.TabIndex = 13
@@ -147,7 +148,7 @@ Partial Class NewRefraction
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 152)
+        Me.Label6.Location = New System.Drawing.Point(6, 121)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
         Me.Label6.TabIndex = 12
@@ -156,16 +157,17 @@ Partial Class NewRefraction
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 124)
+        Me.Label5.Location = New System.Drawing.Point(419, 46)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 13)
         Me.Label5.TabIndex = 11
         Me.Label5.Text = "Tel:"
+        Me.Label5.Visible = False
         '
         'TxtPatientAddress
         '
         Me.TxtPatientAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientAddress.Location = New System.Drawing.Point(85, 142)
+        Me.TxtPatientAddress.Location = New System.Drawing.Point(85, 111)
         Me.TxtPatientAddress.Name = "TxtPatientAddress"
         Me.TxtPatientAddress.ReadOnly = True
         Me.TxtPatientAddress.Size = New System.Drawing.Size(242, 26)
@@ -174,11 +176,12 @@ Partial Class NewRefraction
         'TxtPatientTel
         '
         Me.TxtPatientTel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientTel.Location = New System.Drawing.Point(85, 111)
+        Me.TxtPatientTel.Location = New System.Drawing.Point(450, 54)
         Me.TxtPatientTel.Name = "TxtPatientTel"
         Me.TxtPatientTel.ReadOnly = True
         Me.TxtPatientTel.Size = New System.Drawing.Size(242, 26)
         Me.TxtPatientTel.TabIndex = 5
+        Me.TxtPatientTel.Visible = False
         '
         'TxtPatientAge
         '
@@ -264,14 +267,15 @@ Partial Class NewRefraction
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(6, 188)
+        Me.TabControl1.Location = New System.Drawing.Point(6, 157)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(567, 443)
+        Me.TabControl1.Size = New System.Drawing.Size(567, 432)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.ChIsOld)
         Me.TabPage2.Controls.Add(Me.BtnGlassesAxis)
         Me.TabPage2.Controls.Add(Me.CboLAxis)
         Me.TabPage2.Controls.Add(Me.Label18)
@@ -293,10 +297,21 @@ Partial Class NewRefraction
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(559, 417)
+        Me.TabPage2.Size = New System.Drawing.Size(559, 406)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Refraction Info"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'ChIsOld
+        '
+        Me.ChIsOld.AutoSize = True
+        Me.ChIsOld.ForeColor = System.Drawing.Color.Red
+        Me.ChIsOld.Location = New System.Drawing.Point(398, 72)
+        Me.ChIsOld.Name = "ChIsOld"
+        Me.ChIsOld.Size = New System.Drawing.Size(89, 17)
+        Me.ChIsOld.TabIndex = 13
+        Me.ChIsOld.Text = "Is Old Patient"
+        Me.ChIsOld.UseVisualStyleBackColor = True
         '
         'BtnGlassesAxis
         '
@@ -353,9 +368,9 @@ Partial Class NewRefraction
         Me.ChPrescription.AutoSize = True
         Me.ChPrescription.Location = New System.Drawing.Point(308, 72)
         Me.ChPrescription.Name = "ChPrescription"
-        Me.ChPrescription.Size = New System.Drawing.Size(81, 17)
+        Me.ChPrescription.Size = New System.Drawing.Size(64, 17)
         Me.ChPrescription.TabIndex = 3
-        Me.ChPrescription.Text = "Prescription"
+        Me.ChPrescription.Text = "Improve"
         Me.ChPrescription.UseVisualStyleBackColor = True
         '
         'TxtRefractionNote
@@ -447,6 +462,16 @@ Partial Class NewRefraction
         Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "VA on Refraction:"
+        '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(243, 99)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(43, 27)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "..."
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'CboLVAReading
         '
@@ -642,7 +667,7 @@ Partial Class NewRefraction
         'BtnSave
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSave.Location = New System.Drawing.Point(413, 637)
+        Me.BtnSave.Location = New System.Drawing.Point(414, 593)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(75, 30)
         Me.BtnSave.TabIndex = 2
@@ -652,7 +677,7 @@ Partial Class NewRefraction
         'BtnCancel
         '
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.Location = New System.Drawing.Point(494, 637)
+        Me.BtnCancel.Location = New System.Drawing.Point(495, 593)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(75, 30)
         Me.BtnCancel.TabIndex = 3
@@ -663,21 +688,11 @@ Partial Class NewRefraction
         '
         Me.ErrRefraction.ContainerControl = Me
         '
-        'Button1
-        '
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.Location = New System.Drawing.Point(243, 99)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(43, 27)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "..."
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'NewRefraction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(578, 674)
+        Me.ClientSize = New System.Drawing.Size(578, 626)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.TabControl1)
@@ -759,4 +774,5 @@ Partial Class NewRefraction
     Friend WithEvents CboLVAReading As System.Windows.Forms.ComboBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ChIsOld As System.Windows.Forms.CheckBox
 End Class
