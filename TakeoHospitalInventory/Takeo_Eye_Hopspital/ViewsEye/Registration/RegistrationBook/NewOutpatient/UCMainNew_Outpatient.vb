@@ -439,20 +439,20 @@ Public Class UCMainNew_Outpatient
 
     Function CountMoney(ByVal Number As Integer, ByVal ColName As String) As Integer
         Dim Numb As Integer
-        'With Me.GridNewOutpatient
-        '    For i As Integer = 0 To .Rows.Count - 1
-        '        If .Rows(i).Cells(ColName).Value = Number Then
-        '            Numb = Numb + 1
-        '        End If
-        '    Next
-        'End With
-        With Me.GridEXNewPatientBook
-            For i As Integer = 0 To .RowCount - 1
-                If .GetRow(i).Cells(ColName).Value = Number Then
+        With Me.GridEXNewPatientBookV1
+            For i As Integer = 0 To .Rows.Count - 1
+                If .Rows(i).Cells(ColName).Value = Number Then
                     Numb = Numb + 1
                 End If
             Next
         End With
+        'With Me.GridEXNewPatientBook
+        '    For i As Integer = 0 To .RowCount - 1
+        '        If .GetRow(i).Cells(ColName).Value = Number Then
+        '            Numb = Numb + 1
+        '        End If
+        '    Next
+        'End With
         Return Numb
     End Function
 

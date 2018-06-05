@@ -1297,6 +1297,8 @@ Partial Public Class DSRefraction
         
         Private columnRVA_READING As Global.System.Data.DataColumn
         
+        Private columnIS_OLD_OR_NEW_REFRAC As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -1497,6 +1499,13 @@ Partial Public Class DSRefraction
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IS_OLD_OR_NEW_REFRACColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIS_OLD_OR_NEW_REFRAC
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1549,9 +1558,10 @@ Partial Public Class DSRefraction
                     ByVal L_AXIS As String,  _
                     ByVal R_AXIS As String,  _
                     ByVal LVA_READING As String,  _
-                    ByVal RVA_READING As String) As REFRACTIONRow
+                    ByVal RVA_READING As String,  _
+                    ByVal IS_OLD_OR_NEW_REFRAC As Boolean) As REFRACTIONRow
             Dim rowREFRACTIONRow As REFRACTIONRow = CType(Me.NewRow,REFRACTIONRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_REFRACTION, RVA_REFRACTION, REFRACTION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING}
+            Dim columnValuesArray() As Object = New Object() {Nothing, PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_REFRACTION, RVA_REFRACTION, REFRACTION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING, IS_OLD_OR_NEW_REFRAC}
             rowREFRACTIONRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowREFRACTIONRow)
             Return rowREFRACTIONRow
@@ -1600,6 +1610,7 @@ Partial Public Class DSRefraction
             Me.columnR_AXIS = MyBase.Columns("R_AXIS")
             Me.columnLVA_READING = MyBase.Columns("LVA_READING")
             Me.columnRVA_READING = MyBase.Columns("RVA_READING")
+            Me.columnIS_OLD_OR_NEW_REFRAC = MyBase.Columns("IS_OLD_OR_NEW_REFRAC")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1652,6 +1663,8 @@ Partial Public Class DSRefraction
             MyBase.Columns.Add(Me.columnLVA_READING)
             Me.columnRVA_READING = New Global.System.Data.DataColumn("RVA_READING", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRVA_READING)
+            Me.columnIS_OLD_OR_NEW_REFRAC = New Global.System.Data.DataColumn("IS_OLD_OR_NEW_REFRAC", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIS_OLD_OR_NEW_REFRAC)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnREFRACT_ID}, true))
             Me.columnREFRACT_ID.AutoIncrement = true
             Me.columnREFRACT_ID.AutoIncrementSeed = -1
@@ -3540,6 +3553,20 @@ Partial Public Class DSRefraction
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IS_OLD_OR_NEW_REFRAC() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableREFRACTION.IS_OLD_OR_NEW_REFRACColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IS_OLD_OR_NEW_REFRAC' in table 'REFRACTION' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableREFRACTION.IS_OLD_OR_NEW_REFRACColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsPATIENT_NONull() As Boolean
             Return Me.IsNull(Me.tableREFRACTION.PATIENT_NOColumn)
         End Function
@@ -3767,6 +3794,16 @@ Partial Public Class DSRefraction
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetRVA_READINGNull()
             Me(Me.tableREFRACTION.RVA_READINGColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsIS_OLD_OR_NEW_REFRACNull() As Boolean
+            Return Me.IsNull(Me.tableREFRACTION.IS_OLD_OR_NEW_REFRACColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetIS_OLD_OR_NEW_REFRACNull()
+            Me(Me.tableREFRACTION.IS_OLD_OR_NEW_REFRACColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -5978,6 +6015,7 @@ Namespace DSRefractionTableAdapters
             tableMapping.ColumnMappings.Add("R_AXIS", "R_AXIS")
             tableMapping.ColumnMappings.Add("LVA_READING", "LVA_READING")
             tableMapping.ColumnMappings.Add("RVA_READING", "RVA_READING")
+            tableMapping.ColumnMappings.Add("IS_OLD_OR_NEW_REFRAC", "IS_OLD_OR_NEW_REFRAC")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -6010,8 +6048,9 @@ Namespace DSRefractionTableAdapters
                 "L) OR ([L_AXIS] = @Original_L_AXIS)) AND ((@IsNull_R_AXIS = 1 AND [R_AXIS] IS NU"& _ 
                 "LL) OR ([R_AXIS] = @Original_R_AXIS)) AND ((@IsNull_LVA_READING = 1 AND [LVA_REA"& _ 
                 "DING] IS NULL) OR ([LVA_READING] = @Original_LVA_READING)) AND ((@IsNull_RVA_REA"& _ 
-                "DING = 1 AND [RVA_READING] IS NULL) OR ([RVA_READING] = @Original_RVA_READING)))"& _ 
-                ""
+                "DING = 1 AND [RVA_READING] IS NULL) OR ([RVA_READING] = @Original_RVA_READING)) "& _ 
+                "AND ((@IsNull_IS_OLD_OR_NEW_REFRAC = 1 AND [IS_OLD_OR_NEW_REFRAC] IS NULL) OR (["& _ 
+                "IS_OLD_OR_NEW_REFRAC] = @Original_IS_OLD_OR_NEW_REFRAC)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -6060,22 +6099,25 @@ Namespace DSRefractionTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RVA_READING", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [REFRACTION] ([PATIENT_NO], [PATIENT_NAME], [PATEINT_SEX], [PATIENT_A"& _ 
                 "GE], [PATIENT_TEL], [PATIENT_ADDRESS], [REFRATION_DATE], [OLD_LVA], [OLD_RVA], ["& _ 
                 "DIAGNOSIS], [L_GLASSES], [R_GLASSES], [LVA_REFRACTION], [RVA_REFRACTION], [REFRA"& _ 
                 "CTION_NOTE], [IS_PRESCRIPTION], [IS_DELETE], [PRESCRIPT_STATUS], [IS_OLD_OR_NEW]"& _ 
-                ", [L_AXIS], [R_AXIS], [LVA_READING], [RVA_READING]) VALUES (@PATIENT_NO, @PATIEN"& _ 
-                "T_NAME, @PATEINT_SEX, @PATIENT_AGE, @PATIENT_TEL, @PATIENT_ADDRESS, @REFRATION_D"& _ 
-                "ATE, @OLD_LVA, @OLD_RVA, @DIAGNOSIS, @L_GLASSES, @R_GLASSES, @LVA_REFRACTION, @R"& _ 
-                "VA_REFRACTION, @REFRACTION_NOTE, @IS_PRESCRIPTION, @IS_DELETE, @PRESCRIPT_STATUS"& _ 
-                ", @IS_OLD_OR_NEW, @L_AXIS, @R_AXIS, @LVA_READING, @RVA_READING);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT REFRACT"& _ 
-                "_ID, PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_AD"& _ 
-                "DRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_RE"& _ 
-                "FRACTION, RVA_REFRACTION, REFRACTION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT"& _ 
-                "_STATUS, IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING FROM REFRACTION"& _ 
-                " WHERE (REFRACT_ID = SCOPE_IDENTITY())"
+                ", [L_AXIS], [R_AXIS], [LVA_READING], [RVA_READING], [IS_OLD_OR_NEW_REFRAC]) VALU"& _ 
+                "ES (@PATIENT_NO, @PATIENT_NAME, @PATEINT_SEX, @PATIENT_AGE, @PATIENT_TEL, @PATIE"& _ 
+                "NT_ADDRESS, @REFRATION_DATE, @OLD_LVA, @OLD_RVA, @DIAGNOSIS, @L_GLASSES, @R_GLAS"& _ 
+                "SES, @LVA_REFRACTION, @RVA_REFRACTION, @REFRACTION_NOTE, @IS_PRESCRIPTION, @IS_D"& _ 
+                "ELETE, @PRESCRIPT_STATUS, @IS_OLD_OR_NEW, @L_AXIS, @R_AXIS, @LVA_READING, @RVA_R"& _ 
+                "EADING, @IS_OLD_OR_NEW_REFRAC);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT REFRACT_ID, PATIENT_NO, PATIENT_NAME, PA"& _ 
+                "TEINT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, O"& _ 
+                "LD_RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_REFRACTION, RVA_REFRACTION, REFRACT"& _ 
+                "ION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R"& _ 
+                "_AXIS, LVA_READING, RVA_READING, IS_OLD_OR_NEW_REFRAC FROM REFRACTION WHERE (REF"& _ 
+                "RACT_ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6100,6 +6142,7 @@ Namespace DSRefractionTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_AXIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "R_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [REFRACTION] SET [PATIENT_NO] = @PATIENT_NO, [PATIENT_NAME] = @PATIENT_NAM"& _ 
@@ -6110,42 +6153,44 @@ Namespace DSRefractionTableAdapters
                 "ION, [RVA_REFRACTION] = @RVA_REFRACTION, [REFRACTION_NOTE] = @REFRACTION_NOTE, ["& _ 
                 "IS_PRESCRIPTION] = @IS_PRESCRIPTION, [IS_DELETE] = @IS_DELETE, [PRESCRIPT_STATUS"& _ 
                 "] = @PRESCRIPT_STATUS, [IS_OLD_OR_NEW] = @IS_OLD_OR_NEW, [L_AXIS] = @L_AXIS, [R_"& _ 
-                "AXIS] = @R_AXIS, [LVA_READING] = @LVA_READING, [RVA_READING] = @RVA_READING WHER"& _ 
-                "E (([REFRACT_ID] = @Original_REFRACT_ID) AND ((@IsNull_PATIENT_NO = 1 AND [PATIE"& _ 
-                "NT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_PATIENT_"& _ 
-                "NAME = 1 AND [PATIENT_NAME] IS NULL) OR ([PATIENT_NAME] = @Original_PATIENT_NAME"& _ 
-                ")) AND ((@IsNull_PATEINT_SEX = 1 AND [PATEINT_SEX] IS NULL) OR ([PATEINT_SEX] = "& _ 
-                "@Original_PATEINT_SEX)) AND ((@IsNull_PATIENT_AGE = 1 AND [PATIENT_AGE] IS NULL)"& _ 
-                " OR ([PATIENT_AGE] = @Original_PATIENT_AGE)) AND ((@IsNull_PATIENT_TEL = 1 AND ["& _ 
-                "PATIENT_TEL] IS NULL) OR ([PATIENT_TEL] = @Original_PATIENT_TEL)) AND ((@IsNull_"& _ 
-                "PATIENT_ADDRESS = 1 AND [PATIENT_ADDRESS] IS NULL) OR ([PATIENT_ADDRESS] = @Orig"& _ 
-                "inal_PATIENT_ADDRESS)) AND ((@IsNull_REFRATION_DATE = 1 AND [REFRATION_DATE] IS "& _ 
-                "NULL) OR ([REFRATION_DATE] = @Original_REFRATION_DATE)) AND ((@IsNull_OLD_LVA = "& _ 
-                "1 AND [OLD_LVA] IS NULL) OR ([OLD_LVA] = @Original_OLD_LVA)) AND ((@IsNull_OLD_R"& _ 
-                "VA = 1 AND [OLD_RVA] IS NULL) OR ([OLD_RVA] = @Original_OLD_RVA)) AND ((@IsNull_"& _ 
-                "DIAGNOSIS = 1 AND [DIAGNOSIS] IS NULL) OR ([DIAGNOSIS] = @Original_DIAGNOSIS)) A"& _ 
-                "ND ((@IsNull_L_GLASSES = 1 AND [L_GLASSES] IS NULL) OR ([L_GLASSES] = @Original_"& _ 
-                "L_GLASSES)) AND ((@IsNull_R_GLASSES = 1 AND [R_GLASSES] IS NULL) OR ([R_GLASSES]"& _ 
-                " = @Original_R_GLASSES)) AND ((@IsNull_LVA_REFRACTION = 1 AND [LVA_REFRACTION] I"& _ 
-                "S NULL) OR ([LVA_REFRACTION] = @Original_LVA_REFRACTION)) AND ((@IsNull_RVA_REFR"& _ 
-                "ACTION = 1 AND [RVA_REFRACTION] IS NULL) OR ([RVA_REFRACTION] = @Original_RVA_RE"& _ 
-                "FRACTION)) AND ((@IsNull_REFRACTION_NOTE = 1 AND [REFRACTION_NOTE] IS NULL) OR ("& _ 
-                "[REFRACTION_NOTE] = @Original_REFRACTION_NOTE)) AND ((@IsNull_IS_PRESCRIPTION = "& _ 
-                "1 AND [IS_PRESCRIPTION] IS NULL) OR ([IS_PRESCRIPTION] = @Original_IS_PRESCRIPTI"& _ 
-                "ON)) AND ((@IsNull_IS_DELETE = 1 AND [IS_DELETE] IS NULL) OR ([IS_DELETE] = @Ori"& _ 
-                "ginal_IS_DELETE)) AND ((@IsNull_PRESCRIPT_STATUS = 1 AND [PRESCRIPT_STATUS] IS N"& _ 
-                "ULL) OR ([PRESCRIPT_STATUS] = @Original_PRESCRIPT_STATUS)) AND ((@IsNull_IS_OLD_"& _ 
-                "OR_NEW = 1 AND [IS_OLD_OR_NEW] IS NULL) OR ([IS_OLD_OR_NEW] = @Original_IS_OLD_O"& _ 
-                "R_NEW)) AND ((@IsNull_L_AXIS = 1 AND [L_AXIS] IS NULL) OR ([L_AXIS] = @Original_"& _ 
-                "L_AXIS)) AND ((@IsNull_R_AXIS = 1 AND [R_AXIS] IS NULL) OR ([R_AXIS] = @Original"& _ 
-                "_R_AXIS)) AND ((@IsNull_LVA_READING = 1 AND [LVA_READING] IS NULL) OR ([LVA_READ"& _ 
-                "ING] = @Original_LVA_READING)) AND ((@IsNull_RVA_READING = 1 AND [RVA_READING] I"& _ 
-                "S NULL) OR ([RVA_READING] = @Original_RVA_READING)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT REFRACT_ID, PATIEN"& _ 
-                "T_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_ADDRESS, REFR"& _ 
-                "ATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_REFRACTION, R"& _ 
-                "VA_REFRACTION, REFRACTION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS"& _ 
-                "_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING FROM REFRACTION WHERE (REF"& _ 
-                "RACT_ID = @REFRACT_ID)"
+                "AXIS] = @R_AXIS, [LVA_READING] = @LVA_READING, [RVA_READING] = @RVA_READING, [IS"& _ 
+                "_OLD_OR_NEW_REFRAC] = @IS_OLD_OR_NEW_REFRAC WHERE (([REFRACT_ID] = @Original_REF"& _ 
+                "RACT_ID) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO]"& _ 
+                " = @Original_PATIENT_NO)) AND ((@IsNull_PATIENT_NAME = 1 AND [PATIENT_NAME] IS N"& _ 
+                "ULL) OR ([PATIENT_NAME] = @Original_PATIENT_NAME)) AND ((@IsNull_PATEINT_SEX = 1"& _ 
+                " AND [PATEINT_SEX] IS NULL) OR ([PATEINT_SEX] = @Original_PATEINT_SEX)) AND ((@I"& _ 
+                "sNull_PATIENT_AGE = 1 AND [PATIENT_AGE] IS NULL) OR ([PATIENT_AGE] = @Original_P"& _ 
+                "ATIENT_AGE)) AND ((@IsNull_PATIENT_TEL = 1 AND [PATIENT_TEL] IS NULL) OR ([PATIE"& _ 
+                "NT_TEL] = @Original_PATIENT_TEL)) AND ((@IsNull_PATIENT_ADDRESS = 1 AND [PATIENT"& _ 
+                "_ADDRESS] IS NULL) OR ([PATIENT_ADDRESS] = @Original_PATIENT_ADDRESS)) AND ((@Is"& _ 
+                "Null_REFRATION_DATE = 1 AND [REFRATION_DATE] IS NULL) OR ([REFRATION_DATE] = @Or"& _ 
+                "iginal_REFRATION_DATE)) AND ((@IsNull_OLD_LVA = 1 AND [OLD_LVA] IS NULL) OR ([OL"& _ 
+                "D_LVA] = @Original_OLD_LVA)) AND ((@IsNull_OLD_RVA = 1 AND [OLD_RVA] IS NULL) OR"& _ 
+                " ([OLD_RVA] = @Original_OLD_RVA)) AND ((@IsNull_DIAGNOSIS = 1 AND [DIAGNOSIS] IS"& _ 
+                " NULL) OR ([DIAGNOSIS] = @Original_DIAGNOSIS)) AND ((@IsNull_L_GLASSES = 1 AND ["& _ 
+                "L_GLASSES] IS NULL) OR ([L_GLASSES] = @Original_L_GLASSES)) AND ((@IsNull_R_GLAS"& _ 
+                "SES = 1 AND [R_GLASSES] IS NULL) OR ([R_GLASSES] = @Original_R_GLASSES)) AND ((@"& _ 
+                "IsNull_LVA_REFRACTION = 1 AND [LVA_REFRACTION] IS NULL) OR ([LVA_REFRACTION] = @"& _ 
+                "Original_LVA_REFRACTION)) AND ((@IsNull_RVA_REFRACTION = 1 AND [RVA_REFRACTION] "& _ 
+                "IS NULL) OR ([RVA_REFRACTION] = @Original_RVA_REFRACTION)) AND ((@IsNull_REFRACT"& _ 
+                "ION_NOTE = 1 AND [REFRACTION_NOTE] IS NULL) OR ([REFRACTION_NOTE] = @Original_RE"& _ 
+                "FRACTION_NOTE)) AND ((@IsNull_IS_PRESCRIPTION = 1 AND [IS_PRESCRIPTION] IS NULL)"& _ 
+                " OR ([IS_PRESCRIPTION] = @Original_IS_PRESCRIPTION)) AND ((@IsNull_IS_DELETE = 1"& _ 
+                " AND [IS_DELETE] IS NULL) OR ([IS_DELETE] = @Original_IS_DELETE)) AND ((@IsNull_"& _ 
+                "PRESCRIPT_STATUS = 1 AND [PRESCRIPT_STATUS] IS NULL) OR ([PRESCRIPT_STATUS] = @O"& _ 
+                "riginal_PRESCRIPT_STATUS)) AND ((@IsNull_IS_OLD_OR_NEW = 1 AND [IS_OLD_OR_NEW] I"& _ 
+                "S NULL) OR ([IS_OLD_OR_NEW] = @Original_IS_OLD_OR_NEW)) AND ((@IsNull_L_AXIS = 1"& _ 
+                " AND [L_AXIS] IS NULL) OR ([L_AXIS] = @Original_L_AXIS)) AND ((@IsNull_R_AXIS = "& _ 
+                "1 AND [R_AXIS] IS NULL) OR ([R_AXIS] = @Original_R_AXIS)) AND ((@IsNull_LVA_READ"& _ 
+                "ING = 1 AND [LVA_READING] IS NULL) OR ([LVA_READING] = @Original_LVA_READING)) A"& _ 
+                "ND ((@IsNull_RVA_READING = 1 AND [RVA_READING] IS NULL) OR ([RVA_READING] = @Ori"& _ 
+                "ginal_RVA_READING)) AND ((@IsNull_IS_OLD_OR_NEW_REFRAC = 1 AND [IS_OLD_OR_NEW_RE"& _ 
+                "FRAC] IS NULL) OR ([IS_OLD_OR_NEW_REFRAC] = @Original_IS_OLD_OR_NEW_REFRAC)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "SELECT REFRACT_ID, PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PATIENT_T"& _ 
+                "EL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSES, R_G"& _ 
+                "LASSES, LVA_REFRACTION, RVA_REFRACTION, REFRACTION_NOTE, IS_PRESCRIPTION, IS_DEL"& _ 
+                "ETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING, "& _ 
+                "IS_OLD_OR_NEW_REFRAC FROM REFRACTION WHERE (REFRACT_ID = @REFRACT_ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6170,6 +6215,7 @@ Namespace DSRefractionTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_AXIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "R_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -6217,6 +6263,8 @@ Namespace DSRefractionTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RVA_READING", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RVA_READING", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -6228,14 +6276,15 @@ Namespace DSRefractionTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(10) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(11) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        REFRACT_ID, PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PAT"& _ 
                 "IENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSE"& _ 
                 "S, R_GLASSES, LVA_REFRACTION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RVA_REFRACTION, REFRACT"& _ 
                 "ION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R"& _ 
-                "_AXIS, LVA_READING, RVA_READING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            REFRACTION"
+                "_AXIS, LVA_READING, RVA_READING, IS_OLD_OR_NEW_REFRAC"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            REFRACTIO"& _ 
+                "N"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
@@ -6258,94 +6307,113 @@ Namespace DSRefractionTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_PRESCRIPTION, LVA_READING, LVA_REF"& _ 
-                "RACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX, PATIENT_ADDRESS, PATI"& _ 
-                "ENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_STATUS, REFRACTION_NOT"& _ 
-                "E, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION, R_AXIS, R_GLASSES FR"& _ 
-                "OM REFRACTION WHERE (PATIENT_NO = @PATIENT_NO) AND (REFRATION_DATE BETWEEN @DFro"& _ 
-                "m AND @DTo)"
+            Me._commandCollection(4).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_OLD_OR_NEW_REFRAC, IS_PRESCRIPTION"& _ 
+                ", LVA_READING, LVA_REFRACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX,"& _ 
+                " PATIENT_ADDRESS, PATIENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_"& _ 
+                "STATUS, REFRACTION_NOTE, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION"& _ 
+                ", R_AXIS, R_GLASSES FROM REFRACTION WHERE (PATIENT_NO = @PATIENT_NO) AND (REFRAT"& _ 
+                "ION_DATE BETWEEN @DFrom AND @DTo)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_PRESCRIPTION, LVA_READING, LVA_REF"& _ 
-                "RACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX, PATIENT_ADDRESS, PATI"& _ 
-                "ENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_STATUS, REFRACTION_NOT"& _ 
-                "E, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION, R_AXIS, R_GLASSES FR"& _ 
-                "OM REFRACTION WHERE (REFRATION_DATE BETWEEN @Dfrom AND @DTo)"
+            Me._commandCollection(5).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_OLD_OR_NEW_REFRAC, IS_PRESCRIPTION"& _ 
+                ", LVA_READING, LVA_REFRACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX,"& _ 
+                " PATIENT_ADDRESS, PATIENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_"& _ 
+                "STATUS, REFRACTION_NOTE, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION"& _ 
+                ", R_AXIS, R_GLASSES FROM REFRACTION WHERE (REFRATION_DATE BETWEEN @Dfrom AND @DT"& _ 
+                "o)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Dfrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_PRESCRIPTION, LVA_READING, LVA_REF"& _ 
-                "RACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX, PATIENT_ADDRESS, PATI"& _ 
-                "ENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_STATUS, REFRACTION_NOT"& _ 
-                "E, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION, R_AXIS, R_GLASSES FR"& _ 
-                "OM REFRACTION WHERE (REFRATION_DATE BETWEEN @Dfrom AND @DTo) AND (IS_OLD_OR_NEW "& _ 
-                "= @IS_OLD_OR_NEW)"
+            Me._commandCollection(6).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_OLD_OR_NEW_REFRAC, IS_PRESCRIPTION"& _ 
+                ", LVA_READING, LVA_REFRACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX,"& _ 
+                " PATIENT_ADDRESS, PATIENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_"& _ 
+                "STATUS, REFRACTION_NOTE, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION"& _ 
+                ", R_AXIS, R_GLASSES FROM REFRACTION WHERE (REFRATION_DATE BETWEEN @Dfrom AND @DT"& _ 
+                "o) AND (IS_OLD_OR_NEW_REFRAC = @IS_OLD_OR_NEW_REFRAC)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Dfrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "SELECT        REFRACT_ID, PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PAT"& _ 
-                "IENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSE"& _ 
-                "S, R_GLASSES, LVA_REFRACTION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RVA_REFRACTION, REFRACT"& _ 
-                "ION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R"& _ 
-                "_AXIS, LVA_READING, RVA_READING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            REFRACTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where PRESCRIPT_STA"& _ 
-                "TUS=@PRESCRIPT_STATUS"
+            Me._commandCollection(7).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_OLD_OR_NEW_REFRAC, IS_PRESCRIPTION"& _ 
+                ", LVA_READING, LVA_REFRACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX,"& _ 
+                " PATIENT_ADDRESS, PATIENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_"& _ 
+                "STATUS, REFRACTION_NOTE, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION"& _ 
+                ", R_AXIS, R_GLASSES FROM REFRACTION WHERE (PRESCRIPT_STATUS = @PRESCRIPT_STATUS)"& _ 
+                " and REFRATION_DATE between @Dfrom and @DTo"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIPT_STATUS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIPT_STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Dfrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = "INSERT INTO REFRACTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (PATIENT_NO, PATIENT_NAME, PATEI"& _ 
+            Me._commandCollection(8).CommandText = "SELECT DIAGNOSIS, IS_DELETE, IS_OLD_OR_NEW, IS_OLD_OR_NEW_REFRAC, IS_PRESCRIPTION"& _ 
+                ", LVA_READING, LVA_REFRACTION, L_AXIS, L_GLASSES, OLD_LVA, OLD_RVA, PATEINT_SEX,"& _ 
+                " PATIENT_ADDRESS, PATIENT_AGE, PATIENT_NAME, PATIENT_NO, PATIENT_TEL, PRESCRIPT_"& _ 
+                "STATUS, REFRACTION_NOTE, REFRACT_ID, REFRATION_DATE, RVA_READING, RVA_REFRACTION"& _ 
+                ", R_AXIS, R_GLASSES FROM REFRACTION WHERE (PRESCRIPT_STATUS = @PRESCRIPT_STATUS)"& _ 
+                " and REFRATION_DATE between @Dfrom and @DTo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND IS_OLD_OR_NEW_REFRAC =@IS_OLD_O"& _ 
+                "R_NEW_REFRAC"
+            Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIPT_STATUS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIPT_STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Dfrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(9).Connection = Me.Connection
+            Me._commandCollection(9).CommandText = "INSERT INTO REFRACTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (PATIENT_NO, PATIENT_NAME, PATEI"& _ 
                 "NT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_"& _ 
                 "RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_REFRACTION, RVA_REFRACTION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
                 "                 REFRACTION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, "& _ 
-                "IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@PATIEN"& _ 
-                "T_NO,@PATIENT_NAME,@PATEINT_SEX,@PATIENT_AGE,@PATIENT_TEL,@PATIENT_ADDRESS,@REFR"& _ 
-                "ATION_DATE,@OLD_LVA,@OLD_RVA,@DIAGNOSIS,@L_GLASSES,@R_GLASSES,@LVA_REFRACTION,@R"& _ 
-                "VA_REFRACTION,@REFRACTION_NOTE,@IS_PRESCRIPTION,@IS_DELETE,@PRESCRIPT_STATUS,@IS"& _ 
-                "_OLD_OR_NEW,@L_AXIS,@R_AXIS,@LVA_READING,@RVA_READING);   "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
-            Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATEINT_SEX", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "PATEINT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_TEL", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_TEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_ADDRESS", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_ADDRESS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRATION_DATE", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_LVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_LVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_RVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_RVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRACTION_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRACTION_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_PRESCRIPTION", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_PRESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIPT_STATUS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIPT_STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand
-            Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "UPDATE [REFRACTION] SET [IS_PRESCRIPTION] = @IS_PRESCRIPTION,  [PRESCRIPT_STATUS]"& _ 
-                " = @PRESCRIPT_STATUS WHERE ([REFRACT_ID] = @Original_REFRACT_ID) "
+                "IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING, IS_OLD_OR_NEW_REFRAC)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "VALUES        (@PATIENT_NO,@PATIENT_NAME,@PATEINT_SEX,@PATIENT_AGE,@PATIENT_TEL,"& _ 
+                "@PATIENT_ADDRESS,@REFRATION_DATE,@OLD_LVA,@OLD_RVA,@DIAGNOSIS,@L_GLASSES,@R_GLAS"& _ 
+                "SES,@LVA_REFRACTION,@RVA_REFRACTION,@REFRACTION_NOTE,@IS_PRESCRIPTION,@IS_DELETE"& _ 
+                ",@PRESCRIPT_STATUS,@IS_OLD_OR_NEW,@L_AXIS,@R_AXIS,@LVA_READING,@RVA_READING,@IS_"& _ 
+                "OLD_OR_NEW_REFRAC);    "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATEINT_SEX", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "PATEINT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_TEL", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_TEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_ADDRESS", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_ADDRESS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRATION_DATE", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_LVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_LVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_RVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_RVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRACTION_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRACTION_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_PRESCRIPTION", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_PRESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIPT_STATUS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIPT_STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW_REFRAC", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW_REFRAC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "UPDATE       REFRACTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                PATIENT_NO = @PATIENT_NO, PATIENT_NAM"& _ 
+            Me._commandCollection(10).CommandText = "UPDATE [REFRACTION] SET [IS_PRESCRIPTION] = @IS_PRESCRIPTION,  [PRESCRIPT_STATUS]"& _ 
+                " = @PRESCRIPT_STATUS WHERE ([REFRACT_ID] = @Original_REFRACT_ID) "
+            Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_PRESCRIPTION", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_PRESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIPT_STATUS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIPT_STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(11) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(11).Connection = Me.Connection
+            Me._commandCollection(11).CommandText = "UPDATE       REFRACTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                PATIENT_NO = @PATIENT_NO, PATIENT_NAM"& _ 
                 "E = @PATIENT_NAME, PATEINT_SEX = @PATEINT_SEX, PATIENT_AGE = @PATIENT_AGE, PATIE"& _ 
                 "NT_TEL = @PATIENT_TEL, PATIENT_ADDRESS = @PATIENT_ADDRESS, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
                 "      REFRATION_DATE = @REFRATION_DATE, OLD_LVA = @OLD_LVA, OLD_RVA = @OLD_RVA, "& _ 
@@ -6355,29 +6423,29 @@ Namespace DSRefractionTableAdapters
                 "VA_READING = @LVA_READING, RVA_READING = @RVA_READING, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
                 "  IS_PRESCRIPTION = @IS_PRESCRIPTION, IS_OLD_OR_NEW = @IS_OLD_OR_NEW"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     "& _ 
                 "   (REFRACT_ID = @Original_REFRACT_ID)"
-            Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATEINT_SEX", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "PATEINT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_TEL", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_TEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_ADDRESS", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_ADDRESS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRATION_DATE", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_LVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_LVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_RVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_RVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRACTION_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRACTION_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_PRESCRIPTION", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_PRESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATEINT_SEX", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "PATEINT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_TEL", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_TEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_ADDRESS", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_ADDRESS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRATION_DATE", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRATION_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_LVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_LVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OLD_RVA", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "OLD_RVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_GLASSES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_GLASSES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_REFRACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_REFRACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFRACTION_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "REFRACTION_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@L_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "L_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@R_AXIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "R_AXIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "LVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RVA_READING", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RVA_READING", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_PRESCRIPTION", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_PRESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_OLD_OR_NEW", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_OLD_OR_NEW", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFRACT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "REFRACT_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6499,7 +6567,7 @@ Namespace DSRefractionTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSRefraction.REFRACTIONDataTable, ByVal Dfrom As String, ByVal DTo As String, ByVal IS_OLD_OR_NEW As Global.System.Nullable(Of Boolean)) As Integer
+        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSRefraction.REFRACTIONDataTable, ByVal Dfrom As String, ByVal DTo As String, ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
             If (Dfrom Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -6511,8 +6579,8 @@ Namespace DSRefractionTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo,String)
             End If
-            If (IS_OLD_OR_NEW.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IS_OLD_OR_NEW.Value,Boolean)
+            If (IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IS_OLD_OR_NEW_REFRAC.Value,Boolean)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -6526,7 +6594,7 @@ Namespace DSRefractionTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function SelectIsDateToDateWithOldOrNew(ByVal Dfrom As String, ByVal DTo As String, ByVal IS_OLD_OR_NEW As Global.System.Nullable(Of Boolean)) As DSRefraction.REFRACTIONDataTable
+        Public Overloads Overridable Function SelectIsDateToDateWithOldOrNew(ByVal Dfrom As String, ByVal DTo As String, ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As DSRefraction.REFRACTIONDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
             If (Dfrom Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -6538,8 +6606,8 @@ Namespace DSRefractionTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo,String)
             End If
-            If (IS_OLD_OR_NEW.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IS_OLD_OR_NEW.Value,Boolean)
+            If (IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IS_OLD_OR_NEW_REFRAC.Value,Boolean)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -6551,12 +6619,22 @@ Namespace DSRefractionTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy3(ByVal dataTable As DSRefraction.REFRACTIONDataTable, ByVal PRESCRIPT_STATUS As String) As Integer
+        Public Overloads Overridable Function FillBy3(ByVal dataTable As DSRefraction.REFRACTIONDataTable, ByVal PRESCRIPT_STATUS As String, ByVal Dfrom As String, ByVal DTo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
             If (PRESCRIPT_STATUS Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(PRESCRIPT_STATUS,String)
+            End If
+            If (Dfrom Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Dfrom,String)
+            End If
+            If (DTo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DTo,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -6568,12 +6646,84 @@ Namespace DSRefractionTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function SelectPrescrebtionStatus(ByVal PRESCRIPT_STATUS As String) As DSRefraction.REFRACTIONDataTable
+        Public Overloads Overridable Function SelectPrescrebtionStatus(ByVal PRESCRIPT_STATUS As String, ByVal Dfrom As String, ByVal DTo As String) As DSRefraction.REFRACTIONDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
             If (PRESCRIPT_STATUS Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(PRESCRIPT_STATUS,String)
+            End If
+            If (Dfrom Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Dfrom,String)
+            End If
+            If (DTo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DTo,String)
+            End If
+            Dim dataTable As DSRefraction.REFRACTIONDataTable = New DSRefraction.REFRACTIONDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy4(ByVal dataTable As DSRefraction.REFRACTIONDataTable, ByVal PRESCRIPT_STATUS As String, ByVal Dfrom As String, ByVal DTo As String, ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            If (PRESCRIPT_STATUS Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PRESCRIPT_STATUS,String)
+            End If
+            If (Dfrom Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Dfrom,String)
+            End If
+            If (DTo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DTo,String)
+            End If
+            If (IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(IS_OLD_OR_NEW_REFRAC.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectPrescriptionStatusOldOrNew(ByVal PRESCRIPT_STATUS As String, ByVal Dfrom As String, ByVal DTo As String, ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As DSRefraction.REFRACTIONDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            If (PRESCRIPT_STATUS Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PRESCRIPT_STATUS,String)
+            End If
+            If (Dfrom Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Dfrom,String)
+            End If
+            If (DTo Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DTo,String)
+            End If
+            If (IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(IS_OLD_OR_NEW_REFRAC.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             Dim dataTable As DSRefraction.REFRACTIONDataTable = New DSRefraction.REFRACTIONDataTable
             Me.Adapter.Fill(dataTable)
@@ -6631,7 +6781,8 @@ Namespace DSRefractionTableAdapters
                     ByVal Original_L_AXIS As String,  _
                     ByVal Original_R_AXIS As String,  _
                     ByVal Original_LVA_READING As String,  _
-                    ByVal Original_RVA_READING As String) As Integer
+                    ByVal Original_RVA_READING As String,  _
+                    ByVal Original_IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_REFRACT_ID,Decimal)
             If (Original_PATIENT_NO.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -6794,6 +6945,13 @@ Namespace DSRefractionTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_RVA_READING,String)
             End If
+            If (Original_IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_IS_OLD_OR_NEW_REFRAC.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6835,7 +6993,8 @@ Namespace DSRefractionTableAdapters
                     ByVal L_AXIS As String,  _
                     ByVal R_AXIS As String,  _
                     ByVal LVA_READING As String,  _
-                    ByVal RVA_READING As String) As Integer
+                    ByVal RVA_READING As String,  _
+                    ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As Integer
             If (PATIENT_NO.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(PATIENT_NO.Value,Decimal)
             Else
@@ -6951,6 +7110,11 @@ Namespace DSRefractionTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(22).Value = CType(RVA_READING,String)
             End If
+            If (IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(IS_OLD_OR_NEW_REFRAC.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6993,6 +7157,7 @@ Namespace DSRefractionTableAdapters
                     ByVal R_AXIS As String,  _
                     ByVal LVA_READING As String,  _
                     ByVal RVA_READING As String,  _
+                    ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_REFRACT_ID As Decimal,  _
                     ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_PATIENT_NAME As String,  _
@@ -7017,6 +7182,7 @@ Namespace DSRefractionTableAdapters
                     ByVal Original_R_AXIS As String,  _
                     ByVal Original_LVA_READING As String,  _
                     ByVal Original_RVA_READING As String,  _
+                    ByVal Original_IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean),  _
                     ByVal REFRACT_ID As Decimal) As Integer
             If (PATIENT_NO.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(PATIENT_NO.Value,Decimal)
@@ -7133,169 +7299,181 @@ Namespace DSRefractionTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(22).Value = CType(RVA_READING,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_REFRACT_ID,Decimal)
-            If (Original_PATIENT_NO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_PATIENT_NO.Value,Decimal)
+            If (IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(IS_OLD_OR_NEW_REFRAC.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_REFRACT_ID,Decimal)
+            If (Original_PATIENT_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_PATIENT_NO.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
             If (Original_PATIENT_NAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_PATIENT_NAME,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_PATIENT_NAME,String)
             End If
             If (Original_PATEINT_SEX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_PATEINT_SEX,String)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_PATEINT_SEX,String)
             End If
             If (Original_PATIENT_AGE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_PATIENT_AGE.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_PATIENT_AGE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
             If (Original_PATIENT_TEL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_PATIENT_TEL,String)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_PATIENT_TEL,String)
             End If
             If (Original_PATIENT_ADDRESS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_PATIENT_ADDRESS,String)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_PATIENT_ADDRESS,String)
             End If
             If (Original_REFRATION_DATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_REFRATION_DATE.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_REFRATION_DATE.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             End If
             If (Original_OLD_LVA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_OLD_LVA,String)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_OLD_LVA,String)
             End If
             If (Original_OLD_RVA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_OLD_RVA,String)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_OLD_RVA,String)
             End If
             If (Original_DIAGNOSIS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_DIAGNOSIS,String)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_DIAGNOSIS,String)
             End If
             If (Original_L_GLASSES Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_L_GLASSES,String)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_L_GLASSES,String)
             End If
             If (Original_R_GLASSES Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_R_GLASSES,String)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_R_GLASSES,String)
             End If
             If (Original_LVA_REFRACTION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_LVA_REFRACTION,String)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_LVA_REFRACTION,String)
             End If
             If (Original_RVA_REFRACTION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_RVA_REFRACTION,String)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_RVA_REFRACTION,String)
             End If
             If (Original_REFRACTION_NOTE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_REFRACTION_NOTE,String)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_REFRACTION_NOTE,String)
             End If
             If (Original_IS_PRESCRIPTION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_IS_PRESCRIPTION.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_IS_PRESCRIPTION.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
             End If
             If (Original_IS_DELETE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_IS_DELETE.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_IS_DELETE.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
             End If
             If (Original_PRESCRIPT_STATUS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_PRESCRIPT_STATUS,String)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_PRESCRIPT_STATUS,String)
             End If
             If (Original_IS_OLD_OR_NEW.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_IS_OLD_OR_NEW.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_IS_OLD_OR_NEW.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
             End If
             If (Original_L_AXIS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_L_AXIS,String)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_L_AXIS,String)
             End If
             If (Original_R_AXIS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_R_AXIS,String)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_R_AXIS,String)
             End If
             If (Original_LVA_READING Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_LVA_READING,String)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_LVA_READING,String)
             End If
             If (Original_RVA_READING Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_RVA_READING,String)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_RVA_READING,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(70).Value = CType(REFRACT_ID,Decimal)
+            If (Original_IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_IS_OLD_OR_NEW_REFRAC.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(73).Value = CType(REFRACT_ID,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7338,6 +7516,7 @@ Namespace DSRefractionTableAdapters
                     ByVal R_AXIS As String,  _
                     ByVal LVA_READING As String,  _
                     ByVal RVA_READING As String,  _
+                    ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_REFRACT_ID As Decimal,  _
                     ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_PATIENT_NAME As String,  _
@@ -7361,8 +7540,9 @@ Namespace DSRefractionTableAdapters
                     ByVal Original_L_AXIS As String,  _
                     ByVal Original_R_AXIS As String,  _
                     ByVal Original_LVA_READING As String,  _
-                    ByVal Original_RVA_READING As String) As Integer
-            Return Me.Update(PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_REFRACTION, RVA_REFRACTION, REFRACTION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING, Original_REFRACT_ID, Original_PATIENT_NO, Original_PATIENT_NAME, Original_PATEINT_SEX, Original_PATIENT_AGE, Original_PATIENT_TEL, Original_PATIENT_ADDRESS, Original_REFRATION_DATE, Original_OLD_LVA, Original_OLD_RVA, Original_DIAGNOSIS, Original_L_GLASSES, Original_R_GLASSES, Original_LVA_REFRACTION, Original_RVA_REFRACTION, Original_REFRACTION_NOTE, Original_IS_PRESCRIPTION, Original_IS_DELETE, Original_PRESCRIPT_STATUS, Original_IS_OLD_OR_NEW, Original_L_AXIS, Original_R_AXIS, Original_LVA_READING, Original_RVA_READING, Original_REFRACT_ID)
+                    ByVal Original_RVA_READING As String,  _
+                    ByVal Original_IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As Integer
+            Return Me.Update(PATIENT_NO, PATIENT_NAME, PATEINT_SEX, PATIENT_AGE, PATIENT_TEL, PATIENT_ADDRESS, REFRATION_DATE, OLD_LVA, OLD_RVA, DIAGNOSIS, L_GLASSES, R_GLASSES, LVA_REFRACTION, RVA_REFRACTION, REFRACTION_NOTE, IS_PRESCRIPTION, IS_DELETE, PRESCRIPT_STATUS, IS_OLD_OR_NEW, L_AXIS, R_AXIS, LVA_READING, RVA_READING, IS_OLD_OR_NEW_REFRAC, Original_REFRACT_ID, Original_PATIENT_NO, Original_PATIENT_NAME, Original_PATEINT_SEX, Original_PATIENT_AGE, Original_PATIENT_TEL, Original_PATIENT_ADDRESS, Original_REFRATION_DATE, Original_OLD_LVA, Original_OLD_RVA, Original_DIAGNOSIS, Original_L_GLASSES, Original_R_GLASSES, Original_LVA_REFRACTION, Original_RVA_REFRACTION, Original_REFRACTION_NOTE, Original_IS_PRESCRIPTION, Original_IS_DELETE, Original_PRESCRIPT_STATUS, Original_IS_OLD_OR_NEW, Original_L_AXIS, Original_R_AXIS, Original_LVA_READING, Original_RVA_READING, Original_IS_OLD_OR_NEW_REFRAC, Original_REFRACT_ID)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7483,8 +7663,9 @@ Namespace DSRefractionTableAdapters
                     ByVal L_AXIS As String,  _
                     ByVal R_AXIS As String,  _
                     ByVal LVA_READING As String,  _
-                    ByVal RVA_READING As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(8)
+                    ByVal RVA_READING As String,  _
+                    ByVal IS_OLD_OR_NEW_REFRAC As Global.System.Nullable(Of Boolean)) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(9)
             If (PATIENT_NO.HasValue = true) Then
                 command.Parameters(0).Value = CType(PATIENT_NO.Value,Decimal)
             Else
@@ -7600,6 +7781,11 @@ Namespace DSRefractionTableAdapters
             Else
                 command.Parameters(22).Value = CType(RVA_READING,String)
             End If
+            If (IS_OLD_OR_NEW_REFRAC.HasValue = true) Then
+                command.Parameters(23).Value = CType(IS_OLD_OR_NEW_REFRAC.Value,Boolean)
+            Else
+                command.Parameters(23).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7620,7 +7806,7 @@ Namespace DSRefractionTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateIsPrescription(ByVal IS_PRESCRIPTION As Global.System.Nullable(Of Boolean), ByVal PRESCRIPT_STATUS As String, ByVal Original_REFRACT_ID As Decimal) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(9)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(10)
             If (IS_PRESCRIPTION.HasValue = true) Then
                 command.Parameters(0).Value = CType(IS_PRESCRIPTION.Value,Boolean)
             Else
@@ -7674,7 +7860,7 @@ Namespace DSRefractionTableAdapters
                     ByVal IS_PRESCRIPTION As Global.System.Nullable(Of Boolean),  _
                     ByVal IS_OLD_OR_NEW As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_REFRACT_ID As Decimal) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(10)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(11)
             If (PATIENT_NO.HasValue = true) Then
                 command.Parameters(0).Value = CType(PATIENT_NO.Value,Decimal)
             Else

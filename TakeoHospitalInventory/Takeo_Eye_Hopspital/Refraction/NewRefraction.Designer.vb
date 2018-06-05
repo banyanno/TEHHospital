@@ -487,11 +487,11 @@ Partial Class NewRefraction
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(294, 80)
+        Me.Label19.Location = New System.Drawing.Point(295, 80)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(73, 13)
+        Me.Label19.Size = New System.Drawing.Size(64, 13)
         Me.Label19.TabIndex = 5
-        Me.Label19.Text = "L VA Reading"
+        Me.Label19.Text = "VA Reading"
         '
         'BtnVAReading
         '

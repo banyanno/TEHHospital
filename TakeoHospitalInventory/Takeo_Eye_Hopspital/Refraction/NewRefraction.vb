@@ -190,7 +190,7 @@
                 Exit Sub
             End If
             If MessageBox.Show("Do you want to save new refraction?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DARefraction.InsertNewRefration(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, IIf(ChPrescription.Checked = True, True, False), False, "", ChIsOld.Checked, CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text) = 1 Then
+                If DARefraction.InsertNewRefration(TxtPatientNo.Text, TxtPatientName.Text, TxtPatientSex.Text, TxtPatientAge.Text, TxtPatientTel.Text, TxtPatientAddress.Text, RefrationDate.Value.Date, CboLVAOld.Text, CboRVAOld.Text, CboDiagnosis.Text, CboLGlasses.Text, CboRGlasses.Text, CboLVARefrac.Text, CboRVARefrac.Text, TxtRefractionNote.Text, IIf(ChPrescription.Checked = True, True, False), False, "", ChIsOld.Checked, CboLAxis.Text, CboRAxis.Text, CboLVAReading.Text, CboADD.Text, IIf(DARefraction.CheckOldOrNew(TxtPatientNo.Text) > 0, True, False)) = 1 Then
                     MessageBox.Show("Save new refraction successful!", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If

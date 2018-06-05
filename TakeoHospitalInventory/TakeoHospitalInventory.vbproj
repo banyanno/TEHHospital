@@ -655,6 +655,12 @@
     <Compile Include="Takeo_Eye_Hopspital\DAO\IGeneralDAO.vb" />
     <Compile Include="Takeo_Eye_Hopspital\DataProvider\AbstractConnection.vb" />
     <Compile Include="Takeo_Eye_Hopspital\DataProvider\IDataTransaction.vb" />
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\RefractionStatistic.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RefractionStatistic.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\Refraction\ReportAllRefraction.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3175,6 +3181,10 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Business\Account\MReportReceiptDetail\ReportReceiptIP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportReceiptIP1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\RefractionStatistic.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RefractionStatistic.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\ReportAllRefraction.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

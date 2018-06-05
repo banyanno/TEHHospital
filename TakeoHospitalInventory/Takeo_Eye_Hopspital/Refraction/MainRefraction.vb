@@ -84,7 +84,7 @@
         GridRefraction.DataSource = TPRefract
     End Sub
     Private Sub ShowAllWaitingApprove()
-        Dim TblWaitingApprove As DataTable = DARefraction.SelectPrescrebtionStatus("Send")
+        Dim TblWaitingApprove As DataTable = DARefraction.SelectPrescrebtionStatus("Send", DateRefractFrom.Value.Date, DateRefractTo.Value.Date)
         GridRefraction.DataSource = TblWaitingApprove
     End Sub
 
@@ -142,10 +142,24 @@
 
     Private Sub BtnPrintReport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintReport.Click
         Dim ReportRefraction As New ReportAllRefraction
-        Dim TblRepRefraction As DataTable = DARefraction.SelectRefractionDFromToDTo(DFromReport.Value.Date, DToReport.Value.Date)
+        Dim TblRepRefraction As DataTable
+        Dim ParaList As String = ""
+        If RadReportAll.Checked = True Then
+            ParaList = "List all refraction."
+            TblRepRefraction = DARefraction.SelectRefractionDFromToDTo(DFromReport.Value.Date, DToReport.Value.Date)
+        ElseIf RadRepNew.Checked = True Then
+            ParaList = "List New refraction."
+            TblRepRefraction = DARefraction.SelectIsDateToDateWithOldOrNew(DFromReport.Value.Date, DToReport.Value.Date, False)
+        ElseIf RadRepOld.Checked = True Then
+            ParaList = "List Old refraction."
+            TblRepRefraction = DARefraction.SelectIsDateToDateWithOldOrNew(DFromReport.Value.Date, DToReport.Value.Date, True)
+        End If
+
         ReportRefraction.SetDataSource(TblRepRefraction)
         Me.CrystalReportViewer1.ReportSource = ReportRefraction
         ReportRefraction.SetParameterValue("Title", "From:" & DFromReport.Text & " To:" & DToReport.Text)
+        ReportRefraction.SetParameterValue("IS_OLD_OR_NEW", ParaList)
+
     End Sub
 
     Private Sub BtnAprovPrescription_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAprovPrescription.Click
@@ -164,5 +178,40 @@
 
     Private Sub BtnRefreshListAprove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnRefreshListAprove.Click
         ShowAllWaitingApprove()
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Dim ReportRefraction As New RefractionStatistic
+        Dim TblRepRefraction As DataTable
+        Dim ParaList As String = ""
+        ' In case check prescription = true. it's mean for optical shop 
+        If ChIsPrescriptOrRefraction.Checked = True Then
+            If RadStatisticAll.Checked = True Then
+                ParaList = "Prescription Statistic all"
+                TblRepRefraction = DARefraction.SelectPrescrebtionStatus("Received", DStatisticFrom.Value.Date, DStatisticTo.Value.Date)
+            ElseIf RadStatisticNew.Checked = True Then
+                ParaList = "Prescription Statistic New"
+                TblRepRefraction = DARefraction.SelectPrescriptionStatusOldOrNew("Received", DStatisticFrom.Value.Date, DStatisticTo.Value.Date, False)
+            ElseIf RadStatistictOld.Checked = True Then
+                ParaList = "Prescription Statistic Old"
+                TblRepRefraction = DARefraction.SelectPrescriptionStatusOldOrNew("Received", DStatisticFrom.Value.Date, DStatisticTo.Value.Date, True)
+            End If
+        Else
+            If RadStatisticAll.Checked = True Then
+                ParaList = "Refraction Statistic all"
+                TblRepRefraction = DARefraction.SelectRefractionDFromToDTo(DStatisticFrom.Value.Date, DStatisticTo.Value.Date)
+            ElseIf RadStatisticNew.Checked = True Then
+                ParaList = "Refraction Statistic New"
+                TblRepRefraction = DARefraction.SelectIsDateToDateWithOldOrNew(DStatisticFrom.Value.Date, DStatisticTo.Value.Date, False)
+            ElseIf RadStatistictOld.Checked = True Then
+                ParaList = "Refraction Statistic Old"
+                TblRepRefraction = DARefraction.SelectIsDateToDateWithOldOrNew(DStatisticFrom.Value.Date, DStatisticTo.Value.Date, True)
+            End If
+        End If
+
+        ReportRefraction.SetDataSource(TblRepRefraction)
+        Me.CrystalReportViewer1.ReportSource = ReportRefraction
+        ReportRefraction.SetParameterValue("Title", "From:" & DStatisticFrom.Text & " To:" & DStatisticTo.Text)
+        ReportRefraction.SetParameterValue("Title2", ParaList)
     End Sub
 End Class

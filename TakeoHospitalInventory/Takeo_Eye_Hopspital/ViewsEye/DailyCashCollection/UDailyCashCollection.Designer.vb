@@ -691,6 +691,7 @@ Partial Class UCashCollection
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "&Print Old"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'cmdSave
         '
