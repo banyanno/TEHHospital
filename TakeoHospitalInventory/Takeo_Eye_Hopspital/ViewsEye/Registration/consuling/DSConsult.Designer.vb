@@ -2617,6 +2617,10 @@ Partial Public Class DSConsult
         
         Private columnTIME_CREATE As Global.System.Data.DataColumn
         
+        Private columnVA_PLAIN As Global.System.Data.DataColumn
+        
+        Private columnVA_icPH As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -3006,6 +3010,20 @@ Partial Public Class DSConsult
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property VA_PLAINColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVA_PLAIN
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property VA_icPHColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVA_icPH
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3086,9 +3104,11 @@ Partial Public Class DSConsult
                     ByVal Referal As String,  _
                     ByVal DR_ID As Decimal,  _
                     ByVal DR_NAME As String,  _
-                    ByVal TIME_CREATE As String) As V_CONSULTINGRow
+                    ByVal TIME_CREATE As String,  _
+                    ByVal VA_PLAIN As String,  _
+                    ByVal VA_icPH As String) As V_CONSULTINGRow
             Dim rowV_CONSULTINGRow As V_CONSULTINGRow = CType(Me.NewRow,V_CONSULTINGRow)
-            Dim columnValuesArray() As Object = New Object() {PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occupation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULING_ID, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE}
+            Dim columnValuesArray() As Object = New Object() {PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occupation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULING_ID, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH}
             rowV_CONSULTINGRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowV_CONSULTINGRow)
             Return rowV_CONSULTINGRow
@@ -3164,6 +3184,8 @@ Partial Public Class DSConsult
             Me.columnDR_ID = MyBase.Columns("DR_ID")
             Me.columnDR_NAME = MyBase.Columns("DR_NAME")
             Me.columnTIME_CREATE = MyBase.Columns("TIME_CREATE")
+            Me.columnVA_PLAIN = MyBase.Columns("VA_PLAIN")
+            Me.columnVA_icPH = MyBase.Columns("VA_icPH")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3270,6 +3292,10 @@ Partial Public Class DSConsult
             MyBase.Columns.Add(Me.columnDR_NAME)
             Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTIME_CREATE)
+            Me.columnVA_PLAIN = New Global.System.Data.DataColumn("VA_PLAIN", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVA_PLAIN)
+            Me.columnVA_icPH = New Global.System.Data.DataColumn("VA_icPH", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVA_icPH)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnPatientNo, Me.columnCONSULING_ID}, true))
             Me.columnPatientNo.AllowDBNull = false
             Me.columnNameEng.MaxLength = 50
@@ -3305,6 +3331,8 @@ Partial Public Class DSConsult
             Me.columnReferal.MaxLength = 150
             Me.columnDR_NAME.MaxLength = 50
             Me.columnTIME_CREATE.MaxLength = 50
+            Me.columnVA_PLAIN.MaxLength = 50
+            Me.columnVA_icPH.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -7655,6 +7683,34 @@ Partial Public Class DSConsult
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property VA_PLAIN() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableV_CONSULTING.VA_PLAINColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'VA_PLAIN' in table 'V_CONSULTING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableV_CONSULTING.VA_PLAINColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property VA_icPH() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableV_CONSULTING.VA_icPHColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'VA_icPH' in table 'V_CONSULTING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableV_CONSULTING.VA_icPHColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNameEngNull() As Boolean
             Return Me.IsNull(Me.tableV_CONSULTING.NameEngColumn)
         End Function
@@ -8142,6 +8198,26 @@ Partial Public Class DSConsult
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetTIME_CREATENull()
             Me(Me.tableV_CONSULTING.TIME_CREATEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsVA_PLAINNull() As Boolean
+            Return Me.IsNull(Me.tableV_CONSULTING.VA_PLAINColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetVA_PLAINNull()
+            Me(Me.tableV_CONSULTING.VA_PLAINColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsVA_icPHNull() As Boolean
+            Return Me.IsNull(Me.tableV_CONSULTING.VA_icPHColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetVA_icPHNull()
+            Me(Me.tableV_CONSULTING.VA_icPHColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -14130,6 +14206,8 @@ Namespace DSConsultTableAdapters
             tableMapping.ColumnMappings.Add("DR_ID", "DR_ID")
             tableMapping.ColumnMappings.Add("DR_NAME", "DR_NAME")
             tableMapping.ColumnMappings.Add("TIME_CREATE", "TIME_CREATE")
+            tableMapping.ColumnMappings.Add("VA_PLAIN", "VA_PLAIN")
+            tableMapping.ColumnMappings.Add("VA_icPH", "VA_icPH")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -14152,7 +14230,8 @@ Namespace DSConsultTableAdapters
                 "LING_ID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME,"& _ 
                 " FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT,"& _ 
                 " FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      DR_ID, DR_NAME, TIME_CREATE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTING"
+                "      DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTI"& _ 
+                "NG"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
@@ -14163,8 +14242,8 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14178,9 +14257,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (STATUS = @STATUS) AND (CONSULT_FOR = @CONSULT_FOR) AND (AC"& _ 
-                "CEPT_CONSUL = @ACCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS = @STATUS) AND (CONSULT_FOR = @C"& _ 
+                "ONSULT_FOR) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14196,9 +14275,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL) AND"& _ 
-                " (DR_ID = @DR_ID)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = "& _ 
+                "@ACCEPT_CONSUL) AND (DR_ID = @DR_ID)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14214,8 +14293,8 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND ("& _ 
-                "STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (PatientNo "& _ 
+                "= @PatientNo) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14229,9 +14308,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (ACCEPT_C"& _ 
-                "ONSUL = @ACCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = "& _ 
+                "@ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14247,8 +14326,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEP"& _ 
+                "T_CONSUL)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14263,9 +14343,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (AC"& _ 
-                "CEPT_CONSUL = @ACCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR) AND (STATUS"& _ 
+                " = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14281,9 +14361,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (STATUS ="& _ 
-                " @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = "& _ 
+                "@ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14300,8 +14380,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = "& _ 
+                "@ACCEPT_CONSUL)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14316,9 +14397,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @A"& _ 
-                "CCEPT_CONSUL)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @ORG) AND (STATUS = @STATUS) AND "& _ 
+                "(ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14334,9 +14415,9 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND ("& _ 
-                "CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (CONSULING_ID = @CONSULIN"& _ 
-                "G_ID)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (PatientNo "& _ 
+                "= @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (CONSU"& _ 
+                "LING_ID = @CONSULING_ID)"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14351,8 +14432,8 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND ("& _ 
-                "CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (PatientNo "& _ 
+                "= @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS)"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14366,8 +14447,8 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_ID = @CONSULING_ID)"& _ 
-                ""
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "ID = @CONSULING_ID)"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14) = New Global.System.Data.SqlClient.SqlCommand
@@ -14379,8 +14460,8 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo)"
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14393,8 +14474,8 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateF"& _ 
-                "rom AND @DateTo) AND (STATUS = @STATUS)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (CONSULING_"& _ 
+                "DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS = @STATUS)"
             Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14408,8 +14489,8 @@ Namespace DSConsultTableAdapters
                 "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
                 "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REQUEST_BY, Referal,"& _ 
-                " STATUS, Sex, TIME_CREATE FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND ("& _ 
-                "CONSULING_DATE BETWEEN @DFrom AND @DateTo)"
+                " STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM V_CONSULTING WHERE (PatientNo "& _ 
+                "= @PatientNo) AND (CONSULING_DATE BETWEEN @DFrom AND @DateTo)"
             Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

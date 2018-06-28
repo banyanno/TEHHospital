@@ -87,6 +87,18 @@ Module ModNewInPatient
         " WHERE NewInPatientNo=" & NewInNo
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
+    Function UpdateVAAfterSurgeon(ByVal NewInPatientNo As Double, ByVal IS_VA_OPERATE As Boolean, ByVal VA_DR_SURGEON As String, ByVal VA_SURGEON_ONEYE As String, ByVal VA_SURGEON_PLAIN As String, ByVal VA_SURGEON_ICPH As String)
+        Dim SQL As String = "UPDATE TblNewInPatient set IS_VA_OPERATE='" & IS_VA_OPERATE & "',VA_DR_SURGEON='" & VA_DR_SURGEON & "',VA_SURGEON_ONEYE='" & VA_SURGEON_ONEYE & "',VA_SURGEON_PLAIN='" & VA_SURGEON_PLAIN & "',VA_SURGEON_ICPH='" & VA_SURGEON_ICPH & "' WHERE NewInPatientNo=" & NewInPatientNo
+        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(SQL)
+    End Function
+    Function UpdateVAConselling(ByVal CONSULING_ID As Double, ByVal VA_PLAIN As String, ByVal VA_icPH As String)
+        Dim SQL As String = "UPDATE CONSULING SET VA_PLAIN='" & VA_PLAIN & "',VA_icPH='" & VA_icPH & "' where CONSULING_ID=" & CONSULING_ID
+        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(SQL)
+    End Function
+    Function GetConsellingInfo(ByVal PatientNo As String) As DataTable
+        Dim SQL As String = "select top 1  * from CONSULING where PATIENT_NO='" & PatientNo & "'  order by CONSULING_ID desc"
+        Return ModGlobleVariable.GENERAL_DAO.SelectAsDataTable(SQL)
+    End Function
     Function UpdateNewInPatient(ByVal NewInNo As String, _
     ByVal PatientNo As String, _
     ByVal Eye As String, _
@@ -143,6 +155,10 @@ Module ModNewInPatient
     End Function
 
     Function UpdateLeave(ByVal NewInPatientNo As String, ByVal Leave As String) As Integer
+        Dim sql As String = "UPDATE TblNewInPatient SET Leave='" & Leave & "', DateDischarge='" & ModGlobleVariable.GeteDateServer & "' WHERE NewInPatientNo=" & NewInPatientNo
+        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
+    End Function
+    Function VAAfterSurgeon()
         Dim sql As String = "UPDATE TblNewInPatient SET Leave='" & Leave & "', DateDischarge='" & ModGlobleVariable.GeteDateServer & "' WHERE NewInPatientNo=" & NewInPatientNo
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
@@ -338,7 +354,7 @@ Module ModNewInPatient
     End Function
 
     Function SelectDailyInpatient(ByVal DateFrom As String, ByVal DateTo As String) As DataTable
-        
+
         Dim sql As String = "SELECT * FROM TblWardBalance WHERE " & _
         " (CAST(CONVERT(VARCHAR(10), TblWardBalance.Date, 1)  " & _
         " AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), CAST('" & DateFrom & "' AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), " & _

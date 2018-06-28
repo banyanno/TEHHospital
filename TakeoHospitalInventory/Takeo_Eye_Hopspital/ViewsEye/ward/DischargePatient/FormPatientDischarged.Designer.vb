@@ -74,6 +74,11 @@ Partial Class FormPatientDischarged
         Me.OTCANCEL = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.OTCANCEL_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.OTCANCEL_NOTE = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IS_VA_OPERATE = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.VA_DR_SURGEON = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.VA_SURGEON_ONEYE = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.VA_SURGEON_PLAIN = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.VA_SURGEON_ICPH = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.GroupBox2.SuspendLayout()
         CType(Me.GridUndoInPatient, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextPatientDischarged.SuspendLayout()
@@ -105,7 +110,7 @@ Partial Class FormPatientDischarged
         Me.GridUndoInPatient.BackgroundColor = System.Drawing.Color.White
         Me.GridUndoInPatient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.GridUndoInPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.GridUndoInPatient.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NewInPatientNo, Me.IS_CALL, Me.IS_PATIEN_FOLLOWUP, Me.PatientNo, Me.NameKhmer, Me.NameEng, Me.Age, Me.Sex, Me.Telephone, Me.Address, Me.Eye, Me.Diagnosis, Me.VA_RE, Me.VA_LE, Me.DateDischarge, Me.DateFollowUp, Me.Signature, Me.Leave, Me.CreateDate, Me.Waiting, Me.TypeDiagnosis, Me.DeleteOption, Me.DR_NAME, Me.CALL_DATE, Me.CALL_NOTED, Me.OT_ISCANCEL, Me.OTCANCEL, Me.OTCANCEL_DATE, Me.OTCANCEL_NOTE})
+        Me.GridUndoInPatient.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NewInPatientNo, Me.IS_CALL, Me.IS_PATIEN_FOLLOWUP, Me.PatientNo, Me.NameKhmer, Me.NameEng, Me.Age, Me.Sex, Me.Telephone, Me.Address, Me.Eye, Me.Diagnosis, Me.VA_RE, Me.VA_LE, Me.DateDischarge, Me.DateFollowUp, Me.Signature, Me.Leave, Me.CreateDate, Me.Waiting, Me.TypeDiagnosis, Me.DeleteOption, Me.DR_NAME, Me.CALL_DATE, Me.CALL_NOTED, Me.OT_ISCANCEL, Me.OTCANCEL, Me.OTCANCEL_DATE, Me.OTCANCEL_NOTE, Me.IS_VA_OPERATE, Me.VA_DR_SURGEON, Me.VA_SURGEON_ONEYE, Me.VA_SURGEON_PLAIN, Me.VA_SURGEON_ICPH})
         Me.GridUndoInPatient.ContextMenuStrip = Me.ContextPatientDischarged
         Me.GridUndoInPatient.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GridUndoInPatient.Location = New System.Drawing.Point(4, 20)
@@ -577,6 +582,41 @@ Partial Class FormPatientDischarged
         Me.OTCANCEL_NOTE.Name = "OTCANCEL_NOTE"
         Me.OTCANCEL_NOTE.ReadOnly = True
         '
+        'IS_VA_OPERATE
+        '
+        Me.IS_VA_OPERATE.DataPropertyName = "IS_VA_OPERATE"
+        Me.IS_VA_OPERATE.HeaderText = "VA Surgeon"
+        Me.IS_VA_OPERATE.Name = "IS_VA_OPERATE"
+        Me.IS_VA_OPERATE.ReadOnly = True
+        '
+        'VA_DR_SURGEON
+        '
+        Me.VA_DR_SURGEON.DataPropertyName = "VA_DR_SURGEON"
+        Me.VA_DR_SURGEON.HeaderText = "Dr. Surgeon"
+        Me.VA_DR_SURGEON.Name = "VA_DR_SURGEON"
+        Me.VA_DR_SURGEON.ReadOnly = True
+        '
+        'VA_SURGEON_ONEYE
+        '
+        Me.VA_SURGEON_ONEYE.DataPropertyName = "VA_SURGEON_ONEYE"
+        Me.VA_SURGEON_ONEYE.HeaderText = "Surgeon On Eye"
+        Me.VA_SURGEON_ONEYE.Name = "VA_SURGEON_ONEYE"
+        Me.VA_SURGEON_ONEYE.ReadOnly = True
+        '
+        'VA_SURGEON_PLAIN
+        '
+        Me.VA_SURGEON_PLAIN.DataPropertyName = "VA_SURGEON_PLAIN"
+        Me.VA_SURGEON_PLAIN.HeaderText = "VA Plain after Surgeon"
+        Me.VA_SURGEON_PLAIN.Name = "VA_SURGEON_PLAIN"
+        Me.VA_SURGEON_PLAIN.ReadOnly = True
+        '
+        'VA_SURGEON_ICPH
+        '
+        Me.VA_SURGEON_ICPH.DataPropertyName = "VA_SURGEON_ICPH"
+        Me.VA_SURGEON_ICPH.HeaderText = "VA i/c PH after Surgeon"
+        Me.VA_SURGEON_ICPH.Name = "VA_SURGEON_ICPH"
+        Me.VA_SURGEON_ICPH.ReadOnly = True
+        '
         'FormPatientDischarged
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -656,4 +696,9 @@ Partial Class FormPatientDischarged
     Friend WithEvents OTCANCEL As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents OTCANCEL_DATE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents OTCANCEL_NOTE As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents IS_VA_OPERATE As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents VA_DR_SURGEON As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents VA_SURGEON_ONEYE As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents VA_SURGEON_PLAIN As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents VA_SURGEON_ICPH As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
