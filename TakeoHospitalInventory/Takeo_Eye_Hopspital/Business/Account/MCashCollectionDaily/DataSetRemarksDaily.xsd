@@ -39,15 +39,16 @@ FROM         tblAccountAmount INNER JOIN
         <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="AccountName" msprop:Generator_UserColumnName="AccountName" msprop:Generator_ColumnPropNameInRow="AccountName" msprop:Generator_ColumnVarNameInTable="columnAccountName" msprop:Generator_ColumnPropNameInTable="AccountNameColumn" minOccurs="0">
+              <xs:element name="AccountName" msprop:Generator_UserColumnName="AccountName" msprop:Generator_ColumnVarNameInTable="columnAccountName" msprop:Generator_ColumnPropNameInRow="AccountName" msprop:Generator_ColumnPropNameInTable="AccountNameColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AmountUSD" msprop:Generator_UserColumnName="AmountUSD" msprop:Generator_ColumnPropNameInRow="AmountUSD" msprop:Generator_ColumnVarNameInTable="columnAmountUSD" msprop:Generator_ColumnPropNameInTable="AmountUSDColumn" type="xs:double" minOccurs="0" />
-              <xs:element name="AmountRiel" msprop:Generator_UserColumnName="AmountRiel" msprop:Generator_ColumnPropNameInRow="AmountRiel" msprop:Generator_ColumnVarNameInTable="columnAmountRiel" msprop:Generator_ColumnPropNameInTable="AmountRielColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="AmountUSD" msprop:Generator_UserColumnName="AmountUSD" msprop:Generator_ColumnVarNameInTable="columnAmountUSD" msprop:Generator_ColumnPropNameInRow="AmountUSD" msprop:Generator_ColumnPropNameInTable="AmountUSDColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="AmountRiel" msprop:Generator_UserColumnName="AmountRiel" msprop:Generator_ColumnVarNameInTable="columnAmountRiel" msprop:Generator_ColumnPropNameInRow="AmountRiel" msprop:Generator_ColumnPropNameInTable="AmountRielColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="DateReceive" msprop:Generator_UserColumnName="DateReceive" msprop:Generator_ColumnPropNameInRow="DateReceive" msprop:Generator_ColumnVarNameInTable="columnDateReceive" msprop:Generator_ColumnPropNameInTable="DateReceiveColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

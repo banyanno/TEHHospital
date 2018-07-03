@@ -106,8 +106,6 @@ Partial Class CashReceivedByDepartment
         Me.txt5000Rs = New System.Windows.Forms.TextBox
         Me.txt20000R = New System.Windows.Forms.TextBox
         Me.txt5000R = New System.Windows.Forms.TextBox
-        Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer
-        Me.LineShape3 = New Microsoft.VisualBasic.PowerPacks.LineShape
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
         Me.txtTotalUSDCount = New System.Windows.Forms.TextBox
         Me.Label22 = New System.Windows.Forms.Label
@@ -149,12 +147,18 @@ Partial Class CashReceivedByDepartment
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnSaveNote = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
-        Me.btnClose = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnPrintReport = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
+        Me.btnClose = New System.Windows.Forms.ToolStripButton
         Me.GBPayment = New System.Windows.Forms.GroupBox
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox
+        Me.BtnPrintDtD = New System.Windows.Forms.Button
+        Me.Label45 = New System.Windows.Forms.Label
+        Me.DTo = New System.Windows.Forms.DateTimePicker
+        Me.Label44 = New System.Windows.Forms.Label
+        Me.DFrom = New System.Windows.Forms.DateTimePicker
         Me.GRCashCount.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -178,10 +182,12 @@ Partial Class CashReceivedByDepartment
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox11.SuspendLayout()
         Me.SuspendLayout()
         '
         'GRCashCount
         '
+        Me.GRCashCount.Controls.Add(Me.GroupBox11)
         Me.GRCashCount.Controls.Add(Me.TabControl1)
         Me.GRCashCount.Controls.Add(Me.GroupBox10)
         Me.GRCashCount.Controls.Add(Me.GroupBox8)
@@ -202,10 +208,10 @@ Partial Class CashReceivedByDepartment
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(798, 83)
+        Me.TabControl1.Location = New System.Drawing.Point(611, 87)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(638, 345)
+        Me.TabControl1.Size = New System.Drawing.Size(738, 345)
         Me.TabControl1.TabIndex = 17
         '
         'TabPage1
@@ -214,7 +220,7 @@ Partial Class CashReceivedByDepartment
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(630, 312)
+        Me.TabPage1.Size = New System.Drawing.Size(730, 312)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Income Summary:"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -244,7 +250,7 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(624, 306)
+        Me.GroupBox3.Size = New System.Drawing.Size(724, 306)
         Me.GroupBox3.TabIndex = 17
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Income Summary:"
@@ -451,7 +457,7 @@ Partial Class CashReceivedByDepartment
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(630, 312)
+        Me.TabPage2.Size = New System.Drawing.Size(730, 312)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "          Account          "
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -470,7 +476,7 @@ Partial Class CashReceivedByDepartment
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox9)
-        Me.SplitContainer2.Size = New System.Drawing.Size(624, 306)
+        Me.SplitContainer2.Size = New System.Drawing.Size(724, 306)
         Me.SplitContainer2.SplitterDistance = 153
         Me.SplitContainer2.TabIndex = 16
         '
@@ -481,7 +487,7 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox5.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(624, 153)
+        Me.GroupBox5.Size = New System.Drawing.Size(724, 153)
         Me.GroupBox5.TabIndex = 14
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Remarks Account Receiveable"
@@ -495,7 +501,7 @@ Partial Class CashReceivedByDepartment
         Me.dgvRemarks.GroupByBoxVisible = False
         Me.dgvRemarks.Location = New System.Drawing.Point(3, 22)
         Me.dgvRemarks.Name = "dgvRemarks"
-        Me.dgvRemarks.Size = New System.Drawing.Size(618, 128)
+        Me.dgvRemarks.Size = New System.Drawing.Size(718, 128)
         Me.dgvRemarks.TabIndex = 0
         '
         'GroupBox9
@@ -505,7 +511,7 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox9.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox9.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(624, 149)
+        Me.GroupBox9.Size = New System.Drawing.Size(724, 149)
         Me.GroupBox9.TabIndex = 15
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Remark Account Payable"
@@ -521,7 +527,7 @@ Partial Class CashReceivedByDepartment
         Me.GridAccountPayable.Location = New System.Drawing.Point(3, 22)
         Me.GridAccountPayable.Name = "GridAccountPayable"
         Me.GridAccountPayable.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridAccountPayable.Size = New System.Drawing.Size(618, 124)
+        Me.GridAccountPayable.Size = New System.Drawing.Size(718, 124)
         Me.GridAccountPayable.TabIndex = 0
         '
         'GroupBox10
@@ -530,7 +536,7 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox10.ForeColor = System.Drawing.Color.Red
         Me.GroupBox10.Location = New System.Drawing.Point(6, 283)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(364, 147)
+        Me.GroupBox10.Size = New System.Drawing.Size(295, 147)
         Me.GroupBox10.TabIndex = 16
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Remark"
@@ -542,7 +548,7 @@ Partial Class CashReceivedByDepartment
         Me.TxtRemarkNote.Multiline = True
         Me.TxtRemarkNote.Name = "TxtRemarkNote"
         Me.TxtRemarkNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtRemarkNote.Size = New System.Drawing.Size(358, 122)
+        Me.TxtRemarkNote.Size = New System.Drawing.Size(289, 122)
         Me.TxtRemarkNote.TabIndex = 0
         '
         'GroupBox8
@@ -593,10 +599,9 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox8.Controls.Add(Me.txt5000Rs)
         Me.GroupBox8.Controls.Add(Me.txt20000R)
         Me.GroupBox8.Controls.Add(Me.txt5000R)
-        Me.GroupBox8.Controls.Add(Me.ShapeContainer3)
-        Me.GroupBox8.Location = New System.Drawing.Point(376, 20)
+        Me.GroupBox8.Location = New System.Drawing.Point(307, 21)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(415, 410)
+        Me.GroupBox8.Size = New System.Drawing.Size(294, 410)
         Me.GroupBox8.TabIndex = 0
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "RIEL"
@@ -604,7 +609,7 @@ Partial Class CashReceivedByDepartment
         'LblRemarkNoteID
         '
         Me.LblRemarkNoteID.AutoSize = True
-        Me.LblRemarkNoteID.Location = New System.Drawing.Point(198, 195)
+        Me.LblRemarkNoteID.Location = New System.Drawing.Point(117, 356)
         Me.LblRemarkNoteID.Name = "LblRemarkNoteID"
         Me.LblRemarkNoteID.Size = New System.Drawing.Size(18, 20)
         Me.LblRemarkNoteID.TabIndex = 23
@@ -614,7 +619,7 @@ Partial Class CashReceivedByDepartment
         'LblDepName
         '
         Me.LblDepName.AutoSize = True
-        Me.LblDepName.Location = New System.Drawing.Point(107, 330)
+        Me.LblDepName.Location = New System.Drawing.Point(96, 370)
         Me.LblDepName.Name = "LblDepName"
         Me.LblDepName.Size = New System.Drawing.Size(81, 20)
         Me.LblDepName.TabIndex = 22
@@ -624,7 +629,7 @@ Partial Class CashReceivedByDepartment
         'LblDepaID
         '
         Me.LblDepaID.AutoSize = True
-        Me.LblDepaID.Location = New System.Drawing.Point(107, 304)
+        Me.LblDepaID.Location = New System.Drawing.Point(96, 304)
         Me.LblDepaID.Name = "LblDepaID"
         Me.LblDepaID.Size = New System.Drawing.Size(56, 20)
         Me.LblDepaID.TabIndex = 21
@@ -634,7 +639,7 @@ Partial Class CashReceivedByDepartment
         'cmdNew
         '
         Me.cmdNew.Enabled = False
-        Me.cmdNew.Location = New System.Drawing.Point(8, 294)
+        Me.cmdNew.Location = New System.Drawing.Point(-5, 326)
         Me.cmdNew.Name = "cmdNew"
         Me.cmdNew.Size = New System.Drawing.Size(76, 69)
         Me.cmdNew.TabIndex = 3
@@ -646,7 +651,7 @@ Partial Class CashReceivedByDepartment
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(220, 284)
+        Me.Label43.Location = New System.Drawing.Point(167, 284)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(18, 20)
         Me.Label43.TabIndex = 0
@@ -655,7 +660,7 @@ Partial Class CashReceivedByDepartment
         'Label40
         '
         Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(220, 230)
+        Me.Label40.Location = New System.Drawing.Point(167, 230)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(18, 20)
         Me.Label40.TabIndex = 0
@@ -664,7 +669,7 @@ Partial Class CashReceivedByDepartment
         'Label41
         '
         Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(220, 204)
+        Me.Label41.Location = New System.Drawing.Point(167, 204)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(18, 20)
         Me.Label41.TabIndex = 0
@@ -673,7 +678,7 @@ Partial Class CashReceivedByDepartment
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(220, 256)
+        Me.Label42.Location = New System.Drawing.Point(167, 256)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(18, 20)
         Me.Label42.TabIndex = 0
@@ -682,10 +687,10 @@ Partial Class CashReceivedByDepartment
         'txt50Rs
         '
         Me.txt50Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt50Rs.Location = New System.Drawing.Point(244, 274)
+        Me.txt50Rs.Location = New System.Drawing.Point(191, 274)
         Me.txt50Rs.Name = "txt50Rs"
         Me.txt50Rs.ReadOnly = True
-        Me.txt50Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt50Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt50Rs.TabIndex = 19
         Me.txt50Rs.Text = "0"
         Me.txt50Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -693,10 +698,10 @@ Partial Class CashReceivedByDepartment
         'txt100Rs
         '
         Me.txt100Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt100Rs.Location = New System.Drawing.Point(244, 248)
+        Me.txt100Rs.Location = New System.Drawing.Point(191, 248)
         Me.txt100Rs.Name = "txt100Rs"
         Me.txt100Rs.ReadOnly = True
-        Me.txt100Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt100Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt100Rs.TabIndex = 17
         Me.txt100Rs.Text = "0"
         Me.txt100Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -704,10 +709,10 @@ Partial Class CashReceivedByDepartment
         'txt1000Rs
         '
         Me.txt1000Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt1000Rs.Location = New System.Drawing.Point(244, 196)
+        Me.txt1000Rs.Location = New System.Drawing.Point(191, 196)
         Me.txt1000Rs.Name = "txt1000Rs"
         Me.txt1000Rs.ReadOnly = True
-        Me.txt1000Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt1000Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt1000Rs.TabIndex = 13
         Me.txt1000Rs.Text = "0"
         Me.txt1000Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -715,46 +720,46 @@ Partial Class CashReceivedByDepartment
         'txt500Rs
         '
         Me.txt500Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt500Rs.Location = New System.Drawing.Point(244, 222)
+        Me.txt500Rs.Location = New System.Drawing.Point(191, 222)
         Me.txt500Rs.Name = "txt500Rs"
         Me.txt500Rs.ReadOnly = True
-        Me.txt500Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt500Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt500Rs.TabIndex = 15
         Me.txt500Rs.Text = "0"
         Me.txt500Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt50R
         '
-        Me.txt50R.Location = New System.Drawing.Point(110, 274)
+        Me.txt50R.Location = New System.Drawing.Point(91, 274)
         Me.txt50R.Name = "txt50R"
-        Me.txt50R.Size = New System.Drawing.Size(104, 26)
+        Me.txt50R.Size = New System.Drawing.Size(73, 26)
         Me.txt50R.TabIndex = 18
         Me.txt50R.Text = "0"
         Me.txt50R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt100R
         '
-        Me.txt100R.Location = New System.Drawing.Point(110, 248)
+        Me.txt100R.Location = New System.Drawing.Point(91, 248)
         Me.txt100R.Name = "txt100R"
-        Me.txt100R.Size = New System.Drawing.Size(104, 26)
+        Me.txt100R.Size = New System.Drawing.Size(73, 26)
         Me.txt100R.TabIndex = 16
         Me.txt100R.Text = "0"
         Me.txt100R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt1000R
         '
-        Me.txt1000R.Location = New System.Drawing.Point(110, 196)
+        Me.txt1000R.Location = New System.Drawing.Point(91, 196)
         Me.txt1000R.Name = "txt1000R"
-        Me.txt1000R.Size = New System.Drawing.Size(104, 26)
+        Me.txt1000R.Size = New System.Drawing.Size(73, 26)
         Me.txt1000R.TabIndex = 12
         Me.txt1000R.Text = "0"
         Me.txt1000R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt500R
         '
-        Me.txt500R.Location = New System.Drawing.Point(110, 222)
+        Me.txt500R.Location = New System.Drawing.Point(91, 222)
         Me.txt500R.Name = "txt500R"
-        Me.txt500R.Size = New System.Drawing.Size(104, 26)
+        Me.txt500R.Size = New System.Drawing.Size(73, 26)
         Me.txt500R.TabIndex = 14
         Me.txt500R.Text = "0"
         Me.txt500R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -762,7 +767,7 @@ Partial Class CashReceivedByDepartment
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(45, 229)
+        Me.Label36.Location = New System.Drawing.Point(34, 229)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(51, 20)
         Me.Label36.TabIndex = 0
@@ -771,7 +776,7 @@ Partial Class CashReceivedByDepartment
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(32, 202)
+        Me.Label37.Location = New System.Drawing.Point(21, 202)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(64, 20)
         Me.Label37.TabIndex = 0
@@ -780,7 +785,7 @@ Partial Class CashReceivedByDepartment
         'Label38
         '
         Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(45, 254)
+        Me.Label38.Location = New System.Drawing.Point(34, 254)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(51, 20)
         Me.Label38.TabIndex = 0
@@ -789,7 +794,7 @@ Partial Class CashReceivedByDepartment
         'Label39
         '
         Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(54, 281)
+        Me.Label39.Location = New System.Drawing.Point(43, 281)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(42, 20)
         Me.Label39.TabIndex = 0
@@ -799,10 +804,10 @@ Partial Class CashReceivedByDepartment
         '
         Me.txtTotalRielCount.BackColor = System.Drawing.Color.Beige
         Me.txtTotalRielCount.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalRielCount.Location = New System.Drawing.Point(244, 320)
+        Me.txtTotalRielCount.Location = New System.Drawing.Point(191, 326)
         Me.txtTotalRielCount.Name = "txtTotalRielCount"
         Me.txtTotalRielCount.ReadOnly = True
-        Me.txtTotalRielCount.Size = New System.Drawing.Size(157, 30)
+        Me.txtTotalRielCount.Size = New System.Drawing.Size(97, 30)
         Me.txtTotalRielCount.TabIndex = 20
         Me.txtTotalRielCount.Text = "0"
         Me.txtTotalRielCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -810,7 +815,7 @@ Partial Class CashReceivedByDepartment
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(154, 326)
+        Me.Label23.Location = New System.Drawing.Point(101, 332)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(59, 20)
         Me.Label23.TabIndex = 3
@@ -819,7 +824,7 @@ Partial Class CashReceivedByDepartment
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(220, 179)
+        Me.Label24.Location = New System.Drawing.Point(167, 179)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(18, 20)
         Me.Label24.TabIndex = 0
@@ -828,7 +833,7 @@ Partial Class CashReceivedByDepartment
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(220, 151)
+        Me.Label25.Location = New System.Drawing.Point(167, 151)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(18, 20)
         Me.Label25.TabIndex = 0
@@ -837,7 +842,7 @@ Partial Class CashReceivedByDepartment
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(220, 99)
+        Me.Label26.Location = New System.Drawing.Point(167, 99)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(18, 20)
         Me.Label26.TabIndex = 0
@@ -846,7 +851,7 @@ Partial Class CashReceivedByDepartment
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(220, 125)
+        Me.Label27.Location = New System.Drawing.Point(167, 125)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(18, 20)
         Me.Label27.TabIndex = 0
@@ -855,7 +860,7 @@ Partial Class CashReceivedByDepartment
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(220, 73)
+        Me.Label28.Location = New System.Drawing.Point(167, 73)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(18, 20)
         Me.Label28.TabIndex = 0
@@ -864,7 +869,7 @@ Partial Class CashReceivedByDepartment
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(220, 44)
+        Me.Label29.Location = New System.Drawing.Point(167, 44)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(18, 20)
         Me.Label29.TabIndex = 0
@@ -873,7 +878,7 @@ Partial Class CashReceivedByDepartment
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(32, 177)
+        Me.Label30.Location = New System.Drawing.Point(21, 177)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(64, 20)
         Me.Label30.TabIndex = 0
@@ -882,7 +887,7 @@ Partial Class CashReceivedByDepartment
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(32, 150)
+        Me.Label31.Location = New System.Drawing.Point(21, 150)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(64, 20)
         Me.Label31.TabIndex = 0
@@ -891,7 +896,7 @@ Partial Class CashReceivedByDepartment
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(23, 98)
+        Me.Label32.Location = New System.Drawing.Point(12, 98)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(73, 20)
         Me.Label32.TabIndex = 0
@@ -900,7 +905,7 @@ Partial Class CashReceivedByDepartment
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(23, 126)
+        Me.Label33.Location = New System.Drawing.Point(12, 126)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(73, 20)
         Me.Label33.TabIndex = 0
@@ -909,7 +914,7 @@ Partial Class CashReceivedByDepartment
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(23, 71)
+        Me.Label34.Location = New System.Drawing.Point(12, 71)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(73, 20)
         Me.Label34.TabIndex = 0
@@ -918,7 +923,7 @@ Partial Class CashReceivedByDepartment
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(14, 42)
+        Me.Label35.Location = New System.Drawing.Point(3, 42)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(82, 20)
         Me.Label35.TabIndex = 0
@@ -927,19 +932,19 @@ Partial Class CashReceivedByDepartment
         'txt50000Rs
         '
         Me.txt50000Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt50000Rs.Location = New System.Drawing.Point(244, 66)
+        Me.txt50000Rs.Location = New System.Drawing.Point(191, 66)
         Me.txt50000Rs.Name = "txt50000Rs"
         Me.txt50000Rs.ReadOnly = True
-        Me.txt50000Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt50000Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt50000Rs.TabIndex = 3
         Me.txt50000Rs.Text = "0"
         Me.txt50000Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt50000R
         '
-        Me.txt50000R.Location = New System.Drawing.Point(110, 66)
+        Me.txt50000R.Location = New System.Drawing.Point(91, 66)
         Me.txt50000R.Name = "txt50000R"
-        Me.txt50000R.Size = New System.Drawing.Size(104, 26)
+        Me.txt50000R.Size = New System.Drawing.Size(73, 26)
         Me.txt50000R.TabIndex = 2
         Me.txt50000R.Text = "0"
         Me.txt50000R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -947,19 +952,19 @@ Partial Class CashReceivedByDepartment
         'txt100000Rs
         '
         Me.txt100000Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt100000Rs.Location = New System.Drawing.Point(244, 40)
+        Me.txt100000Rs.Location = New System.Drawing.Point(191, 40)
         Me.txt100000Rs.Name = "txt100000Rs"
         Me.txt100000Rs.ReadOnly = True
-        Me.txt100000Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt100000Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt100000Rs.TabIndex = 1
         Me.txt100000Rs.Text = "0"
         Me.txt100000Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt100000R
         '
-        Me.txt100000R.Location = New System.Drawing.Point(110, 40)
+        Me.txt100000R.Location = New System.Drawing.Point(91, 40)
         Me.txt100000R.Name = "txt100000R"
-        Me.txt100000R.Size = New System.Drawing.Size(104, 26)
+        Me.txt100000R.Size = New System.Drawing.Size(73, 26)
         Me.txt100000R.TabIndex = 0
         Me.txt100000R.Text = "0"
         Me.txt100000R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -967,10 +972,10 @@ Partial Class CashReceivedByDepartment
         'txt2000Rs
         '
         Me.txt2000Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt2000Rs.Location = New System.Drawing.Point(244, 170)
+        Me.txt2000Rs.Location = New System.Drawing.Point(191, 170)
         Me.txt2000Rs.Name = "txt2000Rs"
         Me.txt2000Rs.ReadOnly = True
-        Me.txt2000Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt2000Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt2000Rs.TabIndex = 11
         Me.txt2000Rs.Text = "0"
         Me.txt2000Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -978,19 +983,19 @@ Partial Class CashReceivedByDepartment
         'txt10000Rs
         '
         Me.txt10000Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt10000Rs.Location = New System.Drawing.Point(244, 118)
+        Me.txt10000Rs.Location = New System.Drawing.Point(191, 118)
         Me.txt10000Rs.Name = "txt10000Rs"
         Me.txt10000Rs.ReadOnly = True
-        Me.txt10000Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt10000Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt10000Rs.TabIndex = 7
         Me.txt10000Rs.Text = "0"
         Me.txt10000Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt2000R
         '
-        Me.txt2000R.Location = New System.Drawing.Point(110, 170)
+        Me.txt2000R.Location = New System.Drawing.Point(91, 170)
         Me.txt2000R.Name = "txt2000R"
-        Me.txt2000R.Size = New System.Drawing.Size(104, 26)
+        Me.txt2000R.Size = New System.Drawing.Size(73, 26)
         Me.txt2000R.TabIndex = 10
         Me.txt2000R.Text = "0"
         Me.txt2000R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -998,19 +1003,19 @@ Partial Class CashReceivedByDepartment
         'txt20000Rs
         '
         Me.txt20000Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt20000Rs.Location = New System.Drawing.Point(244, 92)
+        Me.txt20000Rs.Location = New System.Drawing.Point(191, 92)
         Me.txt20000Rs.Name = "txt20000Rs"
         Me.txt20000Rs.ReadOnly = True
-        Me.txt20000Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt20000Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt20000Rs.TabIndex = 5
         Me.txt20000Rs.Text = "0"
         Me.txt20000Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt10000R
         '
-        Me.txt10000R.Location = New System.Drawing.Point(110, 118)
+        Me.txt10000R.Location = New System.Drawing.Point(91, 118)
         Me.txt10000R.Name = "txt10000R"
-        Me.txt10000R.Size = New System.Drawing.Size(104, 26)
+        Me.txt10000R.Size = New System.Drawing.Size(73, 26)
         Me.txt10000R.TabIndex = 6
         Me.txt10000R.Text = "0"
         Me.txt10000R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1018,49 +1023,31 @@ Partial Class CashReceivedByDepartment
         'txt5000Rs
         '
         Me.txt5000Rs.BackColor = System.Drawing.Color.Beige
-        Me.txt5000Rs.Location = New System.Drawing.Point(244, 144)
+        Me.txt5000Rs.Location = New System.Drawing.Point(191, 144)
         Me.txt5000Rs.Name = "txt5000Rs"
         Me.txt5000Rs.ReadOnly = True
-        Me.txt5000Rs.Size = New System.Drawing.Size(156, 26)
+        Me.txt5000Rs.Size = New System.Drawing.Size(96, 26)
         Me.txt5000Rs.TabIndex = 9
         Me.txt5000Rs.Text = "0"
         Me.txt5000Rs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt20000R
         '
-        Me.txt20000R.Location = New System.Drawing.Point(110, 92)
+        Me.txt20000R.Location = New System.Drawing.Point(91, 92)
         Me.txt20000R.Name = "txt20000R"
-        Me.txt20000R.Size = New System.Drawing.Size(104, 26)
+        Me.txt20000R.Size = New System.Drawing.Size(73, 26)
         Me.txt20000R.TabIndex = 4
         Me.txt20000R.Text = "0"
         Me.txt20000R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt5000R
         '
-        Me.txt5000R.Location = New System.Drawing.Point(110, 144)
+        Me.txt5000R.Location = New System.Drawing.Point(91, 144)
         Me.txt5000R.Name = "txt5000R"
-        Me.txt5000R.Size = New System.Drawing.Size(104, 26)
+        Me.txt5000R.Size = New System.Drawing.Size(73, 26)
         Me.txt5000R.TabIndex = 8
         Me.txt5000R.Text = "0"
         Me.txt5000R.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ShapeContainer3
-        '
-        Me.ShapeContainer3.Location = New System.Drawing.Point(3, 22)
-        Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer3.Name = "ShapeContainer3"
-        Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape3})
-        Me.ShapeContainer3.Size = New System.Drawing.Size(409, 385)
-        Me.ShapeContainer3.TabIndex = 4
-        Me.ShapeContainer3.TabStop = False
-        '
-        'LineShape3
-        '
-        Me.LineShape3.Name = "LineShape2"
-        Me.LineShape3.X1 = 241
-        Me.LineShape3.X2 = 396
-        Me.LineShape3.Y1 = 288
-        Me.LineShape3.Y2 = 288
         '
         'GroupBox7
         '
@@ -1092,7 +1079,7 @@ Partial Class CashReceivedByDepartment
         Me.GroupBox7.Controls.Add(Me.txt5USD)
         Me.GroupBox7.Location = New System.Drawing.Point(6, 21)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(364, 260)
+        Me.GroupBox7.Size = New System.Drawing.Size(295, 260)
         Me.GroupBox7.TabIndex = 0
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "US DOLLARS"
@@ -1101,10 +1088,10 @@ Partial Class CashReceivedByDepartment
         '
         Me.txtTotalUSDCount.BackColor = System.Drawing.Color.Linen
         Me.txtTotalUSDCount.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalUSDCount.Location = New System.Drawing.Point(190, 218)
+        Me.txtTotalUSDCount.Location = New System.Drawing.Point(174, 218)
         Me.txtTotalUSDCount.Name = "txtTotalUSDCount"
         Me.txtTotalUSDCount.ReadOnly = True
-        Me.txtTotalUSDCount.Size = New System.Drawing.Size(157, 30)
+        Me.txtTotalUSDCount.Size = New System.Drawing.Size(113, 30)
         Me.txtTotalUSDCount.TabIndex = 12
         Me.txtTotalUSDCount.Text = "0"
         Me.txtTotalUSDCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1121,7 +1108,7 @@ Partial Class CashReceivedByDepartment
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(167, 178)
+        Me.Label21.Location = New System.Drawing.Point(156, 178)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(18, 20)
         Me.Label21.TabIndex = 0
@@ -1130,7 +1117,7 @@ Partial Class CashReceivedByDepartment
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(167, 150)
+        Me.Label20.Location = New System.Drawing.Point(156, 150)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(18, 20)
         Me.Label20.TabIndex = 0
@@ -1139,7 +1126,7 @@ Partial Class CashReceivedByDepartment
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(167, 98)
+        Me.Label18.Location = New System.Drawing.Point(156, 98)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(18, 20)
         Me.Label18.TabIndex = 0
@@ -1148,7 +1135,7 @@ Partial Class CashReceivedByDepartment
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(167, 124)
+        Me.Label19.Location = New System.Drawing.Point(156, 124)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(18, 20)
         Me.Label19.TabIndex = 0
@@ -1157,7 +1144,7 @@ Partial Class CashReceivedByDepartment
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(167, 72)
+        Me.Label17.Location = New System.Drawing.Point(156, 72)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(18, 20)
         Me.Label17.TabIndex = 0
@@ -1166,7 +1153,7 @@ Partial Class CashReceivedByDepartment
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(167, 43)
+        Me.Label16.Location = New System.Drawing.Point(156, 43)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(18, 20)
         Me.Label16.TabIndex = 0
@@ -1229,10 +1216,10 @@ Partial Class CashReceivedByDepartment
         'txt50D
         '
         Me.txt50D.BackColor = System.Drawing.Color.Linen
-        Me.txt50D.Location = New System.Drawing.Point(191, 65)
+        Me.txt50D.Location = New System.Drawing.Point(175, 65)
         Me.txt50D.Name = "txt50D"
         Me.txt50D.ReadOnly = True
-        Me.txt50D.Size = New System.Drawing.Size(156, 26)
+        Me.txt50D.Size = New System.Drawing.Size(112, 26)
         Me.txt50D.TabIndex = 3
         Me.txt50D.Text = "0"
         Me.txt50D.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1241,7 +1228,7 @@ Partial Class CashReceivedByDepartment
         '
         Me.txt50USD.Location = New System.Drawing.Point(71, 65)
         Me.txt50USD.Name = "txt50USD"
-        Me.txt50USD.Size = New System.Drawing.Size(90, 26)
+        Me.txt50USD.Size = New System.Drawing.Size(82, 26)
         Me.txt50USD.TabIndex = 2
         Me.txt50USD.Text = "0"
         Me.txt50USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1249,10 +1236,10 @@ Partial Class CashReceivedByDepartment
         'txt100D
         '
         Me.txt100D.BackColor = System.Drawing.Color.Linen
-        Me.txt100D.Location = New System.Drawing.Point(191, 39)
+        Me.txt100D.Location = New System.Drawing.Point(175, 39)
         Me.txt100D.Name = "txt100D"
         Me.txt100D.ReadOnly = True
-        Me.txt100D.Size = New System.Drawing.Size(156, 26)
+        Me.txt100D.Size = New System.Drawing.Size(112, 26)
         Me.txt100D.TabIndex = 1
         Me.txt100D.Text = "0"
         Me.txt100D.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1261,7 +1248,7 @@ Partial Class CashReceivedByDepartment
         '
         Me.txt100USD.Location = New System.Drawing.Point(71, 39)
         Me.txt100USD.Name = "txt100USD"
-        Me.txt100USD.Size = New System.Drawing.Size(90, 26)
+        Me.txt100USD.Size = New System.Drawing.Size(82, 26)
         Me.txt100USD.TabIndex = 0
         Me.txt100USD.Text = "0"
         Me.txt100USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1269,10 +1256,10 @@ Partial Class CashReceivedByDepartment
         'txt1D
         '
         Me.txt1D.BackColor = System.Drawing.Color.Linen
-        Me.txt1D.Location = New System.Drawing.Point(191, 169)
+        Me.txt1D.Location = New System.Drawing.Point(175, 169)
         Me.txt1D.Name = "txt1D"
         Me.txt1D.ReadOnly = True
-        Me.txt1D.Size = New System.Drawing.Size(156, 26)
+        Me.txt1D.Size = New System.Drawing.Size(112, 26)
         Me.txt1D.TabIndex = 11
         Me.txt1D.Text = "0"
         Me.txt1D.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1280,10 +1267,10 @@ Partial Class CashReceivedByDepartment
         'txt10D
         '
         Me.txt10D.BackColor = System.Drawing.Color.Linen
-        Me.txt10D.Location = New System.Drawing.Point(191, 117)
+        Me.txt10D.Location = New System.Drawing.Point(175, 117)
         Me.txt10D.Name = "txt10D"
         Me.txt10D.ReadOnly = True
-        Me.txt10D.Size = New System.Drawing.Size(156, 26)
+        Me.txt10D.Size = New System.Drawing.Size(112, 26)
         Me.txt10D.TabIndex = 7
         Me.txt10D.Text = "0"
         Me.txt10D.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1292,7 +1279,7 @@ Partial Class CashReceivedByDepartment
         '
         Me.txt1USD.Location = New System.Drawing.Point(71, 169)
         Me.txt1USD.Name = "txt1USD"
-        Me.txt1USD.Size = New System.Drawing.Size(90, 26)
+        Me.txt1USD.Size = New System.Drawing.Size(82, 26)
         Me.txt1USD.TabIndex = 10
         Me.txt1USD.Text = "0"
         Me.txt1USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1300,10 +1287,10 @@ Partial Class CashReceivedByDepartment
         'txt20D
         '
         Me.txt20D.BackColor = System.Drawing.Color.Linen
-        Me.txt20D.Location = New System.Drawing.Point(191, 91)
+        Me.txt20D.Location = New System.Drawing.Point(175, 91)
         Me.txt20D.Name = "txt20D"
         Me.txt20D.ReadOnly = True
-        Me.txt20D.Size = New System.Drawing.Size(156, 26)
+        Me.txt20D.Size = New System.Drawing.Size(112, 26)
         Me.txt20D.TabIndex = 5
         Me.txt20D.Text = "0"
         Me.txt20D.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1312,7 +1299,7 @@ Partial Class CashReceivedByDepartment
         '
         Me.txt10USD.Location = New System.Drawing.Point(71, 117)
         Me.txt10USD.Name = "txt10USD"
-        Me.txt10USD.Size = New System.Drawing.Size(90, 26)
+        Me.txt10USD.Size = New System.Drawing.Size(82, 26)
         Me.txt10USD.TabIndex = 6
         Me.txt10USD.Text = "0"
         Me.txt10USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1320,10 +1307,10 @@ Partial Class CashReceivedByDepartment
         'txt5D
         '
         Me.txt5D.BackColor = System.Drawing.Color.Linen
-        Me.txt5D.Location = New System.Drawing.Point(191, 143)
+        Me.txt5D.Location = New System.Drawing.Point(175, 143)
         Me.txt5D.Name = "txt5D"
         Me.txt5D.ReadOnly = True
-        Me.txt5D.Size = New System.Drawing.Size(156, 26)
+        Me.txt5D.Size = New System.Drawing.Size(112, 26)
         Me.txt5D.TabIndex = 9
         Me.txt5D.Text = "0"
         Me.txt5D.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1332,7 +1319,7 @@ Partial Class CashReceivedByDepartment
         '
         Me.txt20USD.Location = New System.Drawing.Point(71, 91)
         Me.txt20USD.Name = "txt20USD"
-        Me.txt20USD.Size = New System.Drawing.Size(90, 26)
+        Me.txt20USD.Size = New System.Drawing.Size(82, 26)
         Me.txt20USD.TabIndex = 4
         Me.txt20USD.Text = "0"
         Me.txt20USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1341,7 +1328,7 @@ Partial Class CashReceivedByDepartment
         '
         Me.txt5USD.Location = New System.Drawing.Point(71, 143)
         Me.txt5USD.Name = "txt5USD"
-        Me.txt5USD.Size = New System.Drawing.Size(90, 26)
+        Me.txt5USD.Size = New System.Drawing.Size(82, 26)
         Me.txt5USD.TabIndex = 8
         Me.txt5USD.Text = "0"
         Me.txt5USD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1352,10 +1339,10 @@ Partial Class CashReceivedByDepartment
         Me.dtpDateFrom.CustomFormat = "dd/MM/yyyy"
         Me.dtpDateFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDateFrom.Location = New System.Drawing.Point(798, 41)
+        Me.dtpDateFrom.Location = New System.Drawing.Point(611, 45)
         Me.dtpDateFrom.Name = "dtpDateFrom"
         Me.dtpDateFrom.ShowCheckBox = True
-        Me.dtpDateFrom.Size = New System.Drawing.Size(234, 38)
+        Me.dtpDateFrom.Size = New System.Drawing.Size(196, 38)
         Me.dtpDateFrom.TabIndex = 12
         '
         'Label2
@@ -1363,7 +1350,7 @@ Partial Class CashReceivedByDepartment
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(794, 17)
+        Me.Label2.Location = New System.Drawing.Point(607, 21)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(178, 20)
         Me.Label2.TabIndex = 13
@@ -1485,20 +1472,6 @@ Partial Class CashReceivedByDepartment
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 32)
         '
-        'btnClose
-        '
-        Me.btnClose.ForeColor = System.Drawing.Color.Blue
-        Me.btnClose.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Close1
-        Me.btnClose.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(77, 29)
-        Me.btnClose.Text = "Close"
-        '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 32)
-        '
         'BtnPrintReport
         '
         Me.BtnPrintReport.ForeColor = System.Drawing.Color.Blue
@@ -1507,6 +1480,20 @@ Partial Class CashReceivedByDepartment
         Me.BtnPrintReport.Name = "BtnPrintReport"
         Me.BtnPrintReport.Size = New System.Drawing.Size(153, 29)
         Me.BtnPrintReport.Text = "Print Dailly Cash"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 32)
+        '
+        'btnClose
+        '
+        Me.btnClose.ForeColor = System.Drawing.Color.Blue
+        Me.btnClose.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Close1
+        Me.btnClose.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(77, 29)
+        Me.btnClose.Text = "Close"
         '
         'GBPayment
         '
@@ -1543,6 +1530,66 @@ Partial Class CashReceivedByDepartment
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.BtnPrintDtD)
+        Me.GroupBox11.Controls.Add(Me.Label45)
+        Me.GroupBox11.Controls.Add(Me.DTo)
+        Me.GroupBox11.Controls.Add(Me.Label44)
+        Me.GroupBox11.Controls.Add(Me.DFrom)
+        Me.GroupBox11.Location = New System.Drawing.Point(813, 23)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(534, 61)
+        Me.GroupBox11.TabIndex = 18
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Report Daily Date to Date"
+        '
+        'BtnPrintDtD
+        '
+        Me.BtnPrintDtD.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnPrintDtD.Location = New System.Drawing.Point(376, 21)
+        Me.BtnPrintDtD.Name = "BtnPrintDtD"
+        Me.BtnPrintDtD.Size = New System.Drawing.Size(118, 33)
+        Me.BtnPrintDtD.TabIndex = 8
+        Me.BtnPrintDtD.Text = "Print Preveiw"
+        Me.BtnPrintDtD.UseVisualStyleBackColor = True
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(209, 30)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(31, 20)
+        Me.Label45.TabIndex = 7
+        Me.Label45.Text = "To:"
+        '
+        'DTo
+        '
+        Me.DTo.CustomFormat = "dd/MM/yyyy"
+        Me.DTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DTo.Location = New System.Drawing.Point(241, 26)
+        Me.DTo.Name = "DTo"
+        Me.DTo.Size = New System.Drawing.Size(129, 26)
+        Me.DTo.TabIndex = 6
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(13, 31)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(50, 20)
+        Me.Label44.TabIndex = 5
+        Me.Label44.Text = "From:"
+        '
+        'DFrom
+        '
+        Me.DFrom.CustomFormat = "dd/MM/yyyy"
+        Me.DFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DFrom.Location = New System.Drawing.Point(70, 27)
+        Me.DFrom.Name = "DFrom"
+        Me.DFrom.Size = New System.Drawing.Size(129, 26)
+        Me.DFrom.TabIndex = 4
         '
         'CashReceivedByDepartment
         '
@@ -1586,6 +1633,8 @@ Partial Class CashReceivedByDepartment
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1639,8 +1688,6 @@ Partial Class CashReceivedByDepartment
     Friend WithEvents txt5000Rs As System.Windows.Forms.TextBox
     Friend WithEvents txt20000R As System.Windows.Forms.TextBox
     Friend WithEvents txt5000R As System.Windows.Forms.TextBox
-    Friend WithEvents ShapeContainer3 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents LineShape3 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
     Friend WithEvents txtTotalUSDCount As System.Windows.Forms.TextBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
@@ -1718,4 +1765,10 @@ Partial Class CashReceivedByDepartment
     Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BtnPrintReport As System.Windows.Forms.ToolStripButton
+    Friend WithEvents GroupBox11 As System.Windows.Forms.GroupBox
+    Friend WithEvents BtnPrintDtD As System.Windows.Forms.Button
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents DTo As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents DFrom As System.Windows.Forms.DateTimePicker
 End Class

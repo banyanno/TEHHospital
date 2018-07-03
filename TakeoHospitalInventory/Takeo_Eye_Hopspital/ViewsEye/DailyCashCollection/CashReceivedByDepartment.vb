@@ -1099,4 +1099,33 @@
     End Sub
 
    
+    Private Sub BtnPrintDtD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintDtD.Click
+        Try
+
+            Dim TblCas As DataTable = DACashDialyCon.GetDataBy(DEPART_ID, DFrom.Value.Date, DTo.Value.Date)
+            Me.cmdPrint.Enabled = False
+            Dim frmReportCCD As New frmReportCashCountDaily
+            '-------------Report Form Active--------------------------------
+            Dim ReportCCD As New ReportCashCountDailyDateToDate
+            Dim TblAccoutPayAble As DataTable = DAAccountPayable.SelectAccPayableByDepDateToDate(DFrom.Value.Date, DTo.Value.Date, DEPART_ID)
+            ReportCCD.Subreports.Item("ReportCashFlow").SetDataSource(TblCas) 'MCashCollection.ReportCashFlowDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(TblCas) 'MCashCollection.ReportIncomeSummaryDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportRemarksDaily").SetDataSource(MCashCollection.ReportCashRemarksDailyByDeptDateToDate(DFrom.Value.Date, DTo.Value.Date, DEPART_ID).Tables(1))
+            ReportCCD.Subreports.Item("ReportCashCountDaily").SetDataSource(MCashCollection.ReportCashCountDailyDtoDDepartment(DFrom.Value.Date, DTo.Value.Date, DEPART_ID).Tables(1))
+            'ReportCCD.Subreports.Item("RemarkNote").SetDataSource(MCashCollection.SelectRemarksNoteDtoD(DFrom.Value.Date, DTo.Value.Date))
+            ReportCCD.Subreports.Item("AccountPayable").SetDataSource(TblAccoutPayAble)
+
+            frmReportCCD.crvReportCashCountDaily.ReportSource = ReportCCD
+            ReportCCD.SetParameterValue("Testing", "In Department:" & DEPART_NAME & " From " & Format(Me.DFrom.Value, "dd-MM-yyyy") & " To " & Format(Me.DTo.Value, "dd-MM-yyyy"))
+            'ReportCCD.Refresh()
+            '-------Parameter for Date from to date to-----------------
+            'Dim DateFromTo As ParameterField
+            'DateFromTo = ReportCCW.ParameterFields("txtDateFromTo")
+            'DateFromTo.CurrentValues.AddValue("Date: " & Format(Me.dtpDateFrom.Value, "dd/MM/yyyy") & " to: " & Format(Me.dtpDateTo.Value, "dd/MM/yyyy"))
+            frmReportCCD.ShowDialog()
+            'Me.cmdPrint.Enabled = True
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
+        End Try
+    End Sub
 End Class
