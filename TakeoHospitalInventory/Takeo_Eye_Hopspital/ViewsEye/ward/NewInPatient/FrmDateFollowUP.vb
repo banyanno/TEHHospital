@@ -34,8 +34,8 @@ Public Class FrmDateFollowUP
         If chIsVASurgeon.Checked = True Then
             If ValidateCombobox(CboDrSurgeon, "", ErDateFollowUp) = False Then Exit Sub
             If ValidateCombobox(CboSurgeonOnEye, "", ErDateFollowUp) = False Then Exit Sub
-            If ValidateCombobox(CboVAPH, "", ErDateFollowUp) = False Then Exit Sub
-            If ValidateCombobox(CboVAPlain, "", ErDateFollowUp) = False Then Exit Sub
+            'If ValidateCombobox(CboVAPH, "", ErDateFollowUp) = False Then Exit Sub
+            'If ValidateCombobox(CboVAPlain, "", ErDateFollowUp) = False Then Exit Sub
         End If
         Dim dialogResult As DialogResult = MessageBox.Show(MSG_SAVE, "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If dialogResult = Windows.Forms.DialogResult.Yes Then

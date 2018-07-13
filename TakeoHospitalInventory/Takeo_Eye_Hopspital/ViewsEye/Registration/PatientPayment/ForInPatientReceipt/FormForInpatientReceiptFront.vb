@@ -394,65 +394,65 @@ Public Class FormForInpatientReceiptFront
         'Dim DataTbl As DataTable = DA_Consult_Detail.GetDataByConsultFor(PatientNo, ConsultFor, Status)
         Dim DataTbl As DataTable = DA_Consult_Detail.GetConsultWaitingWithID(PatientNo, ConsultFor, Status, ConsultID)
         If DataTbl.Rows.Count >= 1 Then
-            For i As Integer = 0 To DataTbl.Rows.Count - 1
+            For Each rows As DataRow In DataTbl.Rows
                 ' MsgBox(DataTbl.Rows(i).Item("CONSULT_FOR"))
-                LblConsultID.Text = DataTbl.Rows(i).Item("CONSULING_ID")
-                LblConsultDate.Text = DataTbl.Rows(i).Item("CONSULING_DATE")
-                LblConsultType.Text = DataTbl.Rows(i).Item("DONATE_TYPE")
-                lblConsultFor.Text = DataTbl.Rows(i).Item("CONSULT_FOR")
-                LblSendBy.Text = DataTbl.Rows(i).Item("APROVE_BY")
+                LblConsultID.Text = rows("CONSULING_ID")
+                LblConsultDate.Text = rows("CONSULING_DATE")
+                LblConsultType.Text = rows("DONATE_TYPE")
+                lblConsultFor.Text = rows("CONSULT_FOR")
+                LblSendBy.Text = rows("APROVE_BY")
                 rdOperationR.Checked = True
                 rdOperationR.Enabled = False
                 rdOperationD.Enabled = False
-                txtOperationFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+                txtOperationFee.Text = rows("DONATE_RIEL")
                 txtOperationFee.Enabled = False
-                CboDiagnosis.Text = DataTbl.Rows(i).Item("DIAGNOSIS2")
-                txtOperation.Text = DataTbl.Rows(i).Item("OPERATION2")
-                TxtHosFee.Text = DataTbl.Rows(i).Item("HOSPITAL_FEE")
+                CboDiagnosis.Text = rows("DIAGNOSIS2")
+                txtOperation.Text = rows("OPERATION2")
+                TxtHosFee.Text = rows("HOSPITAL_FEE")
                 RRielSSFee.Checked = True
                 RReilFFee.Checked = True
                 TxtHosFee.Enabled = False
-                If DataTbl.Rows(i).Item("DONATE_TYPE") = "Social" Then
-                    If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+                If rows("DONATE_TYPE") = "Social" Then
+                    If rows("IS_RIEL_DOLAR") = True Then
                         RRielSSFee.Checked = True
                         rdOperationR.Checked = True
-                        TxtSosialServiceFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
-                        txtOperationFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+                        TxtSosialServiceFee.Text = rows("DONATE_RIEL")
+                        txtOperationFee.Text = rows("DONATE_RIEL")
                     Else
                         RDolarSSFee.Checked = True
                         rdOperationD.Checked = True
-                        TxtSosialServiceFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
-                        txtOperationFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+                        TxtSosialServiceFee.Text = rows("PATIENT_PAY_DOLAR")
+                        txtOperationFee.Text = rows("PATIENT_PAY_DOLAR")
                     End If
 
                     ChDonation.Checked = True
-                    CboDonation.Text = DataTbl.Rows(i).Item("ORG")
-                    TxtDonationPay.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+                    CboDonation.Text = rows("ORG")
+                    TxtDonationPay.Text = rows("DONATE_DOLAR")
                     TxtFullFee.Text = "0"
                     ChDonation.Enabled = False
                     GroupBox8.Enabled = False
                 End If
-                If DataTbl.Rows(i).Item("DONATE_TYPE") = "Nil" Then
-                    TxtSosialServiceFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+                If rows("DONATE_TYPE") = "Nil" Then
+                    TxtSosialServiceFee.Text = rows("DONATE_RIEL")
                     ChDonation.Checked = True
-                    CboDonation.Text = DataTbl.Rows(i).Item("ORG")
-                    TxtDonationPay.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+                    CboDonation.Text = rows("ORG")
+                    TxtDonationPay.Text = rows("DONATE_DOLAR")
                     TxtFullFee.Text = "0"
                     ChDonation.Enabled = False
                     GroupBox8.Enabled = False
                 End If
-                If DataTbl.Rows(i).Item("DONATE_TYPE") = "Full" Then
+                If rows("DONATE_TYPE") = "Full" Then
 
-                    If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+                    If rows("IS_RIEL_DOLAR") = True Then
                         RReilFFee.Checked = True
                         rdOperationR.Checked = True
-                        TxtFullFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
-                        txtOperationFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+                        TxtFullFee.Text = rows("DONATE_RIEL")
+                        txtOperationFee.Text = rows("DONATE_RIEL")
                     Else
                         RDolarFFee.Checked = True
                         rdOperationD.Checked = True
-                        TxtFullFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
-                        txtOperationFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+                        TxtFullFee.Text = rows("PATIENT_PAY_DOLAR")
+                        txtOperationFee.Text = rows("PATIENT_PAY_DOLAR")
                     End If
 
                     TxtSosialServiceFee.Text = "0"
@@ -465,8 +465,80 @@ Public Class FormForInpatientReceiptFront
                 RDolarSSFee.Enabled = False
                 RReilFFee.Enabled = False
                 RDolarFFee.Enabled = False
-
             Next
+            'For i As Integer = 0 To DataTbl.Rows.Count - 1
+            '    ' MsgBox(DataTbl.Rows(i).Item("CONSULT_FOR"))
+            '    LblConsultID.Text = DataTbl.Rows(i).Item("CONSULING_ID")
+            '    LblConsultDate.Text = DataTbl.Rows(i).Item("CONSULING_DATE")
+            '    LblConsultType.Text = DataTbl.Rows(i).Item("DONATE_TYPE")
+            '    lblConsultFor.Text = DataTbl.Rows(i).Item("CONSULT_FOR")
+            '    LblSendBy.Text = DataTbl.Rows(i).Item("APROVE_BY")
+            '    rdOperationR.Checked = True
+            '    rdOperationR.Enabled = False
+            '    rdOperationD.Enabled = False
+            '    txtOperationFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '    txtOperationFee.Enabled = False
+            '    CboDiagnosis.Text = DataTbl.Rows(i).Item("DIAGNOSIS2")
+            '    txtOperation.Text = DataTbl.Rows(i).Item("OPERATION2")
+            '    TxtHosFee.Text = DataTbl.Rows(i).Item("HOSPITAL_FEE")
+            '    RRielSSFee.Checked = True
+            '    RReilFFee.Checked = True
+            '    TxtHosFee.Enabled = False
+            '    If DataTbl.Rows(i).Item("DONATE_TYPE") = "Social" Then
+            '        If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+            '            RRielSSFee.Checked = True
+            '            rdOperationR.Checked = True
+            '            TxtSosialServiceFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '            txtOperationFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '        Else
+            '            RDolarSSFee.Checked = True
+            '            rdOperationD.Checked = True
+            '            TxtSosialServiceFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+            '            txtOperationFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+            '        End If
+
+            '        ChDonation.Checked = True
+            '        CboDonation.Text = DataTbl.Rows(i).Item("ORG")
+            '        TxtDonationPay.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+            '        TxtFullFee.Text = "0"
+            '        ChDonation.Enabled = False
+            '        GroupBox8.Enabled = False
+            '    End If
+            '    If DataTbl.Rows(i).Item("DONATE_TYPE") = "Nil" Then
+            '        TxtSosialServiceFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '        ChDonation.Checked = True
+            '        CboDonation.Text = DataTbl.Rows(i).Item("ORG")
+            '        TxtDonationPay.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+            '        TxtFullFee.Text = "0"
+            '        ChDonation.Enabled = False
+            '        GroupBox8.Enabled = False
+            '    End If
+            '    If DataTbl.Rows(i).Item("DONATE_TYPE") = "Full" Then
+
+            '        If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+            '            RReilFFee.Checked = True
+            '            rdOperationR.Checked = True
+            '            TxtFullFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '            txtOperationFee.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '        Else
+            '            RDolarFFee.Checked = True
+            '            rdOperationD.Checked = True
+            '            TxtFullFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+            '            txtOperationFee.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+            '        End If
+
+            '        TxtSosialServiceFee.Text = "0"
+            '        ' TxtFullFee.Text = DataTbl.Rows(i).Item("HOSPITAL_FEE")
+            '    End If
+            '    TxtSosialServiceFee.Enabled = False
+            '    TxtFullFee.Enabled = False
+
+            '    RRielSSFee.Enabled = False
+            '    RDolarSSFee.Enabled = False
+            '    RReilFFee.Enabled = False
+            '    RDolarFFee.Enabled = False
+
+            'Next
             Return True
         Else
             Return False

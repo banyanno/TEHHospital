@@ -30,7 +30,7 @@ Public Class FrmNewReceipt
     Private PARAMETENG As String = ""
     Private ItemPrice As New DSItemPriceTableAdapters.VItemPriceOpticalShopTableAdapter
     Dim ImageStream As System.IO.MemoryStream
-    Dim IsPatient As Boolean = False
+    Public IsPatient As Boolean = False
     Dim MTakeoInventory As MainTakeoInventory
     Public InvoiceNo As String '--- Pass ReceiptNo from MainOpticalShop 
     'LblSaveStatus.Text --> Store ReceiptID from MainOpticalShop
@@ -275,19 +275,19 @@ Public Class FrmNewReceipt
     Public Function CheckIsPatientConsult(ByVal PatientNo As Double, ByVal ConsultFor As String, ByVal Status As Integer) As Boolean
         Dim DataTbl As DataTable = DA_Consult_Detail.GetDataByConsultFor(PatientNo, ConsultFor, Status)
         If DataTbl.Rows.Count >= 1 Then
-            For i As Integer = 0 To DataTbl.Rows.Count - 1
+            For Each rows As DataRow In DataTbl.Rows
                 ' MsgBox(DataTbl.Rows(i).Item("CONSULT_FOR"))
-                LblConsultID.Text = DataTbl.Rows(i).Item("CONSULING_ID")
-                LblConsultDate.Text = DataTbl.Rows(i).Item("CONSULING_DATE")
-                LblConsultType.Text = DataTbl.Rows(i).Item("DONATE_TYPE")
-                lblConsultFor.Text = DataTbl.Rows(i).Item("CONSULT_FOR")
-                DateConsult.Value = DataTbl.Rows(i).Item("CONSULING_DATE")
+                LblConsultID.Text = rows("CONSULING_ID")
+                LblConsultDate.Text = rows("CONSULING_DATE")
+                LblConsultType.Text = rows("DONATE_TYPE")
+                lblConsultFor.Text = rows("CONSULT_FOR")
+                DateConsult.Value = rows("CONSULING_DATE")
                 DateCreateReceipt.Checked = True
                 DateCreateReceipt.Value = CheckMarkEOD() 'DateConsult.Value
-                LblSendBy.Text = DataTbl.Rows(i).Item("APROVE_BY")
-                If DataTbl.Rows(i).Item("DONATE_TYPE") = "Nil" Then
+                LblSendBy.Text = rows("APROVE_BY")
+                If rows("DONATE_TYPE") = "Nil" Then
                     RadNil.Checked = True
-                    'If DataTbl.Rows(i).Item("ORG") = "No Refer" Then
+                    'If rows("ORG") = "No Refer" Then
                     '    ChDonation.Checked = False
                     '    CboDonation.Text = ""
                     '    TxtDonateAmount.Text = ""
@@ -295,7 +295,7 @@ Public Class FrmNewReceipt
                     '    GroupBox5.Enabled = False
 
                     'Else
-                    If DataTbl.Rows(i).Item("ORG") = "" Then
+                    If rows("ORG") = "" Then
                         ChDonation.Checked = False
                         CboDonation.Text = ""
                         TxtDonateAmount.Text = ""
@@ -303,34 +303,34 @@ Public Class FrmNewReceipt
                         GroupBox5.Enabled = False
                     Else
                         ChDonation.Checked = True
-                        CboDonation.Text = DataTbl.Rows(i).Item("ORG")
-                        TxtDonateAmount.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+                        CboDonation.Text = rows("ORG")
+                        TxtDonateAmount.Text = rows("DONATE_DOLAR")
                         ChDonation.Enabled = False
                         GroupBox5.Enabled = False
                     End If
                     RadKHR.Checked = True
                 End If
-                If DataTbl.Rows(i).Item("DONATE_TYPE") = "Social" Then
+                If rows("DONATE_TYPE") = "Social" Then
                     RadSocial.Checked = True
-                    If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+                    If rows("IS_RIEL_DOLAR") = True Then
                         RadKHR.Checked = True
-                        TxtSocialAmount.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+                        TxtSocialAmount.Text = rows("DONATE_RIEL")
                     Else
                         RadUSD.Checked = True
-                        TxtSocialAmount.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+                        TxtSocialAmount.Text = rows("PATIENT_PAY_DOLAR")
                     End If
 
 
 
                     TxtSocialAmount.ReadOnly = True
-                    'If DataTbl.Rows(i).Item("ORG") = "No Refer" Then
+                    'If rows("ORG") = "No Refer" Then
                     '    ChDonation.Checked = False
                     '    CboDonation.Text = ""
                     '    TxtDonateAmount.Text = ""
                     '    ChDonation.Enabled = False
                     '    GroupBox5.Enabled = False
                     'Else
-                    If DataTbl.Rows(i).Item("ORG") = "" Then
+                    If rows("ORG") = "" Then
                         ChDonation.Checked = False
                         CboDonation.Text = ""
                         TxtDonateAmount.Text = ""
@@ -339,27 +339,113 @@ Public Class FrmNewReceipt
                     Else
 
                         ChDonation.Checked = True
-                        CboDonation.Text = DataTbl.Rows(i).Item("ORG")
-                        TxtDonateAmount.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+                        CboDonation.Text = rows("ORG")
+                        TxtDonateAmount.Text = rows("DONATE_DOLAR")
                         ChDonation.Enabled = False
                         GroupBox5.Enabled = False
                     End If
 
                 End If
-                If DataTbl.Rows(i).Item("DONATE_TYPE") = "Full" Then
-                    'MsgBox(DataTbl.Rows(i).Item("DONATE_RIEL"))
+                If rows("DONATE_TYPE") = "Full" Then
+                    'MsgBox(rows("DONATE_RIEL"))
                     RadFull.Checked = True
-                    If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+                    If rows("IS_RIEL_DOLAR") = True Then
                         RadKHR.Checked = True
 
-                        TxtSocialAmount.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+                        TxtSocialAmount.Text = rows("DONATE_RIEL")
                     Else
                         RadUSD.Checked = True
-                        TxtSocialAmount.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+                        TxtSocialAmount.Text = rows("PATIENT_PAY_DOLAR")
                     End If
                     TxtFullAmount.ReadOnly = True
                 End If
             Next
+
+            'For i As Integer = 0 To DataTbl.Rows.Count - 1
+            '    ' MsgBox(DataTbl.Rows(i).Item("CONSULT_FOR"))
+            '    LblConsultID.Text = DataTbl.Rows(i).Item("CONSULING_ID")
+            '    LblConsultDate.Text = DataTbl.Rows(i).Item("CONSULING_DATE")
+            '    LblConsultType.Text = DataTbl.Rows(i).Item("DONATE_TYPE")
+            '    lblConsultFor.Text = DataTbl.Rows(i).Item("CONSULT_FOR")
+            '    DateConsult.Value = DataTbl.Rows(i).Item("CONSULING_DATE")
+            '    DateCreateReceipt.Checked = True
+            '    DateCreateReceipt.Value = CheckMarkEOD() 'DateConsult.Value
+            '    LblSendBy.Text = DataTbl.Rows(i).Item("APROVE_BY")
+            '    If DataTbl.Rows(i).Item("DONATE_TYPE") = "Nil" Then
+            '        RadNil.Checked = True
+            '        'If DataTbl.Rows(i).Item("ORG") = "No Refer" Then
+            '        '    ChDonation.Checked = False
+            '        '    CboDonation.Text = ""
+            '        '    TxtDonateAmount.Text = ""
+            '        '    ChDonation.Enabled = False
+            '        '    GroupBox5.Enabled = False
+
+            '        'Else
+            '        If DataTbl.Rows(i).Item("ORG") = "" Then
+            '            ChDonation.Checked = False
+            '            CboDonation.Text = ""
+            '            TxtDonateAmount.Text = ""
+            '            ChDonation.Enabled = False
+            '            GroupBox5.Enabled = False
+            '        Else
+            '            ChDonation.Checked = True
+            '            CboDonation.Text = DataTbl.Rows(i).Item("ORG")
+            '            TxtDonateAmount.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+            '            ChDonation.Enabled = False
+            '            GroupBox5.Enabled = False
+            '        End If
+            '        RadKHR.Checked = True
+            '    End If
+            '    If DataTbl.Rows(i).Item("DONATE_TYPE") = "Social" Then
+            '        RadSocial.Checked = True
+            '        If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+            '            RadKHR.Checked = True
+            '            TxtSocialAmount.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '        Else
+            '            RadUSD.Checked = True
+            '            TxtSocialAmount.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+            '        End If
+
+
+
+            '        TxtSocialAmount.ReadOnly = True
+            '        'If DataTbl.Rows(i).Item("ORG") = "No Refer" Then
+            '        '    ChDonation.Checked = False
+            '        '    CboDonation.Text = ""
+            '        '    TxtDonateAmount.Text = ""
+            '        '    ChDonation.Enabled = False
+            '        '    GroupBox5.Enabled = False
+            '        'Else
+            '        If DataTbl.Rows(i).Item("ORG") = "" Then
+            '            ChDonation.Checked = False
+            '            CboDonation.Text = ""
+            '            TxtDonateAmount.Text = ""
+            '            ChDonation.Enabled = False
+            '            GroupBox5.Enabled = False
+            '        Else
+
+            '            ChDonation.Checked = True
+            '            CboDonation.Text = DataTbl.Rows(i).Item("ORG")
+            '            TxtDonateAmount.Text = DataTbl.Rows(i).Item("DONATE_DOLAR")
+            '            ChDonation.Enabled = False
+            '            GroupBox5.Enabled = False
+            '        End If
+
+            '    End If
+            '    If DataTbl.Rows(i).Item("DONATE_TYPE") = "Full" Then
+            '        'MsgBox(DataTbl.Rows(i).Item("DONATE_RIEL"))
+            '        RadFull.Checked = True
+            '        If DataTbl.Rows(i).Item("IS_RIEL_DOLAR") = True Then
+            '            RadKHR.Checked = True
+
+            '            TxtSocialAmount.Text = DataTbl.Rows(i).Item("DONATE_RIEL")
+            '        Else
+            '            RadUSD.Checked = True
+            '            TxtSocialAmount.Text = DataTbl.Rows(i).Item("PATIENT_PAY_DOLAR")
+            '        End If
+            '        TxtFullAmount.ReadOnly = True
+            '    End If
+            'Next
             LblTotalConsult.Text = "Total Consult: " & DataTbl.Rows.Count
             If DEPART_ID = 1 Then
                 GroupPayCorrency.Enabled = True
@@ -381,6 +467,11 @@ Public Class FrmNewReceipt
             LblTotalConsult.Text = "Total Consult: 0"
             GroupPayCorrency.Enabled = True
             GroupBox5.Enabled = True
+            '================
+            ChDonation.Checked = False
+            CboDonation.Text = ""
+            TxtDonateAmount.Text = "0"
+
             Return False
         End If
     End Function
@@ -566,7 +657,7 @@ Public Class FrmNewReceipt
     End Sub
 
     Private Sub BtnAddCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAddCustomer.Click
-        Dim FUMainCustomer As New MainCustomer
+        Dim FUMainCustomer As New MainCustomer(Me)
         If FUMainCustomer.ShowDialog = DialogResult.OK Then
             Me.TxtCustomerID.Text = FUMainCustomer.GridCustomer.SelectedItems(0).GetRow.Cells("CustID").Value
             Me.TxtCustomerNo.Text = FUMainCustomer.GridCustomer.GetRow.Cells("CustomerNo").Value
@@ -575,6 +666,7 @@ Public Class FrmNewReceipt
             Me.LblCombindReferal.Text = ModNew_Outpatient.Get_CombindReferalInPatient(FUMainCustomer.GridCustomer.GetRow.Cells("CustomerNo").Value)
             If FUMainCustomer.GridCustomer.GetRow.Cells("IsPatient").Value = True Then
                 RadFull.Checked = True
+
                 'CheOldPatient.Checked = True
             Else
                 'CheOldPatient.Checked = False

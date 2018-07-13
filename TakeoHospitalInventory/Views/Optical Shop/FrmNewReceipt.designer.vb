@@ -248,6 +248,7 @@ Partial Class FrmNewReceipt
         Me.BtnSelectPatient.Size = New System.Drawing.Size(119, 34)
         Me.BtnSelectPatient.TabIndex = 6
         Me.BtnSelectPatient.Text = "Select New Patient"
+        Me.BtnSelectPatient.Visible = False
         '
         'Label3
         '

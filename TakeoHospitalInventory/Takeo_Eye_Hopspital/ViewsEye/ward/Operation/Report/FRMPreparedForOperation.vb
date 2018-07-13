@@ -8,15 +8,25 @@ Public Class FRMPreparedForOperation
         Dim TblPreparForOperation As DataTable
         If OptionReport = 1 Then
             TblPreparForOperation = Me.ViewPreparForOperationTableAdapter.GetData()
-        Else
+            Dim CR As New CRPreparForOperation
+            CR.SetDataSource(TblPreparForOperation)
+            CRVPreparedForOperation.ReportSource = CR
+            CR.SetParameterValue("Title1", Title1)
+            CR.SetParameterValue("Title2", Title2)
+        ElseIf OptionReport = 2 Then
             TblPreparForOperation = Me.ViewPreparForOperationTableAdapter.SelectOTHistory(DateFrom, DateTo)
+            Dim CR As New CRPreparForOperation
+            CR.SetDataSource(TblPreparForOperation)
+            CRVPreparedForOperation.ReportSource = CR
+            CR.SetParameterValue("Title1", Title1)
+            CR.SetParameterValue("Title2", Title2)
+        ElseIf OptionReport = 3 Then
+
+        ElseIf OptionReport = 4 Then
+
         End If
 
-        Dim CR As New CRPreparForOperation
-        CR.SetDataSource(TblPreparForOperation)
-        CRVPreparedForOperation.ReportSource = CR
-        CR.SetParameterValue("Title1", Title1)
-        CR.SetParameterValue("Title2", Title2)
+        
         'CR.Refresh()
     End Sub
 End Class

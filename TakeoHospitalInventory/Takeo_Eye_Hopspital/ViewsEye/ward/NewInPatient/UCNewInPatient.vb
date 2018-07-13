@@ -1008,4 +1008,42 @@ Public Class UCNewInPatient
             End If
         Next
     End Sub
+
+    Private Sub BtnPrintPatientFollowup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintPatientFollowup.Click
+        Dim DA_PLeave As New DSPaatientLeaveTableAdapters.VNewInLeavewWithTreatmentTableAdapter
+        Dim TblLeave As DataTable
+        'If ChDoctor.Checked = True Then
+        '    If ValidateCombobox(CboDoctor, "", ErrDischarge) = False Then Exit Sub
+        '    TblLeave = DA_PLeave.SelectFollowUpInWardDoctor(DateFrom.Value, DateTo.Value, CboDoctor.Text)
+        'Else
+        TblLeave = DA_PLeave.SelectPatientFollowupWard(DateFromAdmid.Value.Date, DateToAdmid.Value.Date)
+        'End If
+        Dim CReportPaitne As New CryReportPatientLeave
+        CReportPaitne.SetDataSource(TblLeave)
+
+
+        Dim FPrepareForOperation As New FRMPreparedForOperation
+        FPrepareForOperation.CRVPreparedForOperation.ReportSource = CReportPaitne
+        CReportPaitne.SetParameterValue("Title1", "Report Patients Follow Up in Ward")
+        CReportPaitne.SetParameterValue("Title2", "From: " & DateFromAdmid.Text & " To: " & DateToAdmid.Text)
+        FPrepareForOperation.ShowDialog()
+        FPrepareForOperation.Dispose()
+        FPrepareForOperation.Close()
+    End Sub
+
+    Private Sub BtnPrintDischrge_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintDischrge.Click
+        Dim DA_PLeave As New DSPaatientLeaveTableAdapters.VNewInLeavewWithTreatmentTableAdapter
+        Dim TblLeave As DataTable = DA_PLeave.SelectPatientLeaveDateToDate(DateFromAdmid.Value.Date, DateToAdmid.Value.Date)
+        Dim CReportPaitne As New CryReportPatientLeave
+        CReportPaitne.SetDataSource(TblLeave)
+
+        
+        Dim FPrepareForOperation As New FRMPreparedForOperation
+        FPrepareForOperation.CRVPreparedForOperation.ReportSource = CReportPaitne
+        CReportPaitne.SetParameterValue("Title1", "Report Patients Leaved in Ward")
+        CReportPaitne.SetParameterValue("Title2", "From: " & DateFromAdmid.Text & " To: " & DateToAdmid.Text)
+        FPrepareForOperation.ShowDialog()
+        FPrepareForOperation.Dispose()
+        FPrepareForOperation.Close()
+    End Sub
 End Class

@@ -182,7 +182,7 @@ Partial Class MainCustomer
         Me.BtnNewCustomer.Image = Global.TakeoHospitalInventory.My.Resources.Resources.blue_new
         Me.BtnNewCustomer.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewCustomer.Name = "BtnNewCustomer"
-        Me.BtnNewCustomer.Size = New System.Drawing.Size(105, 28)
+        Me.BtnNewCustomer.Size = New System.Drawing.Size(114, 28)
         Me.BtnNewCustomer.Text = "New Customer"
         '
         'ToolStripSeparator1
@@ -196,7 +196,7 @@ Partial Class MainCustomer
         Me.BtnUpdate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.configuration_edit
         Me.BtnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnUpdate.Name = "BtnUpdate"
-        Me.BtnUpdate.Size = New System.Drawing.Size(70, 28)
+        Me.BtnUpdate.Size = New System.Drawing.Size(73, 28)
         Me.BtnUpdate.Text = "Update"
         Me.BtnUpdate.Visible = False
         '
@@ -210,7 +210,7 @@ Partial Class MainCustomer
         Me.BtnViewAllData.Image = Global.TakeoHospitalInventory.My.Resources.Resources.view_refresh
         Me.BtnViewAllData.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnViewAllData.Name = "BtnViewAllData"
-        Me.BtnViewAllData.Size = New System.Drawing.Size(97, 28)
+        Me.BtnViewAllData.Size = New System.Drawing.Size(104, 28)
         Me.BtnViewAllData.Text = "View All Data"
         '
         'MainCustomer
