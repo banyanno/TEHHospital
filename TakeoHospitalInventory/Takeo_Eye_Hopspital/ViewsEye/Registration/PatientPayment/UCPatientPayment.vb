@@ -212,10 +212,12 @@ Public Class UCPatientPayment
 
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        If ValidateTextField(TxtPatientNo, "patient no", ErrPatient) = False Or ValidateTextField(TxtNameEng, "Name English", ErrPatient) = False Or _
+        If ValidateTextField(TxtPatientNo, "patient no", ErrPatient) = False Or _
+        ValidateTextField(TxtNameEng, "Name English", ErrPatient) = False Or _
         ValidateTextField(TxtNameKhmer, "Name Khmer", ErrPatient) = False Or _
         ValidateTextField(TxtAgePatient, "Age", ErrPatient) = False Or _
         ValidateCombobox(CboOccupation, "Occupation", ErrPatient) = False Or _
+        ValidateTextField(TxtTel, "Tel", ErrPatient) = False Or _
         ValidateCombobox(CboSexPatien, "Sex", ErrPatient) = False Or _
         ValidateCombobox(CboProNo, "Province", ErrPatient) = False Or _
         ValidateCombobox(CboDisNo, "District", ErrPatient) = False Or _
@@ -649,9 +651,9 @@ Public Class UCPatientPayment
                 For indexMenu = 0 To tblPermistion.Rows.Count - 1
                     'MsgBox(tblPermistion.Rows(indexMenu).Item(0))
                     If tblPermistion.Rows(indexMenu).Item(0) = "Phone Number" Then
-                        TxtTel.Visible = True
+                        ' TxtTel.Visible = True
                     Else
-                        TxtTel.Visible = False
+                        'TxtTel.Visible = False
                     End If
                     If Btn.Tag = tblPermistion.Rows(indexMenu).Item(0) Then
                         Btn.Enabled = True
@@ -854,7 +856,7 @@ Public Class UCPatientPayment
                 CboSexPatien.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(5).Text
                 TxtAddress.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(6).Text
                 CboOccupation.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(7).Text
-                TxtTel.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text
+                TxtTel.Text = IIf(UserGlobleVariable.DEPART_NAME.ToUpper = "ADMINISTRATOR", GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text, "")
                 CboProNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(9).Text
                 CboDisNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(10).Text
                 CboCommNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(11).Text
