@@ -1,6 +1,6 @@
 Module ModRefer
     Function SaveRefer(ByVal ReferName As String, ByVal Note As String) As Integer
-        Dim sql As String = "INSERT INTO TblRefer (,Refer,ReferNote) VALUES('" & ReferName & "','" & Note & "')"
+        Dim sql As String = "INSERT INTO TblRefer (Refer,ReferNote) VALUES('" & ReferName & "','" & Note & "')"
         Return ModGlobleVariable.GENERAL_DAO.InsertDAO(sql)
     End Function
     Function SelectRefer() As DataTable
