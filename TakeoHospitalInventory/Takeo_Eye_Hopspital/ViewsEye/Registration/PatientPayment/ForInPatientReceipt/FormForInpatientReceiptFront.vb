@@ -57,7 +57,7 @@ Public Class FormForInpatientReceiptFront
         End If
         If Me.lblID.Text = 0 Then
             If SaveInPatientReceipt() = True Then
-                DA_PTimeTracking.UpdateINP(Format(Now, "hh:mm:ss tt").ToString, txtHN.Text, CheckMarkEOD().Date)
+                DA_PTimeTracking.UpdateINP(Format(GetDateServer, "hh:mm:ss tt").ToString, txtHN.Text, CheckMarkEOD().Date)
                 'Me.lblReceiptToPrintID.Text = Me.txtReceiptNumber.Text
                 Me.lblID.Text = 0
                 AccRolesCashier = True
