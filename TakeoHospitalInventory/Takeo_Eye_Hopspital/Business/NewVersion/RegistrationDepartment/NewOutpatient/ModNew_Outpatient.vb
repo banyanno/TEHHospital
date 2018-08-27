@@ -133,7 +133,7 @@ Module ModNew_Outpatient
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(SQL)
     End Function
     Function EnterPatientDiagnosis(ByVal No As String, ByVal Diagnosis As String) As Integer
-        Dim sql As String = "UPDATE TblNew_Old_OutPatient SET Diagnosis='" & Diagnosis & "',ConsultByDR='" & DoctorName & "' WHERE NewOutPatientNo=" & No
+        Dim sql As String = "UPDATE TblNew_Old_OutPatient SET Diagnosis='" & Diagnosis & "' WHERE NewOutPatientNo=" & No
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
     Function EnterPatientDoctor(ByVal No As String, ByVal DoctorName As String) As Integer

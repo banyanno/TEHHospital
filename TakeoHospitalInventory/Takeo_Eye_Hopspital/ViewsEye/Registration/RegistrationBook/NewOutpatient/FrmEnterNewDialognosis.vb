@@ -12,12 +12,7 @@ Public Class FrmEnterNewDialognosis
             .SelectedIndex = -1
             .SelectAll()
         End With
-        With CboDoctor
-            .DataSource = DoctorDataAdapter.GetData
-            .ValueMember = "DoctorNo"
-            .DisplayMember = "DoctorName"
-            .SelectedIndex = -1
-        End With
+       
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
