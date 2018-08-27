@@ -27,6 +27,8 @@ Partial Class frmPrescription
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrescription))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.LblNew_OldIDForDiagnosis = New System.Windows.Forms.Label
+        Me.LblNew_OldIDForDoctor = New System.Windows.Forms.Label
         Me.CboOpticalShop = New System.Windows.Forms.ComboBox
         Me.RadItemInOpticalShop = New System.Windows.Forms.RadioButton
         Me.GroupMedicineInfo = New System.Windows.Forms.GroupBox
@@ -87,7 +89,6 @@ Partial Class frmPrescription
         Me.ContainerID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.LabourFacID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
-        Me.LblNew_OldIDForDiagnosis = New System.Windows.Forms.Label
         Me.TxtPrescriptionNote = New System.Windows.Forms.TextBox
         Me.CboEye = New System.Windows.Forms.ComboBox
         Me.DateApp = New System.Windows.Forms.DateTimePicker
@@ -110,7 +111,6 @@ Partial Class frmPrescription
         Me.BgLoadPatient = New System.ComponentModel.BackgroundWorker
         Me.PictLoading = New System.Windows.Forms.PictureBox
         Me.LblLoading = New System.Windows.Forms.Label
-        Me.LblNew_OldIDForDoctor = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupMedicineInfo.SuspendLayout()
@@ -179,6 +179,26 @@ Partial Class frmPrescription
         Me.GroupBox5.TabIndex = 5
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Medicine Information"
+        '
+        'LblNew_OldIDForDiagnosis
+        '
+        Me.LblNew_OldIDForDiagnosis.AutoSize = True
+        Me.LblNew_OldIDForDiagnosis.Location = New System.Drawing.Point(98, 261)
+        Me.LblNew_OldIDForDiagnosis.Name = "LblNew_OldIDForDiagnosis"
+        Me.LblNew_OldIDForDiagnosis.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDiagnosis.TabIndex = 22
+        Me.LblNew_OldIDForDiagnosis.Text = "0"
+        Me.LblNew_OldIDForDiagnosis.Visible = False
+        '
+        'LblNew_OldIDForDoctor
+        '
+        Me.LblNew_OldIDForDoctor.AutoSize = True
+        Me.LblNew_OldIDForDoctor.Location = New System.Drawing.Point(57, 261)
+        Me.LblNew_OldIDForDoctor.Name = "LblNew_OldIDForDoctor"
+        Me.LblNew_OldIDForDoctor.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDoctor.TabIndex = 26
+        Me.LblNew_OldIDForDoctor.Text = "0"
+        Me.LblNew_OldIDForDoctor.Visible = False
         '
         'CboOpticalShop
         '
@@ -854,16 +874,6 @@ Partial Class frmPrescription
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Doctor Info"
         '
-        'LblNew_OldIDForDiagnosis
-        '
-        Me.LblNew_OldIDForDiagnosis.AutoSize = True
-        Me.LblNew_OldIDForDiagnosis.Location = New System.Drawing.Point(98, 261)
-        Me.LblNew_OldIDForDiagnosis.Name = "LblNew_OldIDForDiagnosis"
-        Me.LblNew_OldIDForDiagnosis.Size = New System.Drawing.Size(13, 13)
-        Me.LblNew_OldIDForDiagnosis.TabIndex = 22
-        Me.LblNew_OldIDForDiagnosis.Text = "0"
-        Me.LblNew_OldIDForDiagnosis.Visible = False
-        '
         'TxtPrescriptionNote
         '
         Me.TxtPrescriptionNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1061,6 +1071,7 @@ Partial Class frmPrescription
         Me.LblSaveStatus.Size = New System.Drawing.Size(13, 13)
         Me.LblSaveStatus.TabIndex = 20
         Me.LblSaveStatus.Text = "0"
+        Me.LblSaveStatus.Visible = False
         '
         'BgLoadPatient
         '
@@ -1089,16 +1100,6 @@ Partial Class frmPrescription
         Me.LblLoading.TabIndex = 22
         Me.LblLoading.Text = "Loading"
         Me.LblLoading.Visible = False
-        '
-        'LblNew_OldIDForDoctor
-        '
-        Me.LblNew_OldIDForDoctor.AutoSize = True
-        Me.LblNew_OldIDForDoctor.Location = New System.Drawing.Point(57, 261)
-        Me.LblNew_OldIDForDoctor.Name = "LblNew_OldIDForDoctor"
-        Me.LblNew_OldIDForDoctor.Size = New System.Drawing.Size(13, 13)
-        Me.LblNew_OldIDForDoctor.TabIndex = 26
-        Me.LblNew_OldIDForDoctor.Text = "0"
-        Me.LblNew_OldIDForDoctor.Visible = False
         '
         'frmPrescription
         '

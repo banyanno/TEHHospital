@@ -89,6 +89,8 @@ Public Class UCMainOld_Outpatient
             TblOld_OutPatientTem = ModOld_Outpatient.SelectOldPatienDetailbyDateNotVA(EmptyString(PNo), DFrom, DTo)
         ElseIf IS_Fill = 3 Then
             TblOld_OutPatientTem = ModOld_Outpatient.SelectOldPatientDetailByDate(EmptyString(PNo), DFrom, DTo)
+        ElseIf IS_Fill = 4 Then
+            TblOld_OutPatientTem = ModOld_Outpatient.SelectOldPatientDetailByDateNotFillDoctor(EmptyString(PNo), DFrom, DTo, "")
         End If
 
         TotalOldPatientRiel = ModOld_Outpatient.SumOldPatientRiel(DFrom, DTo)
@@ -120,6 +122,7 @@ Public Class UCMainOld_Outpatient
     End Sub
     Sub ShowNoteBG()
         Dim BlankDiagnosis As String
+        Dim BlankDoctor As String
         Dim DelOption As String
         Dim VA As String
         If DEPART_ID = 1 Then
@@ -130,6 +133,7 @@ Public Class UCMainOld_Outpatient
         End If
         For Each rows As DataGridViewRow In Me.GridEXNewPatientBookV1.Rows
             BlankDiagnosis = rows.Cells.Item("Diagnosis").Value.ToString.Trim
+            BlankDoctor = rows.Cells.Item("ConsultByDR").Value.ToString.Trim
             DelOption = rows.Cells.Item("DeleteOption").Value.ToString.Trim
             VA = rows.Cells.Item("VAStatus").Value.ToString
             If VA = "False" Then
@@ -137,6 +141,9 @@ Public Class UCMainOld_Outpatient
             End If
             If BlankDiagnosis = "" Then
                 rows.DefaultCellStyle.BackColor = Color.LightSeaGreen
+            End If
+            If BlankDoctor = "" Then
+                rows.DefaultCellStyle.BackColor = Color.FromArgb(222, 233, 255)
             End If
             If DelOption = "True" Then
                 rows.DefaultCellStyle.BackColor = Color.DarkKhaki
@@ -801,5 +808,19 @@ Public Class UCMainOld_Outpatient
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+        ShowSplitPanel(SplitContOldOutpatient, 1)
+        IS_Fill = 4
+        CallBgWork()
+        '---------------tab SocialFee----------------------
+        Me.dgvSRiel.DataSource = Nothing
+        Me.dgvSDolar.DataSource = Nothing
+        Me.lstSocial.Items.Clear()
+        TotalRiel = 0
+        TotalNumbRiel = 0
+        Me.tbCountMoney.Visible = False
+
     End Sub
 End Class

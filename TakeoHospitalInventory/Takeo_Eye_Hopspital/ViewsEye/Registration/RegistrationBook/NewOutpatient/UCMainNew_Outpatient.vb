@@ -90,6 +90,8 @@ Public Class UCMainNew_Outpatient
             TblNewOutpatientTem = ModNew_Outpatient.SelecNewOutPatientByDateNotVA(EmptyString(PNo), DFrom, DTo, False)
         ElseIf IS_FIll = 2 Then
             TblNewOutpatientTem = ModNew_Outpatient.SelectNewOutpatientByDate(EmptyString(PNo), DFrom, DTo, False)
+        ElseIf IS_FIll = 3 Then
+            TblNewOutpatientTem = ModNew_Outpatient.SelecNewOutPatientByDateNotFillDoctor(EmptyString(PNo), DFrom, DTo, False, "")
         End If
 
         TotalPatientRiel = ModNew_Outpatient.SumNewPatientRiel(DFrom, DTo)
@@ -137,7 +139,7 @@ Public Class UCMainNew_Outpatient
         Dim BlankDiagnosis As String
         Dim DelOption As String
         Dim VA As String
-
+        Dim BlankDoctor As String
         If DEPART_ID = 1 Then
             'row.Cells("Telephone").Visible = True
             Me.GridEXNewPatientBookV1.Columns("Telephone").Visible = True
@@ -146,6 +148,7 @@ Public Class UCMainNew_Outpatient
         End If
         For Each rows As DataGridViewRow In Me.GridEXNewPatientBookV1.Rows
             BlankDiagnosis = rows.Cells.Item("Diagnosis").Value.ToString.Trim
+            BlankDoctor = rows.Cells.Item("ConsultByDR").Value.ToString.Trim
             DelOption = rows.Cells.Item("DeleteOption").Value.ToString.Trim
             VA = rows.Cells.Item("VAStatus").Value.ToString
             If VA = "False" Then
@@ -153,6 +156,9 @@ Public Class UCMainNew_Outpatient
             End If
             If BlankDiagnosis = "" Then
                 rows.DefaultCellStyle.BackColor = Color.LightSeaGreen
+            End If
+            If BlankDoctor = "" Then
+                rows.DefaultCellStyle.BackColor = Color.FromArgb(222, 233, 255)
             End If
             If DelOption = "True" Then
                 rows.DefaultCellStyle.BackColor = Color.DarkKhaki
@@ -869,5 +875,19 @@ Public Class UCMainNew_Outpatient
         'Catch ex As Exception
 
         'End Try
+    End Sub
+
+    Private Sub BtnDoctor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDoctor.Click
+
+        IS_FIll = 3
+        ShowSplitPanel(1)
+        CallBgNewOut()
+        '---------------tab SocialFee----------------------
+        Me.dgvSRiel.DataSource = Nothing
+        Me.dgvSDolar.DataSource = Nothing
+        Me.lstSocial.Items.Clear()
+        TotalRiel = 0
+        TotalNumbRiel = 0
+        Me.tbCountMoney.Visible = False
     End Sub
 End Class

@@ -214,6 +214,18 @@ Module ModNew_Outpatient
         sql = sql & " AND Diagnosis='" & Diagnosis & "' ORDER BY CreateDate DESC"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
+    Function SelecNewOutPatientByDateNotFillDoctor(ByVal PatientNo As String, ByVal DateFrom As String, ByVal DateTo As String, ByVal Achive As Boolean, ByVal ConsultByDR As String) As DataTable
+        Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation,ConsultByDR" & _
+        " FROM V_NewOutpatientDetail WHERE Status=0 AND " & _
+        " CAST(CONVERT(VARCHAR(10), CreateDate, 1) as DateTime) BETWEEN " & _
+        " CAST(CONVERT(VARCHAR(10),CAST('" & DateFrom & "' AS DATETIME), 1) as Datetime)" & _
+        " AND CAST(CONVERT(VARCHAR(10),CAST('" & DateTo & "' AS DATETIME), 1) as Datetime) "
+        If PatientNo <> "0" Then
+            sql = sql & " AND PatientNo=" & PatientNo
+        End If
+        sql = sql & " AND ConsultByDR='" & ConsultByDR & "' ORDER BY CreateDate DESC"
+        Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
+    End Function
     Function SelecNewOutPatientByDateNotVA(ByVal PatientNo As String, ByVal DateFrom As String, ByVal DateTo As String, ByVal Achive As Boolean) As DataTable
         Dim sql As String = "SELECT * FROM V_NewOutpatientDetail WHERE Status=0 AND " & _
         " CAST(CONVERT(VARCHAR(10), CreateDate, 1) as DateTime) BETWEEN " & _

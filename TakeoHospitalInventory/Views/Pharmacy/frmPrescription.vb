@@ -250,8 +250,17 @@ Public Class frmPrescription
         '    MessageBox.Show("The patient already add to optical shop's old customer.", "Please go to select in customer list.", MessageBoxButtons.OK, MessageBoxIcon.Error)
         '    Exit Sub
         'Else
+        Dim TblTempNew_Old As DataTable = DA_New_Old_Adapter.GetDataByBlankDiagnosis(CboPatient.Text, "")
+        Dim TblTempNewOldForDoctor As DataTable = DA_New_Old_Adapter.SelectPatientByDrName(CboPatient.Text, "")
         If RadPatientNo.Checked = True Then
             GridPatientInformation.DataSource = DAPatient.GetDataByPatientNo(EmptyString(CboPatient.Text))
+            'For Each DRowNew_Old As DataRow In TblTempNew_Old.Rows
+            '    LblNew_OldIDForDiagnosis.Text = DRowNew_Old("NewOutPatientNo")
+            'Next
+
+            'For Each Rows As DataRow In TblTempNewOldForDoctor.Rows
+            '    LblNew_OldIDForDoctor.Text = Rows("NewOutPatientNo")
+            'Next
         End If
         If RadPatientName.Checked = True Then
             GridPatientInformation.DataSource = DAPatient.SelectPatientName("%" & CboPatient.Text & "%")
@@ -262,6 +271,8 @@ Public Class frmPrescription
         '    GridPatientInformation.DataSource = DAPatient.GetDataByPatientNo(TxtPatientNo.Text)
         'End If
         'End If
+
+       
 
     End Sub
 
