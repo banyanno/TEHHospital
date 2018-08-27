@@ -285,7 +285,11 @@ Public Class UCMainNew_Outpatient
         FPatientVA.TxtAge.Text = Age
         FPatientVA.TxtSex.Text = Sex
         FPatientVA.TxtAddress.Text = Address
+        FPatientVA.IS_NEW_OR_OLD = False
+        FPatientVA.CallCounselling(PatientNo)
         FPatientVA.ShowDialog()
+       
+
         If FPatientVA.isClose = True Then
             ModNew_Outpatient.UpdateVAStatus(FPatientVA.LblSave.Text, FPatientVA.LblPlainLeft.Text, FPatientVA.LblPlainRight.Text)
             ShowSplitPanel(1)
@@ -846,5 +850,24 @@ Public Class UCMainNew_Outpatient
 
     Private Sub GridEXNewPatientBookV1_ColumnHeaderMouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles GridEXNewPatientBookV1.ColumnHeaderMouseClick
         ShowNoteBG()
+    End Sub
+
+    Private Sub EnterDoctorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EnterDoctorToolStripMenuItem.Click
+        'Try
+        'If GridEXNewPatientBook.SelectedItems.Count = 0 Then Exit Sub
+        If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
+        Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
+        Dim FEnterDoctor As New FormEnterDoctor
+        FEnterDoctor.lblNewPatientNo.Text = row.Cells("NewOutPatientNo").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+        FEnterDoctor.txtPatientNo.Text = row.Cells("PatientNo").Value.ToString ''GridEXNewPatientBook.GetRow.Cells("PatientNo").Value
+        FEnterDoctor.ShowDialog()
+        If FEnterDoctor.saveSucc = True Then
+            CallBgNewOut()
+        End If
+        FEnterDoctor.Close()
+        FEnterDoctor.Dispose()
+        'Catch ex As Exception
+
+        'End Try
     End Sub
 End Class

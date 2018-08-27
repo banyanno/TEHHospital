@@ -45,6 +45,7 @@ Partial Class MainRefraction
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.GridRefraction = New Janus.Windows.GridEX.GridEX
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.LblNew_OldID = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.TxtFindPatientNo = New System.Windows.Forms.TextBox
         Me.ChWithPatientNo = New System.Windows.Forms.CheckBox
@@ -57,25 +58,25 @@ Partial Class MainRefraction
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.RadStatistictOld = New System.Windows.Forms.RadioButton
+        Me.RadStatisticNew = New System.Windows.Forms.RadioButton
+        Me.RadStatisticAll = New System.Windows.Forms.RadioButton
         Me.ChIsPrescriptOrRefraction = New System.Windows.Forms.CheckBox
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
-        Me.RadRepOld = New System.Windows.Forms.RadioButton
         Me.DStatisticFrom = New System.Windows.Forms.DateTimePicker
-        Me.RadRepNew = New System.Windows.Forms.RadioButton
         Me.DStatisticTo = New System.Windows.Forms.DateTimePicker
-        Me.RadReportAll = New System.Windows.Forms.RadioButton
         Me.Button2 = New System.Windows.Forms.Button
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.DFromReport = New System.Windows.Forms.DateTimePicker
+        Me.RadRepOld = New System.Windows.Forms.RadioButton
         Me.DToReport = New System.Windows.Forms.DateTimePicker
         Me.BtnPrintReport = New System.Windows.Forms.Button
+        Me.RadRepNew = New System.Windows.Forms.RadioButton
+        Me.RadReportAll = New System.Windows.Forms.RadioButton
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.RadStatistictOld = New System.Windows.Forms.RadioButton
-        Me.RadStatisticNew = New System.Windows.Forms.RadioButton
-        Me.RadStatisticAll = New System.Windows.Forms.RadioButton
         Me.ToolStrip1.SuspendLayout()
         CType(Me.UiTab1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiTab1.SuspendLayout()
@@ -269,6 +270,7 @@ Partial Class MainRefraction
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.LblNew_OldID)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TxtFindPatientNo)
         Me.GroupBox1.Controls.Add(Me.ChWithPatientNo)
@@ -284,6 +286,16 @@ Partial Class MainRefraction
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Find Refraction By:"
+        '
+        'LblNew_OldID
+        '
+        Me.LblNew_OldID.AutoSize = True
+        Me.LblNew_OldID.Location = New System.Drawing.Point(187, 203)
+        Me.LblNew_OldID.Name = "LblNew_OldID"
+        Me.LblNew_OldID.Size = New System.Drawing.Size(18, 20)
+        Me.LblNew_OldID.TabIndex = 7
+        Me.LblNew_OldID.Text = "0"
+        Me.LblNew_OldID.Visible = False
         '
         'Button1
         '
@@ -428,6 +440,38 @@ Partial Class MainRefraction
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Statistic Refraction"
         '
+        'RadStatistictOld
+        '
+        Me.RadStatistictOld.AutoSize = True
+        Me.RadStatistictOld.Location = New System.Drawing.Point(14, 213)
+        Me.RadStatistictOld.Name = "RadStatistictOld"
+        Me.RadStatistictOld.Size = New System.Drawing.Size(109, 24)
+        Me.RadStatistictOld.TabIndex = 13
+        Me.RadStatistictOld.Text = "Patient Old "
+        Me.RadStatistictOld.UseVisualStyleBackColor = True
+        '
+        'RadStatisticNew
+        '
+        Me.RadStatisticNew.AutoSize = True
+        Me.RadStatisticNew.Location = New System.Drawing.Point(14, 181)
+        Me.RadStatisticNew.Name = "RadStatisticNew"
+        Me.RadStatisticNew.Size = New System.Drawing.Size(116, 24)
+        Me.RadStatisticNew.TabIndex = 12
+        Me.RadStatisticNew.Text = "Patient New "
+        Me.RadStatisticNew.UseVisualStyleBackColor = True
+        '
+        'RadStatisticAll
+        '
+        Me.RadStatisticAll.AutoSize = True
+        Me.RadStatisticAll.Checked = True
+        Me.RadStatisticAll.Location = New System.Drawing.Point(14, 150)
+        Me.RadStatisticAll.Name = "RadStatisticAll"
+        Me.RadStatisticAll.Size = New System.Drawing.Size(174, 24)
+        Me.RadStatisticAll.TabIndex = 11
+        Me.RadStatisticAll.TabStop = True
+        Me.RadStatisticAll.Text = "All Patient New + Old"
+        Me.RadStatisticAll.UseVisualStyleBackColor = True
+        '
         'ChIsPrescriptOrRefraction
         '
         Me.ChIsPrescriptOrRefraction.AutoSize = True
@@ -456,16 +500,6 @@ Partial Class MainRefraction
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "To:"
         '
-        'RadRepOld
-        '
-        Me.RadRepOld.AutoSize = True
-        Me.RadRepOld.Location = New System.Drawing.Point(12, 90)
-        Me.RadRepOld.Name = "RadRepOld"
-        Me.RadRepOld.Size = New System.Drawing.Size(183, 24)
-        Me.RadRepOld.TabIndex = 9
-        Me.RadRepOld.Text = "Patient Old Refraction"
-        Me.RadRepOld.UseVisualStyleBackColor = True
-        '
         'DStatisticFrom
         '
         Me.DStatisticFrom.CustomFormat = "dd/MM/yyyy"
@@ -475,16 +509,6 @@ Partial Class MainRefraction
         Me.DStatisticFrom.Name = "DStatisticFrom"
         Me.DStatisticFrom.Size = New System.Drawing.Size(154, 26)
         Me.DStatisticFrom.TabIndex = 2
-        '
-        'RadRepNew
-        '
-        Me.RadRepNew.AutoSize = True
-        Me.RadRepNew.Location = New System.Drawing.Point(12, 58)
-        Me.RadRepNew.Name = "RadRepNew"
-        Me.RadRepNew.Size = New System.Drawing.Size(190, 24)
-        Me.RadRepNew.TabIndex = 8
-        Me.RadRepNew.Text = "Patient New Refraction"
-        Me.RadRepNew.UseVisualStyleBackColor = True
         '
         'DStatisticTo
         '
@@ -496,18 +520,6 @@ Partial Class MainRefraction
         Me.DStatisticTo.Name = "DStatisticTo"
         Me.DStatisticTo.Size = New System.Drawing.Size(154, 26)
         Me.DStatisticTo.TabIndex = 3
-        '
-        'RadReportAll
-        '
-        Me.RadReportAll.AutoSize = True
-        Me.RadReportAll.Checked = True
-        Me.RadReportAll.Location = New System.Drawing.Point(12, 27)
-        Me.RadReportAll.Name = "RadReportAll"
-        Me.RadReportAll.Size = New System.Drawing.Size(174, 24)
-        Me.RadReportAll.TabIndex = 7
-        Me.RadReportAll.TabStop = True
-        Me.RadReportAll.Text = "All Patient New + Old"
-        Me.RadReportAll.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -565,6 +577,16 @@ Partial Class MainRefraction
         Me.DFromReport.Size = New System.Drawing.Size(154, 26)
         Me.DFromReport.TabIndex = 2
         '
+        'RadRepOld
+        '
+        Me.RadRepOld.AutoSize = True
+        Me.RadRepOld.Location = New System.Drawing.Point(12, 90)
+        Me.RadRepOld.Name = "RadRepOld"
+        Me.RadRepOld.Size = New System.Drawing.Size(183, 24)
+        Me.RadRepOld.TabIndex = 9
+        Me.RadRepOld.Text = "Patient Old Refraction"
+        Me.RadRepOld.UseVisualStyleBackColor = True
+        '
         'DToReport
         '
         Me.DToReport.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -587,41 +609,31 @@ Partial Class MainRefraction
         Me.BtnPrintReport.Text = "Print Preview"
         Me.BtnPrintReport.UseVisualStyleBackColor = True
         '
+        'RadRepNew
+        '
+        Me.RadRepNew.AutoSize = True
+        Me.RadRepNew.Location = New System.Drawing.Point(12, 58)
+        Me.RadRepNew.Name = "RadRepNew"
+        Me.RadRepNew.Size = New System.Drawing.Size(190, 24)
+        Me.RadRepNew.TabIndex = 8
+        Me.RadRepNew.Text = "Patient New Refraction"
+        Me.RadRepNew.UseVisualStyleBackColor = True
+        '
+        'RadReportAll
+        '
+        Me.RadReportAll.AutoSize = True
+        Me.RadReportAll.Checked = True
+        Me.RadReportAll.Location = New System.Drawing.Point(12, 27)
+        Me.RadReportAll.Name = "RadReportAll"
+        Me.RadReportAll.Size = New System.Drawing.Size(174, 24)
+        Me.RadReportAll.TabIndex = 7
+        Me.RadReportAll.TabStop = True
+        Me.RadReportAll.Text = "All Patient New + Old"
+        Me.RadReportAll.UseVisualStyleBackColor = True
+        '
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
-        '
-        'RadStatistictOld
-        '
-        Me.RadStatistictOld.AutoSize = True
-        Me.RadStatistictOld.Location = New System.Drawing.Point(14, 213)
-        Me.RadStatistictOld.Name = "RadStatistictOld"
-        Me.RadStatistictOld.Size = New System.Drawing.Size(109, 24)
-        Me.RadStatistictOld.TabIndex = 13
-        Me.RadStatistictOld.Text = "Patient Old "
-        Me.RadStatistictOld.UseVisualStyleBackColor = True
-        '
-        'RadStatisticNew
-        '
-        Me.RadStatisticNew.AutoSize = True
-        Me.RadStatisticNew.Location = New System.Drawing.Point(14, 181)
-        Me.RadStatisticNew.Name = "RadStatisticNew"
-        Me.RadStatisticNew.Size = New System.Drawing.Size(116, 24)
-        Me.RadStatisticNew.TabIndex = 12
-        Me.RadStatisticNew.Text = "Patient New "
-        Me.RadStatisticNew.UseVisualStyleBackColor = True
-        '
-        'RadStatisticAll
-        '
-        Me.RadStatisticAll.AutoSize = True
-        Me.RadStatisticAll.Checked = True
-        Me.RadStatisticAll.Location = New System.Drawing.Point(14, 150)
-        Me.RadStatisticAll.Name = "RadStatisticAll"
-        Me.RadStatisticAll.Size = New System.Drawing.Size(174, 24)
-        Me.RadStatisticAll.TabIndex = 11
-        Me.RadStatisticAll.TabStop = True
-        Me.RadStatisticAll.Text = "All Patient New + Old"
-        Me.RadStatisticAll.UseVisualStyleBackColor = True
         '
         'MainRefraction
         '
@@ -707,5 +719,6 @@ Partial Class MainRefraction
     Friend WithEvents RadStatistictOld As System.Windows.Forms.RadioButton
     Friend WithEvents RadStatisticNew As System.Windows.Forms.RadioButton
     Friend WithEvents RadStatisticAll As System.Windows.Forms.RadioButton
+    Friend WithEvents LblNew_OldID As System.Windows.Forms.Label
 
 End Class

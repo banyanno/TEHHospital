@@ -102,6 +102,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Softwares\External Project\softs\Janus.WinForms.3.5\Patch\Janus.Windows.UI.v3.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -264,6 +266,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSRefraction.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\FillDoctor.Designer.vb">
+      <DependentUpon>FillDoctor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Refraction\FillDoctor.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\Refraction\MainRefraction.Designer.vb">
       <DependentUpon>MainRefraction.vb</DependentUpon>
@@ -985,6 +993,12 @@
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CallAppParameter.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CRDailyConsultingV2.vb">
+      <DependentUpon>CRDailyConsultingV2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CRDailyConsulting.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1150,6 +1164,18 @@
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\MecicalCertificate\ViewMedicalCertificat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfo.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientBarCodeInfo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PrintPatientBarcode.Designer.vb">
+      <DependentUpon>PrintPatientBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PrintPatientBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\UCPatientPayment.designer.vb">
       <DependentUpon>UCPatientPayment.vb</DependentUpon>
     </Compile>
@@ -1201,6 +1227,12 @@
       <DependentUpon>DeleteNoteNew.vb</DependentUpon>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\NewOutpatient\DeleteNoteNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\NewOutpatient\FormEnterDoctor.Designer.vb">
+      <DependentUpon>FormEnterDoctor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\NewOutpatient\FormEnterDoctor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\OldOutpatient\DeleteNoteOld.Designer.vb">
@@ -3048,6 +3080,9 @@
     <None Include="Models\Opticalshop\LinqOpticalShopClasses.dbml.layout">
       <DependentUpon>LinqOpticalShopClasses.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\FillDoctor.resx">
+      <DependentUpon>FillDoctor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Refraction\MainRefraction.resx">
       <DependentUpon>MainRefraction.vb</DependentUpon>
     </EmbeddedResource>
@@ -3375,6 +3410,10 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CallAppParameter.resx">
       <DependentUpon>CallAppParameter.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CRDailyConsultingV2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRDailyConsultingV2.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CRDailyConsulting.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRDailyConsulting.vb</LastGenOutput>
@@ -3474,6 +3513,14 @@
       <DependentUpon>frmPaymentList.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PatientBarCodeInfo.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PrintPatientBarcode.resx">
+      <DependentUpon>PrintPatientBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\Report1.rdlc" />
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RateExchange_Value\FDefaulOldPatient.resx">
       <DependentUpon>FDefaulOldPatient.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -3589,6 +3636,9 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\NewOutpatient\DeleteNoteNew.resx">
       <DependentUpon>DeleteNoteNew.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\NewOutpatient\FormEnterDoctor.resx">
+      <DependentUpon>FormEnterDoctor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RegistrationBook\NewOutpatient\FrmEnterNewDialognosis.resx">
       <DependentUpon>FrmEnterNewDialognosis.vb</DependentUpon>

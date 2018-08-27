@@ -35,7 +35,7 @@ Partial Class FrmEnterNewDialognosis
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 15)
+        Me.Label1.Location = New System.Drawing.Point(3, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 0
@@ -44,7 +44,7 @@ Partial Class FrmEnterNewDialognosis
         'lblNewPatientNo
         '
         Me.lblNewPatientNo.AutoSize = True
-        Me.lblNewPatientNo.Location = New System.Drawing.Point(12, 85)
+        Me.lblNewPatientNo.Location = New System.Drawing.Point(12, 93)
         Me.lblNewPatientNo.Name = "lblNewPatientNo"
         Me.lblNewPatientNo.Size = New System.Drawing.Size(13, 13)
         Me.lblNewPatientNo.TabIndex = 1
@@ -55,7 +55,7 @@ Partial Class FrmEnterNewDialognosis
         '
         Me.txtPatientNo.BackColor = System.Drawing.Color.White
         Me.txtPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPatientNo.Location = New System.Drawing.Point(69, 8)
+        Me.txtPatientNo.Location = New System.Drawing.Point(69, 11)
         Me.txtPatientNo.Name = "txtPatientNo"
         Me.txtPatientNo.ReadOnly = True
         Me.txtPatientNo.Size = New System.Drawing.Size(286, 26)
@@ -64,7 +64,7 @@ Partial Class FrmEnterNewDialognosis
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 59)
+        Me.Label2.Location = New System.Drawing.Point(3, 58)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 13)
         Me.Label2.TabIndex = 0
@@ -77,7 +77,7 @@ Partial Class FrmEnterNewDialognosis
         Me.CboDiagnosis.DropDownWidth = 350
         Me.CboDiagnosis.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboDiagnosis.FormattingEnabled = True
-        Me.CboDiagnosis.Location = New System.Drawing.Point(69, 51)
+        Me.CboDiagnosis.Location = New System.Drawing.Point(69, 43)
         Me.CboDiagnosis.Name = "CboDiagnosis"
         Me.CboDiagnosis.Size = New System.Drawing.Size(286, 28)
         Me.CboDiagnosis.TabIndex = 3
@@ -85,7 +85,7 @@ Partial Class FrmEnterNewDialognosis
         'BtnSave
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSave.Location = New System.Drawing.Point(228, 87)
+        Me.BtnSave.Location = New System.Drawing.Point(218, 76)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(66, 27)
         Me.BtnSave.TabIndex = 4
@@ -95,10 +95,10 @@ Partial Class FrmEnterNewDialognosis
         'BtnCancel
         '
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.Location = New System.Drawing.Point(300, 87)
+        Me.BtnCancel.Location = New System.Drawing.Point(290, 76)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(66, 27)
-        Me.BtnCancel.TabIndex = 4
+        Me.BtnCancel.TabIndex = 5
         Me.BtnCancel.Text = "Cancel"
         Me.BtnCancel.UseVisualStyleBackColor = True
         '
@@ -110,7 +110,7 @@ Partial Class FrmEnterNewDialognosis
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(378, 120)
+        Me.ClientSize = New System.Drawing.Size(369, 110)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.CboDiagnosis)

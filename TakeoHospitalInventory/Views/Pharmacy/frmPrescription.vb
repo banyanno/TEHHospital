@@ -540,11 +540,15 @@ Public Class frmPrescription
                     MsgBox(ex.Message)
                     THIDataContext.getTHIDataContext.Connection.Close()
                 Finally
-                    DA_PTrackingTime.UpdatePharmacy(Format(Now, "hh:mm:ss tt").ToString, TxtPatientNoReal.Text, CheckMarkEOD().Date)
-                    ':::::::::::::::::: Update Diagnosis in New or Old patient Books :::::::::::::::::::::::::::::
-                    If LblNew_OldID.Text <> "0" Then
-                        ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldID.Text, CbDiagnosis.Text)
+                    DA_PTrackingTime.UpdatePharmacy(Format(GetDateServer, "hh:mm:ss tt").ToString, TxtPatientNoReal.Text, CheckMarkEOD().Date)
+                    ':::::::::::::::::: Update Diagnosis and doctor in New or Old patient Books :::::::::::::::::::::::::::::
+                    If LblNew_OldIDForDiagnosis.Text <> "0" Then
+                        ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldIDForDiagnosis.Text, CbDiagnosis.Text)
                     End If
+                    If LblNew_OldIDForDoctor.Text <> "0" Then
+                        ModNew_Outpatient.EnterPatientDoctor(LblNew_OldIDForDoctor.Text, CboDoctor.Text)
+                    End If
+
                     If DateApp.Checked = True Then
                         DA_ConApp.InsertNewApp(CDbl(EmptyString(TxtPatientNoReal.Text)), TxtNameKh.Text, "", TxtPatSex.Text, TxtPatAge.Text, Now.Date, DateApp.Value.Date, False, TxtPrescriptionNote.Text, "", False, CbDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, TxtTel.Text, "Pharmacy", CboDoctor.SelectedValue, CboDoctor.Text)
                     End If
@@ -676,13 +680,13 @@ Public Class frmPrescription
         GridMedicine.DataSource = Nothing
         GridMedicine.Rows.Clear()
         GridMedicine.Refresh()
-        LblNew_OldID.Text = "0"
+        LblNew_OldIDForDiagnosis.Text = "0"
         CleanMedicine()
     End Sub
 
     Private Sub BgLoadPatient_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BgLoadPatient.DoWork
         TblPatient = PatientDataAdapter.GetData
-       
+
     End Sub
 
     Private Sub BgLoadPatient_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BgLoadPatient.RunWorkerCompleted
@@ -702,8 +706,8 @@ Public Class frmPrescription
         'PictLoading.Visible = False
     End Sub
 
-    
-    
+
+
 
     Private Sub CboDoctor_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboDoctor.SelectedValueChanged
         Try
@@ -744,6 +748,7 @@ Public Class frmPrescription
             'Else
             TxtPatientNoReal.Text = GridPatientInformation.GetRow.Cells("PatientNo").Value
             Dim TblTempNew_Old As DataTable = DA_New_Old_Adapter.GetDataByBlankDiagnosis(GridPatientInformation.GetRow.Cells("PatientNo").Value, "")
+            Dim TblTempNewOldForDoctor As DataTable = DA_New_Old_Adapter.SelectPatientByDrName(GridPatientInformation.GetRow.Cells("PatientNo").Value, "")
             For Each DRow As DataRow In TblTempPatient.Rows
                 TxtTempPatientNo.Text = DRow("PatientNo")
                 TxtNameKh.Text = DRow("NameKhmer")
@@ -755,7 +760,11 @@ Public Class frmPrescription
                 TxtTel.Text = DRow("Telephone")
             Next
             For Each DRowNew_Old As DataRow In TblTempNew_Old.Rows
-                LblNew_OldID.Text = DRowNew_Old("NewOutPatientNo")
+                LblNew_OldIDForDiagnosis.Text = DRowNew_Old("NewOutPatientNo")
+            Next
+
+            For Each Rows As DataRow In TblTempNewOldForDoctor.Rows
+                LblNew_OldIDForDoctor.Text = Rows("NewOutPatientNo")
             Next
             '    'End If
             'End If

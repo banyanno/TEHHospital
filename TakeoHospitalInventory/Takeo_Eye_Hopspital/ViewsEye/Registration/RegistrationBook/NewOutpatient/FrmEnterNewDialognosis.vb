@@ -1,5 +1,6 @@
 Public Class FrmEnterNewDialognosis
     Public saveSucc As Boolean = False
+    Dim DoctorDataAdapter As New DSPharmacyTableAdapters.TblDoctorTableAdapter
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -10,6 +11,12 @@ Public Class FrmEnterNewDialognosis
             .SelectedValue = "SID"
             .SelectedIndex = -1
             .SelectAll()
+        End With
+        With CboDoctor
+            .DataSource = DoctorDataAdapter.GetData
+            .ValueMember = "DoctorNo"
+            .DisplayMember = "DoctorName"
+            .SelectedIndex = -1
         End With
         ' Add any initialization after the InitializeComponent() call.
 
@@ -46,4 +53,6 @@ Public Class FrmEnterNewDialognosis
     End Sub
 
  
+    
+    
 End Class

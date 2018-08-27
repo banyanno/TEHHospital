@@ -183,10 +183,14 @@
         End If
         Dim TblTempNew_Old As DataTable = DA_New_Old_Adapter.GetDataByBlankDiagnosis(patientNo, "")
         For Each DRowNew_Old As DataRow In TblTempNew_Old.Rows
-            LblNew_OldID.Text = DRowNew_Old("NewOutPatientNo")
+            LblNew_OldIDForDiagnosis.Text = DRowNew_Old("NewOutPatientNo")
+        Next
+        Dim TblTempNewOld As DataTable = DA_New_Old_Adapter.SelectPatientByDrName(patientNo, "")
+        For Each Rows As DataRow In TblTempNewOld.Rows
+            LblNew_OldIDForDoctor.Text = Rows("NewOutPatientNo")
         Next
     End Sub
-   
+
     Function CheckConsultFor(ByVal GB As GroupBox) As Boolean
         For Each obj As Object In GB.Controls
             If TypeOf obj Is RadioButton Then
@@ -238,7 +242,7 @@
         End If
     End Function
 
-  
+
 
     Private Sub TxtPatientNo_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPatientNo.KeyPress
         SetDisableKeyString(e)
@@ -432,7 +436,7 @@
             DateConsult.Enabled = False
 
         End If
-        
+
         TxtPatientNo.Focus()
         TxtPatientNo.Select()
 
@@ -617,7 +621,7 @@
                                                       EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, _
                                                       TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
 
-                      
+
                         If DateApp.Checked = True Then
 
                             DA_Appoint.InsertNewApp(TxtPatientNo.Text, TxtPatientName.Text, "", TxtSex.Text, TxtAge.Text, DateConsult.Value.Date, DateApp.Value.Date, False, TxtConsultNote.Text, TxtPatientOccupation.Text, False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, txtPatientPhone.Text, "Consuling", CboDoctor.SelectedValue, CboDoctor.Text)
@@ -653,11 +657,15 @@
             End If
             'In case update Diagnosis 
             If RadForInPatient.Checked = True Then
-                If LblNew_OldID.Text <> "0" Then
-                    ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldID.Text, CboSecondDiagnosis.Text)
+                If LblNew_OldIDForDiagnosis.Text <> "0" Then
+                    ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldIDForDiagnosis.Text, CboSecondDiagnosis.Text)
                 End If
+                If LblNew_OldIDForDoctor.Text <> "0" Then
+                    ModNew_Outpatient.EnterPatientDoctor(LblNew_OldIDForDoctor.Text, CboDoctor.Text)
+                End If
+
             End If
-            DA_PTrackingTime.UpdateCONSEL(Format(Now, "hh:mm:ss tt").ToString, TxtPatientNo.Text, CheckMarkEOD().Date)
+            DA_PTrackingTime.UpdateCONSEL(Format(GetDateServer, "hh:mm:ss tt").ToString, TxtPatientNo.Text, CheckMarkEOD().Date)
 
         Else
             If MessageBox.Show("Do you want update consulting?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then

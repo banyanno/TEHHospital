@@ -55,6 +55,10 @@ Partial Class FRMPatientVA
         Me.LblCatPHLeft = New System.Windows.Forms.Label
         Me.LblCatGlassesLeft = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox
+        Me.lblConsellingNo = New System.Windows.Forms.Label
+        Me.lblDateConselling = New System.Windows.Forms.Label
+        Me.Label40 = New System.Windows.Forms.Label
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
         Me.LblGlassesEye = New System.Windows.Forms.Label
         Me.LblPhEye = New System.Windows.Forms.Label
@@ -110,11 +114,14 @@ Partial Class FRMPatientVA
         Me.Label9 = New System.Windows.Forms.Label
         Me.LblPatientID = New System.Windows.Forms.Label
         Me.LblIsOldNew = New System.Windows.Forms.Label
+        Me.Label42 = New System.Windows.Forms.Label
+        Me.lblOnEye = New System.Windows.Forms.Label
         Me.GroupBox2.SuspendLayout()
         CType(Me.TrackPlainLeftEye, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackPHLeftEye, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackGlassesLeftEye, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.TrackPlainRightEye, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -485,6 +492,7 @@ Partial Class FRMPatientVA
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.GroupBox6)
         Me.GroupBox1.Controls.Add(Me.GroupBox5)
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
@@ -497,6 +505,50 @@ Partial Class FRMPatientVA
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "New Patient VA Infos"
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.lblOnEye)
+        Me.GroupBox6.Controls.Add(Me.Label42)
+        Me.GroupBox6.Controls.Add(Me.lblConsellingNo)
+        Me.GroupBox6.Controls.Add(Me.lblDateConselling)
+        Me.GroupBox6.Controls.Add(Me.Label40)
+        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox6.ForeColor = System.Drawing.Color.Red
+        Me.GroupBox6.Location = New System.Drawing.Point(649, 142)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(418, 110)
+        Me.GroupBox6.TabIndex = 27
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Counselling info"
+        '
+        'lblConsellingNo
+        '
+        Me.lblConsellingNo.AutoSize = True
+        Me.lblConsellingNo.Location = New System.Drawing.Point(261, 22)
+        Me.lblConsellingNo.Name = "lblConsellingNo"
+        Me.lblConsellingNo.Size = New System.Drawing.Size(18, 20)
+        Me.lblConsellingNo.TabIndex = 13
+        Me.lblConsellingNo.Text = "0"
+        Me.lblConsellingNo.Visible = False
+        '
+        'lblDateConselling
+        '
+        Me.lblDateConselling.AutoSize = True
+        Me.lblDateConselling.Location = New System.Drawing.Point(142, 42)
+        Me.lblDateConselling.Name = "lblDateConselling"
+        Me.lblDateConselling.Size = New System.Drawing.Size(18, 20)
+        Me.lblDateConselling.TabIndex = 12
+        Me.lblDateConselling.Text = "0"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(13, 42)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(134, 20)
+        Me.Label40.TabIndex = 9
+        Me.Label40.Text = "Date Counselling:"
+        '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.LblGlassesEye)
@@ -505,7 +557,7 @@ Partial Class FRMPatientVA
         Me.GroupBox5.Controls.Add(Me.Label53)
         Me.GroupBox5.Controls.Add(Me.Label54)
         Me.GroupBox5.Controls.Add(Me.Label55)
-        Me.GroupBox5.Location = New System.Drawing.Point(649, 157)
+        Me.GroupBox5.Location = New System.Drawing.Point(649, 258)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(369, 200)
         Me.GroupBox5.TabIndex = 26
@@ -1164,9 +1216,9 @@ Partial Class FRMPatientVA
         Me.LblPatientID.AutoSize = True
         Me.LblPatientID.Location = New System.Drawing.Point(727, 81)
         Me.LblPatientID.Name = "LblPatientID"
-        Me.LblPatientID.Size = New System.Drawing.Size(45, 13)
+        Me.LblPatientID.Size = New System.Drawing.Size(65, 13)
         Me.LblPatientID.TabIndex = 4
-        Me.LblPatientID.Text = "Label40"
+        Me.LblPatientID.Text = "LblPatientID"
         Me.LblPatientID.Visible = False
         '
         'LblIsOldNew
@@ -1178,6 +1230,24 @@ Partial Class FRMPatientVA
         Me.LblIsOldNew.TabIndex = 5
         Me.LblIsOldNew.Text = "0"
         Me.LblIsOldNew.Visible = False
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(13, 77)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(65, 20)
+        Me.Label42.TabIndex = 14
+        Me.Label42.Text = "On Eye:"
+        '
+        'lblOnEye
+        '
+        Me.lblOnEye.AutoSize = True
+        Me.lblOnEye.Location = New System.Drawing.Point(95, 77)
+        Me.lblOnEye.Name = "lblOnEye"
+        Me.lblOnEye.Size = New System.Drawing.Size(65, 20)
+        Me.lblOnEye.TabIndex = 15
+        Me.lblOnEye.Text = "On Eye:"
         '
         'FRMPatientVA
         '
@@ -1206,6 +1276,8 @@ Partial Class FRMPatientVA
         CType(Me.TrackGlassesLeftEye, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -1309,4 +1381,10 @@ Partial Class FRMPatientVA
     Friend WithEvents LblSave As System.Windows.Forms.Label
     Friend WithEvents LblPatientID As System.Windows.Forms.Label
     Friend WithEvents LblIsOldNew As System.Windows.Forms.Label
+    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
+    Friend WithEvents lblConsellingNo As System.Windows.Forms.Label
+    Friend WithEvents lblDateConselling As System.Windows.Forms.Label
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents lblOnEye As System.Windows.Forms.Label
+    Friend WithEvents Label42 As System.Windows.Forms.Label
 End Class

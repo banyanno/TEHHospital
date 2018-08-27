@@ -1433,4 +1433,9 @@ Public Class UCPatientPayment
         Me.V_OldOutpatientTableAdapter.Fill(Me.DSPatient.V_OldOutpatient)
         Me.V_InpatientTableAdapter.Fill(Me.DSPatient.V_Inpatient)
     End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Dim Barcode As New PrintPatientBarcode
+        Barcode.ShowDialog()
+    End Sub
 End Class

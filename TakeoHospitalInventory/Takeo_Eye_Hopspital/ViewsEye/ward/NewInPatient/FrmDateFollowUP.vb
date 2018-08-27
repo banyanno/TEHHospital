@@ -43,7 +43,7 @@ Public Class FrmDateFollowUP
                 DA_PTrackingTime.UpdateDISCHARGE(Format(Now, "hh:mm:ss tt").ToString, lblPatientNo.Text, CheckMarkEOD().Date)
                 If chIsVASurgeon.Checked = True Then
                     ModNewInPatient.UpdateVAAfterSurgeon(LblSaveOption.Text, chIsVASurgeon.Checked, CboDrSurgeon.Text, CboSurgeonOnEye.Text, CboVAPlain.Text, CboVAPH.Text)
-                    ModNewInPatient.UpdateVAConselling(lblConsellingNo.Text, CboVAPlain.Text, CboVAPH.Text)
+                    ModNewInPatient.UpdateVACounsellingAfterOP(lblConsellingNo.Text, CboVAPlain.Text, CboVAPH.Text)
                 End If
                 MsgBox(MSG_SAVE_SUCCESS, MsgBoxStyle.Information, "Save")
                 isClose = True
@@ -70,9 +70,7 @@ Public Class FrmDateFollowUP
         End With
     End Sub
 
-    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
-
-    End Sub
+    
 
     Private Sub DateFollowUp_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateFollowUp.ValueChanged
         If DateFollowUp.Checked = True Then

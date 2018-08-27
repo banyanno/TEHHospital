@@ -67,7 +67,7 @@ Partial Class NewConsuling
         Me.RadForInPatient = New System.Windows.Forms.RadioButton
         Me.RadForOld = New System.Windows.Forms.RadioButton
         Me.GroupDiagnosis = New System.Windows.Forms.GroupBox
-        Me.LblNew_OldID = New System.Windows.Forms.Label
+        Me.LblNew_OldIDForDiagnosis = New System.Windows.Forms.Label
         Me.CboEye = New System.Windows.Forms.ComboBox
         Me.Label16 = New System.Windows.Forms.Label
         Me.CboSecondSurgery = New System.Windows.Forms.ComboBox
@@ -120,32 +120,6 @@ Partial Class NewConsuling
         Me.Label27 = New System.Windows.Forms.Label
         Me.Label26 = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.CboDoctor = New System.Windows.Forms.ComboBox
-        Me.Label41 = New System.Windows.Forms.Label
-        Me.DateApp = New System.Windows.Forms.DateTimePicker
-        Me.Label38 = New System.Windows.Forms.Label
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox
-        Me.Label37 = New System.Windows.Forms.Label
-        Me.Label34 = New System.Windows.Forms.Label
-        Me.Label36 = New System.Windows.Forms.Label
-        Me.Label35 = New System.Windows.Forms.Label
-        Me.ChPatientRefund = New System.Windows.Forms.CheckBox
-        Me.GPatientRefund = New System.Windows.Forms.GroupBox
-        Me.GridRefund = New Janus.Windows.GridEX.GridEX
-        Me.TxtRefundFor = New System.Windows.Forms.TextBox
-        Me.TxtReferral = New System.Windows.Forms.Label
-        Me.Label33 = New System.Windows.Forms.Label
-        Me.RadRield = New System.Windows.Forms.RadioButton
-        Me.TxtMoneyRefund = New System.Windows.Forms.TextBox
-        Me.Label40 = New System.Windows.Forms.Label
-        Me.RadDolar = New System.Windows.Forms.RadioButton
-        Me.Label32 = New System.Windows.Forms.Label
-        Me.TxtReceiptNo = New System.Windows.Forms.TextBox
-        Me.Label25 = New System.Windows.Forms.Label
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
-        Me.BtnSave = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
         Me.TabPage2 = New System.Windows.Forms.TabPage
@@ -174,6 +148,33 @@ Partial Class NewConsuling
         Me.txtAmountWord = New System.Windows.Forms.TextBox
         Me.rdOperationD = New System.Windows.Forms.RadioButton
         Me.txtPatient = New System.Windows.Forms.TextBox
+        Me.CboDoctor = New System.Windows.Forms.ComboBox
+        Me.Label41 = New System.Windows.Forms.Label
+        Me.DateApp = New System.Windows.Forms.DateTimePicker
+        Me.Label38 = New System.Windows.Forms.Label
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox
+        Me.Label37 = New System.Windows.Forms.Label
+        Me.Label34 = New System.Windows.Forms.Label
+        Me.Label36 = New System.Windows.Forms.Label
+        Me.Label35 = New System.Windows.Forms.Label
+        Me.ChPatientRefund = New System.Windows.Forms.CheckBox
+        Me.GPatientRefund = New System.Windows.Forms.GroupBox
+        Me.GridRefund = New Janus.Windows.GridEX.GridEX
+        Me.TxtRefundFor = New System.Windows.Forms.TextBox
+        Me.TxtReferral = New System.Windows.Forms.Label
+        Me.Label33 = New System.Windows.Forms.Label
+        Me.RadRield = New System.Windows.Forms.RadioButton
+        Me.TxtMoneyRefund = New System.Windows.Forms.TextBox
+        Me.Label40 = New System.Windows.Forms.Label
+        Me.RadDolar = New System.Windows.Forms.RadioButton
+        Me.Label32 = New System.Windows.Forms.Label
+        Me.TxtReceiptNo = New System.Windows.Forms.TextBox
+        Me.Label25 = New System.Windows.Forms.Label
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
+        Me.BtnSave = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton
+        Me.LblNew_OldIDForDoctor = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -187,18 +188,19 @@ Partial Class NewConsuling
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        Me.GPatientRefund.SuspendLayout()
-        CType(Me.GridRefund, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GPatientRefund.SuspendLayout()
+        CType(Me.GridRefund, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.LblNew_OldIDForDoctor)
         Me.GroupBox1.Controls.Add(Me.Label39)
         Me.GroupBox1.Controls.Add(Me.txtPatientPhone)
         Me.GroupBox1.Controls.Add(Me.BtnFind)
@@ -473,7 +475,7 @@ Partial Class NewConsuling
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1132, 286)
+        Me.GroupBox3.Size = New System.Drawing.Size(1132, 441)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Consult Information"
@@ -659,7 +661,7 @@ Partial Class NewConsuling
         '
         'GroupDiagnosis
         '
-        Me.GroupDiagnosis.Controls.Add(Me.LblNew_OldID)
+        Me.GroupDiagnosis.Controls.Add(Me.LblNew_OldIDForDiagnosis)
         Me.GroupDiagnosis.Controls.Add(Me.CboEye)
         Me.GroupDiagnosis.Controls.Add(Me.Label16)
         Me.GroupDiagnosis.Controls.Add(Me.CboSecondSurgery)
@@ -675,15 +677,15 @@ Partial Class NewConsuling
         Me.GroupDiagnosis.TabStop = False
         Me.GroupDiagnosis.Text = "សកម្មភាព ដែលបានធ្វើរួច"
         '
-        'LblNew_OldID
+        'LblNew_OldIDForDiagnosis
         '
-        Me.LblNew_OldID.AutoSize = True
-        Me.LblNew_OldID.Location = New System.Drawing.Point(235, -16)
-        Me.LblNew_OldID.Name = "LblNew_OldID"
-        Me.LblNew_OldID.Size = New System.Drawing.Size(21, 30)
-        Me.LblNew_OldID.TabIndex = 6
-        Me.LblNew_OldID.Text = "0"
-        Me.LblNew_OldID.Visible = False
+        Me.LblNew_OldIDForDiagnosis.AutoSize = True
+        Me.LblNew_OldIDForDiagnosis.Location = New System.Drawing.Point(235, -16)
+        Me.LblNew_OldIDForDiagnosis.Name = "LblNew_OldIDForDiagnosis"
+        Me.LblNew_OldIDForDiagnosis.Size = New System.Drawing.Size(21, 30)
+        Me.LblNew_OldIDForDiagnosis.TabIndex = 6
+        Me.LblNew_OldIDForDiagnosis.Text = "0"
+        Me.LblNew_OldIDForDiagnosis.Visible = False
         '
         'CboEye
         '
@@ -1264,284 +1266,8 @@ Partial Class NewConsuling
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 54)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1600, 824)
+        Me.Panel1.Size = New System.Drawing.Size(1444, 824)
         Me.Panel1.TabIndex = 6
-        '
-        'CboDoctor
-        '
-        Me.CboDoctor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.CboDoctor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CboDoctor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboDoctor.FormattingEnabled = True
-        Me.CboDoctor.Location = New System.Drawing.Point(942, 117)
-        Me.CboDoctor.Name = "CboDoctor"
-        Me.CboDoctor.Size = New System.Drawing.Size(198, 28)
-        Me.CboDoctor.TabIndex = 27
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Font = New System.Drawing.Font("Khmer OS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.Location = New System.Drawing.Point(942, 93)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(63, 28)
-        Me.Label41.TabIndex = 26
-        Me.Label41.Text = "With Dr."
-        '
-        'DateApp
-        '
-        Me.DateApp.Checked = False
-        Me.DateApp.CustomFormat = "dd - MM - yyyy"
-        Me.DateApp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateApp.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateApp.Location = New System.Drawing.Point(942, 61)
-        Me.DateApp.Name = "DateApp"
-        Me.DateApp.ShowCheckBox = True
-        Me.DateApp.Size = New System.Drawing.Size(200, 29)
-        Me.DateApp.TabIndex = 23
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label38.ForeColor = System.Drawing.Color.Blue
-        Me.Label38.Location = New System.Drawing.Point(942, 34)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(143, 20)
-        Me.Label38.TabIndex = 22
-        Me.Label38.Text = "Appointment Date:"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Me.Label37)
-        Me.GroupBox8.Controls.Add(Me.Label34)
-        Me.GroupBox8.Controls.Add(Me.Label36)
-        Me.GroupBox8.Controls.Add(Me.Label35)
-        Me.GroupBox8.Location = New System.Drawing.Point(1188, 349)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(341, 100)
-        Me.GroupBox8.TabIndex = 21
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Receipt Status"
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.ForeColor = System.Drawing.Color.Blue
-        Me.Label37.Location = New System.Drawing.Point(14, 21)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(94, 13)
-        Me.Label37.TabIndex = 17
-        Me.Label37.Text = "NR= New Receipt"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.ForeColor = System.Drawing.Color.Blue
-        Me.Label34.Location = New System.Drawing.Point(14, 79)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(92, 13)
-        Me.Label34.TabIndex = 20
-        Me.Label34.Text = "OP= Optical Shop"
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.ForeColor = System.Drawing.Color.Blue
-        Me.Label36.Location = New System.Drawing.Point(14, 41)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(88, 13)
-        Me.Label36.TabIndex = 18
-        Me.Label36.Text = "OR= Old Receipt"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.ForeColor = System.Drawing.Color.Blue
-        Me.Label35.Location = New System.Drawing.Point(14, 60)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(76, 13)
-        Me.Label35.TabIndex = 19
-        Me.Label35.Text = "IR= In Receipt"
-        '
-        'ChPatientRefund
-        '
-        Me.ChPatientRefund.AutoSize = True
-        Me.ChPatientRefund.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChPatientRefund.Location = New System.Drawing.Point(1175, 6)
-        Me.ChPatientRefund.Name = "ChPatientRefund"
-        Me.ChPatientRefund.Size = New System.Drawing.Size(121, 21)
-        Me.ChPatientRefund.TabIndex = 5
-        Me.ChPatientRefund.Text = "Patient Refund"
-        Me.ChPatientRefund.UseVisualStyleBackColor = True
-        '
-        'GPatientRefund
-        '
-        Me.GPatientRefund.Controls.Add(Me.GridRefund)
-        Me.GPatientRefund.Controls.Add(Me.TxtRefundFor)
-        Me.GPatientRefund.Controls.Add(Me.TxtReferral)
-        Me.GPatientRefund.Controls.Add(Me.Label33)
-        Me.GPatientRefund.Controls.Add(Me.RadRield)
-        Me.GPatientRefund.Controls.Add(Me.TxtMoneyRefund)
-        Me.GPatientRefund.Controls.Add(Me.Label40)
-        Me.GPatientRefund.Controls.Add(Me.RadDolar)
-        Me.GPatientRefund.Controls.Add(Me.Label32)
-        Me.GPatientRefund.Controls.Add(Me.TxtReceiptNo)
-        Me.GPatientRefund.Controls.Add(Me.Label25)
-        Me.GPatientRefund.Enabled = False
-        Me.GPatientRefund.Location = New System.Drawing.Point(1161, 8)
-        Me.GPatientRefund.Name = "GPatientRefund"
-        Me.GPatientRefund.Size = New System.Drawing.Size(368, 335)
-        Me.GPatientRefund.TabIndex = 4
-        Me.GPatientRefund.TabStop = False
-        '
-        'GridRefund
-        '
-        Me.GridRefund.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
-        GridRefund_DesignTimeLayout.LayoutString = resources.GetString("GridRefund_DesignTimeLayout.LayoutString")
-        Me.GridRefund.DesignTimeLayout = GridRefund_DesignTimeLayout
-        Me.GridRefund.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GridRefund.GroupByBoxVisible = False
-        Me.GridRefund.Location = New System.Drawing.Point(12, 20)
-        Me.GridRefund.Name = "GridRefund"
-        Me.GridRefund.Size = New System.Drawing.Size(350, 161)
-        Me.GridRefund.TabIndex = 11
-        '
-        'TxtRefundFor
-        '
-        Me.TxtRefundFor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRefundFor.Location = New System.Drawing.Point(253, 297)
-        Me.TxtRefundFor.Name = "TxtRefundFor"
-        Me.TxtRefundFor.ReadOnly = True
-        Me.TxtRefundFor.Size = New System.Drawing.Size(65, 26)
-        Me.TxtRefundFor.TabIndex = 10
-        Me.TxtRefundFor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'TxtReferral
-        '
-        Me.TxtReferral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtReferral.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtReferral.ForeColor = System.Drawing.Color.Blue
-        Me.TxtReferral.Location = New System.Drawing.Point(103, 194)
-        Me.TxtReferral.Name = "TxtReferral"
-        Me.TxtReferral.Size = New System.Drawing.Size(230, 29)
-        Me.TxtReferral.TabIndex = 25
-        Me.TxtReferral.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(254, 268)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(60, 13)
-        Me.Label33.TabIndex = 9
-        Me.Label33.Text = "Refund For"
-        '
-        'RadRield
-        '
-        Me.RadRield.AutoSize = True
-        Me.RadRield.Font = New System.Drawing.Font("សម្រាប់កូនខ្មែរ", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadRield.Location = New System.Drawing.Point(157, 263)
-        Me.RadRield.Name = "RadRield"
-        Me.RadRield.Size = New System.Drawing.Size(32, 26)
-        Me.RadRield.TabIndex = 7
-        Me.RadRield.TabStop = True
-        Me.RadRield.Text = "៛"
-        Me.RadRield.UseVisualStyleBackColor = True
-        '
-        'TxtMoneyRefund
-        '
-        Me.TxtMoneyRefund.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtMoneyRefund.Location = New System.Drawing.Point(38, 298)
-        Me.TxtMoneyRefund.Name = "TxtMoneyRefund"
-        Me.TxtMoneyRefund.Size = New System.Drawing.Size(186, 26)
-        Me.TxtMoneyRefund.TabIndex = 9
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label40.ForeColor = System.Drawing.Color.Blue
-        Me.Label40.Location = New System.Drawing.Point(10, 203)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(88, 20)
-        Me.Label40.TabIndex = 24
-        Me.Label40.Text = "Referral By"
-        '
-        'RadDolar
-        '
-        Me.RadDolar.AutoSize = True
-        Me.RadDolar.Location = New System.Drawing.Point(102, 266)
-        Me.RadDolar.Name = "RadDolar"
-        Me.RadDolar.Size = New System.Drawing.Size(31, 17)
-        Me.RadDolar.TabIndex = 6
-        Me.RadDolar.TabStop = True
-        Me.RadDolar.Text = "$"
-        Me.RadDolar.UseVisualStyleBackColor = True
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(37, 272)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(45, 13)
-        Me.Label32.TabIndex = 8
-        Me.Label32.Text = "Refund:"
-        '
-        'TxtReceiptNo
-        '
-        Me.TxtReceiptNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtReceiptNo.Location = New System.Drawing.Point(102, 229)
-        Me.TxtReceiptNo.Name = "TxtReceiptNo"
-        Me.TxtReceiptNo.ReadOnly = True
-        Me.TxtReceiptNo.Size = New System.Drawing.Size(233, 26)
-        Me.TxtReceiptNo.TabIndex = 7
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(35, 242)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(64, 13)
-        Me.Label25.TabIndex = 6
-        Me.Label25.Text = "Receipt No:"
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(26, 26)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSave, Me.ToolStripSeparator1, Me.ToolStripButton2})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1600, 54)
-        Me.ToolStrip1.TabIndex = 7
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'BtnSave
-        '
-        Me.BtnSave.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.BtnSave.ForeColor = System.Drawing.Color.Blue
-        Me.BtnSave.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Mac
-        Me.BtnSave.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(87, 51)
-        Me.BtnSave.Text = "     Save     "
-        Me.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 54)
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.ToolStripButton2.ForeColor = System.Drawing.Color.Blue
-        Me.ToolStripButton2.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Remove
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(84, 51)
-        Me.ToolStripButton2.Text = "   Cancel   "
-        Me.ToolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'TabControl1
         '
@@ -1553,7 +1279,7 @@ Partial Class NewConsuling
         Me.TabControl1.Location = New System.Drawing.Point(9, 331)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1146, 493)
+        Me.TabControl1.Size = New System.Drawing.Size(1146, 476)
         Me.TabControl1.TabIndex = 28
         '
         'TabPage1
@@ -1562,7 +1288,7 @@ Partial Class NewConsuling
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1138, 292)
+        Me.TabPage1.Size = New System.Drawing.Size(1138, 447)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Patient Information"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1899,11 +1625,297 @@ Partial Class NewConsuling
         Me.txtPatient.Size = New System.Drawing.Size(501, 39)
         Me.txtPatient.TabIndex = 213
         '
+        'CboDoctor
+        '
+        Me.CboDoctor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CboDoctor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CboDoctor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboDoctor.FormattingEnabled = True
+        Me.CboDoctor.Location = New System.Drawing.Point(942, 117)
+        Me.CboDoctor.Name = "CboDoctor"
+        Me.CboDoctor.Size = New System.Drawing.Size(198, 28)
+        Me.CboDoctor.TabIndex = 27
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("Khmer OS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(942, 93)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(63, 28)
+        Me.Label41.TabIndex = 26
+        Me.Label41.Text = "With Dr."
+        '
+        'DateApp
+        '
+        Me.DateApp.Checked = False
+        Me.DateApp.CustomFormat = "dd - MM - yyyy"
+        Me.DateApp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateApp.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateApp.Location = New System.Drawing.Point(942, 61)
+        Me.DateApp.Name = "DateApp"
+        Me.DateApp.ShowCheckBox = True
+        Me.DateApp.Size = New System.Drawing.Size(200, 29)
+        Me.DateApp.TabIndex = 23
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.ForeColor = System.Drawing.Color.Blue
+        Me.Label38.Location = New System.Drawing.Point(942, 34)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(143, 20)
+        Me.Label38.TabIndex = 22
+        Me.Label38.Text = "Appointment Date:"
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.Label37)
+        Me.GroupBox8.Controls.Add(Me.Label34)
+        Me.GroupBox8.Controls.Add(Me.Label36)
+        Me.GroupBox8.Controls.Add(Me.Label35)
+        Me.GroupBox8.Location = New System.Drawing.Point(1188, 349)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(341, 100)
+        Me.GroupBox8.TabIndex = 21
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Receipt Status"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.ForeColor = System.Drawing.Color.Blue
+        Me.Label37.Location = New System.Drawing.Point(14, 21)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(94, 13)
+        Me.Label37.TabIndex = 17
+        Me.Label37.Text = "NR= New Receipt"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.ForeColor = System.Drawing.Color.Blue
+        Me.Label34.Location = New System.Drawing.Point(14, 79)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(92, 13)
+        Me.Label34.TabIndex = 20
+        Me.Label34.Text = "OP= Optical Shop"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.ForeColor = System.Drawing.Color.Blue
+        Me.Label36.Location = New System.Drawing.Point(14, 41)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(88, 13)
+        Me.Label36.TabIndex = 18
+        Me.Label36.Text = "OR= Old Receipt"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.ForeColor = System.Drawing.Color.Blue
+        Me.Label35.Location = New System.Drawing.Point(14, 60)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(76, 13)
+        Me.Label35.TabIndex = 19
+        Me.Label35.Text = "IR= In Receipt"
+        '
+        'ChPatientRefund
+        '
+        Me.ChPatientRefund.AutoSize = True
+        Me.ChPatientRefund.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChPatientRefund.Location = New System.Drawing.Point(1175, 6)
+        Me.ChPatientRefund.Name = "ChPatientRefund"
+        Me.ChPatientRefund.Size = New System.Drawing.Size(121, 21)
+        Me.ChPatientRefund.TabIndex = 5
+        Me.ChPatientRefund.Text = "Patient Refund"
+        Me.ChPatientRefund.UseVisualStyleBackColor = True
+        '
+        'GPatientRefund
+        '
+        Me.GPatientRefund.Controls.Add(Me.GridRefund)
+        Me.GPatientRefund.Controls.Add(Me.TxtRefundFor)
+        Me.GPatientRefund.Controls.Add(Me.TxtReferral)
+        Me.GPatientRefund.Controls.Add(Me.Label33)
+        Me.GPatientRefund.Controls.Add(Me.RadRield)
+        Me.GPatientRefund.Controls.Add(Me.TxtMoneyRefund)
+        Me.GPatientRefund.Controls.Add(Me.Label40)
+        Me.GPatientRefund.Controls.Add(Me.RadDolar)
+        Me.GPatientRefund.Controls.Add(Me.Label32)
+        Me.GPatientRefund.Controls.Add(Me.TxtReceiptNo)
+        Me.GPatientRefund.Controls.Add(Me.Label25)
+        Me.GPatientRefund.Enabled = False
+        Me.GPatientRefund.Location = New System.Drawing.Point(1161, 8)
+        Me.GPatientRefund.Name = "GPatientRefund"
+        Me.GPatientRefund.Size = New System.Drawing.Size(368, 335)
+        Me.GPatientRefund.TabIndex = 4
+        Me.GPatientRefund.TabStop = False
+        '
+        'GridRefund
+        '
+        Me.GridRefund.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        GridRefund_DesignTimeLayout.LayoutString = resources.GetString("GridRefund_DesignTimeLayout.LayoutString")
+        Me.GridRefund.DesignTimeLayout = GridRefund_DesignTimeLayout
+        Me.GridRefund.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridRefund.GroupByBoxVisible = False
+        Me.GridRefund.Location = New System.Drawing.Point(12, 20)
+        Me.GridRefund.Name = "GridRefund"
+        Me.GridRefund.Size = New System.Drawing.Size(350, 161)
+        Me.GridRefund.TabIndex = 11
+        '
+        'TxtRefundFor
+        '
+        Me.TxtRefundFor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtRefundFor.Location = New System.Drawing.Point(253, 297)
+        Me.TxtRefundFor.Name = "TxtRefundFor"
+        Me.TxtRefundFor.ReadOnly = True
+        Me.TxtRefundFor.Size = New System.Drawing.Size(65, 26)
+        Me.TxtRefundFor.TabIndex = 10
+        Me.TxtRefundFor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TxtReferral
+        '
+        Me.TxtReferral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtReferral.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtReferral.ForeColor = System.Drawing.Color.Blue
+        Me.TxtReferral.Location = New System.Drawing.Point(103, 194)
+        Me.TxtReferral.Name = "TxtReferral"
+        Me.TxtReferral.Size = New System.Drawing.Size(230, 29)
+        Me.TxtReferral.TabIndex = 25
+        Me.TxtReferral.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(254, 268)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(60, 13)
+        Me.Label33.TabIndex = 9
+        Me.Label33.Text = "Refund For"
+        '
+        'RadRield
+        '
+        Me.RadRield.AutoSize = True
+        Me.RadRield.Font = New System.Drawing.Font("សម្រាប់កូនខ្មែរ", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadRield.Location = New System.Drawing.Point(157, 263)
+        Me.RadRield.Name = "RadRield"
+        Me.RadRield.Size = New System.Drawing.Size(32, 26)
+        Me.RadRield.TabIndex = 7
+        Me.RadRield.TabStop = True
+        Me.RadRield.Text = "៛"
+        Me.RadRield.UseVisualStyleBackColor = True
+        '
+        'TxtMoneyRefund
+        '
+        Me.TxtMoneyRefund.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtMoneyRefund.Location = New System.Drawing.Point(38, 298)
+        Me.TxtMoneyRefund.Name = "TxtMoneyRefund"
+        Me.TxtMoneyRefund.Size = New System.Drawing.Size(186, 26)
+        Me.TxtMoneyRefund.TabIndex = 9
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.ForeColor = System.Drawing.Color.Blue
+        Me.Label40.Location = New System.Drawing.Point(10, 203)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(88, 20)
+        Me.Label40.TabIndex = 24
+        Me.Label40.Text = "Referral By"
+        '
+        'RadDolar
+        '
+        Me.RadDolar.AutoSize = True
+        Me.RadDolar.Location = New System.Drawing.Point(102, 266)
+        Me.RadDolar.Name = "RadDolar"
+        Me.RadDolar.Size = New System.Drawing.Size(31, 17)
+        Me.RadDolar.TabIndex = 6
+        Me.RadDolar.TabStop = True
+        Me.RadDolar.Text = "$"
+        Me.RadDolar.UseVisualStyleBackColor = True
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(37, 272)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(45, 13)
+        Me.Label32.TabIndex = 8
+        Me.Label32.Text = "Refund:"
+        '
+        'TxtReceiptNo
+        '
+        Me.TxtReceiptNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtReceiptNo.Location = New System.Drawing.Point(102, 229)
+        Me.TxtReceiptNo.Name = "TxtReceiptNo"
+        Me.TxtReceiptNo.ReadOnly = True
+        Me.TxtReceiptNo.Size = New System.Drawing.Size(233, 26)
+        Me.TxtReceiptNo.TabIndex = 7
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(35, 242)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(64, 13)
+        Me.Label25.TabIndex = 6
+        Me.Label25.Text = "Receipt No:"
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(26, 26)
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSave, Me.ToolStripSeparator1, Me.ToolStripButton2})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1444, 54)
+        Me.ToolStrip1.TabIndex = 7
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'BtnSave
+        '
+        Me.BtnSave.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.BtnSave.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSave.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Mac
+        Me.BtnSave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(87, 51)
+        Me.BtnSave.Text = "     Save     "
+        Me.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 54)
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.ToolStripButton2.ForeColor = System.Drawing.Color.Blue
+        Me.ToolStripButton2.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Remove
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(84, 51)
+        Me.ToolStripButton2.Text = "   Cancel   "
+        Me.ToolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'LblNew_OldIDForDoctor
+        '
+        Me.LblNew_OldIDForDoctor.AutoSize = True
+        Me.LblNew_OldIDForDoctor.Location = New System.Drawing.Point(143, 82)
+        Me.LblNew_OldIDForDoctor.Name = "LblNew_OldIDForDoctor"
+        Me.LblNew_OldIDForDoctor.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDoctor.TabIndex = 26
+        Me.LblNew_OldIDForDoctor.Text = "0"
+        Me.LblNew_OldIDForDoctor.Visible = False
+        '
         'NewConsuling
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1600, 878)
+        Me.ClientSize = New System.Drawing.Size(1444, 878)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1937,6 +1949,12 @@ Partial Class NewConsuling
         Me.GroupBox5.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.GPatientRefund.ResumeLayout(False)
@@ -1944,12 +1962,6 @@ Partial Class NewConsuling
         CType(Me.GridRefund, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2019,7 +2031,7 @@ Partial Class NewConsuling
     Friend WithEvents RadPatientPayR As System.Windows.Forms.RadioButton
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents BtnFamilyStatus As System.Windows.Forms.Button
-    Friend WithEvents LblNew_OldID As System.Windows.Forms.Label
+    Friend WithEvents LblNew_OldIDForDiagnosis As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
@@ -2103,4 +2115,5 @@ Partial Class NewConsuling
     Friend WithEvents txtAmountWord As System.Windows.Forms.TextBox
     Friend WithEvents rdOperationD As System.Windows.Forms.RadioButton
     Friend WithEvents txtPatient As System.Windows.Forms.TextBox
+    Friend WithEvents LblNew_OldIDForDoctor As System.Windows.Forms.Label
 End Class

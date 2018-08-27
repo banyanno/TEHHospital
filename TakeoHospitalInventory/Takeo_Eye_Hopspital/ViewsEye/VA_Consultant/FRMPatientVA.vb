@@ -4,6 +4,7 @@ Public Class FRMPatientVA
     Dim OrderPlain As Integer = 1
     Dim OrderPh As Integer = 1
     Dim OrderGlases As Int16 = 1
+    Public IS_NEW_OR_OLD As Boolean = False ' if is_new_or_old =false for new register
     Sub New(ByVal va As UCMainVA)
 
         ' This call is required by the Windows Form Designer.
@@ -103,6 +104,20 @@ Public Class FRMPatientVA
                 LblCatGlassesRight.Text, DateVA.Value, firstTime) = 1 _
                 Then
                     MsgBox(MSG_SAVE_SUCCESS, MsgBoxStyle.Information, "Save")
+                    If IS_NEW_OR_OLD = False Then
+                        ModNewInPatient.UpdateVARegisBeforOP(lblConsellingNo.Text, LblPlainLeft.Text, LblPhLeft.Text, LblPlainRight.Text, LblPHRight.Text)
+                    Else
+                        ' aupdate when patient come again
+                        Dim PlainVal, IcPHVal As String
+                        If lblOnEye.Text = "Left Eye" Then
+                            PlainVal = LblPlainLeft.Text
+                            IcPHVal = LblPhLeft.Text
+                        ElseIf (lblOnEye.Text = "Right Eye") Then
+                            PlainVal = LblPlainRight.Text
+                            IcPHVal = LblPHRight.Text
+                        End If
+                        ModNewInPatient.UpdateVARegisOLDOP(lblConsellingNo.Text, PlainVal, IcPHVal)
+                    End If
                     isClose = True
                     Me.Close()
                 Else
@@ -330,4 +345,12 @@ Public Class FRMPatientVA
 
 
   
+    Public Sub CallCounselling(ByVal PatientNo As Double)
+        Dim tblConselling As DataTable = ModNewInPatient.GetConsellingInfo(PatientNo)
+        For Each rows As DataRow In tblConselling.Rows
+            lblDateConselling.Text = Format(CDate(rows("CONSULING_DATE")), "dd-MM-yyyy") ' Format( rows("CONSULING_DATE").ToString,  "dd-mm-yyyy")
+            lblConsellingNo.Text = rows("CONSULING_ID").ToString
+            lblOnEye.Text = rows("EYE").ToString
+        Next
+    End Sub
 End Class

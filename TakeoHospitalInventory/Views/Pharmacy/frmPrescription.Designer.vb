@@ -87,7 +87,7 @@ Partial Class frmPrescription
         Me.ContainerID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.LabourFacID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
-        Me.LblNew_OldID = New System.Windows.Forms.Label
+        Me.LblNew_OldIDForDiagnosis = New System.Windows.Forms.Label
         Me.TxtPrescriptionNote = New System.Windows.Forms.TextBox
         Me.CboEye = New System.Windows.Forms.ComboBox
         Me.DateApp = New System.Windows.Forms.DateTimePicker
@@ -110,6 +110,7 @@ Partial Class frmPrescription
         Me.BgLoadPatient = New System.ComponentModel.BackgroundWorker
         Me.PictLoading = New System.Windows.Forms.PictureBox
         Me.LblLoading = New System.Windows.Forms.Label
+        Me.LblNew_OldIDForDoctor = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupMedicineInfo.SuspendLayout()
@@ -152,6 +153,8 @@ Partial Class frmPrescription
         '
         Me.GroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Controls.Add(Me.LblNew_OldIDForDiagnosis)
+        Me.GroupBox5.Controls.Add(Me.LblNew_OldIDForDoctor)
         Me.GroupBox5.Controls.Add(Me.CboOpticalShop)
         Me.GroupBox5.Controls.Add(Me.RadItemInOpticalShop)
         Me.GroupBox5.Controls.Add(Me.GroupMedicineInfo)
@@ -449,6 +452,7 @@ Partial Class frmPrescription
         Me.GridPatientInformation.DesignTimeLayout = GridPatientInformation_DesignTimeLayout
         Me.GridPatientInformation.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GridPatientInformation.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.GridPatientInformation.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
         Me.GridPatientInformation.GroupByBoxVisible = False
         Me.GridPatientInformation.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive
         Me.GridPatientInformation.Location = New System.Drawing.Point(2, 15)
@@ -826,7 +830,6 @@ Partial Class frmPrescription
         '
         Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox4.Controls.Add(Me.LblNew_OldID)
         Me.GroupBox4.Controls.Add(Me.TxtPrescriptionNote)
         Me.GroupBox4.Controls.Add(Me.CboEye)
         Me.GroupBox4.Controls.Add(Me.DateApp)
@@ -851,15 +854,15 @@ Partial Class frmPrescription
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Doctor Info"
         '
-        'LblNew_OldID
+        'LblNew_OldIDForDiagnosis
         '
-        Me.LblNew_OldID.AutoSize = True
-        Me.LblNew_OldID.Location = New System.Drawing.Point(623, 69)
-        Me.LblNew_OldID.Name = "LblNew_OldID"
-        Me.LblNew_OldID.Size = New System.Drawing.Size(13, 13)
-        Me.LblNew_OldID.TabIndex = 22
-        Me.LblNew_OldID.Text = "0"
-        Me.LblNew_OldID.Visible = False
+        Me.LblNew_OldIDForDiagnosis.AutoSize = True
+        Me.LblNew_OldIDForDiagnosis.Location = New System.Drawing.Point(98, 261)
+        Me.LblNew_OldIDForDiagnosis.Name = "LblNew_OldIDForDiagnosis"
+        Me.LblNew_OldIDForDiagnosis.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDiagnosis.TabIndex = 22
+        Me.LblNew_OldIDForDiagnosis.Text = "0"
+        Me.LblNew_OldIDForDiagnosis.Visible = False
         '
         'TxtPrescriptionNote
         '
@@ -1023,7 +1026,7 @@ Partial Class frmPrescription
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnSave.ForeColor = System.Drawing.SystemColors.MenuText
         Me.BtnSave.Image = Global.TakeoHospitalInventory.My.Resources.Resources.save
-        Me.BtnSave.Location = New System.Drawing.Point(997, 788)
+        Me.BtnSave.Location = New System.Drawing.Point(1021, 788)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(85, 37)
         Me.BtnSave.TabIndex = 1
@@ -1038,7 +1041,7 @@ Partial Class frmPrescription
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.MenuText
         Me.BtnCancel.Image = Global.TakeoHospitalInventory.My.Resources.Resources.cancel
-        Me.BtnCancel.Location = New System.Drawing.Point(1090, 788)
+        Me.BtnCancel.Location = New System.Drawing.Point(1114, 788)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(85, 37)
         Me.BtnCancel.TabIndex = 2
@@ -1086,6 +1089,16 @@ Partial Class frmPrescription
         Me.LblLoading.TabIndex = 22
         Me.LblLoading.Text = "Loading"
         Me.LblLoading.Visible = False
+        '
+        'LblNew_OldIDForDoctor
+        '
+        Me.LblNew_OldIDForDoctor.AutoSize = True
+        Me.LblNew_OldIDForDoctor.Location = New System.Drawing.Point(57, 261)
+        Me.LblNew_OldIDForDoctor.Name = "LblNew_OldIDForDoctor"
+        Me.LblNew_OldIDForDoctor.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDoctor.TabIndex = 26
+        Me.LblNew_OldIDForDoctor.Text = "0"
+        Me.LblNew_OldIDForDoctor.Visible = False
         '
         'frmPrescription
         '
@@ -1160,7 +1173,7 @@ Partial Class frmPrescription
     Friend WithEvents LblLoading As System.Windows.Forms.Label
     Friend WithEvents CboPatient As System.Windows.Forms.TextBox
     Friend WithEvents TxtNameKh As System.Windows.Forms.TextBox
-    Friend WithEvents LblNew_OldID As System.Windows.Forms.Label
+    Friend WithEvents LblNew_OldIDForDiagnosis As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents GridPatientInformation As Janus.Windows.GridEX.GridEX
@@ -1209,4 +1222,5 @@ Partial Class frmPrescription
     Friend WithEvents cIsOutsideMedicine As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ContainerID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LabourFacID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LblNew_OldIDForDoctor As System.Windows.Forms.Label
 End Class

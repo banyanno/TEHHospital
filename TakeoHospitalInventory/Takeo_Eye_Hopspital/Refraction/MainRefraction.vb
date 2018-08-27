@@ -1,5 +1,6 @@
 ﻿Public Class MainRefraction
     Dim DARefraction As New DSRefractionTableAdapters.REFRACTIONTableAdapter
+    Dim DA_New_Old_Adapter As New DSPharmacy_V1TableAdapters.TblNew_Old_OutPatientTableAdapter
     Private Sub BtnParameter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnParameter.Click
         Dim FRefractionParameter As New RefractionParameter
         FRefractionParameter.ShowDialog()
@@ -35,7 +36,7 @@
             Dim NewRefraction As New NewRefraction
             NewRefraction.lblSaveOption.Text = GridRefraction.GetRow.Cells("REFRACT_ID").Value
             NewRefraction.BtnFindPatient.Enabled = False
-            NewRefraction.TxtPatientNo.Enabled = False
+            NewRefraction.TxtPatientNo.ReadOnly = True
             NewRefraction.TxtPatientNo.Text = GridRefraction.GetRow.Cells("PATIENT_NO").Value
             NewRefraction.TxtPatientName.Text = GridRefraction.GetRow.Cells("PATIENT_NAME").Value
             NewRefraction.TxtPatientSex.Text = GridRefraction.GetRow.Cells("PATEINT_SEX").Value
@@ -168,12 +169,26 @@
             MessageBox.Show("The patient already Received.", "Prescription", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If MessageBox.Show("Do you want to request prescription?", "Refraction", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+        Dim AcceptPrescript As New FillDoctor
+        If AcceptPrescript.ShowDialog = DialogResult.OK Then
             If DARefraction.UpdateIsPrescription(True, "Received", GridRefraction.GetRow.Cells("REFRACT_ID").Value) = 1 Then
+                Dim TblTempNew_Old As DataTable = DA_New_Old_Adapter.SelectPatientByDrName(GridRefraction.GetRow.Cells("PATIENT_NO").Value, "")
+                For Each DRowNew_Old As DataRow In TblTempNew_Old.Rows
+                    LblNew_OldID.Text = DRowNew_Old("NewOutPatientNo")
+                Next
+                If LblNew_OldID.Text <> 0 Then
+                    ModNew_Outpatient.EnterPatientDoctor(LblNew_OldID.Text, AcceptPrescript.CboDoctor.Text)
+                End If
                 MessageBox.Show("Request is successful!", "Received", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LoadingFinding()
             End If
         End If
+        'If MessageBox.Show("Do you want to request prescription?", "Refraction", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+        '    If DARefraction.UpdateIsPrescription(True, "Received", GridRefraction.GetRow.Cells("REFRACT_ID").Value) = 1 Then
+        '        MessageBox.Show("Request is successful!", "Received", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '        LoadingFinding()
+        '    End If
+        'End If
     End Sub
 
     Private Sub BtnRefreshListAprove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnRefreshListAprove.Click

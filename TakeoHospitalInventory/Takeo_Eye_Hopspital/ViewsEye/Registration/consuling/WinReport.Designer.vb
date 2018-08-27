@@ -26,8 +26,11 @@ Partial Class WinReport
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WinReport))
         Me.SplitContainerConsult = New System.Windows.Forms.SplitContainer
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.RadV2 = New System.Windows.Forms.RadioButton
+        Me.RadV1 = New System.Windows.Forms.RadioButton
         Me.CboDoctor = New System.Windows.Forms.ComboBox
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox
+        Me.ChSelectDoctor = New System.Windows.Forms.CheckBox
         Me.ChAccept = New System.Windows.Forms.CheckBox
         Me.ChConsultCancel = New System.Windows.Forms.CheckBox
         Me.BtnPrintPreview = New System.Windows.Forms.Button
@@ -49,6 +52,7 @@ Partial Class WinReport
         Me.SplitContainerConsult.Panel2.SuspendLayout()
         Me.SplitContainerConsult.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.ErrReport, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -72,8 +76,9 @@ Partial Class WinReport
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.GroupBox1)
         Me.GroupBox3.Controls.Add(Me.CboDoctor)
-        Me.GroupBox3.Controls.Add(Me.CheckBox1)
+        Me.GroupBox3.Controls.Add(Me.ChSelectDoctor)
         Me.GroupBox3.Controls.Add(Me.ChAccept)
         Me.GroupBox3.Controls.Add(Me.ChConsultCancel)
         Me.GroupBox3.Controls.Add(Me.BtnPrintPreview)
@@ -96,6 +101,43 @@ Partial Class WinReport
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Report Option Consult For"
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.RadV2)
+        Me.GroupBox1.Controls.Add(Me.RadV1)
+        Me.GroupBox1.Location = New System.Drawing.Point(7, 83)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(177, 49)
+        Me.GroupBox1.TabIndex = 22
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Report"
+        '
+        'RadV2
+        '
+        Me.RadV2.AutoSize = True
+        Me.RadV2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadV2.Location = New System.Drawing.Point(90, 18)
+        Me.RadV2.Name = "RadV2"
+        Me.RadV2.Size = New System.Drawing.Size(86, 21)
+        Me.RadV2.TabIndex = 16
+        Me.RadV2.Text = "Version 2"
+        Me.RadV2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.RadV2.UseVisualStyleBackColor = True
+        '
+        'RadV1
+        '
+        Me.RadV1.AutoSize = True
+        Me.RadV1.Checked = True
+        Me.RadV1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadV1.Location = New System.Drawing.Point(9, 17)
+        Me.RadV1.Name = "RadV1"
+        Me.RadV1.Size = New System.Drawing.Size(86, 21)
+        Me.RadV1.TabIndex = 15
+        Me.RadV1.TabStop = True
+        Me.RadV1.Text = "Version 1"
+        Me.RadV1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.RadV1.UseVisualStyleBackColor = True
+        '
         'CboDoctor
         '
         Me.CboDoctor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -108,15 +150,15 @@ Partial Class WinReport
         Me.CboDoctor.Size = New System.Drawing.Size(329, 28)
         Me.CboDoctor.TabIndex = 21
         '
-        'CheckBox1
+        'ChSelectDoctor
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(677, 60)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(91, 17)
-        Me.CheckBox1.TabIndex = 20
-        Me.CheckBox1.Text = "Select Doctor"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.ChSelectDoctor.AutoSize = True
+        Me.ChSelectDoctor.Location = New System.Drawing.Point(677, 60)
+        Me.ChSelectDoctor.Name = "ChSelectDoctor"
+        Me.ChSelectDoctor.Size = New System.Drawing.Size(91, 17)
+        Me.ChSelectDoctor.TabIndex = 20
+        Me.ChSelectDoctor.Text = "Select Doctor"
+        Me.ChSelectDoctor.UseVisualStyleBackColor = True
         '
         'ChAccept
         '
@@ -156,7 +198,7 @@ Partial Class WinReport
         Me.DTo.CustomFormat = "dd/MM/yyyy"
         Me.DTo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DTo.Location = New System.Drawing.Point(57, 70)
+        Me.DTo.Location = New System.Drawing.Point(57, 55)
         Me.DTo.Name = "DTo"
         Me.DTo.Size = New System.Drawing.Size(126, 26)
         Me.DTo.TabIndex = 12
@@ -177,7 +219,7 @@ Partial Class WinReport
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 76)
+        Me.Label2.Location = New System.Drawing.Point(3, 61)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 20)
         Me.Label2.TabIndex = 11
@@ -307,13 +349,16 @@ Partial Class WinReport
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "WinReport"
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Report"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.SplitContainerConsult.Panel1.ResumeLayout(False)
         Me.SplitContainerConsult.Panel2.ResumeLayout(False)
         Me.SplitContainerConsult.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.ErrReport, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -337,6 +382,9 @@ Partial Class WinReport
     Friend WithEvents BgLoadConsult As System.ComponentModel.BackgroundWorker
     Friend WithEvents ChConsultCancel As System.Windows.Forms.CheckBox
     Friend WithEvents ChAccept As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents ChSelectDoctor As System.Windows.Forms.CheckBox
     Friend WithEvents CboDoctor As System.Windows.Forms.ComboBox
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents RadV2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadV1 As System.Windows.Forms.RadioButton
 End Class

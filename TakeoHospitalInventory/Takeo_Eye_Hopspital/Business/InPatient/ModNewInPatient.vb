@@ -91,8 +91,16 @@ Module ModNewInPatient
         Dim SQL As String = "UPDATE TblNewInPatient set IS_VA_OPERATE='" & IS_VA_OPERATE & "',VA_DR_SURGEON='" & VA_DR_SURGEON & "',VA_SURGEON_ONEYE='" & VA_SURGEON_ONEYE & "',VA_SURGEON_PLAIN='" & VA_SURGEON_PLAIN & "',VA_SURGEON_ICPH='" & VA_SURGEON_ICPH & "' WHERE NewInPatientNo=" & NewInPatientNo
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(SQL)
     End Function
-    Function UpdateVAConselling(ByVal CONSULING_ID As Double, ByVal VA_PLAIN As String, ByVal VA_icPH As String)
+    Function UpdateVACounsellingAfterOP(ByVal CONSULING_ID As Double, ByVal VA_PLAIN As String, ByVal VA_icPH As String)
         Dim SQL As String = "UPDATE CONSULING SET VA_PLAIN='" & VA_PLAIN & "',VA_icPH='" & VA_icPH & "' where CONSULING_ID=" & CONSULING_ID
+        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(SQL)
+    End Function
+    Function UpdateVARegisBeforOP(ByVal CONSULING_ID As Double, ByVal REGIS_VAB_L_PLAIN As String, ByVal REGIS_VAB_L_ICPH As String, ByVal REGIS_VAB_R_PLAIN As String, ByVal REGIS_VAB_R_ICPH As String)
+        Dim SQL As String = "UPDATE CONSULING SET REGIS_VAB_L_PLAIN='" & REGIS_VAB_L_PLAIN & "',REGIS_VAB_L_ICPH='" & VA_icPH & "',REGIS_VAB_R_PLAIN='" & REGIS_VAB_R_PLAIN & "',REGIS_VAB_R_ICPH='" & REGIS_VAB_R_ICPH & "' where CONSULING_ID=" & CONSULING_ID
+        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(SQL)
+    End Function
+    Function UpdateVARegisOLDOP(ByVal CONSULING_ID As Double, ByVal REGIS_VAOLD_L_PLAIN As String, ByVal REGIS_VAOLD_ICPH As String)
+        Dim SQL As String = "UPDATE CONSULING SET REGIS_VAOLD_PLAIN='" & REGIS_VAOLD_PLAIN & "',REGIS_VAOLD_ICPH='" & REGIS_VAOLD_L_ICPH & "' WHERE CONSULING_ID=" & CONSULING_ID
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(SQL)
     End Function
     Function GetConsellingInfo(ByVal PatientNo As String) As DataTable
