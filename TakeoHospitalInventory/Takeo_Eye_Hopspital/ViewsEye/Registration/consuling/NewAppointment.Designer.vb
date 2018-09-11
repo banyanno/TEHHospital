@@ -55,6 +55,8 @@ Partial Class NewAppointment
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrAppointment = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.AutocompleteMenu1 = New AutocompleteMenuNS.AutocompleteMenu
+        Me.LblNew_OldIDForDoctor = New System.Windows.Forms.Label
+        Me.LblNew_OldIDForDiagnosis = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupDiagnosis.SuspendLayout()
         CType(Me.ErrAppointment, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,6 +66,8 @@ Partial Class NewAppointment
         '
         Me.GroupBox1.Controls.Add(Me.BtnSetNewApp)
         Me.GroupBox1.Controls.Add(Me.TxtTel)
+        Me.GroupBox1.Controls.Add(Me.LblNew_OldIDForDiagnosis)
+        Me.GroupBox1.Controls.Add(Me.LblNew_OldIDForDoctor)
         Me.GroupBox1.Controls.Add(Me.LblSave)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.GroupDiagnosis)
@@ -250,6 +254,7 @@ Partial Class NewAppointment
         '
         'BtnFind
         '
+        Me.BtnFind.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnFind.Location = New System.Drawing.Point(295, 13)
         Me.BtnFind.Name = "BtnFind"
         Me.BtnFind.Size = New System.Drawing.Size(31, 27)
@@ -391,6 +396,26 @@ Partial Class NewAppointment
         Me.AutocompleteMenu1.TargetControlWrapper = Nothing
         Me.AutocompleteMenu1.ToolTipDuration = 3000
         '
+        'LblNew_OldIDForDoctor
+        '
+        Me.LblNew_OldIDForDoctor.AutoSize = True
+        Me.LblNew_OldIDForDoctor.Location = New System.Drawing.Point(389, 22)
+        Me.LblNew_OldIDForDoctor.Name = "LblNew_OldIDForDoctor"
+        Me.LblNew_OldIDForDoctor.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDoctor.TabIndex = 3
+        Me.LblNew_OldIDForDoctor.Text = "0"
+        Me.LblNew_OldIDForDoctor.Visible = False
+        '
+        'LblNew_OldIDForDiagnosis
+        '
+        Me.LblNew_OldIDForDiagnosis.AutoSize = True
+        Me.LblNew_OldIDForDiagnosis.Location = New System.Drawing.Point(446, 27)
+        Me.LblNew_OldIDForDiagnosis.Name = "LblNew_OldIDForDiagnosis"
+        Me.LblNew_OldIDForDiagnosis.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDiagnosis.TabIndex = 3
+        Me.LblNew_OldIDForDiagnosis.Text = "0"
+        Me.LblNew_OldIDForDiagnosis.Visible = False
+        '
         'NewAppointment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -445,4 +470,6 @@ Partial Class NewAppointment
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents BtnSetNewApp As System.Windows.Forms.Button
     Friend WithEvents AutocompleteMenu1 As AutocompleteMenuNS.AutocompleteMenu
+    Friend WithEvents LblNew_OldIDForDoctor As System.Windows.Forms.Label
+    Friend WithEvents LblNew_OldIDForDiagnosis As System.Windows.Forms.Label
 End Class

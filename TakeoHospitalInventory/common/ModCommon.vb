@@ -184,5 +184,6 @@ Module ModCommon
     ' Get Date from server
     Public PrinterReceipt As String = My.Settings.ReceiptPrinter
     Public PrinterRegistrationForm As String = My.Settings.RegistrationFormPrinter
+    Public PrinterBardCode As String = My.Settings.PrinterBarcode
     Public printDocument As New System.Drawing.Printing.PrintDocument
 End Module

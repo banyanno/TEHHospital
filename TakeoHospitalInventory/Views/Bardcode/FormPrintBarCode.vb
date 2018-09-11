@@ -51,7 +51,5 @@ Public Class FormPrintBarCode
         End If
     End Sub
 
-    Private Sub GridPrintBarcode_FormattingRow(ByVal sender As System.Object, ByVal e As Janus.Windows.GridEX.RowLoadEventArgs) Handles GridPrintBarcode.FormattingRow
-
-    End Sub
+   
 End Class

@@ -10,6 +10,12 @@ Public Class FormPatientDischarged
             If ValidateCombobox(CboDoctor, "", ErrDischarge) = False Then Exit Sub
         End If
         Call LoadUndoPatient()
+        If DEPART_NAME.ToUpper = "ADMINISTRATOR".ToUpper Then
+
+            GridUndoInPatient.Columns("Telephone").Visible = True
+        Else
+            GridUndoInPatient.Columns("Telephone").Visible = False
+        End If
     End Sub
 
     Private Sub MUndo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MUndo.Click
@@ -111,5 +117,18 @@ Public Class FormPatientDischarged
             'End If
         End If
         
+    End Sub
+
+    Private Sub BtnReEnterVA_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReEnterVA.Click
+        If GridUndoInPatient.SelectedCells.Count = 0 Then Exit Sub
+        Dim Index As Integer = ModCommon.GetRowIndexDataGrid(GridUndoInPatient)
+
+        Dim FormReEnterva As New FormRenterVAAfterSurgery
+        FormReEnterva.LblSaveOption.Text = GridUndoInPatient.Rows(Index).Cells("NewInPatientNo").Value
+        FormReEnterva.LoadingPatientInCounseling(GridUndoInPatient.Rows(Index).Cells("PatientNo").Value)
+
+        If FormReEnterva.ShowDialog = Windows.Forms.DialogResult.OK Then
+            BtnFind_Click(sender, e)
+        End If
     End Sub
 End Class

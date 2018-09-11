@@ -1392,6 +1392,7 @@ Partial Class MainTakeoInventory
         Me.Controls.Add(Me.MenuBarLeft)
         Me.Controls.Add(Me.RibboStatusBar)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "MainTakeoInventory"
         Me.Text = "Takeo Inventory"

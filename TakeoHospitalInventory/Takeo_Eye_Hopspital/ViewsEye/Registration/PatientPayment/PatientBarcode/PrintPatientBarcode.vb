@@ -110,15 +110,15 @@ Public Class PrintPatientBarcode
         ' Me.TblPatientsTableAdapter.Fill(Me.DSDashboardPatient.TblPatients)
         'TODO: This line of code loads data into the 'DSDashboardPatient.TblPatients' table. You can move, or remove it, as needed.
         ' Dim a As ReportDataSource
-        Dim TPatient As DataTable = DAPatient.GetData
-        ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-        Dim VDS As New ReportDataSource
-        VDS.Name = "DSDashboardPatient_TblPatients"
-        VDS.Value = TPatient
-        Me.ReportViewer1.LocalReport.DataSources.Add(VDS)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "TakeoHospitalInventory.Report1.rdlc"
+        'Dim TPatient As DataTable = DAPatient.GetData
+        'ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
+        'Dim VDS As New ReportDataSource
+        'VDS.Name = "DSDashboardPatient_TblPatients"
+        'VDS.Value = TPatient
+        'Me.ReportViewer1.LocalReport.DataSources.Add(VDS)
+        'Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "TakeoHospitalInventory.Report1.rdlc"
 
-        ReportViewer1.RefreshReport()
+        'ReportViewer1.RefreshReport()
         'Me.ReportViewer1.RefreshReport()
     End Sub
 End Class

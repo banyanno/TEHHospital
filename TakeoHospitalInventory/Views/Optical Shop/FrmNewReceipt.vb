@@ -1155,7 +1155,11 @@ Public Class FrmNewReceipt
                         'Catch ex As Exception
 
                         'End Try
+                        If LblConsultID.Text = "0" Then
 
+                        Else
+                            DS_Consult.UpdateStatus(1, LblConsultID.Text)
+                        End If
                         If RadNil.Checked = False Then
                             GenerateReceipt(TxtReceiptNo.Text)
                         End If
@@ -1168,11 +1172,7 @@ Public Class FrmNewReceipt
                     End If
                     IsPatient = False
                     GetBarcod()
-                    If LblConsultID.Text = "0" Then
-
-                    Else
-                        DS_Consult.UpdateStatus(1, LblConsultID.Text)
-                    End If
+                    
 
                     'Catch ex As Exception
                     '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1626,6 +1626,7 @@ Public Class FrmNewReceipt
                                         ObjReceiptDetail.ReceiptDate = DateCreateReceipt.Value
                                         OpticalDataControl.SaveReceiptDetail(ObjReceiptDetail)
                                     Next
+                                   
                                     'MainReceipt.LoadByReceiptNo(TxtReceiptNo.Text)
                                     If RadNil.Checked = False Then
                                         GenerateReceipt(TxtReceiptNo.Text)
@@ -1641,17 +1642,20 @@ Public Class FrmNewReceipt
                                 GetBarcod()
                             End If
                         End If
-                        If LblConsultID.Text = "0" Then
-                        Else
-                            DS_Consult.UpdateStatus(1, LblConsultID.Text)
-                        End If
+                       
                     Catch ex As Exception
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Me.Close()
                         Me.Dispose()
                     End Try
+
                 End If
             End If
+        End If
+        If LblConsultID.Text = "0" Then
+
+        Else
+            DS_Consult.UpdateStatus(1, LblConsultID.Text)
         End If
     End Sub
     Dim PrinterDocName As New System.Drawing.Printing.PrintDocument

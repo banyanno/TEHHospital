@@ -1164,6 +1164,17 @@
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\MecicalCertificate\ViewMedicalCertificat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfoOld.vb">
+      <DependentUpon>PatientBarCodeInfoOld.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\DSPatientBardcode.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPatientBardcode.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfo.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1790,6 +1801,12 @@
       <DependentUpon>FormPatientDischarged.vb</DependentUpon>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ward\DischargePatient\FormPatientDischarged.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ward\DischargePatient\FormRenterVAAfterSurgery.Designer.vb">
+      <DependentUpon>FormRenterVAAfterSurgery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ward\DischargePatient\FormRenterVAAfterSurgery.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ward\NewInPatient\CrystalPostponeOT.vb">
@@ -3513,6 +3530,10 @@
       <DependentUpon>frmPaymentList.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfoOld.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PatientBarCodeInfoOld.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PatientBarCodeInfo.vb</LastGenOutput>
@@ -3520,7 +3541,6 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PrintPatientBarcode.resx">
       <DependentUpon>PrintPatientBarcode.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\Report1.rdlc" />
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RateExchange_Value\FDefaulOldPatient.resx">
       <DependentUpon>FDefaulOldPatient.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -3870,6 +3890,9 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\ward\DischargePatient\FormPatientDischarged.resx">
       <DependentUpon>FormPatientDischarged.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\ward\DischargePatient\FormRenterVAAfterSurgery.resx">
+      <DependentUpon>FormRenterVAAfterSurgery.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\ward\NewInPatient\CrystalPostponeOT.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -5103,6 +5126,17 @@
     </None>
     <None Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\DSDashboardPatient.xss">
       <DependentUpon>DSDashboardPatient.xsd</DependentUpon>
+    </None>
+    <None Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\DSPatientBardcode.xsc">
+      <DependentUpon>DSPatientBardcode.xsd</DependentUpon>
+    </None>
+    <None Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\DSPatientBardcode.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPatientBardcode.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\DSPatientBardcode.xss">
+      <DependentUpon>DSPatientBardcode.xsd</DependentUpon>
     </None>
     <None Include="Takeo_Eye_Hopspital\ViewsEye\Registration\RateExchange_Value\DSDEFAULT_VAL_OLD_NEW.xsc">
       <DependentUpon>DSDEFAULT_VAL_OLD_NEW.xsd</DependentUpon>

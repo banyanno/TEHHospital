@@ -500,12 +500,12 @@ Public Class frmReportViewer
         ObjReceiptCry_V1.SetDataSource(CType(DaReceiptPrint.GetDataByReceiptNo(pReceipNo), DataTable))
         ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
         ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
-
         CRVReportViewer.ReportSource = ObjReceiptCry_V1
-        CRVReportViewer.Refresh()
+        'CRVReportViewer.Refresh()
+       
 
-        ObjReceiptCry_V1.Dispose()
-        ObjReceiptCry_V1.Close()
+        'ObjReceiptCry_V1.Dispose()
+        'ObjReceiptCry_V1.Close()
 
     End Sub
     Sub PrintReceiptByID(ByVal ReceiptID As Double)
@@ -515,10 +515,11 @@ Public Class frmReportViewer
         ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
 
         CRVReportViewer.ReportSource = ObjReceiptCry_V1
-        CRVReportViewer.Refresh()
+        
+        'CRVReportViewer.Refresh()
 
-        ObjReceiptCry_V1.Dispose()
-        ObjReceiptCry_V1.Close()
+        'ObjReceiptCry_V1.Dispose()
+        'ObjReceiptCry_V1.Close()
     End Sub
 
     Sub CreateParameterCrystal()

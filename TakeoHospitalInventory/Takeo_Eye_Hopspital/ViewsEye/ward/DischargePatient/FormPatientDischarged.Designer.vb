@@ -45,6 +45,8 @@ Partial Class FormPatientDischarged
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.CrViewerLeave = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.ErrDischarge = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BtnReEnterVA = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
         Me.NewInPatientNo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.IS_CALL = New System.Windows.Forms.DataGridViewCheckBoxColumn
         Me.IS_PATIEN_FOLLOWUP = New System.Windows.Forms.DataGridViewCheckBoxColumn
@@ -125,25 +127,25 @@ Partial Class FormPatientDischarged
         '
         'ContextPatientDischarged
         '
-        Me.ContextPatientDischarged.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnMenuCall, Me.ToolStripSeparator1, Me.MUndo})
+        Me.ContextPatientDischarged.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnReEnterVA, Me.ToolStripSeparator2, Me.BtnMenuCall, Me.ToolStripSeparator1, Me.MUndo})
         Me.ContextPatientDischarged.Name = "ContextUndoInPatient"
-        Me.ContextPatientDischarged.Size = New System.Drawing.Size(166, 54)
+        Me.ContextPatientDischarged.Size = New System.Drawing.Size(210, 82)
         '
         'BtnMenuCall
         '
         Me.BtnMenuCall.Name = "BtnMenuCall"
-        Me.BtnMenuCall.Size = New System.Drawing.Size(165, 22)
+        Me.BtnMenuCall.Size = New System.Drawing.Size(209, 22)
         Me.BtnMenuCall.Text = "Update Called"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(162, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(206, 6)
         '
         'MUndo
         '
         Me.MUndo.Name = "MUndo"
-        Me.MUndo.Size = New System.Drawing.Size(165, 22)
+        Me.MUndo.Size = New System.Drawing.Size(209, 22)
         Me.MUndo.Text = "Undo Discharged"
         '
         'GroupBox1
@@ -350,6 +352,17 @@ Partial Class FormPatientDischarged
         '
         Me.ErrDischarge.ContainerControl = Me
         '
+        'BtnReEnterVA
+        '
+        Me.BtnReEnterVA.Name = "BtnReEnterVA"
+        Me.BtnReEnterVA.Size = New System.Drawing.Size(209, 22)
+        Me.BtnReEnterVA.Text = "Re-Enter VA after surgeon"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(206, 6)
+        '
         'NewInPatientNo
         '
         Me.NewInPatientNo.DataPropertyName = "NewInPatientNo"
@@ -423,6 +436,7 @@ Partial Class FormPatientDischarged
         Me.Telephone.HeaderText = "Telephone"
         Me.Telephone.Name = "Telephone"
         Me.Telephone.ReadOnly = True
+        Me.Telephone.Visible = False
         '
         'Address
         '
@@ -667,6 +681,8 @@ Partial Class FormPatientDischarged
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents BtnReEnterVA As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents NewInPatientNo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IS_CALL As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents IS_PATIEN_FOLLOWUP As System.Windows.Forms.DataGridViewCheckBoxColumn

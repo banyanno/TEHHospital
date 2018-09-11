@@ -42,6 +42,7 @@ Public Class UCPatientPayment
     ' Report Path
     Dim ReportNOPR As New ReportNewOutPatientReceipt
     Dim DA_Appoint As New DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter
+    Dim DAPatientBarcode As New DSPatientBardcode
     Sub New(ByVal mainSubForm As MainTakeoInventory)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
@@ -292,9 +293,9 @@ Public Class UCPatientPayment
             Case Else
                 e.Handled = True
         End Select
-        If Asc(e.KeyChar) = Keys.Enter Then
-            Me.txtEngName.Focus()
-        End If
+        'If Asc(e.KeyChar) = Keys.Enter Then
+        '    Me.txtEngName.Focus()
+        'End If
     End Sub
 
 
@@ -642,6 +643,9 @@ Public Class UCPatientPayment
     End Sub
 
     Private Sub UCPatientPayment_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        TxtPatientSearchNo.Focus()
+        TxtPatientSearchNo.Select()
+        TxtPatientSearchNo.SelectAll()
         Dim tblPermistion As DataTable = ModUser.GetMenuPermission(USER_NAME)
 
         For Each obj As Object In GroupPayment.Controls
@@ -807,16 +811,16 @@ Public Class UCPatientPayment
 
 
     Private Sub txtEngName_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtEngName.KeyPress
-        If Asc(e.KeyChar) = Keys.Enter Then
-            Me.txtKhmerName.Focus()
-        End If
+        'If Asc(e.KeyChar) = Keys.Enter Then
+        '    Me.txtKhmerName.Focus()
+        'End If
     End Sub
 
 
     Private Sub txtKhmerName_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtKhmerName.KeyPress
-        If Asc(e.KeyChar) = Keys.Enter Then
-            Me.cboSex.Focus()
-        End If
+        'If Asc(e.KeyChar) = Keys.Enter Then
+        '    Me.cboSex.Focus()
+        'End If
     End Sub
 
     Private Sub cboSex_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboSex.KeyDown
@@ -1234,9 +1238,9 @@ Public Class UCPatientPayment
             Case Else
                 e.Handled = True
         End Select
-        If Asc(e.KeyChar) = Keys.Enter Then
-            Me.txtEngName.Focus()
-        End If
+        'If Asc(e.KeyChar) = Keys.Enter Then
+        '    Me.txtEngName.Focus()
+        'End If
     End Sub
 
     Private Sub CreateNewoutPatientBookToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CreateNewoutPatientBook.Click
@@ -1434,8 +1438,76 @@ Public Class UCPatientPayment
         Me.V_InpatientTableAdapter.Fill(Me.DSPatient.V_Inpatient)
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim Barcode As New PrintPatientBarcode
         Barcode.ShowDialog()
+    End Sub
+
+    Private Sub BtnPrintIDNo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintIDNo.Click
+        If ValidateTextField(TxtPatientNo, "", ErrPatient) = False Then Exit Sub
+        DoPrintBarcode()
+    End Sub
+    Private Sub DoPrintBarcode()
+        If Me.InvokeRequired Then
+            Me.Invoke(New MethodInvoker(AddressOf DoPrintBarcode))
+        Else
+            Try
+                Dim PatientBarcode As New PatientBarCodeInfo
+                Dim TblPatient1 As DataTable = DAPatientBarcode.Tables("TblPatients")
+                Dim Drow As DataRow
+
+                TblPatient1.Clear()
+                Drow = TblPatient1.NewRow
+                Drow("CreateDate") = DateRegis.Value.Date
+                Drow("PatientNo") = "*" & TxtPatientNo.Text & "*"
+                Drow("NameEng") = TxtNameEng.Text
+                Drow("NameKhmer") = TxtNameKhmer.Text
+                Drow("Sex") = CboSexPatien.Text
+                Drow("Age") = TxtAgePatient.Text
+                Drow("Address") = TxtAddress.Text
+
+                TblPatient1.Rows.Add(Drow)
+                PatientBarcode.SetDataSource(TblPatient1)
+                'PatientBarcode.SetDataSource(GenerateBardcod(Me.DateRegistration.Value.Date, TxtPatientNo.Text, TxtNameEng.Text, CboSexPatien.Text, TxtAgePatient.Text, TxtAddress.Text))
+                printDocument.PrinterSettings.PrinterName = ModCommon.PrinterBardCode
+                'MsgBox(printDocument.PrinterSettings.PrinterName)
+                PatientBarcode.PrintOptions.PrinterName = printDocument.PrinterSettings.PrinterName
+                PatientBarcode.PrintToPrinter(1, False, 1, 1)
+                PatientBarcode.Dispose()
+                PatientBarcode.Close()
+            Catch ex As Exception
+                MsgBox("Printer barcode not found." & ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
+
+    Private Sub TxtPatientSearchNo_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtPatientSearchNo.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+            'GridPatientInformation.Refresh()
+            DateRFrom.Value = New Date(2010, 1, 1)
+            Thread.Sleep(50)
+            Application.DoEvents()
+            btnFind_Click(sender, e)
+            'ActionFindPatien(EmptyString(TxtPatientSearchNo.Text.Trim), EmptyString(TxtOldPatientNo.Text.Trim), DateRFrom.Value, DateRTo.Value, _
+            '    txtEngName.Text.Trim, _
+            '    txtKhmerName.Text.Trim, _
+            '    cboSex.Text.Trim, _
+            '    cboProvince.Text.Trim, _
+            '    cboDistrict.Text.Trim, _
+            '    cboCommune.Text.Trim)
+            TxtPatientSearchNo.Select()
+            TxtPatientSearchNo.Focus()
+            TxtPatientSearchNo.SelectAll()
+
+        End If
+        
+    End Sub
+
+    Private Sub TxtPatientSearchNo_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtPatientSearchNo.MouseHover
+        TxtPatientSearchNo.Select()
+        TxtPatientSearchNo.Focus()
+
+        TxtPatientSearchNo.SelectAll()
     End Sub
 End Class

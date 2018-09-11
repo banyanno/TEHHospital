@@ -287,7 +287,6 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHo
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.xml
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.pdb
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.PrintPatientBarcode.resources
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\RdlCompile.cache
-C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\RdlCompile.compiled
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FillDoctor.resources
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FormEnterDoctor.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FormRenterVAAfterSurgery.resources

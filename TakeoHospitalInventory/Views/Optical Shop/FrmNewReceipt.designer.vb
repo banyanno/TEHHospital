@@ -578,7 +578,7 @@ Partial Class FrmNewReceipt
         'LblConsultID
         '
         Me.LblConsultID.AutoSize = True
-        Me.LblConsultID.Location = New System.Drawing.Point(179, 23)
+        Me.LblConsultID.Location = New System.Drawing.Point(202, 100)
         Me.LblConsultID.Name = "LblConsultID"
         Me.LblConsultID.Size = New System.Drawing.Size(17, 17)
         Me.LblConsultID.TabIndex = 8

@@ -3,6 +3,7 @@
     Dim DA_Daignosis As New DSConsultTableAdapters.TblSurgeryTableAdapter
     Dim DA_Surgery As New DSConsultTableAdapters.tblDiagSurgeriesTableAdapter
     Dim DA_AppPara As New DSConsultTableAdapters.APPOINT_PARATableAdapter
+    Dim DA_New_Old_Adapter As New DSPharmacy_V1TableAdapters.TblNew_Old_OutPatientTableAdapter
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -44,12 +45,19 @@
         If LblSave.Text = "0" Then
             If MessageBox.Show("Do you want to save new appointment?", "Appointment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 If DA_ConApp.InsertNewApp(CDbl(EmptyString(TxtPatientNo.Text)), TxtPatientName.Text, "", TxtPatientSex.Text, TxtAge.Text, Now.Date, DateApp.Value.Date, False, TxtNote.Text, "", False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, TxtTel.Text, "Consuling", CInt(CboDoctor.SelectedValue), CboDoctor.Text) = 1 Then
+                    If LblNew_OldIDForDiagnosis.Text <> "0" Then
+                        ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldIDForDiagnosis.Text, CboSecondDiagnosis.Text)
+                    End If
+                    If LblNew_OldIDForDoctor.Text <> "0" Then
+                        ModNew_Outpatient.EnterPatientDoctor(LblNew_OldIDForDoctor.Text, CboDoctor.Text)
+                    End If
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
             End If
         Else
             If MessageBox.Show("Do you want to save new appointment?", "Appointment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 If DA_ConApp.UpdatePatientApp(CDbl(EmptyString(TxtPatientNo.Text)), TxtPatientName.Text, "", TxtPatientSex.Text, TxtAge.Text, DateApp.Value.Date, TxtNote.Text, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CInt(CboDoctor.SelectedValue), CboDoctor.Text, CDbl(LblSave.Text)) = 1 Then
+                   
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
             End If
@@ -59,7 +67,14 @@
     Private Sub BtnFind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnFind.Click
         If ValidateTextField(TxtPatientNo, "", ErrAppointment) = False Then Exit Sub
         FindPatientNo(EmptyString(TxtPatientNo.Text))
-       
+        Dim TblTempNew_Old As DataTable = DA_New_Old_Adapter.GetDataByBlankDiagnosis(EmptyString(TxtPatientNo.Text), "")
+        Dim TblTempNewOldForDoctor As DataTable = DA_New_Old_Adapter.SelectPatientByDrName(EmptyString(TxtPatientNo.Text), "")
+        For Each DRowNew_Old As DataRow In TblTempNew_Old.Rows
+            LblNew_OldIDForDiagnosis.Text = DRowNew_Old("NewOutPatientNo")
+        Next
+        For Each Rows As DataRow In TblTempNewOldForDoctor.Rows
+            LblNew_OldIDForDoctor.Text = Rows("NewOutPatientNo")
+        Next
     End Sub
     Dim DA_Patient As New DSConsultTableAdapters.TblPatientsTableAdapter
     Private Sub FindPatientNo(ByVal patientNo As Double)
@@ -105,7 +120,5 @@
         LoadingAppPara()
     End Sub
 
-    Private Sub NewAppointment_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-    End Sub
+   
 End Class

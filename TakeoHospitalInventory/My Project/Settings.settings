@@ -16,5 +16,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=NBC120\sql2008;Failover Partner=192.168.111.252\sql2;Initial Catalog=TakeoDB;Persist Security Info=True;User ID=sa;Password=P@ssw0rd;Max Pool Size=4000;Asynchronous Processing=True;Connect Timeout=5000;Packet Size=2768</Value>
     </Setting>
+    <Setting Name="PrinterBarcode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rongta RP2xx Series</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
