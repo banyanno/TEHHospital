@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="ReceiptPrinter" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Send To OneNote 2007</Value>
+      <Value Profile="(Default)">Send To OneNote 2010</Value>
     </Setting>
     <Setting Name="RegistrationFormPrinter" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Send To OneNote 2007</Value>
+      <Value Profile="(Default)">Send To OneNote 2010</Value>
     </Setting>
     <Setting Name="TakeoDBConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

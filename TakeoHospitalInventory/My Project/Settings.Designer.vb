@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Send To OneNote 2007")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Send To OneNote 2010")>  _
         Public Property ReceiptPrinter() As String
             Get
                 Return CType(Me("ReceiptPrinter"),String)
@@ -68,7 +68,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Send To OneNote 2007")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Send To OneNote 2010")>  _
         Public Property RegistrationFormPrinter() As String
             Get
                 Return CType(Me("RegistrationFormPrinter"),String)
