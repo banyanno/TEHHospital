@@ -201,14 +201,14 @@ Module MNewOutpatientReceipt
 
     Public Function SelectNewOutReceiptByID(ByVal RID As Long) As DataTable
         Dim sql As String = "SELECT PR.HN, P.NameKhmer, PR.ReceiptNo, PR.CashUSD, PR.CashRiel, PR.TotalUSD, PR.TotalRiel," _
-                        & " PR.DateIn, PR.CashierIn, PR.AmoutWord, PR.ConsultationFeeRiel, PR.ConsultationFeeUSD, PR.ConCON, PR.ConSocialFee, PR.ID " _
+                        & " PR.DateIn, PR.CashierIn, PR.AmoutWord, PR.ConsultationFeeRiel, PR.ConsultationFeeUSD, PR.ConCON, PR.ConSocialFee, PR.ID,PR.ISSUE_BY_DEPART " _
                         & " FROM tblPatientReceipt PR INNER JOIN tblPatients P ON PR.HN=P.PatientNo Where PR.ReceiptNo=" & RID & " and PR.ConGeneral='NR' and PR.ConDelete='0'"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
 
     Public Function SelectNewOutReceiptByHN(ByVal HN As Long) As DataTable
         Dim sql As String = "SELECT HN, PatientName, ReceiptNo, CashUSD, CashRiel, TotalUSD, TotalRiel," _
-                        & " DateIn, CashierIn, AmoutWord, ConsultationFeeRiel, ConsultationFeeUSD, ConCON, ConSocialFee " _
+                        & " DateIn, CashierIn, AmoutWord, ConsultationFeeRiel, ConsultationFeeUSD, ConCON, ConSocialFee,ISSUE_BY_DEPART " _
                         & " FROM tblPatientReceipt Where HN=" & HN & " and ConGeneral='NR' and ConDelete='0' and DateIn<='" & Format(Date.Now(), "MM/dd/yyyy") & "'"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function

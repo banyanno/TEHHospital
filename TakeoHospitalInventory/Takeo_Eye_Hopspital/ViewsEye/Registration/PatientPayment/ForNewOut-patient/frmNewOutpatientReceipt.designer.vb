@@ -70,6 +70,7 @@ Partial Class frmNewOutpatientReceipt
         Me.lblID = New System.Windows.Forms.Label
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.Panel2 = New System.Windows.Forms.Panel
+        Me.LblDepID = New System.Windows.Forms.Label
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -673,6 +674,7 @@ Partial Class frmNewOutpatientReceipt
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.LblDepID)
         Me.Panel2.Controls.Add(Me.CheckBox1)
         Me.Panel2.Controls.Add(Me.cmdFindHN)
         Me.Panel2.Controls.Add(Me.ChPrintPreveiw)
@@ -714,6 +716,17 @@ Partial Class frmNewOutpatientReceipt
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(972, 493)
         Me.Panel2.TabIndex = 158
+        '
+        'LblDepID
+        '
+        Me.LblDepID.AutoSize = True
+        Me.LblDepID.BackColor = System.Drawing.Color.Transparent
+        Me.LblDepID.Location = New System.Drawing.Point(26, 134)
+        Me.LblDepID.Name = "LblDepID"
+        Me.LblDepID.Size = New System.Drawing.Size(13, 13)
+        Me.LblDepID.TabIndex = 158
+        Me.LblDepID.Text = "0"
+        Me.LblDepID.Visible = False
         '
         'frmNewOutpatientReceipt
         '
@@ -801,4 +814,5 @@ Partial Class frmNewOutpatientReceipt
     Friend WithEvents lblID As System.Windows.Forms.Label
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents LblDepID As System.Windows.Forms.Label
 End Class

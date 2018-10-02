@@ -819,6 +819,11 @@ Public Class frmInpatientReceipt
                 Me.dtpDateIn.Checked = True
                 Me.txtPatient.Text = .Item(1)
                 Me.txtAmountWord.Text = .Item(9)
+                If TypeOf (.Item("ISSUE_BY_DEPART")) Is DBNull Then
+                    Me.LblDepID.Text = .Item("ISSUE_BY_DEPART")
+                Else
+                    Me.LblDepID.Text = DEPART_ID
+                End If
                 Me.chkDollar.Checked = False
                 Me.chkRiel.Checked = False
                 If .Item(3) > 0 Then
@@ -885,6 +890,11 @@ Public Class frmInpatientReceipt
                 Me.dtpDateIn.Text = .Item(7)
                 Me.txtPatient.Text = .Item(1)
                 Me.txtAmountWord.Text = .Item(9)
+                If TypeOf (.Item("ISSUE_BY_DEPART")) Is DBNull Then
+                    Me.LblDepID.Text = .Item("ISSUE_BY_DEPART")
+                Else
+                    Me.LblDepID.Text = DEPART_ID
+                End If
                 Me.chkDollar.Checked = False
                 Me.chkRiel.Checked = False
                 If .Item(3) > 0 Then
@@ -985,7 +995,7 @@ Public Class frmInpatientReceipt
             IIf((Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
             IIf((Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True) And Me.chkDollar.Checked = True, Me.txtAmountFigureD.Text, 0), _
             Me.txtRate.Text, Me.txtAmountWord.Text, dtpDateIn.Value, Me.lblCashierLogin.Text, Format(Date.Now(), "MM/dd/yyyy"), "1", _
-            EmptyString(TxtHospitalFee.Text), CashTotalDolar, Format(GetDateServer, "hh:mm:ss tt").ToString, DEPART_ID)
+            EmptyString(TxtHospitalFee.Text), CashTotalDolar, Format(GetDateServer, "hh:mm:ss tt").ToString, LblDepID.Text)
             DA_PTrackingTime.UpdateRECEIPT_IN(Format(GetDateServer, "hh:mm:ss tt").ToString, txtHN.Text, CheckMarkEOD().Date)
             AccRolesCashier = True
             isTrueFalse = False

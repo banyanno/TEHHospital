@@ -94,6 +94,7 @@ Partial Class frmOldOutPatientReceipt
         Me.GReferralFrom = New System.Windows.Forms.GroupBox
         Me.ChListReferral = New System.Windows.Forms.CheckedListBox
         Me.GroupBox6 = New System.Windows.Forms.GroupBox
+        Me.LblDepID = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
@@ -632,7 +633,7 @@ Partial Class frmOldOutPatientReceipt
         Me.cmdSearchReceipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdSearchReceipt.Image = Global.TakeoHospitalInventory.My.Resources.Resources.search
         Me.cmdSearchReceipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdSearchReceipt.Location = New System.Drawing.Point(686, 48)
+        Me.cmdSearchReceipt.Location = New System.Drawing.Point(686, 51)
         Me.cmdSearchReceipt.Name = "cmdSearchReceipt"
         Me.cmdSearchReceipt.Size = New System.Drawing.Size(31, 32)
         Me.cmdSearchReceipt.TabIndex = 1
@@ -967,6 +968,7 @@ Partial Class frmOldOutPatientReceipt
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.LblDepID)
         Me.GroupBox6.Controls.Add(Me.cmdAddRate)
         Me.GroupBox6.Controls.Add(Me.Label15)
         Me.GroupBox6.Controls.Add(Me.Label3)
@@ -991,6 +993,17 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupBox6.TabIndex = 205
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Patient Information"
+        '
+        'LblDepID
+        '
+        Me.LblDepID.AutoSize = True
+        Me.LblDepID.BackColor = System.Drawing.Color.Transparent
+        Me.LblDepID.Location = New System.Drawing.Point(23, 112)
+        Me.LblDepID.Name = "LblDepID"
+        Me.LblDepID.Size = New System.Drawing.Size(13, 13)
+        Me.LblDepID.TabIndex = 158
+        Me.LblDepID.Text = "0"
+        Me.LblDepID.Visible = False
         '
         'Label10
         '
@@ -1276,4 +1289,5 @@ Partial Class frmOldOutPatientReceipt
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents LblConsultType As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents LblDepID As System.Windows.Forms.Label
 End Class

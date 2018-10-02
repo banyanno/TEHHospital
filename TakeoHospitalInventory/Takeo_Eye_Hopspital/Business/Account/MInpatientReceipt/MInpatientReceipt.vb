@@ -250,7 +250,7 @@ Module MInpatientReceipt
     Public Function SelectInpatientReceiptByID(ByVal RID As Long) As DataTable
         Dim sql As String = "SELECT PR.HN, P.NameKhmer, PR.ReceiptNo, PR.CashUSD, PR.CashRiel, PR.TotalUSD, PR.TotalRiel," _
                         & " PR.DateIn, PR.CashierIn, PR.AmoutWord, PR.OperationFeeRiel, PR.OperationFeeUSD, " _
-                        & " PR.ArtificialEyeFeeRiel, PR.ArtificialEyeFeeUSD, PR.OtherFeeRiel, PR.OtherFeeUSD, PR.ConOP, PR.ConAE, PR.ConOT, PR.ConSocialFee, PR.Operation, PR.ID" _
+                        & " PR.ArtificialEyeFeeRiel, PR.ArtificialEyeFeeUSD, PR.OtherFeeRiel, PR.OtherFeeUSD, PR.ConOP, PR.ConAE, PR.ConOT, PR.ConSocialFee, PR.Operation, PR.ID,PR.ISSUE_BY_DEPART" _
                         & " FROM tblPatientReceipt PR INNER JOIN tblPatients P ON PR.HN=P.PatientNo Where PR.ReceiptNo=" & RID & " and PR.ConGeneral='IR' and PR.ConDelete='0'"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
@@ -258,7 +258,7 @@ Module MInpatientReceipt
     Public Function SelectInpatientReceiptByHN(ByVal HN As Long) As DataTable
         Dim sql As String = "SELECT HN, PatientName, ReceiptNo, CashUSD, CashRiel, TotalUSD, TotalRiel," _
                         & " DateIn, CashierIn, AmoutWord, OperationFeeRiel, OperationFeeUSD, " _
-                        & " ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConOP, ConAE, ConOT, ConSocialFee, Operation, ID" _
+                        & " ArtificialEyeFeeRiel, ArtificialEyeFeeUSD, OtherFeeRiel, OtherFeeUSD, ConOP, ConAE, ConOT, ConSocialFee, Operation, ID,ISSUE_BY_DEPART" _
                         & " FROM tblPatientReceipt Where HN=" & HN & " and ConGeneral='IR' and ConDelete='0' and DateIn<='" & Format(Date.Now(), "MM/dd/yyyy") & "'"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
