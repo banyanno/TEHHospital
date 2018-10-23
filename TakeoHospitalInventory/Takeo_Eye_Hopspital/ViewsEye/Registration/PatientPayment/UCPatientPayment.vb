@@ -28,7 +28,7 @@ Public Class UCPatientPayment
     Private patientProvince As String
     Private patientDistrict As String
     Private patientCommune As String
-    Private OldPatientNo As String
+    Private TelephonNo As String
     Dim DateFrom As String
     Dim DateTo As String
 
@@ -76,7 +76,7 @@ Public Class UCPatientPayment
         Me.Cursor = Cursors.WaitCursor
         Me.DSPatient.Clear()
         GridPatientInformation.Refresh()
-        ActionFindPatien(EmptyString(TxtPatientSearchNo.Text.Trim), EmptyString(TxtOldPatientNo.Text.Trim), DateRFrom.Value, DateRTo.Value, _
+        ActionFindPatien(EmptyString(TxtPatientSearchNo.Text.Trim), TxtTelephoneNo.Text.Trim, DateRFrom.Value, DateRTo.Value, _
             txtEngName.Text.Trim, _
             txtKhmerName.Text.Trim, _
             cboSex.Text.Trim, _
@@ -88,11 +88,11 @@ Public Class UCPatientPayment
     End Sub
 
 
-    Sub ActionFindPatien(ByVal PatientNo As String, ByVal OldPatient As String, ByVal DFrom As String, ByVal DTo As String, ByVal PEngName As String, ByVal PKh As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String)
+    Sub ActionFindPatien(ByVal PatientNo As String, ByVal Tel As String, ByVal DFrom As String, ByVal DTo As String, ByVal PEngName As String, ByVal PKh As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String)
         DateFrom = DFrom
         DateTo = DTo
         patientNoSearh = PatientNo
-        OldPatientNo = OldPatient
+        TelephonNo = Tel
         patientEngName = PEngName
         patientKhName = PKh
 
@@ -130,8 +130,8 @@ Public Class UCPatientPayment
 
     Private Sub bgPatient_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgPatient.RunWorkerCompleted
         Try
-           
-         
+
+
             'ProgrestData.Value = 100
             btnFind.Enabled = True
             'ProgrestData.Visible = False
@@ -153,7 +153,7 @@ Public Class UCPatientPayment
         mainForm.StatusLoading(True)
         Dim Cnn As SqlConnection = ModGlobleVariable.GENERAL_DAO.getConnection
         Try
-            SqlComman.CommandText = SearchPatient(patientNoSearh, OldPatientNo, DateFrom, DateTo, patientEngName, patientKhName, patientAge, patientSex, patientProvince, patientDistrict, patientCommune)
+            SqlComman.CommandText = SearchPatient(patientNoSearh, TelephonNo, DateFrom, DateTo, patientEngName, patientKhName, patientAge, patientSex, patientProvince, patientDistrict, patientCommune)
             SqlComman.Connection = Cnn
             SQlDataAdapter.SelectCommand = SqlComman
             SQlDataAdapter.Fill(DSPatient.TblPatients)
@@ -165,7 +165,7 @@ Public Class UCPatientPayment
         End Try
     End Sub
 
-    Function SearchPatient(ByVal PatientID As String, ByVal OldPatientNo As String, ByVal DFrom As String, ByVal DTo As String, ByVal Name As String, ByVal KhmerName As String, ByVal Age As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String) As String
+    Function SearchPatient(ByVal PatientID As String, ByVal Telephone As String, ByVal DFrom As String, ByVal DTo As String, ByVal Name As String, ByVal KhmerName As String, ByVal Age As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String) As String
         'CONVERT(VARCHAR(10),CreateDate, 103) as
         Dim sql As String = "SELECT DISTINCT [No]" & _
         ",PatientNo, CreateDate,Province" & _
@@ -182,8 +182,8 @@ Public Class UCPatientPayment
         If PatientID <> "0" Then
             sql = sql & " AND PatientNo=" & PatientID
         End If
-        If OldPatientNo <> "0" Then
-            sql = sql & " AND OlePatientNo=" & OldPatientNo
+        If Telephone <> "" Then
+            sql = sql & " AND Telephone='" & Telephone & "'"
         End If
         If Province <> "" Then
             sql = sql & " AND Province ='" & Province.Replace("'", "''") & "'"
@@ -473,7 +473,7 @@ Public Class UCPatientPayment
 
             End If
 
-            
+
         Else
             MessageBox.Show("Please select patient in list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -583,7 +583,7 @@ Public Class UCPatientPayment
             MessageBox.Show("Please select patient in list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         End If
-       
+
     End Sub
     Sub LoadInPatientReceipat(ByVal PatientNo As String, ByVal KhName As String, ByVal EngName As String, ByVal Age As String, ByVal Sex As String, ByVal Address As String)
         If PatientNo <> String.Empty Then
@@ -873,7 +873,7 @@ Public Class UCPatientPayment
                 BtnPrintRegisV2.Enabled = False
                 BtnUpdateRegistrationForm.Enabled = False
                 BtnShowBook.Enabled = False
-               
+
             End If
             If GridPatientInformation.SelectedItems(0).Table.Key = "NewOutPatient" Then
                 BtnPrintNewOutPatient.Enabled = True
@@ -920,7 +920,7 @@ Public Class UCPatientPayment
             'LblTotalConsult.Text = 0
             'LblConsultFor.Text = "No Consult"
         End Try
-       
+
     End Sub
     Sub LoadPatientBooks(ByVal PatientNo As String)
         GridNewOutpatient.Refresh()
@@ -1067,9 +1067,9 @@ Public Class UCPatientPayment
 
         End Try
     End Sub
-  
 
-    
+
+
 
     Private Sub MenuCreateOldPatient_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MCreateOldPatient.Click
         If GridPatientInformation.SelectedItems.Count = 0 Then
@@ -1175,8 +1175,8 @@ Public Class UCPatientPayment
         'FAchieveNew.Close()
     End Sub
 
-   
-    
+
+
     Private Sub GridInpatient_CellDoubleClick_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridInpatient.CellDoubleClick
         For i As Integer = 0 To TBLACCESS_ROLE.Rows.Count - 1
             With TBLACCESS_ROLE.Rows(i)
@@ -1231,17 +1231,17 @@ Public Class UCPatientPayment
     End Sub
 
 
-    Private Sub TxtOldPatientNo_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtOldPatientNo.KeyPress
-        Select Case Asc(e.KeyChar)
-            Case 48 To 57
-            Case 46, 8, 13
-            Case Else
-                e.Handled = True
-        End Select
-        'If Asc(e.KeyChar) = Keys.Enter Then
-        '    Me.txtEngName.Focus()
-        'End If
-    End Sub
+    'Private Sub TxtOldPatientNo_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtTelephoneNo.KeyPress
+    '    'Select Case Asc(e.KeyChar)
+    '    '    Case 48 To 57
+    '    '    Case 46, 8, 13
+    '    '    Case Else
+    '    '        e.Handled = True
+    '    'End Select
+    '    'If Asc(e.KeyChar) = Keys.Enter Then
+    '    '    Me.txtEngName.Focus()
+    '    'End If
+    'End Sub
 
     Private Sub CreateNewoutPatientBookToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CreateNewoutPatientBook.Click
         If GridPatientInformation.SelectedItems.Count = 0 Then
