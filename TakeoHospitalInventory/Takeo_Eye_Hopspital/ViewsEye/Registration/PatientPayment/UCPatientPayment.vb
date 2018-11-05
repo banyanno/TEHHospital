@@ -31,7 +31,7 @@ Public Class UCPatientPayment
     Private TelephonNo As String
     Dim DateFrom As String
     Dim DateTo As String
-
+    Dim CheckPhoneNum As Boolean = False
     Dim mainForm As MainTakeoInventory
     Dim SQlDataAdapter As New SqlDataAdapter
     Dim SqlComman As New SqlCommand
@@ -83,6 +83,9 @@ Public Class UCPatientPayment
             cboProvince.Text.Trim, _
             cboDistrict.Text.Trim, _
             cboCommune.Text.Trim)
+        TxtPatientSearchNo.Focus()
+        TxtPatientSearchNo.Select()
+        TxtPatientSearchNo.SelectAll()
         'GridPatientInformation.Select()
         'GridPatientInformation.Focus()
     End Sub
@@ -655,9 +658,15 @@ Public Class UCPatientPayment
                 For indexMenu = 0 To tblPermistion.Rows.Count - 1
                     'MsgBox(tblPermistion.Rows(indexMenu).Item(0))
                     If tblPermistion.Rows(indexMenu).Item(0) = "Phone Number" Then
-                        ' TxtTel.Visible = True
+                        CheckPhoneNum = True
+                        'TxtTel.Visible = True
+                        'TxtTel.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text
+                        'TxtTelphone.Visible = True
                     Else
+                        CheckPhoneNum = False
                         'TxtTel.Visible = False
+                        TxtTel.Text = ""
+                        'TxtTelphone.Visible = False
                     End If
                     If Btn.Tag = tblPermistion.Rows(indexMenu).Item(0) Then
                         Btn.Enabled = True
@@ -860,7 +869,7 @@ Public Class UCPatientPayment
                 CboSexPatien.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(5).Text
                 TxtAddress.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(6).Text
                 CboOccupation.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(7).Text
-                TxtTel.Text = IIf(UserGlobleVariable.DEPART_NAME.ToUpper = "ADMINISTRATOR", GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text, "")
+                TxtTel.Text = IIf(CheckPhoneNum = True, GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text, "") 'IIf(UserGlobleVariable.DEPART_NAME.ToUpper = "ADMINISTRATOR", GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text, "")
                 CboProNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(9).Text
                 CboDisNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(10).Text
                 CboCommNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(11).Text
@@ -1500,6 +1509,9 @@ Public Class UCPatientPayment
             TxtPatientSearchNo.Focus()
             TxtPatientSearchNo.SelectAll()
 
+            Application.DoEvents()
+            Thread.Sleep(250)
+            BtnOldOutPatientReceipt_Click(sender, e)
         End If
         
     End Sub
@@ -1510,4 +1522,6 @@ Public Class UCPatientPayment
 
         TxtPatientSearchNo.SelectAll()
     End Sub
+
+   
 End Class
