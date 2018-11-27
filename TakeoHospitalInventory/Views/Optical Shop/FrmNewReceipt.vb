@@ -1631,7 +1631,11 @@ Public Class FrmNewReceipt
                                     If RadNil.Checked = False Then
                                         GenerateReceipt(TxtReceiptNo.Text)
                                     End If
+                                    If LblConsultID.Text = "0" Then
 
+                                    Else
+                                        DS_Consult.UpdateStatus(1, LblConsultID.Text)
+                                    End If
                                     '''''''''''''''''''''Clean and Create New Receipt''''''''''''''''
                                     CleanReceiptInfomation()
                                     Me.DialogResult = Windows.Forms.DialogResult.OK
@@ -1652,11 +1656,7 @@ Public Class FrmNewReceipt
                 End If
             End If
         End If
-        If LblConsultID.Text = "0" Then
-
-        Else
-            DS_Consult.UpdateStatus(1, LblConsultID.Text)
-        End If
+        
     End Sub
     Dim PrinterDocName As New System.Drawing.Printing.PrintDocument
 

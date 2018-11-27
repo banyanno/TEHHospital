@@ -222,6 +222,7 @@ Public Class frmOldOutPatientReceipt
     End Sub
 
     Private Sub frmInpatientReceipt_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.LblDepID.Text = DEPART_ID
         Me.lblCashierLogin.Text = ""
         Me.dtpDateIn.Checked = True
         Me.lblCashierLogin.Text = USER_NAME
@@ -1201,9 +1202,10 @@ Public Class frmOldOutPatientReceipt
                 Me.txtPatient.Text = .Item(1)
                 Me.txtAmountWord.Text = .Item(9)
                 If TypeOf (.Item("ISSUE_BY_DEPART")) Is DBNull Then
-                    Me.LblDepID.Text = .Item("ISSUE_BY_DEPART")
-                Else
                     Me.LblDepID.Text = DEPART_ID
+                Else
+
+                    Me.LblDepID.Text = .Item("ISSUE_BY_DEPART")
                 End If
                 Me.chkDollar.Checked = False
                 Me.chkRiel.Checked = False
