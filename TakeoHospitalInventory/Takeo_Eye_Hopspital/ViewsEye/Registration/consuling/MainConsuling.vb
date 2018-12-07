@@ -738,4 +738,9 @@
     Private Sub TxtPatientSearchNo_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPatientSearchNo.KeyPress
         SetDisableKeyString (e)
     End Sub
+
+    Private Sub BtnAppointmentStatistict_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAppointmentStatistict.Click
+        Dim FApointment As New FormPrintApointmentStatistict
+        FApointment.ShowDialog()
+    End Sub
 End Class

@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class RefractionStatistic
+Public Class AppointmentStatistict
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class RefractionStatistic
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "RefractionStatistic.rpt"
+            Return "AppointmentStatistict.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class RefractionStatistic
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "TakeoHospitalInventory.RefractionStatistic.rpt"
+            Return "TakeoHospitalInventory.AppointmentStatistict.rpt"
         End Get
         Set
             'Do nothing
@@ -110,7 +110,7 @@ Public Class RefractionStatistic
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Title() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_title() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(0)
         End Get
@@ -118,7 +118,7 @@ Public Class RefractionStatistic
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Title2() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Field() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(1)
         End Get
@@ -126,7 +126,7 @@ Public Class RefractionStatistic
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedRefractionStatistic
+Public Class CachedAppointmentStatistict
     Inherits Component
     Implements ICachedReport
     
@@ -168,7 +168,7 @@ Public Class CachedRefractionStatistic
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As RefractionStatistic = New RefractionStatistic
+        Dim rpt As AppointmentStatistict = New AppointmentStatistict
         rpt.Site = Me.Site
         Return rpt
     End Function

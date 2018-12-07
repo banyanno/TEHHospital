@@ -290,3 +290,12 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHo
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FillDoctor.resources
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FormEnterDoctor.resources
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FormRenterVAAfterSurgery.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Data.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.ButtonBar.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.Common.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.FilterEditor.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.GridEX.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.Ribbon.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.Schedule.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.UI.v3.dll
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FormPrintApointmentStatistict.resources
