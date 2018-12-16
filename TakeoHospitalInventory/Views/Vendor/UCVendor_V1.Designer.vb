@@ -200,7 +200,7 @@ Partial Class UCVendor_V1
         Me.btnUnStoreItem.Image = Global.TakeoHospitalInventory.My.Resources.Resources.cross_circle
         Me.btnUnStoreItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnUnStoreItem.Name = "btnUnStoreItem"
-        Me.btnUnStoreItem.Size = New System.Drawing.Size(153, 27)
+        Me.btnUnStoreItem.Size = New System.Drawing.Size(167, 27)
         Me.btnUnStoreItem.Text = "Not Supply Checked Items"
         '
         'ToolStrip1

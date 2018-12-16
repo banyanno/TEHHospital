@@ -28,9 +28,13 @@ Partial Class MainConsuling
         Dim GridPatientRefund_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridAppointment_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Me.ToolMenuConsuling = New System.Windows.Forms.ToolStrip
+        Me.BtnNewConsulting = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnConsultReport = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnConsultForm = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnStatistic = New System.Windows.Forms.ToolStripButton
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.RadAllConsult = New System.Windows.Forms.RadioButton
@@ -71,7 +75,9 @@ Partial Class MainConsuling
         Me.BtnDelRefund = New System.Windows.Forms.ToolStripMenuItem
         Me.ReportMoneyRefund = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
+        Me.BtnNewRefund = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
+        Me.btnReportRefund = New System.Windows.Forms.ToolStripButton
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
         Me.TabPage2 = New System.Windows.Forms.TabPage
@@ -95,18 +101,12 @@ Partial Class MainConsuling
         Me.BtnCallPatient = New System.Windows.Forms.ToolStripMenuItem
         Me.CrystalApp = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.ToolMenuAppointment = New System.Windows.Forms.ToolStrip
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnNewConsulting = New System.Windows.Forms.ToolStripButton
-        Me.BtnConsultReport = New System.Windows.Forms.ToolStripButton
-        Me.BtnConsultForm = New System.Windows.Forms.ToolStripButton
-        Me.BtnStatistic = New System.Windows.Forms.ToolStripButton
-        Me.BtnNewRefund = New System.Windows.Forms.ToolStripButton
-        Me.btnReportRefund = New System.Windows.Forms.ToolStripButton
         Me.BtnNewAppoint = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnReportApp = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripSplitButton1 = New System.Windows.Forms.ToolStripSplitButton
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator
         Me.UpdateOnAppointmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -160,29 +160,68 @@ Partial Class MainConsuling
         Me.ToolMenuConsuling.Size = New System.Drawing.Size(1390, 32)
         Me.ToolMenuConsuling.TabIndex = 0
         Me.ToolMenuConsuling.Text = "ToolStrip1"
-        Me.ToolMenuConsuling.Visible = False
+        '
+        'BtnNewConsulting
+        '
+        Me.BtnNewConsulting.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        Me.BtnNewConsulting.ForeColor = System.Drawing.Color.Blue
+        Me.BtnNewConsulting.Image = Global.TakeoHospitalInventory.My.Resources.Resources.blue_new
+        Me.BtnNewConsulting.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNewConsulting.Name = "BtnNewConsulting"
+        Me.BtnNewConsulting.Size = New System.Drawing.Size(156, 29)
+        Me.BtnNewConsulting.Text = "New Counselling"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 32)
         '
+        'BtnConsultReport
+        '
+        Me.BtnConsultReport.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        Me.BtnConsultReport.ForeColor = System.Drawing.Color.Blue
+        Me.BtnConsultReport.Image = Global.TakeoHospitalInventory.My.Resources.Resources.sales_report
+        Me.BtnConsultReport.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnConsultReport.Name = "BtnConsultReport"
+        Me.BtnConsultReport.Size = New System.Drawing.Size(172, 29)
+        Me.BtnConsultReport.Text = "Report Counselling"
+        '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 32)
+        '
+        'BtnConsultForm
+        '
+        Me.BtnConsultForm.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        Me.BtnConsultForm.ForeColor = System.Drawing.Color.Blue
+        Me.BtnConsultForm.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Open
+        Me.BtnConsultForm.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnConsultForm.Name = "BtnConsultForm"
+        Me.BtnConsultForm.Size = New System.Drawing.Size(162, 29)
+        Me.BtnConsultForm.Text = "Form Councelling"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 32)
         '
+        'BtnStatistic
+        '
+        Me.BtnStatistic.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.BtnStatistic.ForeColor = System.Drawing.Color.Blue
+        Me.BtnStatistic.Image = Global.TakeoHospitalInventory.My.Resources.Resources.instock
+        Me.BtnStatistic.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnStatistic.Name = "BtnStatistic"
+        Me.BtnStatistic.Size = New System.Drawing.Size(178, 29)
+        Me.BtnStatistic.Text = "Statistic Counselling"
+        '
         'SplitContainer1
         '
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.SplitContainer1.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer1.Location = New System.Drawing.Point(3, 35)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -200,7 +239,7 @@ Partial Class MainConsuling
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1390, 568)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1390, 536)
         Me.SplitContainer1.TabIndex = 1
         '
         'GroupBox3
@@ -361,7 +400,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox2)
         Me.SplitContainer2.Panel2Collapsed = True
-        Me.SplitContainer2.Size = New System.Drawing.Size(1390, 514)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1390, 482)
         Me.SplitContainer2.SplitterDistance = 707
         Me.SplitContainer2.TabIndex = 0
         '
@@ -373,7 +412,7 @@ Partial Class MainConsuling
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1388, 512)
+        Me.GroupBox1.Size = New System.Drawing.Size(1388, 480)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consuling Information"
@@ -394,7 +433,7 @@ Partial Class MainConsuling
         Me.GridConsulting.RecordNavigator = True
         Me.GridConsulting.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowPosition
         Me.GridConsulting.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridConsulting.Size = New System.Drawing.Size(1382, 464)
+        Me.GridConsulting.Size = New System.Drawing.Size(1382, 432)
         Me.GridConsulting.TabIndex = 0
         '
         'MenuConsulting
@@ -415,7 +454,6 @@ Partial Class MainConsuling
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(148, 6)
-        Me.ToolStripMenuItem1.Visible = False
         '
         'BtnDeleteConsult
         '
@@ -443,7 +481,7 @@ Partial Class MainConsuling
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(3, 484)
+        Me.Label4.Location = New System.Drawing.Point(3, 452)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(309, 25)
         Me.Label4.TabIndex = 8
@@ -627,10 +665,30 @@ Partial Class MainConsuling
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'BtnNewRefund
+        '
+        Me.BtnNewRefund.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.BtnNewRefund.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1410160314_PLayer_back
+        Me.BtnNewRefund.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNewRefund.Name = "BtnNewRefund"
+        Me.BtnNewRefund.Size = New System.Drawing.Size(100, 51)
+        Me.BtnNewRefund.Text = "New Refund"
+        Me.BtnNewRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 54)
+        '
+        'btnReportRefund
+        '
+        Me.btnReportRefund.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnReportRefund.Image = Global.TakeoHospitalInventory.My.Resources.Resources.printer
+        Me.btnReportRefund.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnReportRefund.Name = "btnReportRefund"
+        Me.btnReportRefund.Size = New System.Drawing.Size(115, 51)
+        Me.btnReportRefund.Text = "Report Refund"
+        Me.btnReportRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'TabControl1
         '
@@ -901,81 +959,6 @@ Partial Class MainConsuling
         Me.ToolMenuAppointment.TabIndex = 0
         Me.ToolMenuAppointment.Text = "ToolStrip2"
         '
-        'ToolStripSeparator6
-        '
-        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 37)
-        '
-        'ToolStripSeparator7
-        '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 37)
-        '
-        'ToolStripSeparator8
-        '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 37)
-        '
-        'BtnNewConsulting
-        '
-        Me.BtnNewConsulting.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        Me.BtnNewConsulting.ForeColor = System.Drawing.Color.Blue
-        Me.BtnNewConsulting.Image = Global.TakeoHospitalInventory.My.Resources.Resources.blue_new
-        Me.BtnNewConsulting.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnNewConsulting.Name = "BtnNewConsulting"
-        Me.BtnNewConsulting.Size = New System.Drawing.Size(156, 29)
-        Me.BtnNewConsulting.Text = "New Counselling"
-        '
-        'BtnConsultReport
-        '
-        Me.BtnConsultReport.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        Me.BtnConsultReport.ForeColor = System.Drawing.Color.Blue
-        Me.BtnConsultReport.Image = Global.TakeoHospitalInventory.My.Resources.Resources.sales_report
-        Me.BtnConsultReport.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnConsultReport.Name = "BtnConsultReport"
-        Me.BtnConsultReport.Size = New System.Drawing.Size(172, 29)
-        Me.BtnConsultReport.Text = "Report Counselling"
-        '
-        'BtnConsultForm
-        '
-        Me.BtnConsultForm.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        Me.BtnConsultForm.ForeColor = System.Drawing.Color.Blue
-        Me.BtnConsultForm.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Open
-        Me.BtnConsultForm.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnConsultForm.Name = "BtnConsultForm"
-        Me.BtnConsultForm.Size = New System.Drawing.Size(162, 29)
-        Me.BtnConsultForm.Text = "Form Councelling"
-        '
-        'BtnStatistic
-        '
-        Me.BtnStatistic.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.BtnStatistic.ForeColor = System.Drawing.Color.Blue
-        Me.BtnStatistic.Image = Global.TakeoHospitalInventory.My.Resources.Resources.instock
-        Me.BtnStatistic.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnStatistic.Name = "BtnStatistic"
-        Me.BtnStatistic.Size = New System.Drawing.Size(178, 29)
-        Me.BtnStatistic.Text = "Statistic Counselling"
-        '
-        'BtnNewRefund
-        '
-        Me.BtnNewRefund.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.BtnNewRefund.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1410160314_PLayer_back
-        Me.BtnNewRefund.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnNewRefund.Name = "BtnNewRefund"
-        Me.BtnNewRefund.Size = New System.Drawing.Size(100, 51)
-        Me.BtnNewRefund.Text = "New Refund"
-        Me.BtnNewRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'btnReportRefund
-        '
-        Me.btnReportRefund.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnReportRefund.Image = Global.TakeoHospitalInventory.My.Resources.Resources.printer
-        Me.btnReportRefund.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnReportRefund.Name = "btnReportRefund"
-        Me.btnReportRefund.Size = New System.Drawing.Size(115, 51)
-        Me.btnReportRefund.Text = "Report Refund"
-        Me.btnReportRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
         'BtnNewAppoint
         '
         Me.BtnNewAppoint.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Open
@@ -983,6 +966,11 @@ Partial Class MainConsuling
         Me.BtnNewAppoint.Name = "BtnNewAppoint"
         Me.BtnNewAppoint.Size = New System.Drawing.Size(139, 34)
         Me.BtnNewAppoint.Text = "New Appointment"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 37)
         '
         'ToolStripButton2
         '
@@ -992,6 +980,11 @@ Partial Class MainConsuling
         Me.ToolStripButton2.Size = New System.Drawing.Size(123, 34)
         Me.ToolStripButton2.Text = "Update On App"
         '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 37)
+        '
         'BtnReportApp
         '
         Me.BtnReportApp.Image = Global.TakeoHospitalInventory.My.Resources.Resources.printer
@@ -999,6 +992,11 @@ Partial Class MainConsuling
         Me.BtnReportApp.Name = "BtnReportApp"
         Me.BtnReportApp.Size = New System.Drawing.Size(150, 34)
         Me.BtnReportApp.Text = "Appointment Report"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 37)
         '
         'ToolStripSplitButton1
         '

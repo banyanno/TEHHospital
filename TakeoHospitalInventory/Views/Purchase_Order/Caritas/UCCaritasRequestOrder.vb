@@ -939,4 +939,8 @@ Public Class UCCaritasRequestOrder
         CboSupplier.Enabled = False
         CboSupplier.SelectedIndex = -1
     End Sub
+
+    Private Sub ToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem1.Click
+
+    End Sub
 End Class

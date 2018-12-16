@@ -158,7 +158,7 @@ Partial Class frmLoginInventory
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -179,7 +179,7 @@ Partial Class frmLoginInventory
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Panel2.Controls.Add(Me.PictLoading)
         Me.Panel2.Controls.Add(Me.LblDate)
         Me.Panel2.Controls.Add(Me.LblStatus)
@@ -234,7 +234,7 @@ Partial Class frmLoginInventory
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel3.Location = New System.Drawing.Point(691, 42)
         Me.Panel3.Name = "Panel3"
@@ -243,7 +243,7 @@ Partial Class frmLoginInventory
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Panel4.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel4.Location = New System.Drawing.Point(0, 42)
         Me.Panel4.Name = "Panel4"

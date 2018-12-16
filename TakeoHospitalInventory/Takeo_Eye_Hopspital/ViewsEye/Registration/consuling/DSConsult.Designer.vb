@@ -20697,7 +20697,7 @@ Namespace DSConsultTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(15) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(17) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
@@ -20734,70 +20734,72 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT APPIONT_NOTE, APP_ID, CALL_DATE, CALL_NOTE, DATE_APPOINT, DATE_COME, DIAGN"& _ 
-                "OSIS, DR_DI, DR_NAME, IS_CALL, IS_DELETE, ON_APPOINT, ON_EYES, PATIENT_AGE, PATI"& _ 
-                "ENT_NAME, PATIENT_NAME_KH, PATIENT_NON, PATIENT_OCCU, PATIENT_SEX, PATIENT_TEL, "& _ 
-                "REQUEST_BY, SURGERY FROM CONSULING_APPOINTMENT WHERE (DATE_APPOINT BETWEEN @DFRO"& _ 
-                "M AND @DTO) AND (DR_DI = @DR_DI)"
+            Me._commandCollection(4).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
+                "TIENT_AGE, DATE_COME, DATE_APPOINT, ON_APPOINT, APPIONT_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         PATIENT_OCCU, IS_DELETE, DIAGNOSIS, SURGERY, ON_EYES, PATIENT_TEL, REQU"& _ 
+                "EST_BY, DR_DI, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTE,'APPOINTMENT' as Appoint"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_COME BETWEEN @DFROM AND @DTO"& _ 
+                ") and PATIENT_TEL<>'NO'"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_DI", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_DI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "SELECT APPIONT_NOTE, APP_ID, CALL_DATE, CALL_NOTE, DATE_APPOINT, DATE_COME, DIAGN"& _ 
                 "OSIS, DR_DI, DR_NAME, IS_CALL, IS_DELETE, ON_APPOINT, ON_EYES, PATIENT_AGE, PATI"& _ 
                 "ENT_NAME, PATIENT_NAME_KH, PATIENT_NON, PATIENT_OCCU, PATIENT_SEX, PATIENT_TEL, "& _ 
-                "REQUEST_BY, SURGERY FROM CONSULING_APPOINTMENT WHERE (DATE_COME BETWEEN @DFROM A"& _ 
-                "ND @DTO) AND (PATIENT_NON = @PATIENT_NON)"
+                "REQUEST_BY, SURGERY FROM CONSULING_APPOINTMENT WHERE (DATE_APPOINT BETWEEN @DFRO"& _ 
+                "M AND @DTO) AND (DR_DI = @DR_DI)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_DI", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_DI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(6).Connection = Me.Connection
             Me._commandCollection(6).CommandText = "SELECT APPIONT_NOTE, APP_ID, CALL_DATE, CALL_NOTE, DATE_APPOINT, DATE_COME, DIAGN"& _ 
                 "OSIS, DR_DI, DR_NAME, IS_CALL, IS_DELETE, ON_APPOINT, ON_EYES, PATIENT_AGE, PATI"& _ 
                 "ENT_NAME, PATIENT_NAME_KH, PATIENT_NON, PATIENT_OCCU, PATIENT_SEX, PATIENT_TEL, "& _ 
-                "REQUEST_BY, SURGERY FROM CONSULING_APPOINTMENT WHERE (DATE_APPOINT BETWEEN @DFRO"& _ 
-                "M AND @DTO) AND (PATIENT_NON = @PATIENT_NON)"
+                "REQUEST_BY, SURGERY FROM CONSULING_APPOINTMENT WHERE (DATE_COME BETWEEN @DFROM A"& _ 
+                "ND @DTO) AND (PATIENT_NON = @PATIENT_NON)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
-                "TIENT_AGE, DATE_COME, DATE_APPOINT, ON_APPOINT, APPIONT_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         PATIENT_OCCU, IS_DELETE, DIAGNOSIS, SURGERY, ON_EYES, PATIENT_TEL, REQU"& _ 
-                "EST_BY, DR_DI, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTE,'APPOINTMENT' as Appoint"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_APPOINT BETWEEN @DFROM AND @"& _ 
-                "DTO) and IS_DELETE=0"
+            Me._commandCollection(7).CommandText = "SELECT APPIONT_NOTE, APP_ID, CALL_DATE, CALL_NOTE, DATE_APPOINT, DATE_COME, DIAGN"& _ 
+                "OSIS, DR_DI, DR_NAME, IS_CALL, IS_DELETE, ON_APPOINT, ON_EYES, PATIENT_AGE, PATI"& _ 
+                "ENT_NAME, PATIENT_NAME_KH, PATIENT_NON, PATIENT_OCCU, PATIENT_SEX, PATIENT_TEL, "& _ 
+                "REQUEST_BY, SURGERY FROM CONSULING_APPOINTMENT WHERE (DATE_APPOINT BETWEEN @DFRO"& _ 
+                "M AND @DTO) AND (PATIENT_NON = @PATIENT_NON)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(8).Connection = Me.Connection
             Me._commandCollection(8).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
                 "TIENT_AGE, DATE_COME, DATE_APPOINT, ON_APPOINT, APPIONT_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
                 "         PATIENT_OCCU, IS_DELETE, DIAGNOSIS, SURGERY, ON_EYES, PATIENT_TEL, REQU"& _ 
                 "EST_BY, DR_DI, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTE,'APPOINTMENT' as Appoint"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CALL_DATE BETWEEN @DFROM AND @DTO"& _ 
-                ") and  IS_CALL=1 and IS_DELETE=0"
+                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_COME BETWEEN @DFROM AND @DTO"& _ 
+                ")"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CALL_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CALL_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(9).Connection = Me.Connection
             Me._commandCollection(9).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
                 "TIENT_AGE, DATE_COME, DATE_APPOINT, ON_APPOINT, APPIONT_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
                 "         PATIENT_OCCU, IS_DELETE, DIAGNOSIS, SURGERY, ON_EYES, PATIENT_TEL, REQU"& _ 
                 "EST_BY, DR_DI, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTE,'APPOINTMENT' as Appoint"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_COME BETWEEN @DFROM AND @DTO"& _ 
-                ") and  ON_APPOINT=1 and IS_DELETE=0"
+                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_APPOINT BETWEEN @DFROM AND @"& _ 
+                "DTO) and  IS_CALL=@IS_CALL and ON_APPOINT=@ON_APPOINT"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_CALL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_CALL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_APPOINT", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(10).Connection = Me.Connection
             Me._commandCollection(10).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
@@ -20805,85 +20807,107 @@ Namespace DSConsultTableAdapters
                 "         PATIENT_OCCU, IS_DELETE, DIAGNOSIS, SURGERY, ON_EYES, PATIENT_TEL, REQU"& _ 
                 "EST_BY, DR_DI, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTE,'APPOINTMENT' as Appoint"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
                 "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_COME BETWEEN @DFROM AND @DTO"& _ 
-                ") and  ON_APPOINT=0 and IS_DELETE=0"
+                ") and  ON_APPOINT=1 "
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(11).Connection = Me.Connection
-            Me._commandCollection(11).CommandText = "INSERT INTO CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (PATIENT_NON, PATIENT"& _ 
+            Me._commandCollection(11).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
+                "TIENT_AGE, DATE_COME, DATE_APPOINT, ON_APPOINT, APPIONT_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         PATIENT_OCCU, IS_DELETE, DIAGNOSIS, SURGERY, ON_EYES, PATIENT_TEL, REQU"& _ 
+                "EST_BY, DR_DI, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTE,'APPOINTMENT' as Appoint"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_APPOINT BETWEEN @DFROM AND @"& _ 
+                "DTO) and  ON_APPOINT=0 "
+            Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(12) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(12).Connection = Me.Connection
+            Me._commandCollection(12).CommandText = "SELECT        APP_ID, PATIENT_NON, PATIENT_NAME, PATIENT_NAME_KH, PATIENT_SEX, PA"& _ 
+                "TIENT_AGE, DATE_COME, DATE_APPOINT, ON_APPOINT, APPIONT_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         PATIENT_OCCU, IS_DELETE, DIAGNOSIS, SURGERY, ON_EYES, PATIENT_TEL, REQU"& _ 
+                "EST_BY, DR_DI, DR_NAME, IS_CALL, CALL_DATE, CALL_NOTE,'APPOINTMENT' as Appoint"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "FROM            CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(DATE_COME BETWEEN @DFROM AND @DTO"& _ 
+                ") and PATIENT_TEL='No'"
+            Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFROM", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTO", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(13).Connection = Me.Connection
+            Me._commandCollection(13).CommandText = "INSERT INTO CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (PATIENT_NON, PATIENT"& _ 
                 "_NAME, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, DATE_COME, DATE_APPOINT, ON_AP"& _ 
                 "POINT, APPIONT_NOTE, PATIENT_OCCU, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IS_DELETE, DIAGNOS"& _ 
                 "IS, SURGERY, ON_EYES, PATIENT_TEL, REQUEST_BY, DR_DI, DR_NAME)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@"& _ 
                 "PATIENT_NON,@PATIENT_NAME,@PATIENT_NAME_KH,@PATIENT_SEX,@PATIENT_AGE,@DATE_COME,"& _ 
                 "@DATE_APPOINT,@ON_APPOINT,@APPIONT_NOTE,@PATIENT_OCCU,@IS_DELETE,@DIAGNOSIS,@SUR"& _ 
                 "GERY,@ON_EYES,@PATIENT_TEL,@REQUEST_BY,@DR_DI,@DR_NAME);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
-            Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_COME", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_APPOINT", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_APPOINT", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@APPIONT_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "APPIONT_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_OCCU", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_OCCU", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SURGERY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "SURGERY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_EYES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_EYES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_TEL", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_TEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REQUEST_BY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "REQUEST_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_DI", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_DI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(12) = New Global.System.Data.SqlClient.SqlCommand
-            Me._commandCollection(12).Connection = Me.Connection
-            Me._commandCollection(12).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                IS_CALL = @IS_CALL, CALL_D"& _ 
-                "ATE = @CALL_DATE, CALL_NOTE = @CALL_NOTE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (APP_ID = @Original_APP_I"& _ 
-                "D);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
-            Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_CALL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_CALL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CALL_DATE", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CALL_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CALL_NOTE", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CALL_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_APP_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "APP_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(13) = New Global.System.Data.SqlClient.SqlCommand
-            Me._commandCollection(13).Connection = Me.Connection
-            Me._commandCollection(13).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                IS_DELETE = @IS_DELETE, ON"& _ 
-                "_APPOINT = @ON_APPOINT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (APP_ID = @Original_APP_ID)"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_COME", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_COME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_APPOINT", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_APPOINT", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_APP_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "APP_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@APPIONT_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "APPIONT_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_OCCU", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_OCCU", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SURGERY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "SURGERY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_EYES", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_EYES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_TEL", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_TEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REQUEST_BY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "REQUEST_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_DI", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_DI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(14).Connection = Me.Connection
-            Me._commandCollection(14).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                ON_APPOINT = @ON_APPOINT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "WHERE        (PATIENT_NON = @Original_PATIENT_NON); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(14).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                IS_CALL = @IS_CALL, CALL_D"& _ 
+                "ATE = @CALL_DATE, CALL_NOTE = @CALL_NOTE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (APP_ID = @Original_APP_I"& _ 
+                "D);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_APPOINT", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_CALL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_CALL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CALL_DATE", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CALL_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CALL_NOTE", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CALL_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_APP_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "APP_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(15) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(15).Connection = Me.Connection
-            Me._commandCollection(15).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                PATIENT_NON = @PATIENT_NON"& _ 
+            Me._commandCollection(15).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                IS_DELETE = @IS_DELETE, ON"& _ 
+                "_APPOINT = @ON_APPOINT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (APP_ID = @Original_APP_ID)"
+            Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_APPOINT", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_APP_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "APP_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(16) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(16).Connection = Me.Connection
+            Me._commandCollection(16).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                ON_APPOINT = @ON_APPOINT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "WHERE        (PATIENT_NON = @Original_PATIENT_NON); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_APPOINT", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(17) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(17).Connection = Me.Connection
+            Me._commandCollection(17).CommandText = "UPDATE       CONSULING_APPOINTMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                PATIENT_NON = @PATIENT_NON"& _ 
                 ", PATIENT_NAME = @PATIENT_NAME, PATIENT_NAME_KH = @PATIENT_NAME_KH, PATIENT_SEX "& _ 
                 "= @PATIENT_SEX, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PATIENT_AGE = @PATIENT_AGE, DATE_APPO"& _ 
                 "INT = @DATE_APPOINT, APPIONT_NOTE = @APPIONT_NOTE, DIAGNOSIS = @DIAGNOSIS, SURGE"& _ 
                 "RY = @SURGERY, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ON_EYES = @ON_EYE, DR_DI =@DR_DI, DR_N"& _ 
                 "AME =@DR_NAME"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (APP_ID = @Original_APP_ID);    "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
-            Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_APPOINT", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@APPIONT_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "APPIONT_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SURGERY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "SURGERY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_EYE", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_EYES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_DI", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_DI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_APP_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "APP_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NON", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_APPOINT", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_APPOINT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@APPIONT_NOTE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "APPIONT_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SURGERY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "SURGERY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ON_EYE", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ON_EYES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_DI", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_DI", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_APP_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "APP_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -20995,8 +21019,50 @@ Namespace DSConsultTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal DR_DI As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function FillBy10(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (DFROM.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTO.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectStatistictAppDateToDateHavePhone(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As DSConsult.CONSULING_APPOINTMENTDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (DFROM.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTO.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As DSConsult.CONSULING_APPOINTMENTDataTable = New DSConsult.CONSULING_APPOINTMENTDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal DR_DI As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21023,7 +21089,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectAppDateToDateByDR(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal DR_DI As Global.System.Nullable(Of Decimal)) As DSConsult.CONSULING_APPOINTMENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21048,7 +21114,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy3(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal PATIENT_NON As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            Me.Adapter.SelectCommand = Me.CommandCollection(6)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21075,7 +21141,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectDateCreateWithPatientNo(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal PATIENT_NON As Global.System.Nullable(Of Decimal)) As DSConsult.CONSULING_APPOINTMENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            Me.Adapter.SelectCommand = Me.CommandCollection(6)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21100,7 +21166,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy4(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal PATIENT_NON As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(6)
+            Me.Adapter.SelectCommand = Me.CommandCollection(7)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21127,7 +21193,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectAppDateWithPatientNo(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal PATIENT_NON As Global.System.Nullable(Of Decimal)) As DSConsult.CONSULING_APPOINTMENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(6)
+            Me.Adapter.SelectCommand = Me.CommandCollection(7)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21152,7 +21218,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy5(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21174,7 +21240,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectStatistictAppDateToDate(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As DSConsult.CONSULING_APPOINTMENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21193,8 +21259,8 @@ Namespace DSConsultTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy6(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+        Public Overloads Overridable Function FillBy6(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal IS_CALL As Global.System.Nullable(Of Boolean), ByVal ON_APPOINT As Global.System.Nullable(Of Boolean)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21204,6 +21270,16 @@ Namespace DSConsultTableAdapters
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTO.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (IS_CALL.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IS_CALL.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (ON_APPOINT.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(ON_APPOINT.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -21215,8 +21291,8 @@ Namespace DSConsultTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function SelectStatistictDateToDateWithCalled(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As DSConsult.CONSULING_APPOINTMENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+        Public Overloads Overridable Function SelectStatistictDateToDateWithCalledAndCome(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date), ByVal IS_CALL As Global.System.Nullable(Of Boolean), ByVal ON_APPOINT As Global.System.Nullable(Of Boolean)) As DSConsult.CONSULING_APPOINTMENTDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21227,6 +21303,16 @@ Namespace DSConsultTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
+            If (IS_CALL.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IS_CALL.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (ON_APPOINT.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(ON_APPOINT.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
             Dim dataTable As DSConsult.CONSULING_APPOINTMENTDataTable = New DSConsult.CONSULING_APPOINTMENTDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -21236,7 +21322,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy7(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21258,7 +21344,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectStatistictDateToDateCome(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As DSConsult.CONSULING_APPOINTMENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21278,7 +21364,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy8(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -21300,7 +21386,49 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectStatistictDateToDateNotCome(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As DSConsult.CONSULING_APPOINTMENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            If (DFROM.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTO.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As DSConsult.CONSULING_APPOINTMENTDataTable = New DSConsult.CONSULING_APPOINTMENTDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy9(ByVal dataTable As DSConsult.CONSULING_APPOINTMENTDataTable, ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
+            If (DFROM.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTO.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectStatistictAppDateToDateNoPhone(ByVal DFROM As Global.System.Nullable(Of Date), ByVal DTO As Global.System.Nullable(Of Date)) As DSConsult.CONSULING_APPOINTMENTDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (DFROM.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFROM.Value,Date)
             Else
@@ -22093,7 +22221,7 @@ Namespace DSConsultTableAdapters
                     ByVal REQUEST_BY As String,  _
                     ByVal DR_DI As Global.System.Nullable(Of Decimal),  _
                     ByVal DR_NAME As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(11)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(13)
             If (PATIENT_NON.HasValue = true) Then
                 command.Parameters(0).Value = CType(PATIENT_NON.Value,Decimal)
             Else
@@ -22204,7 +22332,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function IsUpdateCall(ByVal IS_CALL As Global.System.Nullable(Of Boolean), ByVal CALL_DATE As Global.System.Nullable(Of Date), ByVal CALL_NOTE As String, ByVal Original_APP_ID As Decimal) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(12)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(14)
             If (IS_CALL.HasValue = true) Then
                 command.Parameters(0).Value = CType(IS_CALL.Value,Boolean)
             Else
@@ -22241,7 +22369,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateAppointOnorDelete(ByVal IS_DELETE As Global.System.Nullable(Of Boolean), ByVal ON_APPOINT As Global.System.Nullable(Of Boolean), ByVal Original_APP_ID As Decimal) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(13)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(15)
             If (IS_DELETE.HasValue = true) Then
                 command.Parameters(0).Value = CType(IS_DELETE.Value,Boolean)
             Else
@@ -22273,7 +22401,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateOnAppoint(ByVal ON_APPOINT As Global.System.Nullable(Of Boolean), ByVal Original_PATIENT_NON As Global.System.Nullable(Of Decimal)) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(14)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(16)
             If (ON_APPOINT.HasValue = true) Then
                 command.Parameters(0).Value = CType(ON_APPOINT.Value,Boolean)
             Else
@@ -22304,7 +22432,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdatePatientApp(ByVal PATIENT_NON As Global.System.Nullable(Of Decimal), ByVal PATIENT_NAME As String, ByVal PATIENT_NAME_KH As String, ByVal PATIENT_SEX As String, ByVal PATIENT_AGE As String, ByVal DATE_APPOINT As Global.System.Nullable(Of Date), ByVal APPIONT_NOTE As String, ByVal DIAGNOSIS As String, ByVal SURGERY As String, ByVal ON_EYE As String, ByVal DR_DI As Global.System.Nullable(Of Decimal), ByVal DR_NAME As String, ByVal Original_APP_ID As Decimal) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(15)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(17)
             If (PATIENT_NON.HasValue = true) Then
                 command.Parameters(0).Value = CType(PATIENT_NON.Value,Decimal)
             Else
