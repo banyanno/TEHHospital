@@ -284,7 +284,6 @@ Public Class UCCaritasRequestOrder
                             ProItem.Cost = CRTProRecDetail.Cost
                             ProItem.CurrencyID = CRTProRecDetail.CurrencyID
                             ProItem.Quantity = CRTProRecDetail.GivenQty
-
                             THIDataContextStockUpdate.getTHIDataContext.tblVendorItemSupplyStatus.InsertOnSubmit(ProItem)
                             THIDataContextStockUpdate.getTHIDataContext.SubmitChanges()
                         Else
@@ -322,8 +321,6 @@ Public Class UCCaritasRequestOrder
         Else
             MessageBox.Show("Transaction Error: " & TransMsgStatus, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-
-
     End Sub
 
     Sub ApprovedRecReqNotExistItem(ByVal pRequestID As Integer)

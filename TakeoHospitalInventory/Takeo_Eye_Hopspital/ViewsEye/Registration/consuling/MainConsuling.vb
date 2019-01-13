@@ -7,6 +7,7 @@
     Dim MEyeInventory As MainTakeoInventory
     Dim WReport As New WinReport
     Dim ConViewer As Integer = 0
+    Dim DA_SystemTracking As New DSSystemTrackingTableAdapters.SYSTEM_TRACKINGTableAdapter
     Sub New(ByVal MEyeInventory As MainTakeoInventory)
 
         ' This call is required by the Windows Form Designer.
@@ -168,6 +169,7 @@
         FDeleteResion.LblConsultID.Text = GridConsulting.GetRow.Cells("CONSULING_ID").Value
         FDeleteResion.LblDelete.Text = 2
         If FDeleteResion.ShowDialog = DialogResult.OK Then
+            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Consoling", "Patient No:" & GridConsulting.GetRow.Cells("PatientNo").Value & "Patient Name:" & GridConsulting.GetRow.Cells("NameEng").Value & " Consoling Date: " & GridConsulting.GetRow.Cells("CONSULING_DATE").Value & " Consult for:  " & GridConsulting.GetRow.Cells("CONSULT_FOR").Value & " Delete Note: " & FDeleteResion.TxtConsultNote.Text & " By user:" & USER_NAME, "Referent:" & GridConsulting.GetRow.Cells("CONSULING_ID").Value, "DELETED")
             MEyeInventory.StatusLoading(True)
             TxtPatientNo.Text = GridConsulting.GetRow.Cells("PatientNo").Value
             ConViewer = 3
@@ -189,6 +191,7 @@
         FDeleteResion.LblConsultID.Text = GridConsulting.GetRow.Cells("CONSULING_ID").Value
         FDeleteResion.LblDelete.Text = 0
         If FDeleteResion.ShowDialog = DialogResult.OK Then
+            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Consoling", "Patient No:" & GridConsulting.GetRow.Cells("PatientNo").Value & "Patient Name:" & GridConsulting.GetRow.Cells("NameEng").Value & " Consoling Date: " & GridConsulting.GetRow.Cells("CONSULING_DATE").Value & " Consult for:  " & GridConsulting.GetRow.Cells("CONSULT_FOR").Value & " Update noted: " & FDeleteResion.TxtConsultNote.Text & " By user" & USER_NAME, "Referent:" & GridConsulting.GetRow.Cells("CONSULING_ID").Value, "UPDATE")
             MEyeInventory.StatusLoading(True)
             TxtPatientNo.Text = GridConsulting.GetRow.Cells("PatientNo").Value
             ConViewer = 3
@@ -742,5 +745,17 @@
     Private Sub BtnAppointmentStatistict_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAppointmentStatistict.Click
         Dim FApointment As New FormPrintApointmentStatistict
         FApointment.ShowDialog()
+    End Sub
+
+    Private Sub BtnWaitingConsult_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnWaitingConsult.Click
+        GridConsulting.DataSource = DA_Consulting.SelectStatusWaitingAndConcel(DFrom.Value.Date, DTo.Value, 0)
+    End Sub
+
+    Private Sub BtnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancel.Click
+        GridConsulting.DataSource = DA_Consulting.SelectStatusWaitingAndConcel(DFrom.Value.Date, DTo.Value, 2)
+    End Sub
+
+    Private Sub BtnAccepcounselling_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAccepcounselling.Click
+        GridConsulting.DataSource = DA_Consulting.SelectNotAcceptConsult(DFrom.Value.Date, DTo.Value, False)
     End Sub
 End Class

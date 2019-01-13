@@ -299,3 +299,5 @@ C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.W
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.Schedule.v3.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\bin\x86\Debug\Janus.Windows.UI.v3.dll
 C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FormPrintApointmentStatistict.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.DashboardSystemTracking.resources
+C:\BanYanno\SoftProject\TEHHospital\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.FindingSystemTracking.resources

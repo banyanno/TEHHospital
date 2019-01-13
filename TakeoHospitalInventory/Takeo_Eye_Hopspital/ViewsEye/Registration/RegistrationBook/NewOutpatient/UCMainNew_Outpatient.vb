@@ -319,6 +319,7 @@ Public Class UCMainNew_Outpatient
             Dim FDeleteNote As New DeleteNoteNew
             FDeleteNote.LblSaveOption.Text = NewOutNo
             If FDeleteNote.ShowDialog = DialogResult.OK Then
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Delete Note: " & FDeleteNote.TxtNote.Text & " By user:" & USER_NAME, "Referent:" & row.Cells("NewOutPatientNo").Value, "DELETED")
                 MsgBox("Patient canceled successful.", MsgBoxStyle.Information, "Cancel")
                 CallBgNewOut()
             End If
@@ -333,9 +334,12 @@ Public Class UCMainNew_Outpatient
             If GridEXNewPatientBookV1.SelectedCells.Count = 0 Then Exit Sub
             Dim row As DataGridViewRow = Me.GridEXNewPatientBookV1.Rows(GridEXNewPatientBookV1.SelectedCells(0).RowIndex)
             Dim NewOutNo As Integer = row.Cells("NewOutPatientNo").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("NewOutPatientNo").Value
+            Dim IS_DeleteRow As Boolean = CBool(row.Cells("DeleteOption").Value)
+            If IS_DeleteRow = False Then Exit Sub
             DIALOG_DELETE = MessageBox.Show("Do you want to undo cancel", "cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If DIALOG_DELETE = DialogResult.Yes Then
                 If ModNew_Outpatient.UpdateToUndo(NewOutNo) = 1 Then
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Undo note: By user:" & USER_NAME, "Referent:" & row.Cells("NewOutPatientNo").Value, "UNDO")
                     MsgBox("Patient undo successfull.", MsgBoxStyle.Information, "Cancel")
                     CallBgNewOut()
                 Else

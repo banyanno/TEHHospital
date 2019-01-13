@@ -285,6 +285,7 @@ Public Class UCMainInpatient
             FdeleteInPatein.LblSaveOption.Text = InNo
             If FdeleteInPatein.ShowDialog = DialogResult.OK Then
                 MsgBox("Canceled successful.", MsgBoxStyle.Information, "Delete")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", " Patient No:" & GridInpatient.Rows(RowIndex).Cells("PatientNo").Value & " Patient Name:" & GridInpatient.Rows(RowIndex).Cells("NameKhmer1").Value & " Inpatie regist Date: " & GridInpatient.Rows(RowIndex).Cells("CreateDate").Value & " Delete Note: " & FdeleteInPatein.TxtNote.Text & " By user:" & USER_NAME, "Referent:" & GridInpatient.Rows(RowIndex).Cells("InNo").Value, "DELETED")
                 CallBG()
             End If
 
@@ -302,6 +303,7 @@ Public Class UCMainInpatient
             If DIALOG_DELETE = DialogResult.Yes Then
                 If ModInPatient.UpdateInToUndo(InNo) = 1 Then
                     MsgBox("undoed successful.", MsgBoxStyle.Information, "Delete")
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", " Patient No:" & GridInpatient.Rows(RowIndex).Cells("PatientNo").Value & " Patient Name:" & GridInpatient.Rows(RowIndex).Cells("NameKhmer1").Value & " Inpatie regist Date: " & GridInpatient.Rows(RowIndex).Cells("CreateDate").Value & " undo Note: ... By user:" & USER_NAME, "Referent:" & GridInpatient.Rows(RowIndex).Cells("InNo").Value, "UNDO")
                     CallBG()
                 Else
                     MsgBox(MSG_DELETE_ERROR, MsgBoxStyle.Critical, "Error")

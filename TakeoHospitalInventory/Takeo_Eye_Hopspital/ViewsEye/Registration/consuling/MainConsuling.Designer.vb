@@ -58,7 +58,12 @@ Partial Class MainConsuling
         Me.BtnDeleteConsult = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnUndo = New System.Windows.Forms.ToolStripMenuItem
-        Me.Label4 = New System.Windows.Forms.Label
+        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip
+        Me.BtnWaitingConsult = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnAccepcounselling = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnCancel = New System.Windows.Forms.ToolStripButton
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.BgLoadConsult = New System.ComponentModel.BackgroundWorker
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
@@ -125,6 +130,7 @@ Partial Class MainConsuling
         Me.GroupBox1.SuspendLayout()
         CType(Me.GridConsulting, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuConsulting.SuspendLayout()
+        Me.ToolStrip2.SuspendLayout()
         Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
@@ -407,7 +413,7 @@ Partial Class MainConsuling
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.GridConsulting)
-        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.ToolStrip2)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
@@ -474,18 +480,58 @@ Partial Class MainConsuling
         Me.BtnUndo.Size = New System.Drawing.Size(151, 22)
         Me.BtnUndo.Text = "Undo Consult"
         '
-        'Label4
+        'ToolStrip2
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(3, 452)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(309, 25)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Pleace Check Status Consultation"
+        Me.ToolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ToolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnWaitingConsult, Me.ToolStripSeparator9, Me.BtnAccepcounselling, Me.ToolStripSeparator10, Me.BtnCancel})
+        Me.ToolStrip2.Location = New System.Drawing.Point(3, 452)
+        Me.ToolStrip2.Name = "ToolStrip2"
+        Me.ToolStrip2.Size = New System.Drawing.Size(1382, 25)
+        Me.ToolStrip2.TabIndex = 1
+        Me.ToolStrip2.Text = "ToolStrip2"
+        '
+        'BtnWaitingConsult
+        '
+        Me.BtnWaitingConsult.BackColor = System.Drawing.Color.Transparent
+        Me.BtnWaitingConsult.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnWaitingConsult.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BtnWaitingConsult.Image = CType(resources.GetObject("BtnWaitingConsult.Image"), System.Drawing.Image)
+        Me.BtnWaitingConsult.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnWaitingConsult.Name = "BtnWaitingConsult"
+        Me.BtnWaitingConsult.Size = New System.Drawing.Size(92, 22)
+        Me.BtnWaitingConsult.Text = "Not yet coplete"
+        '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
+        '
+        'BtnAccepcounselling
+        '
+        Me.BtnAccepcounselling.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnAccepcounselling.ForeColor = System.Drawing.Color.Red
+        Me.BtnAccepcounselling.Image = CType(resources.GetObject("BtnAccepcounselling.Image"), System.Drawing.Image)
+        Me.BtnAccepcounselling.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnAccepcounselling.Name = "BtnAccepcounselling"
+        Me.BtnAccepcounselling.Size = New System.Drawing.Size(142, 22)
+        Me.BtnAccepcounselling.Text = " Not accept counselling  "
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 25)
+        '
+        'BtnCancel
+        '
+        Me.BtnCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnCancel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Strikeout)
+        Me.BtnCancel.ForeColor = System.Drawing.Color.Red
+        Me.BtnCancel.Image = CType(resources.GetObject("BtnCancel.Image"), System.Drawing.Image)
+        Me.BtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCancel.Name = "BtnCancel"
+        Me.BtnCancel.Size = New System.Drawing.Size(47, 22)
+        Me.BtnCancel.Text = "Cancel"
         '
         'GroupBox2
         '
@@ -523,7 +569,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.SplitContainer4)
         Me.SplitContainer3.Size = New System.Drawing.Size(1390, 514)
-        Me.SplitContainer3.SplitterDistance = 60
+        Me.SplitContainer3.SplitterDistance = 59
         Me.SplitContainer3.TabIndex = 1
         '
         'TxtPatientRefunID
@@ -608,7 +654,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer4.Panel2.Controls.Add(Me.ReportMoneyRefund)
         Me.SplitContainer4.Panel2Collapsed = True
-        Me.SplitContainer4.Size = New System.Drawing.Size(1390, 450)
+        Me.SplitContainer4.Size = New System.Drawing.Size(1390, 451)
         Me.SplitContainer4.SplitterDistance = 694
         Me.SplitContainer4.TabIndex = 0
         '
@@ -625,7 +671,7 @@ Partial Class MainConsuling
         Me.GridPatientRefund.Name = "GridPatientRefund"
         Me.GridPatientRefund.RecordNavigator = True
         Me.GridPatientRefund.RowHeaderFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-        Me.GridPatientRefund.Size = New System.Drawing.Size(1388, 448)
+        Me.GridPatientRefund.Size = New System.Drawing.Size(1388, 449)
         Me.GridPatientRefund.TabIndex = 0
         '
         'ContextRefund
@@ -1065,6 +1111,8 @@ Partial Class MainConsuling
         Me.GroupBox1.PerformLayout()
         CType(Me.GridConsulting, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuConsulting.ResumeLayout(False)
+        Me.ToolStrip2.ResumeLayout(False)
+        Me.ToolStrip2.PerformLayout()
         Me.SplitContainer3.Panel1.ResumeLayout(False)
         Me.SplitContainer3.Panel1.PerformLayout()
         Me.SplitContainer3.Panel2.ResumeLayout(False)
@@ -1131,7 +1179,6 @@ Partial Class MainConsuling
     Friend WithEvents RadForInPatient As System.Windows.Forms.RadioButton
     Friend WithEvents RadForOld As System.Windows.Forms.RadioButton
     Friend WithEvents RadAllConsult As System.Windows.Forms.RadioButton
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
     Friend WithEvents BtnNewRefund As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
@@ -1187,5 +1234,11 @@ Partial Class MainConsuling
     Friend WithEvents TxtPatientSearchNo As System.Windows.Forms.TextBox
     Friend WithEvents RadViewByPatientNo As System.Windows.Forms.RadioButton
     Friend WithEvents BtnAppointmentStatistict As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
+    Friend WithEvents BtnWaitingConsult As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnAccepcounselling As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator10 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnCancel As System.Windows.Forms.ToolStripButton
 
 End Class

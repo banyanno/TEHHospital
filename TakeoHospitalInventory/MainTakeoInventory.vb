@@ -69,6 +69,7 @@ Public Class MainTakeoInventory
     Dim UBarcode As UIBarcodeGenerator
     Dim UReportItemTransaction As UCReportItemTransaction
     Dim URefferral As UCRefferralOfTEH
+    Dim USystemHistory As New DashboardSystemTracking
     Private Delegate Sub DelShowLoadingPicture(ByVal visible As Boolean)
 
     Sub New(ByVal login As frmLoginInventory)
@@ -319,6 +320,8 @@ Public Class MainTakeoInventory
             Case "ReferralofTEH"
 
                 GeneralAddControl(uiPanelMainContainer, URefferral, "Patient Referral pararmenter.")
+            Case "System History"
+                GeneralAddControl(uiPanelMainContainer, USystemHistory, "System History.")
         End Select
     End Sub
 

@@ -517,6 +517,7 @@ Public Class frmNewOutpatientReceipt
                 Me.txtRate.Text, Me.txtAmountWord.Text, IIf(Me.rdConsultationR.Checked = True Or Me.rdConsultationD.Checked = True, "1", "0"), IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                 IIf(Me.chkSocialFee.Checked = False, 1, 0), "NR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value, Format(Date.Now(), "MM/dd/yyyy"))
                 'Me.cmdPrint.Enabled = True
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Edit New patient receipt", " Patient No:" & txtHN.Text & " Patient Name:" & txtPatient.Text & " Invoice date: " & dtpDateIn.Value.Date & " update note: amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & USER_NAME, "Referent:" & txtReceiptNumber.Text, "UPDATE")
             End If
         End If
     End Sub
@@ -636,7 +637,7 @@ Public Class frmNewOutpatientReceipt
                 Me.txtPatient.Text = .Item(1)
                 Me.txtAmountWord.Text = .Item(9)
                 If TypeOf (.Item("ISSUE_BY_DEPART")) Is DBNull Then
-                    Me.LblDepID.Text = .Item("ISSUE_BY_DEPART")
+                    Me.LblDepID.Text = IIf(TypeOf .Item("ISSUE_BY_DEPART") Is DBNull, "", .Item("ISSUE_BY_DEPART"))
                 Else
                     Me.LblDepID.Text = DEPART_ID
                 End If

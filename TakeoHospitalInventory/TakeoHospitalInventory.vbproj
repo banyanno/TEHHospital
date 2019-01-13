@@ -3061,6 +3061,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSServerEnviroment.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Views\systemtracking\DashboardSystemTracking.Designer.vb">
+      <DependentUpon>DashboardSystemTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\systemtracking\DashboardSystemTracking.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\systemtracking\DSSystemTracking.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSSystemTracking.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\systemtracking\FindingSystemTracking.Designer.vb">
+      <DependentUpon>FindingSystemTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\systemtracking\FindingSystemTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\systemtracking\ReportSystemTracking.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSystemTracking.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Views\Vendor\frmVender.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -4637,6 +4660,16 @@
       <DependentUpon>UCRefferralOfTEH.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\systemtracking\DashboardSystemTracking.resx">
+      <DependentUpon>DashboardSystemTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\systemtracking\FindingSystemTracking.resx">
+      <DependentUpon>FindingSystemTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\systemtracking\ReportSystemTracking.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSystemTracking.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Vendor\frmVender.resx">
       <DependentUpon>frmVender.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -5603,6 +5636,17 @@
     </None>
     <None Include="Views\ServerEviroment\DSServerEnviroment.xss">
       <DependentUpon>DSServerEnviroment.xsd</DependentUpon>
+    </None>
+    <None Include="Views\systemtracking\DSSystemTracking.xsc">
+      <DependentUpon>DSSystemTracking.xsd</DependentUpon>
+    </None>
+    <None Include="Views\systemtracking\DSSystemTracking.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSystemTracking.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Views\systemtracking\DSSystemTracking.xss">
+      <DependentUpon>DSSystemTracking.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

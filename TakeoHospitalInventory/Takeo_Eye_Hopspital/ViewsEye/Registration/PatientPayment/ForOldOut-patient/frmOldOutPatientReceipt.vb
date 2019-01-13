@@ -591,6 +591,7 @@ Public Class frmOldOutPatientReceipt
                     Me.ChPhysical.Checked, Me.ChCDMDP.Checked, Me.ChEyeScreenig.Checked, Me.ChScreeningKV.Checked, Me.ChSelf.Checked, _
                     Me.ChPatient.Checked, Me.ChFriend.Checked, Me.ChOtherNGO.Checked, Me.ChChurch.Checked, Me.ChHealth.Checked, Me.ChOtherReferal.Checked)
                 End If
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Edit Old patient receipt", " Patient No:" & txtHN.Text & " Patient Name:" & txtPatient.Text & " Invoice date: " & dtpDateIn.Value.Date & " update note: amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & USER_NAME, "Referent:" & txtReceiptNumber.Text, "UPDATE")
                 MsgBox("Update old-out patient receipt successfully", MsgBoxStyle.OkOnly, "Update Old-Out Patient")
             End If
         End If

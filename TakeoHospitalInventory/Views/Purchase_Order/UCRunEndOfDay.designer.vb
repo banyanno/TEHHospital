@@ -143,7 +143,7 @@ Partial Class UCRunEndOfDay
         Me.cbDepart.FormattingEnabled = True
         Me.cbDepart.Location = New System.Drawing.Point(249, 97)
         Me.cbDepart.Name = "cbDepart"
-        Me.cbDepart.Size = New System.Drawing.Size(166, 21)
+        Me.cbDepart.Size = New System.Drawing.Size(206, 21)
         Me.cbDepart.TabIndex = 9
         Me.cbDepart.Visible = False
         '

@@ -225,6 +225,7 @@ Public Class UCMainOld_Outpatient
             FDeleteNote.LblSaveOption.Text = NewOutNo
             If FDeleteNote.ShowDialog = DialogResult.OK Then
                 MsgBox("Patient canceled successful.", MsgBoxStyle.Information, "Cancel")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Delete Note: " & FDeleteNote.TxtNote.Text & " By user:" & USER_NAME, "Referent:" & row.Cells("NewOutPatientNo").Value, "DELETED")
                 CallBgWork()
             End If
             'End If
@@ -259,7 +260,8 @@ Public Class UCMainOld_Outpatient
             DIALOG_DELETE = MessageBox.Show("Do you realy want to to undo this patient?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If DIALOG_DELETE = DialogResult.Yes Then
                 If ModNew_Outpatient.UpdateToUndo(OldNo) = 1 Then
-                    MsgBox("This patient undo.", MsgBoxStyle.Information, "Delete")
+                    MsgBox("This patient undo.", MsgBoxStyle.Information, "undo")
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Undo :  By user:" & USER_NAME, "Referent:" & row.Cells("NewOutPatientNo").Value, "UPDATE")
                     CallBgWork()
                 Else
                     MsgBox("Undo not successful.", MsgBoxStyle.Critical, "Error")

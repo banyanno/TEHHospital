@@ -17349,7 +17349,7 @@ Namespace DSConsultTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(16) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(18) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occ"& _ 
@@ -17421,39 +17421,39 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (STATUS = @STATUS) AND (ACCEPT_"& _ 
-                "CONSUL = @ACCEPT_CONSUL)"
+            Me._commandCollection(4).CommandText = "SELECT        PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occ"& _ 
+                "upation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAG"& _ 
+                "NOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CH1, CH2"& _ 
+                ", CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL"& _ 
+                "_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSU"& _ 
+                "LING_ID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME,"& _ 
+                " FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT,"& _ 
+                " FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH, REGIS_VAB_L_PLAIN, REGIS_V"& _ 
+                "AB_L_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAOLD_PLAIN, REGIS_VAOLD_I"& _ 
+                "CPH"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CONSULING_DATE BETWEEN @DateFrom AND "& _ 
+                "@DateTo) and "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"STATUS=@STATUS"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
-                "FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+            Me._commandCollection(5).CommandText = "SELECT        PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occ"& _ 
+                "upation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAG"& _ 
+                "NOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CH1, CH2"& _ 
+                ", CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL"& _ 
+                "_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSU"& _ 
+                "LING_ID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME,"& _ 
+                " FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT,"& _ 
+                " FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH, REGIS_VAB_L_PLAIN, REGIS_V"& _ 
+                "AB_L_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAOLD_PLAIN, REGIS_VAOLD_I"& _ 
+                "CPH"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CONSULING_DATE BETWEEN @DateFrom AND "& _ 
+                "@DateTo) and "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ACCEPT_CONSUL=@ACCEPT_CONSUL"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(6).Connection = Me.Connection
@@ -17466,12 +17466,11 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @O"& _ 
-                "RG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (STATUS = @STATUS) AND (ACCEPT_"& _ 
+                "CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(7).Connection = Me.Connection
@@ -17485,12 +17484,12 @@ Namespace DSConsultTableAdapters
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
                 " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
-                "FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(8).Connection = Me.Connection
@@ -17503,15 +17502,12 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
-                "FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL ="& _ 
-                " @ACCEPT_CONSUL)"
+                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @O"& _ 
+                "RG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(9).Connection = Me.Connection
@@ -17524,11 +17520,12 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
-                " @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
+                "FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand
@@ -17542,11 +17539,13 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @O"& _ 
-                "RG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
+                "FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL ="& _ 
+                " @ACCEPT_CONSUL)"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17561,13 +17560,13 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AN"& _ 
-                "D (STATUS = @STATUS) AND (CONSULING_ID = @CONSULING_ID)"
+                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
+                " @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(12).Connection = Me.Connection
             Me._commandCollection(12).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17579,12 +17578,14 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AN"& _ 
-                "D (STATUS = @STATUS)"
+                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @O"& _ 
+                "RG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(13) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(13).Connection = Me.Connection
             Me._commandCollection(13).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17596,8 +17597,12 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_ID = @CONSULING_ID)"
+                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AN"& _ 
+                "D (STATUS = @STATUS) AND (CONSULING_ID = @CONSULING_ID)"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(14).Connection = Me.Connection
@@ -17610,10 +17615,12 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo)"
+                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AN"& _ 
+                "D (STATUS = @STATUS)"
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(15) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(15).Connection = Me.Connection
             Me._commandCollection(15).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17625,12 +17632,9 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
-                " @STATUS)"
+                " V_CONSULTING WHERE (CONSULING_ID = @CONSULING_ID)"
             Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(16) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(16).Connection = Me.Connection
             Me._commandCollection(16).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17642,12 +17646,44 @@ Namespace DSConsultTableAdapters
                 "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
                 "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
                 "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
+                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo)"
+            Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(17).Connection = Me.Connection
+            Me._commandCollection(17).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
+                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
+                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
+                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
+                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
+                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
+                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
+                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
+                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
+                " @STATUS)"
+            Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(18) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(18).Connection = Me.Connection
+            Me._commandCollection(18).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
+                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
+                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
+                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
+                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
+                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
+                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
+                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
                 " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULING_DATE BETWEEN @DFrom "& _ 
                 "AND @DateTo)"
-            Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17871,8 +17907,112 @@ Namespace DSConsultTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
+        Public Overloads Overridable Function FillBy11(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (DateFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DateTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (STATUS.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(STATUS.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectStatusWaitingAndConcel(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal)) As DSConsult.V_CONSULTINGDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            If (DateFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DateTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (STATUS.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(STATUS.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As DSConsult.V_CONSULTINGDataTable = New DSConsult.V_CONSULTINGDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy12(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            If (DateFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DateTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (ACCEPT_CONSUL.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ACCEPT_CONSUL.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectNotAcceptConsult(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            If (DateFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DateTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (ACCEPT_CONSUL.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ACCEPT_CONSUL.Value,Boolean)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As DSConsult.V_CONSULTINGDataTable = New DSConsult.V_CONSULTINGDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(6)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (STATUS.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(STATUS.Value,Decimal)
@@ -17895,7 +18035,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByCheckTotalConsult(ByVal PatientNo As Decimal, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(6)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (STATUS.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(STATUS.Value,Decimal)
@@ -17916,7 +18056,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy3(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            Me.Adapter.SelectCommand = Me.CommandCollection(7)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -17953,7 +18093,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateWithDonate(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            Me.Adapter.SelectCommand = Me.CommandCollection(7)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -17988,7 +18128,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy4(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(6)
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18020,7 +18160,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateDonate(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(6)
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18050,7 +18190,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy5(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18087,7 +18227,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateTodateWithConsultStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18122,7 +18262,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy6(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18164,7 +18304,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateWithDonateStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18204,7 +18344,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy7(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18236,7 +18376,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18266,7 +18406,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy8(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18303,7 +18443,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateDonateStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18338,7 +18478,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy9(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal CONSULING_ID As Decimal) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            Me.Adapter.SelectCommand = Me.CommandCollection(13)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18362,7 +18502,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetConsultWaitingWithID(ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal CONSULING_ID As Decimal) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            Me.Adapter.SelectCommand = Me.CommandCollection(13)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18384,7 +18524,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByByConsultFor(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(12)
+            Me.Adapter.SelectCommand = Me.CommandCollection(14)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18407,7 +18547,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByConsultFor(ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(12)
+            Me.Adapter.SelectCommand = Me.CommandCollection(14)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18428,7 +18568,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByConsultID(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal CONSULING_ID As Decimal) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(13)
+            Me.Adapter.SelectCommand = Me.CommandCollection(15)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(CONSULING_ID,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -18441,7 +18581,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByConsultID(ByVal CONSULING_ID As Decimal) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(13)
+            Me.Adapter.SelectCommand = Me.CommandCollection(15)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(CONSULING_ID,Decimal)
             Dim dataTable As DSConsult.V_CONSULTINGDataTable = New DSConsult.V_CONSULTINGDataTable
             Me.Adapter.Fill(dataTable)
@@ -18452,7 +18592,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByDateToDate(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(14)
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18474,7 +18614,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDate(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(14)
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18494,7 +18634,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByDateToDateApprove(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18521,7 +18661,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateApprove(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18546,7 +18686,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByDateToDateWithPNo(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (DFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(DFrom.Value,Date)
@@ -18569,7 +18709,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateWithPNo(ByVal PatientNo As Decimal, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (DFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(DFrom.Value,Date)
