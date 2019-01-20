@@ -1079,7 +1079,7 @@ Public Class frmInpatientReceipt
                     IIf(Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True, "1", "0"), IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                     IIf(Me.chkSocialFee.Checked = False, 1, 0), "IR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value.Date, Format(Date.Now(), "MM/dd/yyyy"), _
                     Me.txtOperation.Text, ChDonation.Checked, CboDonation.SelectedValue, CboDonation.Text, EmptyString(TxtDonationPay.Text), TxtDonateNote.Text, EmptyString(TxtHospitalFee.Text), CashTotalDolar)
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Edit In-patient receipt", " Patient No:" & txtHN.Text & " Patient Name:" & txtPatient.Text & " Invoice date: " & dtpDateIn.Value.Date & " update note: amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & USER_NAME, "Referent:" & txtReceiptNumber.Text, "UPDATE")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Edit In-patient receipt", " Patient No:" & txtHN.Text & " Invoice date: " & dtpDateIn.Value.Date & " Amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & USER_NAME, txtReceiptNumber.Text, "UPDATE")
                 'Me.cmdPrint.Enabled = True
             End If
         End If

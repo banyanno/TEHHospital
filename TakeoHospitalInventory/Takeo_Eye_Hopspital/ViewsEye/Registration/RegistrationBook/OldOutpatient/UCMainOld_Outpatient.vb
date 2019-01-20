@@ -225,7 +225,7 @@ Public Class UCMainOld_Outpatient
             FDeleteNote.LblSaveOption.Text = NewOutNo
             If FDeleteNote.ShowDialog = DialogResult.OK Then
                 MsgBox("Patient canceled successful.", MsgBoxStyle.Information, "Cancel")
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Delete Note: " & FDeleteNote.TxtNote.Text & " By user:" & USER_NAME, "Referent:" & row.Cells("NewOutPatientNo").Value, "DELETED")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Delete Note: " & FDeleteNote.TxtNote.Text & " By user:" & USER_NAME, row.Cells("ReceiptNo").Value, "DELETED")
                 CallBgWork()
             End If
             'End If
@@ -261,7 +261,7 @@ Public Class UCMainOld_Outpatient
             If DIALOG_DELETE = DialogResult.Yes Then
                 If ModNew_Outpatient.UpdateToUndo(OldNo) = 1 Then
                     MsgBox("This patient undo.", MsgBoxStyle.Information, "undo")
-                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Undo :  By user:" & USER_NAME, "Referent:" & row.Cells("NewOutPatientNo").Value, "UPDATE")
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient book", " Patient No:" & row.Cells("PatientNo").Value.ToString & " Patient Name:" & row.Cells("NameEng").Value & " new regist Date: " & row.Cells("CreateDate").Value & " Undo :  By user:" & USER_NAME, row.Cells("ReceiptNo").Value, "UNDO")
                     CallBgWork()
                 Else
                     MsgBox("Undo not successful.", MsgBoxStyle.Critical, "Error")
@@ -776,7 +776,7 @@ Public Class UCMainOld_Outpatient
             FOld_Outpatient.ShowDialog()
             If FOld_Outpatient.isCloseOld = True Then
                 GridEXOldPatient.DataSource = ModOld_Outpatient.SelectOldDetailByReceiptNo(FOld_Outpatient.TxtReceiptNo.Text, FOld_Outpatient.TxtPatientNo.Text)
-
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient book", " Patient No:" & FOld_Outpatient.TxtPatientNo.Text & " Regist Date: " & FOld_Outpatient.DateFollowUp.Value.Date & " Amount:" & FOld_Outpatient.TxtPatientFee.Text & " " & IIf(FOld_Outpatient.RadioDolar.Checked = True, "$", "R") & " By user:" & USER_NAME, FOld_Outpatient.TxtReceiptNo.Text, "UPDATE")
             End If
         Catch ex As Exception
 

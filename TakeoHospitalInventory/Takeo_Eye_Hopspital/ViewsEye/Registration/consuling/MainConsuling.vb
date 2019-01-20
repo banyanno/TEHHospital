@@ -169,7 +169,7 @@
         FDeleteResion.LblConsultID.Text = GridConsulting.GetRow.Cells("CONSULING_ID").Value
         FDeleteResion.LblDelete.Text = 2
         If FDeleteResion.ShowDialog = DialogResult.OK Then
-            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Consoling", "Patient No:" & GridConsulting.GetRow.Cells("PatientNo").Value & "Patient Name:" & GridConsulting.GetRow.Cells("NameEng").Value & " Consoling Date: " & GridConsulting.GetRow.Cells("CONSULING_DATE").Value & " Consult for:  " & GridConsulting.GetRow.Cells("CONSULT_FOR").Value & " Delete Note: " & FDeleteResion.TxtConsultNote.Text & " By user:" & USER_NAME, "Referent:" & GridConsulting.GetRow.Cells("CONSULING_ID").Value, "DELETED")
+            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Counseling", "Patient No:" & GridConsulting.GetRow.Cells("PatientNo").Value & " " & GridConsulting.GetRow.Cells("CONSULING_DATE").Value & " " & GridConsulting.GetRow.Cells("CONSULT_FOR").Value & " " & FDeleteResion.TxtConsultNote.Text & " By user:" & USER_NAME, GridConsulting.GetRow.Cells("CONSULING_ID").Value, "DELETED")
             MEyeInventory.StatusLoading(True)
             TxtPatientNo.Text = GridConsulting.GetRow.Cells("PatientNo").Value
             ConViewer = 3
@@ -191,7 +191,7 @@
         FDeleteResion.LblConsultID.Text = GridConsulting.GetRow.Cells("CONSULING_ID").Value
         FDeleteResion.LblDelete.Text = 0
         If FDeleteResion.ShowDialog = DialogResult.OK Then
-            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Consoling", "Patient No:" & GridConsulting.GetRow.Cells("PatientNo").Value & "Patient Name:" & GridConsulting.GetRow.Cells("NameEng").Value & " Consoling Date: " & GridConsulting.GetRow.Cells("CONSULING_DATE").Value & " Consult for:  " & GridConsulting.GetRow.Cells("CONSULT_FOR").Value & " Update noted: " & FDeleteResion.TxtConsultNote.Text & " By user" & USER_NAME, "Referent:" & GridConsulting.GetRow.Cells("CONSULING_ID").Value, "UPDATE")
+            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Counseling", "Patient No:" & GridConsulting.GetRow.Cells("PatientNo").Value & "  " & GridConsulting.GetRow.Cells("CONSULING_DATE").Value & "   " & GridConsulting.GetRow.Cells("CONSULT_FOR").Value & "  " & FDeleteResion.TxtConsultNote.Text & " By user" & USER_NAME, GridConsulting.GetRow.Cells("CONSULING_ID").Value, "UNDO")
             MEyeInventory.StatusLoading(True)
             TxtPatientNo.Text = GridConsulting.GetRow.Cells("PatientNo").Value
             ConViewer = 3
@@ -330,6 +330,7 @@
                 NConsulting.TxtConsultNote.Text = GridConsulting.GetRow.Cells("CONSULTING_NOTE").Value
                 If NConsulting.ShowDialog() = DialogResult.OK Then
                     TxtPatientNo.Text = NConsulting.TxtPatientNo.Text
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Counseling", "Patient No:" & NConsulting.TxtPatientNo.Text & " Counseling Date: " & NConsulting.DateConsult.Value.Date & " Update noted: " & NConsulting.TxtConsultNote.Text & " By user" & USER_NAME, GridConsulting.GetRow.Cells("CONSULING_ID").Value, "UPDATE")
                     MEyeInventory.StatusLoading(True)
                     ConViewer = 3
                     BgLoadConsult.RunWorkerAsync()
@@ -433,6 +434,7 @@
                         NConsulting.TxtConsultNote.Text = GridConsulting.GetRow.Cells("CONSULTING_NOTE").Value
 
                         If NConsulting.ShowDialog() = DialogResult.OK Then
+                            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Counseling", "Patient No:" & NConsulting.TxtPatientNo.Text & " " & NConsulting.DateConsult.Value.Date & "  " & NConsulting.TxtDonateR.Text & " " & NConsulting.TxtConsultNote.Text & " By user" & USER_NAME, GridConsulting.GetRow.Cells("CONSULING_ID").Value, "UPDATE")
                             TxtPatientNo.Text = NConsulting.TxtPatientNo.Text
                             MEyeInventory.StatusLoading(True)
                             ConViewer = 3

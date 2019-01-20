@@ -517,7 +517,7 @@ Public Class frmNewOutpatientReceipt
                 Me.txtRate.Text, Me.txtAmountWord.Text, IIf(Me.rdConsultationR.Checked = True Or Me.rdConsultationD.Checked = True, "1", "0"), IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                 IIf(Me.chkSocialFee.Checked = False, 1, 0), "NR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value, Format(Date.Now(), "MM/dd/yyyy"))
                 'Me.cmdPrint.Enabled = True
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Edit New patient receipt", " Patient No:" & txtHN.Text & " Patient Name:" & txtPatient.Text & " Invoice date: " & dtpDateIn.Value.Date & " update note: amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & USER_NAME, "Referent:" & txtReceiptNumber.Text, "UPDATE")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Edit New patient receipt", " Patient No:" & txtHN.Text & " Invoice date: " & dtpDateIn.Value.Date & " Amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & USER_NAME, txtReceiptNumber.Text, "UPDATE")
             End If
         End If
     End Sub
