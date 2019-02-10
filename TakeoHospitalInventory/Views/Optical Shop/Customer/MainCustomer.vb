@@ -117,4 +117,20 @@
     Private Sub RadCustomerName_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadCustomerName.CheckedChanged
         TxtCustomerName.Text = ""
     End Sub
+
+    
+    Private Sub TxtCustomerName_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtCustomerName.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            BtnFind_Click(sender, e)
+            GridCustomer.Focus()
+            GridCustomer.Select()
+
+        End If
+    End Sub
+
+    Private Sub GridCustomer_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles GridCustomer.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            BtnOk_Click(sender, e)
+        End If
+    End Sub
 End Class

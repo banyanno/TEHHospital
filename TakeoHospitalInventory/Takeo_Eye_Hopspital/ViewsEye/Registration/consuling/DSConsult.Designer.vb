@@ -1854,6 +1854,8 @@ Partial Public Class DSConsult
         
         Private columnTIME_CREATE As Global.System.Data.DataColumn
         
+        Private columnCREATED_BY As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -2187,6 +2189,13 @@ Partial Public Class DSConsult
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CREATED_BYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCREATED_BY
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2258,9 +2267,10 @@ Partial Public Class DSConsult
                     ByVal Referal As String,  _
                     ByVal DR_ID As Decimal,  _
                     ByVal DR_NAME As String,  _
-                    ByVal TIME_CREATE As String) As CONSULINGRow
+                    ByVal TIME_CREATE As String,  _
+                    ByVal CREATED_BY As String) As CONSULINGRow
             Dim rowCONSULINGRow As CONSULINGRow = CType(Me.NewRow,CONSULINGRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, PATIENT_NO, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE}
+            Dim columnValuesArray() As Object = New Object() {Nothing, PATIENT_NO, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, CREATED_BY}
             rowCONSULINGRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCONSULINGRow)
             Return rowCONSULINGRow
@@ -2328,6 +2338,7 @@ Partial Public Class DSConsult
             Me.columnDR_ID = MyBase.Columns("DR_ID")
             Me.columnDR_NAME = MyBase.Columns("DR_NAME")
             Me.columnTIME_CREATE = MyBase.Columns("TIME_CREATE")
+            Me.columnCREATED_BY = MyBase.Columns("CREATED_BY")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2418,6 +2429,8 @@ Partial Public Class DSConsult
             MyBase.Columns.Add(Me.columnDR_NAME)
             Me.columnTIME_CREATE = New Global.System.Data.DataColumn("TIME_CREATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTIME_CREATE)
+            Me.columnCREATED_BY = New Global.System.Data.DataColumn("CREATED_BY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCREATED_BY)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCONSULING_ID}, true))
             Me.columnCONSULING_ID.AutoIncrement = true
             Me.columnCONSULING_ID.AutoIncrementSeed = -1
@@ -2450,6 +2463,7 @@ Partial Public Class DSConsult
             Me.columnReferal.MaxLength = 150
             Me.columnDR_NAME.MaxLength = 50
             Me.columnTIME_CREATE.MaxLength = 50
+            Me.columnCREATED_BY.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2696,6 +2710,8 @@ Partial Public Class DSConsult
         Private columnREGIS_VAOLD_PLAIN As Global.System.Data.DataColumn
         
         Private columnREGIS_VAOLD_ICPH As Global.System.Data.DataColumn
+        
+        Private columnCREATED_BY As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -3142,6 +3158,13 @@ Partial Public Class DSConsult
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CREATED_BYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCREATED_BY
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3230,9 +3253,10 @@ Partial Public Class DSConsult
                     ByVal REGIS_VAB_R_PLAIN As String,  _
                     ByVal REGIS_VAB_R_ICPH As String,  _
                     ByVal REGIS_VAOLD_PLAIN As String,  _
-                    ByVal REGIS_VAOLD_ICPH As String) As V_CONSULTINGRow
+                    ByVal REGIS_VAOLD_ICPH As String,  _
+                    ByVal CREATED_BY As String) As V_CONSULTINGRow
             Dim rowV_CONSULTINGRow As V_CONSULTINGRow = CType(Me.NewRow,V_CONSULTINGRow)
-            Dim columnValuesArray() As Object = New Object() {PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occupation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULING_ID, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH, REGIS_VAB_L_PLAIN, REGIS_VAB_L_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAOLD_PLAIN, REGIS_VAOLD_ICPH}
+            Dim columnValuesArray() As Object = New Object() {PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occupation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULING_ID, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH, REGIS_VAB_L_PLAIN, REGIS_VAB_L_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAOLD_PLAIN, REGIS_VAOLD_ICPH, CREATED_BY}
             rowV_CONSULTINGRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowV_CONSULTINGRow)
             Return rowV_CONSULTINGRow
@@ -3316,6 +3340,7 @@ Partial Public Class DSConsult
             Me.columnREGIS_VAB_R_ICPH = MyBase.Columns("REGIS_VAB_R_ICPH")
             Me.columnREGIS_VAOLD_PLAIN = MyBase.Columns("REGIS_VAOLD_PLAIN")
             Me.columnREGIS_VAOLD_ICPH = MyBase.Columns("REGIS_VAOLD_ICPH")
+            Me.columnCREATED_BY = MyBase.Columns("CREATED_BY")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3438,6 +3463,8 @@ Partial Public Class DSConsult
             MyBase.Columns.Add(Me.columnREGIS_VAOLD_PLAIN)
             Me.columnREGIS_VAOLD_ICPH = New Global.System.Data.DataColumn("REGIS_VAOLD_ICPH", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREGIS_VAOLD_ICPH)
+            Me.columnCREATED_BY = New Global.System.Data.DataColumn("CREATED_BY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCREATED_BY)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnPatientNo, Me.columnCONSULING_ID}, true))
             Me.columnPatientNo.AllowDBNull = false
             Me.columnNameEng.MaxLength = 50
@@ -3481,6 +3508,7 @@ Partial Public Class DSConsult
             Me.columnREGIS_VAB_R_ICPH.MaxLength = 50
             Me.columnREGIS_VAOLD_PLAIN.MaxLength = 50
             Me.columnREGIS_VAOLD_ICPH.MaxLength = 50
+            Me.columnCREATED_BY.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -7975,6 +8003,20 @@ Partial Public Class DSConsult
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CREATED_BY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSULING.CREATED_BYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CREATED_BY' in table 'CONSULING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSULING.CREATED_BYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsPATIENT_NONull() As Boolean
             Return Me.IsNull(Me.tableCONSULING.PATIENT_NOColumn)
         End Function
@@ -8392,6 +8434,16 @@ Partial Public Class DSConsult
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetTIME_CREATENull()
             Me(Me.tableCONSULING.TIME_CREATEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCREATED_BYNull() As Boolean
+            Return Me.IsNull(Me.tableCONSULING.CREATED_BYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCREATED_BYNull()
+            Me(Me.tableCONSULING.CREATED_BYColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -9230,6 +9282,20 @@ Partial Public Class DSConsult
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CREATED_BY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableV_CONSULTING.CREATED_BYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CREATED_BY' in table 'V_CONSULTING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableV_CONSULTING.CREATED_BYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNameEngNull() As Boolean
             Return Me.IsNull(Me.tableV_CONSULTING.NameEngColumn)
         End Function
@@ -9797,6 +9863,16 @@ Partial Public Class DSConsult
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetREGIS_VAOLD_ICPHNull()
             Me(Me.tableV_CONSULTING.REGIS_VAOLD_ICPHColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCREATED_BYNull() As Boolean
+            Return Me.IsNull(Me.tableV_CONSULTING.CREATED_BYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCREATED_BYNull()
+            Me(Me.tableV_CONSULTING.CREATED_BYColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -14530,6 +14606,7 @@ Namespace DSConsultTableAdapters
             tableMapping.ColumnMappings.Add("DR_ID", "DR_ID")
             tableMapping.ColumnMappings.Add("DR_NAME", "DR_NAME")
             tableMapping.ColumnMappings.Add("TIME_CREATE", "TIME_CREATE")
+            tableMapping.ColumnMappings.Add("CREATED_BY", "CREATED_BY")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -14584,7 +14661,8 @@ Namespace DSConsultTableAdapters
                 "L) OR ([Referal] = @Original_Referal)) AND ((@IsNull_DR_ID = 1 AND [DR_ID] IS NU"& _ 
                 "LL) OR ([DR_ID] = @Original_DR_ID)) AND ((@IsNull_DR_NAME = 1 AND [DR_NAME] IS N"& _ 
                 "ULL) OR ([DR_NAME] = @Original_DR_NAME)) AND ((@IsNull_TIME_CREATE = 1 AND [TIME"& _ 
-                "_CREATE] IS NULL) OR ([TIME_CREATE] = @Original_TIME_CREATE)))"
+                "_CREATE] IS NULL) OR ([TIME_CREATE] = @Original_TIME_CREATE)) AND ((@IsNull_CREA"& _ 
+                "TED_BY = 1 AND [CREATED_BY] IS NULL) OR ([CREATED_BY] = @Original_CREATED_BY)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -14634,7 +14712,7 @@ Namespace DSConsultTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DONATE_RIEL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DONATE_RIEL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DONATE_RIEL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DONATE_RIEL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DONATE_DOLAR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CONSULTING_NOTE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULTING_NOTE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONSULTING_NOTE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULTING_NOTE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_APROVE_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "APROVE_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -14644,7 +14722,7 @@ Namespace DSConsultTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CONSULT_FOR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FAMILY_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FAMILY_AGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_AGE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -14671,6 +14749,8 @@ Namespace DSConsultTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DR_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TIME_CREATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREATED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [CONSULING] ([PATIENT_NO], [DATE_CREATE], [CONSULING_DATE], [FAMILY_S"& _ 
@@ -14680,21 +14760,22 @@ Namespace DSConsultTableAdapters
                 "], [CONSULTING_NOTE], [APROVE_BY], [REQUEST_BY], [CONSULT_FOR], [PATIENT_PAY_DOL"& _ 
                 "AR], [FAMILY_NAME], [FAMILY_AGE], [FAMILY_SEX], [FAMILY_MONEY1], [FAMILY_STATUS1"& _ 
                 "], [FAMILY_RELATIVE_PATIENT], [FAMILY_OCCUPATION], [FAMILY_ADDRES], [ACCEPT_CONS"& _ 
-                "UL], [Referal], [DR_ID], [DR_NAME], [TIME_CREATE]) VALUES (@PATIENT_NO, @DATE_CR"& _ 
-                "EATE, @CONSULING_DATE, @FAMILY_STATUS, @FAMINLY_MONEY, @STATUS, @DIAGNOSIS1, @OP"& _ 
-                "ERATION1, @ORG, @ORG_GIVE, @ORG_NOTE, @CH1, @CH2, @CH3, @CH4, @CH5, @DIAGNOSIS2,"& _ 
-                " @OPERATION2, @EYE, @HOSPITAL_FEE, @DONATE_TYPE, @IS_RIEL_DOLAR, @DONATE_RIEL, @"& _ 
-                "DONATE_DOLAR, @CONSULTING_NOTE, @APROVE_BY, @REQUEST_BY, @CONSULT_FOR, @PATIENT_"& _ 
-                "PAY_DOLAR, @FAMILY_NAME, @FAMILY_AGE, @FAMILY_SEX, @FAMILY_MONEY1, @FAMILY_STATU"& _ 
-                "S1, @FAMILY_RELATIVE_PATIENT, @FAMILY_OCCUPATION, @FAMILY_ADDRES, @ACCEPT_CONSUL"& _ 
-                ", @Referal, @DR_ID, @DR_NAME, @TIME_CREATE);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CONSULING_ID, PATIENT_NO, D"& _ 
-                "ATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OP"& _ 
-                "ERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATIO"& _ 
-                "N2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CO"& _ 
-                "NSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAM"& _ 
-                "E, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIEN"& _ 
-                "T, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIM"& _ 
-                "E_CREATE FROM CONSULING WHERE (CONSULING_ID = SCOPE_IDENTITY())"
+                "UL], [Referal], [DR_ID], [DR_NAME], [TIME_CREATE], [CREATED_BY]) VALUES (@PATIEN"& _ 
+                "T_NO, @DATE_CREATE, @CONSULING_DATE, @FAMILY_STATUS, @FAMINLY_MONEY, @STATUS, @D"& _ 
+                "IAGNOSIS1, @OPERATION1, @ORG, @ORG_GIVE, @ORG_NOTE, @CH1, @CH2, @CH3, @CH4, @CH5"& _ 
+                ", @DIAGNOSIS2, @OPERATION2, @EYE, @HOSPITAL_FEE, @DONATE_TYPE, @IS_RIEL_DOLAR, @"& _ 
+                "DONATE_RIEL, @DONATE_DOLAR, @CONSULTING_NOTE, @APROVE_BY, @REQUEST_BY, @CONSULT_"& _ 
+                "FOR, @PATIENT_PAY_DOLAR, @FAMILY_NAME, @FAMILY_AGE, @FAMILY_SEX, @FAMILY_MONEY1,"& _ 
+                " @FAMILY_STATUS1, @FAMILY_RELATIVE_PATIENT, @FAMILY_OCCUPATION, @FAMILY_ADDRES, "& _ 
+                "@ACCEPT_CONSUL, @Referal, @DR_ID, @DR_NAME, @TIME_CREATE, @CREATED_BY);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT "& _ 
+                "CONSULING_ID, PATIENT_NO, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MO"& _ 
+                "NEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4"& _ 
+                ", CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DO"& _ 
+                "NATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PA"& _ 
+                "TIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STAT"& _ 
+                "US1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, R"& _ 
+                "eferal, DR_ID, DR_NAME, TIME_CREATE, CREATED_BY FROM CONSULING WHERE (CONSULING_"& _ 
+                "ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_CREATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14719,12 +14800,12 @@ Namespace DSConsultTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_TYPE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DONATE_TYPE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_RIEL_DOLAR", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_RIEL_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_RIEL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DONATE_RIEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULTING_NOTE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULTING_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@APROVE_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "APROVE_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REQUEST_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "REQUEST_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "FAMILY_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14738,6 +14819,7 @@ Namespace DSConsultTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [CONSULING] SET [PATIENT_NO] = @PATIENT_NO, [DATE_CREATE] = @DATE_CREATE, "& _ 
@@ -14754,66 +14836,68 @@ Namespace DSConsultTableAdapters
                 "NEY1] = @FAMILY_MONEY1, [FAMILY_STATUS1] = @FAMILY_STATUS1, [FAMILY_RELATIVE_PAT"& _ 
                 "IENT] = @FAMILY_RELATIVE_PATIENT, [FAMILY_OCCUPATION] = @FAMILY_OCCUPATION, [FAM"& _ 
                 "ILY_ADDRES] = @FAMILY_ADDRES, [ACCEPT_CONSUL] = @ACCEPT_CONSUL, [Referal] = @Ref"& _ 
-                "eral, [DR_ID] = @DR_ID, [DR_NAME] = @DR_NAME, [TIME_CREATE] = @TIME_CREATE WHERE"& _ 
-                " (([CONSULING_ID] = @Original_CONSULING_ID) AND ((@IsNull_PATIENT_NO = 1 AND [PA"& _ 
-                "TIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_DATE_"& _ 
-                "CREATE = 1 AND [DATE_CREATE] IS NULL) OR ([DATE_CREATE] = @Original_DATE_CREATE)"& _ 
-                ") AND ((@IsNull_CONSULING_DATE = 1 AND [CONSULING_DATE] IS NULL) OR ([CONSULING_"& _ 
-                "DATE] = @Original_CONSULING_DATE)) AND ((@IsNull_FAMILY_STATUS = 1 AND [FAMILY_S"& _ 
-                "TATUS] IS NULL) OR ([FAMILY_STATUS] = @Original_FAMILY_STATUS)) AND ((@IsNull_FA"& _ 
-                "MINLY_MONEY = 1 AND [FAMINLY_MONEY] IS NULL) OR ([FAMINLY_MONEY] = @Original_FAM"& _ 
-                "INLY_MONEY)) AND ((@IsNull_STATUS = 1 AND [STATUS] IS NULL) OR ([STATUS] = @Orig"& _ 
-                "inal_STATUS)) AND ((@IsNull_DIAGNOSIS1 = 1 AND [DIAGNOSIS1] IS NULL) OR ([DIAGNO"& _ 
-                "SIS1] = @Original_DIAGNOSIS1)) AND ((@IsNull_OPERATION1 = 1 AND [OPERATION1] IS "& _ 
-                "NULL) OR ([OPERATION1] = @Original_OPERATION1)) AND ((@IsNull_ORG = 1 AND [ORG] "& _ 
-                "IS NULL) OR ([ORG] = @Original_ORG)) AND ((@IsNull_ORG_GIVE = 1 AND [ORG_GIVE] I"& _ 
-                "S NULL) OR ([ORG_GIVE] = @Original_ORG_GIVE)) AND ((@IsNull_ORG_NOTE = 1 AND [OR"& _ 
-                "G_NOTE] IS NULL) OR ([ORG_NOTE] = @Original_ORG_NOTE)) AND ((@IsNull_CH1 = 1 AND"& _ 
-                " [CH1] IS NULL) OR ([CH1] = @Original_CH1)) AND ((@IsNull_CH2 = 1 AND [CH2] IS N"& _ 
-                "ULL) OR ([CH2] = @Original_CH2)) AND ((@IsNull_CH3 = 1 AND [CH3] IS NULL) OR ([C"& _ 
-                "H3] = @Original_CH3)) AND ((@IsNull_CH4 = 1 AND [CH4] IS NULL) OR ([CH4] = @Orig"& _ 
-                "inal_CH4)) AND ((@IsNull_CH5 = 1 AND [CH5] IS NULL) OR ([CH5] = @Original_CH5)) "& _ 
-                "AND ((@IsNull_DIAGNOSIS2 = 1 AND [DIAGNOSIS2] IS NULL) OR ([DIAGNOSIS2] = @Origi"& _ 
-                "nal_DIAGNOSIS2)) AND ((@IsNull_OPERATION2 = 1 AND [OPERATION2] IS NULL) OR ([OPE"& _ 
-                "RATION2] = @Original_OPERATION2)) AND ((@IsNull_EYE = 1 AND [EYE] IS NULL) OR (["& _ 
-                "EYE] = @Original_EYE)) AND ((@IsNull_HOSPITAL_FEE = 1 AND [HOSPITAL_FEE] IS NULL"& _ 
-                ") OR ([HOSPITAL_FEE] = @Original_HOSPITAL_FEE)) AND ((@IsNull_DONATE_TYPE = 1 AN"& _ 
-                "D [DONATE_TYPE] IS NULL) OR ([DONATE_TYPE] = @Original_DONATE_TYPE)) AND ((@IsNu"& _ 
-                "ll_IS_RIEL_DOLAR = 1 AND [IS_RIEL_DOLAR] IS NULL) OR ([IS_RIEL_DOLAR] = @Origina"& _ 
-                "l_IS_RIEL_DOLAR)) AND ((@IsNull_DONATE_RIEL = 1 AND [DONATE_RIEL] IS NULL) OR (["& _ 
-                "DONATE_RIEL] = @Original_DONATE_RIEL)) AND ((@IsNull_DONATE_DOLAR = 1 AND [DONAT"& _ 
-                "E_DOLAR] IS NULL) OR ([DONATE_DOLAR] = @Original_DONATE_DOLAR)) AND ((@IsNull_CO"& _ 
-                "NSULTING_NOTE = 1 AND [CONSULTING_NOTE] IS NULL) OR ([CONSULTING_NOTE] = @Origin"& _ 
-                "al_CONSULTING_NOTE)) AND ((@IsNull_APROVE_BY = 1 AND [APROVE_BY] IS NULL) OR ([A"& _ 
-                "PROVE_BY] = @Original_APROVE_BY)) AND ((@IsNull_REQUEST_BY = 1 AND [REQUEST_BY] "& _ 
-                "IS NULL) OR ([REQUEST_BY] = @Original_REQUEST_BY)) AND ((@IsNull_CONSULT_FOR = 1"& _ 
-                " AND [CONSULT_FOR] IS NULL) OR ([CONSULT_FOR] = @Original_CONSULT_FOR)) AND ((@I"& _ 
-                "sNull_PATIENT_PAY_DOLAR = 1 AND [PATIENT_PAY_DOLAR] IS NULL) OR ([PATIENT_PAY_DO"& _ 
-                "LAR] = @Original_PATIENT_PAY_DOLAR)) AND ((@IsNull_FAMILY_NAME = 1 AND [FAMILY_N"& _ 
-                "AME] IS NULL) OR ([FAMILY_NAME] = @Original_FAMILY_NAME)) AND ((@IsNull_FAMILY_A"& _ 
-                "GE = 1 AND [FAMILY_AGE] IS NULL) OR ([FAMILY_AGE] = @Original_FAMILY_AGE)) AND ("& _ 
-                "(@IsNull_FAMILY_SEX = 1 AND [FAMILY_SEX] IS NULL) OR ([FAMILY_SEX] = @Original_F"& _ 
-                "AMILY_SEX)) AND ((@IsNull_FAMILY_MONEY1 = 1 AND [FAMILY_MONEY1] IS NULL) OR ([FA"& _ 
-                "MILY_MONEY1] = @Original_FAMILY_MONEY1)) AND ((@IsNull_FAMILY_STATUS1 = 1 AND [F"& _ 
-                "AMILY_STATUS1] IS NULL) OR ([FAMILY_STATUS1] = @Original_FAMILY_STATUS1)) AND (("& _ 
-                "@IsNull_FAMILY_RELATIVE_PATIENT = 1 AND [FAMILY_RELATIVE_PATIENT] IS NULL) OR (["& _ 
-                "FAMILY_RELATIVE_PATIENT] = @Original_FAMILY_RELATIVE_PATIENT)) AND ((@IsNull_FAM"& _ 
-                "ILY_OCCUPATION = 1 AND [FAMILY_OCCUPATION] IS NULL) OR ([FAMILY_OCCUPATION] = @O"& _ 
-                "riginal_FAMILY_OCCUPATION)) AND ((@IsNull_FAMILY_ADDRES = 1 AND [FAMILY_ADDRES] "& _ 
-                "IS NULL) OR ([FAMILY_ADDRES] = @Original_FAMILY_ADDRES)) AND ((@IsNull_ACCEPT_CO"& _ 
-                "NSUL = 1 AND [ACCEPT_CONSUL] IS NULL) OR ([ACCEPT_CONSUL] = @Original_ACCEPT_CON"& _ 
-                "SUL)) AND ((@IsNull_Referal = 1 AND [Referal] IS NULL) OR ([Referal] = @Original"& _ 
-                "_Referal)) AND ((@IsNull_DR_ID = 1 AND [DR_ID] IS NULL) OR ([DR_ID] = @Original_"& _ 
-                "DR_ID)) AND ((@IsNull_DR_NAME = 1 AND [DR_NAME] IS NULL) OR ([DR_NAME] = @Origin"& _ 
-                "al_DR_NAME)) AND ((@IsNull_TIME_CREATE = 1 AND [TIME_CREATE] IS NULL) OR ([TIME_"& _ 
-                "CREATE] = @Original_TIME_CREATE)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CONSULING_ID, PATIENT_NO, DATE_CREAT"& _ 
-                "E, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1,"& _ 
-                " ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, "& _ 
-                "HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_"& _ 
-                "NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY"& _ 
-                "_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY"& _ 
-                "_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE "& _ 
-                "FROM CONSULING WHERE (CONSULING_ID = @CONSULING_ID)"
+                "eral, [DR_ID] = @DR_ID, [DR_NAME] = @DR_NAME, [TIME_CREATE] = @TIME_CREATE, [CRE"& _ 
+                "ATED_BY] = @CREATED_BY WHERE (([CONSULING_ID] = @Original_CONSULING_ID) AND ((@I"& _ 
+                "sNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATI"& _ 
+                "ENT_NO)) AND ((@IsNull_DATE_CREATE = 1 AND [DATE_CREATE] IS NULL) OR ([DATE_CREA"& _ 
+                "TE] = @Original_DATE_CREATE)) AND ((@IsNull_CONSULING_DATE = 1 AND [CONSULING_DA"& _ 
+                "TE] IS NULL) OR ([CONSULING_DATE] = @Original_CONSULING_DATE)) AND ((@IsNull_FAM"& _ 
+                "ILY_STATUS = 1 AND [FAMILY_STATUS] IS NULL) OR ([FAMILY_STATUS] = @Original_FAMI"& _ 
+                "LY_STATUS)) AND ((@IsNull_FAMINLY_MONEY = 1 AND [FAMINLY_MONEY] IS NULL) OR ([FA"& _ 
+                "MINLY_MONEY] = @Original_FAMINLY_MONEY)) AND ((@IsNull_STATUS = 1 AND [STATUS] I"& _ 
+                "S NULL) OR ([STATUS] = @Original_STATUS)) AND ((@IsNull_DIAGNOSIS1 = 1 AND [DIAG"& _ 
+                "NOSIS1] IS NULL) OR ([DIAGNOSIS1] = @Original_DIAGNOSIS1)) AND ((@IsNull_OPERATI"& _ 
+                "ON1 = 1 AND [OPERATION1] IS NULL) OR ([OPERATION1] = @Original_OPERATION1)) AND "& _ 
+                "((@IsNull_ORG = 1 AND [ORG] IS NULL) OR ([ORG] = @Original_ORG)) AND ((@IsNull_O"& _ 
+                "RG_GIVE = 1 AND [ORG_GIVE] IS NULL) OR ([ORG_GIVE] = @Original_ORG_GIVE)) AND (("& _ 
+                "@IsNull_ORG_NOTE = 1 AND [ORG_NOTE] IS NULL) OR ([ORG_NOTE] = @Original_ORG_NOTE"& _ 
+                ")) AND ((@IsNull_CH1 = 1 AND [CH1] IS NULL) OR ([CH1] = @Original_CH1)) AND ((@I"& _ 
+                "sNull_CH2 = 1 AND [CH2] IS NULL) OR ([CH2] = @Original_CH2)) AND ((@IsNull_CH3 ="& _ 
+                " 1 AND [CH3] IS NULL) OR ([CH3] = @Original_CH3)) AND ((@IsNull_CH4 = 1 AND [CH4"& _ 
+                "] IS NULL) OR ([CH4] = @Original_CH4)) AND ((@IsNull_CH5 = 1 AND [CH5] IS NULL) "& _ 
+                "OR ([CH5] = @Original_CH5)) AND ((@IsNull_DIAGNOSIS2 = 1 AND [DIAGNOSIS2] IS NUL"& _ 
+                "L) OR ([DIAGNOSIS2] = @Original_DIAGNOSIS2)) AND ((@IsNull_OPERATION2 = 1 AND [O"& _ 
+                "PERATION2] IS NULL) OR ([OPERATION2] = @Original_OPERATION2)) AND ((@IsNull_EYE "& _ 
+                "= 1 AND [EYE] IS NULL) OR ([EYE] = @Original_EYE)) AND ((@IsNull_HOSPITAL_FEE = "& _ 
+                "1 AND [HOSPITAL_FEE] IS NULL) OR ([HOSPITAL_FEE] = @Original_HOSPITAL_FEE)) AND "& _ 
+                "((@IsNull_DONATE_TYPE = 1 AND [DONATE_TYPE] IS NULL) OR ([DONATE_TYPE] = @Origin"& _ 
+                "al_DONATE_TYPE)) AND ((@IsNull_IS_RIEL_DOLAR = 1 AND [IS_RIEL_DOLAR] IS NULL) OR"& _ 
+                " ([IS_RIEL_DOLAR] = @Original_IS_RIEL_DOLAR)) AND ((@IsNull_DONATE_RIEL = 1 AND "& _ 
+                "[DONATE_RIEL] IS NULL) OR ([DONATE_RIEL] = @Original_DONATE_RIEL)) AND ((@IsNull"& _ 
+                "_DONATE_DOLAR = 1 AND [DONATE_DOLAR] IS NULL) OR ([DONATE_DOLAR] = @Original_DON"& _ 
+                "ATE_DOLAR)) AND ((@IsNull_CONSULTING_NOTE = 1 AND [CONSULTING_NOTE] IS NULL) OR "& _ 
+                "([CONSULTING_NOTE] = @Original_CONSULTING_NOTE)) AND ((@IsNull_APROVE_BY = 1 AND"& _ 
+                " [APROVE_BY] IS NULL) OR ([APROVE_BY] = @Original_APROVE_BY)) AND ((@IsNull_REQU"& _ 
+                "EST_BY = 1 AND [REQUEST_BY] IS NULL) OR ([REQUEST_BY] = @Original_REQUEST_BY)) A"& _ 
+                "ND ((@IsNull_CONSULT_FOR = 1 AND [CONSULT_FOR] IS NULL) OR ([CONSULT_FOR] = @Ori"& _ 
+                "ginal_CONSULT_FOR)) AND ((@IsNull_PATIENT_PAY_DOLAR = 1 AND [PATIENT_PAY_DOLAR] "& _ 
+                "IS NULL) OR ([PATIENT_PAY_DOLAR] = @Original_PATIENT_PAY_DOLAR)) AND ((@IsNull_F"& _ 
+                "AMILY_NAME = 1 AND [FAMILY_NAME] IS NULL) OR ([FAMILY_NAME] = @Original_FAMILY_N"& _ 
+                "AME)) AND ((@IsNull_FAMILY_AGE = 1 AND [FAMILY_AGE] IS NULL) OR ([FAMILY_AGE] = "& _ 
+                "@Original_FAMILY_AGE)) AND ((@IsNull_FAMILY_SEX = 1 AND [FAMILY_SEX] IS NULL) OR"& _ 
+                " ([FAMILY_SEX] = @Original_FAMILY_SEX)) AND ((@IsNull_FAMILY_MONEY1 = 1 AND [FAM"& _ 
+                "ILY_MONEY1] IS NULL) OR ([FAMILY_MONEY1] = @Original_FAMILY_MONEY1)) AND ((@IsNu"& _ 
+                "ll_FAMILY_STATUS1 = 1 AND [FAMILY_STATUS1] IS NULL) OR ([FAMILY_STATUS1] = @Orig"& _ 
+                "inal_FAMILY_STATUS1)) AND ((@IsNull_FAMILY_RELATIVE_PATIENT = 1 AND [FAMILY_RELA"& _ 
+                "TIVE_PATIENT] IS NULL) OR ([FAMILY_RELATIVE_PATIENT] = @Original_FAMILY_RELATIVE"& _ 
+                "_PATIENT)) AND ((@IsNull_FAMILY_OCCUPATION = 1 AND [FAMILY_OCCUPATION] IS NULL) "& _ 
+                "OR ([FAMILY_OCCUPATION] = @Original_FAMILY_OCCUPATION)) AND ((@IsNull_FAMILY_ADD"& _ 
+                "RES = 1 AND [FAMILY_ADDRES] IS NULL) OR ([FAMILY_ADDRES] = @Original_FAMILY_ADDR"& _ 
+                "ES)) AND ((@IsNull_ACCEPT_CONSUL = 1 AND [ACCEPT_CONSUL] IS NULL) OR ([ACCEPT_CO"& _ 
+                "NSUL] = @Original_ACCEPT_CONSUL)) AND ((@IsNull_Referal = 1 AND [Referal] IS NUL"& _ 
+                "L) OR ([Referal] = @Original_Referal)) AND ((@IsNull_DR_ID = 1 AND [DR_ID] IS NU"& _ 
+                "LL) OR ([DR_ID] = @Original_DR_ID)) AND ((@IsNull_DR_NAME = 1 AND [DR_NAME] IS N"& _ 
+                "ULL) OR ([DR_NAME] = @Original_DR_NAME)) AND ((@IsNull_TIME_CREATE = 1 AND [TIME"& _ 
+                "_CREATE] IS NULL) OR ([TIME_CREATE] = @Original_TIME_CREATE)) AND ((@IsNull_CREA"& _ 
+                "TED_BY = 1 AND [CREATED_BY] IS NULL) OR ([CREATED_BY] = @Original_CREATED_BY)));"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CONSULING_ID, PATIENT_NO, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, F"& _ 
+                "AMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2,"& _ 
+                " CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_"& _ 
+                "DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSUL"& _ 
+                "T_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FA"& _ 
+                "MILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_"& _ 
+                "CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, CREATED_BY FROM CONSULING WHERE (C"& _ 
+                "ONSULING_ID = @CONSULING_ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_CREATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14838,12 +14922,12 @@ Namespace DSConsultTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_TYPE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DONATE_TYPE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_RIEL_DOLAR", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_RIEL_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_RIEL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DONATE_RIEL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULTING_NOTE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULTING_NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@APROVE_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "APROVE_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REQUEST_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "REQUEST_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "FAMILY_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14857,6 +14941,7 @@ Namespace DSConsultTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -14905,7 +14990,7 @@ Namespace DSConsultTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DONATE_RIEL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DONATE_RIEL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DONATE_RIEL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DONATE_RIEL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DONATE_DOLAR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DONATE_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "DONATE_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CONSULTING_NOTE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULTING_NOTE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONSULTING_NOTE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULTING_NOTE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_APROVE_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "APROVE_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -14915,7 +15000,7 @@ Namespace DSConsultTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CONSULT_FOR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_PAY_DOLAR", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 3, "PATIENT_PAY_DOLAR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FAMILY_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FAMILY_AGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_AGE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -14942,6 +15027,8 @@ Namespace DSConsultTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DR_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TIME_CREATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREATED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -14963,7 +15050,7 @@ Namespace DSConsultTableAdapters
                 ", APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE"& _ 
                 ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_R"& _ 
                 "ELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID"& _ 
-                ", DR_NAME, TIME_CREATE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONSULING"
+                ", DR_NAME, TIME_CREATE, CREATED_BY"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONSULING"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
@@ -14976,14 +15063,14 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, CH1, CH2, CH3, CH4, CH5, CONSULING_DATE, CONSULI"& _ 
-                "NG_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAGNOSIS2, DONATE"& _ 
-                "_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDRES, FAMILY_AGE"& _ 
-                ", FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_PATIENT, FAMILY"& _ 
-                "_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, HOSPITAL_FEE, IS_RIEL_DOLAR,"& _ 
-                " OPERATION1, OPERATION2, ORG, ORG_GIVE, ORG_NOTE, PATIENT_NO, PATIENT_PAY_DOLAR,"& _ 
-                " REQUEST_BY, Referal, STATUS, TIME_CREATE FROM CONSULING WHERE (CONSULING_DATE ="& _ 
-                " @CONSULING_DATE) AND (PATIENT_NO = @PATIENT_NO) AND (DIAGNOSIS2 = @DIAGNOSIS2) "& _ 
-                "AND (OPERATION2 = @OPERATION2) AND (EYE = @EYE)"
+                "NG_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAGNOSIS1, DIAGNO"& _ 
+                "SIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDRES"& _ 
+                ", FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_PAT"& _ 
+                "IENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, HOSPITAL_FEE, IS"& _ 
+                "_RIEL_DOLAR, OPERATION1, OPERATION2, ORG, ORG_GIVE, ORG_NOTE, PATIENT_NO, PATIEN"& _ 
+                "T_PAY_DOLAR, REQUEST_BY, Referal, STATUS, TIME_CREATE FROM CONSULING WHERE (CONS"& _ 
+                "ULING_DATE = @CONSULING_DATE) AND (PATIENT_NO = @PATIENT_NO) AND (DIAGNOSIS2 = @"& _ 
+                "DIAGNOSIS2) AND (OPERATION2 = @OPERATION2) AND (EYE = @EYE)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_DATE", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14999,14 +15086,14 @@ Namespace DSConsultTableAdapters
                 "OLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FA"& _ 
                 "MILY_NAME, FAMILY_AGE, FAMILY_SEX, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FAMILY_MONEY1, FAM"& _ 
                 "ILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_C"& _ 
-                "ONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@PATIENT_NO,@DATE_C"& _ 
-                "REATE,@CONSULING_DATE,@FAMILY_STATUS,@FAMINLY_MONEY,@STATUS,@DIAGNOSIS1,@OPERATI"& _ 
-                "ON1,@ORG,@ORG_GIVE,@ORG_NOTE,@CH1,@CH2,@CH3,@CH4,@CH5,@DIAGNOSIS2,@OPERATION2,@E"& _ 
-                "YE,@HOSPITAL_FEE,@DONATE_TYPE,@IS_RIEL_DOLAR,@DONATE_RIEL,@DONATE_DOLAR,@CONSULT"& _ 
-                "ING_NOTE,@APROVE_BY,@REQUEST_BY,@CONSULT_FOR,@PATIENT_PAY_DOLAR,@FAMILY_NAME,@FA"& _ 
-                "MILY_AGE,@FAMILY_SEX,@FAMILY_MONEY1,@FAMILY_STATUS1,@FAMILY_RELATIVE_PATIENT,@FA"& _ 
-                "MILY_OCCUPATION,@FAMILY_ADDRES,@ACCEPT_CONSUL,@Referal,@DR_ID,@DR_NAME,@TIME_CRE"& _ 
-                "ATE);       "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "ONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, CREATED_BY)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@PATIEN"& _ 
+                "T_NO,@DATE_CREATE,@CONSULING_DATE,@FAMILY_STATUS,@FAMINLY_MONEY,@STATUS,@DIAGNOS"& _ 
+                "IS1,@OPERATION1,@ORG,@ORG_GIVE,@ORG_NOTE,@CH1,@CH2,@CH3,@CH4,@CH5,@DIAGNOSIS2,@O"& _ 
+                "PERATION2,@EYE,@HOSPITAL_FEE,@DONATE_TYPE,@IS_RIEL_DOLAR,@DONATE_RIEL,@DONATE_DO"& _ 
+                "LAR,@CONSULTING_NOTE,@APROVE_BY,@REQUEST_BY,@CONSULT_FOR,@PATIENT_PAY_DOLAR,@FAM"& _ 
+                "ILY_NAME,@FAMILY_AGE,@FAMILY_SEX,@FAMILY_MONEY1,@FAMILY_STATUS1,@FAMILY_RELATIVE"& _ 
+                "_PATIENT,@FAMILY_OCCUPATION,@FAMILY_ADDRES,@ACCEPT_CONSUL,@Referal,@DR_ID,@DR_NA"& _ 
+                "ME,@TIME_CREATE,@CREATED_BY);        "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_CREATE", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -15050,6 +15137,7 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TIME_CREATE", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "TIME_CREATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "UPDATE       CONSULING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                PATIENT_NO = @PATIENT_NO, DATE_CREATE "& _ 
@@ -15283,7 +15371,8 @@ Namespace DSConsultTableAdapters
                     ByVal Original_Referal As String,  _
                     ByVal Original_DR_ID As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_DR_NAME As String,  _
-                    ByVal Original_TIME_CREATE As String) As Integer
+                    ByVal Original_TIME_CREATE As String,  _
+                    ByVal Original_CREATED_BY As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CONSULING_ID,Decimal)
             If (Original_PATIENT_NO.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -15579,6 +15668,13 @@ Namespace DSConsultTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(83).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(84).Value = CType(Original_TIME_CREATE,String)
             End If
+            If (Original_CREATED_BY Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(86).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(86).Value = CType(Original_CREATED_BY,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -15639,7 +15735,8 @@ Namespace DSConsultTableAdapters
                     ByVal Referal As String,  _
                     ByVal DR_ID As Global.System.Nullable(Of Decimal),  _
                     ByVal DR_NAME As String,  _
-                    ByVal TIME_CREATE As String) As Integer
+                    ByVal TIME_CREATE As String,  _
+                    ByVal CREATED_BY As String) As Integer
             If (PATIENT_NO.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(PATIENT_NO.Value,Decimal)
             Else
@@ -15850,6 +15947,11 @@ Namespace DSConsultTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(41).Value = CType(TIME_CREATE,String)
             End If
+            If (CREATED_BY Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(42).Value = CType(CREATED_BY,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -15911,6 +16013,7 @@ Namespace DSConsultTableAdapters
                     ByVal DR_ID As Global.System.Nullable(Of Decimal),  _
                     ByVal DR_NAME As String,  _
                     ByVal TIME_CREATE As String,  _
+                    ByVal CREATED_BY As String,  _
                     ByVal Original_CONSULING_ID As Decimal,  _
                     ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_DATE_CREATE As Global.System.Nullable(Of Date),  _
@@ -15954,6 +16057,7 @@ Namespace DSConsultTableAdapters
                     ByVal Original_DR_ID As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_DR_NAME As String,  _
                     ByVal Original_TIME_CREATE As String,  _
+                    ByVal Original_CREATED_BY As String,  _
                     ByVal CONSULING_ID As Decimal) As Integer
             If (PATIENT_NO.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(PATIENT_NO.Value,Decimal)
@@ -16165,302 +16269,314 @@ Namespace DSConsultTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(41).Value = CType(TIME_CREATE,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_CONSULING_ID,Decimal)
-            If (Original_PATIENT_NO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_PATIENT_NO.Value,Decimal)
+            If (CREATED_BY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(CREATED_BY,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_CONSULING_ID,Decimal)
+            If (Original_PATIENT_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_PATIENT_NO.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
             If (Original_DATE_CREATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_DATE_CREATE.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_DATE_CREATE.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             End If
             If (Original_CONSULING_DATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_CONSULING_DATE.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_CONSULING_DATE.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             End If
             If (Original_FAMILY_STATUS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_FAMILY_STATUS,String)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_FAMILY_STATUS,String)
             End If
             If (Original_FAMINLY_MONEY Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_FAMINLY_MONEY,String)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_FAMINLY_MONEY,String)
             End If
             If (Original_STATUS.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_STATUS.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_STATUS.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             End If
             If (Original_DIAGNOSIS1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_DIAGNOSIS1,String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_DIAGNOSIS1,String)
             End If
             If (Original_OPERATION1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_OPERATION1,String)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_OPERATION1,String)
             End If
             If (Original_ORG Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_ORG,String)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_ORG,String)
             End If
             If (Original_ORG_GIVE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_ORG_GIVE,String)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_ORG_GIVE,String)
             End If
             If (Original_ORG_NOTE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_ORG_NOTE,String)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_ORG_NOTE,String)
             End If
             If (Original_CH1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_CH1.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_CH1.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
             End If
             If (Original_CH2.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_CH2.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_CH2.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
             End If
             If (Original_CH3.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_CH3.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_CH3.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
             End If
             If (Original_CH4.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_CH4.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_CH4.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
             End If
             If (Original_CH5.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_CH5.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_CH5.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
             End If
             If (Original_DIAGNOSIS2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_DIAGNOSIS2,String)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_DIAGNOSIS2,String)
             End If
             If (Original_OPERATION2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_OPERATION2,String)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_OPERATION2,String)
             End If
             If (Original_EYE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_EYE,String)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_EYE,String)
             End If
             If (Original_HOSPITAL_FEE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_HOSPITAL_FEE.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_HOSPITAL_FEE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
             End If
             If (Original_DONATE_TYPE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_DONATE_TYPE,String)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_DONATE_TYPE,String)
             End If
             If (Original_IS_RIEL_DOLAR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_IS_RIEL_DOLAR.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_IS_RIEL_DOLAR.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = Global.System.DBNull.Value
             End If
             If (Original_DONATE_RIEL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_DONATE_RIEL.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_DONATE_RIEL.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = Global.System.DBNull.Value
             End If
             If (Original_DONATE_DOLAR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_DONATE_DOLAR.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_DONATE_DOLAR.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = Global.System.DBNull.Value
             End If
             If (Original_CONSULTING_NOTE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_CONSULTING_NOTE,String)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_CONSULTING_NOTE,String)
             End If
             If (Original_APROVE_BY Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_APROVE_BY,String)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_APROVE_BY,String)
             End If
             If (Original_REQUEST_BY Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_REQUEST_BY,String)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_REQUEST_BY,String)
             End If
             If (Original_CONSULT_FOR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_CONSULT_FOR,String)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_CONSULT_FOR,String)
             End If
             If (Original_PATIENT_PAY_DOLAR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_PATIENT_PAY_DOLAR.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_PATIENT_PAY_DOLAR.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = Global.System.DBNull.Value
             End If
             If (Original_FAMILY_NAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_FAMILY_NAME,String)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_FAMILY_NAME,String)
             End If
             If (Original_FAMILY_AGE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_FAMILY_AGE.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_FAMILY_AGE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = Global.System.DBNull.Value
             End If
             If (Original_FAMILY_SEX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_FAMILY_SEX,String)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_FAMILY_SEX,String)
             End If
             If (Original_FAMILY_MONEY1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_FAMILY_MONEY1,String)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_FAMILY_MONEY1,String)
             End If
             If (Original_FAMILY_STATUS1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_FAMILY_STATUS1,String)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_FAMILY_STATUS1,String)
             End If
             If (Original_FAMILY_RELATIVE_PATIENT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_FAMILY_RELATIVE_PATIENT,String)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_FAMILY_RELATIVE_PATIENT,String)
             End If
             If (Original_FAMILY_OCCUPATION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_FAMILY_OCCUPATION,String)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_FAMILY_OCCUPATION,String)
             End If
             If (Original_FAMILY_ADDRES Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(117).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_FAMILY_ADDRES,String)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(Original_FAMILY_ADDRES,String)
             End If
             If (Original_ACCEPT_CONSUL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_ACCEPT_CONSUL.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(Original_ACCEPT_CONSUL.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(119).Value = Global.System.DBNull.Value
             End If
             If (Original_Referal Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(121).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_Referal,String)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(Original_Referal,String)
             End If
             If (Original_DR_ID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_DR_ID.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(Original_DR_ID.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(123).Value = Global.System.DBNull.Value
             End If
             If (Original_DR_NAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(125).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_DR_NAME,String)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(Original_DR_NAME,String)
             End If
             If (Original_TIME_CREATE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(127).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_TIME_CREATE,String)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(Original_TIME_CREATE,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(127).Value = CType(CONSULING_ID,Decimal)
+            If (Original_CREATED_BY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(129).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(Original_CREATED_BY,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(130).Value = CType(CONSULING_ID,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -16522,6 +16638,7 @@ Namespace DSConsultTableAdapters
                     ByVal DR_ID As Global.System.Nullable(Of Decimal),  _
                     ByVal DR_NAME As String,  _
                     ByVal TIME_CREATE As String,  _
+                    ByVal CREATED_BY As String,  _
                     ByVal Original_CONSULING_ID As Decimal,  _
                     ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_DATE_CREATE As Global.System.Nullable(Of Date),  _
@@ -16564,8 +16681,9 @@ Namespace DSConsultTableAdapters
                     ByVal Original_Referal As String,  _
                     ByVal Original_DR_ID As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_DR_NAME As String,  _
-                    ByVal Original_TIME_CREATE As String) As Integer
-            Return Me.Update(PATIENT_NO, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, Original_CONSULING_ID, Original_PATIENT_NO, Original_DATE_CREATE, Original_CONSULING_DATE, Original_FAMILY_STATUS, Original_FAMINLY_MONEY, Original_STATUS, Original_DIAGNOSIS1, Original_OPERATION1, Original_ORG, Original_ORG_GIVE, Original_ORG_NOTE, Original_CH1, Original_CH2, Original_CH3, Original_CH4, Original_CH5, Original_DIAGNOSIS2, Original_OPERATION2, Original_EYE, Original_HOSPITAL_FEE, Original_DONATE_TYPE, Original_IS_RIEL_DOLAR, Original_DONATE_RIEL, Original_DONATE_DOLAR, Original_CONSULTING_NOTE, Original_APROVE_BY, Original_REQUEST_BY, Original_CONSULT_FOR, Original_PATIENT_PAY_DOLAR, Original_FAMILY_NAME, Original_FAMILY_AGE, Original_FAMILY_SEX, Original_FAMILY_MONEY1, Original_FAMILY_STATUS1, Original_FAMILY_RELATIVE_PATIENT, Original_FAMILY_OCCUPATION, Original_FAMILY_ADDRES, Original_ACCEPT_CONSUL, Original_Referal, Original_DR_ID, Original_DR_NAME, Original_TIME_CREATE, Original_CONSULING_ID)
+                    ByVal Original_TIME_CREATE As String,  _
+                    ByVal Original_CREATED_BY As String) As Integer
+            Return Me.Update(PATIENT_NO, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAGNOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, CH1, CH2, CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME, FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT, FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, DR_ID, DR_NAME, TIME_CREATE, CREATED_BY, Original_CONSULING_ID, Original_PATIENT_NO, Original_DATE_CREATE, Original_CONSULING_DATE, Original_FAMILY_STATUS, Original_FAMINLY_MONEY, Original_STATUS, Original_DIAGNOSIS1, Original_OPERATION1, Original_ORG, Original_ORG_GIVE, Original_ORG_NOTE, Original_CH1, Original_CH2, Original_CH3, Original_CH4, Original_CH5, Original_DIAGNOSIS2, Original_OPERATION2, Original_EYE, Original_HOSPITAL_FEE, Original_DONATE_TYPE, Original_IS_RIEL_DOLAR, Original_DONATE_RIEL, Original_DONATE_DOLAR, Original_CONSULTING_NOTE, Original_APROVE_BY, Original_REQUEST_BY, Original_CONSULT_FOR, Original_PATIENT_PAY_DOLAR, Original_FAMILY_NAME, Original_FAMILY_AGE, Original_FAMILY_SEX, Original_FAMILY_MONEY1, Original_FAMILY_STATUS1, Original_FAMILY_RELATIVE_PATIENT, Original_FAMILY_OCCUPATION, Original_FAMILY_ADDRES, Original_ACCEPT_CONSUL, Original_Referal, Original_DR_ID, Original_DR_NAME, Original_TIME_CREATE, Original_CREATED_BY, Original_CONSULING_ID)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16645,7 +16763,8 @@ Namespace DSConsultTableAdapters
                     ByVal Referal As String,  _
                     ByVal DR_ID As Global.System.Nullable(Of Decimal),  _
                     ByVal DR_NAME As String,  _
-                    ByVal TIME_CREATE As String) As Integer
+                    ByVal TIME_CREATE As String,  _
+                    ByVal CREATED_BY As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
             If (PATIENT_NO.HasValue = true) Then
                 command.Parameters(0).Value = CType(PATIENT_NO.Value,Decimal)
@@ -16856,6 +16975,11 @@ Namespace DSConsultTableAdapters
                 command.Parameters(41).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(41).Value = CType(TIME_CREATE,String)
+            End If
+            If (CREATED_BY Is Nothing) Then
+                command.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(42).Value = CType(CREATED_BY,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -17338,6 +17462,7 @@ Namespace DSConsultTableAdapters
             tableMapping.ColumnMappings.Add("REGIS_VAB_R_ICPH", "REGIS_VAB_R_ICPH")
             tableMapping.ColumnMappings.Add("REGIS_VAOLD_PLAIN", "REGIS_VAOLD_PLAIN")
             tableMapping.ColumnMappings.Add("REGIS_VAOLD_ICPH", "REGIS_VAOLD_ICPH")
+            tableMapping.ColumnMappings.Add("CREATED_BY", "CREATED_BY")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -17362,21 +17487,21 @@ Namespace DSConsultTableAdapters
                 " FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
                 "      DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH, REGIS_VAB_L_PLAIN, REGIS_V"& _ 
                 "AB_L_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAOLD_PLAIN, REGIS_VAOLD_I"& _ 
-                "CPH"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTING"
+                "CPH, CREATED_BY"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTING"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
-                "FOR = @CONSULT_FOR)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (CONSULT_FOR = @CONSULT_FOR)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17384,16 +17509,17 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
-                " @STATUS) AND (CONSULT_FOR = @CONSULT_FOR) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (STATUS = @STATUS) AND (CONSULT_FOR = @CONSULT_FOR) AND (ACCEPT_CONSUL = @ACC"& _ 
+                "EPT_CONSUL)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17403,16 +17529,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
-                " @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL) AND (DR_ID = @DR_ID)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL) AND (DR_ID = @DR_ID)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17421,36 +17547,34 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DR_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT        PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occ"& _ 
-                "upation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAG"& _ 
-                "NOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CH1, CH2"& _ 
-                ", CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL"& _ 
-                "_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSU"& _ 
-                "LING_ID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME,"& _ 
-                " FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT,"& _ 
-                " FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH, REGIS_VAB_L_PLAIN, REGIS_V"& _ 
-                "AB_L_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAOLD_PLAIN, REGIS_VAOLD_I"& _ 
-                "CPH"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CONSULING_DATE BETWEEN @DateFrom AND "& _ 
-                "@DateTo) and "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"STATUS=@STATUS"
+            Me._commandCollection(4).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (STATUS = @STATUS)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT        PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occ"& _ 
-                "upation, DATE_CREATE, CONSULING_DATE, FAMILY_STATUS, FAMINLY_MONEY, STATUS, DIAG"& _ 
-                "NOSIS1, OPERATION1, ORG, ORG_GIVE, ORG_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CH1, CH2"& _ 
-                ", CH3, CH4, CH5, DIAGNOSIS2, OPERATION2, EYE, HOSPITAL_FEE, DONATE_TYPE, IS_RIEL"& _ 
-                "_DOLAR, DONATE_RIEL, DONATE_DOLAR, CONSULTING_NOTE, APROVE_BY, REQUEST_BY, CONSU"& _ 
-                "LING_ID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONSULT_FOR, PATIENT_PAY_DOLAR, FAMILY_NAME,"& _ 
-                " FAMILY_AGE, FAMILY_SEX, FAMILY_MONEY1, FAMILY_STATUS1, FAMILY_RELATIVE_PATIENT,"& _ 
-                " FAMILY_OCCUPATION, FAMILY_ADDRES, ACCEPT_CONSUL, Referal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      DR_ID, DR_NAME, TIME_CREATE, VA_PLAIN, VA_icPH, REGIS_VAB_L_PLAIN, REGIS_V"& _ 
-                "AB_L_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAOLD_PLAIN, REGIS_VAOLD_I"& _ 
-                "CPH"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CONSULTING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CONSULING_DATE BETWEEN @DateFrom AND "& _ 
-                "@DateTo) and "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ACCEPT_CONSUL=@ACCEPT_CONSUL"
+            Me._commandCollection(5).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17458,16 +17582,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(6).Connection = Me.Connection
             Me._commandCollection(6).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (STATUS = @STATUS) AND (ACCEPT_"& _ 
-                "CONSUL = @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (STATUS = @STATUS) "& _ 
+                "AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17475,16 +17599,17 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(7).Connection = Me.Connection
             Me._commandCollection(7).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
-                "FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CO"& _ 
+                "NSUL)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17494,16 +17619,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(8).Connection = Me.Connection
             Me._commandCollection(8).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @O"& _ 
-                "RG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17512,16 +17637,17 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(9).Connection = Me.Connection
             Me._commandCollection(9).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
-                "FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACC"& _ 
+                "EPT_CONSUL)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17531,17 +17657,17 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(10).Connection = Me.Connection
             Me._commandCollection(10).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (CONSULT_"& _ 
-                "FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL ="& _ 
-                " @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACC"& _ 
+                "EPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17552,16 +17678,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(11) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(11).Connection = Me.Connection
             Me._commandCollection(11).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
-                " @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17570,16 +17696,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(12) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(12).Connection = Me.Connection
             Me._commandCollection(12).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (ORG = @O"& _ 
-                "RG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17589,16 +17715,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(13) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(13).Connection = Me.Connection
             Me._commandCollection(13).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AN"& _ 
-                "D (STATUS = @STATUS) AND (CONSULING_ID = @CONSULING_ID)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CON"& _ 
+                "SULT_FOR) AND (STATUS = @STATUS) AND (CONSULING_ID = @CONSULING_ID)"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17607,16 +17733,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(14) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(14).Connection = Me.Connection
             Me._commandCollection(14).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CONSULT_FOR) AN"& _ 
-                "D (STATUS = @STATUS)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CON"& _ 
+                "SULT_FOR) AND (STATUS = @STATUS)"
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17624,45 +17750,45 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(15) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(15).Connection = Me.Connection
             Me._commandCollection(15).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_ID = @CONSULING_ID)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_ID = @CONSULING_ID)"
             Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(16) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(16).Connection = Me.Connection
             Me._commandCollection(16).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo)"
             Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(17) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(17).Connection = Me.Connection
             Me._commandCollection(17).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) AND (STATUS ="& _ 
-                " @STATUS)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (STATUS = @STATUS)"
             Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17670,16 +17796,16 @@ Namespace DSConsultTableAdapters
             Me._commandCollection(18) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(18).Connection = Me.Connection
             Me._commandCollection(18).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
-                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, DATE_CREATE, DIAGNOSIS1, DIAG"& _ 
-                "NOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE, FAMILY_ADDR"& _ 
-                "ES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMILY_RELATIVE_P"& _ 
-                "ATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Female, HOSPIT"& _ 
-                "AL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATION2, ORG, OR"& _ 
-                "G_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VAB_L_ICPH, RE"& _ 
-                "GIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_ICPH, REGIS_VA"& _ 
-                "OLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, VA_icPH FROM"& _ 
-                " V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULING_DATE BETWEEN @DFrom "& _ 
-                "AND @DateTo)"
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULING_DATE BET"& _ 
+                "WEEN @DFrom AND @DateTo)"
             Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

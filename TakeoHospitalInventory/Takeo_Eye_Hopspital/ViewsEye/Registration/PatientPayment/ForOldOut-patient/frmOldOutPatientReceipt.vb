@@ -591,7 +591,7 @@ Public Class frmOldOutPatientReceipt
                     Me.ChPhysical.Checked, Me.ChCDMDP.Checked, Me.ChEyeScreenig.Checked, Me.ChScreeningKV.Checked, Me.ChSelf.Checked, _
                     Me.ChPatient.Checked, Me.ChFriend.Checked, Me.ChOtherNGO.Checked, Me.ChChurch.Checked, Me.ChHealth.Checked, Me.ChOtherReferal.Checked)
                 End If
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Edit Old patient receipt", " Patient No:" & txtHN.Text & " Invoice date: " & dtpDateIn.Value.Date & "Amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & USER_NAME, txtReceiptNumber.Text, "UPDATE")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient receipt", txtHN.Text & " Date: " & dtpDateIn.Value.Date & "Amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & GetUserCreatedInvoice(txtReceiptNumber.Text), txtReceiptNumber.Text, "UPDATE")
                 MsgBox("Update old-out patient receipt successfully", MsgBoxStyle.OkOnly, "Update Old-Out Patient")
             End If
         End If
@@ -648,7 +648,7 @@ Public Class frmOldOutPatientReceipt
             Dolar = EmptyString(txtFollowUp.Text)
             Riel = 0
         End If
-        Return SQLSaveOldPatientBook(txtReceiptNumber.Text, txtHN.Text, "", "", Riel, Dolar, False, False, ChHearing.Checked, ChUnderstand.Checked, ChSeeing.Checked, ChPhysical.Checked, "", dtpDateIn.Value, False, GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString)
+        Return SQLSaveOldPatientBook(txtReceiptNumber.Text, txtHN.Text, "", "", Riel, Dolar, False, False, ChHearing.Checked, ChUnderstand.Checked, ChSeeing.Checked, ChPhysical.Checked, "", dtpDateIn.Value, False, GetTextReferralV1(), Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME)
     End Function
     Function SQLSaveOldPatientBook( _
     ByVal ReceiptNo As String, _
@@ -665,7 +665,7 @@ Public Class frmOldOutPatientReceipt
     ByVal Physical As Boolean, _
     ByVal Other As String, _
     ByVal CreateDate As String, _
-    ByVal TypeDiagnosis As Boolean, ByVal ConbindReferal As String, ByVal TIME_CREATE As String) As String
+    ByVal TypeDiagnosis As Boolean, ByVal ConbindReferal As String, ByVal TIME_CREATE As String, ByVal CREATED_BY As String) As String
         Dim sql As String = "INSERT INTO TblNew_Old_OutPatient " & _
                "(ReceiptNo," & _
                "PatientNo," & _
@@ -683,7 +683,7 @@ Public Class frmOldOutPatientReceipt
                "CreateDate," & _
                "Status," & _
                "TypeDiagnosis," & _
-               "ComBindRefferal,TIME_CREATE) " & _
+               "ComBindRefferal,TIME_CREATE,CREATED_BY) " & _
                " VALUES(" & _
                ReceiptNo & "," & _
                PatientNo & ",'" & _
@@ -700,7 +700,7 @@ Public Class frmOldOutPatientReceipt
                Other & "','" & _
                CreateDate & _
                "','True','" & _
-               TypeDiagnosis & "','" & ConbindReferal & "','" & TIME_CREATE & "')"
+               TypeDiagnosis & "','" & ConbindReferal & "','" & TIME_CREATE & "','" & CREATED_BY & "')"
         Return sql
     End Function
 

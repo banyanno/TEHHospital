@@ -109,6 +109,10 @@ Module ModInPatient
         Dim sql As String = "UPDATE TblInpatient SET DeleteOption='True',DeleteNote='" & DeleteNote & "' WHERE InNo=" & InNo
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
+    Function GetUserCreateInPatient(ByVal InNo As String) As String
+        Dim sql As String = "select created_by from TblInpatient where InNo=" & InNo
+        Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsScalar(sql)
+    End Function
 
     Function UpdateInToUndo(ByVal InNo As String) As Integer
         Dim sql As String = "UPDATE TblInpatient SET DeleteOption='False' WHERE InNo=" & InNo

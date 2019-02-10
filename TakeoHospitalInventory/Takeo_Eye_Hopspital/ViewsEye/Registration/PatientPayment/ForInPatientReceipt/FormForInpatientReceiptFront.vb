@@ -205,7 +205,7 @@ Public Class FormForInpatientReceiptFront
                                         CalDolarSosial, _
                                         CalDolarFull, _
                                         "", _
-                                        dtpDateIn.Value, ChDonation.Checked, CboDonation.SelectedValue, CboDonation.Text, EmptyString(TxtDonationPay.Text), CashTotal, Format(GetDateServer, "hh:mm:ss tt").ToString)
+                                        dtpDateIn.Value, ChDonation.Checked, CboDonation.SelectedValue, CboDonation.Text, EmptyString(TxtDonationPay.Text), CashTotal, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME)
                 sqlComm.ExecuteNonQuery()
                 '====================== end save in patient book================
                 Transaction.Commit()
@@ -852,7 +852,7 @@ Public Class FormForInpatientReceiptFront
     ByVal DonationID As Integer, _
     ByVal DonationName As String, _
     ByVal DonationPay As Double, _
-    ByVal CashTotal As Double, ByVal TIME_CREATE As String) As String
+    ByVal CashTotal As Double, ByVal TIME_CREATE As String, ByVal CREATED_BY As String) As String
         Dim sql As String = "INSERT INTO TblInpatient (ReceiptNo,PatientNo,Diagnosis,TypeOfOperation," & _
        "HosFee,SosialFee,FullFee,DolarSosial,DolarFull,CalDolarSosial,CalDolarFull,Other,CreateDate,IsDonate,DonationID,DonationName,DonationPay,CashTotal,TIME_CREATE) " & _
        "VALUES(" & ReceiptNo & "," & _
@@ -867,7 +867,7 @@ Public Class FormForInpatientReceiptFront
        CalDolarSosial & "," & _
        CalDolarFull & ",'" & _
        Other & "','" & _
-       CreateDate & "','" & IsDonate & "'," & DonationID & ",'" & DonationName & "'," & DonationPay & "," & CashTotal & ",'" & TIME_CREATE & "')"
+       CreateDate & "','" & IsDonate & "'," & DonationID & ",'" & DonationName & "'," & DonationPay & "," & CashTotal & ",'" & TIME_CREATE & "','" & CREATED_BY & "')"
         Return sql
     End Function
     Function CheckTheSameDay(ByVal PatientNo As String, ByVal CreateDate As Date) As Integer

@@ -132,6 +132,10 @@ Module ModOld_Outpatient
         Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation FROM V_OldOutpatientDetail WHERE ReceiptNo=" & ReceiptNo & " AND PatientNo=" & PatientNo
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
+    Function GetUserCreateNewOrOld(ByVal NewOutPatientNo As String) As String
+        Dim sql As String = "SELECT created_by from TblNew_Old_OutPatient Where NewOutPatientNo=" & NewOutPatientNo
+        Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsScalar(sql)
+    End Function
     Function SelectOldPatientDetailByDate(ByVal PatientNo As String, ByVal DateFrom As String, ByVal DateTo As String) As DataTable
         Dim sql As String = "SELECT NewOutPatientNo,PatientNo,OlePatientNo,ReceiptNo,NameEng,NameKhmer,Age,Sex,Address,PatientFee,PatientDolar,Diagnosis,Prescribed,Dispensed,Hearing,Understand,Seeing,Physical,Other,CreateDate,TypeDiagnosis,DeleteOption,VAStatus,Achieve,Male,Female,Status,ComBindRefferal,DeleteNote,Telephone,VA_PLeft,VA_PRight,TIME_CREATE,Occupation,ConsultByDR FROM V_OldOutpatientDetail WHERE " & _
             " CAST(CONVERT(VARCHAR(10), CreateDate, 1) as DateTime) BETWEEN " & _

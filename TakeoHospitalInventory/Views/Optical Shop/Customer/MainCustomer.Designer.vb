@@ -215,6 +215,7 @@ Partial Class MainCustomer
         '
         'MainCustomer
         '
+        Me.AcceptButton = Me.BtnOk
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
@@ -224,6 +225,7 @@ Partial Class MainCustomer
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "MainCustomer"
         Me.ShowInTaskbar = False

@@ -619,28 +619,46 @@
                                                       EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, _
                                                       CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, _
                                                       EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, _
-                                                      TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
+                                                      TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME) = 1 Then
 
 
                         If DateApp.Checked = True Then
 
                             DA_Appoint.InsertNewApp(TxtPatientNo.Text, TxtPatientName.Text, "", TxtSex.Text, TxtAge.Text, DateConsult.Value.Date, DateApp.Value.Date, False, TxtConsultNote.Text, TxtPatientOccupation.Text, False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, txtPatientPhone.Text, "Consuling", CboDoctor.SelectedValue, CboDoctor.Text)
+                            If LblNew_OldIDForDiagnosis.Text <> "0" Then
+                                ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldIDForDiagnosis.Text, CboSecondDiagnosis.Text)
+                            End If
+                            If LblNew_OldIDForDoctor.Text <> "0" Then
+                                ModNew_Outpatient.EnterPatientDoctor(LblNew_OldIDForDoctor.Text, CboDoctor.Text)
+                            End If
                         End If
 
                         Me.DialogResult = Windows.Forms.DialogResult.OK
                     End If
                 ElseIf RadForOld.Checked = True Then
-                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, 1, "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
+                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, 1, "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME) = 1 Then
                         If DateApp.Checked = True Then
                             DA_Appoint.InsertNewApp(TxtPatientNo.Text, TxtPatientName.Text, "", TxtSex.Text, TxtAge.Text, DateConsult.Value.Date, DateApp.Value.Date, False, TxtConsultNote.Text, TxtPatientOccupation.Text, False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, txtPatientPhone.Text, "Consuling", CboDoctor.SelectedValue, CboDoctor.Text)
+                            If LblNew_OldIDForDiagnosis.Text <> "0" Then
+                                ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldIDForDiagnosis.Text, CboSecondDiagnosis.Text)
+                            End If
+                            If LblNew_OldIDForDoctor.Text <> "0" Then
+                                ModNew_Outpatient.EnterPatientDoctor(LblNew_OldIDForDoctor.Text, CboDoctor.Text)
+                            End If
                         End If
                         Me.DialogResult = Windows.Forms.DialogResult.OK
                     End If
                 Else
 
-                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, CDbl(IIf(ChAccepConsul.Checked = True, 0, 1)), "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString) = 1 Then
+                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, CDbl(IIf(ChAccepConsul.Checked = True, 0, 1)), "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME) = 1 Then
                         If DateApp.Checked = True Then
                             DA_Appoint.InsertNewApp(TxtPatientNo.Text, TxtPatientName.Text, "", TxtSex.Text, TxtAge.Text, DateConsult.Value.Date, DateApp.Value.Date, False, TxtConsultNote.Text, TxtPatientOccupation.Text, False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, txtPatientPhone.Text, "Consuling", CboDoctor.SelectedValue, CboDoctor.Text)
+                            If LblNew_OldIDForDiagnosis.Text <> "0" Then
+                                ModNew_Outpatient.EnterPatientDiagnosis(LblNew_OldIDForDiagnosis.Text, CboSecondDiagnosis.Text)
+                            End If
+                            If LblNew_OldIDForDoctor.Text <> "0" Then
+                                ModNew_Outpatient.EnterPatientDoctor(LblNew_OldIDForDoctor.Text, CboDoctor.Text)
+                            End If
                         End If
                         Me.DialogResult = Windows.Forms.DialogResult.OK
                     End If

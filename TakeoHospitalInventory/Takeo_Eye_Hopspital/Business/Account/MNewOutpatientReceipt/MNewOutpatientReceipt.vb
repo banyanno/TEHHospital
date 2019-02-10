@@ -110,7 +110,10 @@ Module MNewOutpatientReceipt
             MsgBox(ex.Message, MsgBoxStyle.OkCancel)
         End Try
     End Sub
-
+    Function GetUserCreatedInvoice(ByVal InvoiceNo As String) As String
+        Dim sql As String = "SELECT CashierIn FROM tblPatientReceipt where ReceiptNo=" & InvoiceNo
+        Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsScalar(sql)
+    End Function
     Public Sub UpdateNewOutpatientReceiptCashier(ByVal ID As Long, _
         ByVal CashRiel As Double, ByVal CashUSD As Double, _
         ByVal ConsultationFeeRiel As Double, ByVal ConsultationFeeUSD As Double, _
