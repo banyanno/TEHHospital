@@ -142,6 +142,7 @@
 
                 If FNewReceipt.ShowDialog() = DialogResult.OK Then
                     BtnPrintInvoice_Click(sender, e)
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Optical Shop", FNewReceipt.TxtEditNote.Text, FNewReceipt.TxtReceiptNo.Text, "UPDATE", GridReceipt.SelectedItems(0).GetRow.Cells("UserName").Value, GridReceipt.SelectedItems(0).GetRow.Cells("CustomerNo").Value, USER_NAME, GridReceipt.SelectedItems(0).GetRow.Cells("ReceiptDate").Value)
                     LoadingReceiptByDateWithWaitAndPaid(DateTo.Value, DateFrom.Value, 2)
                 End If
                 'Else
@@ -218,6 +219,7 @@
             ReceiptDUpdate.ShowDialog()
             If ReceiptDUpdate.DialogResult = DialogResult.OK Then
                 'FilterReceipt.Visible = True
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Optical Shop", "Edite date receipt.", ReceiptDUpdate.ReceiptNo.Text, "UPDATE", GridReceipt.SelectedItems(0).GetRow.Cells("UserName").Value, GridReceipt.SelectedItems(0).GetRow.Cells("CustomerNo").Value, USER_NAME, GridReceipt.SelectedItems(0).GetRow.Cells("ReceiptDate").Value)
                 MTakeoInventory.StatusLoading(True)
                 'RadWaitAndPaid.Checked = True
                 BtnView.Enabled = False
@@ -285,6 +287,7 @@
 
             EditDonateOpticalShop.Txtname.Text = GridReceipt.GetRow.Cells("CusName").Value
             If EditDonateOpticalShop.ShowDialog() = DialogResult.OK Then
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Optical Shop", "Edite donate in optical shop", EditDonateOpticalShop.TxtReceiptNo.Text, "UPDATE", GridReceipt.SelectedItems(0).GetRow.Cells("UserName").Value, GridReceipt.SelectedItems(0).GetRow.Cells("CustomerNo").Value, USER_NAME, GridReceipt.SelectedItems(0).GetRow.Cells("ReceiptDate").Value)
                 BtnPrintInvoice_Click(sender, e)
             End If
         End If

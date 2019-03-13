@@ -131,7 +131,7 @@
 
 
                     End If
-                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Other Receipt", " Patient No:" & TxtPatientNo.Text & " Date: " & DateReceiptIn.Value.Date & " Amount:" & TxtCashReceived.Text & " " & IIf(RadDolar.Checked = True, "$", "R") & " By user:" & GetUserCreatedInvoice(txtReceiptNumber.Text), txtReceiptNumber.Text, "UPDATE")
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Other Receipt", TxtReceivedNote.Text, txtReceiptNumber.Text, "UPDATE", GetUserCreatedInvoice(txtReceiptNumber.Text), TxtPatientNo.Text, USER_NAME, DateReceiptIn.Value.Date)
                     Application.DoEvents()
                     If DA_OtherReceipt.UpdateReceiptOther(DateReceiptIn.Value.Date, CboReceivedFrom.SelectedValue, CboReceivedFrom.Text, TxtReceivedNote.Text, CDbl(IIf(RadReil.Checked = True, TxtCashReceived.Text, 0)), CDbl(IIf(RadDolar.Checked = True, TxtCashReceived.Text, 0)), CBool(IIf(RadDolar.Checked = True, True, False)), TxtPatientKHName.Text, txtAmountWord.Text, lblSaveOption.Text) = 1 Then
                         Try

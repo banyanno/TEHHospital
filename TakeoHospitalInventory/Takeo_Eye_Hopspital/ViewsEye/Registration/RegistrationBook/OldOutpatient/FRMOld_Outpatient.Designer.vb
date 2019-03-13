@@ -82,6 +82,8 @@ Partial Class FRMOld_Outpatient
         Me.ErrOldOutpatient = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GReferralFrom = New System.Windows.Forms.GroupBox
         Me.ChListReferral = New System.Windows.Forms.CheckedListBox
+        Me.Label10 = New System.Windows.Forms.Label
+        Me.TxtEditNote = New System.Windows.Forms.TextBox
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GrpReferal.SuspendLayout()
@@ -122,7 +124,7 @@ Partial Class FRMOld_Outpatient
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(6, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(531, 316)
+        Me.GroupBox1.Size = New System.Drawing.Size(531, 298)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Patient Info"
@@ -489,7 +491,7 @@ Partial Class FRMOld_Outpatient
         'RadioDolar
         '
         Me.RadioDolar.AutoSize = True
-        Me.RadioDolar.Location = New System.Drawing.Point(334, 286)
+        Me.RadioDolar.Location = New System.Drawing.Point(334, 277)
         Me.RadioDolar.Name = "RadioDolar"
         Me.RadioDolar.Size = New System.Drawing.Size(31, 17)
         Me.RadioDolar.TabIndex = 14
@@ -500,7 +502,7 @@ Partial Class FRMOld_Outpatient
         '
         Me.RadioRiel.AutoSize = True
         Me.RadioRiel.Checked = True
-        Me.RadioRiel.Location = New System.Drawing.Point(285, 284)
+        Me.RadioRiel.Location = New System.Drawing.Point(285, 275)
         Me.RadioRiel.Name = "RadioRiel"
         Me.RadioRiel.Size = New System.Drawing.Size(43, 17)
         Me.RadioRiel.TabIndex = 13
@@ -514,7 +516,7 @@ Partial Class FRMOld_Outpatient
         Me.CboDiagnosis.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.CboDiagnosis.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboDiagnosis.FormattingEnabled = True
-        Me.CboDiagnosis.Location = New System.Drawing.Point(75, 240)
+        Me.CboDiagnosis.Location = New System.Drawing.Point(75, 231)
         Me.CboDiagnosis.Name = "CboDiagnosis"
         Me.CboDiagnosis.Size = New System.Drawing.Size(204, 28)
         Me.CboDiagnosis.TabIndex = 8
@@ -534,7 +536,7 @@ Partial Class FRMOld_Outpatient
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(14, 250)
+        Me.Label14.Location = New System.Drawing.Point(14, 241)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(56, 13)
         Me.Label14.TabIndex = 0
@@ -564,7 +566,7 @@ Partial Class FRMOld_Outpatient
         'TxtPatientFee
         '
         Me.TxtPatientFee.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientFee.Location = New System.Drawing.Point(75, 277)
+        Me.TxtPatientFee.Location = New System.Drawing.Point(75, 268)
         Me.TxtPatientFee.Name = "TxtPatientFee"
         Me.TxtPatientFee.Size = New System.Drawing.Size(204, 26)
         Me.TxtPatientFee.TabIndex = 7
@@ -647,7 +649,7 @@ Partial Class FRMOld_Outpatient
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(11, 285)
+        Me.Label7.Location = New System.Drawing.Point(11, 276)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(64, 13)
         Me.Label7.TabIndex = 0
@@ -719,9 +721,9 @@ Partial Class FRMOld_Outpatient
         'CboCancel
         '
         Me.CboCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CboCancel.Location = New System.Drawing.Point(379, 327)
+        Me.CboCancel.Location = New System.Drawing.Point(462, 305)
         Me.CboCancel.Name = "CboCancel"
-        Me.CboCancel.Size = New System.Drawing.Size(75, 35)
+        Me.CboCancel.Size = New System.Drawing.Size(75, 31)
         Me.CboCancel.TabIndex = 2
         Me.CboCancel.Text = "&Cancel"
         Me.CboCancel.UseVisualStyleBackColor = True
@@ -729,9 +731,9 @@ Partial Class FRMOld_Outpatient
         'BtnSave
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSave.Location = New System.Drawing.Point(299, 327)
+        Me.BtnSave.Location = New System.Drawing.Point(382, 305)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(75, 35)
+        Me.BtnSave.Size = New System.Drawing.Size(75, 31)
         Me.BtnSave.TabIndex = 1
         Me.BtnSave.Text = "&Save"
         Me.BtnSave.UseVisualStyleBackColor = True
@@ -746,7 +748,7 @@ Partial Class FRMOld_Outpatient
         Me.GReferralFrom.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GReferralFrom.Location = New System.Drawing.Point(543, -7)
         Me.GReferralFrom.Name = "GReferralFrom"
-        Me.GReferralFrom.Size = New System.Drawing.Size(208, 327)
+        Me.GReferralFrom.Size = New System.Drawing.Size(208, 291)
         Me.GReferralFrom.TabIndex = 205
         Me.GReferralFrom.TabStop = False
         Me.GReferralFrom.Text = "Referral From:"
@@ -762,14 +764,33 @@ Partial Class FRMOld_Outpatient
         Me.ChListReferral.Location = New System.Drawing.Point(3, 36)
         Me.ChListReferral.Name = "ChListReferral"
         Me.ChListReferral.ScrollAlwaysVisible = True
-        Me.ChListReferral.Size = New System.Drawing.Size(202, 284)
+        Me.ChListReferral.Size = New System.Drawing.Size(202, 249)
         Me.ChListReferral.TabIndex = 194
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(3, 305)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(49, 13)
+        Me.Label10.TabIndex = 206
+        Me.Label10.Text = "Edit note"
+        '
+        'TxtEditNote
+        '
+        Me.TxtEditNote.Location = New System.Drawing.Point(6, 321)
+        Me.TxtEditNote.Multiline = True
+        Me.TxtEditNote.Name = "TxtEditNote"
+        Me.TxtEditNote.Size = New System.Drawing.Size(279, 42)
+        Me.TxtEditNote.TabIndex = 207
         '
         'FRMOld_Outpatient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(752, 367)
+        Me.Controls.Add(Me.TxtEditNote)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.GReferralFrom)
         Me.Controls.Add(Me.CboCancel)
         Me.Controls.Add(Me.BtnSave)
@@ -790,6 +811,7 @@ Partial Class FRMOld_Outpatient
         CType(Me.ErrOldOutpatient, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GReferralFrom.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -853,4 +875,6 @@ Partial Class FRMOld_Outpatient
     Friend WithEvents LblConsultDate As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents LblConsultID As System.Windows.Forms.Label
+    Friend WithEvents TxtEditNote As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

@@ -19,6 +19,7 @@ Partial Class frmOldOutPatientReceipt
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOldOutPatientReceipt))
         Me.lblFees = New System.Windows.Forms.Label
         Me.lblRielDolar = New System.Windows.Forms.Label
@@ -107,6 +108,9 @@ Partial Class frmOldOutPatientReceipt
         Me.Label17 = New System.Windows.Forms.Label
         Me.LblConsultType = New System.Windows.Forms.Label
         Me.Label18 = New System.Windows.Forms.Label
+        Me.Label19 = New System.Windows.Forms.Label
+        Me.txtEditNote = New System.Windows.Forms.TextBox
+        Me.ErrOldPatient = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -117,6 +121,7 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.ErrOldPatient, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblFees
@@ -134,7 +139,7 @@ Partial Class frmOldOutPatientReceipt
         Me.lblRielDolar.AutoSize = True
         Me.lblRielDolar.BackColor = System.Drawing.Color.Transparent
         Me.lblRielDolar.Font = New System.Drawing.Font("Limon S1", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRielDolar.Location = New System.Drawing.Point(354, 108)
+        Me.lblRielDolar.Location = New System.Drawing.Point(354, 97)
         Me.lblRielDolar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblRielDolar.Name = "lblRielDolar"
         Me.lblRielDolar.Size = New System.Drawing.Size(74, 31)
@@ -146,7 +151,7 @@ Partial Class frmOldOutPatientReceipt
         Me.rdFollowUpD.AutoSize = True
         Me.rdFollowUpD.BackColor = System.Drawing.Color.Transparent
         Me.rdFollowUpD.Font = New System.Drawing.Font("Limon S1", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdFollowUpD.Location = New System.Drawing.Point(356, 59)
+        Me.rdFollowUpD.Location = New System.Drawing.Point(356, 48)
         Me.rdFollowUpD.Name = "rdFollowUpD"
         Me.rdFollowUpD.Size = New System.Drawing.Size(57, 31)
         Me.rdFollowUpD.TabIndex = 12
@@ -196,7 +201,7 @@ Partial Class frmOldOutPatientReceipt
         Me.rdFollowUpR.BackColor = System.Drawing.Color.Transparent
         Me.rdFollowUpR.Checked = True
         Me.rdFollowUpR.Font = New System.Drawing.Font("Limon S1", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdFollowUpR.Location = New System.Drawing.Point(356, 33)
+        Me.rdFollowUpR.Location = New System.Drawing.Point(356, 22)
         Me.rdFollowUpR.Name = "rdFollowUpR"
         Me.rdFollowUpR.Size = New System.Drawing.Size(55, 31)
         Me.rdFollowUpR.TabIndex = 11
@@ -243,7 +248,7 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupBox1.Controls.Add(Me.Label14)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Font = New System.Drawing.Font("Wat Phnom T3", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(457, 19)
+        Me.GroupBox1.Location = New System.Drawing.Point(457, 8)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(260, 130)
         Me.GroupBox1.TabIndex = 126
@@ -316,7 +321,7 @@ Partial Class frmOldOutPatientReceipt
         Me.txtTotal.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.txtTotal.Font = New System.Drawing.Font("Arial Black", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtTotal.Location = New System.Drawing.Point(126, 94)
+        Me.txtTotal.Location = New System.Drawing.Point(126, 83)
         Me.txtTotal.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
@@ -329,7 +334,7 @@ Partial Class frmOldOutPatientReceipt
         '
         Me.txtFollowUp.BackColor = System.Drawing.Color.Azure
         Me.txtFollowUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFollowUp.Location = New System.Drawing.Point(126, 42)
+        Me.txtFollowUp.Location = New System.Drawing.Point(126, 31)
         Me.txtFollowUp.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.txtFollowUp.Name = "txtFollowUp"
         Me.txtFollowUp.Size = New System.Drawing.Size(218, 45)
@@ -387,7 +392,7 @@ Partial Class frmOldOutPatientReceipt
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Limon S1", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(11, 56)
+        Me.Label9.Location = New System.Drawing.Point(11, 45)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 31)
@@ -399,7 +404,7 @@ Partial Class frmOldOutPatientReceipt
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Limon S1", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(12, 32)
+        Me.Label8.Location = New System.Drawing.Point(12, 21)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(90, 31)
@@ -594,9 +599,9 @@ Partial Class frmOldOutPatientReceipt
         Me.cmdSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdSave.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Floppy_s2
         Me.cmdSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdSave.Location = New System.Drawing.Point(12, 558)
+        Me.cmdSave.Location = New System.Drawing.Point(12, 539)
         Me.cmdSave.Name = "cmdSave"
-        Me.cmdSave.Size = New System.Drawing.Size(193, 53)
+        Me.cmdSave.Size = New System.Drawing.Size(193, 49)
         Me.cmdSave.TabIndex = 15
         Me.cmdSave.Text = "&Save"
         Me.cmdSave.UseVisualStyleBackColor = True
@@ -607,9 +612,9 @@ Partial Class frmOldOutPatientReceipt
         Me.cmdCashierSave.Enabled = False
         Me.cmdCashierSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.cmdCashierSave.Image = Global.TakeoHospitalInventory.My.Resources.Resources.welcome_bg
-        Me.cmdCashierSave.Location = New System.Drawing.Point(562, 559)
+        Me.cmdCashierSave.Location = New System.Drawing.Point(562, 540)
         Me.cmdCashierSave.Name = "cmdCashierSave"
-        Me.cmdCashierSave.Size = New System.Drawing.Size(172, 53)
+        Me.cmdCashierSave.Size = New System.Drawing.Size(172, 49)
         Me.cmdCashierSave.TabIndex = 138
         Me.cmdCashierSave.Text = "&Cashier Save"
         Me.cmdCashierSave.UseVisualStyleBackColor = True
@@ -621,9 +626,9 @@ Partial Class frmOldOutPatientReceipt
         Me.cmdPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdPrint.Image = Global.TakeoHospitalInventory.My.Resources.Resources.printer
         Me.cmdPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdPrint.Location = New System.Drawing.Point(224, 558)
+        Me.cmdPrint.Location = New System.Drawing.Point(224, 539)
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(169, 53)
+        Me.cmdPrint.Size = New System.Drawing.Size(169, 49)
         Me.cmdPrint.TabIndex = 16
         Me.cmdPrint.Text = "&Print"
         Me.cmdPrint.UseVisualStyleBackColor = True
@@ -646,9 +651,9 @@ Partial Class frmOldOutPatientReceipt
         Me.cmdClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdClose.Image = Global.TakeoHospitalInventory.My.Resources.Resources.cross_circle
         Me.cmdClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdClose.Location = New System.Drawing.Point(399, 559)
+        Me.cmdClose.Location = New System.Drawing.Point(399, 540)
         Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(157, 53)
+        Me.cmdClose.Size = New System.Drawing.Size(157, 49)
         Me.cmdClose.TabIndex = 17
         Me.cmdClose.Text = "&Close"
         Me.cmdClose.UseVisualStyleBackColor = True
@@ -1028,7 +1033,7 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupBox7.Controls.Add(Me.lblRielDolar)
         Me.GroupBox7.Location = New System.Drawing.Point(12, 390)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(730, 163)
+        Me.GroupBox7.Size = New System.Drawing.Size(730, 142)
         Me.GroupBox7.TabIndex = 206
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Amount Information"
@@ -1151,6 +1156,32 @@ Partial Class frmOldOutPatientReceipt
         Me.Label18.TabIndex = 0
         Me.Label18.Text = "Consult Type:"
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.BackColor = System.Drawing.Color.Transparent
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(13, 591)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(73, 20)
+        Me.Label19.TabIndex = 209
+        Me.Label19.Text = "Edit note"
+        '
+        'txtEditNote
+        '
+        Me.txtEditNote.Font = New System.Drawing.Font("Khmer OS Battambang", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEditNote.Location = New System.Drawing.Point(12, 613)
+        Me.txtEditNote.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.txtEditNote.Multiline = True
+        Me.txtEditNote.Name = "txtEditNote"
+        Me.txtEditNote.Size = New System.Drawing.Size(381, 57)
+        Me.txtEditNote.TabIndex = 208
+        '
+        'ErrOldPatient
+        '
+        Me.ErrOldPatient.ContainerControl = Me
+        '
         'frmOldOutPatientReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1158,7 +1189,9 @@ Partial Class frmOldOutPatientReceipt
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1264, 665)
+        Me.ClientSize = New System.Drawing.Size(1264, 672)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.txtEditNote)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
@@ -1199,6 +1232,7 @@ Partial Class frmOldOutPatientReceipt
         Me.GroupBox7.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.ErrOldPatient, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1290,4 +1324,7 @@ Partial Class frmOldOutPatientReceipt
     Friend WithEvents LblConsultType As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents LblDepID As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents txtEditNote As System.Windows.Forms.TextBox
+    Friend WithEvents ErrOldPatient As System.Windows.Forms.ErrorProvider
 End Class

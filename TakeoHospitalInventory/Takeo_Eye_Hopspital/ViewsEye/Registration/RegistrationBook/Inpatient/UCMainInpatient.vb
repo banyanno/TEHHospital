@@ -95,8 +95,9 @@ Public Class UCMainInpatient
             
             FInpatient.ShowDialog()
             If FInpatient.isCloseIn = True Then
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", FInpatient.txtEditNote.Text, FInpatient.TxtReceiptNo.Text, "UPDATE", GetUserCreateInPatient(FInpatient.LblSaveOption.Text), FInpatient.TxtPatientNo.Text, USER_NAME, FInpatient.DateIn.Value.Date)
                 GridInpatient.DataSource = ModInPatient.SelectInpatientDetailByReceipt(EmptyString(FInpatient.TxtReceiptNo.Text), FInpatient.TxtPatientNo.Text)
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", " Patient No:" & FInpatient.TxtPatientNo.Text & " Regist Date: " & FInpatient.DateIn.Value.Date & " Amount:" & FInpatient.CboDonation.Text & " By user:" & GetUserCreateInPatient(FInpatient.LblSaveOption.Text), FInpatient.TxtReceiptNo.Text, "UPDATE")
+
                 ModCommon.NumberAllRowHeaderDataGrid(GridInpatient)
             End If
         Catch ex As Exception
@@ -286,7 +287,7 @@ Public Class UCMainInpatient
             FdeleteInPatein.LblSaveOption.Text = InNo
             If FdeleteInPatein.ShowDialog = DialogResult.OK Then
                 MsgBox("Canceled successful.", MsgBoxStyle.Information, "Delete")
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", GridInpatient.Rows(RowIndex).Cells("PatientNo").Value & " Regist: " & GridInpatient.Rows(RowIndex).Cells("CreateDate").Value & " Delete Note: " & FdeleteInPatein.TxtNote.Text & " By user:" & GetUserCreateInPatient(InNo), GridInpatient.Rows(RowIndex).Cells("ReceiptNo").Value, "DELETED")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", FdeleteInPatein.TxtNote.Text, GridInpatient.Rows(RowIndex).Cells("PatientNo").Value, "DELETED", GetUserCreateInPatient(InNo), GridInpatient.Rows(RowIndex).Cells("PatientNo").Value, USER_NAME, GridInpatient.Rows(RowIndex).Cells("CreateDate").Value)
                 CallBG()
             End If
 
@@ -304,7 +305,8 @@ Public Class UCMainInpatient
             If DIALOG_DELETE = DialogResult.Yes Then
                 If ModInPatient.UpdateInToUndo(InNo) = 1 Then
                     MsgBox("undoed successful.", MsgBoxStyle.Information, "Delete")
-                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", " Patient No:" & GridInpatient.Rows(RowIndex).Cells("PatientNo").Value & " Regist Date: " & GridInpatient.Rows(RowIndex).Cells("CreateDate").Value & " undo Note: ... By user:" & GetUserCreateInPatient(InNo), GridInpatient.Rows(RowIndex).Cells("ReceiptNo").Value, "UNDO")
+
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In patient book", GetUserCreateInPatient(InNo), GridInpatient.Rows(RowIndex).Cells("ReceiptNo").Value, "UNDO", GetUserCreateInPatient(InNo), GridInpatient.Rows(RowIndex).Cells("PatientNo").Value, USER_NAME, GridInpatient.Rows(RowIndex).Cells("CreateDate").Value)
                     CallBG()
                 Else
                     MsgBox(MSG_DELETE_ERROR, MsgBoxStyle.Critical, "Error")

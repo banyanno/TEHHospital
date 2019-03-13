@@ -189,6 +189,7 @@ Public Class FRMIn_patient
                     End If
                 End If
             Else
+                If ValidateTextField(txtEditNote, "", ErrInpatient) = False Then Exit Sub
                 DIALOG_UPDATE = MessageBox.Show(MSG_UPDATE, UPDATE_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If DIALOG_UPDATE = Windows.Forms.DialogResult.Yes Then
                     If ModInPatient.UpdateInpatient( _

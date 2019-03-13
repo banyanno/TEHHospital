@@ -128,6 +128,8 @@ Partial Class FrmNewReceipt
         Me.ErrReceipt = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BgSaveAndPrinting = New System.ComponentModel.BackgroundWorker
         Me.Label14 = New System.Windows.Forms.Label
+        Me.Label15 = New System.Windows.Forms.Label
+        Me.TxtEditNote = New System.Windows.Forms.TextBox
         Me.GroupBox1.SuspendLayout()
         CType(Me.GridItemDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -1385,11 +1387,30 @@ Partial Class FrmNewReceipt
         Me.Label14.TabIndex = 9
         Me.Label14.Text = "Date Consult:"
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(11, 682)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(49, 13)
+        Me.Label15.TabIndex = 17
+        Me.Label15.Text = "Edit note"
+        '
+        'TxtEditNote
+        '
+        Me.TxtEditNote.Location = New System.Drawing.Point(14, 698)
+        Me.TxtEditNote.Multiline = True
+        Me.TxtEditNote.Name = "TxtEditNote"
+        Me.TxtEditNote.Size = New System.Drawing.Size(460, 104)
+        Me.TxtEditNote.TabIndex = 18
+        '
         'FrmNewReceipt
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1160, 683)
+        Me.ClientSize = New System.Drawing.Size(1160, 881)
+        Me.Controls.Add(Me.TxtEditNote)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox4)
@@ -1406,6 +1427,7 @@ Partial Class FrmNewReceipt
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Optical Shop"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.GridItemDetail, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1552,4 +1574,6 @@ Partial Class FrmNewReceipt
     Friend WithEvents EXCHANGE_RATE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ChIsPrintFull As System.Windows.Forms.CheckBox
     Friend WithEvents lblIspaid As System.Windows.Forms.Label
+    Friend WithEvents TxtEditNote As System.Windows.Forms.TextBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
 End Class

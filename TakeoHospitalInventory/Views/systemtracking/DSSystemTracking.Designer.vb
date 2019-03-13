@@ -280,6 +280,14 @@ Partial Public Class DSSystemTracking
         
         Private columnACTION As Global.System.Data.DataColumn
         
+        Private columnCREATED_BY As Global.System.Data.DataColumn
+        
+        Private columnPATIENT_NO As Global.System.Data.DataColumn
+        
+        Private columnACTION_BY As Global.System.Data.DataColumn
+        
+        Private columnDATE_CREATE_BY_USER As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -361,6 +369,34 @@ Partial Public Class DSSystemTracking
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CREATED_BYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCREATED_BY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PATIENT_NOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPATIENT_NO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ACTION_BYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnACTION_BY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DATE_CREATE_BY_USERColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDATE_CREATE_BY_USER
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -390,9 +426,9 @@ Partial Public Class DSSystemTracking
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddSYSTEM_TRACKINGRow(ByVal CREATEDATE_TIME As Date, ByVal CREATE_DATE As Date, ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String) As SYSTEM_TRACKINGRow
+        Public Overloads Function AddSYSTEM_TRACKINGRow(ByVal CREATEDATE_TIME As Date, ByVal CREATE_DATE As Date, ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String, ByVal CREATED_BY As String, ByVal PATIENT_NO As String, ByVal ACTION_BY As String, ByVal DATE_CREATE_BY_USER As Date) As SYSTEM_TRACKINGRow
             Dim rowSYSTEM_TRACKINGRow As SYSTEM_TRACKINGRow = CType(Me.NewRow,SYSTEM_TRACKINGRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, CREATEDATE_TIME, CREATE_DATE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION}
+            Dim columnValuesArray() As Object = New Object() {Nothing, CREATEDATE_TIME, CREATE_DATE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION, CREATED_BY, PATIENT_NO, ACTION_BY, DATE_CREATE_BY_USER}
             rowSYSTEM_TRACKINGRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSYSTEM_TRACKINGRow)
             Return rowSYSTEM_TRACKINGRow
@@ -424,6 +460,10 @@ Partial Public Class DSSystemTracking
             Me.columnDESCRIPTION = MyBase.Columns("DESCRIPTION")
             Me.columnREFERENT_NO = MyBase.Columns("REFERENT_NO")
             Me.columnACTION = MyBase.Columns("ACTION")
+            Me.columnCREATED_BY = MyBase.Columns("CREATED_BY")
+            Me.columnPATIENT_NO = MyBase.Columns("PATIENT_NO")
+            Me.columnACTION_BY = MyBase.Columns("ACTION_BY")
+            Me.columnDATE_CREATE_BY_USER = MyBase.Columns("DATE_CREATE_BY_USER")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -442,6 +482,14 @@ Partial Public Class DSSystemTracking
             MyBase.Columns.Add(Me.columnREFERENT_NO)
             Me.columnACTION = New Global.System.Data.DataColumn("ACTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnACTION)
+            Me.columnCREATED_BY = New Global.System.Data.DataColumn("CREATED_BY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCREATED_BY)
+            Me.columnPATIENT_NO = New Global.System.Data.DataColumn("PATIENT_NO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPATIENT_NO)
+            Me.columnACTION_BY = New Global.System.Data.DataColumn("ACTION_BY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnACTION_BY)
+            Me.columnDATE_CREATE_BY_USER = New Global.System.Data.DataColumn("DATE_CREATE_BY_USER", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDATE_CREATE_BY_USER)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnTRACTING_ID}, true))
             Me.columnTRACTING_ID.AutoIncrement = true
             Me.columnTRACTING_ID.AutoIncrementSeed = -1
@@ -453,6 +501,9 @@ Partial Public Class DSSystemTracking
             Me.columnDESCRIPTION.MaxLength = 450
             Me.columnREFERENT_NO.MaxLength = 50
             Me.columnACTION.MaxLength = 50
+            Me.columnCREATED_BY.MaxLength = 50
+            Me.columnPATIENT_NO.MaxLength = 50
+            Me.columnACTION_BY.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -683,6 +734,62 @@ Partial Public Class DSSystemTracking
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CREATED_BY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSYSTEM_TRACKING.CREATED_BYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CREATED_BY' in table 'SYSTEM_TRACKING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSYSTEM_TRACKING.CREATED_BYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PATIENT_NO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSYSTEM_TRACKING.PATIENT_NOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PATIENT_NO' in table 'SYSTEM_TRACKING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSYSTEM_TRACKING.PATIENT_NOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ACTION_BY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSYSTEM_TRACKING.ACTION_BYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ACTION_BY' in table 'SYSTEM_TRACKING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSYSTEM_TRACKING.ACTION_BYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DATE_CREATE_BY_USER() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableSYSTEM_TRACKING.DATE_CREATE_BY_USERColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DATE_CREATE_BY_USER' in table 'SYSTEM_TRACKING' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSYSTEM_TRACKING.DATE_CREATE_BY_USERColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCREATEDATE_TIMENull() As Boolean
             Return Me.IsNull(Me.tableSYSTEM_TRACKING.CREATEDATE_TIMEColumn)
         End Function
@@ -740,6 +847,46 @@ Partial Public Class DSSystemTracking
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetACTIONNull()
             Me(Me.tableSYSTEM_TRACKING.ACTIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCREATED_BYNull() As Boolean
+            Return Me.IsNull(Me.tableSYSTEM_TRACKING.CREATED_BYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCREATED_BYNull()
+            Me(Me.tableSYSTEM_TRACKING.CREATED_BYColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPATIENT_NONull() As Boolean
+            Return Me.IsNull(Me.tableSYSTEM_TRACKING.PATIENT_NOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPATIENT_NONull()
+            Me(Me.tableSYSTEM_TRACKING.PATIENT_NOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsACTION_BYNull() As Boolean
+            Return Me.IsNull(Me.tableSYSTEM_TRACKING.ACTION_BYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetACTION_BYNull()
+            Me(Me.tableSYSTEM_TRACKING.ACTION_BYColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDATE_CREATE_BY_USERNull() As Boolean
+            Return Me.IsNull(Me.tableSYSTEM_TRACKING.DATE_CREATE_BY_USERColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDATE_CREATE_BY_USERNull()
+            Me(Me.tableSYSTEM_TRACKING.DATE_CREATE_BY_USERColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -907,6 +1054,10 @@ Namespace DSSystemTrackingTableAdapters
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION")
             tableMapping.ColumnMappings.Add("REFERENT_NO", "REFERENT_NO")
             tableMapping.ColumnMappings.Add("ACTION", "ACTION")
+            tableMapping.ColumnMappings.Add("CREATED_BY", "CREATED_BY")
+            tableMapping.ColumnMappings.Add("PATIENT_NO", "PATIENT_NO")
+            tableMapping.ColumnMappings.Add("ACTION_BY", "ACTION_BY")
+            tableMapping.ColumnMappings.Add("DATE_CREATE_BY_USER", "DATE_CREATE_BY_USER")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -918,7 +1069,12 @@ Namespace DSSystemTrackingTableAdapters
                 "Null_DESCRIPTION = 1 AND [DESCRIPTION] IS NULL) OR ([DESCRIPTION] = @Original_DE"& _ 
                 "SCRIPTION)) AND ((@IsNull_REFERENT_NO = 1 AND [REFERENT_NO] IS NULL) OR ([REFERE"& _ 
                 "NT_NO] = @Original_REFERENT_NO)) AND ((@IsNull_ACTION = 1 AND [ACTION] IS NULL) "& _ 
-                "OR ([ACTION] = @Original_ACTION)))"
+                "OR ([ACTION] = @Original_ACTION)) AND ((@IsNull_CREATED_BY = 1 AND [CREATED_BY] "& _ 
+                "IS NULL) OR ([CREATED_BY] = @Original_CREATED_BY)) AND ((@IsNull_PATIENT_NO = 1 "& _ 
+                "AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNul"& _ 
+                "l_ACTION_BY = 1 AND [ACTION_BY] IS NULL) OR ([ACTION_BY] = @Original_ACTION_BY))"& _ 
+                " AND ((@IsNull_DATE_CREATE_BY_USER = 1 AND [DATE_CREATE_BY_USER] IS NULL) OR ([D"& _ 
+                "ATE_CREATE_BY_USER] = @Original_DATE_CREATE_BY_USER)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TRACTING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "TRACTING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREATEDATE_TIME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATEDATE_TIME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -933,13 +1089,23 @@ Namespace DSSystemTrackingTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFERENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "REFERENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ACTION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ACTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREATED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ACTION_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ACTION_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DATE_CREATE_BY_USER", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE_BY_USER", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DATE_CREATE_BY_USER", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE_BY_USER", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [SYSTEM_TRACKING] ([CREATEDATE_TIME], [CREATE_DATE], [TRACT_FROM], [D"& _ 
-                "ESCRIPTION], [REFERENT_NO], [ACTION]) VALUES (@CREATEDATE_TIME, @CREATE_DATE, @T"& _ 
-                "RACT_FROM, @DESCRIPTION, @REFERENT_NO, @ACTION);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TRACTING_ID, CREATEDATE"& _ 
-                "_TIME, CREATE_DATE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION FROM SYSTEM_TRA"& _ 
-                "CKING WHERE (TRACTING_ID = SCOPE_IDENTITY())"
+                "ESCRIPTION], [REFERENT_NO], [ACTION], [CREATED_BY], [PATIENT_NO], [ACTION_BY], ["& _ 
+                "DATE_CREATE_BY_USER]) VALUES (@CREATEDATE_TIME, @CREATE_DATE, @TRACT_FROM, @DESC"& _ 
+                "RIPTION, @REFERENT_NO, @ACTION, @CREATED_BY, @PATIENT_NO, @ACTION_BY, @DATE_CREA"& _ 
+                "TE_BY_USER);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TRACTING_ID, CREATEDATE_TIME, CREATE_DATE, TRACT_FROM, DESC"& _ 
+                "RIPTION, REFERENT_NO, ACTION, CREATED_BY, PATIENT_NO, ACTION_BY, DATE_CREATE_BY_"& _ 
+                "USER FROM SYSTEM_TRACKING WHERE (TRACTING_ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATEDATE_TIME", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATEDATE_TIME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATE_DATE", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -947,21 +1113,33 @@ Namespace DSSystemTrackingTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFERENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "REFERENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACTION_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_CREATE_BY_USER", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE_BY_USER", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [SYSTEM_TRACKING] SET [CREATEDATE_TIME] = @CREATEDATE_TIME, [CREATE_DATE] "& _ 
                 "= @CREATE_DATE, [TRACT_FROM] = @TRACT_FROM, [DESCRIPTION] = @DESCRIPTION, [REFER"& _ 
-                "ENT_NO] = @REFERENT_NO, [ACTION] = @ACTION WHERE (([TRACTING_ID] = @Original_TRA"& _ 
-                "CTING_ID) AND ((@IsNull_CREATEDATE_TIME = 1 AND [CREATEDATE_TIME] IS NULL) OR (["& _ 
-                "CREATEDATE_TIME] = @Original_CREATEDATE_TIME)) AND ((@IsNull_CREATE_DATE = 1 AND"& _ 
-                " [CREATE_DATE] IS NULL) OR ([CREATE_DATE] = @Original_CREATE_DATE)) AND ((@IsNul"& _ 
-                "l_TRACT_FROM = 1 AND [TRACT_FROM] IS NULL) OR ([TRACT_FROM] = @Original_TRACT_FR"& _ 
-                "OM)) AND ((@IsNull_DESCRIPTION = 1 AND [DESCRIPTION] IS NULL) OR ([DESCRIPTION] "& _ 
-                "= @Original_DESCRIPTION)) AND ((@IsNull_REFERENT_NO = 1 AND [REFERENT_NO] IS NUL"& _ 
-                "L) OR ([REFERENT_NO] = @Original_REFERENT_NO)) AND ((@IsNull_ACTION = 1 AND [ACT"& _ 
-                "ION] IS NULL) OR ([ACTION] = @Original_ACTION)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TRACTING_ID, CREATEDAT"& _ 
-                "E_TIME, CREATE_DATE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION FROM SYSTEM_TR"& _ 
-                "ACKING WHERE (TRACTING_ID = @TRACTING_ID)"
+                "ENT_NO] = @REFERENT_NO, [ACTION] = @ACTION, [CREATED_BY] = @CREATED_BY, [PATIENT"& _ 
+                "_NO] = @PATIENT_NO, [ACTION_BY] = @ACTION_BY, [DATE_CREATE_BY_USER] = @DATE_CREA"& _ 
+                "TE_BY_USER WHERE (([TRACTING_ID] = @Original_TRACTING_ID) AND ((@IsNull_CREATEDA"& _ 
+                "TE_TIME = 1 AND [CREATEDATE_TIME] IS NULL) OR ([CREATEDATE_TIME] = @Original_CRE"& _ 
+                "ATEDATE_TIME)) AND ((@IsNull_CREATE_DATE = 1 AND [CREATE_DATE] IS NULL) OR ([CRE"& _ 
+                "ATE_DATE] = @Original_CREATE_DATE)) AND ((@IsNull_TRACT_FROM = 1 AND [TRACT_FROM"& _ 
+                "] IS NULL) OR ([TRACT_FROM] = @Original_TRACT_FROM)) AND ((@IsNull_DESCRIPTION ="& _ 
+                " 1 AND [DESCRIPTION] IS NULL) OR ([DESCRIPTION] = @Original_DESCRIPTION)) AND (("& _ 
+                "@IsNull_REFERENT_NO = 1 AND [REFERENT_NO] IS NULL) OR ([REFERENT_NO] = @Original"& _ 
+                "_REFERENT_NO)) AND ((@IsNull_ACTION = 1 AND [ACTION] IS NULL) OR ([ACTION] = @Or"& _ 
+                "iginal_ACTION)) AND ((@IsNull_CREATED_BY = 1 AND [CREATED_BY] IS NULL) OR ([CREA"& _ 
+                "TED_BY] = @Original_CREATED_BY)) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] I"& _ 
+                "S NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_ACTION_BY = 1 AN"& _ 
+                "D [ACTION_BY] IS NULL) OR ([ACTION_BY] = @Original_ACTION_BY)) AND ((@IsNull_DAT"& _ 
+                "E_CREATE_BY_USER = 1 AND [DATE_CREATE_BY_USER] IS NULL) OR ([DATE_CREATE_BY_USER"& _ 
+                "] = @Original_DATE_CREATE_BY_USER)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TRACTING_ID, CREATEDATE_TIME, CREA"& _ 
+                "TE_DATE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION, CREATED_BY, PATIENT_NO, A"& _ 
+                "CTION_BY, DATE_CREATE_BY_USER FROM SYSTEM_TRACKING WHERE (TRACTING_ID = @TRACTIN"& _ 
+                "G_ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATEDATE_TIME", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATEDATE_TIME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATE_DATE", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -969,6 +1147,10 @@ Namespace DSSystemTrackingTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFERENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "REFERENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACTION_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_CREATE_BY_USER", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE_BY_USER", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TRACTING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "TRACTING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREATEDATE_TIME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATEDATE_TIME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CREATEDATE_TIME", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATEDATE_TIME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -982,6 +1164,14 @@ Namespace DSSystemTrackingTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_REFERENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "REFERENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ACTION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ACTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREATED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ACTION_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ACTION_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DATE_CREATE_BY_USER", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE_BY_USER", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DATE_CREATE_BY_USER", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE_BY_USER", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TRACTING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "TRACTING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -997,39 +1187,43 @@ Namespace DSSystemTrackingTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        TRACTING_ID, CREATEDATE_TIME, CREATE_DATE, TRACT_FROM, DESCRIPTION,"& _ 
-                " REFERENT_NO, ACTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            SYSTEM_TRACKING"
+                " REFERENT_NO, ACTION, CREATED_BY, PATIENT_NO, ACTION_BY, DATE_CREATE_BY_USER"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
+                "OM            SYSTEM_TRACKING"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT ACTION, CREATEDATE_TIME, CREATE_DATE, DESCRIPTION, REFERENT_NO, TRACTING_I"& _ 
-                "D, TRACT_FROM FROM SYSTEM_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @Dat"& _ 
-                "eTo)"
+            Me._commandCollection(1).CommandText = "SELECT ACTION, ACTION_BY, CREATEDATE_TIME, CREATED_BY, CREATE_DATE, DATE_CREATE_B"& _ 
+                "Y_USER, DESCRIPTION, PATIENT_NO, REFERENT_NO, TRACTING_ID, TRACT_FROM FROM SYSTE"& _ 
+                "M_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @DateTo)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT ACTION, CREATEDATE_TIME, CREATE_DATE, DESCRIPTION, REFERENT_NO, TRACTING_I"& _ 
-                "D, TRACT_FROM FROM SYSTEM_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @Dat"& _ 
-                "eTo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"DESCRIPTION LIKE +'%'+ @DESCRIPTION +'%'"
+            Me._commandCollection(2).CommandText = "SELECT ACTION, ACTION_BY, CREATEDATE_TIME, CREATED_BY, CREATE_DATE, DATE_CREATE_B"& _ 
+                "Y_USER, DESCRIPTION, PATIENT_NO, REFERENT_NO, TRACTING_ID, TRACT_FROM FROM SYSTE"& _ 
+                "M_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @DateTo) AND (DESCRIPTION LI"& _ 
+                "KE + '%' + @DESCRIPTION + '%')"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 450, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT ACTION, CREATEDATE_TIME, CREATE_DATE, DESCRIPTION, REFERENT_NO, TRACTING_I"& _ 
-                "D, TRACT_FROM FROM SYSTEM_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @Dat"& _ 
-                "eTo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"TRACT_FROM LIKE +'%'+ @TRACT_FROM +'%'"
+            Me._commandCollection(3).CommandText = "SELECT ACTION, ACTION_BY, CREATEDATE_TIME, CREATED_BY, CREATE_DATE, DATE_CREATE_B"& _ 
+                "Y_USER, DESCRIPTION, PATIENT_NO, REFERENT_NO, TRACTING_ID, TRACT_FROM FROM SYSTE"& _ 
+                "M_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @DateTo) AND (TRACT_FROM LIK"& _ 
+                "E + '%' + @TRACT_FROM + '%')"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TRACT_FROM", Global.System.Data.SqlDbType.NVarChar, 250, Global.System.Data.ParameterDirection.Input, 0, 0, "TRACT_FROM", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT ACTION, CREATEDATE_TIME, CREATE_DATE, DESCRIPTION, REFERENT_NO, TRACTING_I"& _ 
-                "D, TRACT_FROM FROM SYSTEM_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @Dat"& _ 
-                "eTo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ACTION LIKE +'%'+ @ACTION +'%'"
+            Me._commandCollection(4).CommandText = "SELECT ACTION, ACTION_BY, CREATEDATE_TIME, CREATED_BY, CREATE_DATE, DATE_CREATE_B"& _ 
+                "Y_USER, DESCRIPTION, PATIENT_NO, REFERENT_NO, TRACTING_ID, TRACT_FROM FROM SYSTE"& _ 
+                "M_TRACKING WHERE (CREATE_DATE BETWEEN @DateFrom AND @DateTo) AND (ACTION LIKE + "& _ 
+                "'%' + @ACTION + '%')"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1037,8 +1231,10 @@ Namespace DSSystemTrackingTableAdapters
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "INSERT INTO SYSTEM_TRACKING"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (CREATEDATE_TIME, CREATE_DA"& _ 
-                "TE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@CREATEDATE_TI"& _ 
-                "ME,@CREATE_DATE,@TRACT_FROM,@DESCRIPTION,@REFERENT_NO,@ACTION)"
+                "TE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION, CREATED_BY, PATIENT_NO, ACTION"& _ 
+                "_BY, DATE_CREATE_BY_USER)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@CREATEDATE_TIME,@CREATE_DATE,@TRACT_F"& _ 
+                "ROM,@DESCRIPTION,@REFERENT_NO,@ACTION,@CREATED_BY,@PATIENT_NO,@ACTION_BY,@DATE_C"& _ 
+                "REATE_BY_USER)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATEDATE_TIME", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATEDATE_TIME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATE_DATE", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1046,6 +1242,10 @@ Namespace DSSystemTrackingTableAdapters
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 450, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@REFERENT_NO", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "REFERENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACTION", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREATED_BY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACTION_BY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ACTION_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_CREATE_BY_USER", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_CREATE_BY_USER", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1295,7 +1495,7 @@ Namespace DSSystemTrackingTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_TRACTING_ID As Decimal, ByVal Original_CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal Original_CREATE_DATE As Global.System.Nullable(Of Date), ByVal Original_TRACT_FROM As String, ByVal Original_DESCRIPTION As String, ByVal Original_REFERENT_NO As String, ByVal Original_ACTION As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_TRACTING_ID As Decimal, ByVal Original_CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal Original_CREATE_DATE As Global.System.Nullable(Of Date), ByVal Original_TRACT_FROM As String, ByVal Original_DESCRIPTION As String, ByVal Original_REFERENT_NO As String, ByVal Original_ACTION As String, ByVal Original_CREATED_BY As String, ByVal Original_PATIENT_NO As String, ByVal Original_ACTION_BY As String, ByVal Original_DATE_CREATE_BY_USER As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_TRACTING_ID,Decimal)
             If (Original_CREATEDATE_TIME.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -1339,6 +1539,34 @@ Namespace DSSystemTrackingTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_ACTION,String)
             End If
+            If (Original_CREATED_BY Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_CREATED_BY,String)
+            End If
+            If (Original_PATIENT_NO Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_PATIENT_NO,String)
+            End If
+            If (Original_ACTION_BY Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_ACTION_BY,String)
+            End If
+            If (Original_DATE_CREATE_BY_USER.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_DATE_CREATE_BY_USER.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1357,7 +1585,7 @@ Namespace DSSystemTrackingTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal CREATE_DATE As Global.System.Nullable(Of Date), ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal CREATE_DATE As Global.System.Nullable(Of Date), ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String, ByVal CREATED_BY As String, ByVal PATIENT_NO As String, ByVal ACTION_BY As String, ByVal DATE_CREATE_BY_USER As Global.System.Nullable(Of Date)) As Integer
             If (CREATEDATE_TIME.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(CREATEDATE_TIME.Value,Date)
             Else
@@ -1388,6 +1616,26 @@ Namespace DSSystemTrackingTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(ACTION,String)
             End If
+            If (CREATED_BY Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(CREATED_BY,String)
+            End If
+            If (PATIENT_NO Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(PATIENT_NO,String)
+            End If
+            If (ACTION_BY Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(ACTION_BY,String)
+            End If
+            If (DATE_CREATE_BY_USER.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(DATE_CREATE_BY_USER.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1406,7 +1654,29 @@ Namespace DSSystemTrackingTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal CREATE_DATE As Global.System.Nullable(Of Date), ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String, ByVal Original_TRACTING_ID As Decimal, ByVal Original_CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal Original_CREATE_DATE As Global.System.Nullable(Of Date), ByVal Original_TRACT_FROM As String, ByVal Original_DESCRIPTION As String, ByVal Original_REFERENT_NO As String, ByVal Original_ACTION As String, ByVal TRACTING_ID As Decimal) As Integer
+        Public Overloads Overridable Function Update( _
+                    ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date),  _
+                    ByVal CREATE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal TRACT_FROM As String,  _
+                    ByVal DESCRIPTION As String,  _
+                    ByVal REFERENT_NO As String,  _
+                    ByVal ACTION As String,  _
+                    ByVal CREATED_BY As String,  _
+                    ByVal PATIENT_NO As String,  _
+                    ByVal ACTION_BY As String,  _
+                    ByVal DATE_CREATE_BY_USER As Global.System.Nullable(Of Date),  _
+                    ByVal Original_TRACTING_ID As Decimal,  _
+                    ByVal Original_CREATEDATE_TIME As Global.System.Nullable(Of Date),  _
+                    ByVal Original_CREATE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal Original_TRACT_FROM As String,  _
+                    ByVal Original_DESCRIPTION As String,  _
+                    ByVal Original_REFERENT_NO As String,  _
+                    ByVal Original_ACTION As String,  _
+                    ByVal Original_CREATED_BY As String,  _
+                    ByVal Original_PATIENT_NO As String,  _
+                    ByVal Original_ACTION_BY As String,  _
+                    ByVal Original_DATE_CREATE_BY_USER As Global.System.Nullable(Of Date),  _
+                    ByVal TRACTING_ID As Decimal) As Integer
             If (CREATEDATE_TIME.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CREATEDATE_TIME.Value,Date)
             Else
@@ -1437,50 +1707,98 @@ Namespace DSSystemTrackingTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ACTION,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_TRACTING_ID,Decimal)
-            If (Original_CREATEDATE_TIME.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_CREATEDATE_TIME.Value,Date)
+            If (CREATED_BY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(CREATED_BY,String)
+            End If
+            If (PATIENT_NO Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(PATIENT_NO,String)
+            End If
+            If (ACTION_BY Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CREATE_DATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_CREATE_DATE.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ACTION_BY,String)
             End If
-            If (Original_TRACT_FROM Is Nothing) Then
+            If (DATE_CREATE_BY_USER.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(DATE_CREATE_BY_USER.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_TRACTING_ID,Decimal)
+            If (Original_CREATEDATE_TIME.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_CREATEDATE_TIME.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_TRACT_FROM,String)
             End If
-            If (Original_DESCRIPTION Is Nothing) Then
+            If (Original_CREATE_DATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_CREATE_DATE.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_DESCRIPTION,String)
             End If
-            If (Original_REFERENT_NO Is Nothing) Then
+            If (Original_TRACT_FROM Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_REFERENT_NO,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_TRACT_FROM,String)
             End If
-            If (Original_ACTION Is Nothing) Then
+            If (Original_DESCRIPTION Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ACTION,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_DESCRIPTION,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(TRACTING_ID,Decimal)
+            If (Original_REFERENT_NO Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_REFERENT_NO,String)
+            End If
+            If (Original_ACTION Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_ACTION,String)
+            End If
+            If (Original_CREATED_BY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_CREATED_BY,String)
+            End If
+            If (Original_PATIENT_NO Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_PATIENT_NO,String)
+            End If
+            If (Original_ACTION_BY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_ACTION_BY,String)
+            End If
+            If (Original_DATE_CREATE_BY_USER.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_DATE_CREATE_BY_USER.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(TRACTING_ID,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1499,14 +1817,35 @@ Namespace DSSystemTrackingTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal CREATE_DATE As Global.System.Nullable(Of Date), ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String, ByVal Original_TRACTING_ID As Decimal, ByVal Original_CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal Original_CREATE_DATE As Global.System.Nullable(Of Date), ByVal Original_TRACT_FROM As String, ByVal Original_DESCRIPTION As String, ByVal Original_REFERENT_NO As String, ByVal Original_ACTION As String) As Integer
-            Return Me.Update(CREATEDATE_TIME, CREATE_DATE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION, Original_TRACTING_ID, Original_CREATEDATE_TIME, Original_CREATE_DATE, Original_TRACT_FROM, Original_DESCRIPTION, Original_REFERENT_NO, Original_ACTION, Original_TRACTING_ID)
+        Public Overloads Overridable Function Update( _
+                    ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date),  _
+                    ByVal CREATE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal TRACT_FROM As String,  _
+                    ByVal DESCRIPTION As String,  _
+                    ByVal REFERENT_NO As String,  _
+                    ByVal ACTION As String,  _
+                    ByVal CREATED_BY As String,  _
+                    ByVal PATIENT_NO As String,  _
+                    ByVal ACTION_BY As String,  _
+                    ByVal DATE_CREATE_BY_USER As Global.System.Nullable(Of Date),  _
+                    ByVal Original_TRACTING_ID As Decimal,  _
+                    ByVal Original_CREATEDATE_TIME As Global.System.Nullable(Of Date),  _
+                    ByVal Original_CREATE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal Original_TRACT_FROM As String,  _
+                    ByVal Original_DESCRIPTION As String,  _
+                    ByVal Original_REFERENT_NO As String,  _
+                    ByVal Original_ACTION As String,  _
+                    ByVal Original_CREATED_BY As String,  _
+                    ByVal Original_PATIENT_NO As String,  _
+                    ByVal Original_ACTION_BY As String,  _
+                    ByVal Original_DATE_CREATE_BY_USER As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(CREATEDATE_TIME, CREATE_DATE, TRACT_FROM, DESCRIPTION, REFERENT_NO, ACTION, CREATED_BY, PATIENT_NO, ACTION_BY, DATE_CREATE_BY_USER, Original_TRACTING_ID, Original_CREATEDATE_TIME, Original_CREATE_DATE, Original_TRACT_FROM, Original_DESCRIPTION, Original_REFERENT_NO, Original_ACTION, Original_CREATED_BY, Original_PATIENT_NO, Original_ACTION_BY, Original_DATE_CREATE_BY_USER, Original_TRACTING_ID)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function InsertNewSystemTracking(ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal CREATE_DATE As String, ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String) As Integer
+        Public Overloads Overridable Function InsertNewSystemTracking(ByVal CREATEDATE_TIME As Global.System.Nullable(Of Date), ByVal CREATE_DATE As String, ByVal TRACT_FROM As String, ByVal DESCRIPTION As String, ByVal REFERENT_NO As String, ByVal ACTION As String, ByVal CREATED_BY As String, ByVal PATIENT_NO As String, ByVal ACTION_BY As String, ByVal DATE_CREATE_BY_USER As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (CREATEDATE_TIME.HasValue = true) Then
                 command.Parameters(0).Value = CType(CREATEDATE_TIME.Value,Date)
@@ -1537,6 +1876,26 @@ Namespace DSSystemTrackingTableAdapters
                 command.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(5).Value = CType(ACTION,String)
+            End If
+            If (CREATED_BY Is Nothing) Then
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(6).Value = CType(CREATED_BY,String)
+            End If
+            If (PATIENT_NO Is Nothing) Then
+                command.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(7).Value = CType(PATIENT_NO,String)
+            End If
+            If (ACTION_BY Is Nothing) Then
+                command.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(8).Value = CType(ACTION_BY,String)
+            End If
+            If (DATE_CREATE_BY_USER Is Nothing) Then
+                command.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(9).Value = CType(DATE_CREATE_BY_USER,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _

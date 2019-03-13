@@ -319,7 +319,7 @@ Public Class UCMainNew_Outpatient
             Dim FDeleteNote As New DeleteNoteNew
             FDeleteNote.LblSaveOption.Text = NewOutNo
             If FDeleteNote.ShowDialog = DialogResult.OK Then
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", row.Cells("PatientNo").Value.ToString & "Register:" & row.Cells("CreateDate").Value & " Note: " & FDeleteNote.TxtNote.Text & " By user: " & GetUserCreateNewOrOld(row.Cells("NewOutPatientNo").Value), row.Cells("ReceiptNo").Value, "DELETED")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", FDeleteNote.TxtNote.Text, row.Cells("ReceiptNo").Value, "DELETED", GetUserCreateNewOrOld(row.Cells("NewOutPatientNo").Value), row.Cells("PatientNo").Value.ToString, USER_NAME, row.Cells("CreateDate").Value)
                 MsgBox("Patient canceled successful.", MsgBoxStyle.Information, "Cancel")
                 CallBgNewOut()
             End If
@@ -339,7 +339,8 @@ Public Class UCMainNew_Outpatient
             DIALOG_DELETE = MessageBox.Show("Do you want to undo cancel", "cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If DIALOG_DELETE = DialogResult.Yes Then
                 If ModNew_Outpatient.UpdateToUndo(NewOutNo) = 1 Then
-                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", row.Cells("PatientNo").Value.ToString & " Regist " & row.Cells("CreateDate").Value & "By user:" & GetUserCreateNewOrOld(row.Cells("NewOutPatientNo").Value), row.Cells("ReceiptNo").Value, "UNDO")
+
+                    DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", "Undo data", row.Cells("ReceiptNo").Value, "UNDO", GetUserCreateNewOrOld(row.Cells("NewOutPatientNo").Value), row.Cells("PatientNo").Value.ToString, USER_NAME, row.Cells("CreateDate").Value)
                     MsgBox("Patient undo successfull.", MsgBoxStyle.Information, "Cancel")
                     CallBgNewOut()
                 Else
@@ -841,7 +842,8 @@ Public Class UCMainNew_Outpatient
             FNew_outpatient.ChTypeOther.Checked = row.Cells("TypeDiagnosis").Value.ToString  'GridEXNewPatientBook.GetRow.Cells("TypeDiagnosis").Value
             If FNew_outpatient.ShowDialog() = DialogResult.OK Then
 
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", " Patient No:" & FNew_outpatient.TxtPatientNo.Text & " Regist Date: " & FNew_outpatient.DateFollowUp.Value.Date & " Amount:" & FNew_outpatient.TxtPatientFee.Text & " " & IIf(FNew_outpatient.RadioDolar.Checked = True, "$", "R") & " By user:" & GetUserCreateNewOrOld(row.Cells("NewOutPatientNo").Value), FNew_outpatient.TxtReceiptNo.Text, "UPDATE")
+
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient book", FNew_outpatient.TxtEditNote.Text, FNew_outpatient.TxtReceiptNo.Text, "UPDATE", GetUserCreateNewOrOld(row.Cells("NewOutPatientNo").Value), FNew_outpatient.TxtPatientNo.Text, USER_NAME, FNew_outpatient.DateFollowUp.Value.Date)
                 GridEXNewPatientBook.DataSource = ModNew_Outpatient.SelectNewOutNo(EmptyString(FNew_outpatient.LblSaveOption.Text))
             End If
             'If FNew_outpatient.isNewClose = True Then

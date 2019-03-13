@@ -118,6 +118,7 @@ Public Class FRMOld_Outpatient
                 End If
             End If
         Else
+            If ValidateTextField(TxtEditNote, "", ErrOldOutpatient) = False Then Exit Sub
             DIALOG_UPDATE = MessageBox.Show(MSG_UPDATE, UPDATE_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If DIALOG_UPDATE = Windows.Forms.DialogResult.Yes Then
                 If ModOld_Outpatient.UpdateOldPatient(LblSaveOption.Text, _

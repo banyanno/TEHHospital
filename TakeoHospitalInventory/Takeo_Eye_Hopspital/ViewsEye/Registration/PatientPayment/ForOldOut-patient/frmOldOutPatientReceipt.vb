@@ -578,6 +578,7 @@ Public Class frmOldOutPatientReceipt
             '    GrpReferal.BackColor = Color.Transparent
             'End If
             If MessageBox.Show("Do you really want to update these information?" & Chr(13) & "Please make sure that you enter the right information before saving." & Chr(13) & "Click Yes to update and click No to cancel update.", "Receipt ID existed", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+                If ValidateTextField(txtEditNote, "", ErrOldPatient) = False Then Exit Sub
                 Call MOldOutpatientReceipt.UpdateOldOutpatientReceipt(Me.lblID.Text, Me.txtHN.Text, Me.txtPatient.Text, Me.txtAmountFigureR.Text, _
                 Me.txtAmountFigureD.Text, IIf(Me.lblRielDolar.Text = "erol", Me.txtTotal.Text, 0), IIf(Me.lblRielDolar.Text = "duløa", Me.txtTotal.Text, 0), _
                 IIf((Me.rdFollowUpR.Checked = True Or Me.rdFollowUpD.Checked = True) And Me.chkRiel.Checked = True, Me.txtAmountFigureR.Text, 0), _
@@ -591,7 +592,7 @@ Public Class frmOldOutPatientReceipt
                     Me.ChPhysical.Checked, Me.ChCDMDP.Checked, Me.ChEyeScreenig.Checked, Me.ChScreeningKV.Checked, Me.ChSelf.Checked, _
                     Me.ChPatient.Checked, Me.ChFriend.Checked, Me.ChOtherNGO.Checked, Me.ChChurch.Checked, Me.ChHealth.Checked, Me.ChOtherReferal.Checked)
                 End If
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient receipt", txtHN.Text & " Date: " & dtpDateIn.Value.Date & "Amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & GetUserCreatedInvoice(txtReceiptNumber.Text), txtReceiptNumber.Text, "UPDATE")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Old patient receipt", txtEditNote.Text, txtReceiptNumber.Text, "UPDATE", GetUserCreatedInvoice(txtReceiptNumber.Text), txtHN.Text, USER_NAME, dtpDateIn.Value.Date)
                 MsgBox("Update old-out patient receipt successfully", MsgBoxStyle.OkOnly, "Update Old-Out Patient")
             End If
         End If

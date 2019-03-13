@@ -439,7 +439,7 @@ Partial Class MainConsuling
         Me.GridConsulting.RecordNavigator = True
         Me.GridConsulting.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowPosition
         Me.GridConsulting.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridConsulting.Size = New System.Drawing.Size(1382, 457)
+        Me.GridConsulting.Size = New System.Drawing.Size(1382, 432)
         Me.GridConsulting.TabIndex = 0
         '
         'MenuConsulting
@@ -490,7 +490,6 @@ Partial Class MainConsuling
         Me.ToolStrip2.Size = New System.Drawing.Size(1382, 25)
         Me.ToolStrip2.TabIndex = 1
         Me.ToolStrip2.Text = "ToolStrip2"
-        Me.ToolStrip2.Visible = False
         '
         'BtnWaitingConsult
         '
@@ -570,7 +569,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.SplitContainer4)
         Me.SplitContainer3.Size = New System.Drawing.Size(1390, 514)
-        Me.SplitContainer3.SplitterDistance = 58
+        Me.SplitContainer3.SplitterDistance = 57
         Me.SplitContainer3.TabIndex = 1
         '
         'TxtPatientRefunID
@@ -655,7 +654,7 @@ Partial Class MainConsuling
         '
         Me.SplitContainer4.Panel2.Controls.Add(Me.ReportMoneyRefund)
         Me.SplitContainer4.Panel2Collapsed = True
-        Me.SplitContainer4.Size = New System.Drawing.Size(1390, 452)
+        Me.SplitContainer4.Size = New System.Drawing.Size(1390, 453)
         Me.SplitContainer4.SplitterDistance = 694
         Me.SplitContainer4.TabIndex = 0
         '
@@ -672,7 +671,7 @@ Partial Class MainConsuling
         Me.GridPatientRefund.Name = "GridPatientRefund"
         Me.GridPatientRefund.RecordNavigator = True
         Me.GridPatientRefund.RowHeaderFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-        Me.GridPatientRefund.Size = New System.Drawing.Size(1388, 450)
+        Me.GridPatientRefund.Size = New System.Drawing.Size(1388, 451)
         Me.GridPatientRefund.TabIndex = 0
         '
         'ContextRefund

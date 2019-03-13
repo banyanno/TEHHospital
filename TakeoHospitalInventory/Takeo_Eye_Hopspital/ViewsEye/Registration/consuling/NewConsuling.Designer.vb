@@ -26,6 +26,7 @@ Partial Class NewConsuling
         Dim GridRefund_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewConsuling))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.LblNew_OldIDForDoctor = New System.Windows.Forms.Label
         Me.Label39 = New System.Windows.Forms.Label
         Me.txtPatientPhone = New System.Windows.Forms.TextBox
         Me.BtnFind = New System.Windows.Forms.Button
@@ -174,7 +175,6 @@ Partial Class NewConsuling
         Me.BtnSave = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton
-        Me.LblNew_OldIDForDoctor = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -224,6 +224,16 @@ Partial Class NewConsuling
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Patient "
+        '
+        'LblNew_OldIDForDoctor
+        '
+        Me.LblNew_OldIDForDoctor.AutoSize = True
+        Me.LblNew_OldIDForDoctor.Location = New System.Drawing.Point(143, 82)
+        Me.LblNew_OldIDForDoctor.Name = "LblNew_OldIDForDoctor"
+        Me.LblNew_OldIDForDoctor.Size = New System.Drawing.Size(13, 13)
+        Me.LblNew_OldIDForDoctor.TabIndex = 26
+        Me.LblNew_OldIDForDoctor.Text = "0"
+        Me.LblNew_OldIDForDoctor.Visible = False
         '
         'Label39
         '
@@ -467,6 +477,8 @@ Partial Class NewConsuling
         '
         'GroupBox3
         '
+        Me.GroupBox3.AutoSize = True
+        Me.GroupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox3.BackColor = System.Drawing.SystemColors.Control
         Me.GroupBox3.Controls.Add(Me.TxtConsultNote)
         Me.GroupBox3.Controls.Add(Me.GroupBox7)
@@ -483,11 +495,11 @@ Partial Class NewConsuling
         'TxtConsultNote
         '
         Me.TxtConsultNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtConsultNote.Location = New System.Drawing.Point(65, 234)
+        Me.TxtConsultNote.Location = New System.Drawing.Point(65, 240)
         Me.TxtConsultNote.Multiline = True
         Me.TxtConsultNote.Name = "TxtConsultNote"
         Me.TxtConsultNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtConsultNote.Size = New System.Drawing.Size(652, 153)
+        Me.TxtConsultNote.Size = New System.Drawing.Size(652, 133)
         Me.TxtConsultNote.TabIndex = 2
         '
         'GroupBox7
@@ -502,7 +514,7 @@ Partial Class NewConsuling
         Me.GroupBox7.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox7.Location = New System.Drawing.Point(721, 14)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(423, 371)
+        Me.GroupBox7.Size = New System.Drawing.Size(408, 371)
         Me.GroupBox7.TabIndex = 1
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "សេចក្តីសន្និដ្ធាន អ្នកប្រើប្រាស់ត្រូវតែ បញ្ចូលចូលជាដុលា"
@@ -585,7 +597,7 @@ Partial Class NewConsuling
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Khmer OS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(13, 230)
+        Me.Label17.Location = New System.Drawing.Point(13, 236)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(46, 28)
         Me.Label17.TabIndex = 11
@@ -1266,7 +1278,7 @@ Partial Class NewConsuling
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 54)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1444, 824)
+        Me.Panel1.Size = New System.Drawing.Size(1444, 827)
         Me.Panel1.TabIndex = 6
         '
         'TabControl1
@@ -1322,7 +1334,7 @@ Partial Class NewConsuling
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1138, 464)
+        Me.TabPage2.Size = New System.Drawing.Size(1138, 430)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Receipt In-Patient"
         '
@@ -1901,21 +1913,11 @@ Partial Class NewConsuling
         Me.ToolStripButton2.Text = "   Cancel   "
         Me.ToolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'LblNew_OldIDForDoctor
-        '
-        Me.LblNew_OldIDForDoctor.AutoSize = True
-        Me.LblNew_OldIDForDoctor.Location = New System.Drawing.Point(143, 82)
-        Me.LblNew_OldIDForDoctor.Name = "LblNew_OldIDForDoctor"
-        Me.LblNew_OldIDForDoctor.Size = New System.Drawing.Size(13, 13)
-        Me.LblNew_OldIDForDoctor.TabIndex = 26
-        Me.LblNew_OldIDForDoctor.Text = "0"
-        Me.LblNew_OldIDForDoctor.Visible = False
-        '
         'NewConsuling
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1444, 878)
+        Me.ClientSize = New System.Drawing.Size(1444, 881)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1951,6 +1953,7 @@ Partial Class NewConsuling
         Me.Panel1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)

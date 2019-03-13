@@ -1062,6 +1062,7 @@ Public Class frmInpatientReceipt
 
             End If
         Else
+            If ValidateTextField(txtEditInPatient, "", ErrInPatient) = False Then Exit Sub
             If MessageBox.Show("Do you really want to update these information?" & Chr(13) & "Please make sure that you enter the right amount before saving." & Chr(13) & "Click Yes to update and click No to cancel update.", "Receipt ID existed", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
                 Dim CashTotalDolar As Double = 0
                 CashTotalDolar = Round((EmptyString(txtAmountFigureR.Text) / txtRate.Text) + EmptyString(txtAmountFigureD.Text), 2)
@@ -1079,7 +1080,7 @@ Public Class frmInpatientReceipt
                     IIf(Me.rdOtherR.Checked = True Or Me.rdOtherD.Checked = True, "1", "0"), IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                     IIf(Me.chkSocialFee.Checked = False, 1, 0), "IR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value.Date, Format(Date.Now(), "MM/dd/yyyy"), _
                     Me.txtOperation.Text, ChDonation.Checked, CboDonation.SelectedValue, CboDonation.Text, EmptyString(TxtDonationPay.Text), TxtDonateNote.Text, EmptyString(TxtHospitalFee.Text), CashTotalDolar)
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In-patient receipt", txtHN.Text & " Date: " & dtpDateIn.Value.Date & " Amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & GetUserCreatedInvoice(txtReceiptNumber.Text), txtReceiptNumber.Text, "UPDATE")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "In-patient receipt", txtEditInPatient.Text, txtReceiptNumber.Text, "UPDATE", GetUserCreatedInvoice(txtReceiptNumber.Text), txtHN.Text, USER_NAME, dtpDateIn.Value.Date)
                 'Me.cmdPrint.Enabled = True
             End If
         End If
@@ -1123,6 +1124,10 @@ Public Class frmInpatientReceipt
         Catch ex As Exception
             TxtHospitalFee.Text = 0
         End Try
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtEditInPatient.TextChanged
 
     End Sub
 End Class

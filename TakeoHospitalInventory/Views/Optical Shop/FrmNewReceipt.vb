@@ -781,11 +781,19 @@ Public Class FrmNewReceipt
             If RadUSD.Checked = True Then
                 TotalSocial = EmptyString(TxtFullAmount.Text) + EmptyString(TxtSocialAmount.Text)
             End If
+           
             If MessageBox.Show("Do you want to  save receipt?", "Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
                 '============================= Start Edit Optical Receipt ======================================
 
                 If LblSaveStatus.Text <> "0" Then '--- Edit Mode
                     'Try
+                    If ValidateTextField(TxtEditNote, "", ErrReceipt) = False Then
+                        MessageBox.Show("Please enter edit note", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        TxtEditNote.Select()
+                        TxtEditNote.Focus()
+                        TxtEditNote.SelectAll()
+                        Exit Sub
+                    End If
                     Dim ReceiptType As String = ""
                     MTakeoInventory.StatusLoading(True)
                     Application.DoEvents()

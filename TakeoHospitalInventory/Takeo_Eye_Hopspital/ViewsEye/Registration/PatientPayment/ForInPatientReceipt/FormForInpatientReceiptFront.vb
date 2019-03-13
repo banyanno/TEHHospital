@@ -854,7 +854,7 @@ Public Class FormForInpatientReceiptFront
     ByVal DonationPay As Double, _
     ByVal CashTotal As Double, ByVal TIME_CREATE As String, ByVal CREATED_BY As String) As String
         Dim sql As String = "INSERT INTO TblInpatient (ReceiptNo,PatientNo,Diagnosis,TypeOfOperation," & _
-       "HosFee,SosialFee,FullFee,DolarSosial,DolarFull,CalDolarSosial,CalDolarFull,Other,CreateDate,IsDonate,DonationID,DonationName,DonationPay,CashTotal,TIME_CREATE) " & _
+       "HosFee,SosialFee,FullFee,DolarSosial,DolarFull,CalDolarSosial,CalDolarFull,Other,CreateDate,IsDonate,DonationID,DonationName,DonationPay,CashTotal,TIME_CREATE,CREATED_BY) " & _
        "VALUES(" & ReceiptNo & "," & _
        PatientNo & ",'" & _
        Diagnosis & "','" & _

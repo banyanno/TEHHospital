@@ -505,6 +505,7 @@ Public Class frmNewOutpatientReceipt
 
             End If
         Else
+            If ValidateTextField(txtEditNote, "", ErrorEdit) = False Then Exit Sub
             Dim DialogBox As DialogResult
             DialogBox = MessageBox.Show("Do you really want to update these information?" & Chr(13) & "Please make sure that you enter the right amount before saving." & Chr(13) & "Click Yes to update and click No to cancel update.", "Receipt ID existed", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
             If DialogBox = Windows.Forms.DialogResult.Yes Then
@@ -517,7 +518,7 @@ Public Class frmNewOutpatientReceipt
                 Me.txtRate.Text, Me.txtAmountWord.Text, IIf(Me.rdConsultationR.Checked = True Or Me.rdConsultationD.Checked = True, "1", "0"), IIf(Me.chkSocialFee.Checked = True, 1, 0), _
                 IIf(Me.chkSocialFee.Checked = False, 1, 0), "NR", Me.lblCashierLogin.Text, 1, Me.dtpDateIn.Value, Format(Date.Now(), "MM/dd/yyyy"))
                 'Me.cmdPrint.Enabled = True
-                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient receipt", txtHN.Text & " Date: " & dtpDateIn.Value.Date & " Amount in R " & txtAmountFigureR.Text & " amount in $" & txtAmountFigureD.Text & " By user:" & GetUserCreatedInvoice(txtReceiptNumber.Text), txtReceiptNumber.Text, "UPDATE")
+                DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "New patient receipt", txtEditNote.Text, txtReceiptNumber.Text, "UPDATE", GetUserCreatedInvoice(txtReceiptNumber.Text), txtHN.Text, USER_NAME, dtpDateIn.Value.Date)
             End If
         End If
     End Sub

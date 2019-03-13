@@ -19,6 +19,7 @@ Partial Class frmNewOutpatientReceipt
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Me.lblFees = New System.Windows.Forms.Label
         Me.Label13 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
@@ -70,12 +71,16 @@ Partial Class frmNewOutpatientReceipt
         Me.lblID = New System.Windows.Forms.Label
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Label10 = New System.Windows.Forms.Label
+        Me.txtEditNote = New System.Windows.Forms.TextBox
         Me.LblDepID = New System.Windows.Forms.Label
+        Me.ErrorEdit = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.ErrorEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblFees
@@ -510,7 +515,7 @@ Partial Class frmNewOutpatientReceipt
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(494, 246)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(209, 66)
+        Me.GroupBox3.Size = New System.Drawing.Size(157, 66)
         Me.GroupBox3.TabIndex = 104
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Free Fees"
@@ -518,9 +523,9 @@ Partial Class frmNewOutpatientReceipt
         '
         'chkSocialFee
         '
-        Me.chkSocialFee.Location = New System.Drawing.Point(22, 26)
+        Me.chkSocialFee.Location = New System.Drawing.Point(10, 26)
         Me.chkSocialFee.Name = "chkSocialFee"
-        Me.chkSocialFee.Size = New System.Drawing.Size(181, 24)
+        Me.chkSocialFee.Size = New System.Drawing.Size(129, 24)
         Me.chkSocialFee.TabIndex = 0
         Me.chkSocialFee.Text = "Fees"
         Me.chkSocialFee.UseVisualStyleBackColor = True
@@ -597,7 +602,7 @@ Partial Class frmNewOutpatientReceipt
         Me.cmdNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdNew.Image = Global.TakeoHospitalInventory.My.Resources.Resources.report
         Me.cmdNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdNew.Location = New System.Drawing.Point(29, 404)
+        Me.cmdNew.Location = New System.Drawing.Point(833, 185)
         Me.cmdNew.Name = "cmdNew"
         Me.cmdNew.Size = New System.Drawing.Size(133, 40)
         Me.cmdNew.TabIndex = 14
@@ -610,9 +615,9 @@ Partial Class frmNewOutpatientReceipt
         Me.cmdCashierSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmdCashierSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.cmdCashierSave.Image = Global.TakeoHospitalInventory.My.Resources.Resources.welcome_bg
-        Me.cmdCashierSave.Location = New System.Drawing.Point(233, 390)
+        Me.cmdCashierSave.Location = New System.Drawing.Point(654, 252)
         Me.cmdCashierSave.Name = "cmdCashierSave"
-        Me.cmdCashierSave.Size = New System.Drawing.Size(170, 71)
+        Me.cmdCashierSave.Size = New System.Drawing.Size(153, 61)
         Me.cmdCashierSave.TabIndex = 148
         Me.cmdCashierSave.Text = "&Cashier Save"
         Me.cmdCashierSave.UseVisualStyleBackColor = True
@@ -674,6 +679,8 @@ Partial Class frmNewOutpatientReceipt
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.txtEditNote)
         Me.Panel2.Controls.Add(Me.LblDepID)
         Me.Panel2.Controls.Add(Me.CheckBox1)
         Me.Panel2.Controls.Add(Me.cmdFindHN)
@@ -717,6 +724,28 @@ Partial Class frmNewOutpatientReceipt
         Me.Panel2.Size = New System.Drawing.Size(972, 493)
         Me.Panel2.TabIndex = 158
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(10, 364)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(73, 20)
+        Me.Label10.TabIndex = 160
+        Me.Label10.Text = "Edit note"
+        '
+        'txtEditNote
+        '
+        Me.txtEditNote.Font = New System.Drawing.Font("Khmer OS Battambang", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEditNote.Location = New System.Drawing.Point(12, 392)
+        Me.txtEditNote.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.txtEditNote.Multiline = True
+        Me.txtEditNote.Name = "txtEditNote"
+        Me.txtEditNote.Size = New System.Drawing.Size(391, 84)
+        Me.txtEditNote.TabIndex = 159
+        '
         'LblDepID
         '
         Me.LblDepID.AutoSize = True
@@ -727,6 +756,10 @@ Partial Class frmNewOutpatientReceipt
         Me.LblDepID.TabIndex = 158
         Me.LblDepID.Text = "0"
         Me.LblDepID.Visible = False
+        '
+        'ErrorEdit
+        '
+        Me.ErrorEdit.ContainerControl = Me
         '
         'frmNewOutpatientReceipt
         '
@@ -759,6 +792,7 @@ Partial Class frmNewOutpatientReceipt
         Me.GroupBox3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.ErrorEdit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -815,4 +849,7 @@ Partial Class frmNewOutpatientReceipt
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents LblDepID As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtEditNote As System.Windows.Forms.TextBox
+    Friend WithEvents ErrorEdit As System.Windows.Forms.ErrorProvider
 End Class
