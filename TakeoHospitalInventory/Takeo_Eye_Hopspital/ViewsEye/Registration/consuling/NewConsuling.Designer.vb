@@ -97,6 +97,8 @@ Partial Class NewConsuling
         Me.Ch1 = New System.Windows.Forms.CheckBox
         Me.ErrConsulting = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.TxtFamilyRelative = New System.Windows.Forms.ComboBox
+        Me.btnAddRelationship = New System.Windows.Forms.Button
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
         Me.Label19 = New System.Windows.Forms.Label
         Me.Label28 = New System.Windows.Forms.Label
@@ -110,7 +112,6 @@ Partial Class NewConsuling
         Me.cboFamilySex = New System.Windows.Forms.ComboBox
         Me.cboFamilyMoney = New System.Windows.Forms.ComboBox
         Me.CboFamilyStatus = New System.Windows.Forms.ComboBox
-        Me.TxtFamilyRelative = New System.Windows.Forms.TextBox
         Me.TxtFamilyAge = New System.Windows.Forms.TextBox
         Me.TxtFamilyName = New System.Windows.Forms.TextBox
         Me.Label21 = New System.Windows.Forms.Label
@@ -487,7 +488,7 @@ Partial Class NewConsuling
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1132, 441)
+        Me.GroupBox3.Size = New System.Drawing.Size(1132, 407)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Consult Information"
@@ -1010,12 +1011,13 @@ Partial Class NewConsuling
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.TxtFamilyRelative)
+        Me.GroupBox4.Controls.Add(Me.btnAddRelationship)
         Me.GroupBox4.Controls.Add(Me.GroupBox5)
         Me.GroupBox4.Controls.Add(Me.CboFamilyOccupation)
         Me.GroupBox4.Controls.Add(Me.cboFamilySex)
         Me.GroupBox4.Controls.Add(Me.cboFamilyMoney)
         Me.GroupBox4.Controls.Add(Me.CboFamilyStatus)
-        Me.GroupBox4.Controls.Add(Me.TxtFamilyRelative)
         Me.GroupBox4.Controls.Add(Me.TxtFamilyAge)
         Me.GroupBox4.Controls.Add(Me.TxtFamilyName)
         Me.GroupBox4.Controls.Add(Me.Label21)
@@ -1032,6 +1034,25 @@ Partial Class NewConsuling
         Me.GroupBox4.TabIndex = 1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ពត៏មានផ្តាល់ខ្លួន"
+        '
+        'TxtFamilyRelative
+        '
+        Me.TxtFamilyRelative.Font = New System.Drawing.Font("Wat Phnom T3", 8.999999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFamilyRelative.FormattingEnabled = True
+        Me.TxtFamilyRelative.Location = New System.Drawing.Point(147, 62)
+        Me.TxtFamilyRelative.Name = "TxtFamilyRelative"
+        Me.TxtFamilyRelative.Size = New System.Drawing.Size(254, 31)
+        Me.TxtFamilyRelative.TabIndex = 3
+        '
+        'btnAddRelationship
+        '
+        Me.btnAddRelationship.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddRelationship.Location = New System.Drawing.Point(402, 61)
+        Me.btnAddRelationship.Name = "btnAddRelationship"
+        Me.btnAddRelationship.Size = New System.Drawing.Size(38, 32)
+        Me.btnAddRelationship.TabIndex = 10
+        Me.btnAddRelationship.Text = "..."
+        Me.btnAddRelationship.UseVisualStyleBackColor = True
         '
         'GroupBox5
         '
@@ -1170,14 +1191,6 @@ Partial Class NewConsuling
         Me.CboFamilyStatus.Size = New System.Drawing.Size(129, 30)
         Me.CboFamilyStatus.TabIndex = 5
         '
-        'TxtFamilyRelative
-        '
-        Me.TxtFamilyRelative.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TxtFamilyRelative.Location = New System.Drawing.Point(147, 66)
-        Me.TxtFamilyRelative.Name = "TxtFamilyRelative"
-        Me.TxtFamilyRelative.Size = New System.Drawing.Size(293, 26)
-        Me.TxtFamilyRelative.TabIndex = 3
-        '
         'TxtFamilyAge
         '
         Me.TxtFamilyAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -1291,7 +1304,7 @@ Partial Class NewConsuling
         Me.TabControl1.Location = New System.Drawing.Point(9, 331)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1146, 476)
+        Me.TabControl1.Size = New System.Drawing.Size(1146, 442)
         Me.TabControl1.TabIndex = 28
         '
         'TabPage1
@@ -1300,7 +1313,7 @@ Partial Class NewConsuling
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1138, 447)
+        Me.TabPage1.Size = New System.Drawing.Size(1138, 413)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Patient Information"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -2045,7 +2058,6 @@ Partial Class NewConsuling
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents cboFamilyMoney As System.Windows.Forms.ComboBox
     Friend WithEvents CboFamilyStatus As System.Windows.Forms.ComboBox
-    Friend WithEvents TxtFamilyRelative As System.Windows.Forms.TextBox
     Friend WithEvents TxtFamilyAge As System.Windows.Forms.TextBox
     Friend WithEvents TxtFamilyName As System.Windows.Forms.TextBox
     Friend WithEvents cboFamilySex As System.Windows.Forms.ComboBox
@@ -2119,4 +2131,6 @@ Partial Class NewConsuling
     Friend WithEvents rdOperationD As System.Windows.Forms.RadioButton
     Friend WithEvents txtPatient As System.Windows.Forms.TextBox
     Friend WithEvents LblNew_OldIDForDoctor As System.Windows.Forms.Label
+    Friend WithEvents btnAddRelationship As System.Windows.Forms.Button
+    Friend WithEvents TxtFamilyRelative As System.Windows.Forms.ComboBox
 End Class

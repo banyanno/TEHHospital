@@ -1113,4 +1113,11 @@ Public Class UCashCollection
         Dim ChAllCashCount As New CheckAllCashCount
         ChAllCashCount.ShowDialog()
     End Sub
+
+    Private Sub BtnCheckCounselling_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCheckCounselling.Click
+        Dim FCheckCounsellinng As New CheckCunselling
+        FCheckCounsellinng.RadForInPatient.Checked = True
+        FCheckCounsellinng.RadForOpticalShop.Checked = False
+        FCheckCounsellinng.ShowDialog()
+    End Sub
 End Class

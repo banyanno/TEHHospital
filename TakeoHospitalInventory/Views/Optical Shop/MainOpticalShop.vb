@@ -293,4 +293,11 @@
         End If
         
     End Sub
+
+    Private Sub BtnCheckCounselling_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCheckCounselling.Click
+        Dim CCounselling As New CheckCunselling
+        CCounselling.RadForOpticalShop.Checked = True
+        CCounselling.RadForInPatient.Checked = False
+        CCounselling.ShowDialog()
+    End Sub
 End Class

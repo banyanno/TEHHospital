@@ -1524,4 +1524,14 @@ Public Class UCPatientPayment
     End Sub
 
    
+    Private Sub BtnCheckCounselling_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCheckCounselling.Click
+        
+        Dim FPrepareForOperation As New FRMPreparedForOperation
+        FPrepareForOperation.OptionReport = 1
+        FPrepareForOperation.Title1 = "TAKEO EYE HOSPITAL-OPERATION LIST"
+        FPrepareForOperation.Title2 = Format(Now, "dd-MMM-yyyy")
+        FPrepareForOperation.ShowDialog()
+        FPrepareForOperation.Dispose()
+        FPrepareForOperation.Close()
+    End Sub
 End Class

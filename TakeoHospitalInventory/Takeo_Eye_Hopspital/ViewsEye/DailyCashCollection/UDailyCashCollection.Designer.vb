@@ -159,6 +159,7 @@ Partial Class UCashCollection
         Me.BtnCheckCashInDepart = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnSaveNote = New System.Windows.Forms.ToolStripButton
+        Me.BtnCheckCounselling = New System.Windows.Forms.Button
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -240,6 +241,7 @@ Partial Class UCashCollection
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.BtnCheckCounselling)
         Me.GroupBox2.Controls.Add(Me.GroupBox11)
         Me.GroupBox2.Controls.Add(Me.GridCashCollection)
         Me.GroupBox2.Controls.Add(Me.GroupBox1)
@@ -258,9 +260,9 @@ Partial Class UCashCollection
         Me.GroupBox11.Controls.Add(Me.DTo)
         Me.GroupBox11.Controls.Add(Me.Label44)
         Me.GroupBox11.Controls.Add(Me.DFrom)
-        Me.GroupBox11.Location = New System.Drawing.Point(346, 18)
+        Me.GroupBox11.Location = New System.Drawing.Point(316, 18)
         Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(534, 75)
+        Me.GroupBox11.Size = New System.Drawing.Size(480, 75)
         Me.GroupBox11.TabIndex = 6
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Report Daily Date to Date"
@@ -268,9 +270,9 @@ Partial Class UCashCollection
         'BtnPrintDtD
         '
         Me.BtnPrintDtD.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnPrintDtD.Location = New System.Drawing.Point(401, 20)
+        Me.BtnPrintDtD.Location = New System.Drawing.Point(357, 25)
         Me.BtnPrintDtD.Name = "BtnPrintDtD"
-        Me.BtnPrintDtD.Size = New System.Drawing.Size(118, 33)
+        Me.BtnPrintDtD.Size = New System.Drawing.Size(118, 28)
         Me.BtnPrintDtD.TabIndex = 8
         Me.BtnPrintDtD.Text = "Print Preveiw"
         Me.BtnPrintDtD.UseVisualStyleBackColor = True
@@ -278,7 +280,7 @@ Partial Class UCashCollection
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(209, 30)
+        Me.Label45.Location = New System.Drawing.Point(192, 33)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(31, 20)
         Me.Label45.TabIndex = 7
@@ -288,7 +290,7 @@ Partial Class UCashCollection
         '
         Me.DTo.CustomFormat = "dd/MM/yyyy"
         Me.DTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DTo.Location = New System.Drawing.Point(263, 26)
+        Me.DTo.Location = New System.Drawing.Point(225, 27)
         Me.DTo.Name = "DTo"
         Me.DTo.Size = New System.Drawing.Size(129, 26)
         Me.DTo.TabIndex = 6
@@ -296,7 +298,7 @@ Partial Class UCashCollection
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(13, 31)
+        Me.Label44.Location = New System.Drawing.Point(7, 33)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(50, 20)
         Me.Label44.TabIndex = 5
@@ -306,7 +308,7 @@ Partial Class UCashCollection
         '
         Me.DFrom.CustomFormat = "dd/MM/yyyy"
         Me.DFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DFrom.Location = New System.Drawing.Point(70, 27)
+        Me.DFrom.Location = New System.Drawing.Point(59, 27)
         Me.DFrom.Name = "DFrom"
         Me.DFrom.Size = New System.Drawing.Size(129, 26)
         Me.DFrom.TabIndex = 4
@@ -342,14 +344,14 @@ Partial Class UCashCollection
         Me.GroupBox1.Controls.Add(Me.dtpDateFrom)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 18)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(337, 76)
+        Me.GroupBox1.Size = New System.Drawing.Size(307, 76)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Select Date to view"
         '
         'cmdView
         '
-        Me.cmdView.Location = New System.Drawing.Point(215, 27)
+        Me.cmdView.Location = New System.Drawing.Point(186, 27)
         Me.cmdView.Name = "cmdView"
         Me.cmdView.Size = New System.Drawing.Size(116, 33)
         Me.cmdView.TabIndex = 1
@@ -359,7 +361,7 @@ Partial Class UCashCollection
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(23, 36)
+        Me.Label2.Location = New System.Drawing.Point(5, 36)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(48, 20)
         Me.Label2.TabIndex = 3
@@ -369,7 +371,7 @@ Partial Class UCashCollection
         '
         Me.dtpDateFrom.CustomFormat = "dd/MM/yyyy"
         Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpDateFrom.Location = New System.Drawing.Point(80, 32)
+        Me.dtpDateFrom.Location = New System.Drawing.Point(53, 32)
         Me.dtpDateFrom.Name = "dtpDateFrom"
         Me.dtpDateFrom.Size = New System.Drawing.Size(129, 26)
         Me.dtpDateFrom.TabIndex = 0
@@ -1617,6 +1619,17 @@ Partial Class UCashCollection
         Me.BtnSaveNote.Size = New System.Drawing.Size(219, 32)
         Me.BtnSaveNote.Text = "Save Summary Note"
         '
+        'BtnCheckCounselling
+        '
+        Me.BtnCheckCounselling.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCheckCounselling.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnCheckCounselling.Location = New System.Drawing.Point(802, 25)
+        Me.BtnCheckCounselling.Name = "BtnCheckCounselling"
+        Me.BtnCheckCounselling.Size = New System.Drawing.Size(193, 68)
+        Me.BtnCheckCounselling.TabIndex = 9
+        Me.BtnCheckCounselling.Text = "Check Counselling Status"
+        Me.BtnCheckCounselling.UseVisualStyleBackColor = True
+        '
         'UCashCollection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1797,5 +1810,6 @@ Partial Class UCashCollection
     Friend WithEvents TabControl2 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents BtnCheckCounselling As System.Windows.Forms.Button
 
 End Class

@@ -30,6 +30,7 @@
 
     Private Sub BtnFind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnFind.Click
         MEyeInventory.StatusLoading(True)
+        
         ConViewer = 3
         BgLoadConsult.RunWorkerAsync()
     End Sub
@@ -339,117 +340,117 @@
                 End If
             Else
                 If GridConsulting.GetRow.Cells("STATUS").Value = 0 Then
-                    If Acess = "Administrator" Then
-                        Dim NConsulting As New NewConsuling
-                        NConsulting.DateConsult.Checked = True
-                        NConsulting.DateConsult.Value = GridConsulting.GetRow.Cells("CONSULING_DATE").Value
-                        NConsulting.LblSaveOption.Text = GridConsulting.GetRow.Cells("CONSULING_ID").Value
-                        NConsulting.TxtPatientNo.Text = GridConsulting.GetRow.Cells("PatientNo").Value
-                        NConsulting.TxtPatientName.Text = GridConsulting.GetRow.Cells("NameKhmer").Value
-                        NConsulting.TxtSex.Text = GridConsulting.GetRow.Cells("Sex").Value
-                        NConsulting.TxtAge.Text = GridConsulting.GetRow.Cells("Age").Value
-                        NConsulting.TxtPatientAddress.Text = GridConsulting.GetRow.Cells("Address").Value
-                        NConsulting.TxtPatientOccupation.Text = GridConsulting.GetRow.Cells("Occupation").Value
-                        NConsulting.CboPatientStatus.Text = GridConsulting.GetRow.Cells("FAMILY_STATUS").Value
-                        NConsulting.cboPatientMoney.Text = GridConsulting.GetRow.Cells("FAMINLY_MONEY").Value
-                        NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
-                        NConsulting.TxtOrgNote.Text = GridConsulting.GetRow.Cells("ORG_NOTE").Value
-                        If GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "Old Patient" Then
-                            NConsulting.RadForOld.Checked = True
-                        ElseIf GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "In-Patient" Then
-                            NConsulting.RadForInPatient.Checked = True
-                        ElseIf GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "Optical Shop" Then
-                            NConsulting.RadForOpticalShop.Checked = True
-                        End If
-                        If GridConsulting.GetRow.Cells("DONATE_TYPE").Value = "Social" Then
-                            NConsulting.RadSocial.Checked = True
-                        ElseIf GridConsulting.GetRow.Cells("DONATE_TYPE").Value = "Nil" Then
-                            NConsulting.RadNil.Checked = True
-                        ElseIf GridConsulting.GetRow.Cells("DONATE_TYPE").Value = "Full" Then
-                            NConsulting.RadFull.Checked = True
-                        End If
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_NAME").Value Is DBNull Then
+                    'If Acess = "Administrator" Then
+                    Dim NConsulting As New NewConsuling
+                    NConsulting.DateConsult.Checked = True
+                    NConsulting.DateConsult.Value = GridConsulting.GetRow.Cells("CONSULING_DATE").Value
+                    NConsulting.LblSaveOption.Text = GridConsulting.GetRow.Cells("CONSULING_ID").Value
+                    NConsulting.TxtPatientNo.Text = GridConsulting.GetRow.Cells("PatientNo").Value
+                    NConsulting.TxtPatientName.Text = GridConsulting.GetRow.Cells("NameKhmer").Value
+                    NConsulting.TxtSex.Text = GridConsulting.GetRow.Cells("Sex").Value
+                    NConsulting.TxtAge.Text = GridConsulting.GetRow.Cells("Age").Value
+                    NConsulting.TxtPatientAddress.Text = GridConsulting.GetRow.Cells("Address").Value
+                    NConsulting.TxtPatientOccupation.Text = GridConsulting.GetRow.Cells("Occupation").Value
+                    NConsulting.CboPatientStatus.Text = GridConsulting.GetRow.Cells("FAMILY_STATUS").Value
+                    NConsulting.cboPatientMoney.Text = GridConsulting.GetRow.Cells("FAMINLY_MONEY").Value
+                    NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
+                    NConsulting.TxtOrgNote.Text = GridConsulting.GetRow.Cells("ORG_NOTE").Value
+                    If GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "Old Patient" Then
+                        NConsulting.RadForOld.Checked = True
+                    ElseIf GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "In-Patient" Then
+                        NConsulting.RadForInPatient.Checked = True
+                    ElseIf GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "Optical Shop" Then
+                        NConsulting.RadForOpticalShop.Checked = True
+                    End If
+                    If GridConsulting.GetRow.Cells("DONATE_TYPE").Value = "Social" Then
+                        NConsulting.RadSocial.Checked = True
+                    ElseIf GridConsulting.GetRow.Cells("DONATE_TYPE").Value = "Nil" Then
+                        NConsulting.RadNil.Checked = True
+                    ElseIf GridConsulting.GetRow.Cells("DONATE_TYPE").Value = "Full" Then
+                        NConsulting.RadFull.Checked = True
+                    End If
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_NAME").Value Is DBNull Then
 
-                        Else
-                            NConsulting.TxtFamilyName.Text = GridConsulting.GetRow.Cells("FAMILY_NAME").Value
-                        End If
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_AGE").Value Is DBNull Then
-                        Else
-                            NConsulting.TxtFamilyAge.Text = GridConsulting.GetRow.Cells("FAMILY_AGE").Value
-                        End If
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_SEX").Value Is DBNull Then
-                        Else
-                            NConsulting.cboFamilySex.Text = GridConsulting.GetRow.Cells("FAMILY_SEX").Value
-                        End If
-
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_RELATIVE_PATIENT").Value Is DBNull Then
-                        Else
-                            NConsulting.TxtFamilyRelative.Text = GridConsulting.GetRow.Cells("FAMILY_RELATIVE_PATIENT").Value
-                        End If
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_ADDRES").Value Is DBNull Then
-                        Else
-                            NConsulting.txtFamilyAddress.Text = GridConsulting.GetRow.Cells("FAMILY_ADDRES").Value
-                        End If
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_OCCUPATION").Value Is DBNull Then
-                        Else
-                            NConsulting.CboFamilyOccupation.Text = GridConsulting.GetRow.Cells("FAMILY_OCCUPATION").Value
-                        End If
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_MONEY1").Value Is DBNull Then
-                        Else
-                            NConsulting.cboFamilyMoney.Text = GridConsulting.GetRow.Cells("FAMILY_MONEY1").Value
-                        End If
-                        If TypeOf GridConsulting.GetRow.Cells("FAMILY_STATUS1").Value Is DBNull Then
-                        Else
-                            NConsulting.CboFamilyStatus.Text = GridConsulting.GetRow.Cells("FAMILY_STATUS1").Value
-                        End If
-
-                        Try
-                            NConsulting.CboDoctor.SelectedIndex = GridConsulting.GetRow.Cells("DR_ID").Value
-                            NConsulting.CboDoctor.Text = GridConsulting.GetRow.Cells("DR_NAME").Value
-                        Catch ex As Exception
-
-                        End Try
-                        NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
-
-
-
-                        NConsulting.Ch1.Checked = GridConsulting.GetRow.Cells("CH1").Value
-                        NConsulting.Ch2.Checked = GridConsulting.GetRow.Cells("CH2").Value
-                        NConsulting.Ch3.Checked = GridConsulting.GetRow.Cells("CH3").Value
-                        NConsulting.Ch4.Checked = GridConsulting.GetRow.Cells("CH4").Value
-                        NConsulting.Ch5.Checked = GridConsulting.GetRow.Cells("CH5").Value
-                        NConsulting.CboSecondDiagnosis.Text = GridConsulting.GetRow.Cells("DIAGNOSIS2").Value
-                        NConsulting.CboSecondSurgery.Text = GridConsulting.GetRow.Cells("OPERATION2").Value
-                        NConsulting.TxtHospitalFee.Text = GridConsulting.GetRow.Cells("HOSPITAL_FEE").Value
-                        NConsulting.CboEye.Text = GridConsulting.GetRow.Cells("EYE").Value
-
-                        If GridConsulting.GetRow.Cells("IS_RIEL_DOLAR").Value = True Then
-                            NConsulting.RadPatientPayR.Checked = True
-                            NConsulting.TxtDonateR.Text = GridConsulting.GetRow.Cells("DONATE_RIEL").Value
-                        Else
-                            NConsulting.RadPatientPayD.Checked = True
-                            NConsulting.TxtDonateR.Text = GridConsulting.GetRow.Cells("PATIENT_PAY_DOLAR").Value
-
-                        End If
-
-                        NConsulting.TxtDonateD.Text = GridConsulting.GetRow.Cells("DONATE_DOLAR").Value
-                        NConsulting.TxtConsultNote.Text = GridConsulting.GetRow.Cells("CONSULTING_NOTE").Value
-
-                        If NConsulting.ShowDialog() = DialogResult.OK Then
-
-                            DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Counseling", NConsulting.TxtConsultNote.Text, GridConsulting.GetRow.Cells("CONSULING_ID").Value, "UPDATE", Me.GridConsulting.GetRow.Cells("CREATED_BY").Value.ToString, NConsulting.TxtPatientNo.Text, USER_NAME, NConsulting.DateConsult.Value.Date)
-                            TxtPatientNo.Text = NConsulting.TxtPatientNo.Text
-                            MEyeInventory.StatusLoading(True)
-                            ConViewer = 3
-                            BgLoadConsult.RunWorkerAsync()
-                        End If
                     Else
-                        MessageBox.Show("You don't have permision edit consultation. Please contact admin system to edit it.", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        NConsulting.TxtFamilyName.Text = GridConsulting.GetRow.Cells("FAMILY_NAME").Value
+                    End If
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_AGE").Value Is DBNull Then
+                    Else
+                        NConsulting.TxtFamilyAge.Text = GridConsulting.GetRow.Cells("FAMILY_AGE").Value
+                    End If
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_SEX").Value Is DBNull Then
+                    Else
+                        NConsulting.cboFamilySex.Text = GridConsulting.GetRow.Cells("FAMILY_SEX").Value
                     End If
 
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_RELATIVE_PATIENT").Value Is DBNull Then
+                    Else
+                        NConsulting.TxtFamilyRelative.Text = GridConsulting.GetRow.Cells("FAMILY_RELATIVE_PATIENT").Value
+                    End If
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_ADDRES").Value Is DBNull Then
+                    Else
+                        NConsulting.txtFamilyAddress.Text = GridConsulting.GetRow.Cells("FAMILY_ADDRES").Value
+                    End If
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_OCCUPATION").Value Is DBNull Then
+                    Else
+                        NConsulting.CboFamilyOccupation.Text = GridConsulting.GetRow.Cells("FAMILY_OCCUPATION").Value
+                    End If
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_MONEY1").Value Is DBNull Then
+                    Else
+                        NConsulting.cboFamilyMoney.Text = GridConsulting.GetRow.Cells("FAMILY_MONEY1").Value
+                    End If
+                    If TypeOf GridConsulting.GetRow.Cells("FAMILY_STATUS1").Value Is DBNull Then
+                    Else
+                        NConsulting.CboFamilyStatus.Text = GridConsulting.GetRow.Cells("FAMILY_STATUS1").Value
+                    End If
+
+                    Try
+                        NConsulting.CboDoctor.SelectedIndex = GridConsulting.GetRow.Cells("DR_ID").Value
+                        NConsulting.CboDoctor.Text = GridConsulting.GetRow.Cells("DR_NAME").Value
+                    Catch ex As Exception
+
+                    End Try
+                    NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
+
+
+
+                    NConsulting.Ch1.Checked = GridConsulting.GetRow.Cells("CH1").Value
+                    NConsulting.Ch2.Checked = GridConsulting.GetRow.Cells("CH2").Value
+                    NConsulting.Ch3.Checked = GridConsulting.GetRow.Cells("CH3").Value
+                    NConsulting.Ch4.Checked = GridConsulting.GetRow.Cells("CH4").Value
+                    NConsulting.Ch5.Checked = GridConsulting.GetRow.Cells("CH5").Value
+                    NConsulting.CboSecondDiagnosis.Text = GridConsulting.GetRow.Cells("DIAGNOSIS2").Value
+                    NConsulting.CboSecondSurgery.Text = GridConsulting.GetRow.Cells("OPERATION2").Value
+                    NConsulting.TxtHospitalFee.Text = GridConsulting.GetRow.Cells("HOSPITAL_FEE").Value
+                    NConsulting.CboEye.Text = GridConsulting.GetRow.Cells("EYE").Value
+
+                    If GridConsulting.GetRow.Cells("IS_RIEL_DOLAR").Value = True Then
+                        NConsulting.RadPatientPayR.Checked = True
+                        NConsulting.TxtDonateR.Text = GridConsulting.GetRow.Cells("DONATE_RIEL").Value
+                    Else
+                        NConsulting.RadPatientPayD.Checked = True
+                        NConsulting.TxtDonateR.Text = GridConsulting.GetRow.Cells("PATIENT_PAY_DOLAR").Value
 
                     End If
-                   
+
+                    NConsulting.TxtDonateD.Text = GridConsulting.GetRow.Cells("DONATE_DOLAR").Value
+                    NConsulting.TxtConsultNote.Text = GridConsulting.GetRow.Cells("CONSULTING_NOTE").Value
+
+                    If NConsulting.ShowDialog() = DialogResult.OK Then
+
+                        DA_SystemTracking.InsertNewSystemTracking(Now, Now.Date, "Counseling", NConsulting.TxtConsultNote.Text, GridConsulting.GetRow.Cells("CONSULING_ID").Value, "UPDATE", Me.GridConsulting.GetRow.Cells("CREATED_BY").Value.ToString, NConsulting.TxtPatientNo.Text, USER_NAME, NConsulting.DateConsult.Value.Date)
+                        TxtPatientNo.Text = NConsulting.TxtPatientNo.Text
+                        MEyeInventory.StatusLoading(True)
+                        ConViewer = 3
+                        BgLoadConsult.RunWorkerAsync()
+                    End If
+                    'Else
+                    '    MessageBox.Show("You don't have permision edit consultation. Please contact admin system to edit it.", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    'End If
+
+
+                End If
+
 
             End If
 

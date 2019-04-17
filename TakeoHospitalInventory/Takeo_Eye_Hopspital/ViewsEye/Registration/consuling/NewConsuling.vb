@@ -13,6 +13,8 @@
     Dim DA_Appoint As New DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter
     Public IS_UPDATE As Boolean = False
     Dim DA_PTrackingTime As New DataReportUtilityTableAdapters.PATIENT_TIMETRACKINGTableAdapter
+    Dim DA_FamilyRelative As New DSConsultTableAdapters.FAMILY_RELATIVETableAdapter
+
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -95,10 +97,16 @@
             .SelectedIndex = -1
         End With
         ' Add any initialization after the InitializeComponent() call.
-       
-        
+        RefreshFamilyRelative()
     End Sub
-
+    Private Sub RefreshFamilyRelative()
+        With TxtFamilyRelative
+            .DataSource = DA_FamilyRelative.GetData
+            .ValueMember = "FAMILY_RELATIVE_ID"
+            .DisplayMember = "FAMILY_RELATIVE"
+            .SelectedIndex = -1
+        End With
+    End Sub
     Private Sub CboProNo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboProNo.GotFocus
 
         Try
@@ -739,5 +747,12 @@
 
     Private Sub DateApp_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateApp.ValueChanged
         GroupDiagnosis.Enabled = DateApp.Checked
+    End Sub
+
+    Private Sub btnAddRelationship_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddRelationship.Click
+        Dim FFamily As New ForRelativeFamily
+        If FFamily.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RefreshFamilyRelative()
+        End If
     End Sub
 End Class

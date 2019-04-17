@@ -703,6 +703,19 @@ Public Class MainTakeoInventory
                 FWardPreview.ShowDialog()
                 FWardPreview.Close()
                 FWardPreview.Dispose()
+            Case "Print P-OT"
+                'Dim FWardPreview As New FRMWardPreview
+                'FWardPreview.IS_PRINT_OT_STAY = True
+                'FWardPreview.ShowDialog()
+                'FWardPreview.Close()
+                'FWardPreview.Dispose()
+                Dim FPrepareForOperation As New FRMPreparedForOperation
+                FPrepareForOperation.OptionReport = 1
+                FPrepareForOperation.Title1 = "TAKEO EYE HOSPITAL-OPERATION LIST"
+                FPrepareForOperation.Title2 = Format(Now, "dd-MMM-yyyy")
+                FPrepareForOperation.ShowDialog()
+                FPrepareForOperation.Dispose()
+                FPrepareForOperation.Close()
             Case "NewInPatient"
                 CreateNewInPatient()
                 'Operation

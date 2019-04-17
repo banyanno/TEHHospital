@@ -1326,6 +1326,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.FAMILY_RELATIVEDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSConsult.TblSurgeryRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -1382,6 +1386,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.FAMILY_RELATIVERow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSConsult.TblSurgeryRowChangeEvent">
 	<summary>
 Row event argument class
@@ -1435,6 +1443,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSConsult.V_ConsultingV2RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsult.FAMILY_RELATIVERowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -1495,6 +1507,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSConsultTableAdapters.V_ConsultingV2TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultTableAdapters.FAMILY_RELATIVETableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -3551,6 +3567,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSOTCurrentStoct.View_OTRegistrationDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSOTCurrentStoct.tblDeptStockRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -3559,11 +3579,19 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSOTCurrentStoct.View_OTRegistrationRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSOTCurrentStoct.tblDeptStockRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSOTCurrentStoct.tblBeginBalanceTraceRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSOTCurrentStoct.View_OTRegistrationRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -3576,6 +3604,10 @@ Represents a strongly typed in-memory cache of data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSOTCurrentStoctTableAdapters.tblBeginBalanceTraceTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSOTCurrentStoctTableAdapters.View_OTRegistrationTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

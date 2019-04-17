@@ -54,6 +54,8 @@ Partial Public Class DSConsult
     
     Private tableV_ConsultingV2 As V_ConsultingV2DataTable
     
+    Private tableFAMILY_RELATIVE As FAMILY_RELATIVEDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -122,6 +124,9 @@ Partial Public Class DSConsult
             End If
             If (Not (ds.Tables("V_ConsultingV2")) Is Nothing) Then
                 MyBase.Tables.Add(New V_ConsultingV2DataTable(ds.Tables("V_ConsultingV2")))
+            End If
+            If (Not (ds.Tables("FAMILY_RELATIVE")) Is Nothing) Then
+                MyBase.Tables.Add(New FAMILY_RELATIVEDataTable(ds.Tables("FAMILY_RELATIVE")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -267,6 +272,15 @@ Partial Public Class DSConsult
     End Property
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property FAMILY_RELATIVE() As FAMILY_RELATIVEDataTable
+        Get
+            Return Me.tableFAMILY_RELATIVE
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -366,6 +380,9 @@ Partial Public Class DSConsult
             End If
             If (Not (ds.Tables("V_ConsultingV2")) Is Nothing) Then
                 MyBase.Tables.Add(New V_ConsultingV2DataTable(ds.Tables("V_ConsultingV2")))
+            End If
+            If (Not (ds.Tables("FAMILY_RELATIVE")) Is Nothing) Then
+                MyBase.Tables.Add(New FAMILY_RELATIVEDataTable(ds.Tables("FAMILY_RELATIVE")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -480,6 +497,12 @@ Partial Public Class DSConsult
                 Me.tableV_ConsultingV2.InitVars
             End If
         End If
+        Me.tableFAMILY_RELATIVE = CType(MyBase.Tables("FAMILY_RELATIVE"),FAMILY_RELATIVEDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableFAMILY_RELATIVE) Is Nothing) Then
+                Me.tableFAMILY_RELATIVE.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -517,6 +540,8 @@ Partial Public Class DSConsult
         MyBase.Tables.Add(Me.tableTblNew_Old_OutPatient)
         Me.tableV_ConsultingV2 = New V_ConsultingV2DataTable
         MyBase.Tables.Add(Me.tableV_ConsultingV2)
+        Me.tableFAMILY_RELATIVE = New FAMILY_RELATIVEDataTable
+        MyBase.Tables.Add(Me.tableFAMILY_RELATIVE)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -586,6 +611,11 @@ Partial Public Class DSConsult
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeV_ConsultingV2() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeFAMILY_RELATIVE() As Boolean
         Return false
     End Function
     
@@ -672,6 +702,8 @@ Partial Public Class DSConsult
     Public Delegate Sub TblNew_Old_OutPatientRowChangeEventHandler(ByVal sender As Object, ByVal e As TblNew_Old_OutPatientRowChangeEvent)
     
     Public Delegate Sub V_ConsultingV2RowChangeEventHandler(ByVal sender As Object, ByVal e As V_ConsultingV2RowChangeEvent)
+    
+    Public Delegate Sub FAMILY_RELATIVERowChangeEventHandler(ByVal sender As Object, ByVal e As FAMILY_RELATIVERowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -7022,6 +7054,259 @@ Partial Public Class DSConsult
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class FAMILY_RELATIVEDataTable
+        Inherits Global.System.Data.TypedTableBase(Of FAMILY_RELATIVERow)
+        
+        Private columnFAMILY_RELATIVE_ID As Global.System.Data.DataColumn
+        
+        Private columnFAMILY_RELATIVE As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "FAMILY_RELATIVE"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FAMILY_RELATIVE_IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFAMILY_RELATIVE_ID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FAMILY_RELATIVEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFAMILY_RELATIVE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As FAMILY_RELATIVERow
+            Get
+                Return CType(Me.Rows(index),FAMILY_RELATIVERow)
+            End Get
+        End Property
+        
+        Public Event FAMILY_RELATIVERowChanging As FAMILY_RELATIVERowChangeEventHandler
+        
+        Public Event FAMILY_RELATIVERowChanged As FAMILY_RELATIVERowChangeEventHandler
+        
+        Public Event FAMILY_RELATIVERowDeleting As FAMILY_RELATIVERowChangeEventHandler
+        
+        Public Event FAMILY_RELATIVERowDeleted As FAMILY_RELATIVERowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddFAMILY_RELATIVERow(ByVal row As FAMILY_RELATIVERow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddFAMILY_RELATIVERow(ByVal FAMILY_RELATIVE As String) As FAMILY_RELATIVERow
+            Dim rowFAMILY_RELATIVERow As FAMILY_RELATIVERow = CType(Me.NewRow,FAMILY_RELATIVERow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, FAMILY_RELATIVE}
+            rowFAMILY_RELATIVERow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowFAMILY_RELATIVERow)
+            Return rowFAMILY_RELATIVERow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByFAMILY_RELATIVE_ID(ByVal FAMILY_RELATIVE_ID As Decimal) As FAMILY_RELATIVERow
+            Return CType(Me.Rows.Find(New Object() {FAMILY_RELATIVE_ID}),FAMILY_RELATIVERow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As FAMILY_RELATIVEDataTable = CType(MyBase.Clone,FAMILY_RELATIVEDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New FAMILY_RELATIVEDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnFAMILY_RELATIVE_ID = MyBase.Columns("FAMILY_RELATIVE_ID")
+            Me.columnFAMILY_RELATIVE = MyBase.Columns("FAMILY_RELATIVE")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnFAMILY_RELATIVE_ID = New Global.System.Data.DataColumn("FAMILY_RELATIVE_ID", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFAMILY_RELATIVE_ID)
+            Me.columnFAMILY_RELATIVE = New Global.System.Data.DataColumn("FAMILY_RELATIVE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFAMILY_RELATIVE)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnFAMILY_RELATIVE_ID}, true))
+            Me.columnFAMILY_RELATIVE_ID.AutoIncrement = true
+            Me.columnFAMILY_RELATIVE_ID.AutoIncrementSeed = -1
+            Me.columnFAMILY_RELATIVE_ID.AutoIncrementStep = -1
+            Me.columnFAMILY_RELATIVE_ID.AllowDBNull = false
+            Me.columnFAMILY_RELATIVE_ID.ReadOnly = true
+            Me.columnFAMILY_RELATIVE_ID.Unique = true
+            Me.columnFAMILY_RELATIVE.MaxLength = 150
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewFAMILY_RELATIVERow() As FAMILY_RELATIVERow
+            Return CType(Me.NewRow,FAMILY_RELATIVERow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New FAMILY_RELATIVERow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(FAMILY_RELATIVERow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.FAMILY_RELATIVERowChangedEvent) Is Nothing) Then
+                RaiseEvent FAMILY_RELATIVERowChanged(Me, New FAMILY_RELATIVERowChangeEvent(CType(e.Row,FAMILY_RELATIVERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.FAMILY_RELATIVERowChangingEvent) Is Nothing) Then
+                RaiseEvent FAMILY_RELATIVERowChanging(Me, New FAMILY_RELATIVERowChangeEvent(CType(e.Row,FAMILY_RELATIVERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.FAMILY_RELATIVERowDeletedEvent) Is Nothing) Then
+                RaiseEvent FAMILY_RELATIVERowDeleted(Me, New FAMILY_RELATIVERowChangeEvent(CType(e.Row,FAMILY_RELATIVERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.FAMILY_RELATIVERowDeletingEvent) Is Nothing) Then
+                RaiseEvent FAMILY_RELATIVERowDeleting(Me, New FAMILY_RELATIVERowChangeEvent(CType(e.Row,FAMILY_RELATIVERow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveFAMILY_RELATIVERow(ByVal row As FAMILY_RELATIVERow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DSConsult = New DSConsult
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "FAMILY_RELATIVEDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -12699,6 +12984,56 @@ Partial Public Class DSConsult
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class FAMILY_RELATIVERow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableFAMILY_RELATIVE As FAMILY_RELATIVEDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableFAMILY_RELATIVE = CType(Me.Table,FAMILY_RELATIVEDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FAMILY_RELATIVE_ID() As Decimal
+            Get
+                Return CType(Me(Me.tableFAMILY_RELATIVE.FAMILY_RELATIVE_IDColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableFAMILY_RELATIVE.FAMILY_RELATIVE_IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FAMILY_RELATIVE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableFAMILY_RELATIVE.FAMILY_RELATIVEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FAMILY_RELATIVE' in table 'FAMILY_RELATIVE' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableFAMILY_RELATIVE.FAMILY_RELATIVEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFAMILY_RELATIVENull() As Boolean
+            Return Me.IsNull(Me.tableFAMILY_RELATIVE.FAMILY_RELATIVEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFAMILY_RELATIVENull()
+            Me(Me.tableFAMILY_RELATIVE.FAMILY_RELATIVEColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -13147,6 +13482,39 @@ Partial Public Class DSConsult
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As V_ConsultingV2Row
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class FAMILY_RELATIVERowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As FAMILY_RELATIVERow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As FAMILY_RELATIVERow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As FAMILY_RELATIVERow
             Get
                 Return Me.eventRow
             End Get
@@ -17474,7 +17842,7 @@ Namespace DSConsultTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(18) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(19) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        PatientNo, NameEng, NameKhmer, Age, Male, Female, Sex, Address, Occ"& _ 
@@ -17590,12 +17958,13 @@ Namespace DSConsultTableAdapters
                 "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
-                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (STATUS = @STATUS) "& _ 
-                "AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (STATUS = @STATUS) and (CONSULT_FOR = @CONSULT_FOR)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(7).Connection = Me.Connection
             Me._commandCollection(7).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17607,14 +17976,11 @@ Namespace DSConsultTableAdapters
                 "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
-                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
-                "ND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CO"& _ 
-                "NSUL)"
+                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (STATUS = @STATUS) "& _ 
+                "AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(8).Connection = Me.Connection
@@ -17628,10 +17994,12 @@ Namespace DSConsultTableAdapters
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
                 "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
-                "ND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "ND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CO"& _ 
+                "NSUL)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand
@@ -17646,13 +18014,11 @@ Namespace DSConsultTableAdapters
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
                 "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
-                "ND (CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACC"& _ 
-                "EPT_CONSUL)"
+                "ND (ORG = @ORG) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(10).Connection = Me.Connection
@@ -17666,13 +18032,12 @@ Namespace DSConsultTableAdapters
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
                 "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
-                "ND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACC"& _ 
-                "EPT_CONSUL = @ACCEPT_CONSUL)"
+                "ND (CONSULT_FOR = @CONSULT_FOR) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACC"& _ 
+                "EPT_CONSUL)"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11) = New Global.System.Data.SqlClient.SqlCommand
@@ -17687,10 +18052,13 @@ Namespace DSConsultTableAdapters
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
                 "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
-                "ND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "ND (CONSULT_FOR = @CONSULT_FOR) AND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACC"& _ 
+                "EPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12) = New Global.System.Data.SqlClient.SqlCommand
@@ -17705,11 +18073,10 @@ Namespace DSConsultTableAdapters
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
                 "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
-                "ND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
+                "ND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(13) = New Global.System.Data.SqlClient.SqlCommand
@@ -17723,13 +18090,14 @@ Namespace DSConsultTableAdapters
                 "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
-                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CON"& _ 
-                "SULT_FOR) AND (STATUS = @STATUS) AND (CONSULING_ID = @CONSULING_ID)"
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (ORG = @ORG) AND (STATUS = @STATUS) AND (ACCEPT_CONSUL = @ACCEPT_CONSUL)"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ORG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCEPT_CONSUL", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCEPT_CONSUL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(14).Connection = Me.Connection
             Me._commandCollection(14).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17742,11 +18110,12 @@ Namespace DSConsultTableAdapters
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
                 "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CON"& _ 
-                "SULT_FOR) AND (STATUS = @STATUS)"
+                "SULT_FOR) AND (STATUS = @STATUS) AND (CONSULING_ID = @CONSULING_ID)"
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(15) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(15).Connection = Me.Connection
             Me._commandCollection(15).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17758,9 +18127,12 @@ Namespace DSConsultTableAdapters
                 "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
-                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_ID = @CONSULING_ID)"
+                "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULT_FOR = @CON"& _ 
+                "SULT_FOR) AND (STATUS = @STATUS)"
             Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULT_FOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULT_FOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(16) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(16).Connection = Me.Connection
             Me._commandCollection(16).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17772,10 +18144,9 @@ Namespace DSConsultTableAdapters
                 "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
-                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo)"
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_ID = @CONSULING_ID)"
             Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(16).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONSULING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CONSULING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(17) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(17).Connection = Me.Connection
             Me._commandCollection(17).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17787,12 +18158,10 @@ Namespace DSConsultTableAdapters
                 "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
-                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
-                "ND (STATUS = @STATUS)"
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo)"
             Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(17).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(18) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(18).Connection = Me.Connection
             Me._commandCollection(18).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
@@ -17804,12 +18173,29 @@ Namespace DSConsultTableAdapters
                 "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
                 "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
                 "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
+                "VA_icPH FROM V_CONSULTING WHERE (CONSULING_DATE BETWEEN @DateFrom AND @DateTo) A"& _ 
+                "ND (STATUS = @STATUS)"
+            Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATUS", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "STATUS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(19) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(19).Connection = Me.Connection
+            Me._commandCollection(19).CommandText = "SELECT ACCEPT_CONSUL, APROVE_BY, Address, Age, CH1, CH2, CH3, CH4, CH5, CONSULING"& _ 
+                "_DATE, CONSULING_ID, CONSULTING_NOTE, CONSULT_FOR, CREATED_BY, DATE_CREATE, DIAG"& _ 
+                "NOSIS1, DIAGNOSIS2, DONATE_DOLAR, DONATE_RIEL, DONATE_TYPE, DR_ID, DR_NAME, EYE,"& _ 
+                " FAMILY_ADDRES, FAMILY_AGE, FAMILY_MONEY1, FAMILY_NAME, FAMILY_OCCUPATION, FAMIL"& _ 
+                "Y_RELATIVE_PATIENT, FAMILY_SEX, FAMILY_STATUS, FAMILY_STATUS1, FAMINLY_MONEY, Fe"& _ 
+                "male, HOSPITAL_FEE, IS_RIEL_DOLAR, Male, NameEng, NameKhmer, OPERATION1, OPERATI"& _ 
+                "ON2, ORG, ORG_GIVE, ORG_NOTE, Occupation, PATIENT_PAY_DOLAR, PatientNo, REGIS_VA"& _ 
+                "B_L_ICPH, REGIS_VAB_L_PLAIN, REGIS_VAB_R_ICPH, REGIS_VAB_R_PLAIN, REGIS_VAOLD_IC"& _ 
+                "PH, REGIS_VAOLD_PLAIN, REQUEST_BY, Referal, STATUS, Sex, TIME_CREATE, VA_PLAIN, "& _ 
                 "VA_icPH FROM V_CONSULTING WHERE (PatientNo = @PatientNo) AND (CONSULING_DATE BET"& _ 
                 "WEEN @DFrom AND @DateTo)"
-            Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(18).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(19).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(19).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(19).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(19).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CONSULING_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18137,8 +18523,70 @@ Namespace DSConsultTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
+        Public Overloads Overridable Function FillBy13(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal CONSULT_FOR As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
+            If (DateFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DateTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (STATUS.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(STATUS.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (CONSULT_FOR Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(CONSULT_FOR,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectNotYetCompleteWithDep(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal CONSULT_FOR As String) As DSConsult.V_CONSULTINGDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(6)
+            If (DateFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DateTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (STATUS.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(STATUS.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (CONSULT_FOR Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(CONSULT_FOR,String)
+            End If
+            Dim dataTable As DSConsult.V_CONSULTINGDataTable = New DSConsult.V_CONSULTINGDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(7)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (STATUS.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(STATUS.Value,Decimal)
@@ -18161,7 +18609,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByCheckTotalConsult(ByVal PatientNo As Decimal, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(6)
+            Me.Adapter.SelectCommand = Me.CommandCollection(7)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (STATUS.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(STATUS.Value,Decimal)
@@ -18182,7 +18630,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy3(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18219,7 +18667,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateWithDonate(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18254,7 +18702,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy4(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18286,7 +18734,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateDonate(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18316,7 +18764,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy5(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18353,7 +18801,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateTodateWithConsultStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18388,7 +18836,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy6(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18430,7 +18878,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateWithDonateStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal CONSULT_FOR As String, ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18470,7 +18918,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy7(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18502,7 +18950,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18532,7 +18980,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy8(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(12)
+            Me.Adapter.SelectCommand = Me.CommandCollection(13)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18569,7 +19017,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateDonateStatus(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal ORG As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal ACCEPT_CONSUL As Global.System.Nullable(Of Boolean)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(12)
+            Me.Adapter.SelectCommand = Me.CommandCollection(13)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18604,7 +19052,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBy9(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal CONSULING_ID As Decimal) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(13)
+            Me.Adapter.SelectCommand = Me.CommandCollection(14)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18628,7 +19076,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetConsultWaitingWithID(ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal), ByVal CONSULING_ID As Decimal) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(13)
+            Me.Adapter.SelectCommand = Me.CommandCollection(14)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18650,7 +19098,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByByConsultFor(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(14)
+            Me.Adapter.SelectCommand = Me.CommandCollection(15)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18673,7 +19121,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByConsultFor(ByVal PatientNo As Decimal, ByVal CONSULT_FOR As String, ByVal STATUS As Global.System.Nullable(Of Decimal)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(14)
+            Me.Adapter.SelectCommand = Me.CommandCollection(15)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (CONSULT_FOR Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -18694,7 +19142,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByConsultID(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal CONSULING_ID As Decimal) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(CONSULING_ID,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -18707,7 +19155,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByConsultID(ByVal CONSULING_ID As Decimal) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(CONSULING_ID,Decimal)
             Dim dataTable As DSConsult.V_CONSULTINGDataTable = New DSConsult.V_CONSULTINGDataTable
             Me.Adapter.Fill(dataTable)
@@ -18718,7 +19166,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByDateToDate(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18740,7 +19188,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDate(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18760,7 +19208,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByDateToDateApprove(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(17)
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18787,7 +19235,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateApprove(ByVal DateFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date), ByVal STATUS As Global.System.Nullable(Of Decimal)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(17)
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
             If (DateFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom.Value,Date)
             Else
@@ -18812,7 +19260,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByDateToDateWithPNo(ByVal dataTable As DSConsult.V_CONSULTINGDataTable, ByVal PatientNo As Decimal, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(18)
+            Me.Adapter.SelectCommand = Me.CommandCollection(19)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (DFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(DFrom.Value,Date)
@@ -18835,7 +19283,7 @@ Namespace DSConsultTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByDateToDateWithPNo(ByVal PatientNo As Decimal, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DateTo As Global.System.Nullable(Of Date)) As DSConsult.V_CONSULTINGDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(18)
+            Me.Adapter.SelectCommand = Me.CommandCollection(19)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
             If (DFrom.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(DFrom.Value,Date)
@@ -24211,6 +24659,408 @@ Namespace DSConsultTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class FAMILY_RELATIVETableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "FAMILY_RELATIVE"
+            tableMapping.ColumnMappings.Add("FAMILY_RELATIVE_ID", "FAMILY_RELATIVE_ID")
+            tableMapping.ColumnMappings.Add("FAMILY_RELATIVE", "FAMILY_RELATIVE")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [FAMILY_RELATIVE] WHERE (([FAMILY_RELATIVE_ID] = @Original_FAMILY_REL"& _ 
+                "ATIVE_ID) AND ((@IsNull_FAMILY_RELATIVE = 1 AND [FAMILY_RELATIVE] IS NULL) OR (["& _ 
+                "FAMILY_RELATIVE] = @Original_FAMILY_RELATIVE)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_RELATIVE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "FAMILY_RELATIVE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FAMILY_RELATIVE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_RELATIVE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [FAMILY_RELATIVE] ([FAMILY_RELATIVE]) VALUES (@FAMILY_RELATIVE);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
+                "ECT FAMILY_RELATIVE_ID, FAMILY_RELATIVE FROM FAMILY_RELATIVE WHERE (FAMILY_RELAT"& _ 
+                "IVE_ID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_RELATIVE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [FAMILY_RELATIVE] SET [FAMILY_RELATIVE] = @FAMILY_RELATIVE WHERE (([FAMILY"& _ 
+                "_RELATIVE_ID] = @Original_FAMILY_RELATIVE_ID) AND ((@IsNull_FAMILY_RELATIVE = 1 "& _ 
+                "AND [FAMILY_RELATIVE] IS NULL) OR ([FAMILY_RELATIVE] = @Original_FAMILY_RELATIVE"& _ 
+                ")));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT FAMILY_RELATIVE_ID, FAMILY_RELATIVE FROM FAMILY_RELATIVE WHERE (FAM"& _ 
+                "ILY_RELATIVE_ID = @FAMILY_RELATIVE_ID)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_RELATIVE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_RELATIVE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "FAMILY_RELATIVE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FAMILY_RELATIVE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_RELATIVE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_RELATIVE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "FAMILY_RELATIVE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection
+            Me._connection.ConnectionString = Global.TakeoHospitalInventory.My.MySettings.Default.TakeoDBConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        FAMILY_RELATIVE_ID, FAMILY_RELATIVE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FAMILY_RELATIV"& _ 
+                "E"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "DELETE FROM [FAMILY_RELATIVE] WHERE ([FAMILY_RELATIVE_ID] = @Original_FAMILY_RELA"& _ 
+                "TIVE_ID) "
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_RELATIVE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "FAMILY_RELATIVE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "INSERT INTO [FAMILY_RELATIVE] ([FAMILY_RELATIVE]) VALUES (@FAMILY_RELATIVE);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_RELATIVE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "UPDATE [FAMILY_RELATIVE] SET [FAMILY_RELATIVE] = @FAMILY_RELATIVE WHERE ([FAMILY_"& _ 
+                "RELATIVE_ID] = @Original_FAMILY_RELATIVE_ID) "
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FAMILY_RELATIVE", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "FAMILY_RELATIVE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FAMILY_RELATIVE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "FAMILY_RELATIVE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSConsult.FAMILY_RELATIVEDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DSConsult.FAMILY_RELATIVEDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSConsult.FAMILY_RELATIVEDataTable = New DSConsult.FAMILY_RELATIVEDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DSConsult.FAMILY_RELATIVEDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DSConsult) As Integer
+            Return Me.Adapter.Update(dataSet, "FAMILY_RELATIVE")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_FAMILY_RELATIVE_ID As Decimal, ByVal Original_FAMILY_RELATIVE As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_FAMILY_RELATIVE_ID,Decimal)
+            If (Original_FAMILY_RELATIVE Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_FAMILY_RELATIVE,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal FAMILY_RELATIVE As String) As Integer
+            If (FAMILY_RELATIVE Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(FAMILY_RELATIVE,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal FAMILY_RELATIVE As String, ByVal Original_FAMILY_RELATIVE_ID As Decimal, ByVal Original_FAMILY_RELATIVE As String, ByVal FAMILY_RELATIVE_ID As Decimal) As Integer
+            If (FAMILY_RELATIVE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(FAMILY_RELATIVE,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_FAMILY_RELATIVE_ID,Decimal)
+            If (Original_FAMILY_RELATIVE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_FAMILY_RELATIVE,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FAMILY_RELATIVE_ID,Decimal)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal FAMILY_RELATIVE As String, ByVal Original_FAMILY_RELATIVE_ID As Decimal, ByVal Original_FAMILY_RELATIVE As String) As Integer
+            Return Me.Update(FAMILY_RELATIVE, Original_FAMILY_RELATIVE_ID, Original_FAMILY_RELATIVE, Original_FAMILY_RELATIVE_ID)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function DeleteFamily(ByVal Original_FAMILY_RELATIVE_ID As Decimal) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            command.Parameters(0).Value = CType(Original_FAMILY_RELATIVE_ID,Decimal)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertNewFamily(ByVal FAMILY_RELATIVE As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            If (FAMILY_RELATIVE Is Nothing) Then
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(0).Value = CType(FAMILY_RELATIVE,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateFamily(ByVal FAMILY_RELATIVE As String, ByVal Original_FAMILY_RELATIVE_ID As Decimal) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            If (FAMILY_RELATIVE Is Nothing) Then
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(0).Value = CType(FAMILY_RELATIVE,String)
+            End If
+            command.Parameters(1).Value = CType(Original_FAMILY_RELATIVE_ID,Decimal)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
@@ -24245,6 +25095,8 @@ Namespace DSConsultTableAdapters
         Private _cALL_PARAMETERTableAdapter As CALL_PARAMETERTableAdapter
         
         Private _tblNew_Old_OutPatientTableAdapter As TblNew_Old_OutPatientTableAdapter
+        
+        Private _fAMILY_RELATIVETableAdapter As FAMILY_RELATIVETableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -24403,6 +25255,19 @@ Namespace DSConsultTableAdapters
             End Set
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"& _ 
+            "", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property FAMILY_RELATIVETableAdapter() As FAMILY_RELATIVETableAdapter
+            Get
+                Return Me._fAMILY_RELATIVETableAdapter
+            End Get
+            Set
+                Me._fAMILY_RELATIVETableAdapter = value
+            End Set
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -24464,6 +25329,10 @@ Namespace DSConsultTableAdapters
                             AndAlso (Not (Me._tblNew_Old_OutPatientTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tblNew_Old_OutPatientTableAdapter.Connection
                 End If
+                If ((Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._fAMILY_RELATIVETableAdapter.Connection) Is Nothing)) Then
+                    Return Me._fAMILY_RELATIVETableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -24509,6 +25378,9 @@ Namespace DSConsultTableAdapters
                 If (Not (Me._tblNew_Old_OutPatientTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 Return count
             End Get
         End Property
@@ -24519,6 +25391,15 @@ Namespace DSConsultTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As DSConsult, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._aPPOINT_PARATableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.APPOINT_PARA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._aPPOINT_PARATableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._cONSULING_APPOINTMENTTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.CONSULING_APPOINTMENT.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -24528,21 +25409,21 @@ Namespace DSConsultTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._fAMILY_STATUSTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.FAMILY_STATUS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._cALL_PARAMETERTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CALL_PARAMETER.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._fAMILY_STATUSTableAdapter.Update(updatedRows))
+                    result = (result + Me._cALL_PARAMETERTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._aPPOINT_PARATableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.APPOINT_PARA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.FAMILY_RELATIVE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._aPPOINT_PARATableAdapter.Update(updatedRows))
+                    result = (result + Me._fAMILY_RELATIVETableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -24555,12 +25436,12 @@ Namespace DSConsultTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._cALL_PARAMETERTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CALL_PARAMETER.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._fAMILY_STATUSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.FAMILY_STATUS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._cALL_PARAMETERTableAdapter.Update(updatedRows))
+                    result = (result + Me._fAMILY_STATUSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -24627,6 +25508,14 @@ Namespace DSConsultTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Function UpdateInsertedRows(ByVal dataSet As DSConsult, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._aPPOINT_PARATableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.APPOINT_PARA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._aPPOINT_PARATableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._cONSULING_APPOINTMENTTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.CONSULING_APPOINTMENT.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -24635,19 +25524,19 @@ Namespace DSConsultTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._fAMILY_STATUSTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.FAMILY_STATUS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._cALL_PARAMETERTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.CALL_PARAMETER.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._fAMILY_STATUSTableAdapter.Update(addedRows))
+                    result = (result + Me._cALL_PARAMETERTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._aPPOINT_PARATableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.APPOINT_PARA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.FAMILY_RELATIVE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._aPPOINT_PARATableAdapter.Update(addedRows))
+                    result = (result + Me._fAMILY_RELATIVETableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -24659,11 +25548,11 @@ Namespace DSConsultTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._cALL_PARAMETERTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.CALL_PARAMETER.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._fAMILY_STATUSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.FAMILY_STATUS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._cALL_PARAMETERTableAdapter.Update(addedRows))
+                    result = (result + Me._fAMILY_STATUSTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -24772,11 +25661,11 @@ Namespace DSConsultTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._cALL_PARAMETERTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CALL_PARAMETER.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._fAMILY_STATUSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.FAMILY_STATUS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._cALL_PARAMETERTableAdapter.Update(deletedRows))
+                    result = (result + Me._fAMILY_STATUSTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -24788,19 +25677,19 @@ Namespace DSConsultTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._aPPOINT_PARATableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.APPOINT_PARA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.FAMILY_RELATIVE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._aPPOINT_PARATableAdapter.Update(deletedRows))
+                    result = (result + Me._fAMILY_RELATIVETableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._fAMILY_STATUSTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.FAMILY_STATUS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._cALL_PARAMETERTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CALL_PARAMETER.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._fAMILY_STATUSTableAdapter.Update(deletedRows))
+                    result = (result + Me._cALL_PARAMETERTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -24809,6 +25698,14 @@ Namespace DSConsultTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._cONSULING_APPOINTMENTTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._aPPOINT_PARATableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.APPOINT_PARA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._aPPOINT_PARATableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -24903,6 +25800,11 @@ Namespace DSConsultTableAdapters
             End If
             If ((Not (Me._tblNew_Old_OutPatientTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._tblNew_Old_OutPatientTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+                        "tring.")
+            End If
+            If ((Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._fAMILY_RELATIVETableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -25037,6 +25939,15 @@ Namespace DSConsultTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._tblNew_Old_OutPatientTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._fAMILY_RELATIVETableAdapter, Me._fAMILY_RELATIVETableAdapter.Connection)
+                    Me._fAMILY_RELATIVETableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._fAMILY_RELATIVETableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._fAMILY_RELATIVETableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._fAMILY_RELATIVETableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._fAMILY_RELATIVETableAdapter.Adapter)
+                    End If
+                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -25140,6 +26051,10 @@ Namespace DSConsultTableAdapters
                 If (Not (Me._tblNew_Old_OutPatientTableAdapter) Is Nothing) Then
                     Me._tblNew_Old_OutPatientTableAdapter.Connection = CType(revertConnections(Me._tblNew_Old_OutPatientTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._tblNew_Old_OutPatientTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._fAMILY_RELATIVETableAdapter) Is Nothing) Then
+                    Me._fAMILY_RELATIVETableAdapter.Connection = CType(revertConnections(Me._fAMILY_RELATIVETableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._fAMILY_RELATIVETableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

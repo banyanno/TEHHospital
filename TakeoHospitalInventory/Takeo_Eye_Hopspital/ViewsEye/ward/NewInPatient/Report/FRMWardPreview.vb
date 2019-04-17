@@ -3,8 +3,12 @@ Public Class FRMWardPreview
     Public DTo As Date
     Dim TblPatientInward As DataTable
     Dim CRNew As New CRNewInpatientWard
+    Dim CROTStay As New ListOfWaitingOT
     Dim CRLeave As New CRLeavPatient
     Public IS_PRINT_STAYING As Boolean = False
+    Public IS_PRINT_OT_STAY As Boolean = False
+    Dim tblPatientOT As DataTable
+    Dim DAOTList As New DSOTCurrentStoctTableAdapters.View_OTRegistrationTableAdapter
     Dim DAWard As New DSWardWithOTTableAdapters.V_NewInpatientDetialTableAdapter
     Sub CallBgNewInpatient()
         GroupBox10.Visible = False
@@ -18,14 +22,26 @@ Public Class FRMWardPreview
     End Sub
 
     Private Sub BgLoadPatientNew_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BgLoadPatientNew.DoWork
-        TblPatientInward = DAWard.SelectPatientStaying  '  Me.TblNewInpatientTableAdapter.SelectCurrentStay() '  GetData(DFrom, DTo)
+        If IS_PRINT_STAYING = True Then
+            TblPatientInward = DAWard.SelectPatientStaying
+        ElseIf IS_PRINT_OT_STAY = True Then
+            tblPatientOT = DAOTList.SelectListWaitingOT
+        End If
+        '  Me.TblNewInpatientTableAdapter.SelectCurrentStay() '  GetData(DFrom, DTo)
     End Sub
 
     Private Sub BgLoadPatientNew_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BgLoadPatientNew.RunWorkerCompleted
-        CRNew.SetDataSource(TblPatientInward)
-        CRVWard.ReportSource = CRNew
-        CRNew.SetParameterValue("Title", "List of patient staying in ward ")
-        CRNew.SetParameterValue("PrintBy", USER_NAME)
+        If IS_PRINT_STAYING = True Then
+            CRNew.SetDataSource(TblPatientInward)
+            CRVWard.ReportSource = CRNew
+            CRNew.SetParameterValue("Title", "List of patient staying in ward ")
+            CRNew.SetParameterValue("PrintBy", USER_NAME)
+        ElseIf IS_PRINT_OT_STAY = True Then
+            CROTStay.SetDataSource(tblPatientOT)
+            CRVWard.ReportSource = CROTStay
+
+        End If
+      
         'Dim myArrayList As New ArrayList
         'myArrayList.Add("List In patient staying From " & Format(DFrom, "dd/MM/yyyy") & " To " & Format(DTo, "dd/MM/yyyy"))
         'Dim MyparameterFields As CrystalDecisions.Shared.ParameterFields = CRVWard.ParameterFieldInfo
@@ -63,8 +79,10 @@ Public Class FRMWardPreview
 
    
     Private Sub FRMWardPreview_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If IS_PRINT_STAYING = True Then
-            CallBgNewInpatient()
-        End If
+        'If IS_PRINT_STAYING = True Then
+        CallBgNewInpatient()
+        ' ElseIf IS_PRINT_OT_STAY = True Then
+        'CallBgNewInpatient()
+        'End If
     End Sub
 End Class

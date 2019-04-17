@@ -981,6 +981,12 @@
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ReferTo\FrmRefer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\AddNewFamilyRelative.Designer.vb">
+      <DependentUpon>AddNewFamilyRelative.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\AddNewFamilyRelative.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\AppointmentParameter.Designer.vb">
       <DependentUpon>AppointmentParameter.vb</DependentUpon>
     </Compile>
@@ -997,6 +1003,12 @@
       <DependentUpon>CallAppParameter.vb</DependentUpon>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CallAppParameter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CheckCunselling.Designer.vb">
+      <DependentUpon>CheckCunselling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CheckCunselling.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CRDailyConsultingV2BK.vb">
@@ -1059,6 +1071,12 @@
       <DependentUpon>FormPrintApointmentStatistict.vb</DependentUpon>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\FormPrintApointmentStatistict.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\ForRelativeFamily.Designer.vb">
+      <DependentUpon>ForRelativeFamily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\ForRelativeFamily.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\MainConsuling.Designer.vb">
@@ -1981,6 +1999,12 @@
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\OT Registration\frmUndoDeleteOT.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\OT Registration\ListOfWaitingOT.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListOfWaitingOT.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\OT Registration\UCOT_AND_IOLList.Designer.vb">
       <DependentUpon>UCOT_AND_IOLList.vb</DependentUpon>
@@ -3462,6 +3486,9 @@
       <DependentUpon>FrmRefer.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\AddNewFamilyRelative.resx">
+      <DependentUpon>AddNewFamilyRelative.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\AppointmentParameter.resx">
       <DependentUpon>AppointmentParameter.vb</DependentUpon>
     </EmbeddedResource>
@@ -3471,6 +3498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CallAppParameter.resx">
       <DependentUpon>CallAppParameter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CheckCunselling.resx">
+      <DependentUpon>CheckCunselling.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\CRDailyConsultingV2BK.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -3506,6 +3536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\FormPrintApointmentStatistict.resx">
       <DependentUpon>FormPrintApointmentStatistict.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\ForRelativeFamily.resx">
+      <DependentUpon>ForRelativeFamily.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\consuling\MainConsuling.resx">
       <DependentUpon>MainConsuling.vb</DependentUpon>
@@ -4030,6 +4063,10 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\OT Registration\frmUndoDeleteOT.resx">
       <DependentUpon>frmUndoDeleteOT.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\OT Registration\ListOfWaitingOT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListOfWaitingOT.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\OT Registration\UCOT_AND_IOLList.resx">
       <DependentUpon>UCOT_AND_IOLList.vb</DependentUpon>

@@ -30,6 +30,7 @@ Partial Class MainOpticalShop
         Me.ErrReceipt = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GridReceipt = New Janus.Windows.GridEX.GridEX
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.BtnCheckCounselling = New System.Windows.Forms.Button
         Me.BtnEditDonateOptical = New System.Windows.Forms.Button
         Me.BtnEditeDateReceipt = New System.Windows.Forms.Button
         Me.BtnPrintInvoice = New System.Windows.Forms.Button
@@ -104,6 +105,7 @@ Partial Class MainOpticalShop
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.BtnCheckCounselling)
         Me.Panel1.Controls.Add(Me.BtnEditDonateOptical)
         Me.Panel1.Controls.Add(Me.BtnEditeDateReceipt)
         Me.Panel1.Controls.Add(Me.BtnPrintInvoice)
@@ -122,13 +124,26 @@ Partial Class MainOpticalShop
         Me.Panel1.Size = New System.Drawing.Size(1006, 58)
         Me.Panel1.TabIndex = 5
         '
+        'BtnCheckCounselling
+        '
+        Me.BtnCheckCounselling.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCheckCounselling.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnCheckCounselling.ImageList = Me.ImageStatusbar
+        Me.BtnCheckCounselling.Location = New System.Drawing.Point(413, 8)
+        Me.BtnCheckCounselling.Name = "BtnCheckCounselling"
+        Me.BtnCheckCounselling.Size = New System.Drawing.Size(98, 34)
+        Me.BtnCheckCounselling.TabIndex = 16
+        Me.BtnCheckCounselling.Text = "Check Counsellig"
+        Me.BtnCheckCounselling.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnCheckCounselling.UseVisualStyleBackColor = True
+        '
         'BtnEditDonateOptical
         '
         Me.BtnEditDonateOptical.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnEditDonateOptical.Enabled = False
-        Me.BtnEditDonateOptical.Location = New System.Drawing.Point(292, 8)
+        Me.BtnEditDonateOptical.Location = New System.Drawing.Point(246, 8)
         Me.BtnEditDonateOptical.Name = "BtnEditDonateOptical"
-        Me.BtnEditDonateOptical.Size = New System.Drawing.Size(101, 34)
+        Me.BtnEditDonateOptical.Size = New System.Drawing.Size(79, 34)
         Me.BtnEditDonateOptical.TabIndex = 15
         Me.BtnEditDonateOptical.Tag = "Edit Donate In Optical"
         Me.BtnEditDonateOptical.Text = "Edit Donate In Optical"
@@ -140,9 +155,9 @@ Partial Class MainOpticalShop
         Me.BtnEditeDateReceipt.Enabled = False
         Me.BtnEditeDateReceipt.ImageIndex = 4
         Me.BtnEditeDateReceipt.ImageList = Me.ImageStatusbar
-        Me.BtnEditeDateReceipt.Location = New System.Drawing.Point(188, 8)
+        Me.BtnEditeDateReceipt.Location = New System.Drawing.Point(164, 8)
         Me.BtnEditeDateReceipt.Name = "BtnEditeDateReceipt"
-        Me.BtnEditeDateReceipt.Size = New System.Drawing.Size(98, 34)
+        Me.BtnEditeDateReceipt.Size = New System.Drawing.Size(79, 34)
         Me.BtnEditeDateReceipt.TabIndex = 14
         Me.BtnEditeDateReceipt.Tag = "Edit Date Receipt"
         Me.BtnEditeDateReceipt.Text = "Edit Date Receipt"
@@ -154,9 +169,9 @@ Partial Class MainOpticalShop
         Me.BtnPrintInvoice.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnPrintInvoice.ImageIndex = 5
         Me.BtnPrintInvoice.ImageList = Me.ImageStatusbar
-        Me.BtnPrintInvoice.Location = New System.Drawing.Point(399, 8)
+        Me.BtnPrintInvoice.Location = New System.Drawing.Point(328, 8)
         Me.BtnPrintInvoice.Name = "BtnPrintInvoice"
-        Me.BtnPrintInvoice.Size = New System.Drawing.Size(89, 34)
+        Me.BtnPrintInvoice.Size = New System.Drawing.Size(79, 34)
         Me.BtnPrintInvoice.TabIndex = 13
         Me.BtnPrintInvoice.Text = "Print Invoice"
         Me.BtnPrintInvoice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -168,9 +183,9 @@ Partial Class MainOpticalShop
         Me.BtnEditInvoice.Enabled = False
         Me.BtnEditInvoice.ImageIndex = 4
         Me.BtnEditInvoice.ImageList = Me.ImageStatusbar
-        Me.BtnEditInvoice.Location = New System.Drawing.Point(97, 8)
+        Me.BtnEditInvoice.Location = New System.Drawing.Point(83, 8)
         Me.BtnEditInvoice.Name = "BtnEditInvoice"
-        Me.BtnEditInvoice.Size = New System.Drawing.Size(86, 34)
+        Me.BtnEditInvoice.Size = New System.Drawing.Size(79, 34)
         Me.BtnEditInvoice.TabIndex = 12
         Me.BtnEditInvoice.Tag = "Edit Invoice"
         Me.BtnEditInvoice.Text = "Edit Invoice"
@@ -206,7 +221,7 @@ Partial Class MainOpticalShop
         Me.BtnNewReceipt1.ImageList = Me.ImageStatusbar
         Me.BtnNewReceipt1.Location = New System.Drawing.Point(2, 8)
         Me.BtnNewReceipt1.Name = "BtnNewReceipt1"
-        Me.BtnNewReceipt1.Size = New System.Drawing.Size(90, 34)
+        Me.BtnNewReceipt1.Size = New System.Drawing.Size(79, 34)
         Me.BtnNewReceipt1.TabIndex = 10
         Me.BtnNewReceipt1.Tag = "New Invoice"
         Me.BtnNewReceipt1.Text = "New Invoice"
@@ -388,5 +403,6 @@ Partial Class MainOpticalShop
     Friend WithEvents BGLoadOpticalShop As System.ComponentModel.BackgroundWorker
     Friend WithEvents BtnEditeDateReceipt As System.Windows.Forms.Button
     Friend WithEvents BtnEditDonateOptical As System.Windows.Forms.Button
+    Friend WithEvents BtnCheckCounselling As System.Windows.Forms.Button
 
 End Class
