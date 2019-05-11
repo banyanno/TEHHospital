@@ -4,14 +4,14 @@ Public Class NewDonation
         If ValidateTextField(TxtDonation, "", ErrDonation) = False Then Exit Sub
         If LblSaveOption.Text = "0" Then
             If MessageBox.Show("Do you want to save new donation?", "Donation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If ModDonation.SaveNewDonation(TxtDonation.Text, TxtDescription.Text) > 0 Then
+                If ModDonation.SaveNewDonation(TxtDonation.Text, TxtDescription.Text, ChIsActive.Checked) > 0 Then
                     MessageBox.Show("Save new donation successful.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
             End If
         Else
             If MessageBox.Show("Do you want to update donation?", "Upate", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If ModDonation.UpdateDonation(LblSaveOption.Text, TxtDonation.Text, TxtDescription.Text) > 0 Then
+                If ModDonation.UpdateDonation(LblSaveOption.Text, TxtDonation.Text, TxtDescription.Text, ChIsActive.Checked) > 0 Then
                     MessageBox.Show("Update donation successful.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If

@@ -29,6 +29,21 @@ Module MCashCollection
                       & " + SUM(OperationFeeRiel) + SUM(ArtificialEyeFeeRiel) + SUM(OtherFeeRiel) + SUM(GlassFeeRiel) + SUM(MedicineFeeRiel) AS TotalRiel FROM tblPatientReceipt Where IsPatientNill=0 AND CAST(CONVERT(VARCHAR(10), DateIn, 1) AS DateTime) =CAST(CONVERT(VARCHAR(10), CAST('" & DateIn & "' AS DATETIME), 1) AS Datetime) and ConPay='1' and ConDelete='0'"
         Return generalDAO.SelectDAOAsDataTatable(Sql)
     End Function
+    Function GetAllIncomeSumary(ByVal ConGeneral As String, ByVal DateIn As Date) As DataTable
+        Dim SQL As String = "select CashUSD,CashRiel,(ConsultationFeeUSD + FollowUpFeeUSD) outpatientUSD, (ConsultationFeeRiel + FollowUpFeeRiel) OutPatientRield " _
+                            & ",(OperationFeeUSD)  InPatientUSD, (OperationFeeRiel) AS InPatientRiel ,(GlassFeeUSD) GlassFeeUSD ,( GlassFeeRiel) GlassFeeRiel, " _
+                            & "(ArtificialEyeFeeUSD) ArtificialEyeFeeUSD ,( ArtificialEyeFeeRiel) ArtificialEyeFeeRiel,( MedicineFeeRiel) MedicineFeeRiel, (MedicineFeeUSD) MedicineFeeUSD," _
+                            & "(OtherFeeUSD) OtherFeeUSD, (OtherFeeRiel) OtherFeeRiel ,( DonationPay ) DonationPay, IsDonation,ConGeneral,Rates,ConPay FROM tblPatientReceipt WHERE ConGeneral='" & ConGeneral & "' AND DateIn='" & DateIn & "' and ConDelete =0"
+        Return generalDAO.SelectAsDataTable(Sql)
+    End Function
+    Function GetAllIncomeSumaryTotalDonate(ByVal DateIn As Date) As DataTable
+        Dim SQL As String = "select CashUSD,CashRiel,(ConsultationFeeUSD + FollowUpFeeUSD) outpatientUSD, (ConsultationFeeRiel + FollowUpFeeRiel) OutPatientRield " _
+                            & ",(OperationFeeUSD)  InPatientUSD, (OperationFeeRiel) AS InPatientRiel ,(GlassFeeUSD) GlassFeeUSD ,( GlassFeeRiel) GlassFeeRiel, " _
+                            & "(ArtificialEyeFeeUSD) ArtificialEyeFeeUSD ,( ArtificialEyeFeeRiel) ArtificialEyeFeeRiel,( MedicineFeeRiel) MedicineFeeRiel, (MedicineFeeUSD) MedicineFeeUSD," _
+                            & "(OtherFeeUSD) OtherFeeUSD, (OtherFeeRiel) OtherFeeRiel ,( DonationPay ) DonationPay, IsDonation,ConGeneral,Rates,ConPay FROM tblPatientReceipt WHERE  DateIn='" & DateIn & "' and ConDelete =0"
+        Return generalDAO.SelectAsDataTable(SQL)
+    End Function
+
     Function IncomeSummaryByDept(ByVal DateIn As Date, ByVal DeptID As Integer) As DataTable
         Dim Sql As String = "SELECT     SUM(ConsultationFeeUSD) + SUM(FollowUpFeeUSD) AS OutPatientUSD, SUM(ConsultationFeeRiel) + SUM(FollowUpFeeRiel) AS OutpatientRiel, " _
                       & " SUM(OperationFeeUSD) + SUM(ArtificialEyeFeeUSD) AS InpatientUSD, SUM(OperationFeeRiel) + SUM(ArtificialEyeFeeRiel) AS InpatientRiel, " _

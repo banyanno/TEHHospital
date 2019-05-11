@@ -76,15 +76,15 @@
             .DisplayMember = "FAMILY_STATUS"
             .SelectedIndex = -1
         End With
-        With CboOrg
-            .DataSource = DA_Donater.GetData
+        With CboDonation
+            .DataSource = DA_Donater.SelectDonateIsActive(True)
             .ValueMember = DA_Donater.GetData.Columns("DonationID").ColumnName
             .DisplayMember = DA_Donater.GetData.Columns("DonationName").ColumnName
             .SelectedIndex = -1
         End With
         With LsGive
             .Items.Clear()
-            For Each row As DataRow In DA_Org_Offer.GetData
+            For Each row As DataRow In DA_Org_Offer.SelectIsActive(True)
                 .Items.Add(row("OFFER"))
             Next
         End With
@@ -217,7 +217,7 @@
         If NOffer.ShowDialog() = Windows.Forms.DialogResult.OK Then
             With LsGive
                 .Items.Clear()
-                For Each row As DataRow In DA_Org_Offer.GetData
+                For Each row As DataRow In DA_Org_Offer.SelectIsActive(True)
                     .Items.Add(row("OFFER"))
                 Next
             End With
@@ -302,9 +302,9 @@
         TxtDonateR.Text = "0"
         TxtDonateR.Focus()
         TxtDonateR.SelectAll()
-        CboOrg.SelectedIndex = -1
+        CboDonation.SelectedIndex = -1
         TxtDonateD.Text = ""
-        CboOrg.Enabled = True
+        CboDonation.Enabled = True
         TxtDonateD.Enabled = True
         'LsGive.Enabled = True
     End Sub
@@ -313,9 +313,9 @@
         TxtDonateR.Enabled = False
         RadPatientPayR.Checked = True
         TxtDonateR.Text = "0"
-        CboOrg.SelectedIndex = -1
+        CboDonation.SelectedIndex = -1
         TxtDonateD.Text = ""
-        CboOrg.Enabled = True
+        CboDonation.Enabled = True
         TxtDonateD.Enabled = True
         'LsGive.Enabled = False
     End Sub
@@ -323,9 +323,9 @@
     Private Sub RadFull_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadFull.CheckedChanged
         TxtDonateR.Enabled = True
         TxtDonateR.Text = TxtHospitalFee.Text
-        CboOrg.SelectedIndex = -1
+        CboDonation.SelectedIndex = -1
         TxtDonateD.Text = ""
-        CboOrg.Enabled = False
+        CboDonation.Enabled = False
         TxtDonateD.Enabled = False
         'LsGive.Enabled = False
     End Sub
@@ -563,11 +563,11 @@
         ' Incase In-Patient With Nill option user must check Donate and refferto
         If ChAccepConsul.Checked = True Then
             If RadForInPatient.Checked = True And RadNil.Checked = True Then
-                If ValidateCombobox(CboOrg, "", ErrConsulting) = False Then Exit Sub
+                If ValidateCombobox(CboDonation, "", ErrConsulting) = False Then Exit Sub
                 If ValidateTextField(TxtDonateD, "", ErrConsulting) = False Then Exit Sub
             End If
             If RadForInPatient.Checked = True And RadSocial.Checked = True Then
-                If ValidateCombobox(CboOrg, "", ErrConsulting) = False Then Exit Sub
+                If ValidateCombobox(CboDonation, "", ErrConsulting) = False Then Exit Sub
                 If ValidateTextField(TxtDonateD, "", ErrConsulting) = False Then Exit Sub
             End If
             ' End Of In patient consutl.........
@@ -620,7 +620,7 @@
                 End If
                 If RadForNewPatient.Checked = True Then
                     If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, _
-                                                      cboPatientMoney.Text, 1, "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, _
+                                                      cboPatientMoney.Text, 1, "", "", CboDonation.Text, GetTextReferralV1, TxtOrgNote.Text, _
                                                       Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, _
                                                       CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, _
                                                       CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), _
@@ -644,7 +644,7 @@
                         Me.DialogResult = Windows.Forms.DialogResult.OK
                     End If
                 ElseIf RadForOld.Checked = True Then
-                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, 1, "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME) = 1 Then
+                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, 1, "", "", CboDonation.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME) = 1 Then
                         If DateApp.Checked = True Then
                             DA_Appoint.InsertNewApp(TxtPatientNo.Text, TxtPatientName.Text, "", TxtSex.Text, TxtAge.Text, DateConsult.Value.Date, DateApp.Value.Date, False, TxtConsultNote.Text, TxtPatientOccupation.Text, False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, txtPatientPhone.Text, "Consuling", CboDoctor.SelectedValue, CboDoctor.Text)
                             If LblNew_OldIDForDiagnosis.Text <> "0" Then
@@ -658,7 +658,7 @@
                     End If
                 Else
 
-                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, CDbl(IIf(ChAccepConsul.Checked = True, 0, 1)), "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME) = 1 Then
+                    If DA_Consulting.InsertConsulting(TxtPatientNo.Text, Now.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, CDbl(IIf(ChAccepConsul.Checked = True, 0, 1)), "", "", CboDonation.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, TxtReferral.Text, CboDoctor.SelectedValue, CboDoctor.Text, Format(GetDateServer, "hh:mm:ss tt").ToString, USER_NAME) = 1 Then
                         If DateApp.Checked = True Then
                             DA_Appoint.InsertNewApp(TxtPatientNo.Text, TxtPatientName.Text, "", TxtSex.Text, TxtAge.Text, DateConsult.Value.Date, DateApp.Value.Date, False, TxtConsultNote.Text, TxtPatientOccupation.Text, False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, txtPatientPhone.Text, "Consuling", CboDoctor.SelectedValue, CboDoctor.Text)
                             If LblNew_OldIDForDiagnosis.Text <> "0" Then
@@ -695,7 +695,7 @@
 
         Else
             If MessageBox.Show("Do you want update consulting?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DA_Consulting.UpdateConsulting(TxtPatientNo.Text, DateConsult.Value.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, "", "", CboOrg.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, CboDoctor.SelectedValue, CboDoctor.Text, LblSaveOption.Text) = 1 Then
+                If DA_Consulting.UpdateConsulting(TxtPatientNo.Text, DateConsult.Value.Date, DateConsult.Value.Date, CboPatientStatus.Text, cboPatientMoney.Text, "", "", CboDonation.Text, GetTextReferralV1, TxtOrgNote.Text, Ch1.Checked, Ch2.Checked, Ch3.Checked, Ch4.Checked, Ch5.Checked, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, CDbl(IIf(ChAccepConsul.Checked = True, EmptyString(TxtHospitalFee.Text), 0)), ValSocial_Type, CBool(IIf(RadPatientPayR.Checked = True, True, False)), CDbl(IIf(RadPatientPayR.Checked = True, EmptyString(TxtDonateR.Text), 0)), EmptyString(TxtDonateD.Text), TxtConsultNote.Text, USER_NAME, USER_NAME, ValConsultFor, CDbl(IIf(RadPatientPayD.Checked = True, EmptyString(TxtDonateR.Text), 0)), TxtFamilyName.Text, EmptyString(TxtFamilyAge.Text), cboFamilySex.Text, cboFamilyMoney.Text, CboFamilyStatus.Text, TxtFamilyRelative.Text, CboFamilyOccupation.Text, txtFamilyAddress.Text, ChAccepConsul.Checked, CboDoctor.SelectedValue, CboDoctor.Text, LblSaveOption.Text) = 1 Then
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
             End If

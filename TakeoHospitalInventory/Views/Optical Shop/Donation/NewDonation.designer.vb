@@ -29,50 +29,56 @@ Partial Class NewDonation
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrDonation = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.LblSaveOption = New System.Windows.Forms.Label
+        Me.ChIsActive = New System.Windows.Forms.CheckBox
         CType(Me.ErrDonation, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 26)
+        Me.Label1.Location = New System.Drawing.Point(9, 21)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(110, 17)
+        Me.Label1.Size = New System.Drawing.Size(84, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Donation Name:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 57)
+        Me.Label2.Location = New System.Drawing.Point(9, 46)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 17)
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Description:"
         '
         'TxtDonation
         '
         Me.TxtDonation.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDonation.Location = New System.Drawing.Point(128, 23)
+        Me.TxtDonation.Location = New System.Drawing.Point(96, 19)
+        Me.TxtDonation.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TxtDonation.Name = "TxtDonation"
-        Me.TxtDonation.Size = New System.Drawing.Size(213, 28)
+        Me.TxtDonation.Size = New System.Drawing.Size(161, 24)
         Me.TxtDonation.TabIndex = 0
         '
         'TxtDescription
         '
         Me.TxtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDescription.Location = New System.Drawing.Point(15, 77)
+        Me.TxtDescription.Location = New System.Drawing.Point(11, 63)
+        Me.TxtDescription.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TxtDescription.Multiline = True
         Me.TxtDescription.Name = "TxtDescription"
-        Me.TxtDescription.Size = New System.Drawing.Size(326, 77)
+        Me.TxtDescription.Size = New System.Drawing.Size(246, 63)
         Me.TxtDescription.TabIndex = 1
         '
         'BtnSave
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSave.Location = New System.Drawing.Point(185, 163)
+        Me.BtnSave.Location = New System.Drawing.Point(139, 132)
+        Me.BtnSave.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(75, 33)
+        Me.BtnSave.Size = New System.Drawing.Size(56, 27)
         Me.BtnSave.TabIndex = 2
         Me.BtnSave.Text = "Save"
         Me.BtnSave.UseVisualStyleBackColor = True
@@ -80,9 +86,10 @@ Partial Class NewDonation
         'BtnCancel
         '
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.Location = New System.Drawing.Point(266, 163)
+        Me.BtnCancel.Location = New System.Drawing.Point(200, 132)
+        Me.BtnCancel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(75, 33)
+        Me.BtnCancel.Size = New System.Drawing.Size(56, 27)
         Me.BtnCancel.TabIndex = 3
         Me.BtnCancel.Text = "Cancel"
         Me.BtnCancel.UseVisualStyleBackColor = True
@@ -94,18 +101,30 @@ Partial Class NewDonation
         'LblSaveOption
         '
         Me.LblSaveOption.AutoSize = True
-        Me.LblSaveOption.Location = New System.Drawing.Point(15, 170)
+        Me.LblSaveOption.Location = New System.Drawing.Point(11, 138)
+        Me.LblSaveOption.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblSaveOption.Name = "LblSaveOption"
-        Me.LblSaveOption.Size = New System.Drawing.Size(16, 17)
+        Me.LblSaveOption.Size = New System.Drawing.Size(13, 13)
         Me.LblSaveOption.TabIndex = 3
         Me.LblSaveOption.Text = "0"
         Me.LblSaveOption.Visible = False
         '
+        'ChIsActive
+        '
+        Me.ChIsActive.AutoSize = True
+        Me.ChIsActive.Location = New System.Drawing.Point(11, 137)
+        Me.ChIsActive.Name = "ChIsActive"
+        Me.ChIsActive.Size = New System.Drawing.Size(67, 17)
+        Me.ChIsActive.TabIndex = 4
+        Me.ChIsActive.Text = "Is Active"
+        Me.ChIsActive.UseVisualStyleBackColor = True
+        '
         'NewDonation
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(363, 202)
+        Me.ClientSize = New System.Drawing.Size(272, 164)
+        Me.Controls.Add(Me.ChIsActive)
         Me.Controls.Add(Me.LblSaveOption)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSave)
@@ -115,6 +134,7 @@ Partial Class NewDonation
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "NewDonation"
@@ -134,4 +154,5 @@ Partial Class NewDonation
     Friend WithEvents BtnCancel As System.Windows.Forms.Button
     Friend WithEvents ErrDonation As System.Windows.Forms.ErrorProvider
     Friend WithEvents LblSaveOption As System.Windows.Forms.Label
+    Friend WithEvents ChIsActive As System.Windows.Forms.CheckBox
 End Class

@@ -4,14 +4,14 @@
         If ValidateTextField(TxtOffer, "", ErrOffer) = False Then Exit Sub
         If LblSaveOption.Text = "0" Then
             If MessageBox.Show("Do you want save org offer?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DA_Offer.InsertOffer(TxtOffer.Text) = 1 Then
+                If DA_Offer.InsertOffer(TxtOffer.Text, ChIsActive.Checked) = 1 Then
                     RefreshOffer()
                 End If
             End If
            
         Else
             If MessageBox.Show("Do you want update org offer?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DA_Offer.UpdateOffer(TxtOffer.Text, LblSaveOption.Text) = 1 Then
+                If DA_Offer.UpdateOffer(TxtOffer.Text, ChIsActive.Checked, LblSaveOption.Text) = 1 Then
                     RefreshOffer()
                 End If
             End If
@@ -31,6 +31,7 @@
         If GridOffer.SelectedItems.Count = 0 Then Exit Sub
         LblSaveOption.Text = GridOffer.GetRow.Cells("OFFER_ID").Value
         TxtOffer.Text = GridOffer.GetRow.Cells("OFFER").Value
+        ChIsActive.Checked = GridOffer.GetRow.Cells("IS_ACTIVE").Value
     End Sub
 
    
@@ -44,7 +45,7 @@
         Me.DialogResult = Windows.Forms.DialogResult.OK
     End Sub
 
-    Private Sub BtnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDelete.Click
+    Private Sub BtnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If GridOffer.SelectedItems.Count = 0 Then Exit Sub
         If MessageBox.Show("Do you want delete this offer?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             If DA_Offer.DeleteOffer(GridOffer.GetRow.Cells("OFFER_ID").Value) = 1 Then

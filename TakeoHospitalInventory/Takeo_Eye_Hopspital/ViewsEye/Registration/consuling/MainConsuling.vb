@@ -249,7 +249,7 @@
                 NConsulting.TxtPatientOccupation.Text = GridConsulting.GetRow.Cells("Occupation").Value
                 NConsulting.CboPatientStatus.Text = GridConsulting.GetRow.Cells("FAMILY_STATUS").Value
                 NConsulting.cboPatientMoney.Text = GridConsulting.GetRow.Cells("FAMINLY_MONEY").Value
-                NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
+                NConsulting.CboDonation.Text = GridConsulting.GetRow.Cells("ORG").Value
                 NConsulting.TxtOrgNote.Text = GridConsulting.GetRow.Cells("ORG_NOTE").Value
                 If GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "Old Patient" Then
                     NConsulting.RadForOld.Checked = True
@@ -305,7 +305,7 @@
                 Catch ex As Exception
 
                 End Try
-                NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
+                NConsulting.CboDonation.Text = GridConsulting.GetRow.Cells("ORG").Value
 
 
 
@@ -353,7 +353,7 @@
                     NConsulting.TxtPatientOccupation.Text = GridConsulting.GetRow.Cells("Occupation").Value
                     NConsulting.CboPatientStatus.Text = GridConsulting.GetRow.Cells("FAMILY_STATUS").Value
                     NConsulting.cboPatientMoney.Text = GridConsulting.GetRow.Cells("FAMINLY_MONEY").Value
-                    NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
+                    NConsulting.CboDonation.Text = GridConsulting.GetRow.Cells("ORG").Value
                     NConsulting.TxtOrgNote.Text = GridConsulting.GetRow.Cells("ORG_NOTE").Value
                     If GridConsulting.GetRow.Cells("CONSULT_FOR").Value = "Old Patient" Then
                         NConsulting.RadForOld.Checked = True
@@ -410,7 +410,7 @@
                     Catch ex As Exception
 
                     End Try
-                    NConsulting.CboOrg.Text = GridConsulting.GetRow.Cells("ORG").Value
+                    NConsulting.CboDonation.Text = GridConsulting.GetRow.Cells("ORG").Value
 
 
 

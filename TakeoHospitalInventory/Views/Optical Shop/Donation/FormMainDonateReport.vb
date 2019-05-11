@@ -29,6 +29,7 @@ Public Class FormMainDonateReport
             FDonation.LblSaveOption.Text = GridDonation.GetRow.Cells(0).Value
             FDonation.TxtDonation.Text = GridDonation.GetRow.Cells(1).Value
             FDonation.TxtDescription.Text = GridDonation.GetRow.Cells(2).Value
+            FDonation.ChIsActive.Checked = GridDonation.GetRow.Cells(3).Value
             If FDonation.ShowDialog = Windows.Forms.DialogResult.OK Then
                 GridDonation.DataSource = ModDonation.GetDonation
             End If
@@ -516,5 +517,9 @@ Public Class FormMainDonateReport
     Private Sub RadReportDelete_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadReportDelete.CheckedChanged
         SplitContainer2.Panel1Collapsed = True
         SplitContainer2.Panel2Collapsed = False
+    End Sub
+
+    Private Sub GridDonation_FormattingRow(ByVal sender As System.Object, ByVal e As Janus.Windows.GridEX.RowLoadEventArgs) Handles GridDonation.FormattingRow
+
     End Sub
 End Class

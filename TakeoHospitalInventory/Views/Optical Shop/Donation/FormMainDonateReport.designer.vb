@@ -106,7 +106,7 @@ Partial Class FormMainDonateReport
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
         Me.SplitContainer1.Size = New System.Drawing.Size(1181, 768)
-        Me.SplitContainer1.SplitterDistance = 247
+        Me.SplitContainer1.SplitterDistance = 318
         Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 1
         '
@@ -130,7 +130,7 @@ Partial Class FormMainDonateReport
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(247, 500)
+        Me.GroupBox1.Size = New System.Drawing.Size(318, 500)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Report of Donation"
@@ -157,7 +157,7 @@ Partial Class FormMainDonateReport
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Location = New System.Drawing.Point(8, 148)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(231, 209)
+        Me.GroupBox2.Size = New System.Drawing.Size(302, 209)
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
         '
@@ -291,7 +291,7 @@ Partial Class FormMainDonateReport
         Me.PicLoading.Image = Global.TakeoHospitalInventory.My.Resources.Resources.loadgraphic
         Me.PicLoading.Location = New System.Drawing.Point(2, 477)
         Me.PicLoading.Name = "PicLoading"
-        Me.PicLoading.Size = New System.Drawing.Size(243, 21)
+        Me.PicLoading.Size = New System.Drawing.Size(314, 21)
         Me.PicLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PicLoading.TabIndex = 7
         Me.PicLoading.TabStop = False
@@ -407,7 +407,7 @@ Partial Class FormMainDonateReport
         Me.Splitter1.Location = New System.Drawing.Point(0, 266)
         Me.Splitter1.Margin = New System.Windows.Forms.Padding(2)
         Me.Splitter1.Name = "Splitter1"
-        Me.Splitter1.Size = New System.Drawing.Size(247, 2)
+        Me.Splitter1.Size = New System.Drawing.Size(318, 2)
         Me.Splitter1.TabIndex = 3
         Me.Splitter1.TabStop = False
         '
@@ -422,7 +422,7 @@ Partial Class FormMainDonateReport
         Me.GridDonation.Margin = New System.Windows.Forms.Padding(2)
         Me.GridDonation.Name = "GridDonation"
         Me.GridDonation.RecordNavigator = True
-        Me.GridDonation.Size = New System.Drawing.Size(247, 266)
+        Me.GridDonation.Size = New System.Drawing.Size(318, 266)
         Me.GridDonation.TabIndex = 2
         '
         'SplitContainer2
@@ -440,8 +440,8 @@ Partial Class FormMainDonateReport
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.CrysViewerDonation)
-        Me.SplitContainer2.Size = New System.Drawing.Size(931, 768)
-        Me.SplitContainer2.SplitterDistance = 877
+        Me.SplitContainer2.Size = New System.Drawing.Size(860, 768)
+        Me.SplitContainer2.SplitterDistance = 810
         Me.SplitContainer2.SplitterWidth = 3
         Me.SplitContainer2.TabIndex = 0
         '
@@ -459,7 +459,7 @@ Partial Class FormMainDonateReport
         Me.GridDonatedDetail.Name = "GridDonatedDetail"
         Me.GridDonatedDetail.RecordNavigator = True
         Me.GridDonatedDetail.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.GridDonatedDetail.Size = New System.Drawing.Size(877, 722)
+        Me.GridDonatedDetail.Size = New System.Drawing.Size(810, 722)
         Me.GridDonatedDetail.TabIndex = 0
         Me.GridDonatedDetail.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         '
@@ -513,8 +513,9 @@ Partial Class FormMainDonateReport
         Me.FilterEditor1.Office2007ColorScheme = Janus.Windows.Common.Office2007ColorScheme.[Default]
         Me.FilterEditor1.ScrollMode = Janus.Windows.UI.Dock.ScrollMode.Both
         Me.FilterEditor1.ScrollStep = 15
-        Me.FilterEditor1.Size = New System.Drawing.Size(877, 46)
+        Me.FilterEditor1.Size = New System.Drawing.Size(810, 46)
         Me.FilterEditor1.SourceControl = Me.GridDonatedDetail
+        Me.FilterEditor1.Visible = False
         '
         'CrysViewerDonation
         '
@@ -529,7 +530,7 @@ Partial Class FormMainDonateReport
         Me.CrysViewerDonation.ShowCloseButton = False
         Me.CrysViewerDonation.ShowGroupTreeButton = False
         Me.CrysViewerDonation.ShowRefreshButton = False
-        Me.CrysViewerDonation.Size = New System.Drawing.Size(51, 768)
+        Me.CrysViewerDonation.Size = New System.Drawing.Size(47, 768)
         Me.CrysViewerDonation.TabIndex = 0
         Me.CrysViewerDonation.ViewTimeSelectionFormula = ""
         '

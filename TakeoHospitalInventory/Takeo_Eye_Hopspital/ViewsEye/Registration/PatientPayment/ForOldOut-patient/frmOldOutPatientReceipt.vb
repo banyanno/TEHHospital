@@ -1246,7 +1246,7 @@ Public Class frmOldOutPatientReceipt
         Call SearchOldOPReceiptByID()
     End Sub
     Dim Preview As Boolean = False
-    Dim ReportOOPR As New ReportOldOutPatientReceipt
+    Dim ReportOOPR As New ReportOldOutPatientReceiptV1 'ReportOldOutPatientReceipt
     Dim frmReportOOPR As New frmReportOldOutPatientReceipt
     Private Sub PrintReportOOPR()
         Try

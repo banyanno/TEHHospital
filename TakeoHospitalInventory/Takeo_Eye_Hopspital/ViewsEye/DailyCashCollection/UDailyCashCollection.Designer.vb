@@ -29,6 +29,7 @@ Partial Class UCashCollection
         Me.TabPage1 = New System.Windows.Forms.TabPage
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.BtnCheckCounselling = New System.Windows.Forms.Button
         Me.GroupBox11 = New System.Windows.Forms.GroupBox
         Me.BtnPrintDtD = New System.Windows.Forms.Button
         Me.Label45 = New System.Windows.Forms.Label
@@ -72,6 +73,7 @@ Partial Class UCashCollection
         Me.cmdSave = New System.Windows.Forms.Button
         Me.cmdPrint = New System.Windows.Forms.Button
         Me.GroupBox8 = New System.Windows.Forms.GroupBox
+        Me.Button2 = New System.Windows.Forms.Button
         Me.Label43 = New System.Windows.Forms.Label
         Me.Label40 = New System.Windows.Forms.Label
         Me.Label41 = New System.Windows.Forms.Label
@@ -159,7 +161,6 @@ Partial Class UCashCollection
         Me.BtnCheckCashInDepart = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnSaveNote = New System.Windows.Forms.ToolStripButton
-        Me.BtnCheckCounselling = New System.Windows.Forms.Button
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -252,6 +253,17 @@ Partial Class UCashCollection
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "List cash collection"
+        '
+        'BtnCheckCounselling
+        '
+        Me.BtnCheckCounselling.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnCheckCounselling.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BtnCheckCounselling.Location = New System.Drawing.Point(802, 25)
+        Me.BtnCheckCounselling.Name = "BtnCheckCounselling"
+        Me.BtnCheckCounselling.Size = New System.Drawing.Size(193, 68)
+        Me.BtnCheckCounselling.TabIndex = 9
+        Me.BtnCheckCounselling.Text = "Check Counselling Status"
+        Me.BtnCheckCounselling.UseVisualStyleBackColor = True
         '
         'GroupBox11
         '
@@ -717,6 +729,7 @@ Partial Class UCashCollection
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(Me.Button2)
         Me.GroupBox8.Controls.Add(Me.Label43)
         Me.GroupBox8.Controls.Add(Me.Label40)
         Me.GroupBox8.Controls.Add(Me.Label41)
@@ -766,6 +779,15 @@ Partial Class UCashCollection
         Me.GroupBox8.TabIndex = 0
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "RIEL"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(0, 291)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(76, 69)
+        Me.Button2.TabIndex = 21
+        Me.Button2.Text = "BtnTesting"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Label43
         '
@@ -1619,17 +1641,6 @@ Partial Class UCashCollection
         Me.BtnSaveNote.Size = New System.Drawing.Size(219, 32)
         Me.BtnSaveNote.Text = "Save Summary Note"
         '
-        'BtnCheckCounselling
-        '
-        Me.BtnCheckCounselling.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCheckCounselling.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnCheckCounselling.Location = New System.Drawing.Point(802, 25)
-        Me.BtnCheckCounselling.Name = "BtnCheckCounselling"
-        Me.BtnCheckCounselling.Size = New System.Drawing.Size(193, 68)
-        Me.BtnCheckCounselling.TabIndex = 9
-        Me.BtnCheckCounselling.Text = "Check Counselling Status"
-        Me.BtnCheckCounselling.UseVisualStyleBackColor = True
-        '
         'UCashCollection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1811,5 +1822,6 @@ Partial Class UCashCollection
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents BtnCheckCounselling As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class

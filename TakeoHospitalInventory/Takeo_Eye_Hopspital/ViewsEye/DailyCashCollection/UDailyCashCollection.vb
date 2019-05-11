@@ -13,18 +13,18 @@ Public Class UCashCollection
             For i = 0 To tblIncomeSummary.Rows.Count - 1
                 RowIS = tblIncomeSummary.Rows(i)
                 With RowIS
-                    Me.txtOPUSD.Text = .Item(0).ToString
-                    Me.txtOPRiel.Text = .Item(1).ToString
-                    Me.txtIPUSD.Text = .Item(2).ToString
-                    Me.txtIPRiel.Text = .Item(3).ToString
-                    Me.txtEGUSD.Text = .Item(4).ToString
-                    Me.txtEGRiel.Text = .Item(5).ToString
-                    Me.txtMUSD.Text = .Item(6).ToString
-                    Me.txtMRiel.Text = .Item(7).ToString
-                    Me.txtOUSD.Text = .Item(8).ToString
-                    Me.txtORiel.Text = .Item(9).ToString
-                    Me.txtTotalUSD.Text = .Item(10).ToString
-                    Me.txtTotalRiel.Text = .Item(11).ToString
+                    Me.txtOPUSD.Text = .Item("OutPatientUSD").ToString   ' .Item(0).ToString
+                    Me.txtOPRiel.Text = .Item("OutpatientRiel").ToString '.Item(1).ToString
+                    Me.txtIPUSD.Text = .Item("InpatientUSD").ToString  '.Item(2).ToString
+                    Me.txtIPRiel.Text = .Item("InpatientRiel").ToString  '.Item(3).ToString
+                    Me.txtEGUSD.Text = .Item("GlassUSD").ToString  '.Item(4).ToString
+                    Me.txtEGRiel.Text = .Item("GlassRiel").ToString  '.Item(5).ToString
+                    Me.txtMUSD.Text = .Item("MedicineUSD").ToString  '.Item(6).ToString
+                    Me.txtMRiel.Text = .Item("MedicineRiel").ToString  '.Item(7).ToString
+                    Me.txtOUSD.Text = .Item("FeeUSD").ToString  '.Item(8).ToString
+                    Me.txtORiel.Text = .Item("FeeRIEL").ToString  '.Item(9).ToString
+                    Me.txtTotalUSD.Text = .Item("TotalUSD").ToString  '.Item(10).ToString
+                    Me.txtTotalRiel.Text = .Item("TotalRiel").ToString  '.Item(11).ToString
                 End With
             Next
         End If
@@ -972,11 +972,21 @@ Public Class UCashCollection
             Dim tblCashCount As DataTable = DACashCountNo.CashCountByDateIn(dtpDateFrom.Value.Date)
             Me.cmdPrint.Enabled = False
             Dim frmReportCCD As New frmReportCashCountDaily
+
+            Dim Testing As DataTable = New DataSetCashCountDaily.IncomeSummaryDataTable
+            Dim TRows As DataRow = Testing.NewRow
+            TRows("TotalUSD") = 2509
+            TRows("TotalReil") = 233
+            TRows("Label") = "Hello worl"
+            Testing.Rows.Add(TRows)
+
+
             '-------------Report Form Active--------------------------------
             Dim ReportCCD As New ReportCashCountDailyv2
             Dim TblAccoutPayAble As DataTable = DAAccountPayable.GetDataByCurrentDate(dtpDateFrom.Value)
             ReportCCD.Subreports.Item("ReportCashFlow").SetDataSource(TblCas) 'MCashCollection.ReportCashFlowDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
             ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(TblCas) 'MCashCollection.ReportIncomeSummaryDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ' ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(Testing)
             ReportCCD.Subreports.Item("ReportRemarksDaily").SetDataSource(MCashCollection.ReportCashRemarksDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
             ReportCCD.Subreports.Item("ReportCashCountDaily").SetDataSource(tblCashCount) 'SetDataSource(MCashCollection.ReportCashCountDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables("tblCashCount"))
             ReportCCD.Subreports.Item("RemarkNote").SetDataSource(MCashCollection.SelectRemarksNote(dtpDateFrom.Value.Date))
@@ -1120,4 +1130,208 @@ Public Class UCashCollection
         FCheckCounsellinng.RadForOpticalShop.Checked = False
         FCheckCounsellinng.ShowDialog()
     End Sub
+
+  
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+       
+
+        'For Each row As DataRow In Testing.Rows
+        '    MessageBox.Show(row("TotalUSD") & " " & row("TotalReil") & " " & row("Label"))
+        'Next
+
+        Dim OutPatientRield As Double = TotalIncomeSumeryRiel("OutPatientRield", "OR", dtpDateFrom.Value.Date) + TotalIncomeSumeryRiel("OutPatientRield", "NR", dtpDateFrom.Value.Date)
+        Dim OutPatientUSD As Double = TotalIncomeSumeryUSD("OutPatientUSD", "OR", dtpDateFrom.Value.Date) + TotalIncomeSumeryUSD("OutPatientUSD", "NR", dtpDateFrom.Value.Date)
+        Dim InPatientRiel As Double = (TotalIncomeSumeryRiel("InpatientRiel", "IR", dtpDateFrom.Value.Date))
+        Dim InPatientUSD As Double = (TotalIncomeSumeryUSD("InpatientUSD", "IR", dtpDateFrom.Value.Date))
+        Dim GlassUSD As Double = TotalIncomeSumeryUSD("GlassFeeUSD", "OP", dtpDateFrom.Value.Date)
+        Dim GlassRiel As Double = TotalIncomeSumeryRiel("GlassFeeRiel", "OP", dtpDateFrom.Value.Date)
+        Dim MedinceRiel As Double = TotalIncomeSumeryRiel("MedicineFeeRiel", "OP", dtpDateFrom.Value.Date)
+        Dim MedicinUSD As Double = TotalIncomeSumeryUSD("MedicineFeeUSD", "OP", dtpDateFrom.Value.Date)
+        Dim OterRield As Double = TotalIncomeSumeryRiel("OtherFeeRiel", "OP", dtpDateFrom.Value.Date) + TotalIncomeSumeryRiel("OtherFeeRiel", "IR", dtpDateFrom.Value.Date) + TotalIncomeSumeryRiel("OtherFeeRiel", "OT", dtpDateFrom.Value.Date)
+        Dim OterUSD As Double = TotalIncomeSumeryUSD("OtherFeeUSD", "OP", dtpDateFrom.Value.Date) + TotalIncomeSumeryUSD("OtherFeeUSD", "IR", dtpDateFrom.Value.Date) + TotalIncomeSumeryUSD("OtherFeeUSD", "OT", dtpDateFrom.Value.Date)
+        Dim DonateUSD As Double = TotalIncomeDonate(dtpDateFrom.Value.Date)
+        Dim Testing As DataTable = New DataSetCashCountDaily.IncomeSummaryDataTable
+        Dim TRows As DataRow = Testing.NewRow
+        TRows("TotalUSD") = OutPatientUSD
+        TRows("TotalReil") = OutPatientRield
+        TRows("Label") = "Out Patient"
+        Testing.Rows.Add(TRows)
+        Dim TRows1 As DataRow = Testing.NewRow
+        TRows1("TotalUSD") = InPatientUSD
+        TRows1("TotalReil") = InPatientRiel
+        TRows1("Label") = "In-Patient"
+        Testing.Rows.Add(TRows1)
+        Dim TRows2 As DataRow = Testing.NewRow
+        TRows2("TotalUSD") = GlassUSD
+        TRows2("TotalReil") = GlassRiel
+        TRows2("Label") = "Glasses"
+        Testing.Rows.Add(TRows2)
+        Dim TRows3 As DataRow = Testing.NewRow
+        TRows3("TotalUSD") = MedicinUSD
+        TRows3("TotalReil") = MedinceRiel
+        TRows3("Label") = "Medicine"
+        Testing.Rows.Add(TRows3)
+        Dim TRows4 As DataRow = Testing.NewRow
+        TRows4("TotalUSD") = OterUSD
+        TRows4("TotalReil") = OterRield
+        TRows4("Label") = "Fun+Others"
+        Testing.Rows.Add(TRows4)
+        Dim TRows5 As DataRow = Testing.NewRow
+        TRows5("TotalUSD") = DonateUSD
+        TRows5("TotalReil") = 0
+        TRows5("Label") = "Donate Support"
+        Testing.Rows.Add(TRows5)
+        For Each row1 As DataRow In Testing.Rows
+            MessageBox.Show(row1("Label"))
+        Next
+
+        Try
+
+            Dim TblCas As DataTable = DACashDialyCon.SelectDialycash(dtpDateFrom.Value)
+            Dim tblCashCount As DataTable = DACashCountNo.CashCountByDateIn(dtpDateFrom.Value.Date)
+            Me.cmdPrint.Enabled = False
+            Dim frmReportCCD As New frmReportCashCountDaily
+
+       
+
+
+            '-------------Report Form Active--------------------------------
+            Dim ReportCCD As New ReportCashCountDailyv3
+            Dim TblAccoutPayAble As DataTable = DAAccountPayable.GetDataByCurrentDate(dtpDateFrom.Value)
+            ReportCCD.Subreports.Item("ReportCashFlow").SetDataSource(TblCas) 'MCashCollection.ReportCashFlowDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(Testing) 'MCashCollection.ReportIncomeSummaryDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ' ReportCCD.Subreports.Item("ReportIncomeSummary").SetDataSource(Testing)
+            ReportCCD.Subreports.Item("ReportRemarksDaily").SetDataSource(MCashCollection.ReportCashRemarksDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables(1))
+            ReportCCD.Subreports.Item("ReportCashCountDaily").SetDataSource(tblCashCount) 'SetDataSource(MCashCollection.ReportCashCountDaily(Format(Me.dtpDateFrom.Value, "MM-dd-yyyy")).Tables("tblCashCount"))
+            ReportCCD.Subreports.Item("RemarkNote").SetDataSource(MCashCollection.SelectRemarksNote(dtpDateFrom.Value.Date))
+            ReportCCD.Subreports.Item("AccountPayable").SetDataSource(TblAccoutPayAble)
+
+            frmReportCCD.crvReportCashCountDaily.ReportSource = ReportCCD
+            ReportCCD.SetParameterValue("Testing", Format(Me.dtpDateFrom.Value, "dd-MM-yyyy"))
+            'ReportCCD.Refresh()
+            '-------Parameter for Date from to date to-----------------
+            'Dim DateFromTo As ParameterField
+            'DateFromTo = ReportCCW.ParameterFields("txtDateFromTo")
+            'DateFromTo.CurrentValues.AddValue("Date: " & Format(Me.dtpDateFrom.Value, "dd/MM/yyyy") & " to: " & Format(Me.dtpDateTo.Value, "dd/MM/yyyy"))
+            frmReportCCD.ShowDialog()
+            Me.cmdPrint.Enabled = True
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
+        End Try
+        'MsgBox("OutR= " & OutPatientRield & "in riel=" & FormatNumber(InRiel) & " In USD " & InUSD & " orter Riel=" & OterRield & " Other USD=" & OterUSD & " donate=" & DonateUSD & " GlassRiel=" & GlassRiel & " GlasDo=" & GlassUSD & " MediRiel= " & MedinceRiel & " Med Dola=" & MedicinUSD)
+        'TotalIncomeSumeryUSD(),
+    End Sub
+    Function TotalIncomeDonate(ByVal DateIn As Date) As Double
+        Dim Result As Double = 0
+        Dim ValueIncome As Double = 0
+        Dim ValueDonateSupored As Double = 0
+        Dim tblIncomeSummary As DataTable = MCashCollection.GetAllIncomeSumaryTotalDonate(DateIn.Date)
+        For Each Rows As DataRow In tblIncomeSummary.Rows
+            ValueIncome = 0
+            ValueDonateSupored = 0
+            'MsgBox(Rows("IsDonation") & " " & Rows("ConPay"))
+            If (CBool(Rows("IsDonation")) = True And Rows("ConPay") = 1) And Rows("DonationPay") > 0 Then
+                If (Rows("DonationPay")) = (Rows("CashUSD") + (Rows("CashRiel") / Rows("Rates"))) Then
+                    ValueDonateSupored = Rows("DonationPay")
+                Else
+                    ValueDonateSupored = (Rows("DonationPay")) - (Rows("CashUSD") + (Rows("CashRiel") / Rows("Rates")))
+                End If
+            Else
+                ValueDonateSupored = 0
+            End If
+
+            'If Rows(Field) <> 0 And Rows("DonationPay") <> 0 Then
+
+            '    ValueIncome = (Rows("DonationPay") * Rows("Rates")) - (ValueDonateSupored * Rows("Rates"))
+            'Else
+            '    ValueIncome = Rows(Field)
+
+            'End If
+            Result = Result + ValueDonateSupored
+        Next
+
+        Return Result
+
+    End Function
+    Function TotalIncomeSumeryRiel(ByVal Field As String, ByVal PayCon As String, ByVal DateIn As Date) As Double
+        Dim Result As Double = 0
+        Dim ValueIncome As Double = 0
+        Dim ValueDonateSupored As Double = 0
+        Dim tblIncomeSummary As DataTable = MCashCollection.GetAllIncomeSumary(PayCon, DateIn.Date)
+        For Each Rows As DataRow In tblIncomeSummary.Rows
+            ValueIncome = 0
+            ValueDonateSupored = 0
+            'MsgBox(Rows("IsDonation") & " " & Rows("ConPay"))
+            If (CBool(Rows("IsDonation")) = True And Rows("ConPay") = 1) And Rows("DonationPay") > 0 Then
+                If (Rows("DonationPay")) = (Rows("CashUSD") + (Rows("CashRiel") / Rows("Rates"))) Then
+                    ValueDonateSupored = Rows("DonationPay")
+                Else
+                    ValueDonateSupored = (Rows("DonationPay")) - (Rows("CashUSD") + (Rows("CashRiel") / Rows("Rates")))
+                End If
+            Else
+                ValueDonateSupored = 0
+            End If
+           
+            If Rows(Field) <> 0 And Rows("DonationPay") <> 0 Then
+            
+                ValueIncome = (Rows("DonationPay") * Rows("Rates")) - (ValueDonateSupored * Rows("Rates"))
+            Else
+                ValueIncome = Rows(Field)
+
+            End If
+            Result = Result + ValueIncome
+        Next
+    
+        Return Result
+    End Function
+    Function TotalIncomeSumeryUSD(ByVal Field As String, ByVal PayCon As String, ByVal DateIn As Date) As Double
+        Dim Result As Double = 0
+        Dim ValueIncome As Double = 0
+        Dim ValueDonateSupored As Double = 0
+        Dim tblIncomeSummary As DataTable = MCashCollection.GetAllIncomeSumary(PayCon, DateIn.Date)
+        For Each Rows As DataRow In tblIncomeSummary.Rows
+            ValueIncome = 0
+            ValueDonateSupored = 0
+            'MsgBox(Rows("IsDonation") & " " & Rows("ConPay"))
+            If (CBool(Rows("IsDonation")) = True And Rows("ConPay") = 1) And Rows("DonationPay") > 0 Then
+                If (Rows("DonationPay")) = (Rows("CashUSD") + (Rows("CashRiel") / Rows("Rates"))) Then
+                    ValueDonateSupored = Rows("DonationPay")
+                Else
+                    ValueDonateSupored = (Rows("DonationPay")) - (Rows("CashUSD") + (Rows("CashRiel") / Rows("Rates")))
+                End If
+            Else
+                ValueDonateSupored = 0
+            End If
+
+            If Rows(Field) <> 0 And Rows("DonationPay") <> 0 Then
+
+                ValueIncome = (Rows("DonationPay") - (ValueDonateSupored))
+            Else
+                ValueIncome = Rows(Field)
+
+            End If
+            Result = Result + ValueIncome
+        Next
+        'Dim RowIS As DataRow
+        'If tblIncomeSummary.Rows.Count > 0 Then
+        '    For i = 0 To tblIncomeSummary.Rows.Count - 1
+        '        RowIS = tblIncomeSummary.Rows(i)
+        '        With RowIS
+        '            Me.txtOPUSD.Text = .Item("OutPatientUSD").ToString   ' .Item(0).ToString
+        '            Me.txtOPRiel.Text = .Item("OutPatientRield").ToString '.Item(1).ToString
+        '            Me.txtIPUSD.Text = .Item("InpatientUSD").ToString  '.Item(2).ToString
+        '            Me.txtIPRiel.Text = .Item("InpatientRiel").ToString  '.Item(3).ToString
+        '            Me.txtEGUSD.Text = .Item("GlassUSD").ToString  '.Item(4).ToString
+        '            Me.txtEGRiel.Text = .Item("GlassRiel").ToString  '.Item(5).ToString
+        '            Me.txtMUSD.Text = .Item("MedicineUSD").ToString  '.Item(6).ToString
+        '            Me.txtMRiel.Text = .Item("MedicineRiel").ToString  '.Item(7).ToString
+        '            Me.txtOUSD.Text = .Item("FeeUSD").ToString  '.Item(8).ToString
+        '            Me.txtORiel.Text = .Item("FeeRIEL").ToString  '.Item(9).ToString
+        '            Me.txtTotalUSD.Text = .Item("TotalUSD").ToString  '.Item(10).ToString
+        '            Me.txtTotalRiel.Text = .Item("TotalRiel").ToString  '.Item(11).ToString
+        '        End With
+        '    Next
+        'End If
+        Return Result
+    End Function
 End Class

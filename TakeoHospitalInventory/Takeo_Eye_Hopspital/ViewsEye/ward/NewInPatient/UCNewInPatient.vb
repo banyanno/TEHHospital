@@ -613,6 +613,7 @@ Public Class UCNewInPatient
 
     Private Sub BtnReportDisease_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReportDisease.Click
         Dim FWardPreview As New FRMWardPreview
+        FWardPreview.IS_PRINT_DESEAST = True
         FWardPreview.ShowDialog()
         FWardPreview.Close()
         FWardPreview.Dispose()

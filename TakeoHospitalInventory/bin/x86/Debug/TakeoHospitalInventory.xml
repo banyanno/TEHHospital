@@ -1014,11 +1014,23 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DataSetCashCountDaily.IncomeSummaryDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DataSetCashCountDaily.tblPatientReceiptRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DataSetCashCountDaily.IncomeSummaryRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DataSetCashCountDaily.tblPatientReceiptRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DataSetCashCountDaily.IncomeSummaryRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>

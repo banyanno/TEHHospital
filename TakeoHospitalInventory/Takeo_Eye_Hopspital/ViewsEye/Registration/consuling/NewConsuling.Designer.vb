@@ -57,7 +57,7 @@ Partial Class NewConsuling
         Me.Label31 = New System.Windows.Forms.Label
         Me.BtnOffer = New System.Windows.Forms.Button
         Me.LsGive = New System.Windows.Forms.CheckedListBox
-        Me.CboOrg = New System.Windows.Forms.ComboBox
+        Me.CboDonation = New System.Windows.Forms.ComboBox
         Me.Label22 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
         Me.TxtDonateD = New System.Windows.Forms.TextBox
@@ -488,7 +488,7 @@ Partial Class NewConsuling
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1132, 407)
+        Me.GroupBox3.Size = New System.Drawing.Size(1132, 441)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Consult Information"
@@ -508,7 +508,7 @@ Partial Class NewConsuling
         Me.GroupBox7.Controls.Add(Me.Label31)
         Me.GroupBox7.Controls.Add(Me.BtnOffer)
         Me.GroupBox7.Controls.Add(Me.LsGive)
-        Me.GroupBox7.Controls.Add(Me.CboOrg)
+        Me.GroupBox7.Controls.Add(Me.CboDonation)
         Me.GroupBox7.Controls.Add(Me.Label22)
         Me.GroupBox7.Controls.Add(Me.Label8)
         Me.GroupBox7.Controls.Add(Me.TxtDonateD)
@@ -524,7 +524,7 @@ Partial Class NewConsuling
         '
         Me.Label31.AutoSize = True
         Me.Label31.ForeColor = System.Drawing.Color.Red
-        Me.Label31.Location = New System.Drawing.Point(362, 70)
+        Me.Label31.Location = New System.Drawing.Point(372, 70)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(21, 30)
         Me.Label31.TabIndex = 7
@@ -552,17 +552,17 @@ Partial Class NewConsuling
         Me.LsGive.Size = New System.Drawing.Size(351, 251)
         Me.LsGive.TabIndex = 2
         '
-        'CboOrg
+        'CboDonation
         '
-        Me.CboOrg.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.CboOrg.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CboOrg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CboOrg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboOrg.FormattingEnabled = True
-        Me.CboOrg.Location = New System.Drawing.Point(147, 41)
-        Me.CboOrg.Name = "CboOrg"
-        Me.CboOrg.Size = New System.Drawing.Size(218, 26)
-        Me.CboOrg.TabIndex = 0
+        Me.CboDonation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.CboDonation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.CboDonation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CboDonation.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboDonation.FormattingEnabled = True
+        Me.CboDonation.Location = New System.Drawing.Point(147, 41)
+        Me.CboDonation.Name = "CboDonation"
+        Me.CboDonation.Size = New System.Drawing.Size(218, 26)
+        Me.CboDonation.TabIndex = 0
         '
         'Label22
         '
@@ -590,7 +590,7 @@ Partial Class NewConsuling
         Me.TxtDonateD.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtDonateD.Location = New System.Drawing.Point(147, 73)
         Me.TxtDonateD.Name = "TxtDonateD"
-        Me.TxtDonateD.Size = New System.Drawing.Size(209, 27)
+        Me.TxtDonateD.Size = New System.Drawing.Size(217, 27)
         Me.TxtDonateD.TabIndex = 1
         Me.TxtDonateD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1296,15 +1296,13 @@ Partial Class NewConsuling
         '
         'TabControl1
         '
-        Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(9, 331)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1146, 442)
+        Me.TabControl1.Size = New System.Drawing.Size(1146, 476)
         Me.TabControl1.TabIndex = 28
         '
         'TabPage1
@@ -1313,7 +1311,7 @@ Partial Class NewConsuling
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1138, 413)
+        Me.TabPage1.Size = New System.Drawing.Size(1138, 447)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Patient Information"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1347,7 +1345,7 @@ Partial Class NewConsuling
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1138, 430)
+        Me.TabPage2.Size = New System.Drawing.Size(1138, 413)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Receipt In-Patient"
         '
@@ -2008,7 +2006,7 @@ Partial Class NewConsuling
     Friend WithEvents Ch2 As System.Windows.Forms.CheckBox
     Friend WithEvents Ch1 As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
-    Friend WithEvents CboOrg As System.Windows.Forms.ComboBox
+    Friend WithEvents CboDonation As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents LsGive As System.Windows.Forms.CheckedListBox

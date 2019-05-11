@@ -1,11 +1,11 @@
 Module ModDonation
-    Function SaveNewDonation(ByVal DonationName As String, ByVal Description As String) As Integer
-        Dim sql As String = "INSERT INTO Donation (DonationName,Description)" & _
-                                   " VALUES (N'" & DonationName & "',N'" & Description & "')"
+    Function SaveNewDonation(ByVal DonationName As String, ByVal Description As String, ByVal IS_ACTIVE As Boolean) As Integer
+        Dim sql As String = "INSERT INTO Donation (DonationName,Description,IS_ACTIVE)" & _
+                                   " VALUES (N'" & DonationName & "',N'" & Description & "','" & IS_ACTIVE & "')"
         Return ModGlobleVariable.GENERAL_DAO.InsertDAO(sql)
     End Function
-    Function UpdateDonation(ByVal DonationID As Integer, ByVal DonationName As String, ByVal Description As String) As Integer
-        Dim sql As String = "UPDATE Donation SET DonationName='" & DonationName & "',Description='" & Description & "' WHERE DonationID=" & DonationID
+    Function UpdateDonation(ByVal DonationID As Integer, ByVal DonationName As String, ByVal Description As String, ByVal IS_ACTIVE As Boolean) As Integer
+        Dim sql As String = "UPDATE Donation SET DonationName='" & DonationName & "',Description='" & Description & "',IS_ACTIVE='" & IS_ACTIVE & "' WHERE DonationID=" & DonationID
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
     Function DeleteDonation(ByVal DonationID As Integer) As Integer
@@ -13,7 +13,7 @@ Module ModDonation
         Return ModGlobleVariable.GENERAL_DAO.DeleteDAO(sql)
     End Function
     Function GetDonation() As DataTable
-        Dim sql As String = "select DonationID,DonationName,Description FROM Donation"
+        Dim sql As String = "select DonationID,DonationName,Description,is_active FROM Donation"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
     Function SaveNewDonatPay(ByVal ReceiptNo As Double, ByVal HN As Double, ByVal NameEng As String, _

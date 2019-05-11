@@ -7,14 +7,20 @@ Public Class FRMWardPreview
     Dim CRLeave As New CRLeavPatient
     Public IS_PRINT_STAYING As Boolean = False
     Public IS_PRINT_OT_STAY As Boolean = False
+    Public IS_PRINT_DESEAST As Boolean = False
     Dim tblPatientOT As DataTable
     Dim DAOTList As New DSOTCurrentStoctTableAdapters.View_OTRegistrationTableAdapter
     Dim DAWard As New DSWardWithOTTableAdapters.V_NewInpatientDetialTableAdapter
     Sub CallBgNewInpatient()
-        GroupBox10.Visible = False
-        PicLoading.Visible = True
+        If IS_PRINT_DESEAST = True Then
+            GroupBox10.Visible = True
+        Else
+            GroupBox10.Visible = False
+            PicLoading.Visible = True
 
-        BgLoadPatientNew.RunWorkerAsync()
+            BgLoadPatientNew.RunWorkerAsync()
+        End If
+
     End Sub
     Sub CallBgPatientLeave()
         PicLoading.Visible = True

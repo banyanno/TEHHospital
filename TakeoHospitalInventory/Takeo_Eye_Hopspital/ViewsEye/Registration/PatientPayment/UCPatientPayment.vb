@@ -40,7 +40,7 @@ Public Class UCPatientPayment
     Dim DA_Consult_Detail As New DSConsultTableAdapters.V_CONSULTINGTableAdapter
     Dim DS_Consult As New DSConsultTableAdapters.CONSULINGTableAdapter
     ' Report Path
-    Dim ReportNOPR As New ReportNewOutPatientReceipt
+    Dim ReportNOPR As New ReportNewOutPatientReceiptV1  'ReportNewOutPatientReceipt
     Dim DA_Appoint As New DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter
     Dim DAPatientBarcode As New DSPatientBardcode
     Sub New(ByVal mainSubForm As MainTakeoInventory)
@@ -1136,7 +1136,7 @@ Public Class UCPatientPayment
             End Try
         End If
     End Sub
-    Dim ReportOOPR As New ReportOldOutPatientReceipt
+    Dim ReportOOPR As New ReportOldOutPatientReceiptV1 'ReportOldOutPatientReceipt
     Dim frmReportOOPR As New frmReportOldOutPatientReceipt
     Private Sub PrintOldPatientReceiptAgianToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MPrintOldPatientReceipt.Click
         If GridPatientInformation.SelectedItems.Count = 0 Then
