@@ -268,6 +268,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\Business\Account\MInpatientReceipt\ReportInpatientReceiptV1.vb">
+      <DependentUpon>ReportInpatientReceiptV1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\Business\Account\MNewOutpatientReceipt\ReportNewOutPatientReceiptV1.vb">
       <DependentUpon>ReportNewOutPatientReceiptV1.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -716,6 +722,12 @@
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CashReceivedByDepartment.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CashReceived\ReportOtherReceiptV1.vb">
+      <DependentUpon>ReportOtherReceiptV1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CashReceived\DSPatientReceipt.vb">
       <DependentUpon>DSPatientReceipt.xsd</DependentUpon>
@@ -2544,6 +2556,18 @@
     </Compile>
     <Compile Include="Views\Optical Shop\amouninword\dollar.vb" />
     <Compile Include="Views\Optical Shop\amouninword\riel.vb" />
+    <Compile Include="Views\Optical Shop\CryReceipt_V2_NoPrice.vb">
+      <DependentUpon>CryReceipt_V2_NoPrice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Optical Shop\CryReceipt_V2.vb">
+      <DependentUpon>CryReceipt_V2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Views\Optical Shop\CryReceipt_V1_NoPrice.vb">
       <DependentUpon>CryReceipt_V1_NoPrice.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -3184,6 +3208,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportCashCountDailyv4.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\Business\Account\MInpatientReceipt\ReportInpatientReceiptV1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportInpatientReceiptV1.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\Business\Account\MNewOutpatientReceipt\ReportNewOutPatientReceiptV1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportNewOutPatientReceiptV1.vb</LastGenOutput>
@@ -3351,6 +3379,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CashReceivedByDepartment.resx">
       <DependentUpon>CashReceivedByDepartment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CashReceived\ReportOtherReceiptV1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportOtherReceiptV1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\DailyCashCollection\CashReceived\FormCashReceive.resx">
       <DependentUpon>FormCashReceive.vb</DependentUpon>
@@ -4403,6 +4435,14 @@
     <EmbeddedResource Include="Views\LabourFactory\UCLabourFactory.resx">
       <DependentUpon>UCLabourFactory.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Optical Shop\CryReceipt_V2_NoPrice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CryReceipt_V2_NoPrice.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Optical Shop\CryReceipt_V2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CryReceipt_V2.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Optical Shop\CryReceipt_V1_NoPrice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

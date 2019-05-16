@@ -8,7 +8,7 @@
         If ValidateTextField(TxtReferral, "", ErrReferal) = False Then Exit Sub
         If LblSave.Text = "0" Then
             If MessageBox.Show("Do you want save new referral?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DA_Referral.InsertReferral(TxtReferral.Text, TxtDescription.Text) = 1 Then
+                If DA_Referral.InsertReferral(TxtReferral.Text, TxtDescription.Text, ChActive.Checked) = 1 Then
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 Else
                     MessageBox.Show("Error save new referral.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -16,7 +16,7 @@
             End If
         Else
             If MessageBox.Show("Do you want update referral?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                If DA_Referral.UpdateReferral(TxtReferral.Text, TxtDescription.Text, LblSave.Text) = 1 Then
+                If DA_Referral.UpdateReferral(TxtReferral.Text, TxtDescription.Text, ChActive.Checked, LblSave.Text) = 1 Then
                     Me.DialogResult = Windows.Forms.DialogResult.OK
                 Else
                     MessageBox.Show("Error update referral.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Error)

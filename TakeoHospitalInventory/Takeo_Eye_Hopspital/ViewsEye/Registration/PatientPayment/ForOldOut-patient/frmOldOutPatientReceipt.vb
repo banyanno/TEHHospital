@@ -287,7 +287,7 @@ Public Class frmOldOutPatientReceipt
     Sub InitChListReferral()
         With ChListReferral
             .Items.Clear()
-            Dim TblReferral As DataTable = DA_Referral.GetData
+            Dim TblReferral As DataTable = DA_Referral.SelectReferalActive
             For Each DRow As DataRow In TblReferral.Rows
                 .Items.Add(DRow("REFFERAL_NAME"))
             Next

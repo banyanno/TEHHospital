@@ -1152,7 +1152,7 @@ Public Class UCPatientPayment
     End Sub
     Dim frmReportInPR As New frmReportInpatientReceipt
     '-------------Report Form Active--------------------------------
-    Dim ReportInPR As New ReportInpatientReceipt
+    Dim ReportInPR As New ReportInpatientReceiptV1  'ReportInpatientReceipt 
     Private Sub PrintInPatientReceiptToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MPrintInpatientReceipt.Click
         If GridPatientInformation.SelectedItems.Count = 0 Then
             Exit Sub

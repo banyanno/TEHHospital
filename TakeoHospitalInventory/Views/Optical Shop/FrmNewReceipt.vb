@@ -23,8 +23,8 @@ Public Class FrmNewReceipt
     Private OpticalDataControl As IOpticalShop = New OpticalshopImp
     Dim FReceiptPrintPreview As New FrmReceiptPrintPreview
     Dim ObjReceiptCry As New CryReceipt
-    Dim ObjReceiptCry_V1 As New CryReceipt_V1
-    Dim ObjReceiptCry_V1_NoPrice As New CryReceipt_V1_NoPrice
+    Dim ObjReceiptCry_V1 As New CryReceipt_V2
+    Dim ObjReceiptCry_V1_NoPrice As New CryReceipt_V2_NoPrice 'CryReceipt_V1_NoPrice
     Dim P_Customer As New OpticalshopImp
     Private PARAMETKHMER As String = ""
     Private PARAMETENG As String = ""

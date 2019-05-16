@@ -33,6 +33,7 @@ Partial Class FRM_TEHReferral
         Me.BtnSave = New System.Windows.Forms.Button
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.LblSave = New System.Windows.Forms.Label
+        Me.ChActive = New System.Windows.Forms.CheckBox
         CType(Me.ErrReferal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -43,6 +44,7 @@ Partial Class FRM_TEHReferral
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ChActive)
         Me.GroupBox1.Controls.Add(Me.TxtDescription)
         Me.GroupBox1.Controls.Add(Me.TxtReferral)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -52,7 +54,7 @@ Partial Class FRM_TEHReferral
         Me.GroupBox1.Size = New System.Drawing.Size(517, 156)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
+        Me.GroupBox1.Text = "Referal"
         '
         'TxtDescription
         '
@@ -68,7 +70,7 @@ Partial Class FRM_TEHReferral
         Me.TxtReferral.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtReferral.Location = New System.Drawing.Point(91, 21)
         Me.TxtReferral.Name = "TxtReferral"
-        Me.TxtReferral.Size = New System.Drawing.Size(399, 26)
+        Me.TxtReferral.Size = New System.Drawing.Size(317, 26)
         Me.TxtReferral.TabIndex = 2
         '
         'Label2
@@ -119,6 +121,16 @@ Partial Class FRM_TEHReferral
         Me.LblSave.Text = "0"
         Me.LblSave.Visible = False
         '
+        'ChActive
+        '
+        Me.ChActive.AutoSize = True
+        Me.ChActive.Location = New System.Drawing.Point(415, 29)
+        Me.ChActive.Name = "ChActive"
+        Me.ChActive.Size = New System.Drawing.Size(67, 17)
+        Me.ChActive.TabIndex = 4
+        Me.ChActive.Text = "Is Active"
+        Me.ChActive.UseVisualStyleBackColor = True
+        '
         'FRM_TEHReferral
         '
         Me.AcceptButton = Me.BtnSave
@@ -153,4 +165,5 @@ Partial Class FRM_TEHReferral
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents LblSave As System.Windows.Forms.Label
+    Friend WithEvents ChActive As System.Windows.Forms.CheckBox
 End Class

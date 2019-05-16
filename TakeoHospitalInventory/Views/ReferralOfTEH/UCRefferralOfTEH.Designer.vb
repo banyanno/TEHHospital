@@ -25,14 +25,14 @@ Partial Class UCRefferralOfTEH
         Dim GridReferral_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UCRefferralOfTEH))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
-        Me.GridReferral = New Janus.Windows.GridEX.GridEX
         Me.BtnRefresh = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnNew = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnUpdate = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnDelete = New System.Windows.Forms.ToolStripButton
+        Me.GridReferral = New Janus.Windows.GridEX.GridEX
         Me.ToolStrip1.SuspendLayout()
         CType(Me.GridReferral, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,20 +47,52 @@ Partial Class UCRefferralOfTEH
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'BtnRefresh
+        '
+        Me.BtnRefresh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnRefresh.Name = "BtnRefresh"
+        Me.BtnRefresh.Size = New System.Drawing.Size(76, 30)
+        Me.BtnRefresh.Text = "Refresh"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 33)
+        '
+        'BtnNew
+        '
+        Me.BtnNew.Image = Global.TakeoHospitalInventory.My.Resources.Resources._new
+        Me.BtnNew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnNew.Name = "BtnNew"
+        Me.BtnNew.Size = New System.Drawing.Size(104, 30)
+        Me.BtnNew.Text = "New Referral"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 33)
         '
+        'BtnUpdate
+        '
+        Me.BtnUpdate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.edit1
+        Me.BtnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnUpdate.Name = "BtnUpdate"
+        Me.BtnUpdate.Size = New System.Drawing.Size(118, 30)
+        Me.BtnUpdate.Text = "Update Referral"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 33)
+        '
+        'BtnDelete
+        '
+        Me.BtnDelete.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(107, 30)
+        Me.BtnDelete.Text = "Delet Referral"
         '
         'GridReferral
         '
@@ -75,38 +107,6 @@ Partial Class UCRefferralOfTEH
         Me.GridReferral.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.GridReferral.Size = New System.Drawing.Size(1215, 639)
         Me.GridReferral.TabIndex = 1
-        '
-        'BtnRefresh
-        '
-        Me.BtnRefresh.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
-        Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnRefresh.Name = "BtnRefresh"
-        Me.BtnRefresh.Size = New System.Drawing.Size(75, 30)
-        Me.BtnRefresh.Text = "Refresh"
-        '
-        'BtnNew
-        '
-        Me.BtnNew.Image = Global.TakeoHospitalInventory.My.Resources.Resources._new
-        Me.BtnNew.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnNew.Name = "BtnNew"
-        Me.BtnNew.Size = New System.Drawing.Size(100, 30)
-        Me.BtnNew.Text = "New Referral"
-        '
-        'BtnUpdate
-        '
-        Me.BtnUpdate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.edit1
-        Me.BtnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnUpdate.Name = "BtnUpdate"
-        Me.BtnUpdate.Size = New System.Drawing.Size(114, 30)
-        Me.BtnUpdate.Text = "Update Referral"
-        '
-        'BtnDelete
-        '
-        Me.BtnDelete.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
-        Me.BtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnDelete.Name = "BtnDelete"
-        Me.BtnDelete.Size = New System.Drawing.Size(104, 30)
-        Me.BtnDelete.Text = "Delet Referral"
         '
         'UCRefferralOfTEH
         '

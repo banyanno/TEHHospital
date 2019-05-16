@@ -21,7 +21,8 @@
         Dim F_TehReferral As New FRM_TEHReferral
         F_TehReferral.LblSave.Text = GridReferral.GetRow.Cells("REFERRAL_ID").Value
         F_TehReferral.TxtReferral.Text = GridReferral.GetRow.Cells("REFFERAL_NAME").Value
-        F_TehReferral.TxtDescription.Text = GridReferral.GetRow.Cells("REFFERAL_DES").Value
+        F_TehReferral.TxtDescription.Text = IIf(TypeOf GridReferral.GetRow.Cells("REFFERAL_DES").Value Is DBNull, "", GridReferral.GetRow.Cells("REFFERAL_DES").Value)
+        F_TehReferral.ChActive.Checked = GridReferral.GetRow.Cells("IS_DELETE").Value
         If F_TehReferral.ShowDialog = DialogResult.OK Then
             RefreshReferral()
         End If
@@ -30,7 +31,7 @@
     Private Sub BtnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDelete.Click
         If GridReferral.SelectedItems.Count = 0 Then Exit Sub
         If MessageBox.Show("Do you want delete this referral?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            If DA_Referral_TEH.DeleteReferral(GridReferral.GetRow.Cells("REFERRAL_ID").Value) = 1 Then
+            If DA_Referral_TEH.UpdateIsActive(False, GridReferral.GetRow.Cells("REFERRAL_ID").Value) = 1 Then
                 RefreshReferral()
             Else
                 MessageBox.Show("Error delete referral.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -39,4 +40,7 @@
     End Sub
 
    
+    Private Sub BtnRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnRefresh.Click
+        RefreshReferral()
+    End Sub
 End Class

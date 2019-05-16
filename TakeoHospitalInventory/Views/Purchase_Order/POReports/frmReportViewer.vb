@@ -20,7 +20,7 @@ Public Class frmReportViewer
     Private ItemAlertRpt As New CrItemAlert
     Private CrItemReq_Sup_Rec_Trace As New RptItemRequestSupplierGivenTrace
     Private CrIteReq_Used_In_Hos As New RptItemRequestSupplierUsedInDepart
-    Private ObjReceiptCry_V1 As New CryReceipt_V1
+    Private ObjReceiptCry_V1 As New CryReceipt_V2  'CryReceipt_V1
     Private CrAccountPayable As New CryAccountPayable
     Private CrItemHospitalProject As New RptItemHospitalProject
     Dim CrItemHospitalProjectV1 As New RptItemHospitalProjectV1
