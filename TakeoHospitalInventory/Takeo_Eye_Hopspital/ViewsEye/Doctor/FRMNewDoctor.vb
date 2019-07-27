@@ -17,7 +17,7 @@ Public Class FRMNewDoctor
         If lblSaveOption.Text = "0" Then
             DIALOG_SAVE = MessageBox.Show(MSG_SAVE, "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
             If DIALOG_SAVE = Windows.Forms.DialogResult.Yes Then
-                If ModDoctor.SaveDoctor(TxtDoctorName.Text, CboSex.Text, TxtAge.Text, TxtTel.Text, TxtFunction.Text) = 1 Then
+                If ModDoctor.SaveDoctor(TxtDoctorName.Text, CboSex.Text, TxtAge.Text, TxtTel.Text, TxtFunction.Text, ChActive.Checked) = 1 Then
                     MsgBox("Save doctor successfully.", MsgBoxStyle.Information, "Save")
                     isDoctorClose = True
                     Me.Close()
@@ -28,7 +28,7 @@ Public Class FRMNewDoctor
         Else
             DIALOG_UPDATE = MessageBox.Show(MSG_UPDATE, "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
             If DIALOG_UPDATE = Windows.Forms.DialogResult.Yes Then
-                If ModDoctor.UpdateDoctor(lblSaveOption.Text, TxtDoctorName.Text, CboSex.Text, TxtAge.Text, TxtTel.Text, TxtFunction.Text) = 1 Then
+                If ModDoctor.UpdateDoctor(lblSaveOption.Text, TxtDoctorName.Text, CboSex.Text, TxtAge.Text, TxtTel.Text, TxtFunction.Text, ChActive.Checked) = 1 Then
                     MsgBox("Update doctor successfully.", MsgBoxStyle.Information, "Update")
                     Me.isDoctorClose = True
                     Me.Close()
@@ -37,5 +37,9 @@ Public Class FRMNewDoctor
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChActive.CheckedChanged
+
     End Sub
 End Class

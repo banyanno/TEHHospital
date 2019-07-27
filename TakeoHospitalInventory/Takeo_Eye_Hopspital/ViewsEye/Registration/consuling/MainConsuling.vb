@@ -472,7 +472,7 @@
             End With
         Next
         With CboDoctor
-            .DataSource = ModDoctor.SelectDoctor()
+            .DataSource = ModDoctor.selectDotorActive()
             .ValueMember = "doctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1

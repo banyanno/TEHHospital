@@ -14,6 +14,7 @@ Module ModRegistration
        ByVal province As String, _
        ByVal District As String, _
        ByVal Commune As String, _
+        ByVal Village As String, _
        ByVal NameEng As String, _
        ByVal NameKh As String, _
        ByVal Age As String, _
@@ -37,6 +38,7 @@ Module ModRegistration
         "Province," & _
         "District," & _
         "Commune," & _
+        "village," & _
         "NameEng," & _
         "NameKhmer," & _
         "Age," & Field & " ," & _
@@ -51,6 +53,7 @@ Module ModRegistration
        province.Replace("'", "''") & "','" & _
         District.Replace("'", "''") & "','" & _
         Commune.Replace("'", "''") & "','" & _
+        Village.Replace("'", "''") & "','" & _
         NameEng.Replace("'", "''") & "','" & _
         NameKh.Replace("'", "''") & "'," & _
         Age & ",'" & _
@@ -148,7 +151,7 @@ Module ModRegistration
         Dim sql As String = "SELECT CheckPrince FROM TblPrintPreview"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsScalar(sql)
     End Function
-    Function UpdatePatient(ByVal No As String, ByVal province As String, ByVal District As String, ByVal Commune As String, ByVal NameEng As String, ByVal NameKh As String, ByVal Age As String, ByVal Sex As String, ByVal address As String, ByVal Occupation As String, ByVal Tel As String, ByVal CreateDate As String) As Integer
+    Function UpdatePatient(ByVal No As String, ByVal province As String, ByVal District As String, ByVal Commune As String, ByVal village As String, ByVal NameEng As String, ByVal NameKh As String, ByVal Age As String, ByVal Sex As String, ByVal address As String, ByVal Occupation As String, ByVal Tel As String, ByVal CreateDate As String, ByVal Is_UpdateAddress As Boolean) As Integer
         Dim Field As String = ""
         If Sex = "M" Then
             Field = "Male='" & Sex & "', Female=null "
@@ -158,6 +161,7 @@ Module ModRegistration
         Dim sql As String = "UPDATE TblPatients SET Province ='" & province.Replace("'", "''") & "' ," & _
                             "District ='" & District.Replace("'", "''") & _
                             "' ,Commune ='" & Commune.Replace("'", "''") & _
+                            "' ,village ='" & village.Replace("'", "''") & _
                             "' ,NameEng ='" & NameEng.Replace("'", "''") & _
                             "' ,NameKhmer ='" & NameKh.Replace("'", "''") & _
                             "' ,Age =" & Age.Replace("'", "''") & _
@@ -167,8 +171,9 @@ Module ModRegistration
                             "' ,Occupation ='" & Occupation.Replace("'", "''") & _
                             "' ,Telephone ='" & Tel.Replace("'", "''") & _
                             "', CreateDate='" & CreateDate & _
+                             "', Is_UpdateAddress='" & Is_UpdateAddress & _
                             "'  WHERE No=" & No
-        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(Sql)
+        Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
     Function UpdatePatientLastReferal(ByVal PatientNo As String, ByVal Referall As String) As Integer
         Dim sql As String = "Update TblPatients set combindRefferal='" & Referall & "'WHERE PatientNo=" & PatientNo
@@ -192,5 +197,5 @@ Module ModRegistration
         Dim SQL As String = "SELECT PatientNo,NameEng,NameKhmer,Age,Sex,Address,Province,District,Commune,Occupation,Telephone FROM TblPatients WHERE Achieve='True'"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(SQL)
     End Function
-   
+
 End Module

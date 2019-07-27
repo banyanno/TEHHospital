@@ -24,6 +24,12 @@ Public Class FrmDateFollowUP
         If DateFollowUp.Checked = True Then
 
             If ValidateCombobox(CboDoctor, "", ErDateFollowUp) = False Then Exit Sub
+            If CboDoctor.SelectedValue Is Nothing Then
+                MessageBox.Show("Not correct doctor name. Please check doctor name again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                CboDoctor.Focus()
+                CboDoctor.SelectAll()
+                Exit Sub
+            End If
             DaFollowup = "'" & Me.DateFollowUp.Value & "'"
             DrName = CboDoctor.Text
 
@@ -34,6 +40,12 @@ Public Class FrmDateFollowUP
         If chIsVASurgeon.Checked = True Then
             If ValidateCombobox(CboDrSurgeon, "", ErDateFollowUp) = False Then Exit Sub
             If ValidateCombobox(CboSurgeonOnEye, "", ErDateFollowUp) = False Then Exit Sub
+            If CboDrSurgeon.SelectedValue Is Nothing Then
+                MessageBox.Show("Not correct doctor name. Please check doctor name again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                CboDrSurgeon.Focus()
+                CboDrSurgeon.SelectAll()
+                Exit Sub
+            End If
             'If ValidateCombobox(CboVAPH, "", ErDateFollowUp) = False Then Exit Sub
             'If ValidateCombobox(CboVAPlain, "", ErDateFollowUp) = False Then Exit Sub
         End If
@@ -57,20 +69,20 @@ Public Class FrmDateFollowUP
     Private Sub FrmDateFollowUP_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.LblDateLeave.Text = GeteDateServer()
         With CboDoctor
-            .DataSource = ModDoctor.SelectDoctor()
+            .DataSource = ModDoctor.selectDotorActive()
             .ValueMember = "doctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1
         End With
         With CboDrSurgeon
-            .DataSource = ModDoctor.SelectDoctor()
+            .DataSource = ModDoctor.selectDotorActive()
             .ValueMember = "doctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1
         End With
     End Sub
 
-    
+
 
     Private Sub DateFollowUp_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateFollowUp.ValueChanged
         If DateFollowUp.Checked = True Then

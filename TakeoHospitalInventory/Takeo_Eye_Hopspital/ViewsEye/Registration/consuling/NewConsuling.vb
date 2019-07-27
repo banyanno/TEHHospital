@@ -91,7 +91,7 @@
 
 
         With CboDoctor
-            .DataSource = ModDoctor.SelectDoctor()
+            .DataSource = ModDoctor.selectDotorActive
             .ValueMember = "doctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1
@@ -486,7 +486,12 @@
 
 
         If ValidateCombobox(CboDoctor, "", ErrConsulting) = False Then Exit Sub
-
+        If CboDoctor.SelectedValue Is Nothing Then
+            MessageBox.Show("Not correct doctor name. Pleas check doctor name again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            CboDoctor.Focus()
+            CboDoctor.SelectAll()
+            Exit Sub
+        End If
 
         'If ValidateCombobox(CboFirstDiagnosis, "", ErrConsulting) = False Then Exit Sub
         'If ValidateCombobox(CboFirstSurgery, "", ErrConsulting) = False Then Exit Sub

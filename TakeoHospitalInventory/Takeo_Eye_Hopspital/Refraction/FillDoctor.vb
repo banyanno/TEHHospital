@@ -5,7 +5,7 @@
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         With CboDoctor
-            .DataSource = DoctorDataAdapter.GetData
+            .DataSource = DoctorDataAdapter.GetData(False)
             .ValueMember = "DoctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1

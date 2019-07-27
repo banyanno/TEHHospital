@@ -8,7 +8,7 @@ Public Class frmBrowseDoctor
     Public DocSex As String
 
     Private Sub frmBrowseDoctor_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        gridDoctor.DataSource = DoctorDataAdapter.GetData
+        gridDoctor.DataSource = DoctorDataAdapter.GetData(False)
     End Sub
 
     Public Sub New()

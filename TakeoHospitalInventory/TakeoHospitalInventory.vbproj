@@ -1230,6 +1230,18 @@
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\MecicalCertificate\ViewMedicalCertificat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\FindingPatientScreening.Designer.vb">
+      <DependentUpon>FindingPatientScreening.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\FindingPatientScreening.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\FindPatientByOldAdress.Designer.vb">
+      <DependentUpon>FindPatientByOldAdress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\FindPatientByOldAdress.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfoOld.vb">
       <DependentUpon>PatientBarCodeInfoOld.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -2117,6 +2129,41 @@
     </Compile>
     <Compile Include="Views\AccountPayable\UCMainAcountPayable.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\address\DashboardAdress.Designer.vb">
+      <DependentUpon>DashboardAdress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\address\DashboardAdress.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\address\DSAddress1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSAddress.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\address\FormCommune.Designer.vb">
+      <DependentUpon>FormCommune.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\address\FormCommune.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\address\FormDistrict.Designer.vb">
+      <DependentUpon>FormDistrict.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\address\FormDistrict.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\address\FormProvince.Designer.vb">
+      <DependentUpon>FormProvince.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\address\FormProvince.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\address\FormVillage.Designer.vb">
+      <DependentUpon>FormVillage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\address\FormVillage.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\AdjustStock\AdjustStockMainStock.Designer.vb">
       <DependentUpon>AdjustStockMainStock.vb</DependentUpon>
@@ -3677,6 +3724,12 @@
       <DependentUpon>frmPaymentList.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\FindingPatientScreening.resx">
+      <DependentUpon>FindingPatientScreening.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\FindPatientByOldAdress.resx">
+      <DependentUpon>FindPatientByOldAdress.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\ViewsEye\Registration\PatientPayment\PatientBarcode\PatientBarCodeInfoOld.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PatientBarCodeInfoOld.vb</LastGenOutput>
@@ -4173,6 +4226,21 @@
     <EmbeddedResource Include="Views\AccountPayable\UCMainAcountPayable.resx">
       <DependentUpon>UCMainAcountPayable.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\address\DashboardAdress.resx">
+      <DependentUpon>DashboardAdress.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\address\FormCommune.resx">
+      <DependentUpon>FormCommune.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\address\FormDistrict.resx">
+      <DependentUpon>FormDistrict.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\address\FormProvince.resx">
+      <DependentUpon>FormProvince.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\address\FormVillage.resx">
+      <DependentUpon>FormVillage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AdjustStock\AdjustStockMainStock.resx">
       <DependentUpon>AdjustStockMainStock.vb</DependentUpon>
@@ -5493,6 +5561,17 @@
     </None>
     <None Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\Report\Operation\DSOperationReport.xss">
       <DependentUpon>DSOperationReport.xsd</DependentUpon>
+    </None>
+    <None Include="Views\address\DSAddress.xsc">
+      <DependentUpon>DSAddress.xsd</DependentUpon>
+    </None>
+    <None Include="Views\address\DSAddress.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAddress1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Views\address\DSAddress.xss">
+      <DependentUpon>DSAddress.xsd</DependentUpon>
     </None>
     <None Include="Views\Bardcode\DSBarCode.xsc">
       <DependentUpon>DSBarCode.xsd</DependentUpon>

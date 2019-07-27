@@ -43,6 +43,10 @@ Module MCashCollection
                             & "(OtherFeeUSD) OtherFeeUSD, (OtherFeeRiel) OtherFeeRiel ,( DonationPay ) DonationPay, IsDonation,ConGeneral,Rates,ConPay FROM tblPatientReceipt WHERE  DateIn='" & DateIn & "' and ConDelete =0"
         Return generalDAO.SelectAsDataTable(SQL)
     End Function
+    Function GetScreeningTotalSummary(ByVal DateIn As Date) As DataTable
+        Dim SQL As String = "SELECT CashRiel,CashUSD FROM IMP_tblPatientReceiptScreeninng WHERE DateIn='" & DateIn & "' and ConPay=1"
+        Return generalDAO.SelectAsDataTable(SQL)
+    End Function
 
     Function IncomeSummaryByDept(ByVal DateIn As Date, ByVal DeptID As Integer) As DataTable
         Dim Sql As String = "SELECT     SUM(ConsultationFeeUSD) + SUM(FollowUpFeeUSD) AS OutPatientUSD, SUM(ConsultationFeeRiel) + SUM(FollowUpFeeRiel) AS OutpatientRiel, " _

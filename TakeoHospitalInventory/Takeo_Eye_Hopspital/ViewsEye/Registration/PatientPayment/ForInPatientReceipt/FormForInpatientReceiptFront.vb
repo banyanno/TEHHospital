@@ -226,7 +226,7 @@ Public Class FormForInpatientReceiptFront
     End Sub
     Dim frmReportInPR As New frmReportInpatientReceipt
     '-------------Report Form Active--------------------------------
-    Dim ReportInPR As New ReportInpatientReceipt
+    Dim ReportInPR As New ReportInpatientReceiptV1
     Dim checkPrintPreview As Boolean = False
     Private Sub PrintReportIPR()
         If Me.InvokeRequired Then

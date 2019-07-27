@@ -70,6 +70,7 @@ Public Class MainTakeoInventory
     Dim UReportItemTransaction As UCReportItemTransaction
     Dim URefferral As UCRefferralOfTEH
     Dim USystemHistory As New DashboardSystemTracking
+    Dim UAddresSetting As New DashboardAdress
     Private Delegate Sub DelShowLoadingPicture(ByVal visible As Boolean)
 
     Sub New(ByVal login As frmLoginInventory)
@@ -322,6 +323,8 @@ Public Class MainTakeoInventory
                 GeneralAddControl(uiPanelMainContainer, URefferral, "Patient Referral pararmenter.")
             Case "System History"
                 GeneralAddControl(uiPanelMainContainer, USystemHistory, "System History.")
+            Case "Address Setting"
+                GeneralAddControl(uiPanelMainContainer, UAddresSetting, "System address setting.")
         End Select
     End Sub
 

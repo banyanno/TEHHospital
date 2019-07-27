@@ -59,7 +59,7 @@ Public Class frmPrescription
             .AutoCompleteSource = AutoCompleteSource.ListItems
         End With
         With CboDoctor
-            .DataSource = DoctorDataAdapter.GetData
+            .DataSource = ModDoctor.selectDotorActive
             .ValueMember = "DoctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1
@@ -469,7 +469,13 @@ Public Class frmPrescription
         If ValidateTextField(TxtPatientNoReal, "", ErrorPrescription) = False Then Exit Sub
         If ValidateCombobox(CboDoctor, "", ErrorPrescription) = False Then Exit Sub
         If ValidateCombobox(CbDiagnosis, "", ErrorPrescription) = False Then Exit Sub
-
+       
+        If CboDoctor.SelectedValue Is Nothing Then
+            MessageBox.Show("Not correct doctor name.Please check again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            CboDoctor.Focus()
+            CboDoctor.SelectAll()
+            Exit Sub
+        End If
         If GridMedicine.Rows.Count = 0 Then
             MessageBox.Show("Cannot save new prescription without medicine.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub

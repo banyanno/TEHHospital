@@ -1150,40 +1150,52 @@ Public Class UCashCollection
         Dim OterRield As Double = TotalIncomeSumeryRiel("OtherFeeRiel", "OP", dtpDateFrom.Value.Date) + TotalIncomeSumeryRiel("OtherFeeRiel", "IR", dtpDateFrom.Value.Date) + TotalIncomeSumeryRiel("OtherFeeRiel", "OT", dtpDateFrom.Value.Date)
         Dim OterUSD As Double = TotalIncomeSumeryUSD("OtherFeeUSD", "OP", dtpDateFrom.Value.Date) + TotalIncomeSumeryUSD("OtherFeeUSD", "IR", dtpDateFrom.Value.Date) + TotalIncomeSumeryUSD("OtherFeeUSD", "OT", dtpDateFrom.Value.Date)
         Dim DonateUSD As Double = TotalIncomeDonate(dtpDateFrom.Value.Date)
+        Dim ScreeningUSD As Double = TotalIncomeScreeningUSD(dtpDateFrom.Value.Date)
+        Dim ScrenningRiel As Double = TotalIncomeScreeningRiel(dtpDateFrom.Value.Date)
+        ' Add Total report summary .....
         Dim Testing As DataTable = New DataSetCashCountDaily.IncomeSummaryDataTable
-        Dim TRows As DataRow = Testing.NewRow
-        TRows("TotalUSD") = OutPatientUSD
-        TRows("TotalReil") = OutPatientRield
-        TRows("Label") = "Out Patient"
-        Testing.Rows.Add(TRows)
-        Dim TRows1 As DataRow = Testing.NewRow
-        TRows1("TotalUSD") = InPatientUSD
-        TRows1("TotalReil") = InPatientRiel
-        TRows1("Label") = "In-Patient"
-        Testing.Rows.Add(TRows1)
-        Dim TRows2 As DataRow = Testing.NewRow
-        TRows2("TotalUSD") = GlassUSD
-        TRows2("TotalReil") = GlassRiel
-        TRows2("Label") = "Glasses"
-        Testing.Rows.Add(TRows2)
-        Dim TRows3 As DataRow = Testing.NewRow
-        TRows3("TotalUSD") = MedicinUSD
-        TRows3("TotalReil") = MedinceRiel
-        TRows3("Label") = "Medicine"
-        Testing.Rows.Add(TRows3)
-        Dim TRows4 As DataRow = Testing.NewRow
-        TRows4("TotalUSD") = OterUSD
-        TRows4("TotalReil") = OterRield
-        TRows4("Label") = "Fun+Others"
-        Testing.Rows.Add(TRows4)
-        Dim TRows5 As DataRow = Testing.NewRow
-        TRows5("TotalUSD") = DonateUSD
-        TRows5("TotalReil") = 0
-        TRows5("Label") = "Donate Support"
-        Testing.Rows.Add(TRows5)
-        For Each row1 As DataRow In Testing.Rows
-            MessageBox.Show(row1("Label"))
-        Next
+
+        Dim DRowOutPatient As DataRow = Testing.NewRow
+        DRowOutPatient("TotalUSD") = OutPatientUSD
+        DRowOutPatient("TotalReil") = OutPatientRield
+        DRowOutPatient("Label") = "Out Patient"
+        Testing.Rows.Add(DRowOutPatient)
+        Dim DRowInPatient As DataRow = Testing.NewRow
+        DRowInPatient("TotalUSD") = InPatientUSD
+        DRowInPatient("TotalReil") = InPatientRiel
+        DRowInPatient("Label") = "In-Patient"
+        Testing.Rows.Add(DRowInPatient)
+        Dim DRowGlasses As DataRow = Testing.NewRow
+        DRowGlasses("TotalUSD") = GlassUSD
+        DRowGlasses("TotalReil") = GlassRiel
+        DRowGlasses("Label") = "Glasses"
+        Testing.Rows.Add(DRowGlasses)
+        Dim DRowMedicine As DataRow = Testing.NewRow
+        DRowMedicine("TotalUSD") = MedicinUSD
+        DRowMedicine("TotalReil") = MedinceRiel
+        DRowMedicine("Label") = "Medicine"
+        Testing.Rows.Add(DRowMedicine)
+        Dim DRowFunOthers As DataRow = Testing.NewRow
+        DRowFunOthers("TotalUSD") = OterUSD
+        DRowFunOthers("TotalReil") = OterRield
+        DRowFunOthers("Label") = "Fun+Others"
+        Testing.Rows.Add(DRowFunOthers)
+
+        Dim DRowDonateSupport As DataRow = Testing.NewRow
+        DRowDonateSupport("TotalUSD") = DonateUSD
+        DRowDonateSupport("TotalReil") = 0
+        DRowDonateSupport("Label") = "Donate Support"
+        Testing.Rows.Add(DRowDonateSupport)
+
+        Dim DRowScreening As DataRow = Testing.NewRow
+        DRowScreening("TotalUSD") = SlolcreeningUSD
+        DRowScreening("TotalReil") = ScrenningRiel
+        DRowScreening("Label") = "Screening"
+        Testing.Rows.Add(DRowScreening)
+
+        'For Each row1 As DataRow In Testing.Rows
+        '    MessageBox.Show(row1("Label"))
+        'Next
 
         Try
 
@@ -1192,7 +1204,7 @@ Public Class UCashCollection
             Me.cmdPrint.Enabled = False
             Dim frmReportCCD As New frmReportCashCountDaily
 
-       
+
 
 
             '-------------Report Form Active--------------------------------
@@ -1253,6 +1265,7 @@ Public Class UCashCollection
         Return Result
 
     End Function
+
     Function TotalIncomeSumeryRiel(ByVal Field As String, ByVal PayCon As String, ByVal DateIn As Date) As Double
         Dim Result As Double = 0
         Dim ValueIncome As Double = 0
@@ -1271,9 +1284,9 @@ Public Class UCashCollection
             Else
                 ValueDonateSupored = 0
             End If
-           
+
             If Rows(Field) <> 0 And Rows("DonationPay") <> 0 Then
-            
+
                 ValueIncome = (Rows("DonationPay") * Rows("Rates")) - (ValueDonateSupored * Rows("Rates"))
             Else
                 ValueIncome = Rows(Field)
@@ -1281,7 +1294,27 @@ Public Class UCashCollection
             End If
             Result = Result + ValueIncome
         Next
-    
+
+        Return Result
+    End Function
+    Function TotalIncomeScreeningUSD(ByVal DateIn As Date) As Double
+        Dim Result As Double = 0
+        Dim ValueIncome As Double = 0
+        Dim ValueDonateSupored As Double = 0
+        Dim TblIncomScreening As DataTable = MCashCollection.GetScreeningTotalSummary(DateIn)
+        For Each DrowSceening As DataRow In TblIncomScreening.Rows
+            Result = Result + DrowSceening("CashUSD")
+        Next
+        Return Result
+    End Function
+    Function TotalIncomeScreeningRiel(ByVal DateIn As Date) As Double
+        Dim Result As Double = 0
+        Dim ValueIncome As Double = 0
+        Dim ValueDonateSupored As Double = 0
+        Dim TblIncomScreening As DataTable = MCashCollection.GetScreeningTotalSummary(DateIn)
+        For Each DrowSceening As DataRow In TblIncomScreening.Rows
+            Result = Result + DrowSceening("CashRiel")
+        Next
         Return Result
     End Function
     Function TotalIncomeSumeryUSD(ByVal Field As String, ByVal PayCon As String, ByVal DateIn As Date) As Double
@@ -1334,4 +1367,5 @@ Public Class UCashCollection
         'End If
         Return Result
     End Function
+
 End Class

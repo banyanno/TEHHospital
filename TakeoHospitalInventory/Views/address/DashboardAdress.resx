@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ToolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BtnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKdSURBVFhH7ZjLalRBEIbLG0J0oaArF9FHyCOYrdeVrhzc
+        GJ8gBCQLQbzgwhFxofGy0J0PIHifyUXB20JBMYQQL1E3igoqqDh+dfh7OJmMcPocZ2X/nJ/KVHX9XdN9
+        SHeNJSQk9AgPzVY0zLbB+m2z+9i5G2YfnbfMZu+YNRXbcsVsmdJ6j2tmq5h8FM5TQKsINXaEL9UnmQz4
+        T+JvuJWrGliNHazOq/zk181+YCfhGBMdwx7HXsDeI/bNxwTeNHtLbKfkDF9DMZ4KaJktRfgwE/6WYIti
+        72JrvqIatgi+YuTt4Us9DnlOfKddk7+rF4jQErIvSsj5Hu5SuBBUTI3CPuR0LsPqBSLq25aJshJPYL9C
+        0WCLN7hGTi+8Ljwl0DQbDNuK2DOKXadQabiGa6mwQJ5IXDVbidCsCyD6GW5UKBrkHsyT9/cUut9VXIuF
+        GNfQ4iBpfxBAdJ/cpRB0/kb0mS4SJJ0l+Rf2RdV/tJ0FdSFPCfhLTeaAPiYkJCQk/G/wQ8APA32Mgx8/
+        sNux1KaGloIfn1xGptHx4/SM3MVB0lRnQZ3U0FLIX0bgkNzFQZL3GZkAxX7lilTHLrg2aWg0KG4T98wv
+        0p/xq51CxUHigi2moEcTZmsVLg0ufuvRe+6augxvVigOJIYCX8tmV34KLX1xJb8fnadBDx5RKB4kZwVS
+        kDfglyTo/IRvrzdCGloIbOtucr3hCjrnvCFTOB4ItDsudWX1fNvpq4kdotg1SlkEYqsZU1OLmuVJ41Cl
+        4hyItAuUK2vcvfmWP/AnfEAx57HetHsXOAYnKcab+vZYYi+x2yVXDYh1/VlCzfgwsbkwcQG+gQc6f/ro
+        KXzbea8GmfgoBTfhvFbMV/Qdq+0/KJ3AvxUuV1pCQsK/hdkfbF6+7Ir5oCQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripSplitButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="GridProvince_DesignTimeLayout.LayoutString" xml:space="preserve">
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="PROVINCEID"&gt;&lt;Caption&gt;PROVINCEID&lt;/Caption&gt;&lt;DataMember&gt;PROVINCEID&lt;/DataMember&gt;&lt;Key&gt;PROVINCEID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column0&gt;&lt;Column1 ID="PROV_EN"&gt;&lt;Caption&gt;Province Name&lt;/Caption&gt;&lt;DataMember&gt;PROV_EN&lt;/DataMember&gt;&lt;Key&gt;PROV_EN&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;179&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="PROV_KH"&gt;&lt;Caption&gt;Province KH&lt;/Caption&gt;&lt;DataMember&gt;PROV_KH&lt;/DataMember&gt;&lt;Key&gt;PROV_KH&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;140&lt;/Width&gt;&lt;/Column2&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;RowHeight&gt;25&lt;/RowHeight&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+  </data>
+  <data name="GridDistrict_DesignTimeLayout.LayoutString" xml:space="preserve">
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="DISTRICTID"&gt;&lt;Caption&gt;DISTRICTID&lt;/Caption&gt;&lt;DataMember&gt;DISTRICTID&lt;/DataMember&gt;&lt;Key&gt;DISTRICTID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column0&gt;&lt;Column1 ID="PROVINCEID"&gt;&lt;Caption&gt;PROVINCEID&lt;/Caption&gt;&lt;DataMember&gt;PROVINCEID&lt;/DataMember&gt;&lt;Key&gt;PROVINCEID&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column1&gt;&lt;Column2 ID="DIST_EN"&gt;&lt;Caption&gt;Dis Name&lt;/Caption&gt;&lt;DataMember&gt;DIST_EN&lt;/DataMember&gt;&lt;Key&gt;DIST_EN&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;183&lt;/Width&gt;&lt;/Column2&gt;&lt;Column3 ID="DIST_KH"&gt;&lt;Caption&gt;Dist KH&lt;/Caption&gt;&lt;DataMember&gt;DIST_KH&lt;/DataMember&gt;&lt;Key&gt;DIST_KH&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;191&lt;/Width&gt;&lt;/Column3&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;RowHeight&gt;25&lt;/RowHeight&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+  </data>
+  <data name="GridCommune_DesignTimeLayout.LayoutString" xml:space="preserve">
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="COMMUNEID"&gt;&lt;Caption&gt;COMMUNEID&lt;/Caption&gt;&lt;DataMember&gt;COMMUNEID&lt;/DataMember&gt;&lt;Key&gt;COMMUNEID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column0&gt;&lt;Column1 ID="DISTRICTID"&gt;&lt;Caption&gt;DISTRICTID&lt;/Caption&gt;&lt;DataMember&gt;DISTRICTID&lt;/DataMember&gt;&lt;Key&gt;DISTRICTID&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column1&gt;&lt;Column2 ID="COMM_EN"&gt;&lt;Caption&gt;Comm En&lt;/Caption&gt;&lt;DataMember&gt;COMM_EN&lt;/DataMember&gt;&lt;Key&gt;COMM_EN&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;153&lt;/Width&gt;&lt;/Column2&gt;&lt;Column3 ID="COMM_KH"&gt;&lt;Caption&gt;Comm KH&lt;/Caption&gt;&lt;DataMember&gt;COMM_KH&lt;/DataMember&gt;&lt;Key&gt;COMM_KH&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;145&lt;/Width&gt;&lt;/Column3&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;RowHeight&gt;25&lt;/RowHeight&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+  </data>
+  <data name="GridVillage_DesignTimeLayout.LayoutString" xml:space="preserve">
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="VILLAGEID"&gt;&lt;Caption&gt;VILLAGEID&lt;/Caption&gt;&lt;DataMember&gt;VILLAGEID&lt;/DataMember&gt;&lt;Key&gt;VILLAGEID&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column0&gt;&lt;Column1 ID="VILL_EN"&gt;&lt;Caption&gt;Vill En&lt;/Caption&gt;&lt;DataMember&gt;VILL_EN&lt;/DataMember&gt;&lt;Key&gt;VILL_EN&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;150&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="VILL_KH"&gt;&lt;Caption&gt;Vill KH&lt;/Caption&gt;&lt;DataMember&gt;VILL_KH&lt;/DataMember&gt;&lt;Key&gt;VILL_KH&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;117&lt;/Width&gt;&lt;/Column2&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;RowHeight&gt;25&lt;/RowHeight&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+  </data>
+  <metadata name="VSMInterface.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>124, 17</value>
+  </metadata>
+</root>

@@ -9,7 +9,7 @@ Public Class FRMOTRegistration
         InitializeComponent()
         Try
             With CboSurgeon
-                .DataSource = ModDoctor.SelectDoctor()
+                .DataSource = ModDoctor.selectDotorActive()
                 .DisplayMember = "DoctorName"
                 .ValueMember = "doctorNo"
                 .Text = Nothing
@@ -21,13 +21,13 @@ Public Class FRMOTRegistration
                 .Text = Nothing
             End With
             With CboAssistant
-                .DataSource = ModDoctor.SelectDoctor()
+                .DataSource = ModDoctor.selectDotorActive()
                 .DisplayMember = "DoctorName"
                 .ValueMember = "doctorNo"
                 .Text = Nothing
             End With
             With CboAnesthetist
-                .DataSource = ModDoctor.SelectDoctor
+                .DataSource = ModDoctor.selectDotorActive
                 .DisplayMember = "DoctorName"
                 .ValueMember = "DoctorNo"
                 .Text = Nothing

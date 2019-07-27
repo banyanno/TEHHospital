@@ -21,7 +21,7 @@
             .SelectedIndex = -1
         End With
         With CboDoctor
-            .DataSource = ModDoctor.SelectDoctor()
+            .DataSource = ModDoctor.selectDotorActive
             .ValueMember = "doctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1
@@ -41,7 +41,12 @@
         If ValidateTextField(TxtPatientNo, "", ErrAppointment) = False Then Exit Sub
         If ValidateTextField(TxtPatientName, "", ErrAppointment) = False Then Exit Sub
         If ValidateDateTimePicker(DateApp, "", ErrAppointment) = False Then Exit Sub
-
+        If CboDoctor.SelectedValue Is Nothing Then
+            MessageBox.Show("Not correct doctor name. please check doctor name again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            CboDoctor.Focus()
+            CboDoctor.SelectAll()
+            Exit Sub
+        End If
         If LblSave.Text = "0" Then
             If MessageBox.Show("Do you want to save new appointment?", "Appointment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 If DA_ConApp.InsertNewApp(CDbl(EmptyString(TxtPatientNo.Text)), TxtPatientName.Text, "", TxtPatientSex.Text, TxtAge.Text, Now.Date, DateApp.Value.Date, False, TxtNote.Text, "", False, CboSecondDiagnosis.Text, CboSecondSurgery.Text, CboEye.Text, TxtTel.Text, "Consuling", CInt(CboDoctor.SelectedValue), CboDoctor.Text) = 1 Then

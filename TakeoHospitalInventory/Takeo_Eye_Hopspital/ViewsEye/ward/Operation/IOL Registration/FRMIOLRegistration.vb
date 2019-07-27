@@ -7,7 +7,7 @@ Public Class FRMIOLRegistration
         InitializeComponent()
         Try
             With CboSurgeon
-                .DataSource = ModDoctor.SelectDoctor()
+                .DataSource = ModDoctor.selectDotorActive()
                 .DisplayMember = "DoctorName"
                 .ValueMember = "doctorNo"
                 .SelectedIndex = -1

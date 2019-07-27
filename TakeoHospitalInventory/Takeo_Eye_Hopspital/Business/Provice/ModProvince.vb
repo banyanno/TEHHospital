@@ -5,7 +5,7 @@ Module ModProvince
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
     Function CheckProvince(ByVal ProvinceName As String) As Integer
-        Dim sql As String = "SELECT COUNT(Province) FROM TblProvinces WHERE Province='" & ProvinceName & "'"
+        Dim sql As String = "SELECT COUNT(PROV_EN) FROM TBL_PROVINCE WHERE PROV_EN='" & ProvinceName & "'"
         Return ModGlobleVariable.GENERAL_DAO.SelectAsScalar(sql)
     End Function
 
@@ -24,7 +24,7 @@ Module ModProvince
         End If
     End Function
     Function CheckDistric(ByVal ProNo As String, ByVal Distric As String) As Integer
-        Dim sql As String = "SELECT COUNT(DISTRICT) FROM tblDistricts WHERE DISTRICT='" & Distric.Replace("'", "''") & "' AND IDProvCode=" & ProNo
+        Dim sql As String = "SELECT COUNT(DIST_EN) FROM TBL_DISTRICT WHERE DIST_EN='" & Distric.Replace("'", "''") & "' AND PROVINCEID=" & ProNo
         Return ModGlobleVariable.GENERAL_DAO.SelectAsScalar(sql)
     End Function
     Function InsertDistrict(ByVal ProvinceNo As Integer, ByVal SrokCode As Integer, ByVal District As String) As Integer
@@ -55,7 +55,7 @@ Module ModProvince
         End If
     End Function
     Function CheckCommun(ByVal DiscNo As String, ByVal Commune As String) As Integer
-        Dim sql As String = "SELECT COUNT(Commune) FROM tblCommunes WHERE Commune='" & Commune.Replace("'", "''") & "' AND SrokCode=" & DiscNo
+        Dim sql As String = "SELECT COUNT(COMM_EN) FROM TBL_COMMUNE WHERE COMM_EN='" & Commune.Replace("'", "''") & "' AND DISTRICTID=" & DiscNo
         Return ModGlobleVariable.GENERAL_DAO.SelectAsScalar(sql)
 
     End Function

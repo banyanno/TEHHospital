@@ -15,6 +15,7 @@ Imports System.Data.Sql
 Imports System.Data.SqlClient
 Imports System.Data.SqlTypes
 Imports System.Timers
+
 Public Class UCPatientPayment
    
  
@@ -28,6 +29,7 @@ Public Class UCPatientPayment
     Private patientProvince As String
     Private patientDistrict As String
     Private patientCommune As String
+    Private patientvillage As String
     Private TelephonNo As String
     Dim DateFrom As String
     Dim DateTo As String
@@ -43,6 +45,17 @@ Public Class UCPatientPayment
     Dim ReportNOPR As New ReportNewOutPatientReceiptV1  'ReportNewOutPatientReceipt
     Dim DA_Appoint As New DSConsultTableAdapters.CONSULING_APPOINTMENTTableAdapter
     Dim DAPatientBarcode As New DSPatientBardcode
+
+    '---------------- Add new address -----------------------------------
+
+
+    Dim DAProvince As New DSAddressTableAdapters.TBL_PROVINCETableAdapter
+    Dim DADistrict As New DSAddressTableAdapters.TBL_DISTRICTTableAdapter
+    Dim DACommune As New DSAddressTableAdapters.TBL_COMMUNETableAdapter
+    Dim DAVillage As New DSAddressTableAdapters.TBL_VILLAGETableAdapter
+
+    Dim DApatient As New DSDashboardPatientTableAdapters.TblPatientsTableAdapter
+   
     Sub New(ByVal mainSubForm As MainTakeoInventory)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
@@ -57,6 +70,27 @@ Public Class UCPatientPayment
         Me.SplitContainer1.SplitterDistance = Me.Height / 2
         'FNewPatientReceipt =
         ' Add any initialization after the InitializeComponent() call.
+        Try
+            With cboProvinceSearch
+                .DataSource = DAProvince.GetData
+                .ValueMember = "PROVINCEID"
+                .DisplayMember = "PROV_EN".ToLower
+                .SelectedIndex = -1
+            End With
+
+        Catch ex As Exception
+
+        End Try
+        Try
+            With CboProUpdate
+                .DataSource = DAProvince.GetData
+                .ValueMember = "PROVINCEID"
+                .DisplayMember = "PROV_EN".ToLower
+                .SelectedIndex = -1
+            End With
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Sub New()
@@ -80,9 +114,9 @@ Public Class UCPatientPayment
             txtEngName.Text.Trim, _
             txtKhmerName.Text.Trim, _
             cboSex.Text.Trim, _
-            cboProvince.Text.Trim, _
-            cboDistrict.Text.Trim, _
-            cboCommune.Text.Trim)
+            cboProvinceSearch.Text.Trim.ToLower, _
+            cboDistrictSearch.Text.Trim.ToLower, _
+            cboCommuneSearch.Text.Trim.ToLower, CboVillageSearch.Text.Trim.ToLower)
         TxtPatientSearchNo.Focus()
         TxtPatientSearchNo.Select()
         TxtPatientSearchNo.SelectAll()
@@ -91,7 +125,7 @@ Public Class UCPatientPayment
     End Sub
 
 
-    Sub ActionFindPatien(ByVal PatientNo As String, ByVal Tel As String, ByVal DFrom As String, ByVal DTo As String, ByVal PEngName As String, ByVal PKh As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String)
+    Public Sub ActionFindPatien(ByVal PatientNo As String, ByVal Tel As String, ByVal DFrom As String, ByVal DTo As String, ByVal PEngName As String, ByVal PKh As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String, ByVal Village As String)
         DateFrom = DFrom
         DateTo = DTo
         patientNoSearh = PatientNo
@@ -103,6 +137,7 @@ Public Class UCPatientPayment
         patientProvince = Province
         patientDistrict = District
         patientCommune = Commune
+        patientvillage = Village
         btnFind.Enabled = False
         'startDate = DateTime.Now
         ' ProgrestData.Visible = True
@@ -156,7 +191,7 @@ Public Class UCPatientPayment
         mainForm.StatusLoading(True)
         Dim Cnn As SqlConnection = ModGlobleVariable.GENERAL_DAO.getConnection
         Try
-            SqlComman.CommandText = SearchPatient(patientNoSearh, TelephonNo, DateFrom, DateTo, patientEngName, patientKhName, patientAge, patientSex, patientProvince, patientDistrict, patientCommune)
+            SqlComman.CommandText = SearchPatient(patientNoSearh, TelephonNo, DateFrom, DateTo, patientEngName, patientKhName, patientAge, patientSex, patientProvince, patientDistrict, patientCommune, patientvillage)
             SqlComman.Connection = Cnn
             SQlDataAdapter.SelectCommand = SqlComman
             SQlDataAdapter.Fill(DSPatient.TblPatients)
@@ -168,13 +203,13 @@ Public Class UCPatientPayment
         End Try
     End Sub
 
-    Function SearchPatient(ByVal PatientID As String, ByVal Telephone As String, ByVal DFrom As String, ByVal DTo As String, ByVal Name As String, ByVal KhmerName As String, ByVal Age As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String) As String
+    Function SearchPatient(ByVal PatientID As String, ByVal Telephone As String, ByVal DFrom As String, ByVal DTo As String, ByVal Name As String, ByVal KhmerName As String, ByVal Age As String, ByVal Sex As String, ByVal Province As String, ByVal District As String, ByVal Commune As String, ByVal Village As String) As String
         'CONVERT(VARCHAR(10),CreateDate, 103) as
         Dim sql As String = "SELECT DISTINCT [No]" & _
         ",PatientNo, CreateDate,Province" & _
-        ",District,Commune,NameEng" & _
+        ",District,Commune,village,NameEng" & _
         ",NameKhmer,Age,Sex" & _
-        ",Address,Occupation,Telephone,TIME_CREATE" & _
+        ",Address,Occupation,Telephone,TIME_CREATE,Is_UpdateAddress" & _
         " FROM TblPatients  WHERE PatientNo IS NOT NULL  "
         If DFrom <> "" And DTo <> "" Then
             sql = sql & _
@@ -197,6 +232,9 @@ Public Class UCPatientPayment
         If Commune <> "" Then
             sql = sql & " AND Commune='" & Commune.Replace("'", "''") & "'"
         End If
+        If Village <> "" Then
+            sql = sql & "AND village='" & Village.Replace("'", "''") & "'"
+        End If
         If Name <> String.Empty Then
             sql = sql & " AND NameEng Like '%" & Name & "%' "
         End If
@@ -213,7 +251,7 @@ Public Class UCPatientPayment
         End If
         Return sql & " ORDER BY PatientNo DESC"
     End Function
-
+    Dim ADCustomer As New DSCustomerTableAdapters.RECEIPT_CUSTOMERTableAdapter
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         If ValidateTextField(TxtPatientNo, "patient no", ErrPatient) = False Or _
@@ -223,9 +261,10 @@ Public Class UCPatientPayment
         ValidateCombobox(CboOccupation, "Occupation", ErrPatient) = False Or _
         ValidateTextField(TxtTel, "Tel", ErrPatient) = False Or _
         ValidateCombobox(CboSexPatien, "Sex", ErrPatient) = False Or _
-        ValidateCombobox(CboProNo, "Province", ErrPatient) = False Or _
-        ValidateCombobox(CboDisNo, "District", ErrPatient) = False Or _
-        ValidateCombobox(CboCommNo, "Commune", ErrPatient) = False _
+        ValidateCombobox(CboProUpdate, "Province", ErrPatient) = False Or _
+        ValidateCombobox(CboDisUpdate, "District", ErrPatient) = False Or _
+        ValidateCombobox(CboComUpdate, "Commune", ErrPatient) = False Or _
+        ValidateCombobox(CboVillUpdate, "Village", ErrPatient) = False _
         Then
             'showMerlin(100, 100)
             'Merlin("", "Suggest")
@@ -237,10 +276,11 @@ Public Class UCPatientPayment
 
                     'For i = 0 To 100000
                     ' Insert new patient sucessfully
-                    If ModRegistration.NewRegistrationPatient(TxtPatientNo.Text, CStr(Now), CboProNo.Text, CboDisNo.Text, CboCommNo.Text, TxtNameEng.Text, TxtNameKhmer.Text, TxtAgePatient.Text, CboSexPatien.Text, TxtAddress.Text, CboOccupation.Text, TxtTel.Text, "", Today.Year) = 1 Then
+                    If ModRegistration.NewRegistrationPatient(TxtPatientNo.Text, CStr(Now), CboProUpdate.Text.ToLower, CboDisUpdate.Text.ToLower, CboVillUpdate.Text.ToLower, CboComUpdate.Text.ToLower, TxtNameEng.Text, TxtNameKhmer.Text, TxtAgePatient.Text, CboSexPatien.Text, TxtAddress.Text, CboOccupation.Text, TxtTel.Text, "", Today.Year) = 1 Then
                         If ModRegistration.SavePatienToFollowUP(TxtPatientNo.Text) = 1 Then
                             MsgBox("The registration new patient successfully", MsgBoxStyle.Information)
-                            ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "")
+                            ' ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "", "")
+                            btnFind_Click(sender, e)
                         Else
                             MsgBox("Error new registratin. Please contact Developer1", MsgBoxStyle.Critical)
                         End If
@@ -252,9 +292,11 @@ Public Class UCPatientPayment
             Else
                 ModGlobleVariable.DIALOG_UPDATE = MessageBox.Show(ModGlobleVariable.MSG_UPDATE, "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If ModGlobleVariable.DIALOG_UPDATE = DialogResult.Yes Then
-                    If ModRegistration.UpdatePatient(lblSaveOption.Text, CboProNo.Text, CboDisNo.Text, CboCommNo.Text, TxtNameEng.Text, TxtNameKhmer.Text, TxtAgePatient.Text, CboSexPatien.Text, TxtAddress.Text, CboOccupation.Text, TxtTel.Text, DateRegis.Value) = 1 Then
+                    If ModRegistration.UpdatePatient(lblSaveOption.Text, CboProUpdate.Text.ToLower, CboDisUpdate.Text.ToLower, CboComUpdate.Text.ToLower, CboVillUpdate.Text.ToLower, TxtNameEng.Text, TxtNameKhmer.Text, TxtAgePatient.Text, CboSexPatien.Text, TxtAddress.Text, CboOccupation.Text, TxtTel.Text, DateRegis.Value, True) = 1 Then
                         MsgBox("Update patient sucessffully.", MsgBoxStyle.Information, "Update")
-                        ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "")
+                        ADCustomer.UpdateCustomerInfor(TxtNameKhmer.Text, CboSexPatien.Text, TxtAgePatient.Text, CboOccupation.Text, TxtAddress.Text, TxtNameEng.Text, TxtPatientNo.Text)
+                        'ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "", "")
+                        btnFind_Click(sender, e)
                     Else
                         MsgBox("Update patient error.", MsgBoxStyle.Critical, "Error")
                     End If
@@ -331,9 +373,9 @@ Public Class UCPatientPayment
     End Sub
 
 
-    Private Sub CboCommNo_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboCommNo.SelectedValueChanged
-        TxtAddress.Text = "Province: " & CboProNo.Text & ", District: " & CboDisNo.Text & ", Commune: " & CboCommNo.Text & "."
-    End Sub
+    'Private Sub CboCommNo_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboComUpdate.SelectedValueChanged
+    '    TxtAddress.Text = "Province: " & CboProUpdate.Text & ", District: " & CboDisUpdate.Text & ", Commune: " & CboComUpdate.Text & "."
+    'End Sub
 
     Private Sub TimerSearchPatien_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerSearchPatien.Tick
         'Dim ts As TimeSpan = DateTime.Now.Subtract(startDate)
@@ -444,8 +486,15 @@ Public Class UCPatientPayment
     End Sub
     Dim DAPatientReceipt As New DSDashboardPatientTableAdapters.tblPatientReceiptTableAdapter
     Private Sub BtnOldOutPatientReceipt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnOldOutPatientReceipt.Click
+        
         If GridPatientInformation.SelectedItems.Count > 0 Then
             If GridPatientInformation.SelectedItems(0).Table.Key = "PatientInfo" Then
+                'DApatient.CheckUpdateAddress(TxtPatientNo.Text)
+
+                If CType(GridPatientInformation.GetRow.Cells("Is_UpdateAddress").Value, Boolean) = False Then
+                    MessageBox.Show("This patient is change address. Please update address again.", "Register", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
                 'Dim TblTemTblReceitp As DataTable = DAPatientReceipt.GetDataByCheckDatin(GridPatientInformation.GetRow.Cells("PatientNo").Value, GetDateServer.Date)
                 If ModOld_Outpatient.CheckDuplicatePatientOneDay(GridPatientInformation.GetRow.Cells("PatientNo").Value, ModGlobleVariable.CheckMarkEOD.Date, 1) > 0 Then
                     MessageBox.Show("Can not registration patient for Old patient book on the same day. Could you check old patient book agian.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -465,7 +514,7 @@ Public Class UCPatientPayment
                     FOldPatientReceipt.txtPatient.Text = TxtNameKhmer.Text
                     If FOldPatientReceipt.ShowDialog() = DialogResult.OK Then
                         UpdatetFollowupInnewPatient(TxtPatientNo.Text)
-                        ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "")
+                        ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "", "")
                         CheckIsPatientConsult(GridPatientInformation.GetRow.Cells("PatientNo").Value, 0)
 
                     End If
@@ -558,6 +607,12 @@ Public Class UCPatientPayment
 
     Private Sub BtnInpatientReceipt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnInpatientReceipt.Click
         If GridPatientInformation.SelectedItems.Count > 0 Then
+
+            '  DApatient.CheckUpdateAddress(TxtPatientNo.Text
+            If CType(GridPatientInformation.GetRow.Cells("Is_UpdateAddress").Value, Boolean) = False Then
+                MessageBox.Show("This patient is change address. Please update address again.", "Register", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
             Dim FForInpatientReceipt As New FormForInpatientReceiptFront
             FForInpatientReceipt.txtHN.Text = TxtPatientNo.Text
             FForInpatientReceipt.txtPatient.Text = TxtNameKhmer.Text
@@ -575,7 +630,7 @@ Public Class UCPatientPayment
             End If
 
             If FForInpatientReceipt.ShowDialog = DialogResult.OK Then
-                ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "")
+                ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "", "")
                 CheckIsPatientConsult(GridPatientInformation.GetRow.Cells("PatientNo").Value, 0)
             End If
             FForInpatientReceipt.Dispose()
@@ -595,7 +650,7 @@ Public Class UCPatientPayment
             FInpatientReceipt.txtPatient.Text = KhName
             FInpatientReceipt.ShowDialog()
             If FInpatientReceipt.DialogResult = DialogResult.OK Then
-                ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "")
+                ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "", "")
                 LoadInPatientForm(FInpatientReceipt.dtpDateIn.Value, FInpatientReceipt.txtReceiptNumber.Text, PatientNo, KhName, EngName, Age, Sex, Address)
             Else
                 Exit Sub
@@ -608,7 +663,7 @@ Public Class UCPatientPayment
             FCashReceipt.txtHN.Text = TxtPatientNo.Text
             FCashReceipt.txtPatient.Text = TxtNameKhmer.Text
             FCashReceipt.ShowDialog()
-            ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "")
+            ActionFindPatien(TxtPatientNo.Text, "0", "", "", "", "", "", "", "", "", "")
             'If FCashReceipt.DialogResult = DialogResult.OK Then
             '    ActionFindPatien(TxtPatientNo.Text, "", "", "", "", "", "")
             'End If
@@ -632,9 +687,9 @@ Public Class UCPatientPayment
         CboSexPatien.Text = ""
         TxtTel.Text = ""
         CboOccupation.Text = ""
-        CboProNo.Text = ""
-        CboDisNo.Text = ""
-        CboCommNo.Text = ""
+        CboProUpdate.Text = ""
+        CboDisUpdate.Text = ""
+        CboComUpdate.Text = ""
         TxtAddress.Text = ""
     End Sub
 
@@ -711,78 +766,44 @@ Public Class UCPatientPayment
         'Next
     End Sub
 
-    Private Sub CboProNo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboProNo.GotFocus
-        With CboProNo
-            .DataSource = ModProvince.SelectProvice()
-            .DisplayMember = "Province"
-            .ValueMember = "IDProvCode"
-        End With
-        'CboProNo.Text = ""
-        CboDisNo.Text = ""
-        CboCommNo.Text = ""
-        TxtAddress.Text = ""
-        Me.CboProNo.SelectAll()
-    End Sub
+    'Private Sub CboProNo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboProUpdate.GotFocus
+    '    With CboProUpdate
+    '        .DataSource = ModProvince.SelectProvice()
+    '        .DisplayMember = "Province"
+    '        .ValueMember = "IDProvCode"
+    '    End With
+    '    'CboProNo.Text = ""
+    '    CboDisUpdate.Text = ""
+    '    CboComUpdate.Text = ""
+    '    TxtAddress.Text = ""
+    '    Me.CboProUpdate.SelectAll()
+    'End Sub
 
 
-    Private Sub CboDisNo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboDisNo.GotFocus
-        With CboDisNo
-            .DataSource = ModProvince.SelectDistrict(CInt(CboProNo.SelectedValue))
-            .DisplayMember = "DISTRICT"
-            .ValueMember = "SrokCode"
-        End With
-        CboDisNo.Text = ""
-        CboCommNo.Text = ""
-        TxtAddress.Text = ""
-        Me.CboDisNo.SelectAll()
-    End Sub
+    'Private Sub CboDisNo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboDisUpdate.GotFocus
+    '    With CboDisUpdate
+    '        .DataSource = ModProvince.SelectDistrict(CInt(CboProUpdate.SelectedValue))
+    '        .DisplayMember = "DISTRICT"
+    '        .ValueMember = "SrokCode"
+    '    End With
+    '    CboDisUpdate.Text = ""
+    '    CboComUpdate.Text = ""
+    '    TxtAddress.Text = ""
+    '    Me.CboDisUpdate.SelectAll()
+    'End Sub
 
 
 
-    Private Sub CboCommNo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboCommNo.GotFocus
-        With CboCommNo
-            .DataSource = ModProvince.SelectCommune(CInt(CboDisNo.SelectedValue))
-            .DisplayMember = "Commune"
-            .ValueMember = "KhumCode"
-        End With
-        Me.CboCommNo.SelectAll()
-    End Sub
+    'Private Sub CboCommNo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CboComUpdate.GotFocus
+    '    With CboComUpdate
+    '        .DataSource = ModProvince.SelectCommune(CInt(CboDisUpdate.SelectedValue))
+    '        .DisplayMember = "Commune"
+    '        .ValueMember = "KhumCode"
+    '    End With
+    '    Me.CboComUpdate.SelectAll()
+    'End Sub
 
-    Private Sub cboProvince_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboProvince.GotFocus
-        With cboProvince
-            .DataSource = ModProvince.SelectProvice()
-            .DisplayMember = "Province"
-            .ValueMember = "IDProvCode"
-            .SelectAll()
-        End With
-        'cboProvince.Text = ""
-        'cboDistrict.Text = ""
-        cboCommune.Text = ""
-    End Sub
-
-    Private Sub cboProvince_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboProvince.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub cboDistrict_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDistrict.GotFocus
-        With cboDistrict
-            .DataSource = ModProvince.SelectDistrict(CInt(cboProvince.SelectedValue))
-            .DisplayMember = "DISTRICT"
-            .ValueMember = "SrokCode"
-            .SelectAll()
-        End With
-        'cboDistrict.Text = ""
-        'cboCommune.Text = ""
-    End Sub
-
-    Private Sub cboCommune_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboCommune.GotFocus
-        With cboCommune
-            .DataSource = ModProvince.SelectCommune(CInt(cboDistrict.SelectedValue))
-            .DisplayMember = "Commune"
-            .ValueMember = "KhumCode"
-            .SelectAll()
-        End With
-    End Sub
+   
 
 
     Private Sub TxtPatientNo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPatientNo.KeyPress
@@ -814,7 +835,7 @@ Public Class UCPatientPayment
     End Sub
     Private Sub TxtOccupation_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         If Asc(e.KeyChar) = Keys.Enter Then
-            Me.CboProNo.Focus()
+            Me.CboProUpdate.Focus()
         End If
     End Sub
 
@@ -850,6 +871,7 @@ Public Class UCPatientPayment
             End If
 
             If GridPatientInformation.SelectedItems(0).Table.Key = "PatientInfo" Then
+                'MessageBox.Show(GridPatientInformation.GetRow.Cells("Is_UpdateAddress").Value)
                 MainBtnPrintRegistrationForm.Enabled = True
                 MNewPatientBook.Enabled = False
                 MenuOldPatientBook.Enabled = False
@@ -867,13 +889,24 @@ Public Class UCPatientPayment
                 TxtNameEng.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(3).Text
                 TxtAgePatient.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(4).Text
                 CboSexPatien.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(5).Text
-                TxtAddress.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(6).Text
+
                 CboOccupation.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(7).Text
                 TxtTel.Text = IIf(CheckPhoneNum = True, GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text, "") 'IIf(UserGlobleVariable.DEPART_NAME.ToUpper = "ADMINISTRATOR", GridPatientInformation.SelectedItems(0).GetRow.Cells(8).Text, "")
-                CboProNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(9).Text
-                CboDisNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(10).Text
-                CboCommNo.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(11).Text
-                DateRegis.Value = GridPatientInformation.SelectedItems(0).GetRow.Cells(12).Value
+                If CBool(GridPatientInformation.GetRow.Cells("Is_UpdateAddress").Value) = False Then
+                    CboProUpdate.Text = ""
+                    CboDisUpdate.Text = ""
+                    CboComUpdate.Text = ""
+                    CboVillUpdate.Text = ""
+                    TxtAddress.Text = ""
+                Else
+                    CboProUpdate.Text = GridPatientInformation.GetRow.Cells("Province").Text
+                    CboDisUpdate.Text = GridPatientInformation.GetRow.Cells("District").Text
+                    CboComUpdate.Text = GridPatientInformation.GetRow.Cells("Commune").Text
+                    CboVillUpdate.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells("village").Value
+                    TxtAddress.Text = GridPatientInformation.SelectedItems(0).GetRow.Cells(6).Text
+                End If
+
+                DateRegis.Value = GridPatientInformation.SelectedItems(0).GetRow.Cells("CreateDate").Value '(12).Value
                 CheckIsPatientConsult(GridPatientInformation.GetRow.Cells("PatientNo").Value, 0)
             Else
                 MainBtnPrintRegistrationForm.Enabled = False
@@ -1534,4 +1567,150 @@ Public Class UCPatientPayment
         FPrepareForOperation.Dispose()
         FPrepareForOperation.Close()
     End Sub
+
+    Private Sub BtnFindOldAddress_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnFindOldAddress.Click
+        Dim FFindOldAddress As New FindPatientByOldAdress(Me)
+        FFindOldAddress.ShowDialog()
+    End Sub
+
+    Private Sub InitDistrict(ByVal ProvinceID As Integer, ByVal CDistrit As ComboBox)
+        With CDistrit
+            .DataSource = DADistrict.SelectDistrictByProvince(ProvinceID)
+            .ValueMember = "DISTRICTID"
+            .DisplayMember = "DIST_EN"
+            .SelectedIndex = -1
+        End With
+        TxtAddress.Text = ""
+    End Sub
+    Private Sub InitCommune(ByVal DistrictID As Integer, ByVal CCommune As ComboBox)
+        With CCommune
+            .DataSource = DACommune.SelectCommuneByDistrict(DistrictID)
+            .ValueMember = "COMMUNEID"
+            .DisplayMember = "COMM_EN"
+            .SelectedIndex = -1
+        End With
+        TxtAddress.Text = ""
+    End Sub
+    Private Sub InitVillage(ByVal CommuneID As Integer, ByVal CVillage As ComboBox)
+        With CVillage
+            .DataSource = DAVillage.SelectVillageByCOMMUNEID(CommuneID)
+            .ValueMember = "VILLAGEID"
+            .DisplayMember = "VILL_EN"
+            .SelectedIndex = -1
+        End With
+
+    End Sub
+    Private Sub cboProvinceSearch_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboProvinceSearch.SelectedValueChanged
+        If cboProvinceSearch.SelectedValue Is Nothing Then
+            'CboDisNo.DataSource = Nothing
+        Else
+            Try
+                InitDistrict(CInt(cboProvinceSearch.SelectedValue), cboDistrictSearch)
+            Catch ex As Exception
+                cboDistrictSearch.SelectedIndex = -1
+                cboCommuneSearch.SelectedIndex = -1
+                CboVillageSearch.SelectedIndex = -1
+                'CboDisNo.Text = ""
+                'CboCommNo.Text = ""
+                'CboVillage.Text = ""
+                'TxtAddress.Text = ""
+            End Try
+        End If
+    End Sub
+
+    Private Sub cboDistrictSearch_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboDistrictSearch.SelectedValueChanged
+        If cboDistrictSearch.SelectedValue Is Nothing Then
+            ' CboCommNo.DataSource = Nothing
+        Else
+            Try
+
+                InitCommune(CInt(cboDistrictSearch.SelectedValue), cboCommuneSearch)
+            Catch ex As Exception
+                cboDistrictSearch.SelectedIndex = -1
+                cboCommuneSearch.SelectedIndex = -1
+                CboVillageSearch.SelectedIndex = -1
+                
+            End Try
+        End If
+    End Sub
+
+    Private Sub cboCommuneSearch_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCommuneSearch.SelectedValueChanged
+        If cboCommuneSearch.SelectedValue Is Nothing Then
+            'CboVillage.DataSource = Nothing
+        Else
+            Try
+                InitVillage(CInt(cboCommuneSearch.SelectedValue), CboVillageSearch)
+            Catch ex As Exception
+                cboDistrictSearch.SelectedIndex = -1
+                cboCommuneSearch.SelectedIndex = -1
+                CboVillageSearch.SelectedIndex = -1
+                'CboVillage.Text = ""
+                'TxtAddress.Text = ""
+            End Try
+        End If
+    End Sub
+
+    Private Sub CboProUpdate_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboProUpdate.SelectedValueChanged
+        If CboProUpdate.SelectedValue Is Nothing Then
+            'CboDisNo.DataSource = Nothing
+        Else
+            Try
+                InitDistrict(CInt(CboProUpdate.SelectedValue), CboDisUpdate)
+            Catch ex As Exception
+                CboDisUpdate.SelectedIndex = -1
+                CboComUpdate.SelectedIndex = -1
+                CboVillUpdate.SelectedIndex = -1
+                'CboDisNo.Text = ""
+                'CboCommNo.Text = ""
+                'CboVillage.Text = ""
+                TxtAddress.Text = ""
+
+            End Try
+        End If
+    End Sub
+
+    Private Sub CboDisUpdate_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboDisUpdate.SelectedValueChanged
+        If CboDisUpdate.SelectedValue Is Nothing Then
+            ' CboCommNo.DataSource = Nothing
+        Else
+            Try
+
+                InitCommune(CInt(CboDisUpdate.SelectedValue), CboComUpdate)
+            Catch ex As Exception
+                CboComUpdate.SelectedIndex = -1
+                CboVillUpdate.SelectedIndex = -1
+                'CboDisNo.Text = ""
+                'CboCommNo.Text = ""
+                'CboVillage.Text = ""
+                TxtAddress.Text = ""
+            End Try
+        End If
+    End Sub
+
+    Private Sub CboComUpdate_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboComUpdate.SelectedValueChanged
+        If CboComUpdate.SelectedValue Is Nothing Then
+            'CboVillage.DataSource = Nothing
+        Else
+            Try
+                InitVillage(CInt(CboComUpdate.SelectedValue), CboVillUpdate)
+            Catch ex As Exception
+                CboComUpdate.SelectedIndex = -1
+                CboVillUpdate.SelectedIndex = -1
+                'CboDisNo.Text = ""
+                'CboCommNo.Text = ""
+                'CboVillage.Text = ""
+                TxtAddress.Text = ""
+            End Try
+        End If
+    End Sub
+
+    Private Sub CboVillUpdate_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CboVillUpdate.SelectedValueChanged
+        If CboVillUpdate.SelectedValue Is Nothing Then
+            TxtAddress.Text = ""
+        Else
+            TxtAddress.Text = "Province: " & CboProUpdate.Text.ToLower & ", District: " & CboDisUpdate.Text & ", Commune: " & CboComUpdate.Text & ", Villaeg: " & CboVillUpdate.Text & "."
+        End If
+
+    End Sub
+
 End Class

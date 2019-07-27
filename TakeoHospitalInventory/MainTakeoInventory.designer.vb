@@ -115,6 +115,7 @@ Partial Class MainTakeoInventory
         Dim ButtonBarPreferences_Item_1_7 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_1_8 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_1_9 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonBarPreferences_Item_1_10 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Me.RibboStatusBar = New Janus.Windows.Ribbon.RibbonStatusBar
         Me.ImageStatusbar = New System.Windows.Forms.ImageList(Me.components)
         Me.DropDownCommand1 = New Janus.Windows.Ribbon.DropDownCommand
@@ -986,7 +987,7 @@ Partial Class MainTakeoInventory
         BottonBarMain_Item_0_9.Text = "In-Patient Report"
         BottonBarMain_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {BottonBarMain_Item_0_0, BottonBarMain_Item_0_1, BottonBarMain_Item_0_2, BottonBarMain_Item_0_3, BottonBarMain_Item_0_4, BottonBarMain_Item_0_5, BottonBarMain_Item_0_6, BottonBarMain_Item_0_7, BottonBarMain_Item_0_8, BottonBarMain_Item_0_9})
         BottonBarMain_Group_0.Key = "Registration"
-        BottonBarMain_Group_0.Text = "Patient Registration"
+        BottonBarMain_Group_0.Text = "Patient  Registration"
         BottonBarMain_Group_0.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
         BottonBarMain_Group_1.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Group_1.Icon = CType(resources.GetObject("BottonBarMain_Group_1.Icon"), System.Drawing.Icon)
@@ -1255,7 +1256,7 @@ Partial Class MainTakeoInventory
         ButtonBarPreferences_Item_1_4.Enabled = False
         ButtonBarPreferences_Item_1_4.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_1_4.Icon"), System.Drawing.Icon)
         ButtonBarPreferences_Item_1_4.Key = "ProvinceAndOccupation"
-        ButtonBarPreferences_Item_1_4.Text = "Province And Occupation Patient"
+        ButtonBarPreferences_Item_1_4.Text = "Occupation and Reffer of Patient"
         ButtonBarPreferences_Item_1_5.Enabled = False
         ButtonBarPreferences_Item_1_5.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_1_5.Icon"), System.Drawing.Icon)
         ButtonBarPreferences_Item_1_5.Key = "BackupDatabase"
@@ -1280,7 +1281,10 @@ Partial Class MainTakeoInventory
         ButtonBarPreferences_Item_1_9.Image = CType(resources.GetObject("ButtonBarPreferences_Item_1_9.Image"), System.Drawing.Image)
         ButtonBarPreferences_Item_1_9.Key = "System History"
         ButtonBarPreferences_Item_1_9.Text = "System History"
-        ButtonBarPreferences_Group_1.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonBarPreferences_Item_1_0, ButtonBarPreferences_Item_1_1, ButtonBarPreferences_Item_1_2, ButtonBarPreferences_Item_1_3, ButtonBarPreferences_Item_1_4, ButtonBarPreferences_Item_1_5, ButtonBarPreferences_Item_1_6, ButtonBarPreferences_Item_1_7, ButtonBarPreferences_Item_1_8, ButtonBarPreferences_Item_1_9})
+        ButtonBarPreferences_Item_1_10.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonBarPreferences_Item_1_10.Key = "Address Setting"
+        ButtonBarPreferences_Item_1_10.Text = "Address Setting"
+        ButtonBarPreferences_Group_1.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonBarPreferences_Item_1_0, ButtonBarPreferences_Item_1_1, ButtonBarPreferences_Item_1_2, ButtonBarPreferences_Item_1_3, ButtonBarPreferences_Item_1_4, ButtonBarPreferences_Item_1_5, ButtonBarPreferences_Item_1_6, ButtonBarPreferences_Item_1_7, ButtonBarPreferences_Item_1_8, ButtonBarPreferences_Item_1_9, ButtonBarPreferences_Item_1_10})
         ButtonBarPreferences_Group_1.Key = "EyePreferences"
         ButtonBarPreferences_Group_1.Text = "Eye Preferences"
         ButtonBarPreferences_Group_1.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near

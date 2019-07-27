@@ -33,6 +33,7 @@ Partial Class FRMNewDoctor
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.ChActive = New System.Windows.Forms.CheckBox
         Me.BtnSave = New System.Windows.Forms.Button
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.ErrDoctor = New System.Windows.Forms.ErrorProvider(Me.components)
@@ -63,7 +64,7 @@ Partial Class FRMNewDoctor
         'TxtAge
         '
         Me.TxtAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtAge.Location = New System.Drawing.Point(235, 57)
+        Me.TxtAge.Location = New System.Drawing.Point(196, 57)
         Me.TxtAge.Name = "TxtAge"
         Me.TxtAge.Size = New System.Drawing.Size(53, 26)
         Me.TxtAge.TabIndex = 2
@@ -74,7 +75,7 @@ Partial Class FRMNewDoctor
         Me.TxtFunction.Location = New System.Drawing.Point(93, 133)
         Me.TxtFunction.Name = "TxtFunction"
         Me.TxtFunction.Size = New System.Drawing.Size(260, 26)
-        Me.TxtFunction.TabIndex = 4
+        Me.TxtFunction.TabIndex = 5
         '
         'TxtTel
         '
@@ -82,7 +83,7 @@ Partial Class FRMNewDoctor
         Me.TxtTel.Location = New System.Drawing.Point(93, 94)
         Me.TxtTel.Name = "TxtTel"
         Me.TxtTel.Size = New System.Drawing.Size(260, 26)
-        Me.TxtTel.TabIndex = 3
+        Me.TxtTel.TabIndex = 4
         '
         'TxtDoctorName
         '
@@ -113,7 +114,7 @@ Partial Class FRMNewDoctor
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(183, 70)
+        Me.Label3.Location = New System.Drawing.Point(162, 70)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(29, 13)
         Me.Label3.TabIndex = 7
@@ -140,6 +141,7 @@ Partial Class FRMNewDoctor
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.ChActive)
         Me.GroupBox1.Controls.Add(Me.TxtDoctorName)
         Me.GroupBox1.Controls.Add(Me.lblSaveOption)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -157,12 +159,22 @@ Partial Class FRMNewDoctor
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
+        'ChActive
+        '
+        Me.ChActive.AutoSize = True
+        Me.ChActive.Location = New System.Drawing.Point(255, 64)
+        Me.ChActive.Name = "ChActive"
+        Me.ChActive.Size = New System.Drawing.Size(61, 17)
+        Me.ChActive.TabIndex = 3
+        Me.ChActive.Text = "Disable"
+        Me.ChActive.UseVisualStyleBackColor = True
+        '
         'BtnSave
         '
         Me.BtnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnSave.Location = New System.Drawing.Point(108, 208)
+        Me.BtnSave.Location = New System.Drawing.Point(209, 202)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(75, 41)
+        Me.BtnSave.Size = New System.Drawing.Size(75, 35)
         Me.BtnSave.TabIndex = 1
         Me.BtnSave.Text = "&Save"
         Me.BtnSave.UseVisualStyleBackColor = True
@@ -170,9 +182,9 @@ Partial Class FRMNewDoctor
         'BtnCancel
         '
         Me.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCancel.Location = New System.Drawing.Point(189, 208)
+        Me.BtnCancel.Location = New System.Drawing.Point(290, 202)
         Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(75, 41)
+        Me.BtnCancel.Size = New System.Drawing.Size(75, 35)
         Me.BtnCancel.TabIndex = 2
         Me.BtnCancel.Text = "&Cancel"
         Me.BtnCancel.UseVisualStyleBackColor = True
@@ -185,9 +197,8 @@ Partial Class FRMNewDoctor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.TakeoHospitalInventory.My.Resources.Resources.Bg1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(373, 261)
+        Me.ClientSize = New System.Drawing.Size(373, 242)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.GroupBox1)
@@ -220,4 +231,5 @@ Partial Class FRMNewDoctor
     Friend WithEvents BtnSave As System.Windows.Forms.Button
     Friend WithEvents BtnCancel As System.Windows.Forms.Button
     Friend WithEvents ErrDoctor As System.Windows.Forms.ErrorProvider
+    Friend WithEvents ChActive As System.Windows.Forms.CheckBox
 End Class

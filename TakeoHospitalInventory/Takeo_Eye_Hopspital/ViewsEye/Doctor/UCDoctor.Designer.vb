@@ -37,12 +37,6 @@ Partial Class UCDoctor
         Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.GridDoctor = New System.Windows.Forms.DataGridView
-        Me.DoctorNo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DoctorName = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Sex = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Age = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Telephone = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Job = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.ContextDoctor = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
@@ -60,6 +54,13 @@ Partial Class UCDoctor
         Me.ContextOther = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ErrDoctor = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.DoctorNo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DoctorName = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Sex = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Age = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Telephone = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Job = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Is_Active = New System.Windows.Forms.DataGridViewCheckBoxColumn
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.GridDoctor, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,7 +91,7 @@ Partial Class UCDoctor
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(388, 164)
+        Me.GroupBox1.Size = New System.Drawing.Size(660, 164)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Doctor Info"
@@ -215,7 +216,7 @@ Partial Class UCDoctor
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 164)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(388, 632)
+        Me.GroupBox2.Size = New System.Drawing.Size(660, 632)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Doctor List"
@@ -237,7 +238,7 @@ Partial Class UCDoctor
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.GridDoctor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.GridDoctor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.GridDoctor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DoctorNo, Me.DoctorName, Me.Sex, Me.Age, Me.Telephone, Me.Job})
+        Me.GridDoctor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DoctorNo, Me.DoctorName, Me.Sex, Me.Age, Me.Telephone, Me.Job, Me.Is_Active})
         Me.GridDoctor.ContextMenuStrip = Me.ContextDoctor
         Me.GridDoctor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GridDoctor.Location = New System.Drawing.Point(3, 16)
@@ -247,66 +248,19 @@ Partial Class UCDoctor
         Me.GridDoctor.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridDoctor.RowTemplate.Height = 30
         Me.GridDoctor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.GridDoctor.Size = New System.Drawing.Size(382, 613)
+        Me.GridDoctor.Size = New System.Drawing.Size(654, 613)
         Me.GridDoctor.TabIndex = 0
-        '
-        'DoctorNo
-        '
-        Me.DoctorNo.DataPropertyName = "DoctorNo"
-        Me.DoctorNo.HeaderText = "No"
-        Me.DoctorNo.Name = "DoctorNo"
-        Me.DoctorNo.ReadOnly = True
-        Me.DoctorNo.Visible = False
-        '
-        'DoctorName
-        '
-        Me.DoctorName.DataPropertyName = "DoctorName"
-        Me.DoctorName.HeaderText = "Name"
-        Me.DoctorName.Name = "DoctorName"
-        Me.DoctorName.ReadOnly = True
-        Me.DoctorName.Width = 150
-        '
-        'Sex
-        '
-        Me.Sex.DataPropertyName = "Sex"
-        Me.Sex.HeaderText = "Sex"
-        Me.Sex.Name = "Sex"
-        Me.Sex.ReadOnly = True
-        Me.Sex.Width = 50
-        '
-        'Age
-        '
-        Me.Age.DataPropertyName = "Age"
-        Me.Age.HeaderText = "Age"
-        Me.Age.Name = "Age"
-        Me.Age.ReadOnly = True
-        Me.Age.Width = 50
-        '
-        'Telephone
-        '
-        Me.Telephone.DataPropertyName = "Tel"
-        Me.Telephone.HeaderText = "Telephone"
-        Me.Telephone.Name = "Telephone"
-        Me.Telephone.ReadOnly = True
-        '
-        'Job
-        '
-        Me.Job.DataPropertyName = "Job"
-        Me.Job.HeaderText = "Function"
-        Me.Job.Name = "Job"
-        Me.Job.ReadOnly = True
-        Me.Job.Width = 300
         '
         'ContextDoctor
         '
         Me.ContextDoctor.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem1})
         Me.ContextDoctor.Name = "ContextDoctor"
-        Me.ContextDoctor.Size = New System.Drawing.Size(106, 26)
+        Me.ContextDoctor.Size = New System.Drawing.Size(108, 26)
         '
         'DeleteToolStripMenuItem1
         '
         Me.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1"
-        Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(105, 22)
+        Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
         Me.DeleteToolStripMenuItem1.Text = "Delete"
         '
         'SplitContainer1
@@ -325,7 +279,7 @@ Partial Class UCDoctor
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox3)
         Me.SplitContainer1.Size = New System.Drawing.Size(804, 798)
-        Me.SplitContainer1.SplitterDistance = 390
+        Me.SplitContainer1.SplitterDistance = 662
         Me.SplitContainer1.TabIndex = 2
         '
         'GroupBox3
@@ -340,7 +294,7 @@ Partial Class UCDoctor
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(408, 796)
+        Me.GroupBox3.Size = New System.Drawing.Size(136, 796)
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Others"
@@ -416,7 +370,7 @@ Partial Class UCDoctor
         Me.GridOther.ReadOnly = True
         Me.GridOther.RowTemplate.Height = 30
         Me.GridOther.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.GridOther.Size = New System.Drawing.Size(402, 581)
+        Me.GridOther.Size = New System.Drawing.Size(130, 581)
         Me.GridOther.TabIndex = 0
         '
         'No
@@ -447,17 +401,71 @@ Partial Class UCDoctor
         '
         Me.ContextOther.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem})
         Me.ContextOther.Name = "ContextOther"
-        Me.ContextOther.Size = New System.Drawing.Size(106, 26)
+        Me.ContextOther.Size = New System.Drawing.Size(108, 26)
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'ErrDoctor
         '
         Me.ErrDoctor.ContainerControl = Me
+        '
+        'DoctorNo
+        '
+        Me.DoctorNo.DataPropertyName = "DoctorNo"
+        Me.DoctorNo.HeaderText = "No"
+        Me.DoctorNo.Name = "DoctorNo"
+        Me.DoctorNo.ReadOnly = True
+        Me.DoctorNo.Visible = False
+        '
+        'DoctorName
+        '
+        Me.DoctorName.DataPropertyName = "DoctorName"
+        Me.DoctorName.HeaderText = "Name"
+        Me.DoctorName.Name = "DoctorName"
+        Me.DoctorName.ReadOnly = True
+        Me.DoctorName.Width = 150
+        '
+        'Sex
+        '
+        Me.Sex.DataPropertyName = "Sex"
+        Me.Sex.HeaderText = "Sex"
+        Me.Sex.Name = "Sex"
+        Me.Sex.ReadOnly = True
+        Me.Sex.Width = 50
+        '
+        'Age
+        '
+        Me.Age.DataPropertyName = "Age"
+        Me.Age.HeaderText = "Age"
+        Me.Age.Name = "Age"
+        Me.Age.ReadOnly = True
+        Me.Age.Width = 50
+        '
+        'Telephone
+        '
+        Me.Telephone.DataPropertyName = "Tel"
+        Me.Telephone.HeaderText = "Telephone"
+        Me.Telephone.Name = "Telephone"
+        Me.Telephone.ReadOnly = True
+        '
+        'Job
+        '
+        Me.Job.DataPropertyName = "Job"
+        Me.Job.HeaderText = "Function"
+        Me.Job.Name = "Job"
+        Me.Job.ReadOnly = True
+        Me.Job.Width = 150
+        '
+        'Is_Active
+        '
+        Me.Is_Active.DataPropertyName = "Is_Active"
+        Me.Is_Active.HeaderText = "Disable"
+        Me.Is_Active.Name = "Is_Active"
+        Me.Is_Active.ReadOnly = True
         '
         'UCDoctor
         '
@@ -512,14 +520,15 @@ Partial Class UCDoctor
     Friend WithEvents ContextOther As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents No As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Other As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Description As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DoctorNo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DoctorName As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Sex As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Age As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Telephone As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Job As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents No As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Other As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Description As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Is_Active As System.Windows.Forms.DataGridViewCheckBoxColumn
 
 End Class

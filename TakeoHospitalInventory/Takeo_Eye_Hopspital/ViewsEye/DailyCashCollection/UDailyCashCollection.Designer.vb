@@ -782,11 +782,11 @@ Partial Class UCashCollection
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(0, 291)
+        Me.Button2.Location = New System.Drawing.Point(6, 302)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(76, 69)
+        Me.Button2.Size = New System.Drawing.Size(92, 61)
         Me.Button2.TabIndex = 21
-        Me.Button2.Text = "BtnTesting"
+        Me.Button2.Text = "Print With Screening"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Label43

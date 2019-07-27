@@ -7,14 +7,14 @@ Public Class UCDoctor
     Private Sub GridDoctor_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridDoctor.CellClick
         Try
 
-            TxtDoctorName.Text = GridDoctor.Rows(e.RowIndex).Cells(1).Value
-            CboSex.Text = GridDoctor.Rows(e.RowIndex).Cells(2).Value
-            TxtAge.Text = GridDoctor.Rows(e.RowIndex).Cells(3).Value
-            TxtTel.Text = GridDoctor.Rows(e.RowIndex).Cells(4).Value
-            TxtFunction.Text = GridDoctor.Rows(e.RowIndex).Cells(5).Value
+            TxtDoctorName.Text = GridDoctor.Rows(e.RowIndex).Cells("DoctorName").Value
+            CboSex.Text = GridDoctor.Rows(e.RowIndex).Cells("Sex").Value
+            TxtAge.Text = GridDoctor.Rows(e.RowIndex).Cells("Age").Value
+            TxtTel.Text = GridDoctor.Rows(e.RowIndex).Cells("Telephone").Value
+            TxtFunction.Text = GridDoctor.Rows(e.RowIndex).Cells("Job").Value
             
         Catch ex As Exception
-            Exit Sub
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
     
@@ -38,12 +38,13 @@ Public Class UCDoctor
     Private Sub GridDoctor_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridDoctor.CellDoubleClick
         Try
             Dim FDoctor As New FRMNewDoctor
-            FDoctor.lblSaveOption.Text = GridDoctor.Rows(e.RowIndex).Cells(0).Value
-            FDoctor.TxtDoctorName.Text = GridDoctor.Rows(e.RowIndex).Cells(1).Value
-            FDoctor.CboSex.Text = GridDoctor.Rows(e.RowIndex).Cells(2).Value
-            FDoctor.TxtAge.Text = GridDoctor.Rows(e.RowIndex).Cells(3).Value
-            FDoctor.TxtTel.Text = GridDoctor.Rows(e.RowIndex).Cells(4).Value
-            FDoctor.TxtFunction.Text = GridDoctor.Rows(e.RowIndex).Cells(5).Value
+            FDoctor.lblSaveOption.Text = GridDoctor.Rows(e.RowIndex).Cells("DoctorNo").Value
+            FDoctor.TxtDoctorName.Text = GridDoctor.Rows(e.RowIndex).Cells("DoctorName").Value
+            FDoctor.CboSex.Text = GridDoctor.Rows(e.RowIndex).Cells("Sex").Value
+            FDoctor.TxtAge.Text = GridDoctor.Rows(e.RowIndex).Cells("Age").Value
+            FDoctor.TxtTel.Text = GridDoctor.Rows(e.RowIndex).Cells("Telephone").Value
+            FDoctor.TxtFunction.Text = GridDoctor.Rows(e.RowIndex).Cells("Job").Value
+            FDoctor.ChActive.Checked = GridDoctor.Rows(e.RowIndex).Cells("Is_Active").Value
             FDoctor.ShowDialog()
             If FDoctor.isDoctorClose = True Then
                 LoadDoctor()

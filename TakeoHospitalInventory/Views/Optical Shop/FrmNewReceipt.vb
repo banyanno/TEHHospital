@@ -1717,6 +1717,8 @@ Public Class FrmNewReceipt
                 If ChIsPrintFull.Checked = True Then
                     ObjReceiptCry_V1.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
                     ObjReceiptCry_V1.SetParameterValue("ParameterEng", PARAMETENG)
+                    ObjReceiptCry_V1.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5 '  Printing.PaperKind.A5  'CrystalDecisions.Shared.PaperSize.PaperA5
+                    ObjReceiptCry_V1.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait
                     ObjReceiptCry_V1.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
                     ObjReceiptCry_V1.PrintToPrinter(1, True, 1, 1)
                     ObjReceiptCry_V1.Close()
@@ -1725,6 +1727,8 @@ Public Class FrmNewReceipt
                     ObjReceiptCry_V1_NoPrice.SetParameterValue("InPaymentForKhmer", PARAMETKHMER)
                     ObjReceiptCry_V1_NoPrice.SetParameterValue("ParameterEng", PARAMETENG)
                     ObjReceiptCry_V1_NoPrice.PrintOptions.PrinterName = PrinterDocName.PrinterSettings.PrinterName
+                    ObjReceiptCry_V1.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5 '  Printing.PaperKind.A5  'CrystalDecisions.Shared.PaperSize.PaperA5
+                    ObjReceiptCry_V1.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait
                     ObjReceiptCry_V1_NoPrice.PrintToPrinter(1, True, 1, 1)
                     ObjReceiptCry_V1_NoPrice.Close()
                     ObjReceiptCry_V1_NoPrice.Dispose()

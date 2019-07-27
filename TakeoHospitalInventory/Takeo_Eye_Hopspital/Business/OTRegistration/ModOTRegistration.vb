@@ -162,7 +162,7 @@ Module ModOTRegistration
     End Function
 
     Function SelectDeleteOT(ByVal PatientNo As String, ByVal DateFrom As String, ByVal DateTo As String) As DataTable
-        Dim sql As String = "SELECT * FROM View_OTRegistration WHERE Status='True' and DeleteOption='True' AND " & _
+        Dim sql As String = "SELECT * FROM View_OTRegistration WHERE  DeleteOption='True' AND " & _
             " CAST(CONVERT(VARCHAR(10), DateOperated, 1) as DateTime) BETWEEN " & _
             " CAST(CONVERT(VARCHAR(10),CAST('" & DateFrom & "' AS DATETIME), 1) as Datetime)" & _
             " AND CAST(CONVERT(VARCHAR(10),CAST('" & DateTo & "' AS DATETIME), 1) as Datetime) "

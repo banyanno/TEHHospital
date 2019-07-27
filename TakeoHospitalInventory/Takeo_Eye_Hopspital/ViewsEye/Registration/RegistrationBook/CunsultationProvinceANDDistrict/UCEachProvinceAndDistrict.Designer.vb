@@ -136,7 +136,7 @@ Partial Class UCEachProvinceAndDistrict
         '
         Me.lblTimeShowData.BackColor = System.Drawing.Color.Transparent
         Me.lblTimeShowData.Name = "lblTimeShowData"
-        Me.lblTimeShowData.Size = New System.Drawing.Size(48, 17)
+        Me.lblTimeShowData.Size = New System.Drawing.Size(53, 17)
         Me.lblTimeShowData.Text = "Duration"
         '
         'GroupBox2
@@ -322,7 +322,7 @@ Partial Class UCEachProvinceAndDistrict
         Me.CboYear1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CboYear1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboYear1.FormattingEnabled = True
-        Me.CboYear1.Items.AddRange(New Object() {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"})
+        Me.CboYear1.Items.AddRange(New Object() {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
         Me.CboYear1.Location = New System.Drawing.Point(51, 34)
         Me.CboYear1.Name = "CboYear1"
         Me.CboYear1.Size = New System.Drawing.Size(121, 28)
@@ -388,7 +388,7 @@ Partial Class UCEachProvinceAndDistrict
         Me.CboYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CboYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CboYear.FormattingEnabled = True
-        Me.CboYear.Items.AddRange(New Object() {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"})
+        Me.CboYear.Items.AddRange(New Object() {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
         Me.CboYear.Location = New System.Drawing.Point(42, 53)
         Me.CboYear.Name = "CboYear"
         Me.CboYear.Size = New System.Drawing.Size(121, 28)

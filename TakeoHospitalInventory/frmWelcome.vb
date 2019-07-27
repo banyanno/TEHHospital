@@ -24,6 +24,11 @@ Public NotInheritable Class frmWelcome
 
 
     Private Sub SplashScreen1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+
+
+
+
         ''Set up the dialog text at runtime according to the application's assembly information.  
 
         ''TODO: Customize the application's assembly information in the "Application" pane of the project 

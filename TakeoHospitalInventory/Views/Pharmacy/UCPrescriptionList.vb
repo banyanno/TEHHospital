@@ -21,7 +21,7 @@ Public Class UCPrescriptionList
         SplitContainerPrescription.Panel2Collapsed = True
         CheckStatusGive(0)
         With CboDoctor
-            .DataSource = ModDoctor.SelectDoctor()
+            .DataSource = ModDoctor.selectDotorActive()
             .ValueMember = "doctorNo"
             .DisplayMember = "DoctorName"
             .SelectedIndex = -1

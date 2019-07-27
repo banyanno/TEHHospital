@@ -3,9 +3,9 @@ Module ModDoctor
     ByVal Sex As String, _
     ByVal Age As String, _
     ByVal Tel As String, _
-    ByVal Job As String) As Integer
-        Dim sql As String = "INSERT INTO TblDoctor (DoctorName,Sex,Age,Tel,Job)" & _
-                            " VALUES (N'" & DoctorName & "','" & Sex & "','" & Age & "','" & Tel & "','" & Job & "')"
+    ByVal Job As String, ByVal Is_Active As Boolean) As Integer
+        Dim sql As String = "INSERT INTO TblDoctor (DoctorName,Sex,Age,Tel,Job,Is_Active)" & _
+                            " VALUES (N'" & DoctorName & "','" & Sex & "','" & Age & "','" & Tel & "','" & Job & "','" & Is_Active & "')"
         Return ModGlobleVariable.GENERAL_DAO.InsertDAO(sql)
     End Function
     Function UpdateDoctor(ByVal DoctorNo As String, _
@@ -13,18 +13,22 @@ Module ModDoctor
     ByVal Sex As String, _
     ByVal Age As String, _
     ByVal Tel As String, _
-    ByVal Job As String) As Integer
+    ByVal Job As String, ByVal Is_Active As Boolean) As Integer
         Dim sql As String = "UPDATE TblDoctor SET" & _
                             " DoctorName = N'" & DoctorName & _
                             "',Sex = '" & Sex & _
                             "',Age = '" & Age & _
                             "',Tel = '" & Tel & _
                             "',Job = '" & Job & _
-                            "' WHERE DoctorNo=" & DoctorNo
+                            "',Is_Active='" & Is_Active & "' WHERE DoctorNo=" & DoctorNo
         Return ModGlobleVariable.GENERAL_DAO.UpdateDAO(sql)
     End Function
     Function SelectDoctor() As DataTable
-        Dim sql As String = "SELECT doctorNo,DoctorName,sex,age,Tel,Job FROM TblDoctor"
+        Dim sql As String = "SELECT doctorNo,DoctorName,sex,age,Tel,Job,Is_Active FROM TblDoctor"
+        Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
+    End Function
+    Function selectDotorActive()
+        Dim sql As String = "SELECT doctorNo,DoctorName,sex,age,Tel,Job,Is_Active FROM TblDoctor where Is_Active='0'"
         Return ModGlobleVariable.GENERAL_DAO.SelectDAOAsDataTatable(sql)
     End Function
     Function DeleteDoctor(ByVal No As String) As Integer
